@@ -14,20 +14,21 @@
 ```mermaid
 flowchart LR
     subgraph GH[GitHub 免費額度]
-        ACT[GitHub Actions<br/>每日 08:00 CST cron] -->|寫入| REPO[(public repo<br/>data/*.json)]
-        REPO --> PAGES[GitHub Pages<br/>靜態網站]
+        ACT[GitHub Actions<br/>workflow_dispatch，手動觸發] -->|寫入| REPO[(public repo<br/>data/*.json)]
+        REPO --> PAGES[GitHub Pages<br/>liveradar.github.io]
     end
     PAGES -->|首次載入| BROWSER[瀏覽器<br/>原生 JS + localStorage]
-    BROWSER <-->|讀寫偏好| GIST[(private Gist<br/>收藏/排除/設定)]
+    BROWSER -->|Google OAuth 登入| SUPA_AUTH[Supabase Auth]
+    BROWSER <-->|讀寫偏好，RLS 只認自己| SUPA_DB[(Supabase Postgres<br/>user_prefs 表)]
     ACT -->|失敗時開 issue| REPO
 ```
 
-- **前端**：純靜態網站，原生 ES Modules + 原生 CSS，無框架、無打包工具（D14）。部署於 GitHub Pages。
-- **資料層**：不用資料庫。所有場次資料是 repo 裡的 JSON 檔（`data/events.json` 等）。
-  **更新（決策 S5，2026-09-17）**：改成人工手動觸發抓取，不是 GitHub Actions 每日自動 commit——`scripts/dev-server.mjs`（`npm run serve` 啟動）是本機專用的小型 Node 伺服器，設定頁的「🔄 重新抓取最新演出」按鈕只有透過它才會動作，部署在 GitHub Pages 上的正式版沒有這個功能（GitHub Pages 是純靜態主機，沒有後端可以跑 `fetch.mjs`）。這不算違反 D14——**部署出去的正式網站**仍然是零框架、零打包工具的純靜態頁面，只是多了一個「本機開發用」的小伺服器，用途類似 `python3 -m http.server` 曾經扮演的角色，只是多了一個 API 端點。細節見 §12 S5。
-- **偏好層**：收藏、排除規則、設定存在瀏覽器 `localStorage`，並透過使用者自己的 GitHub 帳號授權寫入一個 **private Gist** 做跨裝置同步（FR-65）。
+- **前端**：純靜態網站，原生 ES Modules + 原生 CSS，無框架、無打包工具（D14）。部署於 GitHub Pages（`liveradar.github.io`，repo 名稱本身觸發 GitHub Pages 的根網域規則，不需要額外綁自訂網域）。
+- **資料層**：不用資料庫存場次資料。所有場次資料是 repo 裡的 JSON 檔（`data/events.json` 等）。
+  **更新（決策 S5，2026-09-17）**：改成人工手動觸發抓取，不是 GitHub Actions 每日自動 commit——`scripts/dev-server.mjs`（`npm run serve` 啟動）是本機專用的小型 Node 伺服器，設定頁的「🔄 重新抓取最新演出」按鈕只有透過它才會動作（而且只在 `localhost`/`127.0.0.1` 才會渲染出來，部署版完全看不到這顆按鈕，見 §8 尾段），部署在 GitHub Pages 上的正式版沒有這個功能（GitHub Pages 是純靜態主機，沒有後端可以跑 `fetch.mjs`）。這不算違反 D14——**部署出去的正式網站**仍然是零框架、零打包工具的純靜態頁面，只是多了一個「本機開發用」的小伺服器，用途類似 `python3 -m http.server` 曾經扮演的角色，只是多了一個 API 端點。細節見 §12 S5。**2026-09-21 補充實測**：手動觸發過一次 `workflow_dispatch` 在真實 GitHub Actions 環境跑，確認拓元／Ticket Plus 仍會回傳 403（跟 M11 記錄的封鎖問題一樣還在），所以排程沒有重新打開，`schedule` 觸發器維持拿掉。
+- **偏好層（2026-09-20 起改版，取代原本的 Gist 同步／FR-65）**：收藏、排除規則、設定存在瀏覽器 `localStorage`；**登入 Google 帳號後**（透過 Supabase Auth）額外同步一份到 Supabase 的 `user_prefs` 表（Postgres，RLS 限定只有 `auth.uid()` 本人能讀寫）。登入是加分項不是門檻——不登入一樣能完整使用，登入只是為了跨裝置同步。細節見 §8。
 - **運算全部在前端**：過濾、排序、分組、統計皆是瀏覽器端 JS 運算（NFR-02 <100ms），後端只負責「產生今天的資料快照」。
-- **沒有伺服器、沒有帳號系統**：符合 N2、NFR-06。Gist 同步用的是使用者自己對 GitHub 的 OAuth device flow 或 Personal Access Token，LiveRadar 本身不持有任何使用者密碼。
+- **沒有自架伺服器、沒有自己的帳號密碼系統**：符合 N2、NFR-06 的精神（原文設計時假設完全沒有後端，Supabase 的加入是後來的決策，見 §8 開頭說明）。登入完全交給 Google OAuth，LiveRadar 本身不持有、不處理任何使用者密碼；Supabase 只當資料庫 + 驗證中介，不是我們自己維運的伺服器。
 
 ---
 
@@ -45,7 +46,8 @@ liveradar/
 ├── settings.html               # 設定
 ├── src/
 │   ├── app.js                  # 各頁共用的啟動邏輯（載入資料、套用偏好、渲染）
-│   ├── state.js                # localStorage 讀寫、Gist 同步邏輯
+│   ├── state.js                # localStorage 讀寫、Supabase 同步邏輯
+│   ├── supabase.js             # Supabase client 單例 + getSession/signInWithGoogle/signOut
 │   ├── filter.js                # §6 過濾決策樹的唯一實作（所有頁面 import 同一份）
 │   ├── render.js                # DOM 渲染輔助（卡片、標籤、徽章）
 │   ├── format.js                # 日期/價格/倒數計時格式化
@@ -146,7 +148,7 @@ type Event = {
 
 **2026-09-18 又抓到一種新的資料品質問題**：`爛泥發芽`、`RUSH BALL`、`FNC BAND KINGDOM` 這三個 canonical 其實是音樂祭/聯合公演的品牌名稱，不是單一演出者——當初補完那 230 筆時被誤判成藝人加了進去，導致 `guessTagsType()` 只認出一個「演出者」、標題文字裡又沒有「音樂祭」字樣，就被分類成「專場」而不是「音樂祭」。順便發現 `scripts/normalize.mjs` 的 `TYPE_KEYWORDS` 只認「音樂祭」，沒認「音樂節」這個一樣常見的同義詞（真實案例：「2026臺北爵士音樂節」也被誤判）。修法是在 `TYPE_KEYWORDS` 補上「音樂節」同義詞，以及這三個確認過的品牌名稱關鍵字，讓 `guessTagsType()` 不管標題怎麼寫都能正確辨識——這比把這三個名字從 `artists.yml` 移除更務實：它們本來就是使用者會拿來搜尋/辨識這場活動的字串，拿掉反而會讓這幾場變成待整理。因為增量抓取（§4.2）已經上線，已辨識過的場次不會自動重新分類，這次額外寫了一次性腳本直接對現有 `data/events.json` 重新跑 `guessTagsType()` 修正 7 筆受影響資料。
 
-### 3.3 UserPrefs（存在 localStorage + Gist，不進 repo）
+### 3.3 UserPrefs（存在 localStorage，登入後同步到 Supabase，不進 repo）
 
 ```ts
 type UserPrefs = {
@@ -158,10 +160,11 @@ type UserPrefs = {
   mute_keywords: string[];          // FR-43
   strict_mode: boolean;             // D2
   last_backup_at: string | null;    // FR-64
-  gist_id: string | null;           // 使用者自己的 private Gist id
-  updated_at: string;               // 供 Gist 衝突比對用
+  updated_at: string;               // 供 Supabase 跨裝置衝突比對用（last-write-wins）
 };
 ```
+
+**2026-09-20 起不再有 `gist_id` 欄位**——跨裝置同步不再靠使用者自己的 GitHub Gist（原 FR-65／§8），改成 Supabase 帳號登入（Google OAuth），同步狀態不存在 `UserPrefs` 裡，而是看 `getSession()` 有沒有回傳登入中的 session。細節見 §8。
 
 ### 3.4 排除規則的資料結構補充
 
@@ -417,7 +420,7 @@ export function resolveVisibility(event, prefs, viewFilters) {
 **2026-09-18 補上首頁的城市/月份/價格 chip UI**：`passesViewFilters()` 這段邏輯其實從一開始就寫好也測過，但首頁 `index.html` 的「全部城市／10月／價格」三個 chip 一直是完全沒接上任何邏輯的靜態裝飾——這次補上：
 - `src/interactions.js` 新增 `openFilterSheet(title, options, currentValue, onSelect)`，跟既有的 `openExcludeMenu()` 共用同一套 bottom sheet 視覺，單選、點了立刻套用並關閉，不需要額外「確定」按鈕。
 - `src/app.js` 的 `wireViewFilterChips()` 在 `initTimeline()` 裡把三個 chip 接上 `openFilterSheet`，城市/月份選項**從尚未結束的場次動態算出**（不是寫死清單）——刻意排除已結束的場次，否則會出現選了也一定是空清單的死選項（例如今天是 9/18，若選項清單沒濾掉 7 月、8 月，使用者選了只會看到「目前沒有符合條件的演出」）。價格是固定的 4 個級距（NT$500/1000/2000/3000 以下）+「不限價格」。
-- 篩選狀態存在 `localStorage`（`liveradar:view_filters`），**刻意不放進 `UserPrefs`、不走 Gist 同步**——這是「當下正在看什麼」的畫面狀態，不是像 `excluded_artists`那樣要長期生效、跨裝置同步的規則（呼應 §3.3 的既有設計）。
+- 篩選狀態存在 `localStorage`（`liveradar:view_filters`），**刻意不放進 `UserPrefs`、不走 Supabase 同步**——這是「當下正在看什麼」的畫面狀態，不是像 `excluded_artists`那樣要長期生效、跨裝置同步的規則（呼應 §3.3 的既有設計）。
 
 **2026-09-18 再加碼：新增「類型」跟「音樂人地區」兩個篩選 chip**：`passesViewFilters()` 補上 `type`（比對 `event.tags_type`）跟 `origin`（比對 `event.tags_origin`）兩個條件，跟既有的 city/month/priceMax 同一套機制、可以疊加使用。選項一樣動態算自尚未結束的場次（`typeFilterOptions()`/`originFilterOptions()`），只列出目前資料裡真的存在的類型/地區，不會出現選了保證空清單的死選項。`src/filter.test.js` 新增 3 個測試涵蓋單獨篩選跟疊加篩選。
 
@@ -433,30 +436,34 @@ export function resolveVisibility(event, prefs, viewFilters) {
 
 因為前端沒有伺服器可以直接寫 repo，`add.html` 的「儲存」實際上是：
 
-1. 寫入使用者自己的 `localStorage`（`manual_pending` 陣列），畫面上立刻可見、可收藏、可排除（符合 AC-17 的「行為與自動抓取一致」——前端渲染時把 `manual_pending` 跟 `events.json` 合併成同一個清單餵給 `filter.js`）。
-2. 同步寫進使用者的 Gist（跟 UserPrefs 一起同步），這樣手機新增、桌機也看得到。
-3. 下一次 GitHub Actions 執行時，pipeline **讀不到**使用者的 localStorage/Gist（那是私人資料，pipeline 沒有存取權限）——所以 AC-17 第二條「手動新增的場次日後也被自動抓到時合併為一筆」的實作方式是：**使用者自己**在待整理頁或設定頁有一個「提交到 repo」的動作（生成一個 `manual-events.json` 的 PR 內容／GitHub Gist 貼上教學），或最簡化的 Phase 1 版本：手動新增的場次**永遠只存在該使用者的本機/Gist**，不進 `data/manual-events.json`，因此它是「個人補件」而非「全站資料」；若隔天自動抓到同一場次（`id` 相同），前端合併時以 `events.json` 版本為主，local 版本視為重複而不重複顯示（用 `id` 比對，滿足 AC-17 的「不得重複顯示」，但不需要真的寫回 repo）。
-   - 這個決定比 SRS 原文更保守（原文語意可能暗示要進 repo），**請在開發前確認**：手動新增的場次是否需要讓「未來的你」在其他裝置上也看得到即使沒開過那台裝置的 Gist？如果是，需要走 GitHub API 由使用者的 PAT 直接 commit `data/manual-events.json`，技術上可行（前端用使用者自己的 PAT 呼叫 GitHub Contents API）但會把「寫 repo 的權限」交給前端 JS，需額外考慮 PAT 的儲存風險。本規格書先採「存在 Gist、不寫 repo」的簡化版本。
+1. 寫入使用者自己的 `localStorage`（`liveradar:manual_events`），畫面上立刻可見、可收藏、可排除（符合 AC-17 的「行為與自動抓取一致」——`loadEvents()` 把 manual events 跟 `events.json` 合併成同一個清單餵給 `filter.js`）。
+2. **登入 Google 帳號的話**，額外同步進 Supabase 的 `user_prefs.manual_events` 欄位（跟 `UserPrefs` 同一列一起同步，見 §8），這樣手機新增、桌機也看得到；沒登入的話就只留在本機，跟 Phase 1 最簡化版本一樣。
+3. 下一次 GitHub Actions／本機 `npm run fetch` 執行時，pipeline **讀不到**使用者的 localStorage/Supabase（那是私人資料，pipeline 沒有存取權限）——所以 AC-17 第二條「手動新增的場次日後也被自動抓到時合併為一筆」的實作方式是：手動新增的場次**永遠只存在該使用者的本機/Supabase**，不進 `data/manual-events.json`，因此它是「個人補件」而非「全站資料」；若隔天自動抓到同一場次，前端合併時以 `events.json` 版本為主，本機版本視為重複而不重複顯示——比對用的不是單一 `id`，而是 `possible_real_ids`（一場秀之後可能被拆成午/晚場等 bucket-suffixed id，manual event 要能跟任何一種未來結果匹配掉重複，見 `src/id.js`），滿足 AC-17 的「不得重複顯示」，但不需要真的寫回 repo。
 
 ---
 
-## 8. Gist 同步機制（FR-65）
+## 8. Supabase 帳號登入與同步機制（2026-09-20 上線，取代原本的 Gist 同步／FR-65）
 
-- 使用者在設定頁「連接同步」，走 GitHub OAuth Device Flow 或貼上一個僅有 `gist` 權限的 Personal Access Token（Phase 1 用 PAT 較簡單，不需要自架 OAuth callback server）。
-- Token 本身存在 `localStorage`（風險：XSS 或裝置遺失會外洩；因為是個人單機工具且 token 權限僅限 gist，風險可接受，於 README 註明）。
-- 同步策略：**last-write-wins**，比較雙方 `UserPrefs.updated_at`，取較新者。開站時：
-  1. 讀本機 `UserPrefs`。
-  2. 呼叫 Gist API 讀雲端版本。
-  3. 比較 `updated_at`，較新的一份覆蓋較舊的一份（雙向同步，不做欄位級合併）。
-  4. Gist 連不上（離線／token 失效）→ 直接用本機版本繼續運作，畫面顯示同步失敗提示，**不清空**本機資料（AC-65 負向測試）。
-- 每次使用者操作（收藏/排除/設定變更）→ debounce 2 秒後寫回 Gist，避免每次點擊都打 API。
+**這節原本描述的是 Gist 同步（使用者貼 GitHub Personal Access Token，`reconcileGistSync()`）——2026-09-20 全面換成 Supabase 帳號登入 + Postgres 同步，Gist 那條路徑已經完全從程式碼移除，不是並存的備援。**換掉的原因：貼 PAT token 對一般使用者太技術性，Max 想要一般網站常見的「登入帳號」體驗。原本連 email/密碼登入都做了，但 Supabase 免費方案寄出的驗證信/重設密碼信用共用網域、內容不能客製（要客製得接自訂 SMTP + 自己的網域），容易被誤認成詐騙信，所以最後**只留 Google 登入**——Google 本身就是身分驗證，完全不涉及 Supabase 寄信。
 
-**實作備註（M9，2026-09-16）**：
-- 單一 gist 檔案 `liveradar-sync.json`，內容是 `{ prefs, manual_events }`——手動新增場次（US-17）不屬於 UserPrefs schema，但搭同一個檔案一起同步，否則跨裝置看不到彼此手動加的場次。改動 manual_events 時會連帶 bump `prefs.updated_at`，讓另一台裝置的 last-write-wins 比較能偵測到這個變化並抓下來。
-- 「連接」時如果本機還沒有 `gist_id`，會先用同一組 token 打 `GET /gists` 找有沒有 description 等於 `GIST_DESCRIPTION` 常數的既有 gist——這樣同一個 GitHub 帳號在第二台裝置貼上一樣的 PAT 就能自動接上第一台裝置建立的 gist，不需要使用者手動複製 gist id。找不到才 `POST` 建立新的。
-- Token 存在獨立的 `localStorage` key（`liveradar:gist_token`），完全不會出現在 `prefs` 物件裡，所以 FR-63 匯出 JSON 不會外洩 token。
-- `reconcileGistSync()` 在每個會讀 prefs 的頁面（時間表／新上架／收藏／已隱藏管理）載入時都會呼叫一次，讓「在另一台裝置改的設定，開啟這台裝置時自動生效」，不需要使用者手動去設定頁按同步。未連接時是純同步的 early return，不會發任何網路請求。
-- 因為沒有真的 GitHub PAT 可以測試，push/pull 對 GitHub Gist API 的實際串接**沒有跑過真實網路請求驗證**，只驗證了：離線/token 失效時不會清空本機資料（AC-65 負向測試），以及沒連接時完全不會觸發網路請求。真的連上一個帳號的兩台裝置互相同步，還沒有人工測過。
+- **Client**：`src/supabase.js` 建立單一 Supabase client（`@supabase/supabase-js@2.116.0`），**vendor 進 repo**（`vendor/supabase-js.min.mjs`，用 esbuild 打包成單一無相依 ESM 檔），不是執行期從 esm.sh 這類 CDN import——CDN 版本雖然網址釘死版本號，但實際上會再 re-export 一整棵其他 esm.sh 子模組，ES module `import` 沒有 Subresource Integrity 可以釘住這些子請求，等於每次載入都要信任 esm.sh 當下在跑的東西。Vendor 一份下來後，這個檔案就跟專案其他靜態資源一樣是 commit 進 repo 的固定內容，不受 CDN 影響（regenerate 方式見 `vendor/README.md`）。Project URL／anon key 直接寫死在 `src/supabase.js`（這兩個本來就是設計給前端公開用的，不是機密，存取控制靠 Postgres RLS，不是靠藏這把 key）。
+- **登入**：只有 `signInWithGoogle(redirectTo)`，呼叫 Supabase 的 `signInWithOAuth({ provider: "google" })`，走標準 OAuth 授權碼流程，整頁導到 Google 同意畫面再導回來。**登入是加分項不是門檻**——不登入一樣能完整使用 LiveRadar（收藏/排除/設定都正常運作在本機 `localStorage`），登入只是為了讓這些設定跨裝置生效。
+- **資料表**：`public.user_prefs`（`user_id`／`prefs` jsonb／`manual_events` jsonb／`updated_at`），RLS 只允許 `auth.uid() = user_id` 讀寫自己的列，`grant select, insert, update` 給 `authenticated` role（沒有 `delete` policy，目前沒有刪除帳號功能；`anon` 完全沒有存取權，匿名讀寫會回 401，已實測驗證）。完整 SQL 見 `supabase/schema.sql`。
+- **同步策略**：**last-write-wins**，比較 `UserPrefs.updated_at`，邏輯跟原本的 Gist 機制一模一樣（只是資料來源從 GitHub Gist API 換成 `supabase.from('user_prefs')`）：
+  1. `reconcileSupabaseSync()` 在每個會讀 prefs 的頁面（時間表／搜尋／新上架／收藏／已隱藏管理）載入時呼叫一次。
+  2. 沒登入 → early return，不發任何網路請求（跟原本沒連 Gist 時同一個精神）。
+  3. 已登入但雲端還沒有這個使用者的列（第一次登入）→ 直接把本機資料 push 上去當種子資料，不需要額外的「搬移」按鈕。
+  4. 雲端已有資料 → 比較雙方 `updated_at`，較新的一份覆蓋較舊的一份（不做欄位級合併），本機贏的話順便 push 回去讓兩邊收斂。
+  5. 任何網路失敗都只是「留在本機繼續運作」，不會清空本機資料（跟 AC-65 原本的負向測試同一個精神）。
+  6. 每次使用者操作（收藏/排除/設定變更）→ debounce 2 秒後 `pushToSupabase()`，避免每次點擊都打 API。
+- **手動新增場次（US-17）同一列一起同步**：不屬於 `UserPrefs` schema，但存在 `user_prefs.manual_events` 欄位跟 prefs 一起同步，改動時會連帶 bump `prefs.updated_at`，讓另一台裝置的 last-write-wins 比較能偵測到並抓下來（見 §7）。
+- **畫面篩選狀態刻意不同步**（城市/月份/價格/類型/地區 chip、收藏頁列表/日曆切換）——這是「當下在看什麼」，不是「跨裝置生效的規則」，維持只存 `localStorage`（見 §6 相關段落）。
+- **設定頁只有一顆帳號卡（登入狀態）+ 一顆備份卡（匯出/匯入 JSON，FR-63/64）**，2026-09-21 拿掉了原本額外顯示的「跨裝置同步」狀態徽章——帳號卡片的登入/登出狀態本身已經隱含同步是否生效，不需要重複的 UI。
+- **設定頁「重新抓取最新演出」按鈕只在 `localhost`/`127.0.0.1` 才會渲染**（2026-09-21）——這顆按鈕只有本機 `npm run serve` 才連得到 `/api/fetch`，部署版一般使用者按了只會看到「連不上本機伺服器」的錯誤，對他們沒有意義，索性不渲染。「來源狀態」清單本身（各平台更新時間／最近筆數）仍然對所有使用者顯示，但拿掉了 status 徽章跟 `last_error` 這種給開發者看的原始錯誤字串（例如 `GET ... -> 403`）。
+
+**已實測驗證的部分**：真的走完一次 Google 登入流程（離開網站到 Google 同意畫面再跳回來）、直接查 `user_prefs` 表確認真的寫入一筆資料、用匿名請求測過 RLS 真的擋得住（401）。**過程中修好的真實 bug**：OAuth 失敗（例如 Client Secret 不是最新值）原本完全不會顯示在畫面上，使用者點登入、走完流程、跳回來只會靜靜維持「未登入」，只能自己看網址列的 `error_description` 參數才找得到線索——已修好，`initSettings()` 現在會檢查這個參數並 `alert()` 顯示出來。
+
+**跟改名/搬遷一起發生的行為（2026-09-21，不是 bug）**：Supabase session 存在瀏覽器 `localStorage`，是**按網址（origin）分開儲存**的——LiveRadar 從舊網址搬到 `liveradar.github.io` 後，瀏覽器在新網址上本來就讀不到舊網址存的登入資料，使用者會看到「被登出」，這是瀏覽器儲存機制的必然結果，不是同步邏輯的問題，重新登入一次即可，之後會正常留住。
 
 ---
 
@@ -488,7 +495,7 @@ Max 看過 9.1 的成果後自己提出四個進一步調整，這次全部做�
 
 ### 9.3 收藏頁日曆檢視（2026-09-18）
 
-`favorites.html` 除了原本依日期排序的列表，新增一個月曆檢視，用「列表」／「日曆」兩個 chip 切換（存在 `localStorage` 的 `liveradar:fav_view`，畫面狀態、不走 Gist 同步，跟 §6 的城市/月份/價格篩選器同精神）。
+`favorites.html` 除了原本依日期排序的列表，新增一個月曆檢視，用「列表」／「日曆」兩個 chip 切換（存在 `localStorage` 的 `liveradar:fav_view`，畫面狀態、不走 Supabase 同步，跟 §6 的城市/月份/價格篩選器同精神）。
 
 - 新增 `src/calendar.js`：純函式 `buildMonthGrid(year, month)`／`addMonths(year, month, delta)`，不碰 DOM，照專案慣例獨立成好測試的邏輯檔（同 `format.js`／`filter.js` 的模式）。
 - 月曆格子有收藏場次的日期標示圓點，點下去在下方顯示當天場次；預設開啟會自動跳到最近一場收藏所在的月份並選好那一天。
@@ -559,7 +566,7 @@ jobs:
 | M6 | 新上架 + digest | `diff.mjs` + 新上架頁 | AC-23 |
 | M7 | 手動新增場次 | `add.html` + localStorage 合併邏輯 | AC-17 |
 | M8 | 待整理頁 | `needs-review.json` 渲染 + 指派藝人寫回 `artists.yml`（本機開發時手動 commit，非使用者操作） | — |
-| M9 | Gist 同步 | 設定頁連接、雙向同步、離線 fallback | AC-65, AC-63 |
+| M9 | ~~Gist 同步~~ → Supabase 帳號登入同步 | 原計畫是設定頁連接 Gist、雙向同步、離線 fallback；**2026-09-20 整個換成 Supabase + Google 登入**（見 §8、決策 S6），行為精神不變（last-write-wins、debounce push、離線不清空本機資料），只是認證/儲存機制完全不同 | AC-65, AC-63 |
 | M10 | 告警與來源狀態 | `notify.mjs`、`sources.json`、設定頁來源儀表、ErrorState 畫面串接 | AC-14 |
 | M11 | GitHub Actions 上線 | cron 排程、連續兩日自動更新測試 | Phase 1 完成定義 |
 | M12 | 覆蓋率抽樣 | 對照既有彙整站抽樣 30 場人工比對 | G4 —— 2026-09-17 完成第一次抽樣，結果 3.4%（見 `reports/coverage-sample-2026-09-17.md`），根因是追蹤場館清單過窄，非 adapter 邏輯問題 |
@@ -572,10 +579,11 @@ jobs:
 
 | # | 決策 | 結論 |
 |---|---|---|
-| S1 | 手動新增場次的資料歸屬 | **只存個人 Gist，不寫回 repo**。手動新增場次是「個人補件」，同步靠 Gist 跨裝置；若隔天被自動抓到，靠 `id` 相同去重，不重複顯示，但不會變成全站資料 |
-| S2 | Gist 認證方式 | **Personal Access Token**（僅 `gist` 權限），使用者自行在 GitHub 產生後貼到設定頁，不自架 OAuth server |
+| S1 | 手動新增場次的資料歸屬 | **只存個人本機/雲端同步資料，不寫回 repo**。手動新增場次是「個人補件」，同步靠帳號登入跨裝置（原本是 Gist，2026-09-20 起是 Supabase，見 S6）；若隔天被自動抓到，靠 id 比對去重，不重複顯示，但不會變成全站資料。這個決策本身（不寫回 repo）沒有變，變的只是同步機制 |
+| S2 | ~~Gist 認證方式~~（2026-09-20 起整個機制被 S6 取代，見下） | ~~Personal Access Token（僅 `gist` 權限），使用者自行在 GitHub 產生後貼到設定頁，不自架 OAuth server~~ |
 | S3 | GitHub repo 持有者 | 使用者現有 GitHub 帳號；repo 建立與推送在 M11（上線）階段執行，M1~M10 先在本機開發與驗證 ~~**變更（2026-09-16）**：repo（https://github.com/Max-side/liveradar）實際上從 M1 就建立並每個里程碑都推送了，不是等到 M11 才推。原因：多台電腦開發（公司/家裡）需要 git 隨時同步，等到 M11 才建 repo 反而不可行。M11 真正剩下的工作只有「讓 `.github/workflows/daily-update.yml` 真的在 GitHub Actions 上跑過」，不是建 repo 本身。~~ |
 | S4 | FR-19 追蹤名單巡檢的實作方式（2026-09-17） | **手動/對話觸發，不做成自動排程**。原設計是「每週 AI 網路搜尋自動巡檢」，但排程本身免費、AI 搜尋本身要付費，兩者是分開的成本，不管排程放在 GitHub Actions 還是自己的機器上都一樣要付 AI API 的錢。改成使用者在 Claude Code 對話裡主動說「照追蹤名單查一次」，由 AI 用既有對話工具（瀏覽器/搜尋）即時查詢——這個用法算在使用者本來就有的 Claude 方案裡，不需要另外申請/支付 API。代價是不會自動發生，需要使用者記得主動觸發。追蹤名單存在 `data/watchlist.yml`，純粹是人類/AI 對話用的參考清單，不被任何程式讀取。 |
-| S5 | 資料抓取觸發方式（2026-09-17） | **手動觸發，取消 GitHub Actions 每日排程**。原本 M11 花了不少力氣讓 daily cron 在 GitHub Actions 上穩定運作，但使用者決定改成人工在設定頁按「🔄 重新抓取最新演出」按鈕觸發，理由：(1) 順便解決 M11 的 GitHub Actions IP 被拓元/KKTIX 擋的問題——手動觸發时都是從使用者自己的機器發出請求，不會再遇到機房 IP 被封鎖；(2) 使用頻率本來就不需要「每天全自動」，符合已經決定的 FR-19 手動查詢精神（S4）。技術上新增 `scripts/dev-server.mjs`（本機專用小型 Node 伺服器，取代原本 `python3 -m http.server`），設定頁按鈕呼叫它的 `POST /api/fetch` 執行 `fetch.mjs`。GitHub Actions 的 `daily-update.yml` 保留 `workflow_dispatch`（供需要時手動從 CI 觸發），移除 `schedule` 觸發器。 |
+| S5 | 資料抓取觸發方式（2026-09-17） | **手動觸發，取消 GitHub Actions 每日排程**。原本 M11 花了不少力氣讓 daily cron 在 GitHub Actions 上穩定運作，但使用者決定改成人工在設定頁按「🔄 重新抓取最新演出」按鈕觸發，理由：(1) 順便解決 M11 的 GitHub Actions IP 被拓元/KKTIX 擋的問題——手動觸發时都是從使用者自己的機器發出請求，不會再遇到機房 IP 被封鎖；(2) 使用頻率本來就不需要「每天全自動」，符合已經決定的 FR-19 手動查詢精神（S4）。技術上新增 `scripts/dev-server.mjs`（本機專用小型 Node 伺服器，取代原本 `python3 -m http.server`），設定頁按鈕呼叫它的 `POST /api/fetch` 執行 `fetch.mjs`。GitHub Actions 的 `daily-update.yml` 保留 `workflow_dispatch`（供需要時手動從 CI 觸發），移除 `schedule` 觸發器。**2026-09-21 補充**：手動觸發過一次 `workflow_dispatch` 驗證，確認拓元／Ticket Plus 仍會被擋（403），S5 的判斷維持不變、排程沒有恢復。這顆按鈕同時改成只在 `localhost`/`127.0.0.1` 渲染，部署版一般使用者完全看不到（見 §8 尾段）。 |
+| S6 | 跨裝置同步機制（2026-09-20，取代 S1/S2 原本的 Gist 方案） | **改用 Supabase（Postgres + Auth）+ Google 登入**，取代原本要求使用者自己貼 GitHub Personal Access Token 的 Gist 同步。原因：貼 PAT 對一般使用者太技術性，Max 想要一般網站常見的帳號登入體驗。一開始 email/密碼登入也做了，但 Supabase 免費方案的驗證信/重設密碼信用共用網域、內容無法客製（需要自訂 SMTP + 自己的網域才能改），容易被誤認成詐騙信，所以最後只留 Google 登入。同步邏輯本身（last-write-wins、2 秒 debounce push、離線不清空本機資料）沿用 Gist 機制原本的設計，只是資料來源換成 `supabase.from('user_prefs')`。完整實作細節見 §8。 |
 
 日後若要變更，請在此表加註變更日期與理由。
