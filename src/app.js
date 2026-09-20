@@ -1039,22 +1039,21 @@ async function renderSourceStatus() {
     const data = await res.json();
     const sources = data.sources ?? [];
 
+    // 2026-09-21: 一般使用者不需要看到 status 徽章（正常/抓到0筆/抓取失敗）或
+    // last_error 那種給開發者看的原始錯誤字串（例如 "GET ... -> 403"）——只留
+    // 「更新時間」跟「最近筆數」兩個資訊，其餘技術細節要查還是看 data/sources.json。
     container.innerHTML =
       sources.length === 0
         ? `<div style="font-size:12px;color:var(--muted);">尚無資料。</div>`
         : sources
             .map((s, i) => {
-              const statusClass = s.status === "ok" ? "status-ok" : "status-warn";
-              const statusText = s.status === "ok" ? "● 正常" : s.status === "anomaly" ? "⚠ 抓到 0 筆" : "⚠ 抓取失敗";
               const rowBorder = i < sources.length - 1 ? "border-bottom:1px solid var(--border);padding-bottom:10px;" : "";
               return `
         <div class="row" style="${rowBorder}">
           <div style="display:flex;flex-direction:column;gap:2px;min-width:0;">
             <div style="font-size:13px;font-weight:700;">${escapeHtml(s.name)}</div>
-            <div style="font-size:11px;color:var(--muted);">上次成功：${formatDateTime(s.last_success) ?? "無"}　最近筆數：${s.last_count ?? 0}</div>
-            ${s.last_error ? `<div style="font-size:11px;color:var(--warn);">${escapeHtml(s.last_error)}</div>` : ""}
+            <div style="font-size:11px;color:var(--muted);">更新時間：${formatDateTime(s.last_success) ?? "無"}　最近筆數：${s.last_count ?? 0}</div>
           </div>
-          <span class="${statusClass}">${statusText}</span>
         </div>
       `;
             })
