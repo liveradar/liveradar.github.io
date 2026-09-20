@@ -841,8 +841,6 @@ function formatDateTime(iso) {
 
 /** Account/Supabase sync (2026-09-20, replaces M9's Gist sync), FR-63/64 backup export/import. settings.html has no single container — this wires individual elements by id instead. */
 function initSettings() {
-  const syncStatus = document.getElementById("sync-status");
-  const syncLast = document.getElementById("sync-last");
   const backupLast = document.getElementById("backup-last");
   const accountLoggedOut = document.getElementById("account-logged-out");
   const accountLoggedIn = document.getElementById("account-logged-in");
@@ -872,18 +870,15 @@ function initSettings() {
     history.replaceState(null, "", window.location.pathname);
   }
 
-  async function renderSyncStatus() {
+  // 2026-09-20: was "renderSyncStatus" and also drove a separate "跨裝置同步"
+  // status badge — dropped (Max: redundant once the 帳號 card already shows
+  // logged in/out, that fact alone implies whether sync is active). Kept the
+  // account-card and backup-date rendering under one function since both
+  // still depend on the same loadPrefs()/getSession() round trip.
+  async function renderAccountAndBackup() {
     const prefs = loadPrefs();
     const session = await getSession();
     const loggedIn = !!session;
-    syncStatus.textContent = loggedIn ? "● 已登入" : "○ 未登入";
-    // Was text-only before this pass (a real design/code gap found while
-    // updating the design comp) — the badge sat gray in both states, same
-    // gap the old Gist-era UI had too. Match source-status.css's .status-ok
-    // treatment for "healthy" so 已登入 actually reads as a positive state.
-    syncStatus.style.background = loggedIn ? "var(--lime)" : "var(--surface-2)";
-    syncStatus.style.color = loggedIn ? "var(--lime-ink)" : "var(--muted)";
-    syncLast.textContent = loggedIn ? `上次同步：${formatDateTime(prefs.updated_at) ?? "尚未同步過"}` : "尚未同步過";
     backupLast.textContent = `上次備份日期：${formatDateTime(prefs.last_backup_at) ?? "無"}`;
     accountLoggedOut.hidden = loggedIn;
     accountLoggedIn.hidden = !loggedIn;
@@ -950,7 +945,7 @@ function initSettings() {
 
   signoutBtn.addEventListener("click", async () => {
     await signOut();
-    await renderSyncStatus();
+    await renderAccountAndBackup();
   });
 
   exportBtn.addEventListener("click", () => {
@@ -962,7 +957,7 @@ function initSettings() {
     a.download = `liveradar-backup-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
-    renderSyncStatus();
+    renderAccountAndBackup();
   });
 
   importBtn.addEventListener("click", () => importFileInput.click());
@@ -971,7 +966,7 @@ function initSettings() {
     if (!file) return;
     try {
       importPrefsFromJson(await file.text());
-      renderSyncStatus();
+      renderAccountAndBackup();
       renderMuteKeywords();
       strictModeToggle.checked = loadPrefs().strict_mode;
       alert("匯入成功。");
@@ -1022,7 +1017,7 @@ function initSettings() {
   });
 
   renderThemeButtons();
-  renderSyncStatus();
+  renderAccountAndBackup();
   renderMuteKeywords();
   renderSourceStatus();
 }
@@ -1175,6 +1170,6 @@ if (reviewContainer) {
   initReview(reviewContainer);
 }
 
-if (document.getElementById("sync-status")) {
+if (document.getElementById("backup-last")) {
   initSettings();
 }
