@@ -411,7 +411,12 @@ button {
 
 .fab {
   position: absolute;
-  top: -22px;
+  /* -50px (its own height) + a 4px gap keeps it floating fully above the bar
+     — found live (2026-09-20): -22px let the FAB's bottom ~28px sink into
+     the bar itself, landing right on top of 設定 (the last nav item), which
+     visually blocked its label/icon and likely ate its taps too since the
+     FAB comes later in the DOM. */
+  top: -54px;
   right: 16px;
   width: 50px;
   height: 50px;
