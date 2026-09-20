@@ -1,10 +1,17 @@
 /**
  * Supabase client singleton + thin auth helpers (replaces Gist sync, 2026-09-20).
- * No bundler here (SPEC D14) — supabase-js is loaded straight from a CDN as
- * an ES module, same as every other browser-side import in this project is a
- * plain relative path. Pinned to an exact version (not a floating "@2") since
- * there's no lockfile to catch an upstream release silently changing behavior
- * on next page load.
+ * No bundler here (SPEC D14) — supabase-js is a plain relative-path ES module
+ * import, same as every other browser-side import in this project.
+ *
+ * Vendored locally (2026-09-20) rather than imported from esm.sh at runtime:
+ * that CDN URL was pinned to an exact version, but esm.sh doesn't actually
+ * serve a self-contained file at that URL — it re-exports a tree of further
+ * esm.sh-hosted submodules (auth-js, postgrest-js, realtime-js, a node
+ * shim...), none of which are pinned or checkable (ES module `import`
+ * doesn't support Subresource Integrity), so the app was trusting esm.sh's
+ * live infrastructure on every page load. See vendor/README.md for how
+ * vendor/supabase-js.min.mjs was produced and how to regenerate it on a
+ * version bump.
  *
  * Google-only (2026-09-20): email/password sign-up was cut — Supabase's
  * confirmation/reset emails come from its own shared domain with no custom
@@ -15,7 +22,7 @@
  * specifically a password — so the simplest fix was dropping password auth
  * outright rather than trying to make the confirmation email look legitimate.
  */
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.116.0";
+import { createClient } from "../vendor/supabase-js.min.mjs";
 
 const SUPABASE_URL = "https://pfhxrbqburbehmotvtbc.supabase.co";
 // The anon/publishable key is designed to be public in frontend code — it's
