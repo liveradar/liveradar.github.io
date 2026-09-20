@@ -803,7 +803,7 @@ textarea.field-input {
 }
 
 /* ---------- Responsive: tablet / desktop (2026-09-18) ---------- */
-/* GigRadar was built mobile-first (SPEC: phone is the primary device) — these
+/* LiveRadar was built mobile-first (SPEC: phone is the primary device) — these
    breakpoints let the same markup/JS scale up instead of sitting as a narrow
    480px column with huge empty margins on a wider screen. Two things widen:
    .app itself, and the event feed (.event-list/.day-group), which switches

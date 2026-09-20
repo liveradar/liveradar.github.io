@@ -39,7 +39,7 @@
   city: 高雄
 
 # 2026-09-17 追加：加 iNDIEVOX 之後發現這些場館名稱沒有地址可以判斷城市，
-# 逐一查證後補上（見 GIGRADAR-SPEC.md §5.4）。
+# 逐一查證後補上（見 LIVERADAR-SPEC.md §5.4）。
 - match: "LIVE WAREHOUSE"
   city: 高雄
 - match: "快樂谷大舞場"

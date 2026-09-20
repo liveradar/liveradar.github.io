@@ -4,7 +4,7 @@
 
 ## 這是什麼專案
 
-個人用的獨立/地下音樂演出雷達。**完整需求**看 [`GIGRADAR-SRS.md`](./GIGRADAR-SRS.md)，**技術架構與所有踩過的坑**看 [`GIGRADAR-SPEC.md`](./GIGRADAR-SPEC.md)——這兩份是唯一該信任的來源，這份 HANDOFF 只是導覽，內容有衝突以那兩份為準。
+個人用的獨立/地下音樂演出雷達。**完整需求**看 [`LIVERADAR-SRS.md`](./LIVERADAR-SRS.md)，**技術架構與所有踩過的坑**看 [`LIVERADAR-SPEC.md`](./LIVERADAR-SPEC.md)——這兩份是唯一該信任的來源，這份 HANDOFF 只是導覽，內容有衝突以那兩份為準。
 
 ## 現在的狀態：M1~M12 全部完成，都在瀏覽器裡實測過，不是只寫完沒測（一個例外見下方 M9 那一列）；抓取一律手動觸發（決策 S5，沒有自動排程），五個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus，Max 要求的完整清單）都在運作，覆蓋率抽樣 51.7%，離 80% 目標更近了但還沒到
 
@@ -23,7 +23,7 @@
 | M11 | GitHub Actions 排程上線 | ✅ 排程已重新打開，每天 08:00 CST 自動跑；過程中發現並修好一個真實的資料損毀問題，見下方「M11 的重大發現」 |
 | M12 | 覆蓋率抽樣 | ✅ 抽樣做完了，結果不理想（見下方），但這正是 G4 這一步該做的事——找出真正的缺口 |
 
-完整里程碑定義見 `GIGRADAR-SPEC.md` §11。
+完整里程碑定義見 `LIVERADAR-SPEC.md` §11。
 
 ## 你打開這個 repo 應該先做的事
 
@@ -64,14 +64,14 @@ npm test                # 跑全部單元測試（見下方「測試怎麼跑」
 ⚠️ **2026-09-17 更新**：決策 S5 把資料抓取改成手動觸發（設定頁按鈕，見上面「你打開這個 repo 應該先做的事」），不再依賴 GitHub Actions 排程，所以下面這個「GitHub Actions IP 被擋」的問題已經**不會再發生**（因為根本不會再從 GitHub Actions 的 IP 發出抓取請求）。保留這段記錄是因為：(1) `scripts/source-fallback.mjs` 這個資料安全網仍然有用，本機手動抓取一樣可能遇到 KKTIX 搜尋被 Cloudflare 擋（見下面 KKTIX 搜尋策略那段），一樣需要它防止資料被洗掉；(2) 了解這段歷史有助於理解為什麼會有 S5 這個決策。
 
 2026-09-16 手動觸發了一次 `workflow_dispatch`（在真的 GitHub Actions 環境跑，不是本機），結果：
-- **拓元直接 403**（`GET https://tixcraft.com/activity -> 403`）——`notify.mjs` 正確地自動開了 [issue #1](https://github.com/Max-side/gigradar/issues/1)，這不是誤判，是真的被擋。
+- **拓元直接 403**（`GET https://tixcraft.com/activity -> 403`）——`notify.mjs` 正確地自動開了 [issue #1](https://github.com/Max-side/liveradar/issues/1)，這不是誤判，是真的被擋。
 - **KKTIX 的全站搜尋策略（4 個場館：Legacy Taipei/Taichung、Revolver、Clapper Studio）也全部 403**，只有 org 頁策略還抓得到東西。
 
 最可能的原因：這兩個網站的反爬蟲機制會擋掉常見的雲端/機房 IP 段（GitHub Actions runner 的 IP 就是這種），但放行一般家用/公司網路的 IP——這正好解釋了為什麼本機一直測都正常，只有在 Actions 上才出事。這個封鎖本身**沒有解決**，往後每次排程執行拓元和 KKTIX 搜尋大概率都還是會失敗，這是要接受的現實，不是一次性的意外。
 
 **造成的損害**：因為 `fetch.mjs` 當時來源失敗時不會沿用舊資料（SPEC §4.2 步驟 3 那個已知缺口，原本以為只是「還沒做」，這次證實是「真的會出事」），那次執行直接把 `needs-review.json` 的 79 筆真實資料洗成 4 筆，而且自動 commit 推上了 `main`。已經用 `git revert`（583fe35）復原。
 
-**已經修好的部分**：新增 `scripts/source-fallback.mjs`——來源異常時，把上一輪屬於這個來源的 `events.json`/`needs-review.json` 資料重新餵回這輪的處理流程（而不是讓它們憑空消失），再讓 `dedupe()` 用同一套邏輯跟其他來源這輪抓到的新資料合併。**已經在真實 GitHub Actions 環境重跑一次驗證**：同樣的 403 又發生了，但這次 needs-review 維持在 79 筆，commit 只改了 6 行 metadata，不再洗掉真實資料（對照組：修好前 vs 修好後的兩次真實執行紀錄都在 [Actions 頁面](https://github.com/Max-side/gigradar/actions/workflows/daily-update.yml)上）。排程已經重新打開。
+**已經修好的部分**：新增 `scripts/source-fallback.mjs`——來源異常時，把上一輪屬於這個來源的 `events.json`/`needs-review.json` 資料重新餵回這輪的處理流程（而不是讓它們憑空消失），再讓 `dedupe()` 用同一套邏輯跟其他來源這輪抓到的新資料合併。**已經在真實 GitHub Actions 環境重跑一次驗證**：同樣的 403 又發生了，但這次 needs-review 維持在 79 筆，commit 只改了 6 行 metadata，不再洗掉真實資料（對照組：修好前 vs 修好後的兩次真實執行紀錄都在 [Actions 頁面](https://github.com/Max-side/liveradar/actions/workflows/daily-update.yml)上）。排程已經重新打開。
 
 **這個 fallback 解決的是「不要洗掉資料」，不是「解決封鎖」本身**——拓元/KKTIX 搜尋策略只要一直被擋，`needs-review.json`/`events.json` 就會一直停在 2026-09-16 這批舊資料，不會有新場次進來，只是不會再變得比現在更差。如果之後想真的解決封鎖（換執行環境、代理、或接受混合模式改成本機手動跑那兩個來源），是下一個獨立的產品/架構決定，不算 M11 的範圍。
 
@@ -80,7 +80,7 @@ npm test                # 跑全部單元測試（見下方「測試怎麼跑」
 `scripts/notify.mjs`（FR-14/AC-14，來源抓到 0 筆但上次 >0，或直接 fetch 失敗時開 GitHub issue）只在有 `GITHUB_TOKEN`＋`GITHUB_REPOSITORY` 環境變數時才會真的打 API，本機 `npm run fetch` 沒有這兩個變數，所以永遠是「印一行 log 就跳過」，這是刻意設計成不會擋住本機開發。已經驗證過的：
 - `scripts/source-status.mjs`（純函式，決定 sources.json 每個來源的 `status`/`last_success`/`last_count` 該怎麼算）有完整單元測試，包含「連續兩天都抓到 0 筆要一直維持異常，不能第一天過後自己「痊癒」」這條容易漏掉的規則。
 - 前端兩處讀 `sources.json` 的地方（時間表的異常 banner、設定頁的來源狀態儀表）都在瀏覽器裡塞了假的 `ok`/`anomaly`/`error` 三種狀態實測過，畫面正確。
-- M11 實際觸發真實 GitHub Actions 執行時，`notify.mjs` 真的成功開了 [issue #1](https://github.com/Max-side/gigradar/issues/1)，第二次執行時也正確認出 issue 已存在、沒有重複開新的——這部分已經不是「沒測到」了，見下方「M11 的重大發現」。
+- M11 實際觸發真實 GitHub Actions 執行時，`notify.mjs` 真的成功開了 [issue #1](https://github.com/Max-side/liveradar/issues/1)，第二次執行時也正確認出 issue 已存在、沒有重複開新的——這部分已經不是「沒測到」了，見下方「M11 的重大發現」。
 
 ## M9 沒有真的用 GitHub PAT 測過
 
@@ -89,11 +89,11 @@ npm test                # 跑全部單元測試（見下方「測試怎麼跑」
 - 沒連接時（`gist_id` 是 `null`），`reconcileGistSync()` 在每個頁面載入時是純同步的 early return，完全不會發網路請求——不會拖慢或弄壞現有頁面。
 - FR-63 匯出／匯入：匯出時會即時抓 `localStorage` 目前的 prefs，模擬「換一台空白瀏覽器」匯入後 favorites/excluded_artists/excluded_types/mute_keywords/strict_mode 全部正確還原（AC-63）。
 
-**沒測到的**：真的拿一組 GitHub PAT 連接、在兩台裝置間實際互推/互拉一次。如果你要驗證這塊，去 GitHub Settings → Developer settings → Personal access tokens 開一個只有 `gist` 權限的 token，貼到設定頁試連接；連上後第二台裝置貼**同一組 token**應該會自動找到同一個 gist（用 description 比對，見 `GIGRADAR-SPEC.md` §8 實作備註）。
+**沒測到的**：真的拿一組 GitHub PAT 連接、在兩台裝置間實際互推/互拉一次。如果你要驗證這塊，去 GitHub Settings → Developer settings → Personal access tokens 開一個只有 `gist` 權限的 token，貼到設定頁試連接；連上後第二台裝置貼**同一組 token**應該會自動找到同一個 gist（用 description 比對，見 `LIVERADAR-SPEC.md` §8 實作備註）。
 
 ## M8「指派藝人」為什麼不會真的寫 `artists.yml`
 
-這是刻意的（SPEC §11 M8 那一列寫得很明白：「本機開發時手動 commit，非使用者操作」）。這個專案是純靜態前端（決策 D14），沒有後端可以接受寫檔請求，瀏覽器本身也不能直接改動 repo 裡的檔案。所以 `review.html` 的「指派藝人」按鈕做的事情是：跳出一個小表單（正式藝人名稱／別名／來源地），送出後產生一段格式跟 `data/artists.yml` 一致的 YAML 片段，顯示在可複製的文字框裡——由你自己貼進檔案、存檔、commit。按下「指派藝人」或「忽略」都會把該筆記錄從畫面上的待整理佇列裡移除（存在 `localStorage` 的 `gigradar:review_dismissed`，只影響這個瀏覽器，不會跨裝置同步，也不會改到 `needs-review.json` 本身——那個檔案要等下一次 `npm run fetch` 讀到更新後的 `artists.yml` 才會自然瘦身）。
+這是刻意的（SPEC §11 M8 那一列寫得很明白：「本機開發時手動 commit，非使用者操作」）。這個專案是純靜態前端（決策 D14），沒有後端可以接受寫檔請求，瀏覽器本身也不能直接改動 repo 裡的檔案。所以 `review.html` 的「指派藝人」按鈕做的事情是：跳出一個小表單（正式藝人名稱／別名／來源地），送出後產生一段格式跟 `data/artists.yml` 一致的 YAML 片段，顯示在可複製的文字框裡——由你自己貼進檔案、存檔、commit。按下「指派藝人」或「忽略」都會把該筆記錄從畫面上的待整理佇列裡移除（存在 `localStorage` 的 `liveradar:review_dismissed`，只影響這個瀏覽器，不會跨裝置同步，也不會改到 `needs-review.json` 本身——那個檔案要等下一次 `npm run fetch` 讀到更新後的 `artists.yml` 才會自然瘦身）。
 
 ## 測試怎麼跑
 
@@ -105,7 +105,7 @@ npm test    # 等同 node --test scripts/*.test.mjs src/*.test.js
 
 ## 決策紀錄在哪裡
 
-所有「為什麼這樣做」的決定都寫在 `GIGRADAR-SPEC.md` 對應章節，不要用猜的或憑記憶——尤其是：
+所有「為什麼這樣做」的決定都寫在 `LIVERADAR-SPEC.md` 對應章節，不要用猜的或憑記憶——尤其是：
 - §5.1 KKTIX 兩種抓取策略（org 頁 vs 全站搜尋）的原因
 - §5.3 拓元只抓列表頁不抓詳情頁的原因（D16）
 - §7 手動新增場次為什麼只存 Gist 不寫回 repo（S1）
@@ -140,12 +140,12 @@ npm test    # 等同 node --test scripts/*.test.mjs src/*.test.js
 
 ## 參考實作：另一個 Claude 對話產出的 Python/Flask 版本（2026-09-17）
 
-Max 帶來一份別人已經實際用起來的參考專案（zip 檔，內容不在這個 repo 裡，只用來借鏡技巧）。跟現在的 GigRadar 比，功能簡單很多（沒有 PWA、沒有跨裝置同步、沒有 artist 正規化/去重、單機 Flask app），但解決了兩個關鍵技術問題：
+Max 帶來一份別人已經實際用起來的參考專案（zip 檔，內容不在這個 repo 裡，只用來借鏡技巧）。跟現在的 LiveRadar 比，功能簡單很多（沒有 PWA、沒有跨裝置同步、沒有 artist 正規化/去重、單機 Flask app），但解決了兩個關鍵技術問題：
 
 1. **用 Playwright（真的 Chromium 引擎）繞過 Cloudflare**——對 KKTIX、FANSI GO 用真瀏覽器載入頁面，讓 Cloudflare 的驗證正常跑完，跟 `fetch()`/`curl` 完全不同層級。理論上可以拿來修好現在壞掉的 `SEARCH_VENUES`。
 2. **多兩個沒有 Cloudflare、覆蓋率很高的來源**：
    - **iNDIEVOX**——伺服器端直接渲染，plain fetch 就能抓，不需要 Playwright，全站抓不用像 KKTIX 一樣一個場館一個場館試。
-   - **FANSI GO**（go.fansi.me）——需要 Playwright（Cloudflare + 前端渲染），但涵蓋不少 GigRadar現在碰不到的場館。
+   - **FANSI GO**（go.fansi.me）——需要 Playwright（Cloudflare + 前端渲染），但涵蓋不少 LiveRadar現在碰不到的場館。
 
 實測：拿它跑出來的 98 筆資料對照 M12 的 29 場覆蓋率樣本，**直接多中 5 場**（Suming@SUB Live House、P!SCO-16@Legacy Taichung、乙水@LIVE WAREHOUSE、虎小島@野地方、《https://》@百樂門酒館），覆蓋率估計可以從 10.3% 推到 27.6%——比繼續一個一個查證 KKTIX 自營場館的投報率高很多。
 
@@ -153,7 +153,7 @@ Max 帶來一份別人已經實際用起來的參考專案（zip 檔，內容不
 
 新增 `scripts/adapters/indievox.mjs`，沒有 Cloudflare、plain fetch 直接可用。實測一次真的跑了 75 筆場次進 `needs-review.json`（意料中的事——`artists.yml` 只有 2 筆示範資料，這些都還沒被辨識，等你補 artists.yml 或用待整理頁指派後才會變成正式場次）。
 
-**過程中修的幾個真實 bug（都在 `normalize.mjs` 的 `parseIndievoxDate`）**：iNDIEVOX 的日期是主辦方自己貼的自由格式文字，不是固定欄位，實測到至少三種寫法要分別處理（`2026.09.19`、`2026 / 10 / 2` 帶空白、`2026年10月3日` 純中文單位），還有一個有趣的坑：某些活動頁面除了介紹文字的日期，下面訂購表單還有第二個「日期：9/19」（沒有年份），原本的 regex 會不小心抓到後者，改成「解析結果必須含 4 位數年份才採用，不然退回列表頁的日期」才穩定。細節見 `GIGRADAR-SPEC.md` §5.4，測試在 `scripts/normalize.test.mjs`。
+**過程中修的幾個真實 bug（都在 `normalize.mjs` 的 `parseIndievoxDate`）**：iNDIEVOX 的日期是主辦方自己貼的自由格式文字，不是固定欄位，實測到至少三種寫法要分別處理（`2026.09.19`、`2026 / 10 / 2` 帶空白、`2026年10月3日` 純中文單位），還有一個有趣的坑：某些活動頁面除了介紹文字的日期，下面訂購表單還有第二個「日期：9/19」（沒有年份），原本的 regex 會不小心抓到後者，改成「解析結果必須含 4 位數年份才採用，不然退回列表頁的日期」才穩定。細節見 `LIVERADAR-SPEC.md` §5.4，測試在 `scripts/normalize.test.mjs`。
 
 場館/城市：多數活動有「場館名稱（地址）」可以直接判斷城市；少數只寫裸名稱的（例如「野地方 Wildlab」）退回 `data/venues.yml` 查表；個位數活動完全沒填地點，只能留空，不強求。價格解析沒做（跟拓元一樣的取捨，D16 精神），`price_min/max` 一律 `null`。
 
@@ -169,7 +169,7 @@ Max 帶來一份別人已經實際用起來的參考專案（zip 檔，內容不
 
 ## Ticket Plus 也完成了——五個來源全部做完（同日晚上）
 
-新增 `scripts/adapters/ticketplus.mjs`。**這是五個來源裡資料品質最好的一個**：整個平台是靠一個公開、不需要登入/API key 的 JSON API 運作（`apis.ticketplus.com.tw/config/api/v1/getS3?path=...`），`date`/`time`/`location`/`address` 全部是乾淨的結構化欄位，不用像 iNDIEVOX/FANSI GO 那樣解析自由格式文字，也不用 Playwright。`location`/`address` 兩個欄位組成的字串跟 KKTIX 的 `venue_raw` 格式完全一樣，直接重用 `parseKktixVenue`；日期新寫了 `parseTicketPlusDate`。細節見 `GIGRADAR-SPEC.md` §5.6。
+新增 `scripts/adapters/ticketplus.mjs`。**這是五個來源裡資料品質最好的一個**：整個平台是靠一個公開、不需要登入/API key 的 JSON API 運作（`apis.ticketplus.com.tw/config/api/v1/getS3?path=...`），`date`/`time`/`location`/`address` 全部是乾淨的結構化欄位，不用像 iNDIEVOX/FANSI GO 那樣解析自由格式文字，也不用 Playwright。`location`/`address` 兩個欄位組成的字串跟 KKTIX 的 `venue_raw` 格式完全一樣，直接重用 `parseKktixVenue`；日期新寫了 `parseTicketPlusDate`。細節見 `LIVERADAR-SPEC.md` §5.6。
 
 **這次追加對覆蓋率的貢獻最大**：用同一份 29 場樣本再測一次，**15/29 ≈ 51.7%**（原始 3.4% 一路推到現在），單是加入 Ticket Plus 就多命中 7 場（溫室雜草、Mili、呂杰達、RUSH BALL ×2、巴賴、JIAHN），因為它剛好覆蓋了女巫店、Zepp New Taipei、The Wall 這幾個先前五個來源都碰不到的場館——這些場館主要就是透過 Ticket Plus 賣票。完整記錄見 `reports/coverage-sample-2026-09-17.md`「第三次追蹤」段落。
 
@@ -225,7 +225,7 @@ Max 帶來一份別人已經實際用起來的參考專案（zip 檔，內容不
 
 - **城市／月份選項是動態算出來的**，不是寫死清單，而且**只看還沒結束的場次**——一開始沒濾掉已結束場次時，選項清單會出現「7月」「8月」這種選了保證是空清單的死選項（今天是 9/18，7、8 月的場次全部已經過去了），這是實作時自己測出來、當場改掉的，不是等使用者回報。
 - **價格**是固定 4 個級距（NT$500/1,000/2,000/3,000 以下）+「不限價格」，沒有價格資料的場次（iNDIEVOX/FANSI GO 大宗）不管選哪個級距都照樣顯示——這是 `passesViewFilters()` 本來就有的設計（`price_min` 是 `null` 時一律放行），不是這次新加的行為。
-- 篩選狀態存 `localStorage`（`gigradar:view_filters`），重新整理頁面會記得上次選的；**刻意不放進 Gist 同步的 `UserPrefs`**——這是「當下在看什麼」的畫面狀態，不是像封鎖藝人那種要跨裝置生效的規則。
+- 篩選狀態存 `localStorage`（`liveradar:view_filters`），重新整理頁面會記得上次選的；**刻意不放進 Gist 同步的 `UserPrefs`**——這是「當下在看什麼」的畫面狀態，不是像封鎖藝人那種要跨裝置生效的規則。
 - 三個篩選可以同時疊加（例如台北 + 10月 + NT$500以下），實測過確認會一起生效。
 
 `npm test` 沒有新增測試（這次是純前端 DOM 互動，跟既有的 `openExcludeMenu()`／`openAssignArtistDialog()` 一樣沒有寫測試，用瀏覽器實測代替），但有打開瀏覽器逐一測過三個 chip 單獨、疊加、reload 後還記得選擇、選到空清單時的空狀態訊息。
@@ -292,7 +292,7 @@ Max 對「1 分鐘內」的真正需求釐清後（不是要求整個爬蟲動�
 
 ## RWD 響應式設計做完了（2026-09-18）
 
-GigRadar 原本完全是手機版設計（`.app{max-width:480px}`），在桌機瀏覽器打開就是中間一條窄欄、兩側一大片空白。Max 要求「除了手機版之外，用不同尺寸做 RWD 縮放」，判斷重點不是「把整個殼放大」這麼簡單，而是**分清楚哪些內容值得利用多出來的寬度、哪些內容就算螢幕變寬也該維持原本的閱讀寬度**：
+LiveRadar 原本完全是手機版設計（`.app{max-width:480px}`），在桌機瀏覽器打開就是中間一條窄欄、兩側一大片空白。Max 要求「除了手機版之外，用不同尺寸做 RWD 縮放」，判斷重點不是「把整個殼放大」這麼簡單，而是**分清楚哪些內容值得利用多出來的寬度、哪些內容就算螢幕變寬也該維持原本的閱讀寬度**：
 
 - **場次列表（時間表／新上架／收藏／搜尋結果）在平板/桌機下改成多欄排版**：這是最有價值的改動——原本一張卡片佔滿整個寬度、要一直往下滑，現在平板 2 欄、桌機 3 欄，同一個畫面能看到的場次變多。日期標籤（例如「9月18日」）仍然橫跨整列當標題，不會被擠進格子裡。
 - **表單、設定頁、待整理／已隱藏管理維持窄欄置中**：這些頁面本來就是「一次看一件事」的介面，螢幕變寬不代表輸入框應該被拉成又寬又扁的樣子——新增一個 `.page-content` class 幫這些頁面的內容維持在 560px 內、置中顯示，兩側留白，看起來還是像設計過的頁面，不是隨螢幕亂長大。
@@ -315,7 +315,7 @@ Max 看過桌機版截圖後自己列了四點想調整，全部做完：底部�
 
 Max 想要收藏頁除了依日期排序的列表之外，也能用月曆的方式查看收藏的場次。做法：
 
-- `favorites.html` 加了「列表」／「日曆」兩個 chip 切換，選擇會存進 `localStorage`（`gigradar:fav_view`，新增到 `state.js`），下次打開會記得上次選的是哪個——這是「畫面狀態」不是「規則」，不走 Gist 同步，跟時間表的城市/月份/價格篩選器同一個精神。
+- `favorites.html` 加了「列表」／「日曆」兩個 chip 切換，選擇會存進 `localStorage`（`liveradar:fav_view`，新增到 `state.js`），下次打開會記得上次選的是哪個——這是「畫面狀態」不是「規則」，不走 Gist 同步，跟時間表的城市/月份/價格篩選器同一個精神。
 - 新增 `src/calendar.js`：純函式 `buildMonthGrid(year, month)`（算出某個月要畫幾週、每一格是星期幾、開頭結尾要補幾個空格）跟 `addMonths(year, month, delta)`（跨年翻頁），完全不碰 DOM，照專案慣例寫成獨立、好測試的邏輯檔（跟 `format.js`／`filter.js` 同一個模式），配 `src/calendar.test.js` 五個測試。
 - 月曆格子：有收藏場次的日期會有一個小圓點，點下去在月曆下方顯示那一天的場次卡片（可以直接購票/取消收藏），今天的日期有外框標示。預設打開日曆會自動跳到「最近一場收藏」所在的月份並選好那一天，不用自己先翻月份才找得到東西。
 - **測試時抓到兩個真實的「選取狀態卡住」bug**，都是同一種類型：翻到別的月份、或是把當前選取那天的場次取消收藏之後，畫面選取的日期沒有跟著更新，導致月曆明明換了月份，下面卻還顯示著舊月份、甚至已經不存在的場次資料。兩個情境都補上「重新驗證選取的日期是否還有效，無效就清空」的邏輯，清空後改顯示「這個月沒有收藏的場次。」，不會再顯示過期資料。
@@ -345,7 +345,7 @@ Max 選取「爛泥發芽」這張卡片問說：這是音樂祭，怎麼被標�
 
 ## 新增手動深淺色切換開關（2026-09-18，Max 反映深色模式看久眼睛痛）
 
-原本深淺色完全跟系統設定走（`prefers-color-scheme`），沒有手動開關。Max 說「深色看久眼睛有點痛」要求加按鈕，做法：`styles/tokens.css` 改成三層 override（`:root` 淺色預設 → `@media (prefers-color-scheme: dark)` 系統深色，但排除使用者已明確選淺色的情況 → `:root[data-theme]` 使用者明確選的，優先權最高），`data-theme` 屬性由每個頁面 `<head>` 裡一段**同步** inline script（不是 `type="module"`）在最前面設定，避免用 `app.js`（deferred module）設定導致每次換頁閃一下錯誤主題（FOUC）。`state.js` 新增 `loadTheme()`/`saveTheme()`，`settings.html` 新增「顯示模式」三個單選 chip（跟隨系統/淺色/深色），`app.js` 的 `initSettings()` 綁定點擊事件、`aria-pressed` 互斥切換、頁面載入時依當前設定顯示正確的按下狀態。實測過三種狀態切換、跨頁導覽維持設定不跳回、無 FOUC 閃爍，細節見 [GIGRADAR-SPEC.md](GIGRADAR-SPEC.md) §9.4。`npm test` 72 個測試全過。
+原本深淺色完全跟系統設定走（`prefers-color-scheme`），沒有手動開關。Max 說「深色看久眼睛有點痛」要求加按鈕，做法：`styles/tokens.css` 改成三層 override（`:root` 淺色預設 → `@media (prefers-color-scheme: dark)` 系統深色，但排除使用者已明確選淺色的情況 → `:root[data-theme]` 使用者明確選的，優先權最高），`data-theme` 屬性由每個頁面 `<head>` 裡一段**同步** inline script（不是 `type="module"`）在最前面設定，避免用 `app.js`（deferred module）設定導致每次換頁閃一下錯誤主題（FOUC）。`state.js` 新增 `loadTheme()`/`saveTheme()`，`settings.html` 新增「顯示模式」三個單選 chip（跟隨系統/淺色/深色），`app.js` 的 `initSettings()` 綁定點擊事件、`aria-pressed` 互斥切換、頁面載入時依當前設定顯示正確的按下狀態。實測過三種狀態切換、跨頁導覽維持設定不跳回、無 FOUC 閃爍，細節見 [LIVERADAR-SPEC.md](LIVERADAR-SPEC.md) §9.4。`npm test` 72 個測試全過。
 
 ## 建議下一步
 
@@ -363,7 +363,7 @@ Max 看了待整理清單問了三個問題，逐一處理：
 
 **順便修好一個既有 bug**：`findNameIndex`／`guessTagsType` 的比對是大小寫敏感的，真實資料裡同一個品牌會一種寫大寫一種寫小寫（例如「Punk Strike」vs「PUNK STRIKE」），全大寫的「TOUR」比對不到 `["Tour", "巡迴"]` 這條——已經改成大小寫不敏感比對，**連帶讓 37 筆現有場次從錯誤的「專場」改標成正確的「巡迴」**。
 
-跑完真實 pipeline 驗證：`needs-review.json` 71 筆降到 1 筆（剩 MOB PARTY 26，泰國清邁的活動，不在 GigRadar 的台灣場次追蹤範圍內，建議直接用「忽略」按鈕清掉，不算 bug）。`npm test` 77 個測試全過。改動已 commit（`8916204`）並 push 上 `origin/main`。
+跑完真實 pipeline 驗證：`needs-review.json` 71 筆降到 1 筆（剩 MOB PARTY 26，泰國清邁的活動，不在 LiveRadar 的台灣場次追蹤範圍內，建議直接用「忽略」按鈕清掉，不算 bug）。`npm test` 77 個測試全過。改動已 commit（`8916204`）並 push 上 `origin/main`。
 
 ## 下一個大方向（還沒動工）：改成真帳號登入（email/密碼＋Google 登入），取代 Gist 同步
 
@@ -378,7 +378,7 @@ Max 想要「開網址、登入會員帳號、甚至可以綁 Gmail 登入，就
 1. **Max 自己**去 supabase.com 開一個免費專案（開帳號、建專案這一步只能 Max 本人做，Claude 不能代替使用者建立外部服務帳號）。
 2. **Max 自己**在 Google Cloud Console 開一個 OAuth 用戶端（Client ID/Secret），才能讓 Supabase 的 Google 登入選項真的動起來——這步也需要 Max 自己的 Google 帳號權限，不能代做。
 3. 在 Supabase 的 Auth 設定裡啟用 Email 跟 Google 兩種登入方式，把上一步拿到的 Client ID/Secret 貼進去。
-4. 設計一個 `user_prefs` 資料表（用 Supabase 的 `auth.uid()` 當 key），存的內容跟現在 Gist 同步的範圍一樣：`favorites`／`excluded_artists`／`excluded_types`／`mute_keywords`／`strict_mode`（見 FR-63/64、`GIGRADAR-SPEC.md` §8）。**畫面篩選狀態（城市/月份/價格/類型/地區 chip、收藏頁列表/日曆切換）刻意不用同步**，跟現在 Gist 同步的原則一樣——那些是「當下在看什麼」不是「跨裝置生效的規則」。
+4. 設計一個 `user_prefs` 資料表（用 Supabase 的 `auth.uid()` 當 key），存的內容跟現在 Gist 同步的範圍一樣：`favorites`／`excluded_artists`／`excluded_types`／`mute_keywords`／`strict_mode`（見 FR-63/64、`LIVERADAR-SPEC.md` §8）。**畫面篩選狀態（城市/月份/價格/類型/地區 chip、收藏頁列表/日曆切換）刻意不用同步**，跟現在 Gist 同步的原則一樣——那些是「當下在看什麼」不是「跨裝置生效的規則」。
 5. 前端新增登入/註冊頁面（或彈窗），用 `@supabase/supabase-js` 這個 client 套件跟 Supabase 溝通。
 6. 決定要不要保留 Gist 同步當作「沒有帳號時的備援」，還是直接整條 `reconcileGistSync()` 路徑換掉——這個要問 Max，不要自己假設。
 
@@ -402,4 +402,4 @@ Max 想要「開網址、登入會員帳號、甚至可以綁 Gmail 登入，就
 5. **真正卡最久的問題**：Client Secret 重設過後，Supabase 那邊沒有真的存到最新的值，導致 Google 那邊授權碼換權杖失敗，錯誤是 `error=server_error&error_code=unexpected_failure&error_description=Unable+to+exchange+external+code`。**這個錯誤原本完全不會顯示在畫面上**——`initSettings()` 沒有檢查網址列的 `?error=...` 參數，使用者點登入、走完 Google 流程、跳回來，畫面就只是靜靜地維持「未登入」，沒有任何提示，只能自己去看網址列才找得到線索。已經修好：`initSettings()` 現在會檢查 `error_description` 參數，用 `alert()` 顯示出來（跟這個檔案其他地方的錯誤提示風格一致），顯示完會把網址清乾淨，重新整理不會一直跳同一個舊錯誤。
 6. **驗證方式**：不只看畫面顯示「已登入」就信了，有直接查 `user_prefs` 表確認真的寫進一筆資料（`prefs` 欄位格式正確），也用假的 anon 請求測過 RLS 真的擋得住匿名存取（401），這兩個都是實測過、不是憑印象猜的。
 
-**目前狀態**：Google 登入完整測過、資料庫讀寫都驗證過，`npm test` 77 個測試全過。**還沒做的**：GitHub Pages 還沒開通（部署出去的正式站網址還不存在），正式站網址確定後要記得回去 Supabase 的 Redirect URLs 補一筆。`GIGRADAR-SPEC.md` §7/§8（原本描述 Gist 同步的技術文件）跟 `GIGRADAR-SRS.md` 的 FR-65 現在是過時內容，還沒有回去更新。
+**目前狀態**：Google 登入完整測過、資料庫讀寫都驗證過，`npm test` 77 個測試全過。**還沒做的**：GitHub Pages 還沒開通（部署出去的正式站網址還不存在），正式站網址確定後要記得回去 Supabase 的 Redirect URLs 補一筆。`LIVERADAR-SPEC.md` §7/§8（原本描述 Gist 同步的技術文件）跟 `LIVERADAR-SRS.md` 的 FR-65 現在是過時內容，還沒有回去更新。

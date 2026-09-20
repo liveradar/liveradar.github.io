@@ -1,5 +1,5 @@
 /*
-  GigRadar design tokens — Direction D ("街頭活力").
+  LiveRadar design tokens — Direction D ("街頭活力").
   Source of truth: design-comp ComponentSpec artboard (Phase 3).
   Every color in the app must reference one of these variables — never a literal
   hex/oklch value in component CSS — so dark mode (FR-27) stays automatic.

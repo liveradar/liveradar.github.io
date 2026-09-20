@@ -24,7 +24,7 @@ import { normalizeTraditionalChars } from "../normalize.mjs";
 export const name = "KKTIX";
 export const priority = 1;
 
-const UA = "GigRadar/1.0 (personal use, non-commercial; github.com/<you>/gigradar)";
+const UA = "LiveRadar/1.0 (personal use, non-commercial; github.com/<you>/liveradar)";
 const REQUEST_DELAY_MS = 2000;
 const REQUEST_TIMEOUT_MS = 30000; // SPEC §4.3 — every adapter request needs a hard timeout so one slow page can't hang the whole pipeline.
 
@@ -44,7 +44,7 @@ const ORG_PAGE_VENUES = ["thewalllivehouse", "kafka", "pipelivemusic", "emergeli
 // just this one endpoint through Playwright (see fetchSearchResultUrls below
 // and scripts/browser.mjs) — a real browser executes the challenge script and
 // gets through. Event detail pages found via search are NOT behind this
-// challenge and still use plain fetch. See GIGRADAR-SPEC.md §5.1.
+// challenge and still use plain fetch. See LIVERADAR-SPEC.md §5.1.
 
 // Real Taiwanese address data mixes the colloquial (台北/台中) and official
 // (臺北/臺中) characters — normalizeTraditionalChars (shared with

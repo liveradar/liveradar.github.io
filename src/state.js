@@ -9,7 +9,7 @@ import { computeEventId, computePossibleEventIds } from "./id.js";
 import { isPast } from "./filter.js";
 import { supabase, getSession } from "./supabase.js";
 
-const STORAGE_KEY = "gigradar:prefs";
+const STORAGE_KEY = "liveradar:prefs";
 
 export function defaultPrefs() {
   return {
@@ -134,7 +134,7 @@ export function countHiddenByType(tag, events, prefs) {
 // events.json list at render time (src/app.js's loadEvents), and dropped
 // automatically once a real scrape produces the same id (AC-17).
 
-const MANUAL_EVENTS_KEY = "gigradar:manual_events";
+const MANUAL_EVENTS_KEY = "liveradar:manual_events";
 
 export function loadManualEvents() {
   try {
@@ -214,7 +214,7 @@ export function removeManualEvent(id) {
 // just declutters the queue in THIS browser until the next `npm run fetch`
 // naturally drops the item from needs-review.json — it's not synced anywhere.
 
-const REVIEW_DISMISSED_KEY = "gigradar:review_dismissed";
+const REVIEW_DISMISSED_KEY = "liveradar:review_dismissed";
 
 export function loadReviewDismissed() {
   try {
@@ -238,7 +238,7 @@ export function dismissReviewItem(rawId) {
 // these are "what am I currently looking at" view state, not a durable
 // rule like excluded_artists, so they stay local to this browser.
 
-const VIEW_FILTERS_KEY = "gigradar:view_filters";
+const VIEW_FILTERS_KEY = "liveradar:view_filters";
 
 export function loadViewFilters() {
   try {
@@ -257,7 +257,7 @@ export function saveViewFilters(filters) {
 // Same "screen state, not a rule" spirit as the view filters above — which
 // view you last had open isn't something that needs to sync across devices.
 
-const FAV_VIEW_KEY = "gigradar:fav_view";
+const FAV_VIEW_KEY = "liveradar:fav_view";
 
 export function loadFavView() {
   try {
@@ -278,7 +278,7 @@ export function saveFavView(view) {
 // value — an absent/invalid key means "follow the OS", matching how
 // tokens.css's :not([data-theme="light"]) guard works. Never synced to the
 // account — a display preference tied to one screen/eyes, not a rule.
-const THEME_KEY = "gigradar:theme";
+const THEME_KEY = "liveradar:theme";
 
 export function loadTheme() {
   try {

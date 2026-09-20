@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "gigradar-dev",
+      "name": "liveradar-dev",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "serve"],
       "port": 8000

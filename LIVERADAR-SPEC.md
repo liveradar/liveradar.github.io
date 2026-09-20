@@ -1,10 +1,10 @@
-# GigRadar 技術架構與實作規格書（SPEC）
+# LiveRadar 技術架構與實作規格書（SPEC）
 
 | 項目 | 內容 |
 |---|---|
 | 文件版本 | v1.0 |
 | 撰寫日期 | 2026-09-15 |
-| 對應文件 | `GIGRADAR-SRS.md` v1.0（需求與驗收基準，本文件不重複其內容，只講「怎麼做」） |
+| 對應文件 | `LIVERADAR-SRS.md` v1.0（需求與驗收基準，本文件不重複其內容，只講「怎麼做」） |
 | 本文件用途 | 開發前的技術決策基準。§11 分期實作計畫是 Phase 4 的直接施工清單 |
 
 ---
@@ -27,14 +27,14 @@ flowchart LR
   **更新（決策 S5，2026-09-17）**：改成人工手動觸發抓取，不是 GitHub Actions 每日自動 commit——`scripts/dev-server.mjs`（`npm run serve` 啟動）是本機專用的小型 Node 伺服器，設定頁的「🔄 重新抓取最新演出」按鈕只有透過它才會動作，部署在 GitHub Pages 上的正式版沒有這個功能（GitHub Pages 是純靜態主機，沒有後端可以跑 `fetch.mjs`）。這不算違反 D14——**部署出去的正式網站**仍然是零框架、零打包工具的純靜態頁面，只是多了一個「本機開發用」的小伺服器，用途類似 `python3 -m http.server` 曾經扮演的角色，只是多了一個 API 端點。細節見 §12 S5。
 - **偏好層**：收藏、排除規則、設定存在瀏覽器 `localStorage`，並透過使用者自己的 GitHub 帳號授權寫入一個 **private Gist** 做跨裝置同步（FR-65）。
 - **運算全部在前端**：過濾、排序、分組、統計皆是瀏覽器端 JS 運算（NFR-02 <100ms），後端只負責「產生今天的資料快照」。
-- **沒有伺服器、沒有帳號系統**：符合 N2、NFR-06。Gist 同步用的是使用者自己對 GitHub 的 OAuth device flow 或 Personal Access Token，GigRadar 本身不持有任何使用者密碼。
+- **沒有伺服器、沒有帳號系統**：符合 N2、NFR-06。Gist 同步用的是使用者自己對 GitHub 的 OAuth device flow 或 Personal Access Token，LiveRadar 本身不持有任何使用者密碼。
 
 ---
 
 ## 2. Repo 結構
 
 ```
-gigradar/
+liveradar/
 ├── index.html                  # 時間表（首頁）
 ├── new.html                    # 新上架
 ├── favorites.html              # 我的收藏
@@ -78,8 +78,8 @@ gigradar/
 │   └── notify.mjs                 # 來源異常時呼叫 GitHub API 開 issue
 ├── .github/workflows/
 │   └── daily-update.yml
-├── GIGRADAR-SRS.md
-├── GIGRADAR-SPEC.md
+├── LIVERADAR-SRS.md
+├── LIVERADAR-SPEC.md
 └── README.md
 ```
 
@@ -209,7 +209,7 @@ id      = sha1( normalize(headliner) + "|" + date + "|" + venue_normalized )
 ### 4.3 爬取禮儀（NFR-04）
 
 - 每個 adapter 內部 request 間隔 ≥ 2 秒（`await sleep(2000)`），非平行對同一網域打請求。
-- 固定 User-Agent 字串標示 `GigRadar/1.0 (personal use; contact: <email>)`。
+- 固定 User-Agent 字串標示 `LiveRadar/1.0 (personal use; contact: <email>)`。
 - 讀取並遵守目標網域 `robots.txt`（pipeline 啟動時先 fetch 一次快取）。
 
 ---
@@ -417,7 +417,7 @@ export function resolveVisibility(event, prefs, viewFilters) {
 **2026-09-18 補上首頁的城市/月份/價格 chip UI**：`passesViewFilters()` 這段邏輯其實從一開始就寫好也測過，但首頁 `index.html` 的「全部城市／10月／價格」三個 chip 一直是完全沒接上任何邏輯的靜態裝飾——這次補上：
 - `src/interactions.js` 新增 `openFilterSheet(title, options, currentValue, onSelect)`，跟既有的 `openExcludeMenu()` 共用同一套 bottom sheet 視覺，單選、點了立刻套用並關閉，不需要額外「確定」按鈕。
 - `src/app.js` 的 `wireViewFilterChips()` 在 `initTimeline()` 裡把三個 chip 接上 `openFilterSheet`，城市/月份選項**從尚未結束的場次動態算出**（不是寫死清單）——刻意排除已結束的場次，否則會出現選了也一定是空清單的死選項（例如今天是 9/18，若選項清單沒濾掉 7 月、8 月，使用者選了只會看到「目前沒有符合條件的演出」）。價格是固定的 4 個級距（NT$500/1000/2000/3000 以下）+「不限價格」。
-- 篩選狀態存在 `localStorage`（`gigradar:view_filters`），**刻意不放進 `UserPrefs`、不走 Gist 同步**——這是「當下正在看什麼」的畫面狀態，不是像 `excluded_artists`那樣要長期生效、跨裝置同步的規則（呼應 §3.3 的既有設計）。
+- 篩選狀態存在 `localStorage`（`liveradar:view_filters`），**刻意不放進 `UserPrefs`、不走 Gist 同步**——這是「當下正在看什麼」的畫面狀態，不是像 `excluded_artists`那樣要長期生效、跨裝置同步的規則（呼應 §3.3 的既有設計）。
 
 **2026-09-18 再加碼：新增「類型」跟「音樂人地區」兩個篩選 chip**：`passesViewFilters()` 補上 `type`（比對 `event.tags_type`）跟 `origin`（比對 `event.tags_origin`）兩個條件，跟既有的 city/month/priceMax 同一套機制、可以疊加使用。選項一樣動態算自尚未結束的場次（`typeFilterOptions()`/`originFilterOptions()`），只列出目前資料裡真的存在的類型/地區，不會出現選了保證空清單的死選項。`src/filter.test.js` 新增 3 個測試涵蓋單獨篩選跟疊加篩選。
 
@@ -452,9 +452,9 @@ export function resolveVisibility(event, prefs, viewFilters) {
 - 每次使用者操作（收藏/排除/設定變更）→ debounce 2 秒後寫回 Gist，避免每次點擊都打 API。
 
 **實作備註（M9，2026-09-16）**：
-- 單一 gist 檔案 `gigradar-sync.json`，內容是 `{ prefs, manual_events }`——手動新增場次（US-17）不屬於 UserPrefs schema，但搭同一個檔案一起同步，否則跨裝置看不到彼此手動加的場次。改動 manual_events 時會連帶 bump `prefs.updated_at`，讓另一台裝置的 last-write-wins 比較能偵測到這個變化並抓下來。
+- 單一 gist 檔案 `liveradar-sync.json`，內容是 `{ prefs, manual_events }`——手動新增場次（US-17）不屬於 UserPrefs schema，但搭同一個檔案一起同步，否則跨裝置看不到彼此手動加的場次。改動 manual_events 時會連帶 bump `prefs.updated_at`，讓另一台裝置的 last-write-wins 比較能偵測到這個變化並抓下來。
 - 「連接」時如果本機還沒有 `gist_id`，會先用同一組 token 打 `GET /gists` 找有沒有 description 等於 `GIST_DESCRIPTION` 常數的既有 gist——這樣同一個 GitHub 帳號在第二台裝置貼上一樣的 PAT 就能自動接上第一台裝置建立的 gist，不需要使用者手動複製 gist id。找不到才 `POST` 建立新的。
-- Token 存在獨立的 `localStorage` key（`gigradar:gist_token`），完全不會出現在 `prefs` 物件裡，所以 FR-63 匯出 JSON 不會外洩 token。
+- Token 存在獨立的 `localStorage` key（`liveradar:gist_token`），完全不會出現在 `prefs` 物件裡，所以 FR-63 匯出 JSON 不會外洩 token。
 - `reconcileGistSync()` 在每個會讀 prefs 的頁面（時間表／新上架／收藏／已隱藏管理）載入時都會呼叫一次，讓「在另一台裝置改的設定，開啟這台裝置時自動生效」，不需要使用者手動去設定頁按同步。未連接時是純同步的 early return，不會發任何網路請求。
 - 因為沒有真的 GitHub PAT 可以測試，push/pull 對 GitHub Gist API 的實際串接**沒有跑過真實網路請求驗證**，只驗證了：離線/token 失效時不會清空本機資料（AC-65 負向測試），以及沒連接時完全不會觸發網路請求。真的連上一個帳號的兩台裝置互相同步，還沒有人工測過。
 
@@ -466,7 +466,7 @@ export function resolveVisibility(event, prefs, viewFilters) {
 
 ### 9.1 響應式縮放（RWD，2026-09-18）
 
-GigRadar 原本完全 mobile-first（`.app{max-width:480px}`，SPEC 一開始就定調手機是主要裝置），在桌機瀏覽器上就是畫面中間一條窄窄的欄，兩側大量留白。Max 要求「除了手機版之外，用不同尺寸做 RWD 縮放」，做法：
+LiveRadar 原本完全 mobile-first（`.app{max-width:480px}`，SPEC 一開始就定調手機是主要裝置），在桌機瀏覽器上就是畫面中間一條窄窄的欄，兩側大量留白。Max 要求「除了手機版之外，用不同尺寸做 RWD 縮放」，做法：
 
 - **兩個新斷點**：`min-width:800px`（平板）與 `min-width:1200px`（桌機），`.app` 分別放寬到 820px／1180px。
 - **場次列表改用 CSS Grid，其他內容維持單欄**：這是這次改動的核心判斷——「哪裡值得變寬」跟「哪裡該維持窄欄」不一樣。`.event-list`（有 `.event-card` 直屬子元素的頁面，如收藏頁／搜尋結果的空狀態）跟 `.day-group`（時間表／新上架這種按日期分組的頁面）在寬螢幕下改成 `display:grid; grid-template-columns:repeat(auto-fit, minmax(340px,1fr))`，讓場次卡片並排顯示，而不是被迫排成一條長長的單欄。用 `:has(> .event-card)` 選擇器分辨「這個 `.event-list` 底下是不是直接放卡片」，因為同一個 class 在不同頁面的巢狀結構不一樣（時間表是 `.event-list > .day-group > .event-card`，收藏頁是 `.event-list > .event-card` 沒有 `.day-group` 這層）。`auto-fit`（不是 `auto-fill`）確保當某一天只有 1-2 場時，卡片會撐開填滿那一列，不會留下奇怪的空白欄位。
@@ -488,7 +488,7 @@ Max 看過 9.1 的成果後自己提出四個進一步調整，這次全部做�
 
 ### 9.3 收藏頁日曆檢視（2026-09-18）
 
-`favorites.html` 除了原本依日期排序的列表，新增一個月曆檢視，用「列表」／「日曆」兩個 chip 切換（存在 `localStorage` 的 `gigradar:fav_view`，畫面狀態、不走 Gist 同步，跟 §6 的城市/月份/價格篩選器同精神）。
+`favorites.html` 除了原本依日期排序的列表，新增一個月曆檢視，用「列表」／「日曆」兩個 chip 切換（存在 `localStorage` 的 `liveradar:fav_view`，畫面狀態、不走 Gist 同步，跟 §6 的城市/月份/價格篩選器同精神）。
 
 - 新增 `src/calendar.js`：純函式 `buildMonthGrid(year, month)`／`addMonths(year, month, delta)`，不碰 DOM，照專案慣例獨立成好測試的邏輯檔（同 `format.js`／`filter.js` 的模式）。
 - 月曆格子有收藏場次的日期標示圓點，點下去在下方顯示當天場次；預設開啟會自動跳到最近一場收藏所在的月份並選好那一天。
@@ -505,7 +505,7 @@ Max 反映「深色看久眼睛有點痛」，要求加一個手動切換按鈕�
 `data-theme` 屬性設在 `<html>` 上，由每個頁面 `<head>` 裡的一小段**同步**（非 `type="module"`）inline script 負責，在 `<title>`／CSS 之前執行：
 
 ```html
-<script>(function(){try{var t=localStorage.getItem("gigradar:theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem("liveradar:theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 ```
 
 一定要是同步 inline script、而且要放在最前面——`app.js` 是 `type="module"`，瀏覽器會延後執行到 DOM 解析完，如果靠它來設定 `data-theme` 會在每次換頁時先閃一下錯誤的主題（FOUC）才跳到正確主題。八個頁面（`index/new/favorites/search/add/review/hidden/settings.html`）都加了這段。
@@ -534,7 +534,7 @@ jobs:
         with: { node-version: 20 }
       - run: node scripts/fetch.mjs
       - run: |
-          git config user.name "gigradar-bot"
+          git config user.name "liveradar-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/
           git diff --cached --quiet || git commit -m "chore: daily data update $(date +%F)"
@@ -574,7 +574,7 @@ jobs:
 |---|---|---|
 | S1 | 手動新增場次的資料歸屬 | **只存個人 Gist，不寫回 repo**。手動新增場次是「個人補件」，同步靠 Gist 跨裝置；若隔天被自動抓到，靠 `id` 相同去重，不重複顯示，但不會變成全站資料 |
 | S2 | Gist 認證方式 | **Personal Access Token**（僅 `gist` 權限），使用者自行在 GitHub 產生後貼到設定頁，不自架 OAuth server |
-| S3 | GitHub repo 持有者 | 使用者現有 GitHub 帳號；repo 建立與推送在 M11（上線）階段執行，M1~M10 先在本機開發與驗證 ~~**變更（2026-09-16）**：repo（https://github.com/Max-side/gigradar）實際上從 M1 就建立並每個里程碑都推送了，不是等到 M11 才推。原因：多台電腦開發（公司/家裡）需要 git 隨時同步，等到 M11 才建 repo 反而不可行。M11 真正剩下的工作只有「讓 `.github/workflows/daily-update.yml` 真的在 GitHub Actions 上跑過」，不是建 repo 本身。~~ |
+| S3 | GitHub repo 持有者 | 使用者現有 GitHub 帳號；repo 建立與推送在 M11（上線）階段執行，M1~M10 先在本機開發與驗證 ~~**變更（2026-09-16）**：repo（https://github.com/Max-side/liveradar）實際上從 M1 就建立並每個里程碑都推送了，不是等到 M11 才推。原因：多台電腦開發（公司/家裡）需要 git 隨時同步，等到 M11 才建 repo 反而不可行。M11 真正剩下的工作只有「讓 `.github/workflows/daily-update.yml` 真的在 GitHub Actions 上跑過」，不是建 repo 本身。~~ |
 | S4 | FR-19 追蹤名單巡檢的實作方式（2026-09-17） | **手動/對話觸發，不做成自動排程**。原設計是「每週 AI 網路搜尋自動巡檢」，但排程本身免費、AI 搜尋本身要付費，兩者是分開的成本，不管排程放在 GitHub Actions 還是自己的機器上都一樣要付 AI API 的錢。改成使用者在 Claude Code 對話裡主動說「照追蹤名單查一次」，由 AI 用既有對話工具（瀏覽器/搜尋）即時查詢——這個用法算在使用者本來就有的 Claude 方案裡，不需要另外申請/支付 API。代價是不會自動發生，需要使用者記得主動觸發。追蹤名單存在 `data/watchlist.yml`，純粹是人類/AI 對話用的參考清單，不被任何程式讀取。 |
 | S5 | 資料抓取觸發方式（2026-09-17） | **手動觸發，取消 GitHub Actions 每日排程**。原本 M11 花了不少力氣讓 daily cron 在 GitHub Actions 上穩定運作，但使用者決定改成人工在設定頁按「🔄 重新抓取最新演出」按鈕觸發，理由：(1) 順便解決 M11 的 GitHub Actions IP 被拓元/KKTIX 擋的問題——手動觸發时都是從使用者自己的機器發出請求，不會再遇到機房 IP 被封鎖；(2) 使用頻率本來就不需要「每天全自動」，符合已經決定的 FR-19 手動查詢精神（S4）。技術上新增 `scripts/dev-server.mjs`（本機專用小型 Node 伺服器，取代原本 `python3 -m http.server`），設定頁按鈕呼叫它的 `POST /api/fetch` 執行 `fetch.mjs`。GitHub Actions 的 `daily-update.yml` 保留 `workflow_dispatch`（供需要時手動從 CI 觸發），移除 `schedule` 觸發器。 |
 

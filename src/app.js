@@ -944,7 +944,7 @@ function initSettings() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `gigradar-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `liveradar-backup-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
     renderSyncStatus();

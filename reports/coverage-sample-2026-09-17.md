@@ -4,19 +4,19 @@
 
 依 SRS 決策 D11：既有彙整站不納入爬取，只作為覆蓋率抽樣的比對基準。這次選用
 [Artists.tw](https://www.artists.tw/gigs)——一個獨立的台灣 Live House／演唱會行事曆彙整站（自稱「跨售票平台彙整」，目前收錄
-467 場），跟 GigRadar 的產品定位高度重疊，適合當基準。
+467 場），跟 LiveRadar 的產品定位高度重疊，適合當基準。
 
 取樣方式：開啟 Artists.tw 依日期排序的列表，取最前面（最近期）30 筆，逐筆比對
-GigRadar 本地的 `data/needs-review.json`（79 筆，KKTIX／拓元這次執行實際抓到、
+LiveRadar 本地的 `data/needs-review.json`（79 筆，KKTIX／拓元這次執行實際抓到、
 但尚未通過藝人辨識的原始標題）與 `data/events.json`（目前 0 筆已辨識場次）。
 用標題關鍵字與場館名稱人工比對，不是機器比對——判斷「這是不是同一場演出」需要人眼看標題的變體寫法。
 
-其中 1 筆（2026 摔角兄弟會，屬摔角非音樂演出）不在 GigRadar 的音樂演出範疇內，
+其中 1 筆（2026 摔角兄弟會，屬摔角非音樂演出）不在 LiveRadar 的音樂演出範疇內，
 排除在分母之外，實際樣本數 **29 場**。
 
 ## 結果
 
-| # | 演出 | 場館 | GigRadar 是否收錄 |
+| # | 演出 | 場館 | LiveRadar 是否收錄 |
 |---|---|---|---|
 | 1 | 【工作帶_shuffle kid】溫室雜草《衝突的意義》專輯試聽場 | 玉成戲院 | ❌ |
 | 2 | Mili — One Million Moons Asia Tour | Zepp New Taipei | ❌ |
@@ -55,7 +55,7 @@ GigRadar 本地的 `data/needs-review.json`（79 筆，KKTIX／拓元這次執�
 不是 adapter 邏輯壞了——是**目前追蹤的場館清單本來就只有一小撮**：
 
 - `scripts/adapters/kktix.mjs` 目前只認得 9 個場館／org 帳號：The Wall、海邊的卡夫卡（kafka）、pipelivemusic、Emerge Livehouse（兩個帳號）、Legacy Taipei、Legacy Taichung、Revolver、Clapper Studio。
-- 這次樣本裡出現的場館：女巫店、Zepp New Taipei、Sappho Live Jazz、Blue Note Taipei、SUB Live House、FINAL、文昌號 WHOA、Legacy TERA（注意：跟已追蹤的「Legacy Taipei」是不同分店）、凝聚力展演空間、野地方 Wild Lab、LIVE WAREHOUSE、百樂門酒館、玉成戲院——**沒有一個在追蹤清單裡**。Artists.tw 側欄列出「近期至少 3 場演出」的場館就有 44 個，GigRadar 現在只碰到其中 9 個的一小部分。
+- 這次樣本裡出現的場館：女巫店、Zepp New Taipei、Sappho Live Jazz、Blue Note Taipei、SUB Live House、FINAL、文昌號 WHOA、Legacy TERA（注意：跟已追蹤的「Legacy Taipei」是不同分店）、凝聚力展演空間、野地方 Wild Lab、LIVE WAREHOUSE、百樂門酒館、玉成戲院——**沒有一個在追蹤清單裡**。Artists.tw 側欄列出「近期至少 3 場演出」的場館就有 44 個，LiveRadar 現在只碰到其中 9 個的一小部分。
 - 就連已經在追蹤清單裡的 Legacy Taipei／Legacy Taichung，這次樣本中屬於它們的 4 場（#7 #20 #23 #24）也全部沒抓到——但這比較可能是另一個已知問題疊加造成的，不是 kktix.mjs 邏輯本身的錯：`data/needs-review.json` 目前停留在 2026-09-16 的快照（見 `HANDOFF.md`「M11 的重大發現」，拓元／KKTIX 搜尋策略持續被 GitHub Actions 的 IP 擋），這幾場很可能是 09-16 之後才公告或才被 Artists.tw 收錄的，用一份舊快照本來就比對不到，不代表 org 頁策略本身失效。
 - 唯一命中的 #21（LEE YOUNGJI）是透過拓元的**全站列表**、不是靠場館比對，所以拓元覆蓋的是「拓元上架的所有場次」，不受這份場館清單限制——這也是為什麼拓元這次執行雖然被 403，上一輪快照裡还能有 70+ 筆的原因。
 

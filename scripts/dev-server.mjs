@@ -99,5 +99,5 @@ const server = createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`GigRadar dev server: http://localhost:${PORT}`);
+  console.log(`LiveRadar dev server: http://localhost:${PORT}`);
 });

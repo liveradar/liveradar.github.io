@@ -1,6 +1,6 @@
-# GigRadar
+# LiveRadar
 
-個人用的獨立/地下音樂演出雷達。詳細需求見 [`GIGRADAR-SRS.md`](./GIGRADAR-SRS.md)，技術架構見 [`GIGRADAR-SPEC.md`](./GIGRADAR-SPEC.md)。
+個人用的獨立/地下音樂演出雷達。詳細需求見 [`LIVERADAR-SRS.md`](./LIVERADAR-SRS.md)，技術架構見 [`LIVERADAR-SPEC.md`](./LIVERADAR-SPEC.md)。
 
 ## 目前進度
 
@@ -34,4 +34,4 @@ python3 -m http.server 8000
 
 ## 目錄結構
 
-見 `GIGRADAR-SPEC.md` §2。
+見 `LIVERADAR-SPEC.md` §2。

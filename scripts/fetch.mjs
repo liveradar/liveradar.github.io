@@ -225,7 +225,7 @@ async function main() {
   );
 
   console.log(
-    `GigRadar fetch complete: ${events.length} recognized event(s) (${digest.added_ids.length} new, ${digest.updated.length} updated), ${needsReview.length} needing review.`
+    `LiveRadar fetch complete: ${events.length} recognized event(s) (${digest.added_ids.length} new, ${digest.updated.length} updated), ${needsReview.length} needing review.`
   );
 }
 
