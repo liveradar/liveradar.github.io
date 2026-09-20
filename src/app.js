@@ -980,6 +980,13 @@ function initSettings() {
 
   // S5 (2026-09-17): only works when this page is served by scripts/dev-server.mjs
   // (npm run serve) — GitHub Pages is a static host with no /api/fetch to call.
+  // Hide it outright on any other host (2026-09-21: a real visitor on the
+  // deployed site has no way to run npm run serve, so showing a button that
+  // can only ever fail there is just confusing, not a real option for them).
+  const isLocalDev = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  if (!isLocalDev) {
+    refetchBtn.hidden = true;
+  }
   refetchBtn.addEventListener("click", async () => {
     refetchBtn.disabled = true;
     refetchBtn.textContent = "抓取中…（可能要幾分鐘）";
