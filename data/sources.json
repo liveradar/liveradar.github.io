@@ -2,42 +2,42 @@
   "sources": [
     {
       "name": "KKTIX",
-      "last_success": "2026-09-18T16:01:53.507Z",
+      "last_success": "2026-09-20T16:11:25.961Z",
       "last_error": null,
-      "last_count": 26,
+      "last_count": 3,
       "status": "ok"
     },
     {
       "name": "拓元",
       "last_success": "2026-09-18T16:04:42.056Z",
-      "last_error": null,
+      "last_error": "GET https://tixcraft.com/activity -> 403",
       "last_count": 74,
-      "status": "ok"
+      "status": "error"
     },
     {
       "name": "iNDIEVOX",
-      "last_success": "2026-09-18T16:01:22.047Z",
+      "last_success": "2026-09-20T16:11:28.583Z",
       "last_error": null,
-      "last_count": 76,
+      "last_count": 72,
       "status": "ok"
     },
     {
       "name": "FANSI GO",
       "last_success": "2026-09-18T16:01:18.408Z",
-      "last_error": null,
+      "last_error": "browserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝",
       "last_count": 26,
-      "status": "ok"
+      "status": "error"
     },
     {
       "name": "Ticket Plus",
       "last_success": "2026-09-18T16:01:55.174Z",
-      "last_error": null,
+      "last_error": "GET main/mainEvents.json -> 403",
       "last_count": 134,
-      "status": "ok"
+      "status": "error"
     },
     {
       "name": "manual",
-      "last_success": "2026-09-18T16:00:57.445Z",
+      "last_success": "2026-09-20T16:11:00.776Z",
       "last_error": null,
       "last_count": 0,
       "status": "ok"
