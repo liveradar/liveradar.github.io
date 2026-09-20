@@ -1,6 +1,6 @@
 # 交接文件 — 換電腦/換 session 接續開發前先看這份
 
-寫於 2026-09-15，2026-09-20 更新。M1~M12 全部跑完一輪，覆蓋率抽樣（M12）結果不好，過程中還發現 KKTIX 的搜尋策略被 Cloudflare 擋住。**2026-09-20 最新狀態**：Gist token 同步已經整個換成 Supabase 帳號登入，**已經動工完成並實測過**（真的登入成功、資料庫真的寫入資料）——只留 Google 登入，email/密碼那條路做完後又拿掉了，細節見文件尾端「Supabase 帳號登入上線」章節。2026-09-19 待整理清單也從 71 筆清到只剩 1 筆（見「待整理清單大清理」章節）。**同一天稍晚，Max 帶了一份參考實作過來（另一個 Claude 對話產出、已經有人實際跑起來的 Python/Flask 版本），示範了用 Playwright 真瀏覽器繞過 Cloudflare、外加幾個新來源的做法，因此：(1) 資料抓取改成純手動觸發（決策 S5，取消 GitHub Actions 排程），(2) 新增 iNDIEVOX、FANSI GO、Ticket Plus 三個 adapter（Max 一開始要求的完整來源清單全部做完了），(3) 用 Playwright 真的修好了 KKTIX 搜尋策略被 Cloudflare 擋住的問題，覆蓋率抽樣從 3.4% 一路推到 51.7%**——看下方各來源對應章節跟 `reports/coverage-sample-2026-09-17.md` 的完整過程。這份文件的目的：讓一個完全沒看過這個對話紀錄的人（包含未來的你，或另一台電腦上全新開的 Claude Code session）能在 5 分鐘內知道現在做到哪、能不能信任目前的程式碼、下一步該做什麼。
+寫於 2026-09-15，2026-09-20 更新，2026-09-21 再更新。**2026-09-21 最新狀態**：專案全面改名 GigRadar → LiveRadar（含 GitHub org/repo/文件/UI，網址換成乾淨的 `https://liveradar.github.io`），新增首頁介紹卡/基本 SEO，修掉 FAB 擋住設定分頁的版面 bug，設定頁拿掉多餘的同步狀態顯示，部署版隱藏只有本機才動得了的「重新抓取」按鈕；另外實測驗證了恢復 GitHub Actions 自動排程會讓拓元／Ticket Plus 兩個來源持續被擋（403），正在規劃改用 Max 上班電腦的 Claude 排程任務代替，細節見文件尾端對應章節。M1~M12 全部跑完一輪，覆蓋率抽樣（M12）結果不好，過程中還發現 KKTIX 的搜尋策略被 Cloudflare 擋住。**2026-09-20 最新狀態**：Gist token 同步已經整個換成 Supabase 帳號登入，**已經動工完成並實測過**（真的登入成功、資料庫真的寫入資料）——只留 Google 登入，email/密碼那條路做完後又拿掉了，細節見文件尾端「Supabase 帳號登入上線」章節。2026-09-19 待整理清單也從 71 筆清到只剩 1 筆（見「待整理清單大清理」章節）。**同一天稍晚，Max 帶了一份參考實作過來（另一個 Claude 對話產出、已經有人實際跑起來的 Python/Flask 版本），示範了用 Playwright 真瀏覽器繞過 Cloudflare、外加幾個新來源的做法，因此：(1) 資料抓取改成純手動觸發（決策 S5，取消 GitHub Actions 排程），(2) 新增 iNDIEVOX、FANSI GO、Ticket Plus 三個 adapter（Max 一開始要求的完整來源清單全部做完了），(3) 用 Playwright 真的修好了 KKTIX 搜尋策略被 Cloudflare 擋住的問題，覆蓋率抽樣從 3.4% 一路推到 51.7%**——看下方各來源對應章節跟 `reports/coverage-sample-2026-09-17.md` 的完整過程。這份文件的目的：讓一個完全沒看過這個對話紀錄的人（包含未來的你，或另一台電腦上全新開的 Claude Code session）能在 5 分鐘內知道現在做到哪、能不能信任目前的程式碼、下一步該做什麼。
 
 ## 這是什麼專案
 
@@ -403,3 +403,39 @@ Max 想要「開網址、登入會員帳號、甚至可以綁 Gmail 登入，就
 6. **驗證方式**：不只看畫面顯示「已登入」就信了，有直接查 `user_prefs` 表確認真的寫進一筆資料（`prefs` 欄位格式正確），也用假的 anon 請求測過 RLS 真的擋得住匿名存取（401），這兩個都是實測過、不是憑印象猜的。
 
 **目前狀態**：Google 登入完整測過、資料庫讀寫都驗證過，`npm test` 77 個測試全過。**還沒做的**：GitHub Pages 還沒開通（部署出去的正式站網址還不存在），正式站網址確定後要記得回去 Supabase 的 Redirect URLs 補一筆。`LIVERADAR-SPEC.md` §7/§8（原本描述 Gist 同步的技術文件）跟 `LIVERADAR-SRS.md` 的 FR-65 現在是過時內容，還沒有回去更新。
+
+## 全面改名：GigRadar → LiveRadar，換 GitHub org、開通 GitHub Pages（2026-09-20）
+
+原名 GigRadar 撞名（GitHub 上已經有一個不相關的既有專案/組織叫 GigRadar.io），Max 要求全面改名，包含 UI 文字、文件、檔名、GitHub org/repo。改法：
+
+- 新名字 **LiveRadar** 是 Max 自己選的，先確認過 GitHub 上沒有撞名的組織才定案。
+- 建了新的 GitHub 組織 `liveradar`，repo 從 `Max-side/gigradar` transfer 過去，**transfer 過程順便改名成 `liveradar.github.io`**——repo 名稱剛好等於 `<org>.github.io` 會觸發 GitHub Pages 的「根網域」特殊處理，部署出來的網址就是乾淨的 `https://liveradar.github.io`，不會露出 Max 的個人帳號名稱，也不用另外買網域（Max 的要求：「免費而且不要我自己的帳號名稱」）。
+- 全部 21+ 個檔案跑過 sed 迴圈，把 `GIGRADAR`/`GigRadar`/`gigradar` 換成 `LIVERADAR`/`LiveRadar`/`liveradar`——含 `GIGRADAR-SPEC.md`/`GIGRADAR-SRS.md` 用 `git mv` 改檔名成 `LIVERADAR-SPEC.md`/`LIVERADAR-SRS.md`，`localStorage` key 前綴（`gigradar:*` → `liveradar:*`，使用者舊的 localStorage 資料會直接失效變成初始狀態，這是可接受的代價，個人專案沒有既有使用者群要遷移）。
+- 本機 git remote 改用 SSH（`git@github.com:liveradar/liveradar.github.io.git`）——過程中 Max 兩次不小心把 GitHub PAT token 貼進對話裡，兩次都立刻要求撤銷，已確認撤銷完成；改用 SSH 之後就不再需要 token 了。
+
+## 首頁新增介紹卡、基本 SEO、favicon（2026-09-20）
+
+- **首頁介紹/使用說明卡**：Max 要求「新增一個區塊介紹這個網頁在幹麻、教學怎麼用」——`index.html` 在頁首跟來源異常警示 banner 之間加一張可關閉的卡片（`#intro-card`），內容是五個平台一句話說明 + 四點操作提示（收藏/排除/篩選/搜尋/登入同步）。關閉狀態存 `localStorage`（`liveradar:intro_dismissed`），關掉後不會再自動跳出來。文案照 Max 的要求把「獨立/地下音樂演出」改成「五個售票平台的音樂展演演出」（Max 原話：「獨立地下這個詞都多久沒用了」）。
+- **基本 SEO**：Max 確認只要「基本網頁資訊」，不是要衝搜尋排名。8 個 HTML 頁面都補上 `<meta name="description">`、favicon（新增 `favicon.svg`，珊瑚色圓點）、4 個 Open Graph 標籤（分享連結時預覽用），純資訊性補完，沒有動任何邏輯或版面。
+
+## FAB 按鈕擋住「設定」分頁的版面 bug（2026-09-20）
+
+Max 截圖回報：手動新增場次用的浮動「+」按鈕蓋住底部導覽列的「設定」分頁，點不到。用 `getBoundingClientRect()` 查證：`.fab` 的 `top:-22px` 讓按鈕底部沉進 74px 高的底部導覽列裡，剛好壓在最後一個 nav item 上。改成 `top:-54px` 修好，三個斷點（手機/平板/桌機）都測過確認不再重疊，桌機版側邊導覽列那組獨立的 `.fab` override 沒有受影響。
+
+## 設定頁拿掉多餘的「跨裝置同步」狀態顯示（2026-09-21）
+
+Max 確認「都已經 Google 登入了，為什麼還要另外一塊同步狀態」——帳號卡片本身的登入/登出狀態已經隱含同步是否生效，不需要獨立徽章重複講一樣的事。`settings.html` 的「同步與備份」section 拆掉同步狀態那塊（`#sync-status`／`#sync-last`），改名「備份」只留匯出/匯入。`src/app.js` 對應把 `renderSyncStatus()` 改名 `renderAccountAndBackup()`，**過程中一度處於半改完的壞狀態**（函式改名但 4 個呼叫點沒同步改、`initSettings()` 的啟動守衛還在檢查已經被刪掉的 `#sync-status` 導致整個 `initSettings()` 永遠不會執行）——已經全部修好並在瀏覽器實測過 console 無錯誤、帳號/備份功能正常，`npm test` 77 個測試全過。
+
+## 部署版隱藏「重新抓取最新演出」按鈕（2026-09-21）
+
+Max 看到 `settings.html` 的「來源狀態」卡片卡在「載入中…」發現異狀，追出來是上面那個 `initSettings()` 沒執行的 bug（已修好），順便追問「那使用者要怎麼自己更新資料」，發現「重新抓取最新演出」按鈕在部署版（GitHub Pages 純靜態站，沒有 `/api/fetch` 後端）點下去只會顯示「連不上本機伺服器」的錯誤，對一般使用者完全沒用還很困惑。改法：`src/app.js` 的 `initSettings()` 加一個 `location.hostname` 檢查，只有 `localhost`/`127.0.0.1` 才顯示這顆按鈕，部署版直接不渲染。「來源狀態」清單本身（顯示各平台上次成功時間/筆數）維持顯示，這對一般使用者是有意義的資訊，只有「重新抓取」這個只有本機才動得了的按鈕被隱藏。
+
+## 排程自動抓取的可行性測試：確認拓元／Ticket Plus 會擋 GitHub Actions（2026-09-21）
+
+Max 問「使用者要怎麼自己更新資料，還是只能我來更新」，釐清現況：抓取一律手動觸發（決策 S5）是既有決定，一般訪客完全無法自己觸發抓取，資料更新頻率完全取決於 Max 有沒有空手動跑。討論要不要恢復自動排程，先實測驗證會不會被擋（而不是猜）：
+
+- 手動觸發一次 `workflow_dispatch`（真的在 GitHub Actions 環境跑），跑完看 CI 產生的 `data/sources.json`：**拓元 403**（`GET https://tixcraft.com/activity -> 403`）、**Ticket Plus 403**（`GET main/mainEvents.json -> 403`）、KKTIX/iNDIEVOX 正常、FANSI GO 是另一種失敗（CI 環境沒裝 Playwright headless 瀏覽器，不是被擋，是環境設定問題，理論上可修）。
+- **結論**：M11 當時發現的 IP 封鎖問題到現在還是存在，S5 拿掉排程的判斷是對的。如果直接恢復排程，拓元/Ticket Plus 這兩個資料量最大的來源會每天靜默抓取失敗。
+- 討論過的替代方案：(1) 維持現狀全部手動、(2) KKTIX/iNDIEVOX 排程自動抓，拓元/Ticket Plus/FANSI GO 維持手動、(3) 想辦法繞過 403（判斷屬於規避防護機制的灰色地帶，不建議）。
+- Max 提出另一個想法：讓 Claude（不是 GitHub Actions）每天固定時間在他自己的電腦上跑抓取，因為用家用網路的 IP 不會被擋。查證 `mcp__scheduled-tasks` 這個機制後發現**需要 Claude 桌面 App 開著、電腦沒睡眠才會準時觸發，關著的話會等下次開機才補跑**——Max 這台電腦（`/Users/max/Documents/claude/liveradar` 所在的這台）平常都在待機，這個方案在這台機器上等於形同虛設，已經放棄。
+- **改成規劃在 Max 的上班用電腦上做**（同一個 Claude 帳號，但上班電腦平常時段更穩定醒著）。**這是下一步、還沒有動工**，需要三件事都在那台電腦上準備好：(1) `git clone git@github.com:liveradar/liveradar.github.io.git` 到那台電腦（要重新設定一把可以 push 的 SSH key）、(2) 在那台電腦上開 Claude Code、用同樣邏輯建立 `mcp__scheduled-tasks` 排程（跑 `npm ci` → `node scripts/fetch.mjs` → `npm test` → 確認過再 commit+push，跟現有 GitHub Actions bot 的自動化流程同一套邏輯）、(3) **Max 已經口頭確認**排程跑完可以自動 commit+push、不用每次先問過——但**還沒確認過的是**在公司電腦上背景常駐執行個人專案的自動化排程，會不會有公司網路/資安政策方面的疑慮，這件事要 Max 自己評估，不是技術問題。接手的人如果要繼續這件事，先確認 Max 有沒有機會在那台電腦上開 Claude Code。
