@@ -60,6 +60,8 @@ import {
   saveFavView,
   loadTheme,
   saveTheme,
+  loadIntroDismissed,
+  dismissIntro,
 } from "./state.js";
 import { getSession, signInWithGoogle, signOut } from "./supabase.js";
 import { renderEventList, renderFavoritesList, renderNewArrivalsList, renderEmptyList } from "./render.js";
@@ -254,6 +256,17 @@ function wireViewFilterChips(events, getFilters, onChange) {
   refreshLabels();
 }
 
+/** 2026-09-20: first-run intro/tutorial card on the timeline — shows once, dismissed permanently via localStorage (src/state.js). */
+function initIntroCard() {
+  const card = document.getElementById("intro-card");
+  if (!card) return;
+  card.hidden = loadIntroDismissed();
+  document.getElementById("intro-dismiss-btn").addEventListener("click", () => {
+    dismissIntro();
+    card.hidden = true;
+  });
+}
+
 /** FR-14/62, AC-14: warn on the timeline if any source's last run wasn't clean. Fire-and-forget — shouldn't block the main render. */
 async function checkSourceWarning() {
   const bar = document.getElementById("source-warning-bar");
@@ -364,6 +377,7 @@ async function initTimeline(container) {
     return;
   }
 
+  initIntroCard();
   checkSourceWarning();
 
   let viewFilters = loadViewFilters();

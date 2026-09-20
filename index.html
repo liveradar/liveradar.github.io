@@ -28,6 +28,24 @@
     </div>
   </div>
 
+  <!-- 2026-09-20: first-run intro/tutorial card, dismissed permanently once closed (src/state.js's loadIntroDismissed/dismissIntro) — local screen state, not synced across devices. -->
+  <div class="card" id="intro-card" hidden style="margin:0 18px 12px;">
+    <div class="row" style="align-items:flex-start;">
+      <div style="font-size:13px;font-weight:800;">LiveRadar 是什麼？</div>
+      <button type="button" id="intro-dismiss-btn" aria-label="關閉說明" style="border:none;background:transparent;color:var(--muted);font-size:16px;line-height:1;padding:0;cursor:pointer;flex:0 0 auto;">✕</button>
+    </div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.6;">
+      自動彙整 KKTIX、拓元、iNDIEVOX、FANSI GO、Ticket Plus 五個售票平台的音樂展演演出，一個地方看完，不用每個網站分別查。
+    </div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.9;border-top:1px solid var(--border);padding-top:10px;">
+      ★ 收藏喜歡的場次（收藏頁可切換列表／月曆檢視）<br>
+      ✕ 排除不想看到的藝人或類型，之後不會再出現<br>
+      上方 chip 可依城市／月份／類型／地區／價格篩選<br>
+      🔍 右上角搜尋演出者或標題<br>
+      設定頁可登入帳號，跨裝置同步收藏與排除設定
+    </div>
+  </div>
+
   <!-- FR-14/62, AC-14 (M10): shown when data/sources.json has a non-ok source. -->
   <a class="hidden-bar" id="source-warning-bar" href="./settings.html" hidden style="background:var(--warn-bg);color:var(--warn);text-decoration:none;">
     <span id="source-warning-text">⚠ 部分來源今天抓取異常，畫面資料可能不完整</span>
