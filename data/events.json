@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T06:36:43.639Z",
+  "generated_at": "2026-09-21T06:46:25.131Z",
   "events": [
     {
       "title_raw": "音羽-otoha- OUR PLANET additional in TAIPEI",
@@ -298,6 +298,11 @@
           "name": "KKTIX",
           "url": "https://ldh.kktix.cc/events/therampage-live-2026-1",
           "raw_id": "therampage-live-2026-1"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://ldh.kktix.cc/events/therampage-live-2026-3",
+          "raw_id": "therampage-live-2026-3"
         }
       ],
       "id": "9bef0b055525cadf",
@@ -564,6 +569,11 @@
           "name": "KKTIX",
           "url": "https://oaklight.kktix.cc/events/d870e7c6",
           "raw_id": "d870e7c6"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://oaklight.kktix.cc/events/cf5fc638",
+          "raw_id": "cf5fc638"
         }
       ],
       "id": "8bc06b8977845e38",
@@ -1020,11 +1030,6 @@
           "name": "KKTIX",
           "url": "https://spaceport.kktix.cc/events/jonyj-2",
           "raw_id": "jonyj-2"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://spaceport.kktix.cc/events/jonyj-1",
-          "raw_id": "jonyj-1"
         }
       ],
       "id": "e06d3ec7ad10b0c2",
@@ -1863,6 +1868,11 @@
           "name": "KKTIX",
           "url": "https://theflabbergast.kktix.cc/events/135e6dc7",
           "raw_id": "135e6dc7"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://theflabbergast.kktix.cc/events/78746040",
+          "raw_id": "78746040"
         }
       ],
       "id": "b8547085165f3566",
@@ -2543,6 +2553,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_joji",
           "raw_id": "26_joji"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_joji_c",
+          "raw_id": "26_joji_c"
         }
       ],
       "id": "d6d6df06cec0348f",
@@ -2581,6 +2596,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_5sos_v",
           "raw_id": "26_5sos_v"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_5sos",
+          "raw_id": "26_5sos"
         }
       ],
       "id": "fa77bc12d592c9b8",
@@ -2619,6 +2639,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_wte_v",
           "raw_id": "26_wte_v"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_wte",
+          "raw_id": "26_wte"
         }
       ],
       "id": "fa004027fb7565ae",
@@ -2733,6 +2758,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_bini",
           "raw_id": "26_bini"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_bini_v",
+          "raw_id": "26_bini_v"
         }
       ],
       "id": "7bdb29cc34c278be",
@@ -2847,6 +2877,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_vashhsu",
           "raw_id": "26_vashhsu"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_vashhsu_v",
+          "raw_id": "26_vashhsu_v"
         }
       ],
       "id": "afa14a26670acd07",
@@ -3075,6 +3110,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_cp",
           "raw_id": "26_cp"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_cp_c",
+          "raw_id": "26_cp_c"
         }
       ],
       "id": "22a822cb1593b3a3",
@@ -3341,6 +3381,16 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_lany",
           "raw_id": "26_lany"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_lany_v",
+          "raw_id": "26_lany_v"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_lany_c",
+          "raw_id": "26_lany_c"
         }
       ],
       "id": "4347b7fe0e4855b3",
@@ -3417,6 +3467,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_youngji",
           "raw_id": "26_youngji"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_youngji_c",
+          "raw_id": "26_youngji_c"
         }
       ],
       "id": "2eb80cb276000cf7",
@@ -3455,6 +3510,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_malone",
           "raw_id": "26_malone"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_malone_c",
+          "raw_id": "26_malone_c"
         }
       ],
       "id": "334bafb8e4e9734a",
@@ -4069,8 +4129,8 @@
           "raw_id": "26_edyhsiao"
         }
       ],
-      "first_seen_at": "2026-09-21T06:35:27.442Z",
-      "updated_at": "2026-09-21T06:35:27.442Z",
+      "first_seen_at": "2026-09-21T06:45:47.979Z",
+      "updated_at": "2026-09-21T06:45:47.979Z",
       "id": "95d1ae4b76c8fc07",
       "merged_ids": [
         "95d1ae4b76c8fc07"
@@ -6495,6 +6555,160 @@
       ]
     },
     {
+      "title_raw": "EmptyORio ALL THE BEAST 高雄場",
+      "headliners": [
+        "EmptyORio"
+      ],
+      "lineup": [
+        "EmptyORio"
+      ],
+      "is_festival": false,
+      "venue": "",
+      "city": "高雄",
+      "date": "2026-10-03",
+      "time": null,
+      "on_sale_at": null,
+      "price_min": 1800,
+      "price_max": 1800,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "ticket_url": "https://www.indievox.com/activity/detail/26_iv04158e9",
+      "first_seen_at": "2026-09-21T06:34:39.626Z",
+      "updated_at": "2026-09-21T06:34:39.626Z",
+      "sources": [
+        {
+          "name": "iNDIEVOX",
+          "url": "https://www.indievox.com/activity/detail/26_iv04158e9",
+          "raw_id": "26_iv04158e9"
+        }
+      ],
+      "id": "fe767dcca94ff1ba",
+      "merged_ids": [
+        "fe767dcca94ff1ba"
+      ]
+    },
+    {
+      "title_raw": "韓國瞪鞋音樂人 Parannoul ＋Shin Yunsu 台北聯合演出",
+      "headliners": [
+        "Parannoul",
+        "Shin Yunsu"
+      ],
+      "lineup": [
+        "Parannoul",
+        "Shin Yunsu"
+      ],
+      "is_festival": false,
+      "venue": "",
+      "city": "台北",
+      "date": "2026-10-18",
+      "time": null,
+      "on_sale_at": null,
+      "price_min": null,
+      "price_max": null,
+      "status": "announced",
+      "tags_type": [
+        "拼盤"
+      ],
+      "tags_origin": [
+        "日韓"
+      ],
+      "ticket_url": "https://www.indievox.com/activity/detail/26_iv0421681",
+      "first_seen_at": "2026-09-21T06:34:39.627Z",
+      "updated_at": "2026-09-21T06:34:39.627Z",
+      "sources": [
+        {
+          "name": "iNDIEVOX",
+          "url": "https://www.indievox.com/activity/detail/26_iv0421681",
+          "raw_id": "26_iv0421681"
+        }
+      ],
+      "id": "c31966756da55fb9",
+      "merged_ids": [
+        "c31966756da55fb9"
+      ]
+    },
+    {
+      "title_raw": "11.13 (五) 殘殺邪教 歐亞巡迴台中場",
+      "headliners": [
+        "殘殺邪教"
+      ],
+      "lineup": [
+        "殘殺邪教"
+      ],
+      "is_festival": false,
+      "venue": "",
+      "city": "台中",
+      "date": "2026-11-13",
+      "time": null,
+      "on_sale_at": null,
+      "price_min": null,
+      "price_max": null,
+      "status": "announced",
+      "tags_type": [
+        "巡迴"
+      ],
+      "tags_origin": [
+        "歐美"
+      ],
+      "ticket_url": "https://www.indievox.com/activity/detail/26_iv0422572",
+      "first_seen_at": "2026-09-21T06:34:39.627Z",
+      "updated_at": "2026-09-21T06:34:39.627Z",
+      "sources": [
+        {
+          "name": "iNDIEVOX",
+          "url": "https://www.indievox.com/activity/detail/26_iv0422572",
+          "raw_id": "26_iv0422572"
+        }
+      ],
+      "id": "a753750f94e33928",
+      "merged_ids": [
+        "a753750f94e33928"
+      ]
+    },
+    {
+      "title_raw": "12.19 (Sat.)《 核子風暴NUCLEAR TEMPEST 》-輻射馬卡龍 中北巡迴 台中場",
+      "headliners": [
+        "輻射馬卡龍"
+      ],
+      "lineup": [
+        "輻射馬卡龍"
+      ],
+      "is_festival": false,
+      "venue": "",
+      "city": "台中",
+      "date": "2026-12-19",
+      "time": null,
+      "on_sale_at": null,
+      "price_min": null,
+      "price_max": null,
+      "status": "announced",
+      "tags_type": [
+        "巡迴"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "ticket_url": "https://www.indievox.com/activity/detail/26_iv041871d",
+      "first_seen_at": "2026-09-21T06:34:39.627Z",
+      "updated_at": "2026-09-21T06:34:39.627Z",
+      "sources": [
+        {
+          "name": "iNDIEVOX",
+          "url": "https://www.indievox.com/activity/detail/26_iv041871d",
+          "raw_id": "26_iv041871d"
+        }
+      ],
+      "id": "8facbdb6b5339aeb",
+      "merged_ids": [
+        "8facbdb6b5339aeb"
+      ]
+    },
+    {
       "title_raw": "10.2（五）DISORDER LIVE ＃22 大墩釀、未來肆、茜茜溱妮",
       "headliners": [
         "大墩釀",
@@ -6529,89 +6743,11 @@
           "raw_id": "26_iv04212bf"
         }
       ],
-      "first_seen_at": "2026-09-21T06:34:39.626Z",
-      "updated_at": "2026-09-21T06:34:39.626Z",
+      "first_seen_at": "2026-09-21T06:44:02.940Z",
+      "updated_at": "2026-09-21T06:44:02.940Z",
       "id": "73fd824358a7e7da",
       "merged_ids": [
         "73fd824358a7e7da"
-      ]
-    },
-    {
-      "title_raw": "EmptyORio ALL THE BEAST 高雄場",
-      "headliners": [
-        "EmptyORio"
-      ],
-      "lineup": [
-        "EmptyORio"
-      ],
-      "is_festival": false,
-      "venue": "",
-      "city": "高雄",
-      "date": "2026-10-03",
-      "time": null,
-      "on_sale_at": null,
-      "price_min": 1800,
-      "price_max": 1800,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "ticket_url": "https://www.indievox.com/activity/detail/26_iv04158e9",
-      "sources": [
-        {
-          "name": "iNDIEVOX",
-          "url": "https://www.indievox.com/activity/detail/26_iv04158e9",
-          "raw_id": "26_iv04158e9"
-        }
-      ],
-      "first_seen_at": "2026-09-21T06:34:39.626Z",
-      "updated_at": "2026-09-21T06:34:39.626Z",
-      "id": "fe767dcca94ff1ba",
-      "merged_ids": [
-        "fe767dcca94ff1ba"
-      ]
-    },
-    {
-      "title_raw": "韓國瞪鞋音樂人 Parannoul ＋Shin Yunsu 台北聯合演出",
-      "headliners": [
-        "Parannoul",
-        "Shin Yunsu"
-      ],
-      "lineup": [
-        "Parannoul",
-        "Shin Yunsu"
-      ],
-      "is_festival": false,
-      "venue": "",
-      "city": "台北",
-      "date": "2026-10-18",
-      "time": null,
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "announced",
-      "tags_type": [
-        "拼盤"
-      ],
-      "tags_origin": [
-        "日韓"
-      ],
-      "ticket_url": "https://www.indievox.com/activity/detail/26_iv0421681",
-      "sources": [
-        {
-          "name": "iNDIEVOX",
-          "url": "https://www.indievox.com/activity/detail/26_iv0421681",
-          "raw_id": "26_iv0421681"
-        }
-      ],
-      "first_seen_at": "2026-09-21T06:34:39.627Z",
-      "updated_at": "2026-09-21T06:34:39.627Z",
-      "id": "c31966756da55fb9",
-      "merged_ids": [
-        "c31966756da55fb9"
       ]
     },
     {
@@ -6624,7 +6760,7 @@
       ],
       "is_festival": false,
       "venue": "",
-      "city": "未知",
+      "city": "新北",
       "date": "2026-10-30",
       "time": null,
       "on_sale_at": null,
@@ -6645,87 +6781,11 @@
           "raw_id": "26_iv0404354"
         }
       ],
-      "first_seen_at": "2026-09-21T06:34:39.627Z",
-      "updated_at": "2026-09-21T06:34:39.627Z",
+      "first_seen_at": "2026-09-21T06:44:02.941Z",
+      "updated_at": "2026-09-21T06:44:02.941Z",
       "id": "c686c0f621efcc92",
       "merged_ids": [
         "c686c0f621efcc92"
-      ]
-    },
-    {
-      "title_raw": "11.13 (五) 殘殺邪教 歐亞巡迴台中場",
-      "headliners": [
-        "殘殺邪教"
-      ],
-      "lineup": [
-        "殘殺邪教"
-      ],
-      "is_festival": false,
-      "venue": "",
-      "city": "台中",
-      "date": "2026-11-13",
-      "time": null,
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "announced",
-      "tags_type": [
-        "巡迴"
-      ],
-      "tags_origin": [
-        "歐美"
-      ],
-      "ticket_url": "https://www.indievox.com/activity/detail/26_iv0422572",
-      "sources": [
-        {
-          "name": "iNDIEVOX",
-          "url": "https://www.indievox.com/activity/detail/26_iv0422572",
-          "raw_id": "26_iv0422572"
-        }
-      ],
-      "first_seen_at": "2026-09-21T06:34:39.627Z",
-      "updated_at": "2026-09-21T06:34:39.627Z",
-      "id": "a753750f94e33928",
-      "merged_ids": [
-        "a753750f94e33928"
-      ]
-    },
-    {
-      "title_raw": "12.19 (Sat.)《 核子風暴NUCLEAR TEMPEST 》-輻射馬卡龍 中北巡迴 台中場",
-      "headliners": [
-        "輻射馬卡龍"
-      ],
-      "lineup": [
-        "輻射馬卡龍"
-      ],
-      "is_festival": false,
-      "venue": "",
-      "city": "台中",
-      "date": "2026-12-19",
-      "time": null,
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "announced",
-      "tags_type": [
-        "巡迴"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "ticket_url": "https://www.indievox.com/activity/detail/26_iv041871d",
-      "sources": [
-        {
-          "name": "iNDIEVOX",
-          "url": "https://www.indievox.com/activity/detail/26_iv041871d",
-          "raw_id": "26_iv041871d"
-        }
-      ],
-      "first_seen_at": "2026-09-21T06:34:39.627Z",
-      "updated_at": "2026-09-21T06:34:39.627Z",
-      "id": "8facbdb6b5339aeb",
-      "merged_ids": [
-        "8facbdb6b5339aeb"
       ]
     },
     {
@@ -7563,8 +7623,8 @@
           "raw_id": "920001"
         }
       ],
-      "first_seen_at": "2026-09-21T06:34:20.977Z",
-      "updated_at": "2026-09-21T06:34:20.977Z",
+      "first_seen_at": "2026-09-21T06:43:52.036Z",
+      "updated_at": "2026-09-21T06:43:52.036Z",
       "id": "735126600cf37be5",
       "merged_ids": [
         "735126600cf37be5"
@@ -8405,6 +8465,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/017266f1d31197001346497774e29b64",
           "raw_id": "017266f1d31197001346497774e29b64_4cd3875aba2365f8e95036b93f8e9306"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/c3dc337da337c035c92bb65268f10986",
+          "raw_id": "c3dc337da337c035c92bb65268f10986_65958c4579118ea187082e582e1b63f6"
         }
       ],
       "id": "a2edf56861473df0",
@@ -8443,6 +8508,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/017266f1d31197001346497774e29b64",
           "raw_id": "017266f1d31197001346497774e29b64_6bee681a8d035ccde5696995580aba9f"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/c3dc337da337c035c92bb65268f10986",
+          "raw_id": "c3dc337da337c035c92bb65268f10986_663e87046a34e1cf19cd483a71ebee7c"
         }
       ],
       "id": "e28587fe94ba0355",
@@ -9632,6 +9702,21 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/e96255fb45cb9e0611d3f0d87443edd4",
           "raw_id": "e96255fb45cb9e0611d3f0d87443edd4_c68b6fd5113b6528b2093663b54f12f9"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/da00f569c53db3161de3e89fe125a6c0",
+          "raw_id": "da00f569c53db3161de3e89fe125a6c0_de31512c0ea7f9e87a0cdff373352c06"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/4b47b5360d42451f65704664c40b1c72",
+          "raw_id": "4b47b5360d42451f65704664c40b1c72_8bd271d31324af3a6f908f839b062da4"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/391162b411b775da381cb2635dc7b821",
+          "raw_id": "391162b411b775da381cb2635dc7b821_39f865bf9dfa7e2b89d9a910f043d2c3"
         }
       ],
       "id": "49a758928db5869b",
@@ -9670,6 +9755,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/7acedf4b414903ac17104384cb416849",
           "raw_id": "7acedf4b414903ac17104384cb416849_c88be5c1c01bf684e9a56b6defcd6e8d"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/133e449ef09df003e3031b684b9e220b",
+          "raw_id": "133e449ef09df003e3031b684b9e220b_f96793c6efd6f85ea3d80ff9925eb16a"
         }
       ],
       "id": "138a1d334220c645",
@@ -9708,6 +9798,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/7acedf4b414903ac17104384cb416849",
           "raw_id": "7acedf4b414903ac17104384cb416849_2606691b5fcc73c52940bfb047a3d622"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/133e449ef09df003e3031b684b9e220b",
+          "raw_id": "133e449ef09df003e3031b684b9e220b_1bea30873d920876da52c2e759e2993b"
         }
       ],
       "id": "c2134db2f773a83c",
@@ -9860,6 +9955,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/6bf36c84810b2fbfc9d6bae7908c350c",
           "raw_id": "6bf36c84810b2fbfc9d6bae7908c350c_46cfd1b76b43b034f8bb9af16b2e9933"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/91f0a4f4836861c6b87d91ef2112cf52",
+          "raw_id": "91f0a4f4836861c6b87d91ef2112cf52_329b7be748a291b552f7e4cb852bc0b0"
         }
       ],
       "id": "1c8a08143b835997",
@@ -10012,6 +10112,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/a56fce0af2da4d41e26b2dfa34b7babc",
           "raw_id": "a56fce0af2da4d41e26b2dfa34b7babc_08395a17e23d5664ce65fa61aaaba059"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/6c3d8c24e0f00c9c84777615c001bebe",
+          "raw_id": "6c3d8c24e0f00c9c84777615c001bebe_b1e4fa413da5717718d2fbbdf29b4a0e"
         }
       ],
       "id": "cb9ccdeee8db8d07",
@@ -10050,6 +10155,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/a56fce0af2da4d41e26b2dfa34b7babc",
           "raw_id": "a56fce0af2da4d41e26b2dfa34b7babc_debf14611c86559f4c28d8005b063ccf"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/6c3d8c24e0f00c9c84777615c001bebe",
+          "raw_id": "6c3d8c24e0f00c9c84777615c001bebe_96335ac02144ba5591d7d1c1bb57a1f5"
         }
       ],
       "id": "a737c58b8ddd14d0",
@@ -10088,6 +10198,16 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/69bc76ae2f280748cd8cd8f7d7444008",
           "raw_id": "69bc76ae2f280748cd8cd8f7d7444008_53c44e15c26f6c54552dfa9918fa5ae7"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/2f6431aac30afb722f615b9b95aabb0e",
+          "raw_id": "2f6431aac30afb722f615b9b95aabb0e_13e6b5882dde571ca565921867223617"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/a22262dab0ab7f83a1f8e9a918bd9eb6",
+          "raw_id": "a22262dab0ab7f83a1f8e9a918bd9eb6_d5cce01fdf654bd24c702eace4d1b024"
         }
       ],
       "id": "01ce898cee66cbc1",
@@ -10126,6 +10246,16 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/69bc76ae2f280748cd8cd8f7d7444008",
           "raw_id": "69bc76ae2f280748cd8cd8f7d7444008_8922d4bb11f3a3f81ce7b2281e6da83f"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/2f6431aac30afb722f615b9b95aabb0e",
+          "raw_id": "2f6431aac30afb722f615b9b95aabb0e_2b20b3f078a21b7d5206f4ee9d32d5da"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/a22262dab0ab7f83a1f8e9a918bd9eb6",
+          "raw_id": "a22262dab0ab7f83a1f8e9a918bd9eb6_9f2ad37da5bd95116e3072515f6c0229"
         }
       ],
       "id": "e7b5a9d9af17bab4",
@@ -10658,6 +10788,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/2d71c25c10caa0f43c02bd61e1840655",
           "raw_id": "2d71c25c10caa0f43c02bd61e1840655_f188efe6d32bbf9abaffef2ac96508a0"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/94cb4c96a0237447b068117608ae96c8",
+          "raw_id": "94cb4c96a0237447b068117608ae96c8_bd94347f0966ebc1310bd519354d1113"
         }
       ],
       "id": "f06377d4777555c4",
@@ -10704,6 +10839,38 @@
       ]
     },
     {
+      "title_raw": "尚霖 X 葉澈＋KITA X 周穆",
+      "headliners": [],
+      "lineup": [],
+      "is_festival": false,
+      "venue": "女巫店",
+      "city": "台北",
+      "date": "2026-10-09",
+      "time": "19:30",
+      "on_sale_at": null,
+      "price_min": 500,
+      "price_max": 600,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [],
+      "ticket_url": "https://ticketplus.com.tw/activity/6def673ab73ab7d7a4d0597ae84809ca",
+      "sources": [
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/6def673ab73ab7d7a4d0597ae84809ca",
+          "raw_id": "6def673ab73ab7d7a4d0597ae84809ca_c2e30fcb68cdcd8cee2b3576dd4fe2f5"
+        }
+      ],
+      "first_seen_at": "2026-09-21T06:22:25.504Z",
+      "updated_at": "2026-09-21T06:22:25.504Z",
+      "id": "da2f5380a05b8352",
+      "merged_ids": [
+        "da2f5380a05b8352"
+      ]
+    },
+    {
       "title_raw": "【1：1自拍】2026 OK TAECYEON SPECIAL EVENT IN TAIPEI TodaY 特典會",
       "headliners": [
         "OK TAECYEON"
@@ -10727,15 +10894,25 @@
         "日韓"
       ],
       "ticket_url": "https://ticketplus.com.tw/activity/9c037e47b58a0963794885ae3a3aa67c",
-      "first_seen_at": "2026-09-17T07:47:39.250Z",
-      "updated_at": "2026-09-18T03:23:48.864Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/9c037e47b58a0963794885ae3a3aa67c",
           "raw_id": "9c037e47b58a0963794885ae3a3aa67c_1decfcf37b777b6761658425ae70f65e"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/9c037e47b58a0963794885ae3a3aa67c",
+          "raw_id": "9c037e47b58a0963794885ae3a3aa67c_978fc9137a3abc0e5da9e93d9e406aa2"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/997ad769741638217f322a1d16744bbc",
+          "raw_id": "997ad769741638217f322a1d16744bbc_9a300457a246928e65eb03f74cdc7576"
         }
       ],
+      "first_seen_at": "2026-09-17T07:47:39.250Z",
+      "updated_at": "2026-09-18T03:23:48.864Z",
       "id": "048be206f0d7b8b4",
       "merged_ids": [
         "048be206f0d7b8b4"
@@ -10765,15 +10942,20 @@
         "本地"
       ],
       "ticket_url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
-      "first_seen_at": "2026-09-18T15:59:25.192Z",
-      "updated_at": "2026-09-18T15:59:25.192Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
           "raw_id": "c534363deb6aec26e431aba4676ca20c_621b8971b4be8f563d706e8cc11b0774"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
+          "raw_id": "c534363deb6aec26e431aba4676ca20c_21fa35cb39a2c68bde419dcb18835d9f"
         }
       ],
+      "first_seen_at": "2026-09-18T15:59:25.192Z",
+      "updated_at": "2026-09-18T15:59:25.192Z",
       "id": "2954a1988afcde82",
       "merged_ids": [
         "2954a1988afcde82"
@@ -10803,8 +10985,6 @@
         "本地"
       ],
       "ticket_url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
-      "first_seen_at": "2026-09-18T15:59:25.192Z",
-      "updated_at": "2026-09-18T15:59:25.192Z",
       "sources": [
         {
           "name": "Ticket Plus",
@@ -10812,6 +10992,8 @@
           "raw_id": "c534363deb6aec26e431aba4676ca20c_a91d7c400807437210fa4f8eb9f1db38"
         }
       ],
+      "first_seen_at": "2026-09-18T15:59:25.192Z",
+      "updated_at": "2026-09-18T15:59:25.192Z",
       "id": "202f263d79a982ee",
       "merged_ids": [
         "202f263d79a982ee"
@@ -10841,15 +11023,20 @@
         "日韓"
       ],
       "ticket_url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
-      "first_seen_at": "2026-09-17T07:47:39.253Z",
-      "updated_at": "2026-09-18T03:23:48.864Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
           "raw_id": "39e011c895a371c40416497f696652bd_1db09484a02062eb8098bae389cc045d"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
+          "raw_id": "39e011c895a371c40416497f696652bd_6daa1c48b92b635ccd5eb3a621950580"
         }
       ],
+      "first_seen_at": "2026-09-17T07:47:39.253Z",
+      "updated_at": "2026-09-18T03:23:48.864Z",
       "id": "8da662efe0bb8444",
       "merged_ids": [
         "8da662efe0bb8444"
@@ -10879,15 +11066,20 @@
         "日韓"
       ],
       "ticket_url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
-      "first_seen_at": "2026-09-17T07:47:39.253Z",
-      "updated_at": "2026-09-18T03:23:48.864Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
           "raw_id": "39e011c895a371c40416497f696652bd_f86c73b679db462dd652afba6e9ea8a6"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
+          "raw_id": "39e011c895a371c40416497f696652bd_c2df611c68f3b496657015098b393b33"
         }
       ],
+      "first_seen_at": "2026-09-17T07:47:39.253Z",
+      "updated_at": "2026-09-18T03:23:48.864Z",
       "id": "b65795c666bc065e",
       "merged_ids": [
         "b65795c666bc065e"
@@ -10919,15 +11111,20 @@
         "日韓"
       ],
       "ticket_url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
-      "first_seen_at": "2026-09-17T07:47:39.254Z",
-      "updated_at": "2026-09-18T03:23:48.864Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
           "raw_id": "dd245f0210985ec16a62e87212366b38_71ba0272be8d9458e2a129b7288f6fb7"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
+          "raw_id": "dd245f0210985ec16a62e87212366b38_de0f7649827548168e53e1c9e0416204"
         }
       ],
+      "first_seen_at": "2026-09-17T07:47:39.254Z",
+      "updated_at": "2026-09-18T03:23:48.864Z",
       "id": "5af121af4ca5f089",
       "merged_ids": [
         "5af121af4ca5f089"
@@ -10959,8 +11156,6 @@
         "日韓"
       ],
       "ticket_url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
-      "first_seen_at": "2026-09-17T07:47:39.254Z",
-      "updated_at": "2026-09-18T03:23:48.864Z",
       "sources": [
         {
           "name": "Ticket Plus",
@@ -10968,41 +11163,11 @@
           "raw_id": "dd245f0210985ec16a62e87212366b38_bac5ef491c23b0d41f818f743adfdf9c"
         }
       ],
+      "first_seen_at": "2026-09-17T07:47:39.254Z",
+      "updated_at": "2026-09-18T03:23:48.864Z",
       "id": "ac29eda2fedd4557",
       "merged_ids": [
         "ac29eda2fedd4557"
-      ]
-    },
-    {
-      "title_raw": "尚霖 X 葉澈＋KITA X 周穆",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "女巫店",
-      "city": "台北",
-      "date": "2026-10-09",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 500,
-      "price_max": 600,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "ticket_url": "https://ticketplus.com.tw/activity/6def673ab73ab7d7a4d0597ae84809ca",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/6def673ab73ab7d7a4d0597ae84809ca",
-          "raw_id": "6def673ab73ab7d7a4d0597ae84809ca_c2e30fcb68cdcd8cee2b3576dd4fe2f5"
-        }
-      ],
-      "first_seen_at": "2026-09-21T06:22:25.504Z",
-      "updated_at": "2026-09-21T06:22:25.504Z",
-      "id": "da2f5380a05b8352",
-      "merged_ids": [
-        "da2f5380a05b8352"
       ]
     }
   ]

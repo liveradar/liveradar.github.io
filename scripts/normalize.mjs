@@ -548,7 +548,18 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   // ticket page is for. Only tried when venue_raw is blank (zero other
   // signal to lose by guessing) — never overrides a real venue-derived
   // result, so it can't turn a correctly-resolved city into a wrong one.
-  const city = parsedVenue.city ?? (rawEvent.venue_raw?.trim() ? null : cityFromAddress(rawEvent.title_raw));
+  //
+  // Second half of the fallback (added same day, X-Formosa 2026 彩虹音樂節):
+  // the title doesn't always name a city directly either — sometimes it's a
+  // known recurring festival/brand name whose venue is fixed and already in
+  // venues.yml (confirmed via the event's own official site, not guessed),
+  // so also try matching the title against venues.yml the same way a bare
+  // venue name would be.
+  const city =
+    parsedVenue.city ??
+    (rawEvent.venue_raw?.trim()
+      ? null
+      : (cityFromAddress(rawEvent.title_raw) ?? parseTixcraftVenue(rawEvent.title_raw, venuesYml).city));
   // KKTIX is the only source with a real structured ticket-tier table
   // (tickets_raw); everyone else's price lives in freeform description text
   // (price_text_raw) — see parsePriceFromText's doc comment for the real

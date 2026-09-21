@@ -94,3 +94,11 @@
   city: 台中
 - match: "迴響音樂展演空間"
   city: 台中
+
+# 2026-09-21：這筆不是場館名稱比對，是活動品牌名稱——iNDIEVOX 頁面完全沒寫
+# 場地也沒在標題提城市，查證官方網站（formosapride.com）才知道固定辦在
+# 新北市工商展覽中心。跟這份表其他條目共用同一個 parseTixcraftVenue 比對
+# 機制，因為 normalize() 現在也會把場地欄位完全空白時的標題文字拿來這裡
+# 查（見 normalize.mjs 的 title fallback 註解）。
+- match: "X-Formosa"
+  city: 新北

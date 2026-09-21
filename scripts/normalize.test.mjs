@@ -205,6 +205,13 @@ test("normalize(): falls back to a city named in the title when venue_raw is com
   assert.equal(event.venue, "");
 });
 
+test("normalize(): the title fallback also checks venues.yml, not just a literal city name (real bug: X-Formosa 2026 彩虹音樂節's title/venue never mention a city at all — its venue is a known recurring festival brand confirmed via its own official site)", () => {
+  const raw = makeRaw({ title_raw: "X-Formosa 2026 彩虹音樂節", venue_raw: "", source_name: "iNDIEVOX" });
+  const venuesYml = [{ match: "X-Formosa", city: "新北" }];
+  const { event } = normalize(raw, [], venuesYml);
+  assert.equal(event.city, "新北");
+});
+
 test("normalize(): the title-city fallback never overrides a real venue-derived city, even a null one (a promoter name that just doesn't map to any city must stay 未知-eligible, not get a wrong guess from an unrelated city mentioned in the title)", () => {
   const raw = makeRaw({
     title_raw: "台北場也會辦的活動",
