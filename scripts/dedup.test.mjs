@@ -110,14 +110,14 @@ test("dedupe unions lineup, tags_type and tags_origin across merged sources", ()
   const b = makeEvent({
     lineup: ["深海系樂團", "配角乙"],
     tags_type: ["拼盤"],
-    tags_origin: ["海外"],
+    tags_origin: ["亞洲其他"],
     sources: [{ name: "拓元", url: "https://example.com/b", raw_id: "b" }],
   });
 
   const [merged] = dedupe([a, b]);
 
   assert.deepEqual(new Set(merged.lineup), new Set(["深海系樂團", "配角甲", "配角乙"]));
-  assert.deepEqual(new Set(merged.tags_origin), new Set(["本地", "海外"]));
+  assert.deepEqual(new Set(merged.tags_origin), new Set(["本地", "亞洲其他"]));
 });
 
 test("mergeGroup fix: price_max is merged across sources, not just price_min", () => {

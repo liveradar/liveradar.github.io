@@ -49,7 +49,7 @@
   tags_origin_default: 本地
 - canonical: SCRUBB
   aliases: []
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 - canonical: 7co
   aliases: []
   tags_origin_default: 日韓
@@ -75,7 +75,7 @@
   # KKTIX's own listing renders this with a curly/smart apostrophe (U+2019 ’),
   # not the straight one (U+0027 ') — looks identical, doesn't string-match.
   aliases: ["DMASIV", "D’MASIV"]
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 - canonical: LICHANG.rar
   aliases: []
   tags_origin_default: 本地
@@ -90,7 +90,7 @@
   tags_origin_default: 本地
 - canonical: Jony J
   aliases: []
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 - canonical: TAKASE TOYA
   aliases: []
   tags_origin_default: 日韓
@@ -105,7 +105,7 @@
   tags_origin_default: 日韓
 - canonical: Shye
   aliases: []
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 
 # --- 2026-09-17 草稿：對照 342 筆待整理場次補的第一批，還沒 commit ---
 # 標了「⚠️ 短字/常見字」的是子字串比對風險較高、之後如果誤觸發到不相關的
@@ -250,7 +250,7 @@
   tags_origin_default: 日韓
 - canonical: BINI
   aliases: []
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 - canonical: LE SSERAFIM
   aliases: []
   tags_origin_default: 日韓
@@ -885,7 +885,7 @@
 # 個別藝人/團體（逐筆查證過票券頁，不是猜的）
 - canonical: Andr  # ⚠️ 短字，亞洲巡迴獨立藝人（查證：fujimusic.kktix.cc）
   aliases: []
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 - canonical: 存在証明NO FACE NO REaLiTY
   aliases: []
   tags_origin_default: 本地
@@ -909,7 +909,7 @@
   tags_origin_default: 本地
 - canonical: TIPA西藏表演藝術學院
   aliases: []
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 - canonical: MISOGI  # ⚠️ 日文常見詞（禊），查證是日本樂團「真天地開闢集團」的巡迴名稱
   aliases: []
   tags_origin_default: 日韓
@@ -918,13 +918,13 @@
   tags_origin_default: 本地
 - canonical: Asia Artist Awards
   aliases: []
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 - canonical: PERSONA LIVE TOUR
   aliases: []
   tags_origin_default: 日韓
 - canonical: GMMTV FANDAY
   aliases: []
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 - canonical: hyper_link
   aliases: ["Wrong Game"]
   tags_origin_default: 本地
@@ -932,7 +932,7 @@
 # 確認過真的是音樂祭/派對品牌（TYPE_KEYWORDS 已對應好分類，見 normalize.mjs）
 - canonical: ASIA METAL FESTIVAL
   aliases: []
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 - canonical: 火球祭
   aliases: []
   tags_origin_default: 本地
@@ -950,7 +950,7 @@
   tags_origin_default: 本地
 - canonical: FRIENDS MEETING  # ⚠️ 常見英文詞組
   aliases: []
-  tags_origin_default: 海外
+  tags_origin_default: 亞洲其他
 - canonical: 重型宇宙派對
   aliases: []
   tags_origin_default: 本地

@@ -110,7 +110,7 @@ type Event = {
   price_max: number | null;
   status: "announced" | "on_sale" | "sold_out" | "postponed" | "cancelled" | "ended";
   tags_type: string[];     // 專場/巡迴/拼盤/音樂祭/見面會/簽唱會/音樂劇/古典（可複選，通常 1 個）
-  tags_origin: string[];   // 本地/海外/日韓/歐美
+  tags_origin: string[];   // 本地/亞洲其他/日韓/歐美（2026-09-21 前叫「海外」，見 §3.2 附註）
   ticket_url: string;      // 優先序最高來源的連結
   sources: {               // 保留全部原始來源連結（AC-12 要求）
     name: string;          // "KKTIX" | "拓元" | "manual"
@@ -155,7 +155,7 @@ type Event = {
 
 **修法**：`normalize()` 拿掉這個早退邏輯，`headliners: []` 時照樣往下算 `venue`/`city`/價格/`tags_type`（`guessTagsType()` 本來就不靠 headliner 判斷關鍵字，只在關鍵字都沒中時才用 headliner 數量決定「專場」vs「拼盤」，0 個一樣正確落在「專場」），只是 `tags_origin` 留空（沒有辨識到的藝人就是不知道出身地，不用猜）。`fetch.mjs` 仍然把這類事件記進 `needs-review.json`（reason 保留 `artist_unrecognized`），但角色從「發布關卡」改成「待補分類清單」——事件已經在正式上架，這份清單只是提醒之後把藝人補進 `artists.yml` 能拿到 `tags_origin`/排除藝人這些額外功能，不補也完全不影響曝光。連帶修了 `render.js` 的卡片標題（原本直接 `headliners.join(" / ")`，`headliners` 是空陣列時會整個標題空白——改成沒有 headliner 時退回顯示 `title_raw`）以及 `fetch.mjs` 的 `buildKnownRawIdsBySource()`（未分類的事件不能算「已知」，否則增量抓取機制會在藝人補進名單後仍然沿用舊的空白分類，永遠不會重新正規化）。
 
-**Max 進一步要求「不要叫我自己手動查來源地」**：確認之後，`artists.yml` 的定位變成「Claude 用 WebSearch 查證後填寫的快取表」，不是要 Max 自己一筆筆查。當天示範性地把清出來的 15 筆 `artist_unrecognized` 全部用 WebSearch 查證（不是憑印象猜）補齊，示範案例：MONO（日本後搖滾）、D'MASIV（印尼搖滾樂團——KKTIX 原始標題用彎引號 D'MASIV/U+2019，不是直引號，需要額外補一個別名才比對得到）、Karencici（美籍華裔但常駐台灣發展，比照告五人／Suming 的精神算本地）、Jony J（中國饒舌歌手，落在既有四分類「本地/日韓/歐美/海外」的「海外」）等。這個查證動作被寫進每日排程（見 §10），變成例行流程的一部分，不需要 Max 手動介入。
+**Max 進一步要求「不要叫我自己手動查來源地」**：確認之後，`artists.yml` 的定位變成「Claude 用 WebSearch 查證後填寫的快取表」，不是要 Max 自己一筆筆查。當天示範性地把清出來的 15 筆 `artist_unrecognized` 全部用 WebSearch 查證（不是憑印象猜）補齊，示範案例：MONO（日本後搖滾）、D'MASIV（印尼搖滾樂團——KKTIX 原始標題用彎引號 D'MASIV/U+2019，不是直引號，需要額外補一個別名才比對得到）、Karencici（美籍華裔但常駐台灣發展，比照告五人／Suming 的精神算本地）、Jony J（中國饒舌歌手，落在既有四分類「本地/日韓/歐美/海外」的「海外」，這個分類名稱同一天稍晚被 Max 要求改名成「亞洲其他」，見下方附註）等。這個查證動作被寫進每日排程（見 §10），變成例行流程的一部分，不需要 Max 手動介入。
 
 **連帶修了一個測試本身的假陽性**：`artists.yml` 有一個既有的子字串碰撞防護測試（見上面 2026-09-17 那段），新增 canonical `MONO` 時觸發了它——`MONO` 是既有 canonical `Monomania偏執狂`的原始子字串。但 `findNameIndex()` 對純英文 canonical 已經有字邊界防護（`MONO` 後面緊接 `mania`，中間沒有邊界，不會誤判），只是這個測試本身還是用最原始的 `.includes()` 判斷，沒有套用同一套邊界邏輯，等於是拿一個比實際比對機制更嚴格、會誤報的規則卡資料。改成直接 export `findNameIndex()`，測試也改用它本人跑一次「A 名字放進 B 名字裡會不會真的比對到」，而不是自己重新發明一套更粗糙的子字串規則。
 
@@ -165,6 +165,12 @@ type Event = {
 2. **自己剛加的 canonical `MONO` 造成真實誤判**：新出現的「MONO NO AWARE」（另一個真實、不相關的日本樂團）被誤判成 `MONO` 的場次，因為前者的名字剛好完整以後者開頭，`findNameIndex()` 的字邊界規則在這裡「正確地」判定合法匹配（"MONO" 後面接空格），但語意上是錯的。這跟 IVE/LIVE、ASCA/Brasca 的「巧合重疊」不同——這裡兩個都是真實、想要正確辨識的藝人，純粹是「兩個候選命中同一個起始位置時該選誰」沒有規則。修法：`matchArtists()` 新增 tie-break——命中同一起始位置時保留較長／較具體的候選，捨棄較短的。連帶更新碰撞防護測試：命中位置為 0（單純的字首重疊）現在視為安全（有 tie-break 擋著），只有命中位置不是 0（藏在字詞中間，像 LIVE 裡的 IVE）才算真正的碰撞。
 
 **另外處理一個 UI 問題**（Max 用截圖指出）：時間表往下捲動跨過跨年（畫面上「12月26日」接著「1月2日」）看不出年份已經換了。修法：`format.js` 的 `splitDate()` 只在日期年份不是「今年」時才在 `groupLabel` 前面加年份（例如「2027年1月2日」），同一年的分組維持原樣。
+
+**同一天，來源地分類「海外」改名成「亞洲其他」。** Max 質疑「海外」跟「歐美」語意重疊（字面上歐美也是海外）。查證當時 `artists.yml` 裡實際標成「海外」的 11 位藝人，全部都是亞洲地區（泰國 SCRUBB/GMMTV、印尼 D'MASIV、中國 Jony J、新加坡 Shye、菲律賓 BINI、西藏 TIPA，加上幾個泛亞洲品牌活動）——不是隨便挑的例子，是全部資料的真實分佈，確認過不只是「東南亞」（有中國、西藏），但**也不是真的涵蓋全世界**，全部案例都落在亞洲。改名成「亞洲其他」比「海外」更精確，且跟「日韓」「歐美」放在一起語意上更一致（都是地理區域，不是「本地 vs 非本地」這種二分法）。
+
+**已知取捨**：如果之後真的出現非亞洲、也不屬於歐美的巡演（例如非洲、中東、拉丁美洲藝人來台，目前完全沒有先例），「亞洲其他」這個名字會不夠用，屆時再視情況調整——這是接受目前真實資料分佈做的務實選擇，不是保證未來永遠不會再改名。
+
+改動範圍：`data/artists.yml` 的 11 筆 `tags_origin_default: 海外` 全部改成 `亞洲其他`；`data/events.json` 裡已經算好的 `tags_origin` 陣列同步改字串（用一次性腳本改，不是重新抓取）；`src/app.js` 的 `ORIGIN_DISPLAY_ORDER`、`src/interactions.js`「指派藝人」對話框的來源地下拉選單也一起改。`npm test` 86 個測試全過。
 
 ### 3.3 UserPrefs（存在 localStorage，登入後同步到 Supabase，不進 repo）
 
