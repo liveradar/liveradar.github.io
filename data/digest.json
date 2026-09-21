@@ -1,9 +1,36 @@
 {
-  "generated_at": "2026-09-21T07:21:11.774Z",
+  "generated_at": "2026-09-21T07:36:56.705Z",
   "added_ids": [
-    "95d1ae4b76c8fc07",
-    "73fd824358a7e7da",
-    "735126600cf37be5"
+    "35d60f7700543de4"
   ],
-  "updated": []
+  "updated": [
+    {
+      "id": "f5980594fdd14fda",
+      "fields": [
+        "price_min",
+        "price_max"
+      ]
+    },
+    {
+      "id": "048be206f0d7b8b4",
+      "fields": [
+        "price_min",
+        "price_max"
+      ]
+    },
+    {
+      "id": "8da662efe0bb8444",
+      "fields": [
+        "price_min",
+        "price_max"
+      ]
+    },
+    {
+      "id": "b65795c666bc065e",
+      "fields": [
+        "price_min",
+        "price_max"
+      ]
+    }
+  ]
 }

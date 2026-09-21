@@ -94,9 +94,18 @@ function parseVenueLine(html) {
  * accept a match that actually contains a 4-digit year, since a year-less
  * one is useless and the listing page's date_raw (always full "YYYY/MM/DD")
  * is a strictly better fallback than a wrong/partial detail-page match.
+ *
+ * 2026-09-21 real bug: one organizer labels this "日期及時間" instead of a
+ * bare "日期" — the old regex required the separator (｜:：) immediately
+ * after "日期", so "日期及時間：2026/09/23 (三) 20:00" matched nothing at all,
+ * silently falling back to the listing page's date-only string and losing
+ * the real 20:00 start time (Max caught this: the detail page clearly shows
+ * a time, the app showed "時間未公布"). Same shape of bug as the 地點/場地/
+ * 場館 venue-label fix above — allow a short run of extra characters between
+ * the keyword and the separator instead of requiring them adjacent.
  */
 function parseDateLine(html) {
-  const m = html.match(/日期[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,80})/);
+  const m = html.match(/日期[^｜:：\n]{0,6}[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,80})/);
   return m && /\d{4}/.test(m[1]) ? m[1].trim() : null;
 }
 

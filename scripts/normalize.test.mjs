@@ -313,21 +313,21 @@ test("matchArtists: two real, distinct artists where one's name is an exact word
   assert.deepEqual(matchArtists('MONO "Snowdrop" Asia Tour 2026 - TAIPEI', yml), ["MONO"]);
 });
 
-test("parsePriceFromText: tixcraft's rich-text price line, numbers wrapped in their own <span>s", () => {
+test("parsePriceFromText: tixcraft's rich-text price line, numbers wrapped in their own <span>s (also excludes the 身障優惠票/陪同票 discount tier, see the dedicated test below)", () => {
   const html =
     '點：高雄國家體育場<br><br><span><strong>🎫</strong> </span>票價：<span>NT$ 3,380</span>起至 NT$ 7,980及身障優惠票<span> (</span>陪同票) NT$ 2,990 / 2,690 / 2,490，實際票價以當下顯示為準。<br>※ 購買前請注意，本節目每張票券外加系統服務費<span>200</span>元。';
-  assert.deepEqual(parsePriceFromText(html), { min: 2990, max: 7980 });
+  assert.deepEqual(parsePriceFromText(html), { min: 3380, max: 7980 });
 });
 
-test("parsePriceFromText: iNDIEVOX's 元-suffixed multi-tier list, no $ sign at all", () => {
-  const raw = "Shhh! ALL IN｜三場套票 9900元 / Self! SELECT｜單場票 3500元 / 愛心席 1750元（線上訂購）";
-  assert.deepEqual(parsePriceFromText(raw), { min: 1750, max: 9900 });
+test("parsePriceFromText: iNDIEVOX's 元-suffixed multi-tier list, no $ sign at all (also excludes the 愛心席 discount tier)", () => {
+  const raw = "Shhh! ALL IN｜三場套票 9900元 / Self! SELECT｜現場票 3500元 / 愛心席 1750元（線上訂購）";
+  assert.deepEqual(parsePriceFromText(raw), { min: 3500, max: 9900 });
 });
 
-test("parsePriceFromText: Ticket Plus's HTML <p>/<span> info field with a 門票｜ label", () => {
+test("parsePriceFromText: Ticket Plus's HTML <p>/<span> info field with a 門票｜ label (also excludes the 身障票 discount tier)", () => {
   const html =
     '<p><span style="font-size:16px"><span>演出門票｜預售單人$1,000/ 預售雙人$1,800/ 現場單人$1,200/ 身障票 $500</span></span></p>';
-  assert.deepEqual(parsePriceFromText(html), { min: 500, max: 1800 });
+  assert.deepEqual(parsePriceFromText(html), { min: 1000, max: 1800 });
 });
 
 test("parsePriceFromText: FANSI GO's fullwidth decorative text with no 票價/門票 label at all", () => {
@@ -343,6 +343,15 @@ test("parsePriceFromText: FANSI GO's plain-colon per-tier labels (no $ sign, no 
 test("parsePriceFromText: no price-shaped text anywhere returns null, not a guess", () => {
   assert.deepEqual(parsePriceFromText("<p>這場活動很棒，敬請期待！</p>"), { min: null, max: null });
   assert.deepEqual(parsePriceFromText(""), { min: null, max: null });
+});
+
+test("parsePriceFromText: a 身障票 discount tier never becomes the displayed min price (real bug found by Max: a show with 單人預售票1200/雙人套票2000/現場票1500/身障票600 showed 'NT$600 up' as the headline price — 身障票 is a restricted-eligibility discount, not a price a general visitor can actually get)", () => {
+  const raw = "單人預售票 1200 元 / 雙人套票 2000 元 / 現場票 1500 元 / 身障票 600 元（線上購票）";
+  assert.deepEqual(parsePriceFromText(raw), { min: 1200, max: 2000 });
+});
+
+test("parsePriceFromText: if a discount tier is the ONLY price mentioned, the result is null rather than showing a misleading restricted-eligibility price as if it were generally available", () => {
+  assert.deepEqual(parsePriceFromText("票價：身障票 400 元"), { min: null, max: null });
 });
 
 test("normalize(): falls back to parsePriceFromText's price_text_raw when tickets_raw is empty", () => {

@@ -364,8 +364,22 @@ const PRICE_LABEL_RE = /(?:票價|門票)[：｜:]\s*([^\n]{1,200})/;
 const CURRENCY_NUMBER_RE = /(?:NT\$|\$)\s*([\d,]+)|([\d,]+)\s*元/g;
 // Looser fallback for pages with no overall "票價"/"門票" heading at all
 // (FANSI GO) — still requires a price-shaped word immediately next to the
-// number, not just any digit on the page.
-const PRICE_KEYWORD_RE = /(?:預售|現場|單人|雙人|套票|身障|愛心席|adv|door)[^\d]{0,8}(\d[\d,]*)/gi;
+// number, not just any digit on the page. 身障/愛心席 deliberately NOT
+// included here (see stripDiscountTierText below) — same reasoning.
+const PRICE_KEYWORD_RE = /(?:預售|現場|單人|雙人|套票|adv|door)[^\d]{0,8}(\d[\d,]*)/gi;
+// 2026-09-21 real bug (Max): 身障票/愛心席/陪同票 are restricted-eligibility
+// discount tiers, not a price a general visitor can actually get — but they
+// were being extracted like any other tier, and since they're usually the
+// cheapest, frequently became the displayed "NT$X up" price (real case:
+// "身障票 600 元" showing as the headline price on an event whose real
+// general-admission price starts at NT$1,200). Strip a discount-tagged
+// clause AND any shared-prefix number list immediately following it (e.g.
+// "身障優惠票(陪同票)NT$2,990/2,690/2,490") before either extraction path
+// runs, so these numbers are never candidates for min/max at all.
+const DISCOUNT_TIER_RE = /(?:身障|愛心|陪同)[^\d]{0,20}[\d,]+(?:\s*[/、,，]\s*[\d,]+)*\s*元?/g;
+function stripDiscountTierText(text) {
+  return text.replace(DISCOUNT_TIER_RE, "");
+}
 
 function priceRangeFromNumbers(numbers) {
   // Sanity floor/ceiling, not a source of truth: catches a stray one- or
@@ -406,12 +420,16 @@ export function parsePriceFromText(html) {
 
   const labelMatch = plain.match(PRICE_LABEL_RE);
   if (labelMatch) {
-    const numbers = [...labelMatch[1].matchAll(CURRENCY_NUMBER_RE)].map((m) => Number((m[1] ?? m[2]).replace(/,/g, "")));
+    const numbers = [...stripDiscountTierText(labelMatch[1]).matchAll(CURRENCY_NUMBER_RE)].map((m) =>
+      Number((m[1] ?? m[2]).replace(/,/g, ""))
+    );
     const fromLabel = priceRangeFromNumbers(numbers);
     if (fromLabel.min != null) return fromLabel;
   }
 
-  const keywordNumbers = [...plain.matchAll(PRICE_KEYWORD_RE)].map((m) => Number(m[1].replace(/,/g, "")));
+  const keywordNumbers = [...stripDiscountTierText(plain).matchAll(PRICE_KEYWORD_RE)].map((m) =>
+    Number(m[1].replace(/,/g, ""))
+  );
   return priceRangeFromNumbers(keywordNumbers);
 }
 
