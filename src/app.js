@@ -364,6 +364,67 @@ function openMenuFor(event, events, render) {
   });
 }
 
+const ICON_SEARCH = `<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>`;
+const ICON_CLOSE = `<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>`;
+
+/** index.html's search icon slides a filter input down in place instead of navigating to search.html (search.html stays as a shareable URL) — reuses initTimeline's already-loaded events rather than refetching. */
+function wireInlineSearch(events, restoreRender) {
+  const toggleBtn = document.getElementById("search-toggle-btn");
+  const panel = document.getElementById("search-panel");
+  const input = document.getElementById("inline-search-input");
+  const container = document.getElementById("event-list");
+  if (!toggleBtn || !panel || !input || !container) return;
+
+  function renderSearch() {
+    const query = input.value.trim();
+    if (!query) {
+      container.innerHTML = renderEmptyList("輸入藝人或標題開始搜尋。");
+      return;
+    }
+    const prefs = loadPrefs();
+    const { visible } = partitionEvents(events, prefs, {});
+    const q = query.toLowerCase();
+    const matches = visible.filter(
+      ({ event }) => event.title_raw.toLowerCase().includes(q) || event.lineup.some((a) => a.toLowerCase().includes(q)),
+    );
+    matches.sort((a, b) => (a.event.date < b.event.date ? -1 : a.event.date > b.event.date ? 1 : 0));
+    container.innerHTML =
+      matches.length === 0
+        ? renderEmptyList(`沒有符合「${query}」的場次。`)
+        : renderEventList(groupByDate(matches));
+    wireTicketButtons(container);
+    wireFavoriteToggle(container, renderSearch);
+    wireExcludeMenu(container, events, renderSearch);
+  }
+
+  function openSearch() {
+    panel.classList.add("search-panel--open");
+    toggleBtn.setAttribute("aria-expanded", "true");
+    toggleBtn.setAttribute("aria-label", "關閉搜尋");
+    toggleBtn.innerHTML = ICON_CLOSE;
+    input.value = "";
+    input.focus();
+    renderSearch();
+  }
+
+  function closeSearch() {
+    panel.classList.remove("search-panel--open");
+    toggleBtn.setAttribute("aria-expanded", "false");
+    toggleBtn.setAttribute("aria-label", "搜尋");
+    toggleBtn.innerHTML = ICON_SEARCH;
+    restoreRender();
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    if (panel.classList.contains("search-panel--open")) closeSearch();
+    else openSearch();
+  });
+  input.addEventListener("input", renderSearch);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && panel.classList.contains("search-panel--open")) closeSearch();
+  });
+}
+
 async function initTimeline(container) {
   let events;
   try {
@@ -414,6 +475,7 @@ async function initTimeline(container) {
   );
 
   render();
+  wireInlineSearch(events, render);
 }
 
 /** search.html:搜尋藝人或標題, filtered live as the user types. */

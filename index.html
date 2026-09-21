@@ -18,9 +18,16 @@
 
   <div class="topbar">
     <div class="wordmark">LiveRadar</div>
-    <a class="icon-btn" href="./search.html" aria-label="搜尋">
+    <button type="button" class="icon-btn" id="search-toggle-btn" aria-label="搜尋" aria-expanded="false" aria-controls="search-panel">
       <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-    </a>
+    </button>
+  </div>
+
+  <!-- Slide-down inline search — replaces navigating to search.html; reuses the timeline's already-loaded events (see wireInlineSearch() in src/app.js). search.html itself stays as a shareable/bookmarkable URL. -->
+  <div class="search-panel" id="search-panel">
+    <div class="search-panel__inner">
+      <input type="search" class="field-input" id="inline-search-input" placeholder="搜尋藝人或標題…" aria-label="搜尋藝人或標題" />
+    </div>
   </div>
 
   <div class="page-header">
@@ -56,9 +63,40 @@
     <span class="hidden-bar__cta" style="color:var(--warn);">查看 →</span>
   </a>
 
-  <!-- Populated by src/app.js from data/events.json (M4). -->
+  <!-- Populated by src/app.js from data/events.json (M4). Initial skeleton is replaced wholesale once loadEvents() resolves. -->
   <div class="event-list" id="event-list" data-page="timeline">
-    <div style="padding:32px 4px;text-align:center;color:var(--muted);font-size:13px;">載入中…</div>
+    <div class="event-card skeleton-card" aria-hidden="true">
+      <div class="event-date">
+        <div class="skeleton-block" style="width:30px;height:22px;border-radius:6px;"></div>
+        <div class="skeleton-block" style="width:22px;height:11px;border-radius:4px;margin-top:6px;"></div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:9px;padding-top:3px;">
+        <div class="skeleton-block" style="width:82%;height:14px;border-radius:5px;"></div>
+        <div class="skeleton-block" style="width:55%;height:12px;border-radius:5px;"></div>
+        <div class="skeleton-block" style="width:40%;height:12px;border-radius:5px;"></div>
+      </div>
+    </div>
+    <div class="event-card skeleton-card" aria-hidden="true">
+      <div class="event-date">
+        <div class="skeleton-block" style="width:30px;height:22px;border-radius:6px;"></div>
+        <div class="skeleton-block" style="width:22px;height:11px;border-radius:4px;margin-top:6px;"></div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:9px;padding-top:3px;">
+        <div class="skeleton-block" style="width:65%;height:14px;border-radius:5px;"></div>
+        <div class="skeleton-block" style="width:48%;height:12px;border-radius:5px;"></div>
+        <div class="skeleton-block" style="width:42%;height:12px;border-radius:5px;"></div>
+      </div>
+    </div>
+    <div class="event-card skeleton-card" aria-hidden="true" style="opacity:.6;">
+      <div class="event-date">
+        <div class="skeleton-block" style="width:30px;height:22px;border-radius:6px;"></div>
+        <div class="skeleton-block" style="width:22px;height:11px;border-radius:4px;margin-top:6px;"></div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:9px;padding-top:3px;">
+        <div class="skeleton-block" style="width:75%;height:14px;border-radius:5px;"></div>
+        <div class="skeleton-block" style="width:50%;height:12px;border-radius:5px;"></div>
+      </div>
+    </div>
   </div>
 
   <button class="hidden-bar" id="hidden-bar" hidden>
