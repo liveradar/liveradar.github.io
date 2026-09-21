@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>(function(){try{var t=localStorage.getItem("liveradar:theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<title>隱私權政策 · LiveRadar</title>
+<meta name="description" content="LiveRadar 如何處理你的資料：Google 登入、跨裝置同步、本機儲存範圍說明。" />
+<link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="隱私權政策 · LiveRadar" />
+<meta property="og:description" content="LiveRadar 如何處理你的資料：Google 登入、跨裝置同步、本機儲存範圍說明。" />
+<meta property="og:url" content="https://liveradar.github.io/privacy.html" />
+<link rel="stylesheet" href="./styles/main.css" />
+</head>
+<body>
+<div class="app app--no-nav" id="app">
+
+  <div class="page-header--with-back page-content">
+    <a class="back-btn" href="./settings.html" aria-label="返回">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+    </a>
+    <div class="page-title page-title--sm">隱私權政策</div>
+  </div>
+
+  <div class="page-content" style="display:flex;flex-direction:column;gap:18px;padding:12px 18px 32px;">
+
+    <div style="font-size:11px;color:var(--muted);">最後更新：2026-09-21</div>
+
+    <div class="section">
+      <div class="section-title">這個頁面在講什麼</div>
+      <div class="card" style="font-size:13px;line-height:1.7;">
+        LiveRadar 是一個自動彙整 KKTIX、拓元、iNDIEVOX、FANSI GO、Ticket Plus 五個售票平台演出資訊的網站。這頁說明使用 LiveRadar 時,你的資料會被怎麼處理。
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">不登入也能完整使用</div>
+      <div class="card" style="font-size:13px;line-height:1.7;">
+        不登入的話,你的收藏、排除規則、顯示設定只會存在你這台裝置瀏覽器的 localStorage 裡,不會傳到任何伺服器,LiveRadar 也拿不到、看不到這些資料。
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">使用 Google 登入時,我們拿到什麼</div>
+      <div class="card" style="font-size:13px;line-height:1.7;">
+        <div>登入是加分項,只是為了讓收藏、排除規則、顯示設定能跨裝置同步,不是使用 LiveRadar 的門檻。</div>
+        <div>登入流程完全由 Google 處理,LiveRadar 不會經手、也拿不到你的 Google 密碼。登入成功後,我們只會從 Google 取得你的電子郵件地址與帳號識別碼,用來在資料庫裡認出「這是同一個人」。</div>
+        <div>登入後,你的收藏場次、排除的藝人/類型、關鍵字靜音清單、嚴格模式設定、以及手動新增的場次,會存進由 Supabase 代管的資料庫,跟你的帳號綁在一起,只有你自己能讀寫這筆資料(以 Row Level Security 限制)。</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">用了哪些第三方服務</div>
+      <div class="card" style="font-size:13px;line-height:1.7;">
+        <div><strong>Google</strong>:提供登入身分驗證(OAuth)。</div>
+        <div><strong>Supabase</strong>:代管登入後同步的資料庫。</div>
+        <div>這些資料不會被拿去做廣告投放、也不會賣給或分享給上述兩者以外的任何第三方。</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">登出與刪除資料</div>
+      <div class="card" style="font-size:13px;line-height:1.7;">
+        在設定頁點「登出」會結束這台裝置上的登入狀態,但不會刪除已同步到資料庫的資料。如果你想請我們刪除帳號綁定的所有同步資料,寄信到下面的聯絡信箱說明即可。
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">聯絡方式</div>
+      <div class="card" style="font-size:13px;line-height:1.7;">
+        <div>對這份政策或你的資料有任何問題,歡迎寄信到 <a href="mailto:max.yc97@gmail.com" style="color:var(--text);">max.yc97@gmail.com</a>。</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>
