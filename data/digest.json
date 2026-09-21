@@ -1,32 +1,14 @@
 {
-  "generated_at": "2026-09-21T06:24:15.001Z",
+  "generated_at": "2026-09-21T06:36:43.638Z",
   "added_ids": [
-    "45127d2bcf8edefa",
-    "4dd610eef6bb6bac",
-    "dfd68f99d3b89605",
-    "349a0adab692a559",
-    "19dae8665e188d96",
-    "181ebec357b2dc98",
-    "ff7a8f90236c427a",
-    "45de28f3ebcf4dfb",
-    "957e0943f8b6c631",
-    "0206ff1c19b2e8ef",
-    "ba02eecd35d196e4",
-    "cbe11e089becda77",
-    "39c9802e4a957e6f",
-    "89259caf1bb382f6",
-    "735126600cf37be5",
-    "e36f0ec6255c404c",
-    "6f97fa5a886cb56c",
-    "da2f5380a05b8352"
+    "95d1ae4b76c8fc07",
+    "73fd824358a7e7da",
+    "fe767dcca94ff1ba",
+    "c31966756da55fb9",
+    "c686c0f621efcc92",
+    "a753750f94e33928",
+    "8facbdb6b5339aeb",
+    "735126600cf37be5"
   ],
-  "updated": [
-    {
-      "id": "f5980594fdd14fda",
-      "fields": [
-        "price_min",
-        "price_max"
-      ]
-    }
-  ]
+  "updated": []
 }

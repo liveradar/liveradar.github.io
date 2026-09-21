@@ -198,6 +198,23 @@ test("normalize() end-to-end for an iNDIEVOX raw event", () => {
   assert.equal(event.city, "台北");
 });
 
+test("normalize(): falls back to a city named in the title when venue_raw is completely empty (real bug: some iNDIEVOX organizers skip the venue field entirely, but still write 'XX場'/'XX演出' in the title)", () => {
+  const raw = makeRaw({ title_raw: "EmptyORio ALL THE BEAST 高雄場", venue_raw: "", source_name: "iNDIEVOX" });
+  const { event } = normalize(raw, [], []);
+  assert.equal(event.city, "高雄");
+  assert.equal(event.venue, "");
+});
+
+test("normalize(): the title-city fallback never overrides a real venue-derived city, even a null one (a promoter name that just doesn't map to any city must stay 未知-eligible, not get a wrong guess from an unrelated city mentioned in the title)", () => {
+  const raw = makeRaw({
+    title_raw: "台北場也會辦的活動",
+    venue_raw: "某個沒收錄過的展演空間",
+    source_name: "拓元",
+  });
+  const { event } = normalize(raw, [], []);
+  assert.equal(event.city, "未知", "non-empty but unmapped venue_raw must not trigger the title fallback");
+});
+
 test("matchArtists: headliners are ordered by position in the title, not by artists.yml file order", () => {
   const yml = [
     { canonical: "第二順位", aliases: [], tags_origin_default: "本地" },

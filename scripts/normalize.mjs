@@ -538,7 +538,17 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   // backlog now, not a publish gate. See LIVERADAR-SPEC.md §3.2.
   const headliners = matchArtists(rawEvent.title_raw, artistsYml);
 
-  const { venue, city } = parseVenue(rawEvent.venue_raw ?? "", venuesYml);
+  const parsedVenue = parseVenue(rawEvent.venue_raw ?? "", venuesYml);
+  const { venue } = parsedVenue;
+  // 2026-09-21: last-resort fallback when there's no venue text to work with
+  // at all (confirmed real cases: some iNDIEVOX organizers skip the venue
+  // field entirely) — the title itself often names the city directly
+  // ("EmptyORio ALL THE BEAST 高雄場", "...歐亞巡迴台中場", "...台北聯合演出"),
+  // a common convention for disambiguating which city-leg of a tour a given
+  // ticket page is for. Only tried when venue_raw is blank (zero other
+  // signal to lose by guessing) — never overrides a real venue-derived
+  // result, so it can't turn a correctly-resolved city into a wrong one.
+  const city = parsedVenue.city ?? (rawEvent.venue_raw?.trim() ? null : cityFromAddress(rawEvent.title_raw));
   // KKTIX is the only source with a real structured ticket-tier table
   // (tickets_raw); everyone else's price lives in freeform description text
   // (price_text_raw) — see parsePriceFromText's doc comment for the real
