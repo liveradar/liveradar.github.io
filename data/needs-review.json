@@ -7,6 +7,14 @@
       "source": "KKTIX",
       "reason": "artist_unrecognized",
       "detail": null
+    },
+    {
+      "raw_id": "6def673ab73ab7d7a4d0597ae84809ca_c2e30fcb68cdcd8cee2b3576dd4fe2f5",
+      "title_raw": "尚霖 X 葉澈＋KITA X 周穆",
+      "url": "https://ticketplus.com.tw/activity/6def673ab73ab7d7a4d0597ae84809ca",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
     }
   ]
 }

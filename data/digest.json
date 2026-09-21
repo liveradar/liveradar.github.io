@@ -1,31 +1,32 @@
 {
-  "generated_at": "2026-09-21T04:06:16.412Z",
+  "generated_at": "2026-09-21T06:24:15.001Z",
   "added_ids": [
-    "95d1ae4b76c8fc07",
-    "7c0412ff1440c996",
-    "3dd37d75bbfabec3",
-    "73fd824358a7e7da",
-    "fe767dcca94ff1ba",
-    "c31966756da55fb9",
-    "c686c0f621efcc92",
-    "a753750f94e33928",
-    "8facbdb6b5339aeb",
-    "c24acaf950e1156b",
-    "c00e472af04b1349",
-    "2111d7e0f5a72267",
-    "8375520a8823df96",
-    "f686c4d6f7dc3c74",
-    "a52db3d139bd551c",
-    "6c4ba32eb2fd69d2",
-    "cea9e7749a19bdaa",
-    "ed5b0b28f73e2019",
-    "d259739b096019ef",
-    "49653903dbe2d5e7",
-    "48bc5232aed63867",
-    "07fd6d9b5f0f85d4",
-    "346da01aec4f1ccc",
-    "dd562e4eeccab5e4",
-    "c25c55b3396572cb"
+    "45127d2bcf8edefa",
+    "4dd610eef6bb6bac",
+    "dfd68f99d3b89605",
+    "349a0adab692a559",
+    "19dae8665e188d96",
+    "181ebec357b2dc98",
+    "ff7a8f90236c427a",
+    "45de28f3ebcf4dfb",
+    "957e0943f8b6c631",
+    "0206ff1c19b2e8ef",
+    "ba02eecd35d196e4",
+    "cbe11e089becda77",
+    "39c9802e4a957e6f",
+    "89259caf1bb382f6",
+    "735126600cf37be5",
+    "e36f0ec6255c404c",
+    "6f97fa5a886cb56c",
+    "da2f5380a05b8352"
   ],
-  "updated": []
+  "updated": [
+    {
+      "id": "f5980594fdd14fda",
+      "fields": [
+        "price_min",
+        "price_max"
+      ]
+    }
+  ]
 }

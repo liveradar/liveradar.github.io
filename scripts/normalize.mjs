@@ -496,7 +496,12 @@ const DATE_PARSERS = {
   "FANSI GO": parseTixcraftDate,
   "Ticket Plus": parseTicketPlusDate,
 };
-const VENUE_PARSERS = { "拓元": parseTixcraftVenue, "iNDIEVOX": parseIndievoxVenue, "FANSI GO": parseTixcraftVenue };
+// 2026-09-21: FANSI GO used to map here too (bare venue name, no address —
+// same shape as tixcraft's untracked venues). That assumption was wrong: its
+// own detail page (already visited for price) has a real "venue name /
+// address" block, so its venue_raw is now KKTIX-shaped and uses the default
+// parseKktixVenue fallback below instead — see fansi.mjs's fetchDetail().
+const VENUE_PARSERS = { "拓元": parseTixcraftVenue, "iNDIEVOX": parseIndievoxVenue };
 
 export function normalize(rawEvent, artistsYml, venuesYml = []) {
   if (isJunkTitle(rawEvent.title_raw)) {

@@ -16,15 +16,20 @@ function sleep(ms) {
  * /allevents lists every currently-selling event on one page, no pagination
  * (confirmed by scrolling to the bottom and re-counting: same 26 cards).
  *
- * No structured venue field anywhere, including on each event's own detail
- * page — those are decorative poster-style text (fullwidth/stylized
- * characters, no consistent "地點｜X" pattern like iNDIEVOX has) with no
- * reliable place to extract a real venue name from. The listing card's own
- * "organizer" field is the best signal available and is often the actual
- * venue (e.g. "百樂門酒館", "PIPE Live Music") but sometimes a label/promoter
- * name instead (e.g. "Wrong Game Records") — used as-is for `venue`, same
- * "good enough for coverage, not always precise" tradeoff as tixcraft's
- * untracked venues. City comes from data/venues.yml the same way.
+ * 2026-09-21 correction: the claim below that there's "no structured venue
+ * field anywhere" was wrong — Max pushed back after seeing too many "未知"
+ * cities ("can't you tell the city from the venue?"), and actually opening a
+ * few detail pages with a real venue-address block sitting in plain sight:
+ * every event page has one, right next to the price block this adapter
+ * already visits — `div.w-full.mt-2.mb-6 div.w-full > p` (2 children: venue
+ * name, then address), confirmed stable across every event checked. Original
+ * (wrong) reasoning kept below for context since the listing card's
+ * "organizer" field is still used as a same-page fallback when the detail
+ * fetch is skipped (an already-known event) or the selector doesn't match:
+ * it's often the actual venue (e.g. "百樂門酒館", "PIPE Live Music") but
+ * sometimes a label/promoter name instead (e.g. "Wrong Game Records") — the
+ * "good enough for coverage, not always precise" tradeoff tixcraft's
+ * untracked venues also make, same city fallback via data/venues.yml.
  *
  * Price DOES live on each event's detail page, though — always inside a
  * `.prose` div (confirmed stable across every event checked 2026-09-18),
@@ -112,6 +117,7 @@ export async function fetch(knownRawIds = new Set()) {
       }
 
       let priceFailures = 0;
+      let venueFailures = 0;
       for (const event of toFetch) {
         await sleep(PRICE_REQUEST_DELAY_MS);
         const page = await newPage(browser);
@@ -126,9 +132,27 @@ export async function fetch(knownRawIds = new Set()) {
         } catch (err) {
           priceFailures += 1;
           logProgress(`FANSI GO price fetch failed for ${event.url}: ${err.message}`);
+        }
+        // Same page load, no extra navigation — see the 2026-09-21 doc
+        // comment above. Falls back to the listing card's organizer field
+        // (already in event.venue_raw) when this doesn't match, e.g. a
+        // layout variant this hasn't been checked against yet.
+        try {
+          const parts = await page.$$eval("div.w-full.mt-2.mb-6 div.w-full > p", (els) =>
+            els.map((el) => el.textContent.trim())
+          );
+          if (parts.length >= 2 && parts[0]) {
+            event.venue_raw = `${parts[0]} / ${parts[1]}`;
+          }
+        } catch (err) {
+          venueFailures += 1;
+          logProgress(`FANSI GO venue fetch failed for ${event.url}: ${err.message}`);
         } finally {
           await page.close();
         }
+      }
+      if (venueFailures > 0) {
+        logProgress(`FANSI GO: venue detail fetch failed for ${venueFailures}/${toFetch.length} event(s), falling back to organizer field`);
       }
       if (priceFailures > 0) {
         logProgress(`FANSI GO: price detail fetch failed for ${priceFailures}/${toFetch.length} event(s)`);
