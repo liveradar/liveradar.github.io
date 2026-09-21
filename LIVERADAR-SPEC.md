@@ -148,6 +148,17 @@ type Event = {
 
 **2026-09-18 又抓到一種新的資料品質問題**：`爛泥發芽`、`RUSH BALL`、`FNC BAND KINGDOM` 這三個 canonical 其實是音樂祭/聯合公演的品牌名稱，不是單一演出者——當初補完那 230 筆時被誤判成藝人加了進去，導致 `guessTagsType()` 只認出一個「演出者」、標題文字裡又沒有「音樂祭」字樣，就被分類成「專場」而不是「音樂祭」。順便發現 `scripts/normalize.mjs` 的 `TYPE_KEYWORDS` 只認「音樂祭」，沒認「音樂節」這個一樣常見的同義詞（真實案例：「2026臺北爵士音樂節」也被誤判）。修法是在 `TYPE_KEYWORDS` 補上「音樂節」同義詞，以及這三個確認過的品牌名稱關鍵字，讓 `guessTagsType()` 不管標題怎麼寫都能正確辨識——這比把這三個名字從 `artists.yml` 移除更務實：它們本來就是使用者會拿來搜尋/辨識這場活動的字串，拿掉反而會讓這幾場變成待整理。因為增量抓取（§4.2）已經上線，已辨識過的場次不會自動重新分類，這次額外寫了一次性腳本直接對現有 `data/events.json` 重新跑 `guessTagsType()` 修正 7 筆受影響資料。
 
+**2026-09-21：D15 反轉——未辨識藝人不再擋場次上架。** Max 拿一場真實漏掉的演出（Age Factory @ SUB LIVE）來問為什麼網站上看不到，追出兩層根因：
+
+1. **KKTIX 涵蓋率缺口**：SUB LIVE 是「租場地、每場不同主辦單位」類型的場館，2026-09-17 那次涵蓋率修正（見 §5.1 cohesionmusic 那段）就已經點名 SUB LIVE／Zepp New Taipei／Blue Note／野地方 Wild Lab 這四個場館都需要加進 `kktix.mjs` 的 `SEARCH_VENUES`，但**只做了記錄沒有真的加**。這次一次補齊四個（Blue Note 目前查不到真的在賣票的場次，但成本只是每天多一次搜尋請求，一併加上）。
+2. **`headliners.length === 0` 會讓整場都不會進 `events.json`**：Max 直接質疑這個設計——「有這麼多音樂人，不可能要求全部先手動登記過才會顯示」，這個質疑是對的。原本 `normalize()` 遇到辨識不到任何 headliner 的場次，直接回傳 `needsReview`，連 `parseVenue`/價格/`tags_type` 都不會算，場次完全不會出現在時間表上，`data/artists.yml` 事實上變成了一道「發現新演出前必須先手動登記」的關卡，違背整個工具「幫你發現還不知道的演出」的初衷。
+
+**修法**：`normalize()` 拿掉這個早退邏輯，`headliners: []` 時照樣往下算 `venue`/`city`/價格/`tags_type`（`guessTagsType()` 本來就不靠 headliner 判斷關鍵字，只在關鍵字都沒中時才用 headliner 數量決定「專場」vs「拼盤」，0 個一樣正確落在「專場」），只是 `tags_origin` 留空（沒有辨識到的藝人就是不知道出身地，不用猜）。`fetch.mjs` 仍然把這類事件記進 `needs-review.json`（reason 保留 `artist_unrecognized`），但角色從「發布關卡」改成「待補分類清單」——事件已經在正式上架，這份清單只是提醒之後把藝人補進 `artists.yml` 能拿到 `tags_origin`/排除藝人這些額外功能，不補也完全不影響曝光。連帶修了 `render.js` 的卡片標題（原本直接 `headliners.join(" / ")`，`headliners` 是空陣列時會整個標題空白——改成沒有 headliner 時退回顯示 `title_raw`）以及 `fetch.mjs` 的 `buildKnownRawIdsBySource()`（未分類的事件不能算「已知」，否則增量抓取機制會在藝人補進名單後仍然沿用舊的空白分類，永遠不會重新正規化）。
+
+**Max 進一步要求「不要叫我自己手動查來源地」**：確認之後，`artists.yml` 的定位變成「Claude 用 WebSearch 查證後填寫的快取表」，不是要 Max 自己一筆筆查。當天示範性地把清出來的 15 筆 `artist_unrecognized` 全部用 WebSearch 查證（不是憑印象猜）補齊，示範案例：MONO（日本後搖滾）、D'MASIV（印尼搖滾樂團——KKTIX 原始標題用彎引號 D'MASIV/U+2019，不是直引號，需要額外補一個別名才比對得到）、Karencici（美籍華裔但常駐台灣發展，比照告五人／Suming 的精神算本地）、Jony J（中國饒舌歌手，落在既有四分類「本地/日韓/歐美/海外」的「海外」）等。這個查證動作被寫進每日排程（見 §10），變成例行流程的一部分，不需要 Max 手動介入。
+
+**連帶修了一個測試本身的假陽性**：`artists.yml` 有一個既有的子字串碰撞防護測試（見上面 2026-09-17 那段），新增 canonical `MONO` 時觸發了它——`MONO` 是既有 canonical `Monomania偏執狂`的原始子字串。但 `findNameIndex()` 對純英文 canonical 已經有字邊界防護（`MONO` 後面緊接 `mania`，中間沒有邊界，不會誤判），只是這個測試本身還是用最原始的 `.includes()` 判斷，沒有套用同一套邊界邏輯，等於是拿一個比實際比對機制更嚴格、會誤報的規則卡資料。改成直接 export `findNameIndex()`，測試也改用它本人跑一次「A 名字放進 B 名字裡會不會真的比對到」，而不是自己重新發明一套更粗糙的子字串規則。
+
 ### 3.3 UserPrefs（存在 localStorage，登入後同步到 Supabase，不進 repo）
 
 ```ts
@@ -284,6 +295,19 @@ const SEARCH_VENUES = [
 ```
 
 Legacy Taipei 與 Legacy Taichung 的場館欄位都只寫「Legacy」，需要另外比對地址（台北市 vs 台中市）才能分辨，實作時務必寫測試案例覆蓋這個情況，避免兩個城市的場次互相搞混。
+
+**2026-09-21 補齊 `SEARCH_VENUES`**：Max 拿一場真實漏掉的演出（`youngteam.kktix.cc/events/agefactory26`）來問，查出 SUB LIVE 也是「租場地、每場不同主辦單位」的同類場館，2026-09-17 那次涵蓋率調查（見下方 cohesionmusic 那段）就已經點名 SUB LIVE／Zepp New Taipei／Blue Note／野地方 Wild Lab 四個場館都該加進這個清單，但當時只做了記錄、沒有真的動手加。這次一次補齊：
+
+```js
+{ keyword: "SUB LIVE", match: (venue) => /^SUB LIVE/i.test(venue) },
+{ keyword: "Zepp New Taipei", match: (venue) => /^Zepp New Taipei/i.test(venue) },
+{ keyword: "野地方", match: (venue) => /^野地/.test(venue) },  // 見下方註解，字元變體問題
+{ keyword: "Blue Note", match: (venue) => /^Blue Note/i.test(venue) },
+```
+
+實測時發現「野地方 Wild Lab」有兩種寫法同時存在於真實資料：一個主辦方的場館欄位用了 U+2F45（⽅，康熙部首）而不是正常的 U+65B9（方），兩者長得一模一樣但不是同一個字元，`match` 正則只取「野地」兩字前綴以同時涵蓋兩種寫法。Blue Note 目前搜尋不到真的在賣票、場館真的是 Blue Note 的場次（搜尋關鍵字命中的都是巧合，例如 Legacy Taipei、MOONDOG 等不相干場館），但既然是已知需要涵蓋的場館，還是加上了，成本只是每天多一次搜尋請求。
+
+**同一次修正也發現一個殘留的小問題，先記錄未修**：SUB LIVE 底下至少一個主辦方（`theflabbergast`）用**英文地址**（"No. 99, Section 8, Civic Boulevard, Nangang District, Taipei City"）而不是中文地址，`cityFromAddress()` 只認中文城市名稱前綴，英文地址完全比對不到，該場次的 `city` 會落成「未知」而不是「台北」。目前只在這一個場次上觀察到，尚未評估是否要為英文地址另外寫一套判斷邏輯。
 
 **兩個踩過的坑（M2 實作記錄）**：
 

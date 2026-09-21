@@ -64,6 +64,30 @@ const SEARCH_VENUES = [
   },
   { keyword: "Revolver", match: (venue) => /^Revolver/i.test(venue) },
   { keyword: "Clapper Studio", match: (venue) => /^Clapper/i.test(venue) },
+  // Added 2026-09-21: real missed event found by Max (Age Factory @ SUB LIVE,
+  // youngteam.kktix.cc/events/agefactory26) — SUB LIVE was already flagged as
+  // a rented multi-promoter venue back in the 2026-09-17 M12 pass (see the
+  // comment above ORG_PAGE_VENUES) but never actually got added here, so it
+  // fell through both strategies entirely.
+  { keyword: "SUB LIVE", match: (venue) => /^SUB LIVE/i.test(venue) },
+  // The other 3 venues flagged in the same 2026-09-17 M12 pass as SUB LIVE
+  // (see comment above ORG_PAGE_VENUES) — checked again 2026-09-21 while
+  // fixing SUB LIVE, since it's the same bug: flagged as needing this, never
+  // actually added.
+  // Zepp New Taipei: confirmed a real currently-missed show (Jony J 2026
+  // 「本命」TOUR, spaceport.kktix.cc/events/jonyj-2).
+  { keyword: "Zepp New Taipei", match: (venue) => /^Zepp New Taipei/i.test(venue) },
+  // 野地方 Wild Lab: confirmed 2 real currently-missed shows (eldon, Shye).
+  // One organizer's own listing renders the venue name with U+2F45 (⽅, the
+  // Kangxi radical) instead of the normal U+65B9 (方) character — looks
+  // identical but doesn't string-match — so the regex only requires the
+  // distinctive 2-char "野地" prefix rather than the full name.
+  { keyword: "野地方", match: (venue) => /^野地/.test(venue) },
+  // Blue Note: no currently-missed show found (all "Blue Note" search hits
+  // were false positives — Legacy Taipei, MOONDOG, Corner House, etc., see
+  // 2026-09-21 investigation) — added anyway since it's the last of the 4
+  // flagged venues and costs nothing but one daily search request.
+  { keyword: "Blue Note", match: (venue) => /^Blue Note/i.test(venue) },
 ];
 
 function sleep(ms) {

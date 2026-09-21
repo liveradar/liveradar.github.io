@@ -1,6 +1,13 @@
 # Artist alias table (SPEC §3.2). Maintained by hand — this is what FR-16/US-16
 # "assign unrecognized artist" writes into. Accuracy here beats AI guessing (D15).
 #
+# 2026-09-21 (D15 reversal, see normalize.mjs): an unrecognized artist no
+# longer blocks an event from showing — it just means that event has no
+# tags_origin and no exclude-by-artist support until an entry is added here.
+# This file is now an enrichment backlog, not a publish gate — cleared by
+# looking up needs-review.json's "artist_unrecognized" items (web search,
+# not guessing from the title alone) as part of the daily fetch routine.
+#
 # canonical: the name shown in the UI and used as the key for exclude rules.
 # aliases: alternate spellings/romanizations seen in scraped titles.
 # tags_origin_default: pre-fills 來源地 tag when a new event by this artist is normalized.
@@ -12,6 +19,47 @@
 - canonical: ABC Band
   aliases: ["A.B.C. Band", "ABC樂團"]
   tags_origin_default: 歐美
+
+# 2026-09-21：清 needs-review 的 artist_unrecognized 待清單，逐一 web search 查證
+# 來源地（不是憑標題猜），對應 SUB LIVE/Zepp/野地方涵蓋率修正後新冒出來的名字。
+- canonical: MONO
+  aliases: []
+  tags_origin_default: 日韓
+- canonical: D'MASIV
+  # KKTIX's own listing renders this with a curly/smart apostrophe (U+2019 ’),
+  # not the straight one (U+0027 ') — looks identical, doesn't string-match.
+  aliases: ["DMASIV", "D’MASIV"]
+  tags_origin_default: 海外
+- canonical: LICHANG.rar
+  aliases: []
+  tags_origin_default: 本地
+- canonical: "92914"
+  aliases: []
+  tags_origin_default: 日韓
+- canonical: Omoinotake
+  aliases: []
+  tags_origin_default: 日韓
+- canonical: Karencici
+  aliases: []
+  tags_origin_default: 本地
+- canonical: Jony J
+  aliases: []
+  tags_origin_default: 海外
+- canonical: TAKASE TOYA
+  aliases: []
+  tags_origin_default: 日韓
+- canonical: 40 Fingers
+  aliases: []
+  tags_origin_default: 歐美
+- canonical: EIR AOI
+  aliases: []
+  tags_origin_default: 日韓
+- canonical: eldon
+  aliases: []
+  tags_origin_default: 日韓
+- canonical: Shye
+  aliases: []
+  tags_origin_default: 海外
 
 # --- 2026-09-17 草稿：對照 342 筆待整理場次補的第一批，還沒 commit ---
 # 標了「⚠️ 短字/常見字」的是子字串比對風險較高、之後如果誤觸發到不相關的

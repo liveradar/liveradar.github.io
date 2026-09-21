@@ -75,7 +75,7 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
           <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
             ${newBadge}
-            <div class="event-title">${escapeHtml(event.headliners.join(" / "))}</div>
+            <div class="event-title">${escapeHtml(event.headliners.length ? event.headliners.join(" / ") : event.title_raw)}</div>
             ${updatedBadge}
           </div>
           <div style="display:flex;gap:2px;flex:0 0 auto;">

@@ -1,24 +1,15 @@
 {
-  "generated_at": "2026-09-21T01:33:55.852Z",
+  "generated_at": "2026-09-21T02:34:37.688Z",
   "added_ids": [
-    "d7618cbef937a9c1",
-    "70ccbf70e5d0ef51",
-    "71810cf9bd0d2d17-day",
-    "71810cf9bd0d2d17-evening",
-    "9bef0b055525cadf",
-    "069167e40fdd4eaf",
-    "f5980594fdd14fda",
-    "c28fa8dd538961c8",
-    "e63300986c817b29",
-    "9fccb6d6649feba6",
-    "1097cd8282efa3c0",
-    "b3da7f13f4ef7099",
-    "8bc06b8977845e38",
-    "616834bfe09e1bd3-evening",
-    "616834bfe09e1bd3-day",
-    "846d5e65c36f6ad8",
-    "9929ffecccfcbd6c",
-    "9839ac2e9929e180"
+    "b8547085165f3566"
   ],
-  "updated": []
+  "updated": [
+    {
+      "id": "f5980594fdd14fda",
+      "fields": [
+        "price_min",
+        "price_max"
+      ]
+    }
+  ]
 }

@@ -60,6 +60,15 @@ function loadPreviousNeedsReview() {
 function buildKnownRawIdsBySource(previousEvents) {
   const map = new Map();
   for (const event of previousEvents) {
+    // D15 reversal (2026-09-21): an unrecognized-artist event still lands in
+    // events.json (see normalize.mjs) instead of being blocked, but it must
+    // NOT count as "known" here — otherwise, once its artist is later added
+    // to artists.yml, incremental fetch would keep reusing this stale
+    // headliners:[] copy forever instead of ever re-normalizing it against
+    // the updated artist list. Only a successfully-classified event benefits
+    // from the incremental-fetch skip; an unclassified one keeps getting
+    // fetched fresh every run until it resolves.
+    if (event.headliners.length === 0) continue;
     for (const source of event.sources) {
       if (!map.has(source.name)) map.set(source.name, new Set());
       map.get(source.name).add(source.raw_id);
@@ -143,6 +152,22 @@ async function runAdapter(adapter, context) {
       const result = normalize(raw, artistsYml, venuesYml);
       if (result.event) {
         normalizedEvents.push(result.event);
+        // D15 reversal (2026-09-21): the event still shows even with no
+        // recognized headliner (see normalize.mjs), but it's still logged
+        // here as an enrichment backlog item — something should look this
+        // artist up and add it to artists.yml so future events get proper
+        // tags_origin/exclude-by-artist support, it just no longer blocks
+        // this event from being visible in the meantime.
+        if (result.event.headliners.length === 0) {
+          needsReview.push({
+            raw_id: raw.raw_id,
+            title_raw: raw.title_raw ?? null,
+            url: raw.url ?? null,
+            source: raw.source_name,
+            reason: "artist_unrecognized",
+            detail: null,
+          });
+        }
       } else if (result.needsReview) {
         needsReview.push(result.needsReview);
       } else {

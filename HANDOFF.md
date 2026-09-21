@@ -438,4 +438,21 @@ Max 問「使用者要怎麼自己更新資料，還是只能我來更新」，�
 - **結論**：M11 當時發現的 IP 封鎖問題到現在還是存在，S5 拿掉排程的判斷是對的。如果直接恢復排程，拓元/Ticket Plus 這兩個資料量最大的來源會每天靜默抓取失敗。
 - 討論過的替代方案：(1) 維持現狀全部手動、(2) KKTIX/iNDIEVOX 排程自動抓，拓元/Ticket Plus/FANSI GO 維持手動、(3) 想辦法繞過 403（判斷屬於規避防護機制的灰色地帶，不建議）。
 - Max 提出另一個想法：讓 Claude（不是 GitHub Actions）每天固定時間在他自己的電腦上跑抓取，因為用家用網路的 IP 不會被擋。查證 `mcp__scheduled-tasks` 這個機制後發現**需要 Claude 桌面 App 開著、電腦沒睡眠才會準時觸發，關著的話會等下次開機才補跑**——Max 這台電腦（`/Users/max/Documents/claude/liveradar` 所在的這台）平常都在待機，這個方案在這台機器上等於形同虛設，已經放棄。
-- **改成規劃在 Max 的上班用電腦上做**（同一個 Claude 帳號，但上班電腦平常時段更穩定醒著）。**這是下一步、還沒有動工**，需要三件事都在那台電腦上準備好：(1) `git clone git@github.com:liveradar/liveradar.github.io.git` 到那台電腦（要重新設定一把可以 push 的 SSH key）、(2) 在那台電腦上開 Claude Code、用同樣邏輯建立 `mcp__scheduled-tasks` 排程（跑 `npm ci` → `node scripts/fetch.mjs` → `npm test` → 確認過再 commit+push，跟現有 GitHub Actions bot 的自動化流程同一套邏輯）、(3) **Max 已經口頭確認**排程跑完可以自動 commit+push、不用每次先問過——但**還沒確認過的是**在公司電腦上背景常駐執行個人專案的自動化排程，會不會有公司網路/資安政策方面的疑慮，這件事要 Max 自己評估，不是技術問題。接手的人如果要繼續這件事，先確認 Max 有沒有機會在那台電腦上開 Claude Code。
+- **改成規劃在 Max 的上班用電腦上做**（同一個 Claude 帳號，但上班電腦平常時段更穩定醒著）。**這件事已經做完**（同一天稍晚）：Max 確認過現在這台機器就是那台上班用電腦、也確認過公司網路/資安政策沒有疑慮，排程 `liveradar-daily-fetch`（每天約上午 10:00，見 `mcp__scheduled-tasks`）已經建立並實測跑過，流程是 `git pull` → `npm ci` → `node scripts/fetch.mjs` → `npm test` → 有異動且測試通過才自動 commit+push，測試沒過就停下來報告不動手，不用每次先問過。曾經走過 `liveradar/liveradar.github.io` clone 到 `gigradar` 資料夾底下的彎路（造成一層多餘的巢狀 clone），後來把整個 `gigradar` 資料夾改名成 `liveradar`（本來就是同一個 repo，只是還留著改名前的內部代號），巢狀的重複 clone 搬進系統垃圾桶，排程路徑也同步更新成 `/Users/megamount/Documents/personal/liveradar`。
+
+## 一場真實漏掉的演出，牽出兩層根因，順便逆轉一個產品決策（D15 reversal，2026-09-21）
+
+Max 回報一場真實查得到、卻在網站上完全看不到的演出（Age Factory @ SUB LIVE，`youngteam.kktix.cc/events/agefactory26`）。追出兩層完全不同的根因：
+
+1. **KKTIX 涵蓋率缺口**：SUB LIVE 這類「租場地、每場不同主辦單位」的場館，靠關鍵字搜尋 KKTIX 全站才能涵蓋（見 SPEC §5.1）。SUB LIVE／Zepp New Taipei／Blue Note／野地方 Wild Lab 這四個場館，9/17 那次涵蓋率調查早就點名要加，但只做了記錄沒有真的動手——這次一次補齊，順便發現「野地方 Wild Lab」有兩種長得一樣但編碼不同的寫法（一個用了 U+2F45 康熙部首而不是正常的「方」字），改用「野地」兩字前綴涵蓋兩種寫法。
+2. **更根本的問題**：即使場館涵蓋到了，Age Factory 這個藝人不在 `data/artists.yml`，`normalize()` 原本的設計是「辨識不到任何藝人，整場都不會進 `events.json`」——場次完全不會上架，不是分類錯誤、是整場消失。Max 直接質疑這個設計「有這麼多音樂人，不可能要求全部先手動登記過才會顯示」，這個質疑成立：一個「幫你發現還不知道的演出」的工具，卻要求你已經知道這個演出者才會顯示，本末倒置。
+
+**修法（D15 reversal）**：`normalize()` 拿掉這個早退邏輯，未辨識藝人的場次照樣正常上架、正常顯示，只是沒有來源地標籤（沒辨識到就是不知道，不用猜），`needs-review.json` 的角色從「發布關卡」改成「待補分類清單」。連帶修了 `render.js` 卡片標題的一個真實 bug（`headliners` 是空陣列時，`headliners.join(" / ")` 會整個標題空白，改成退回顯示原始標題）和 `fetch.mjs` 的增量抓取邏輯（未分類的事件不能算「已知」，不然之後把藝人補進名單也不會生效，會永遠卡在空白分類）。
+
+Max 進一步要求「不要叫我自己手動查來源地」——查證後這是合理的，`tags_origin` 需要「知道這個人是誰」才能判斷，沒有純技術性的自動判斷法，但用 WebSearch 查證（不是憑印象猜）完全可行，而且比起硬性規則更準。當場示範性地把清出來的 15 筆 `artist_unrecognized` 全部查證補齊（MONO、D'MASIV、LICHANG.rar、92914、Omoinotake、Karencici、Jony J、TAKASE TOYA、40 Fingers、EIR AOI、eldon、Shye），過程中也抓到一個純打字問題：D'MASIV 在 KKTIX 原始標題裡用的是彎引號（’U+2019）不是直引號，一模一樣、比對不起來，補一個對應別名才修好。這個「查證＋補 artists.yml」的動作已經寫進每日排程的執行內容，變成例行流程，不需要 Max 手動介入。
+
+**額外修了一個測試本身的假陽性**：新增 canonical `MONO` 觸發了既有的子字串碰撞防護測試（`MONO` 是 `Monomania偏執狂` 的原始子字串），但 `matchArtists()` 內部的 `findNameIndex()` 對純英文 canonical 早就有字邊界防護，這個碰撞在真實比對時不會發生，只是測試本身還在用比實際比對機制更粗糙的 `.includes()` 判斷。把 `findNameIndex()` export 出來，讓測試直接用真正的比對邏輯檢查，而不是自己重新發明一套更容易誤報的規則。
+
+**殘留、還沒修的小問題**：SUB LIVE 底下至少一個主辦方用英文地址（不是中文），城市判斷邏輯只認中文城市名稱，這場的 `city` 會落成「未知」而不是「台北」。目前只在這一筆資料上觀察到，還沒決定要不要為英文地址另外寫判斷邏輯。
+
+`npm test` 79 個測試全過（新增 2 個測試：`normalize()` 未辨識藝人仍正常出場次、`renderEventCard` 空 headliners 退回顯示原始標題）。

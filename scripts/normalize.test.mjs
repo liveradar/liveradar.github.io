@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseKktixVenue, loadArtists, matchArtists, parsePriceFromText, guessTagsType } from "./normalize.mjs";
+import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseKktixVenue, loadArtists, matchArtists, parsePriceFromText, guessTagsType, findNameIndex } from "./normalize.mjs";
 
 const artistsYml = [{ canonical: "深海系樂團", aliases: [], tags_origin_default: "本地" }];
 
@@ -210,18 +210,27 @@ test("matchArtists: word-boundary check does not affect CJK/mixed-script names, 
   assert.deepEqual(matchArtists("莊鵑瑛（小球）Live in 台北", yml), ["小球"]);
 });
 
-test("artists.yml has no case-insensitive substring collisions between any two canonical/alias names", () => {
+test("artists.yml has no substring collisions between any two canonical/alias names that matchArtists() would actually mismatch on", () => {
   // Regression guard for the real "IVE"/"LIVE" and "ASCA"/"Patrick Brasca"
   // bugs found in review (2026-09-17): a short or common canonical/alias name
   // that is a substring of another entry's name causes matchArtists() to
-  // silently over-match. This is a hard failure, not a warning — 0 such
-  // collisions currently exist in the live data, so any future addition that
-  // creates one should be caught here before it ships.
+  // silently over-match.
+  //
+  // 2026-09-21: switched from a blind case-insensitive .includes() check to
+  // findNameIndex() itself (the actual runtime matcher) — adding "MONO" flagged
+  // a false positive against the existing "Monomania偏執狂" entry ("MONO" is a
+  // raw substring of it), but findNameIndex's word-boundary rule for pure-Latin
+  // names already rejects that match at runtime ("MONO" immediately followed
+  // by "mania", no boundary) — the blind substring check couldn't tell a real
+  // collision (IVE/LIVE, which IS a boundary-adjacent match) from data that
+  // merely looks alarming. This is a hard failure, not a warning — any
+  // addition that creates a real (boundary-passing) collision should still be
+  // caught here before it ships.
   const artistsYml = loadArtists();
   const names = [];
   for (const entry of artistsYml) {
     for (const n of [entry.canonical, ...(entry.aliases ?? [])]) {
-      names.push({ canonical: entry.canonical, name: n, lower: n.toLowerCase() });
+      names.push({ canonical: entry.canonical, name: n });
     }
   }
   const collisions = [];
@@ -229,8 +238,8 @@ test("artists.yml has no case-insensitive substring collisions between any two c
     for (const b of names) {
       if (a.canonical === b.canonical) continue;
       if (a.name === b.name) continue;
-      if (b.lower.includes(a.lower)) {
-        collisions.push(`"${a.name}" (${a.canonical}) is a substring of "${b.name}" (${b.canonical})`);
+      if (findNameIndex(b.name, a.name) !== null) {
+        collisions.push(`"${a.name}" (${a.canonical}) would match inside "${b.name}" (${b.canonical})`);
       }
     }
   }
@@ -344,4 +353,14 @@ test("normalize(): a real music event is not caught by the noise filter just bec
   const yml = [{ canonical: "深海系樂團", aliases: [], tags_origin_default: "本地" }];
   const result = normalize(makeRaw({ title_raw: "深海系樂團 音樂節 Live" }), yml, []);
   assert.ok(result.event, "a real festival-titled event must not be excluded");
+});
+
+test("normalize() D15 reversal: an unrecognized artist still produces a visible event, not a needsReview block (real bug: Age Factory @ SUB LIVE never appeared on the site at all)", () => {
+  const result = normalize(makeRaw({ title_raw: "Age Factory Live in Taipei 2026" }), [], []);
+  assert.ok(result.event, "no recognized headliner must not block the event from showing");
+  assert.equal(result.needsReview, undefined);
+  assert.deepEqual(result.event.headliners, []);
+  assert.deepEqual(result.event.lineup, []);
+  assert.deepEqual(result.event.tags_origin, [], "no recognized artist means no origin tag, not a guess");
+  assert.deepEqual(result.event.tags_type, ["專場"], "guessTagsType still falls back sensibly with 0 headliners");
 });

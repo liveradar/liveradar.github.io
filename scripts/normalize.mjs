@@ -110,7 +110,7 @@ function isAsciiWordChar(ch) {
  * string is the normal, correct case there (see the ⚠️ short/common-word
  * comments already in artists.yml for known residual risk in that case).
  */
-function findNameIndex(titleRaw, name) {
+export function findNameIndex(titleRaw, name) {
   if (!ASCII_ONLY.test(name)) {
     // CJK/mixed name: plain, case-sensitive substring match (unchanged).
     const idx = titleRaw.indexOf(name);
@@ -470,19 +470,16 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
     };
   }
 
+  // 2026-09-21 (D15 reversal): an unrecognized artist used to block the
+  // whole event from events.json — Max pushed back hard on this (an
+  // aggregator whose entire point is surfacing shows you don't already know
+  // about, requiring you to already know the artist before it'll show up,
+  // is backwards). headliners=[] now just means "no per-artist enrichment
+  // yet" (blank tags_origin, generic 專場/拼盤 guess below) rather than
+  // "invisible" — fetch.mjs still logs it to needs-review.json so it can be
+  // looked up and added to artists.yml later, but that's an enrichment
+  // backlog now, not a publish gate. See LIVERADAR-SPEC.md §3.2.
   const headliners = matchArtists(rawEvent.title_raw, artistsYml);
-  if (headliners.length === 0) {
-    return {
-      needsReview: {
-        raw_id: rawEvent.raw_id,
-        title_raw: rawEvent.title_raw,
-        url: rawEvent.url,
-        source: rawEvent.source_name,
-        reason: "artist_unrecognized",
-        detail: null,
-      },
-    };
-  }
 
   const { venue, city } = parseVenue(rawEvent.venue_raw ?? "", venuesYml);
   // KKTIX is the only source with a real structured ticket-tier table
