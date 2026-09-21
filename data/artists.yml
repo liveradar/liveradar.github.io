@@ -56,6 +56,21 @@
 - canonical: Yo-Sea
   aliases: []
   tags_origin_default: 日韓
+- canonical: 黃莑茗
+  aliases: []
+  tags_origin_default: 本地
+- canonical: Eüreka
+  aliases: []
+  tags_origin_default: 本地
+- canonical: 普通隊長
+  aliases: []
+  tags_origin_default: 本地
+- canonical: 羊文学
+  aliases: []
+  tags_origin_default: 日韓
+- canonical: Schizophragm
+  aliases: []
+  tags_origin_default: 日韓
 - canonical: D'MASIV
   # KKTIX's own listing renders this with a curly/smart apostrophe (U+2019 ’),
   # not the straight one (U+0027 ') — looks identical, doesn't string-match.

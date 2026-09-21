@@ -101,6 +101,46 @@ const SEARCH_VENUES = [
   // (not "The Wall Live House") — the longer phrase returned 0 results from
   // KKTIX's own search, apparently not indexed as one unit.
   { keyword: "The Wall", match: (venue) => /^The Wall/i.test(venue) },
+  // 2026-09-21, Max asked for a proactive audit of the other 4 ORG_PAGE_VENUES
+  // entries for the same "self-promotes almost all, but not literally all"
+  // leak The Wall had. Searched each org's own venue name and checked every
+  // result NOT already on that org's own subdomain; kafka and pipelivemusic
+  // both turned up a real, currently-on-sale, wrongly-uncovered show this
+  // way (emergelivehouse2/cohesionmusic came back clean — 0 real leaks).
+  //
+  // 海邊的卡夫卡 (kafka org): the "kafka" account only covers its Taipei
+  // location. A real show at its Kaohsiung branch ("海邊的卡夫卡-高流店",
+  // 黃莑茗《哎呀！跌個狗吃屎！Mini Tour》) was booked under a different
+  // promoter's own account and invisible to the org-page strategy entirely.
+  // Prefix match covers both this branch and the main Taipei location.
+  { keyword: "海邊的卡夫卡", match: (venue) => /^海邊的卡夫卡/.test(venue) },
+  // PIPE Live Music (pipelivemusic org): real show (曾艾佳《失序塵編》巡迴演唱會・
+  // 台北站) booked entirely through an outside promoter's own KKTIX account,
+  // exactly the same shape as The Wall's leak.
+  { keyword: "PIPE Live Music", match: (venue) => /^PIPE Live Music/i.test(venue) },
+  // 2026-09-21, same audit widened past the existing ORG_PAGE_VENUES list to
+  // the highest-frequency venues in the OTHER 4 sources' own data that had
+  // zero KKTIX coverage at all — these aren't "leaks" from an assumed org
+  // page, KKTIX just never had any entry for them. All 4 below turned up at
+  // least one real, currently-on-sale, previously invisible show.
+  //
+  // 女巫店 (Witch House): 20+ events already come from Ticket Plus alone —
+  // a real KKTIX-sold show there (黃莑茗 Taipei date) had zero coverage.
+  { keyword: "女巫店", match: (venue) => venue.startsWith("女巫店") },
+  // LIVE WAREHOUSE (Kaohsiung, 大庫/小庫 rooms): real shows for 羊文学, 普通隊長,
+  // 椅子樂團, DSPS all found. No `^` anchor — one organizer's own listing
+  // writes the city first ("高雄 LIVE WAREHOUSE 小庫"), which a prefix match
+  // would miss entirely.
+  { keyword: "LIVE WAREHOUSE", match: (venue) => /live warehouse/i.test(venue) },
+  // 百樂門酒館 (Paramount Bar): real show found (Schizophragm 台灣巡迴), but its
+  // own listing writes venue as a combined dual-venue string ("Paramount Bar
+  // [百樂門酒館] & Revolver Taipei [左輪酒吧]") that doesn't start with either
+  // name — .includes() instead of a prefix match to still catch it.
+  { keyword: "百樂門酒館", match: (venue) => venue.includes("百樂門酒館") },
+  // 迴響音樂展演空間 SOUND LIVE HOUSE (Taichung): found via the same Eüreka
+  // tour that surfaced the LIVE WAREHOUSE gap above (one tour, 3 cities, 3
+  // different previously-uncovered venues).
+  { keyword: "迴響音樂展演空間", match: (venue) => venue.startsWith("迴響音樂展演空間") },
 ];
 
 function sleep(ms) {
