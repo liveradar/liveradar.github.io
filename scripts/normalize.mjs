@@ -220,12 +220,25 @@ export function parseKktixVenue(venueRaw, venuesYml = []) {
   return { venue: venuePart, city };
 }
 
-/** "2027/05/01 (六)  ~ 2027/05/02 (日) " or "2026/12/10 (四)" -> { date, time: null } */
+/**
+ * "2027/05/01 (六)  ~ 2027/05/02 (日) " or "2026/12/10 (四)" -> { date, time: null }
+ *
+ * 2026-09-21 real bug (Max: "很多時間或票價沒有上"): the listing page's date
+ * field never has a time at all — confirmed genuinely absent there, not a
+ * parsing miss — but tixcraft.mjs's detail page (already visited for price)
+ * has the real show time in a "📅 時間：YYYY/MM/DD(day) HH:MM" line, which
+ * nothing was ever extracting. tixcraft.mjs appends that time to date_raw as
+ * " HH:MM" when found (see its own comment), so this just needs to look for
+ * an optional trailing time here — kept optional/appended rather than baked
+ * into the adapter's own date_raw shape change, so a raw string with no time
+ * found still parses exactly as before.
+ */
 export function parseTixcraftDate(dateRaw) {
   const m = dateRaw.match(/(\d{4})\/(\d{2})\/(\d{2})/);
   if (!m) return null;
   const [, y, mo, d] = m;
-  return { date: `${y}-${mo}-${d}`, time: null };
+  const timeMatch = dateRaw.match(/(\d{1,2}:\d{2})\s*$/);
+  return { date: `${y}-${mo}-${d}`, time: timeMatch ? timeMatch[1].padStart(5, "0") : null };
 }
 
 /** No address on tixcraft's listing page — look the venue name up in venues.yml instead. */
@@ -360,8 +373,32 @@ function htmlToLines(html) {
     .replace(/&amp;/gi, "&");
 }
 
-const PRICE_LABEL_RE = /(?:票價|門票)[：｜:]\s*([^\n]{1,200})/;
-const CURRENCY_NUMBER_RE = /(?:NT\$|\$)\s*([\d,]+)|([\d,]+)\s*元/g;
+// 2026-09-21 real bug, found chasing a *different* report (Max: "很多票價沒
+// 上"): normalizeFullwidthAscii() runs on `plain` BEFORE this regex ever sees
+// it, and converts "｜" (fullwidth pipe, U+FF5C — the separator basically
+// every source uses: "票價｜"/"門票｜"/"地點｜"/"日期｜") into a plain "|" —
+// but this character class only listed the fullwidth form, so it silently
+// matched nothing whenever the label-scoped path was the only route to the
+// price (no 預售/現場/單人/雙人/etc. keyword for PRICE_KEYWORD_RE's fallback
+// to catch by accident instead). Existing tests using "｜" happened to still
+// pass because their price text ALSO had a fallback keyword sitting right
+// next to the numbers — the label match itself was silently broken the whole
+// time, just invisibly, until a bare unmarked list ("Ticket Plus's
+// 票價｜8,500/8,000/…" test) had nothing else to fall back on.
+const PRICE_LABEL_RE = /(?:票價|門票)[：｜|:]\s*([^\n]{1,200})/;
+// 2026-09-21 real bug (Max): Ticket Plus writes currency as "TWD 4,280" or
+// "NT4,000" (no $ sign at all) about as often as "NT$"/"$" — neither matched
+// this regex, silently losing the price on every such event. Added both as
+// alternative prefixes.
+const CURRENCY_NUMBER_RE = /(?:NT\$|NT|TWD|\$)\s*([\d,]+)|([\d,]+)\s*元/g;
+// 2026-09-21 real bug (Max, same investigation): some Ticket Plus events list
+// a bare, unmarked number list after the label with no currency symbol on
+// ANY tier at all ("票價｜8,500 / 8,000 / ... / 1,500") — CURRENCY_NUMBER_RE
+// requires at least one marker per number and finds nothing here. Only used
+// as a fallback within an already-confirmed "票價/門票" labeled line (never
+// on the whole page), so trusting bare numbers here doesn't risk picking up
+// an unrelated number the way it would in PRICE_KEYWORD_RE's page-wide scan.
+const BARE_NUMBER_LIST_RE = /[\d,]{2,}/g;
 // Looser fallback for pages with no overall "票價"/"門票" heading at all
 // (FANSI GO) — still requires a price-shaped word immediately next to the
 // number, not just any digit on the page. 身障/愛心席 deliberately NOT
@@ -420,11 +457,19 @@ export function parsePriceFromText(html) {
 
   const labelMatch = plain.match(PRICE_LABEL_RE);
   if (labelMatch) {
-    const numbers = [...stripDiscountTierText(labelMatch[1]).matchAll(CURRENCY_NUMBER_RE)].map((m) =>
-      Number((m[1] ?? m[2]).replace(/,/g, ""))
-    );
+    const stripped = stripDiscountTierText(labelMatch[1]);
+    const numbers = [...stripped.matchAll(CURRENCY_NUMBER_RE)].map((m) => Number((m[1] ?? m[2]).replace(/,/g, "")));
     const fromLabel = priceRangeFromNumbers(numbers);
     if (fromLabel.min != null) return fromLabel;
+
+    // No currency-marked number found anywhere in the labeled line — some
+    // Ticket Plus events list a bare "8,500 / 8,000 / ... / 1,500" with no
+    // currency symbol on ANY tier. Safe to trust bare numbers here (unlike
+    // PRICE_KEYWORD_RE's whole-page scan) since this text is already scoped
+    // to a confirmed "票價/門票" label, not just any digits on the page.
+    const bareNumbers = [...stripped.matchAll(BARE_NUMBER_LIST_RE)].map((m) => Number(m[0].replace(/,/g, "")));
+    const fromBare = priceRangeFromNumbers(bareNumbers);
+    if (fromBare.min != null) return fromBare;
   }
 
   const keywordNumbers = [...stripDiscountTierText(plain).matchAll(PRICE_KEYWORD_RE)].map((m) =>

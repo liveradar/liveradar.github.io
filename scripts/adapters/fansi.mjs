@@ -46,7 +46,13 @@ export const priority = 4;
 
 const LIST_URL = "https://go.fansi.me/allevents";
 
-/** "2026/09/19" -> unchanged; normalize.mjs's parseFansiDate expects exactly this shape. No time — the detail page has one, but only as unreliable decorative text, so it's skipped (same tradeoff tixcraft made for price, D16). */
+/**
+ * "2026/09/19" -> unchanged; the listing page itself never has a time.
+ * 2026-09-21: the claim that the detail page's time is "unreliable
+ * decorative text" was wrong (same mistake as this file's old venue claim,
+ * see fetch()'s own 2026-09-21 comment) — it's real, structured
+ * "YYYY/MM/DD HH:MM" text, extracted below and appended to date_raw.
+ */
 async function fetchCards(page) {
   await page.goto(LIST_URL, { waitUntil: "domcontentloaded", timeout: 30000 });
   try {
@@ -147,6 +153,23 @@ export async function fetch(knownRawIds = new Set()) {
         } catch (err) {
           venueFailures += 1;
           logProgress(`FANSI GO venue fetch failed for ${event.url}: ${err.message}`);
+        }
+        // 2026-09-21 real bug: this file's own doc comment above claimed the
+        // detail page's time was "unreliable decorative text" and skipped it
+        // entirely — wrong, same mistake as the venue claim right above it.
+        // A real "YYYY/MM/DD HH:MM(當地時間)" line sits in the element right
+        // before the venue container (same page load, no extra request) —
+        // appended to date_raw as " HH:MM", same convention tixcraft.mjs uses,
+        // since both share normalize.mjs's parseTixcraftDate.
+        try {
+          const timeText = await page.$eval(
+            "div.w-full.mt-2.mb-6",
+            (el) => el.previousElementSibling?.textContent ?? ""
+          );
+          const timeMatch = timeText.match(/\d{4}\/\d{2}\/\d{2}\s+(\d{1,2}:\d{2})/);
+          if (timeMatch) event.date_raw = `${event.date_raw} ${timeMatch[1]}`;
+        } catch (err) {
+          logProgress(`FANSI GO time fetch failed for ${event.url}: ${err.message}`);
         } finally {
           await page.close();
         }

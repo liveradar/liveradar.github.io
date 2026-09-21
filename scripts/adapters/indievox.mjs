@@ -82,7 +82,13 @@ async function fetchListingPage(startDate) {
 // city always "未知" — not even the venues.yml fallback got a chance to run
 // since there was no venue name text to look up at all.
 function parseVenueLine(html) {
-  const m = html.match(/(?:地點|場地|場館)[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,60})/);
+  // 2026-09-21 real bug (found during a full re-normalize sweep, not a
+  // one-off report): "活動地點 ｜CLAPPER STUDIO..." — a space between the
+  // label and the separator (｜:：), which required-adjacent regex rejected
+  // outright, same as parseDateLine's "日期及時間" fix below — allow a short
+  // flexible run of characters (prefix text, whitespace, whatever) between
+  // the keyword and the actual separator instead of requiring them adjacent.
+  const m = html.match(/(?:地點|場地|場館)[^｜:：\n]{0,10}[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,60})/);
   return m ? m[1].trim() : null;
 }
 
@@ -116,7 +122,10 @@ function parseDateLine(html) {
  * a multi-tier price list runs a lot longer than a venue name.
  */
 function parsePriceLine(html) {
-  const m = html.match(/票價[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,200})/);
+  // Same flexible-prefix fix as parseVenueLine/parseDateLine — an organizer
+  // writing "活動票價 ｜..." (extra prefix text and/or a space before the
+  // separator) would otherwise match nothing at all.
+  const m = html.match(/票價[^｜:：\n]{0,10}[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,200})/);
   return m ? m[1].trim() : null;
 }
 

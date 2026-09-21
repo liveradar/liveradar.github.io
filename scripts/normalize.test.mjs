@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, guessTagsType, findNameIndex } from "./normalize.mjs";
+import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseTixcraftDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, guessTagsType, findNameIndex } from "./normalize.mjs";
 
 const artistsYml = [{ canonical: "深海系樂團", aliases: [], tags_origin_default: "本地" }];
 
@@ -143,6 +143,15 @@ test("parseTixcraftVenue: matches case-insensitively (real bug: the same venue r
 test("parseTicketPlusDate: extracts the start date/time from concatenated range strings", () => {
   const result = parseTicketPlusDate("2027-01-09 ~ 2027-01-09 18:00 ~ 18:00");
   assert.deepEqual(result, { date: "2027-01-09", time: "18:00" });
+});
+
+test("parseTixcraftDate: no trailing time appended means time: null, same as always (the listing page genuinely never has a time)", () => {
+  assert.deepEqual(parseTixcraftDate("2027/05/01 (六)  ~ 2027/05/02 (日) "), { date: "2027-05-01", time: null });
+});
+
+test("parseTixcraftDate: extracts an appended trailing time (real bug: the listing page never has a time at all, but tixcraft.mjs's detail page does and now appends it as ' HH:MM' — see its own SHOW_TIME_RE comment)", () => {
+  const result = parseTixcraftDate("2027/05/01 (六)  ~ 2027/05/02 (日)  18:45");
+  assert.deepEqual(result, { date: "2027-05-01", time: "18:45" });
 });
 
 test("normalize() end-to-end for a Ticket Plus raw event (reuses parseKktixVenue — same 'location / address' shape)", () => {
@@ -352,6 +361,21 @@ test("parsePriceFromText: a 身障票 discount tier never becomes the displayed 
 
 test("parsePriceFromText: if a discount tier is the ONLY price mentioned, the result is null rather than showing a misleading restricted-eligibility price as if it were generally available", () => {
   assert.deepEqual(parsePriceFromText("票價：身障票 400 元"), { min: null, max: null });
+});
+
+test("parsePriceFromText: Ticket Plus's 'TWD' currency prefix (real bug: '票價｜TWD 4,280 | 愛心席 TWD 2,140' returned null entirely — neither 'NT$'/'$' nor '元' matched 'TWD', and the 愛心席 discount tier is excluded too)", () => {
+  const raw = "票價｜TWD 4,280 | 愛心席 TWD 2,140 (全區座席)";
+  assert.deepEqual(parsePriceFromText(raw), { min: 4280, max: 4280 });
+});
+
+test("parsePriceFromText: Ticket Plus's bare 'NT' prefix with no $ sign (real bug: '票價：S區 NT4,000...一般區 NT2,500' returned null — 'NT' alone, no '$', matched nothing)", () => {
+  const raw = "票價：S區 NT4,000 (附特典親筆簽名色紙) / 一般區 NT2,500 (全場站席)";
+  assert.deepEqual(parsePriceFromText(raw), { min: 2500, max: 4000 });
+});
+
+test("parsePriceFromText: a bare, completely unmarked number list after the label (real bug: '票價｜8,500 / 8,000 / ... / 1,500' has no currency symbol on ANY tier — CURRENCY_NUMBER_RE requires at least one marker and found nothing)", () => {
+  const raw = "票價｜8,500 / 8,000 / 6,500 / 5,500 / 4,500 / 4,000 / 3,500 / 2,500 / 1,500";
+  assert.deepEqual(parsePriceFromText(raw), { min: 1500, max: 8500 });
 });
 
 test("normalize(): falls back to parsePriceFromText's price_text_raw when tickets_raw is empty", () => {

@@ -35,6 +35,19 @@ const REQUEST_TIMEOUT_MS = 30000;
 // (NFR-04), just not doubling up on top of navigation latency.
 const DETAIL_REQUEST_DELAY_MS = 800;
 const DETAIL_NAV_TIMEOUT_MS = 20000;
+// 2026-09-21 real bug (Max): the listing page's date field genuinely never
+// has a time — confirmed on real pages, not a parsing gap — but the detail
+// page (#intro, already fetched for price) has the real show time in a
+// "📅 時間：YYYY/MM/DD(day) HH:MM" line. The SAME page also has several
+// unrelated "時間：" lines further down for presale windows ("時間：
+// 2026/07/20(一) 10:00 ~ 2026/07/21(二) 10:00") — anchoring specifically to
+// the 📅 emoji prefix (confirmed present and first on every real page
+// checked) avoids accidentally picking up one of those instead.
+// (?:<[^>]+>\s*)* tolerates HTML tags between the label and the date/time —
+// the real markup wraps parts of the date in <span> ("📅 時間：<span>2027/
+// 05/01(</span>六<span>) 18:45</span>"), so a naive "\s*\d{4}" right after
+// the colon matched nothing at all until this was added.
+const SHOW_TIME_RE = /📅\s*時間[：:]\s*(?:<[^>]+>\s*)*\d{4}\/\d{2}\/\d{2}\([^)]*\)\s*(\d{1,2}:\d{2})/;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -132,6 +145,8 @@ export async function fetch(knownRawIds = new Set()) {
         // element that doesn't exist yet, unlike waitForSelector.
         await page.waitForSelector("#intro", { timeout: DETAIL_NAV_TIMEOUT_MS });
         event.price_text_raw = await page.$eval("#intro", (el) => el.innerHTML);
+        const timeMatch = event.price_text_raw.match(SHOW_TIME_RE);
+        if (timeMatch) event.date_raw = `${event.date_raw} ${timeMatch[1]}`;
         const totalMs = Date.now() - startedAt;
         // 2026-09-18: diagnosing unexplained run-to-run slowness in this loop
         // (measured 2min+ for just 20 events some runs, expected under 1min)
