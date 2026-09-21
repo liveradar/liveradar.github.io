@@ -410,6 +410,8 @@ table tbody tr                             -> 每一種票種一列
 
 **2026-09-18 補上票價：這次真的需要多開一次詳情頁**。FANSI GO 的詳情頁跟場館一樣沒有固定標籤可以 pattern match，但實測發現價格文字穩定放在一個 class 是 `.prose` 的 `<div>`（每個活動頁都有，用 class 選取，不用文字比對），只是格式一樣裝飾性很重（全形數字/貨幣符號，例如「ＡＤＶ．ＮＴ＄５００」，或純冒號分隔無符號的「預售票：600」）——`parsePriceFromText()` 的 fullwidth 正規化與關鍵字後備比對就是為了這個來源設計的。`scripts/browser.mjs` 因此新增 `withBrowser(fn)`/`newPage(browser)` 兩個匯出：讓呼叫端可以只啟動一次瀏覽器、對多個活動各開一個分頁，而不是像 `withPage(fn)` 那樣每次呼叫都重新啟動整個瀏覽器程序——FANSI GO 目前約 26 場活動，等於每次抓取多跑 26 次 Playwright 分頁導航，時間成本不像拓元的 80-140 筆那麼明顯，但一樣是真實增加，不是免費的。
 
+**2026-09-21 修正：上面「沒有任何結構化的場館欄位，連詳情頁都沒有」這句話是錯的。** Max 質疑時間表上一堆「未知」城市，直接打開幾個 FANSI GO 事件頁面查證，發現詳情頁其實有結構化的場館名稱+地址區塊（`div.w-full.mt-2.mb-6 div.w-full` 底下兩個 `<p>`，第一個是場館名稱、第二個是地址），就在價格區塊(`.prose`)旁邊，同一次頁面載入就能一起抓——當初寫這個 adapter 時顯然沒有仔細找就下了「沒有」的結論。修法：詳情頁抓價格的同一次 Playwright 頁面載入，順便抓這個區塊，`venue_raw` 格式改成跟 KKTIX/Ticket Plus 一樣的「場館 / 地址」（不再是裸場館名稱），`normalize.mjs` 的 `VENUE_PARSERS` 拿掉 FANSI GO 專屬的 `parseTixcraftVenue` 覆寫，改用預設的 `parseKktixVenue`（地址判斷失敗時還會 fallback 查 `venues.yml`，兩層保險）。抓不到這個區塊時（例如某個活動頁版型跟其他不一樣）才退回列表卡片的「主辦方」欄位當場館，跟原本的取捨一致，只是變成最後手段而不是唯一手段。實測：FANSI GO 的未知城市場次從 16 筆降到 1 筆（唯一剩下的是真的辦在泰國清邁的活動）。
+
 ### 5.6 Ticket Plus 端點實測結果（2026-09-17，五個來源最後一個）
 
 **五個來源裡資料品質最好的一個**，而且不需要 Playwright、不需要 Cloudflare 對策、也不需要自由格式文字解析。原始頁面（`ticketplus.com.tw`）是一個 Vue SPA，plain fetch 拿到的 HTML 只有約 6KB 的空殼，完全沒有場次資料——但它渲染畫面用的是一個**公開、不需要登入/API key 的 JSON API**：
