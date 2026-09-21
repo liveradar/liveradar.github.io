@@ -68,3 +68,29 @@
   city: 新北
 - match: "桃園陽光劇場"
   city: 桃園
+
+# 2026-09-21：Max 質疑「未知」城市裡有好幾個明明看得出城市，追出兩個根因
+# （見 normalize.mjs 的 cityFromAddress/parseKktixVenue/parseTixcraftVenue 註解：
+# 地址格式「郵遞區號+台灣+城市」原本比對不到、部分場館名稱本身就是可辨識場地
+# 卻完全沒收錄進這份表）——這批是後者，逐一查證過真實地址/城市後補上。
+- match: "SUB LIVE"
+  city: 台北
+- match: "The Wall"
+  # Just "The Wall", not the full "The Wall Live House" — a real iNDIEVOX
+  # listing writes it as "THE WALL表演廳外L形走廊" (an exterior corridor
+  # attached to the venue), which only shares the "The Wall" prefix.
+  city: 台北
+- match: "Clapper Studio"
+  city: 台北
+- match: "國立體育大學綜合體育館"
+  city: 桃園
+- match: "WESTAR"
+  city: 台北
+- match: "PIPE Live Music"
+  city: 台北
+- match: "樂天桃園棒球場"
+  city: 桃園
+- match: "霧峰立法院民主議政園區"
+  city: 台中
+- match: "迴響音樂展演空間"
+  city: 台中

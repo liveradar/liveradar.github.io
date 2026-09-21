@@ -27,12 +27,19 @@ const CITY_NAMES = [
   "澎湖", "金門", "連江",
 ];
 
+// 2026-09-21 real bug: switched from .startsWith() to .includes() — some
+// organizers' addresses have a postal code AND the country name before the
+// city ("116台灣臺北市文山區...", "403台灣臺中市西區...", confirmed on real
+// KKTIX/iNDIEVOX event pages), which .startsWith() rejects outright even
+// after stripping the postal code, since "台灣" is still in the way. Rather
+// than keep enumerating every prefix format someone might type (postal code,
+// country name, building name, whatever comes next), just search for the
+// city name anywhere in the address — real Taiwan addresses always contain
+// the city name as its own token, never as a false-positive substring of
+// something else, so this is strictly more robust with no new risk.
 function cityFromAddress(address) {
-  // Some sources (Ticket Plus) prefix the address with a postal code before
-  // the city name (e.g. "100台北市中正區..." or the newer hyphenated
-  // "100-01台北市...") — strip it so the startsWith checks below still match.
-  const withoutPostalCode = normalizeTraditionalChars(address).replace(/^\d+(-\d+)?/, "");
-  return CITY_NAMES.find((c) => withoutPostalCode.startsWith(c)) ?? null;
+  const normalized = normalizeTraditionalChars(address);
+  return CITY_NAMES.find((c) => normalized.includes(c)) ?? null;
 }
 
 // 2026-09-18: found via a real event ("爛泥發芽10週年" tagged 專場 instead of
@@ -196,10 +203,21 @@ export function parseKktixDate(dateRaw) {
   return { date: `${y}-${mo}-${d}`, time: time ?? null };
 }
 
-/** "The Wall Live House / 台北市文山區羅斯福路四段200號B1" -> { venue, city } */
-export function parseKktixVenue(venueRaw) {
+/**
+ * "The Wall Live House / 台北市文山區羅斯福路四段200號B1" -> { venue, city }
+ *
+ * 2026-09-21 real bug: some organizers don't fill in a real address at all —
+ * found live ("The Wall Live House / The Wall Live House", the venue name
+ * repeated as its own "address") — cityFromAddress() correctly finds nothing
+ * there, but the venue name itself is often a known one. Falls back to the
+ * same venues.yml lookup tixcraft/FANSI GO already use for exactly this
+ * reason (their listings never have an address at all), instead of settling
+ * for "未知" when a perfectly identifiable venue name is right there.
+ */
+export function parseKktixVenue(venueRaw, venuesYml = []) {
   const [venuePart, addressPart = ""] = venueRaw.split("/").map((s) => s.trim());
-  return { venue: venuePart, city: cityFromAddress(addressPart) };
+  const city = cityFromAddress(addressPart) ?? parseTixcraftVenue(venuePart, venuesYml).city;
+  return { venue: venuePart, city };
 }
 
 /** "2027/05/01 (六)  ~ 2027/05/02 (日) " or "2026/12/10 (四)" -> { date, time: null } */
@@ -215,8 +233,13 @@ export function parseTixcraftVenue(venueRaw, venuesYml) {
   // Normalize both sides so a venues.yml entry only needs one spelling —
   // "台北小巨蛋" now also matches a source that renders it "臺北小巨蛋"
   // without needing a second, parallel entry (see normalizeTraditionalChars).
-  const normalizedVenue = normalizeTraditionalChars(venueRaw);
-  const entry = venuesYml.find((v) => normalizedVenue.includes(normalizeTraditionalChars(v.match)));
+  // 2026-09-21: also lowercase both sides — real data has the same venue in
+  // at least 3 different cases ("The Wall Live House", "THE WALL LIVE
+  // HOUSE", "THE WALL表演廳外L形走廊"), which a case-sensitive match would
+  // need a separate venues.yml entry per variant to catch. toLowerCase() is
+  // a no-op on CJK characters, so this is safe for the mixed-script entries.
+  const normalizedVenue = normalizeTraditionalChars(venueRaw).toLowerCase();
+  const entry = venuesYml.find((v) => normalizedVenue.includes(normalizeTraditionalChars(v.match).toLowerCase()));
   return { venue: venueRaw, city: entry?.city ?? null };
 }
 
@@ -254,9 +277,20 @@ export function parseIndievoxVenue(venueRaw, venuesYml) {
   const m = venueRaw.match(/^(.*?)[（(]([^）)]+)[）)]/);
   if (m) {
     const [, venue, address] = m;
-    return { venue: venue.trim(), city: cityFromAddress(address) };
+    // Same 2026-09-21 fallback as parseKktixVenue: the parenthesized part
+    // isn't always a real address (an organizer can write anything in there)
+    // — if it doesn't yield a city, try the venue name itself against
+    // venues.yml rather than settling for "未知".
+    const city = cityFromAddress(address) ?? parseTixcraftVenue(venue.trim(), venuesYml).city;
+    return { venue: venue.trim(), city };
   }
-  return parseTixcraftVenue(venueRaw, venuesYml);
+  // 2026-09-21: a 4th real freeform format found ("Bullet Burger 子彈漢堡
+  // 403台灣臺中市西區...") — no parens at all, just venue-name-then-address
+  // space-separated in one run-on string. cityFromAddress() now searches
+  // anywhere in the text (see its own comment) rather than requiring the
+  // city name at a specific offset, so trying it on the whole raw string
+  // before falling back to a venues.yml name lookup catches this too.
+  return { venue: venueRaw, city: cityFromAddress(venueRaw) ?? parseTixcraftVenue(venueRaw, venuesYml).city };
 }
 
 /**

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseKktixVenue, loadArtists, matchArtists, parsePriceFromText, guessTagsType, findNameIndex } from "./normalize.mjs";
+import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, guessTagsType, findNameIndex } from "./normalize.mjs";
 
 const artistsYml = [{ canonical: "深海系樂團", aliases: [], tags_origin_default: "本地" }];
 
@@ -117,6 +117,27 @@ test("parseKktixVenue: recognizes the traditional-character city variants (臺�
   assert.equal(parseKktixVenue("Legacy Taichung / 臺中市西屯區安和路117號").city, "台中");
   assert.equal(parseKktixVenue("大臺南會展中心 / 臺南市歸仁區歸仁十二路3號").city, "台南");
   assert.equal(parseKktixVenue("The Wall / 台北市文山區羅斯福路四段200號").city, "台北", "common form must still work");
+});
+
+test("parseKktixVenue: an address with a postal code AND the country name before the city still resolves (real bug: '116台灣臺北市文山區...' gave city: null)", () => {
+  assert.equal(parseKktixVenue("The Wall Live House / 116台灣臺北市文山區萬年里羅斯福路四段200號").city, "台北");
+});
+
+test("parseKktixVenue: falls back to venues.yml by venue name when the 'address' has no city at all (real bug: one organizer wrote 'The Wall Live House / The Wall Live House', repeating the venue name as its own address)", () => {
+  const venuesYml = [{ match: "The Wall", city: "台北" }];
+  const result = parseKktixVenue("The Wall Live House / The Wall Live House", venuesYml);
+  assert.deepEqual(result, { venue: "The Wall Live House", city: "台北" });
+});
+
+test("parseIndievoxVenue: a 4th real freeform format — venue and address run together with no parentheses at all (real bug: 'Bullet Burger 子彈漢堡 403台灣臺中市西區...' gave city: null)", () => {
+  const result = parseIndievoxVenue("Bullet Burger 子彈漢堡 403台灣臺中市西區美村路一段164巷17號1樓", []);
+  assert.equal(result.city, "台中");
+});
+
+test("parseTixcraftVenue: matches case-insensitively (real bug: the same venue rendered 'The Wall Live House' by one organizer and 'THE WALL表演廳外L形走廊' by another — only a lowercase match catches both against one venues.yml entry)", () => {
+  const venuesYml = [{ match: "The Wall", city: "台北" }];
+  assert.equal(parseTixcraftVenue("THE WALL表演廳外L形走廊", venuesYml).city, "台北");
+  assert.equal(parseTixcraftVenue("the wall live house", venuesYml).city, "台北");
 });
 
 test("parseTicketPlusDate: extracts the start date/time from concatenated range strings", () => {

@@ -74,8 +74,15 @@ async function fetchListingPage(startDate) {
 }
 
 /** Best-effort: pulls "地點｜X" / "地點：X" (fullwidth or ASCII separator, optionally wrapped in one or more tags) out of the detail page's freeform info block. Organizer-authored text, not a strict field — absence just means this event falls back to venues.yml/city:null downstream, same as tixcraft's untracked venues. */
+// 2026-09-21 real bug: organizers use at least 3 different labels for this
+// field — "地點" (originally the only one handled), "場地" (26_iv0418516:
+// "場地：迴響音樂展演空間"), and "場館" (26_iv04186a4: "場館｜迴響音樂展演空間"
+// — same venue, different organizer, different label). Every event using
+// either of the other two labels had venue_raw come back completely empty,
+// city always "未知" — not even the venues.yml fallback got a chance to run
+// since there was no venue name text to look up at all.
 function parseVenueLine(html) {
-  const m = html.match(/地點[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,60})/);
+  const m = html.match(/(?:地點|場地|場館)[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,60})/);
   return m ? m[1].trim() : null;
 }
 
