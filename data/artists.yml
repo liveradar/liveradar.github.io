@@ -48,6 +48,9 @@
 - canonical: Silica Gel
   aliases: []
   tags_origin_default: 日韓
+- canonical: Age Factory
+  aliases: []
+  tags_origin_default: 日韓
 - canonical: Kiefer
   aliases: []
   tags_origin_default: 歐美
@@ -876,5 +879,22 @@
   aliases: []
   tags_origin_default: 本地
 - canonical: 隨性  # ⚠️ 常見詞（隨性/casual），查證是真的台語歌手（查證：nicetoseeyou.kktix.cc）
+  aliases: []
+  tags_origin_default: 本地
+
+# 2026-09-21 待複核清單補檔
+- canonical: 殘殺邪教
+  aliases: ["Slaughtercult"]
+  tags_origin_default: 歐美  # 澳洲 death/grind 樂團，11/13 迴響音樂展演空間（iNDIEVOX）
+- canonical: 台灣龐克折返跑音樂節
+  aliases: []
+  tags_origin_default: 本地  # 音樂祭品牌名，非個別樂團（同 重型宇宙派對／Kaohsiung Park Music Festival 的收法）
+- canonical: 八十八顆芭樂籽
+  aliases: ["88balaz"]
+  tags_origin_default: 本地
+- canonical: Funkdationn
+  aliases: []
+  tags_origin_default: 本地  # 全台鎖舞(breaking)盛會品牌名
+- canonical: MOB PARTY
   aliases: []
   tags_origin_default: 本地
