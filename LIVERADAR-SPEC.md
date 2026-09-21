@@ -159,6 +159,13 @@ type Event = {
 
 **連帶修了一個測試本身的假陽性**：`artists.yml` 有一個既有的子字串碰撞防護測試（見上面 2026-09-17 那段），新增 canonical `MONO` 時觸發了它——`MONO` 是既有 canonical `Monomania偏執狂`的原始子字串。但 `findNameIndex()` 對純英文 canonical 已經有字邊界防護（`MONO` 後面緊接 `mania`，中間沒有邊界，不會誤判），只是這個測試本身還是用最原始的 `.includes()` 判斷，沒有套用同一套邊界邏輯，等於是拿一個比實際比對機制更嚴格、會誤報的規則卡資料。改成直接 export `findNameIndex()`，測試也改用它本人跑一次「A 名字放進 B 名字裡會不會真的比對到」，而不是自己重新發明一套更粗糙的子字串規則。
 
+**同一天緊接著又抓到兩個問題**（Max 回報第二場漏掉的演出：MONO NO AWARE @ The Wall Live House）：
+
+1. **The Wall Live House 的涵蓋率也有缺口**：The Wall 雖然在 `ORG_PAGE_VENUES` 裡（有專屬帳號、假設自我主辦幾乎全部場次），但這場票是外部主辦方用自己的帳號開的，完全沒出現在 The Wall 官方帳號的清單頁裡（確認過：近 250 場列表裡沒有這場）。修法：額外把 The Wall 加進 `SEARCH_VENUES` 當安全網，跟 `ORG_PAGE_VENUES` 疊加使用，不是二選一（搜尋關鍵字要用短的「The Wall」，完整的「The Wall Live House」在 KKTIX 搜尋裡查不到結果）。
+2. **自己剛加的 canonical `MONO` 造成真實誤判**：新出現的「MONO NO AWARE」（另一個真實、不相關的日本樂團）被誤判成 `MONO` 的場次，因為前者的名字剛好完整以後者開頭，`findNameIndex()` 的字邊界規則在這裡「正確地」判定合法匹配（"MONO" 後面接空格），但語意上是錯的。這跟 IVE/LIVE、ASCA/Brasca 的「巧合重疊」不同——這裡兩個都是真實、想要正確辨識的藝人，純粹是「兩個候選命中同一個起始位置時該選誰」沒有規則。修法：`matchArtists()` 新增 tie-break——命中同一起始位置時保留較長／較具體的候選，捨棄較短的。連帶更新碰撞防護測試：命中位置為 0（單純的字首重疊）現在視為安全（有 tie-break 擋著），只有命中位置不是 0（藏在字詞中間，像 LIVE 裡的 IVE）才算真正的碰撞。
+
+**另外處理一個 UI 問題**（Max 用截圖指出）：時間表往下捲動跨過跨年（畫面上「12月26日」接著「1月2日」）看不出年份已經換了。修法：`format.js` 的 `splitDate()` 只在日期年份不是「今年」時才在 `groupLabel` 前面加年份（例如「2027年1月2日」），同一年的分組維持原樣。
+
 ### 3.3 UserPrefs（存在 localStorage，登入後同步到 Supabase，不進 repo）
 
 ```ts

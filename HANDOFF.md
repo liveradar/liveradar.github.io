@@ -456,3 +456,13 @@ Max 進一步要求「不要叫我自己手動查來源地」——查證後這�
 **殘留、還沒修的小問題**：SUB LIVE 底下至少一個主辦方用英文地址（不是中文），城市判斷邏輯只認中文城市名稱，這場的 `city` 會落成「未知」而不是「台北」。目前只在這一筆資料上觀察到，還沒決定要不要為英文地址另外寫判斷邏輯。
 
 `npm test` 79 個測試全過（新增 2 個測試：`normalize()` 未辨識藝人仍正常出場次、`renderEventCard` 空 headliners 退回顯示原始標題）。
+
+## 同一天緊接著又抓到兩個問題：The Wall 的涵蓋率缺口、自己新增藝人造成的誤判、跨年度分組沒標年份（2026-09-21）
+
+Max 又回報一場真實漏掉的演出（MONO NO AWARE @ The Wall Live House，`romanticoffice.kktix.cc/events/mononoaware2027`）。The Wall Live House 明明在 `ORG_PAGE_VENUES` 清單裡（有專屬帳號、org 頁面抓取），但這場票是外部主辦方「浪漫的工作室」用自己的 KKTIX 帳號開的，完全沒有出現在 The Wall 自己的清單頁（確認過：The Wall 官方帳號目前列出的近 250 場裡完全沒有這場）。這證明 `ORG_PAGE_VENUES` 的假設「自我主辦幾乎全部場次」對 The Wall 不是 100% 成立。修法比照 SUB LIVE：額外把 The Wall（搜尋關鍵字要用短的「The Wall」，完整的「The Wall Live House」搜尋不到）加進 `SEARCH_VENUES` 當安全網，兩種策略疊加使用，不是互斥。
+
+**同一次修正意外自揭一個真實 bug**：稍早今天新增的 canonical `MONO`，把這次新出現的「MONO NO AWARE」（另一個真實存在、完全不相關的日本樂團）誤判成自己的場次——因為「MONO NO AWARE」這個名字剛好完整以「MONO」開頭，`findNameIndex()` 的字邊界檢查在這裡反而「正確地」判定為合法匹配（"MONO" 後面接空格，符合邊界），但語意上是錯的。這跟 IVE/LIVE、ASCA/Brasca 那種「完全不相關的字串巧合重疊」不一樣——這裡兩個都是真實存在、都想要正確辨識的藝人，只是誰先出現在標題裡的判斷方式不夠聰明。修法：`matchArtists()` 新增規則，當兩個候選字串在標題裡命中同一個起始位置時，保留比較長／比較具體的那一個，捨棄短的。這樣「MONO NO AWARE PASSION TOUR」正確辨識成 MONO NO AWARE，「MONO "Snowdrop" Asia Tour」依然正確辨識成 MONO，兩個互不干擾。連帶更新了子字串碰撞防護測試（見上一節）：同一起始位置的命中現在是安全的（有 tie-break 機制擋著），只有「命中位置不是 0」（藏在別的字詞中間，像 LIVE 裡的 IVE）才算真正危險的碰撞。
+
+同一批順便查證補齊了這次 The Wall 搜尋額外找出來的 7 位新藝人（POiSON GiRL FRiEND 日本、TOTORRO 法國、VOOID／洪申豪 台灣、雀斑 Freckles 台灣、SCRUBB 泰國、7co 日本、Yo-Sea 日本沖繩），待整理清單再度歸零。
+
+**另外處理 Max 用截圖指出的一個 UI 問題**：時間表往下捲動跨過跨年（畫面上顯示「12月26日」接著「1月2日」）完全看不出年份已經換了，滑快一點根本不知道自己在看哪一年的資料。修法：`format.js` 的 `splitDate()` 只在該日期的年份不是「今年」時，才在 `groupLabel` 前面加上年份（例如「2027年1月2日」），平常同一年的分組維持原樣不會多顯示年份，只有真的跨年才會出現視覺提示。`npm test` 新增 2 個測試（`matchArtists` 的 tie-break、`splitDate` 的跨年年份前綴），全部 82 個測試通過。
