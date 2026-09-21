@@ -1099,7 +1099,10 @@ async function renderSourceStatus() {
     const res = await fetch("./data/sources.json", { cache: "no-store" });
     if (!res.ok) throw new Error(`GET data/sources.json -> ${res.status}`);
     const data = await res.json();
-    const sources = data.sources ?? [];
+    // "manual" is the pseudo-source for user-added events (scripts/adapters/manual.mjs) —
+    // always 0 筆/ok, never a real scrape, so it's noise here rather than a status a user
+    // needs to read. Debugging it directly means reading data/sources.json, not this UI.
+    const sources = (data.sources ?? []).filter((s) => s.name !== "manual");
 
     // 2026-09-21: 一般使用者不需要看到 status 徽章（正常/抓到0筆/抓取失敗）或
     // last_error 那種給開發者看的原始錯誤字串（例如 "GET ... -> 403"）——只留
