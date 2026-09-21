@@ -5,8 +5,20 @@
  * everywhere at once.
  *
  * Order matters and must not be reordered:
- * ended -> favorited (short-circuits everything below) -> single-event exclude
- * -> artist -> type -> keyword -> view filters (city/month/price).
+ * ended -> favorited (short-circuits the exclude rules below, but NOT the view
+ * filters — see the 2026-09-21 note) -> single-event exclude -> artist -> type
+ * -> keyword -> view filters (city/month/price).
+ *
+ * 2026-09-21 real bug (Max): FR-33's original decision tree (SRS §6.3) had the
+ * favorited short-circuit skip the view-filter check too, so a favorited 台北
+ * show still appeared while the city chip was set to 新北 — confusing, since
+ * the whole point of picking a city chip is to see only that city. FR-33's own
+ * wording only ever promised favorites win over "排除規則" (the PERMANENT
+ * exclude rules: blocked artist/type/keyword/single-event), never over the
+ * TEMPORARY view filters (city/month/type/origin/price chips) — those are a
+ * different mechanism (`viewFilters`, not `prefs.excluded_*`). Favorites still
+ * unconditionally win over every exclude rule below; they just also have to
+ * pass the view filters like anything else now.
  */
 
 /**
@@ -21,7 +33,7 @@ export function resolveVisibility(event, prefs, viewFilters = {}) {
   }
 
   if (prefs.favorites.includes(event.id)) {
-    return { bucket: "show", pinned: true };
+    return passesViewFilters(event, viewFilters) ? { bucket: "show", pinned: true } : { bucket: "filtered" };
   }
 
   if (prefs.excluded_events.includes(event.id)) {

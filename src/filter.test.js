@@ -83,3 +83,27 @@ test("partitionEvents: type and origin filters combine (both must match)", () =>
 
   assert.deepEqual(visible.map((v) => v.event.id), ["m"]);
 });
+
+test("partitionEvents: a favorited event that doesn't match the active view filter is hidden, not force-shown (real bug: Max filtered by city=新北 and a favorited 台北 show still appeared — FR-33 only promises favorites win over exclude RULES, not over the separate view-filter chips)", () => {
+  const favoritedElsewhere = makeEvent({ id: "f", city: "台北" });
+  const prefs = defaultPrefs({ favorites: ["f"] });
+
+  const { visible } = partitionEvents([favoritedElsewhere], prefs, { city: "新北" });
+
+  assert.deepEqual(visible, []);
+});
+
+test("partitionEvents: a favorited event still bypasses every exclude rule regardless of view filters (FR-33 itself is unchanged — only its interaction with view filters changed)", () => {
+  const favorited = makeEvent({ id: "f", city: "新北", headliners: ["Blocked Artist"], tags_type: ["音樂祭"] });
+  const prefs = defaultPrefs({
+    favorites: ["f"],
+    excluded_artists: ["Blocked Artist"],
+    excluded_types: ["音樂祭"],
+    mute_keywords: ["Test"],
+  });
+
+  const { visible } = partitionEvents([favorited], prefs, { city: "新北" });
+
+  assert.deepEqual(visible.map((v) => v.event.id), ["f"]);
+  assert.equal(visible[0].pinned, true);
+});

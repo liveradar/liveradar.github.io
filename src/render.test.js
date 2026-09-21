@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { renderEventCard } from "./render.js";
+import { renderEventCard, displayTitle } from "./render.js";
 
 function makeEvent(overrides = {}) {
   return {
@@ -48,4 +48,19 @@ test("renderEventCard: announced (not yet on sale) shows the 查看頁面 label,
 test("renderEventCard: an unrecognized artist (headliners: []) falls back to the raw scraped title instead of rendering blank (real bug found alongside the D15 reversal)", () => {
   const html = renderEventCard(makeEvent({ headliners: [], lineup: [], title_raw: "Age Factory Release Tour 2026 Taipei" }));
   assert.match(html, /event-title">Age Factory Release Tour 2026 Taipei</);
+});
+
+test("displayTitle: a 音樂祭-tagged event shows the full raw title, not just the matched festival-brand headliner (real bug: '2026 FIREBALL Fest. 火球祭' showed as just '火球祭' — 火球祭 is registered in artists.yml purely to make guessTagsType() recognize the brand, not as a real performer)", () => {
+  const event = makeEvent({
+    title_raw: "2026 FIREBALL Fest. 火球祭",
+    headliners: ["火球祭"],
+    lineup: ["火球祭"],
+    tags_type: ["音樂祭"],
+  });
+  assert.equal(displayTitle(event), "2026 FIREBALL Fest. 火球祭");
+});
+
+test("displayTitle: a normal (non-festival) recognized artist still shows the headliner(s), not the raw title", () => {
+  const event = makeEvent({ title_raw: "【Legacy Presents】深海系樂團", headliners: ["深海系樂團"], tags_type: ["專場"] });
+  assert.equal(displayTitle(event), "深海系樂團");
 });

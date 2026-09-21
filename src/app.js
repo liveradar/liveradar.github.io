@@ -64,7 +64,7 @@ import {
   dismissIntro,
 } from "./state.js";
 import { getSession, signInWithGoogle, signOut } from "./supabase.js";
-import { renderEventList, renderFavoritesList, renderNewArrivalsList, renderEmptyList } from "./render.js";
+import { renderEventList, renderFavoritesList, renderNewArrivalsList, renderEmptyList, displayTitle } from "./render.js";
 import { splitDate, daysSince } from "./format.js";
 import { buildMonthGrid, addMonths } from "./calendar.js";
 import {
@@ -785,7 +785,7 @@ async function initHiddenManagement(container) {
       rules.push({
         kind: "event",
         label: "單場次",
-        title: event ? event.headliners.join(" / ") : eventId,
+        title: event ? displayTitle(event) : eventId,
         count: 1,
         note: "不影響同演出者其他場次",
         unhide: () => {

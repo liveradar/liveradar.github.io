@@ -15,6 +15,25 @@ const STAR_FILLED = `<svg viewBox="0 0 24 24" width="16" height="16" fill="curre
 const X_ICON = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>`;
 
 /**
+ * 2026-09-21 real bug (Max): "2026 FIREBALL Fest. 火球祭" showed as just
+ * "火球祭" on its card. `data/artists.yml` has festival BRAND names like
+ * 火球祭/ASIA METAL FESTIVAL/囪擊音樂祭 registered as "canonical artists"
+ * purely so matchArtists()/guessTagsType() recognize them as 音樂祭 (see
+ * normalize.mjs's D15-reversal comments) — but they aren't real performers,
+ * so treating the matched brand name as "the headliner" for card-title
+ * purposes throws away the rest of the real title (the year, an English
+ * name, a venue-day suffix, …). A festival's own event name is what should
+ * show, not a re-statement of whichever brand string matched it — check
+ * tags_type instead of is_festival, since the latter only catches titles
+ * that literally spell out "音樂祭" and misses brand-keyword matches like
+ * this one entirely.
+ */
+export function displayTitle(event) {
+  if (!event.headliners.length || event.tags_type.includes("音樂祭")) return event.title_raw;
+  return event.headliners.join(" / ");
+}
+
+/**
  * Renders one event card as an HTML string, matching the markup in styles/main.css.
  * `pinned` doubles as "is favorited" — filter.js only sets it true for events
  * that are in prefs.favorites (SPEC §6 short-circuit).
@@ -75,7 +94,7 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
           <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
             ${newBadge}
-            <div class="event-title">${escapeHtml(event.headliners.length ? event.headliners.join(" / ") : event.title_raw)}</div>
+            <div class="event-title">${escapeHtml(displayTitle(event))}</div>
             ${updatedBadge}
           </div>
           <div style="display:flex;gap:2px;flex:0 0 auto;">
