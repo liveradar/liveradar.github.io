@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T02:34:37.689Z",
+  "generated_at": "2026-09-21T03:07:40.396Z",
   "events": [
     {
       "title_raw": "音羽-otoha- OUR PLANET additional in TAIPEI",
@@ -1256,48 +1256,6 @@
       ]
     },
     {
-      "title_raw": "【售票頁】FANTASTICS LIVE 2026 in TAIPEI \"放大絶\"",
-      "headliners": [
-        "FANTASTICS"
-      ],
-      "lineup": [
-        "FANTASTICS"
-      ],
-      "is_festival": false,
-      "venue": "Legacy TERA",
-      "city": "台北",
-      "date": "2026-10-18",
-      "time": "17:00",
-      "on_sale_at": null,
-      "price_min": 1740,
-      "price_max": 3480,
-      "status": "sold_out",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "日韓"
-      ],
-      "ticket_url": "https://ldh.kktix.cc/events/fantastics-live-2026-1",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://ldh.kktix.cc/events/fantastics-live-2026-1",
-          "raw_id": "fantastics-live-2026-1"
-        }
-      ],
-      "first_seen_at": "2026-09-21T01:33:15.831Z",
-      "updated_at": "2026-09-21T02:34:37.688Z",
-      "id": "f5980594fdd14fda",
-      "merged_ids": [
-        "f5980594fdd14fda"
-      ],
-      "updated_fields": [
-        "price_min",
-        "price_max"
-      ]
-    },
-    {
       "title_raw": "【SHOW 1】D’MASIV ASIA HOMERUN: 台北",
       "headliners": [
         "D'MASIV"
@@ -1321,6 +1279,8 @@
         "海外"
       ],
       "ticket_url": "https://theflabbergast.kktix.cc/events/135e6dc7",
+      "first_seen_at": "2026-09-21T02:34:37.684Z",
+      "updated_at": "2026-09-21T02:34:37.684Z",
       "sources": [
         {
           "name": "KKTIX",
@@ -1333,11 +1293,395 @@
           "raw_id": "78746040"
         }
       ],
-      "first_seen_at": "2026-09-21T02:34:37.684Z",
-      "updated_at": "2026-09-21T02:34:37.684Z",
       "id": "b8547085165f3566",
       "merged_ids": [
         "b8547085165f3566"
+      ]
+    },
+    {
+      "title_raw": "MONO NO AWARE PASSION TOUR 2027 in Taipei",
+      "headliners": [
+        "MONO NO AWARE"
+      ],
+      "lineup": [
+        "MONO NO AWARE"
+      ],
+      "is_festival": false,
+      "venue": "The Wall Live House",
+      "city": "台北",
+      "date": "2027-01-15",
+      "time": "20:00",
+      "on_sale_at": null,
+      "price_min": 700,
+      "price_max": 1400,
+      "status": "on_sale",
+      "tags_type": [
+        "巡迴"
+      ],
+      "tags_origin": [
+        "日韓"
+      ],
+      "ticket_url": "https://romanticoffice.kktix.cc/events/mononoaware2027",
+      "first_seen_at": "2026-09-21T03:03:01.898Z",
+      "updated_at": "2026-09-21T03:03:01.898Z",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://romanticoffice.kktix.cc/events/mononoaware2027",
+          "raw_id": "mononoaware2027"
+        }
+      ],
+      "id": "26d063ef767690a0",
+      "merged_ids": [
+        "26d063ef767690a0"
+      ]
+    },
+    {
+      "title_raw": "【特典加購】FANTASTICS LIVE 2026 in TAIPEI \"放大絶\"",
+      "headliners": [
+        "FANTASTICS"
+      ],
+      "lineup": [
+        "FANTASTICS"
+      ],
+      "is_festival": false,
+      "venue": "Legacy TERA",
+      "city": "台北",
+      "date": "2026-10-18",
+      "time": "17:00",
+      "on_sale_at": null,
+      "price_min": 2000,
+      "price_max": 2000,
+      "status": "sold_out",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "日韓"
+      ],
+      "ticket_url": "https://ldh.kktix.cc/events/fantastics-live-2026-2",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://ldh.kktix.cc/events/fantastics-live-2026-2",
+          "raw_id": "fantastics-live-2026-2"
+        }
+      ],
+      "first_seen_at": "2026-09-21T01:33:15.831Z",
+      "updated_at": "2026-09-21T03:07:40.395Z",
+      "id": "f5980594fdd14fda",
+      "merged_ids": [
+        "f5980594fdd14fda"
+      ],
+      "updated_fields": [
+        "price_min",
+        "price_max"
+      ]
+    },
+    {
+      "title_raw": "你是毋是拄著魔神仔 —— 隨性《魔神仔》發片最終場",
+      "headliners": [
+        "隨性"
+      ],
+      "lineup": [
+        "隨性"
+      ],
+      "is_festival": false,
+      "venue": "Legacy Taipei",
+      "city": "台北",
+      "date": "2026-09-27",
+      "time": "19:30",
+      "on_sale_at": null,
+      "price_min": 800,
+      "price_max": 1200,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "ticket_url": "https://nicetoseeyou.kktix.cc/events/48d24194",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://nicetoseeyou.kktix.cc/events/48d24194",
+          "raw_id": "48d24194"
+        }
+      ],
+      "first_seen_at": "2026-09-21T03:07:40.390Z",
+      "updated_at": "2026-09-21T03:07:40.390Z",
+      "id": "45127d2bcf8edefa",
+      "merged_ids": [
+        "45127d2bcf8edefa"
+      ]
+    },
+    {
+      "title_raw": "POiSON GiRL FRiEND 2026 TOUR in Taipei",
+      "headliners": [
+        "POiSON GiRL FRiEND"
+      ],
+      "lineup": [
+        "POiSON GiRL FRiEND"
+      ],
+      "is_festival": false,
+      "venue": "The Wall Live House",
+      "city": "台北",
+      "date": "2026-11-15",
+      "time": "20:00",
+      "on_sale_at": null,
+      "price_min": 1500,
+      "price_max": 1500,
+      "status": "on_sale",
+      "tags_type": [
+        "巡迴"
+      ],
+      "tags_origin": [
+        "日韓"
+      ],
+      "ticket_url": "https://romanticoffice.kktix.cc/events/poisongirlfriend",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://romanticoffice.kktix.cc/events/poisongirlfriend",
+          "raw_id": "poisongirlfriend"
+        }
+      ],
+      "first_seen_at": "2026-09-21T03:07:40.391Z",
+      "updated_at": "2026-09-21T03:07:40.391Z",
+      "id": "6286ce292db51d6e",
+      "merged_ids": [
+        "6286ce292db51d6e"
+      ]
+    },
+    {
+      "title_raw": "【PutsSound 25】TOTORRO 台北演唱會",
+      "headliners": [
+        "TOTORRO"
+      ],
+      "lineup": [
+        "TOTORRO"
+      ],
+      "is_festival": false,
+      "venue": "THE WALL LIVE HOUSE",
+      "city": "台北",
+      "date": "2026-10-19",
+      "time": "19:30",
+      "on_sale_at": null,
+      "price_min": 1300,
+      "price_max": 1300,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "歐美"
+      ],
+      "ticket_url": "https://gomanzhimusic.kktix.cc/events/putssound25",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://gomanzhimusic.kktix.cc/events/putssound25",
+          "raw_id": "putssound25"
+        }
+      ],
+      "first_seen_at": "2026-09-21T03:07:40.391Z",
+      "updated_at": "2026-09-21T03:07:40.391Z",
+      "id": "1007a733c9cf05a2",
+      "merged_ids": [
+        "1007a733c9cf05a2"
+      ]
+    },
+    {
+      "title_raw": "VOOID 2026 線下P2P超慢速低傳真  & 洪申豪 Solo 專場演唱會",
+      "headliners": [
+        "VOOID",
+        "洪申豪"
+      ],
+      "lineup": [
+        "VOOID",
+        "洪申豪"
+      ],
+      "is_festival": false,
+      "venue": "THE WALL LIVE HOUSE",
+      "city": "台北",
+      "date": "2026-12-18",
+      "time": "20:30",
+      "on_sale_at": null,
+      "price_min": 700,
+      "price_max": 700,
+      "status": "on_sale",
+      "tags_type": [
+        "拼盤"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "ticket_url": "https://redoyster2026.kktix.cc/events/vooid2026",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://redoyster2026.kktix.cc/events/vooid2026",
+          "raw_id": "vooid2026"
+        }
+      ],
+      "first_seen_at": "2026-09-21T03:07:40.391Z",
+      "updated_at": "2026-09-21T03:07:40.391Z",
+      "id": "b6606477f5a6fe36",
+      "merged_ids": [
+        "b6606477f5a6fe36"
+      ]
+    },
+    {
+      "title_raw": "雀斑 Freckles 2026 Tour in Taipei 「不標準情人」黑膠發片場",
+      "headliners": [
+        "雀斑 Freckles"
+      ],
+      "lineup": [
+        "雀斑 Freckles"
+      ],
+      "is_festival": false,
+      "venue": "The Wall Live House",
+      "city": "台北",
+      "date": "2026-10-23",
+      "time": "19:00",
+      "on_sale_at": null,
+      "price_min": 400,
+      "price_max": 1500,
+      "status": "on_sale",
+      "tags_type": [
+        "巡迴"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "ticket_url": "https://romanticoffice.kktix.cc/events/freckles2026",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://romanticoffice.kktix.cc/events/freckles2026",
+          "raw_id": "freckles2026"
+        }
+      ],
+      "first_seen_at": "2026-09-21T03:07:40.392Z",
+      "updated_at": "2026-09-21T03:07:40.392Z",
+      "id": "3381954e96a45138",
+      "merged_ids": [
+        "3381954e96a45138"
+      ]
+    },
+    {
+      "title_raw": "SCRUBB LIVE IN TAIPEI 2026",
+      "headliners": [
+        "SCRUBB"
+      ],
+      "lineup": [
+        "SCRUBB"
+      ],
+      "is_festival": false,
+      "venue": "The Wall Live House",
+      "city": "台北",
+      "date": "2026-10-30",
+      "time": "20:00",
+      "on_sale_at": null,
+      "price_min": 1100,
+      "price_max": 2180,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "海外"
+      ],
+      "ticket_url": "https://offtimemusic.kktix.cc/events/scrubb2026",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://offtimemusic.kktix.cc/events/scrubb2026",
+          "raw_id": "scrubb2026"
+        }
+      ],
+      "first_seen_at": "2026-09-21T03:07:40.392Z",
+      "updated_at": "2026-09-21T03:07:40.392Z",
+      "id": "3352b55756098fd8",
+      "merged_ids": [
+        "3352b55756098fd8"
+      ]
+    },
+    {
+      "title_raw": "7co 1st ONEMAN LIVE in Taipei 2026",
+      "headliners": [
+        "7co"
+      ],
+      "lineup": [
+        "7co"
+      ],
+      "is_festival": false,
+      "venue": "The Wall Live House",
+      "city": "未知",
+      "date": "2026-11-06",
+      "time": "19:30",
+      "on_sale_at": null,
+      "price_min": 1690,
+      "price_max": 1690,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "日韓"
+      ],
+      "ticket_url": "https://offtimemusic.kktix.cc/events/7co2026",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://offtimemusic.kktix.cc/events/7co2026",
+          "raw_id": "7co2026"
+        }
+      ],
+      "first_seen_at": "2026-09-21T03:07:40.392Z",
+      "updated_at": "2026-09-21T03:07:40.392Z",
+      "id": "bd827aa0a7d9f3f3",
+      "merged_ids": [
+        "bd827aa0a7d9f3f3"
+      ]
+    },
+    {
+      "title_raw": "Yo-Sea Asia Tour 2026 - Minimum Band Set",
+      "headliners": [
+        "Yo-Sea"
+      ],
+      "lineup": [
+        "Yo-Sea"
+      ],
+      "is_festival": false,
+      "venue": "The Wall Live House",
+      "city": "未知",
+      "date": "2026-10-11",
+      "time": "20:00",
+      "on_sale_at": null,
+      "price_min": 1590,
+      "price_max": 1590,
+      "status": "on_sale",
+      "tags_type": [
+        "巡迴"
+      ],
+      "tags_origin": [
+        "日韓"
+      ],
+      "ticket_url": "https://youngteam.kktix.cc/events/yosea",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://youngteam.kktix.cc/events/yosea",
+          "raw_id": "yosea"
+        }
+      ],
+      "first_seen_at": "2026-09-21T03:07:40.393Z",
+      "updated_at": "2026-09-21T03:07:40.393Z",
+      "id": "0a5efcf3dfe7e78b",
+      "merged_ids": [
+        "0a5efcf3dfe7e78b"
       ]
     },
     {

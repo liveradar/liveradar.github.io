@@ -158,16 +158,34 @@ export function matchArtists(titleRaw, artistsYml) {
   const matches = [];
   for (const entry of artistsYml) {
     const names = [entry.canonical, ...(entry.aliases ?? [])];
-    let bestIndex = null;
+    let best = null; // { index, length }
     for (const n of names) {
       const idx = findNameIndex(titleRaw, n);
-      if (idx !== null && (bestIndex === null || idx < bestIndex)) bestIndex = idx;
+      if (idx !== null && (best === null || idx < best.index || (idx === best.index && n.length > best.length))) {
+        best = { index: idx, length: n.length };
+      }
     }
-    if (bestIndex !== null) {
-      matches.push({ canonical: entry.canonical, position: bestIndex });
+    if (best !== null) {
+      matches.push({ canonical: entry.canonical, position: best.index, length: best.length });
     }
   }
-  return matches.sort((a, b) => a.position - b.position).map((m) => m.canonical);
+  // 2026-09-21 real bug: "MONO" and "MONO NO AWARE" are two distinct, real
+  // bands where one's name is an exact word-prefix of the other's ("MONO NO
+  // AWARE PASSION TOUR 2027" was matching canonical "MONO", added the same
+  // day for an unrelated MONO show). Both are legitimate matches in
+  // isolation, so this isn't the IVE/LIVE-style "one is bogus" collision the
+  // artists.yml test guards against — it only becomes wrong when they tie on
+  // the exact same starting position in the SAME title, since a title can't
+  // simultaneously BE both artists at that word span. When that happens, the
+  // longer/more specific match wins and the shorter one is dropped.
+  const byPosition = new Map();
+  for (const m of matches) {
+    const existing = byPosition.get(m.position);
+    if (!existing || m.length > existing.length) byPosition.set(m.position, m);
+  }
+  return Array.from(byPosition.values())
+    .sort((a, b) => a.position - b.position)
+    .map((m) => m.canonical);
 }
 
 /** "2026/09/16(周三) 20:00(+0800)" or "2026/09/16 20:00(+0800)" -> { date, time } */

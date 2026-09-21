@@ -25,6 +25,37 @@
 - canonical: MONO
   aliases: []
   tags_origin_default: 日韓
+- canonical: MONO NO AWARE
+  # A real, distinct Japanese band whose name happens to start with "MONO"
+  # (unrelated to the MONO entry above) — matchArtists() now prefers the
+  # longer match when two entries tie on the same starting position, so
+  # having both registered is safe (2026-09-21, see normalize.mjs).
+  aliases: []
+  tags_origin_default: 日韓
+- canonical: POiSON GiRL FRiEND
+  aliases: []
+  tags_origin_default: 日韓
+- canonical: TOTORRO
+  aliases: []
+  tags_origin_default: 歐美
+- canonical: VOOID
+  aliases: []
+  tags_origin_default: 本地
+- canonical: 洪申豪
+  aliases: []
+  tags_origin_default: 本地
+- canonical: 雀斑 Freckles
+  aliases: []
+  tags_origin_default: 本地
+- canonical: SCRUBB
+  aliases: []
+  tags_origin_default: 海外
+- canonical: 7co
+  aliases: []
+  tags_origin_default: 日韓
+- canonical: Yo-Sea
+  aliases: []
+  tags_origin_default: 日韓
 - canonical: D'MASIV
   # KKTIX's own listing renders this with a curly/smart apostrophe (U+2019 ’),
   # not the straight one (U+0027 ') — looks identical, doesn't string-match.

@@ -223,9 +223,21 @@ test("artists.yml has no substring collisions between any two canonical/alias na
   // names already rejects that match at runtime ("MONO" immediately followed
   // by "mania", no boundary) — the blind substring check couldn't tell a real
   // collision (IVE/LIVE, which IS a boundary-adjacent match) from data that
-  // merely looks alarming. This is a hard failure, not a warning — any
-  // addition that creates a real (boundary-passing) collision should still be
-  // caught here before it ships.
+  // merely looks alarming.
+  //
+  // 2026-09-21, same day, second refinement: adding "MONO NO AWARE" (a real,
+  // distinct band) alongside "MONO" flagged ANOTHER false positive — "MONO"
+  // is a boundary-valid match at position 0 of "MONO NO AWARE", same as it
+  // would be at position 0 of a real title. But matchArtists() now breaks
+  // same-position ties by preferring the longer match (see its own comment),
+  // so two entries matching at the exact same starting position (one is an
+  // exact word-prefix of the other) is safe — the real, still-dangerous shape
+  // is a short name matching at a position OTHER than 0 inside a longer
+  // entry's text (IVE at position 1 inside "LIVE", ASCA at position 1 inside
+  // "...Brasca") — that's a name buried mid-word/mid-phrase in something
+  // unrelated, which the tie-break can't fix because the two entries won't
+  // even tie (only one, the wrong one, matches at all in a real title). Only
+  // a non-zero match position counts as a real collision here.
   const artistsYml = loadArtists();
   const names = [];
   for (const entry of artistsYml) {
@@ -238,12 +250,22 @@ test("artists.yml has no substring collisions between any two canonical/alias na
     for (const b of names) {
       if (a.canonical === b.canonical) continue;
       if (a.name === b.name) continue;
-      if (findNameIndex(b.name, a.name) !== null) {
-        collisions.push(`"${a.name}" (${a.canonical}) would match inside "${b.name}" (${b.canonical})`);
+      const idx = findNameIndex(b.name, a.name);
+      if (idx !== null && idx > 0) {
+        collisions.push(`"${a.name}" (${a.canonical}) would match inside "${b.name}" (${b.canonical}) at position ${idx}`);
       }
     }
   }
   assert.deepEqual(collisions, []);
+});
+
+test("matchArtists: two real, distinct artists where one's name is an exact word-prefix of the other's — the longer/more specific match wins (real bug: 'MONO NO AWARE PASSION TOUR 2027' was misattributed to the unrelated band 'MONO')", () => {
+  const yml = [
+    { canonical: "MONO", aliases: [], tags_origin_default: "日韓" },
+    { canonical: "MONO NO AWARE", aliases: [], tags_origin_default: "日韓" },
+  ];
+  assert.deepEqual(matchArtists("MONO NO AWARE PASSION TOUR 2027 in Taipei", yml), ["MONO NO AWARE"]);
+  assert.deepEqual(matchArtists('MONO "Snowdrop" Asia Tour 2026 - TAIPEI', yml), ["MONO"]);
 });
 
 test("parsePriceFromText: tixcraft's rich-text price line, numbers wrapped in their own <span>s", () => {

@@ -88,6 +88,19 @@ const SEARCH_VENUES = [
   // 2026-09-21 investigation) — added anyway since it's the last of the 4
   // flagged venues and costs nothing but one daily search request.
   { keyword: "Blue Note", match: (venue) => /^Blue Note/i.test(venue) },
+  // 2026-09-21, second real missed event Max found the same day (MONO NO
+  // AWARE PASSION TOUR 2027, romanticoffice.kktix.cc/events/mononoaware2027):
+  // The Wall Live House is in ORG_PAGE_VENUES on the assumption it
+  // self-promotes "almost all" its own shows — true most of the time, but
+  // this one was booked entirely through an outside promoter's own KKTIX
+  // account and never appeared on thewalllivehouse.kktix.cc's own listing at
+  // all (confirmed: not in its ~250 listed events). ORG_PAGE_VENUES coverage
+  // for The Wall stays as-is (it still catches the majority correctly and
+  // faster than a search), this just adds a search-based safety net to catch
+  // the ones that slip through an outside promoter. Keyword is "The Wall"
+  // (not "The Wall Live House") — the longer phrase returned 0 results from
+  // KKTIX's own search, apparently not indexed as one unit.
+  { keyword: "The Wall", match: (venue) => /^The Wall/i.test(venue) },
 ];
 
 function sleep(ms) {
