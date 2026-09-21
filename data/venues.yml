@@ -102,3 +102,9 @@
 # 查（見 normalize.mjs 的 title fallback 註解）。
 - match: "X-Formosa"
   city: 新北
+# DISORDER LIVE #22：iNDIEVOX 頁面/標題都沒寫場地，Max 貼出活動海報圖片，
+# 上面清楚寫著「迴響音樂展演空間」——證實了先前查到「同系列的 #14 也辦在
+# 迴響音樂展演空間」不是巧合，是這個系列固定辦在這裡。這個場地資訊只印在
+# 海報圖片上、不在任何文字欄位，文字爬蟲原本就抓不到，是人工看圖確認的。
+- match: "DISORDER LIVE"
+  city: 台中
