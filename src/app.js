@@ -378,7 +378,14 @@ function wireInlineSearch(events, restoreRender) {
   function renderSearch() {
     const query = input.value.trim();
     if (!query) {
-      container.innerHTML = renderEmptyList("輸入藝人或標題開始搜尋。");
+      // 2026-09-21 real bug (Max): clearing the search box back to empty
+      // left the "輸入藝人或標題開始搜尋" placeholder up instead of the full
+      // timeline underneath — search.html (a standalone page with nothing
+      // else to fall back to) correctly shows that placeholder for an empty
+      // query, but this inline panel sits on top of an already-loaded
+      // timeline, so an empty query should just restore it instead of
+      // repeating a hint the input's own placeholder text already shows.
+      restoreRender();
       return;
     }
     const prefs = loadPrefs();
