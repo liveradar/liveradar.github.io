@@ -65,9 +65,9 @@ with check (auth.uid() = user_id);
 -- 做一個管理畫面。匿名（沒登入）也能回報，reporter_user_id 純粹是「如果當
 -- 下有登入就順便記一下是誰」，不是必要欄位。
 --
--- 這份 SQL 還沒真的在後台執行過——Max 要在 Supabase SQL Editor 手動跑一次
--- 才會生效，執行完回來把這句話刪掉、改成跟 user_prefs 一樣的「最後對照日
--- 期」註記。
+-- 最後對照日期：2026-09-22。Max 在後台跑完這段 SQL 後，透過瀏覽器實際送出
+-- 一筆測試回報驗證過（真的寫進表裡，查得到 event_id/event_title），驗證
+-- 完直接用 SQL Editor 的 delete 清掉那筆測試資料，不留在正式資料裡。
 --
 -- create table public.event_reports (
 --   id uuid primary key default gen_random_uuid(),

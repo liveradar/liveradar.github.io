@@ -551,4 +551,4 @@ Max 提了兩個功能需求，先用 `AskUserQuestion` 確認做法（因為兩
 
 **實測**：瀏覽器裡確認過按鈕只在正確的狀態下出現、點擊觸發下載無 console 錯誤、直接呼叫 `buildOnSaleReminderIcs()` 檢查過輸出格式正確（`DTSTART` 真的是開賣時間、不是演出時間）；回報表單填寫送出、確認打中 Supabase（目前因為表還沒建，收到預期中的 `PGRST205` 錯誤，UI 正確顯示失敗提示而不是整頁掛掉）。`npm test` 143 個全過（新增 9 個：6 個 `ics.test.js` + 3 個 `render.test.js` 的按鈕顯示條件）。
 
-**Max 還沒做的事**：去 Supabase SQL Editor 跑 `supabase/schema.sql` 尾端 `event_reports` 那段 SQL，回報功能才會真的可用；跑完之後可以把 schema.sql 裡「這份 SQL 還沒真的執行過」那句話刪掉。
+**2026-09-22 更新：Max 已經跑完 SQL，回報功能上線並實測成功**——在瀏覽器裡對一張真實卡片送出一筆測試回報，直接用 SQL Editor 查 `public.event_reports` 查到那筆資料（`event_id`/`event_title`/`description` 都對），確認整條路徑從前端到資料庫都通了，驗證完用 `delete` 清掉測試資料。`supabase/schema.sql` 已經更新成跟 `user_prefs` 一樣的「最後對照日期」格式。
