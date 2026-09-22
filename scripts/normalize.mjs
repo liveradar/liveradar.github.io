@@ -786,11 +786,24 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   // that IS trustworthy "announced" evidence for KKTIX — it just isn't for a
   // source that never had ticket-tier data to begin with.
   if (status === "announced" && rawEvent.source_name !== "KKTIX") {
-    const parsedOnSaleAt = parseOnSaleAt(rawEvent.price_text_raw ?? "");
-    if (parsedOnSaleAt && parsedOnSaleAt.slice(0, 10) > taiwanTodayDateStr()) {
-      on_sale_at = parsedOnSaleAt;
+    // 2026-09-22 (Max: "這點在其他平台也都要確認...如果沒有api或是結構化資料
+    // 可以確定狀態，那可以從文字內容確認吧"): Ticket Plus's own event page
+    // (client-rendered, not in its JSON API at all) shows "銷售一空"/"售完"/
+    // "完售"/"售罄" for a sold-out session and "登記截止" when a lottery-
+    // signup listing's registration window has closed — see ticketplus.mjs's
+    // fetchSaleStatusMap. Checked BEFORE the on_sale_at/default-to-on_sale
+    // logic below: a sold-out or registration-closed session is neither
+    // "announced" nor genuinely "on_sale", it's over.
+    const SOLD_OUT_TEXT_RE = /銷售一空|售完|完售|售罄|登記截止/;
+    if (SOLD_OUT_TEXT_RE.test(rawEvent.sale_status_text ?? "")) {
+      status = dateParsed.date >= taiwanTodayDateStr() ? "sold_out" : "ended";
     } else {
-      status = "on_sale";
+      const parsedOnSaleAt = parseOnSaleAt(rawEvent.price_text_raw ?? "");
+      if (parsedOnSaleAt && parsedOnSaleAt.slice(0, 10) > taiwanTodayDateStr()) {
+        on_sale_at = parsedOnSaleAt;
+      } else {
+        status = "on_sale";
+      }
     }
   }
   // Union across ALL recognized headliners, not just headliners[0] — a

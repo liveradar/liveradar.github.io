@@ -1,4 +1,5 @@
 import { logProgress } from "../progress-log.mjs";
+import { withBrowser, newPage } from "../browser.mjs";
 
 /**
  * Ticket Plus (ticketplus.com.tw, "遠大售票系統") adapter. Added 2026-09-17.
@@ -45,9 +46,40 @@ const API_BASE = "https://apis.ticketplus.com.tw/config/api/v1/getS3";
 // spacing, not zero.
 const REQUEST_DELAY_MS = 500;
 const REQUEST_TIMEOUT_MS = 30000;
+const STATUS_NAV_TIMEOUT_MS = 20000;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// 2026-09-22 (Max: "結束販售（或已售完）/尚未開賣/現正開賣...如果沒有api或
+// 是結構化資料可以確定狀態，那可以從文字內容確認吧"): checked — neither
+// sessions.json nor event.json has anything resembling a sale-status field,
+// but the actual event PAGE (client-rendered Vue) shows one per session as
+// plain text next to each row: "銷售一空" (sold out), "登記截止"
+// (registration window for THIS listing closed — real case: MAHIRU's lottery-
+// only listing), or nothing at all when the session is currently buyable.
+// Confirmed via the real DOM (not the JSON API) that a session's row is
+// `.row.pa-4.flex-column.flex-sm-row.no-gutters`, its name is in
+// `.font-weight-bold.text-regular`, and the status text (if any) is in
+// `.text-title`, matched by exact session.name text against sessions.json.
+async function fetchSaleStatusMap(browser, eventId) {
+  const page = await newPage(browser);
+  try {
+    await page.goto(`https://ticketplus.com.tw/activity/${eventId}`, {
+      waitUntil: "domcontentloaded",
+      timeout: STATUS_NAV_TIMEOUT_MS,
+    });
+    await page.waitForSelector(".row.pa-4.flex-column.flex-sm-row.no-gutters", { timeout: STATUS_NAV_TIMEOUT_MS });
+    return await page.$$eval(".row.pa-4.flex-column.flex-sm-row.no-gutters", (rows) =>
+      rows.map((row) => ({
+        name: row.querySelector(".font-weight-bold.text-regular")?.textContent.trim() ?? "",
+        status: row.querySelector(".text-title")?.textContent.trim() ?? "",
+      })),
+    );
+  } finally {
+    await page.close();
+  }
 }
 
 async function fetchJsonOnce(path) {
@@ -82,74 +114,94 @@ export async function fetch(knownRawIds = new Set()) {
 
   const results = [];
   let skippedEventCount = 0;
-  for (const eventId of eventIds) {
-    await sleep(REQUEST_DELAY_MS);
-    let sessionsData;
-    try {
-      sessionsData = await fetchJson(`event/${eventId}/sessions.json`);
-    } catch (err) {
-      logProgress(`ticketplus sessions fetch failed for ${eventId}: ${err.message}`);
-      continue;
-    }
-
-    const sessions = (sessionsData.sessions ?? []).filter(
-      (s) => !s.hidden && !s.name?.includes("周邊商品"), // withdrawn session / merch pre-order, same filters as before
-    );
-    if (sessions.length === 0) continue;
-
-    // 2026-09-18, incremental fetch: sessions.json is still checked for
-    // EVERY eventId, every run — it's the only way to notice a newly added
-    // session (e.g. a tour adding a city) on an event we already know about.
-    // But if every one of this eventId's sessions is already known, there's
-    // nothing new to normalize, so skip the event.json price call entirely
-    // (that's the one that used to double Ticket Plus's own fetch time) and
-    // let fetch.mjs reuse each session's previous normalized data instead.
-    const sessionRawIds = sessions.map((s) => `${eventId}_${s.sessionId}`);
-    if (sessionRawIds.every((rawId) => knownRawIds.has(rawId))) {
-      skippedEventCount += 1;
-      for (const rawId of sessionRawIds) {
-        results.push({ raw_id: rawId, source_name: name, reuse_previous: true });
+  let statusFailures = 0;
+  await withBrowser(async (browser) => {
+    for (const eventId of eventIds) {
+      await sleep(REQUEST_DELAY_MS);
+      let sessionsData;
+      try {
+        sessionsData = await fetchJson(`event/${eventId}/sessions.json`);
+      } catch (err) {
+        logProgress(`ticketplus sessions fetch failed for ${eventId}: ${err.message}`);
+        continue;
       }
-      continue;
-    }
 
-    // Price lives in this event's own freeform "活動介紹" (info) field, not
-    // in sessions.json (structured but has no price field at all) — fetched
-    // once per eventId, not once per session, since price is one value for
-    // the whole event, not per session/city (2026-09-18). A failure here
-    // isn't fatal to the event itself, just leaves its price unparsed.
-    //
-    // No separate sleep before this one: it piggybacks on the same eventId
-    // iteration as sessions.json above, right after it — a real measured run
-    // of a second REQUEST_DELAY_MS here doubled Ticket Plus's own total fetch
-    // time (~3min to ~6min out of ~14min for the whole pipeline) for very
-    // little politeness benefit over a same-eventId back-to-back pair; the
-    // 2s gap BETWEEN different eventIds (the sleep above) is what actually
-    // paces the request rate against the server.
-    let priceTextRaw = "";
-    try {
-      const eventData = await fetchJson(`event/${eventId}/event.json`);
-      priceTextRaw = eventData.info ?? "";
-    } catch (err) {
-      logProgress(`ticketplus event.json fetch failed for ${eventId}: ${err.message}`);
-    }
+      const sessions = (sessionsData.sessions ?? []).filter(
+        (s) => !s.hidden && !s.name?.includes("周邊商品"), // withdrawn session / merch pre-order, same filters as before
+      );
+      if (sessions.length === 0) continue;
 
-    for (const session of sessions) {
-      results.push({
-        raw_id: `${eventId}_${session.sessionId}`,
-        url: `https://ticketplus.com.tw/activity/${eventId}`,
-        title_raw: session.name,
-        // "location / address" mirrors KKTIX's venue_raw shape exactly, so
-        // normalize.mjs reuses parseKktixVenue for this source too.
-        venue_raw: `${session.location ?? ""} / ${session.address ?? ""}`,
-        // date+time concatenated into one string for parseTicketPlusDate to
-        // split — RawEvent only has a single date_raw field.
-        date_raw: `${session.date ?? ""} ${session.time ?? ""}`,
-        tickets_raw: [],
-        price_text_raw: priceTextRaw,
-        source_name: name,
-      });
+      // 2026-09-18, incremental fetch: sessions.json is still checked for
+      // EVERY eventId, every run — it's the only way to notice a newly added
+      // session (e.g. a tour adding a city) on an event we already know about.
+      // But if every one of this eventId's sessions is already known, there's
+      // nothing new to normalize, so skip the event.json price call entirely
+      // (that's the one that used to double Ticket Plus's own fetch time) and
+      // let fetch.mjs reuse each session's previous normalized data instead.
+      const sessionRawIds = sessions.map((s) => `${eventId}_${s.sessionId}`);
+      if (sessionRawIds.every((rawId) => knownRawIds.has(rawId))) {
+        skippedEventCount += 1;
+        for (const rawId of sessionRawIds) {
+          results.push({ raw_id: rawId, source_name: name, reuse_previous: true });
+        }
+        continue;
+      }
+
+      // Price lives in this event's own freeform "活動介紹" (info) field, not
+      // in sessions.json (structured but has no price field at all) — fetched
+      // once per eventId, not once per session, since price is one value for
+      // the whole event, not per session/city (2026-09-18). A failure here
+      // isn't fatal to the event itself, just leaves its price unparsed.
+      //
+      // No separate sleep before this one: it piggybacks on the same eventId
+      // iteration as sessions.json above, right after it — a real measured run
+      // of a second REQUEST_DELAY_MS here doubled Ticket Plus's own total fetch
+      // time (~3min to ~6min out of ~14min for the whole pipeline) for very
+      // little politeness benefit over a same-eventId back-to-back pair; the
+      // 2s gap BETWEEN different eventIds (the sleep above) is what actually
+      // paces the request rate against the server.
+      let priceTextRaw = "";
+      try {
+        const eventData = await fetchJson(`event/${eventId}/event.json`);
+        priceTextRaw = eventData.info ?? "";
+      } catch (err) {
+        logProgress(`ticketplus event.json fetch failed for ${eventId}: ${err.message}`);
+      }
+
+      // 2026-09-22 (Max): per-session sale status ("銷售一空"/"登記截止"),
+      // see fetchSaleStatusMap's doc comment — only source for this, no JSON
+      // API has it. One Playwright page load per eventId, same cost class as
+      // the price fetch this is piggybacking after.
+      let statusRows = [];
+      try {
+        statusRows = await fetchSaleStatusMap(browser, eventId);
+      } catch (err) {
+        statusFailures += 1;
+        logProgress(`ticketplus sale-status fetch failed for ${eventId}: ${err.message}`);
+      }
+      const statusByName = new Map(statusRows.map((r) => [r.name, r.status]));
+
+      for (const session of sessions) {
+        results.push({
+          raw_id: `${eventId}_${session.sessionId}`,
+          url: `https://ticketplus.com.tw/activity/${eventId}`,
+          title_raw: session.name,
+          // "location / address" mirrors KKTIX's venue_raw shape exactly, so
+          // normalize.mjs reuses parseKktixVenue for this source too.
+          venue_raw: `${session.location ?? ""} / ${session.address ?? ""}`,
+          // date+time concatenated into one string for parseTicketPlusDate to
+          // split — RawEvent only has a single date_raw field.
+          date_raw: `${session.date ?? ""} ${session.time ?? ""}`,
+          tickets_raw: [],
+          price_text_raw: priceTextRaw,
+          sale_status_text: statusByName.get(session.name) ?? "",
+          source_name: name,
+        });
+      }
     }
+  });
+  if (statusFailures > 0) {
+    logProgress(`Ticket Plus: sale-status fetch failed for ${statusFailures} event(s)`);
   }
 
   logProgress(`Ticket Plus: ${results.length} session(s) fetched (${skippedEventCount} event(s) fully known, price fetch skipped)`);

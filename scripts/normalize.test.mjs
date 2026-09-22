@@ -550,3 +550,36 @@ test("normalize(): multiple 'waiting' KKTIX tiers with different sale-start time
   const { event } = normalize(raw, artistsYml);
   assert.equal(event.on_sale_at, "2026-11-13T12:00:00+08:00");
 });
+
+test("normalize() real bug (Max, YOASOBI: \"YOASOBI兩場都寫銷售一空，為什麼沒標注到已售完\"): a Ticket Plus session whose page shows '銷售一空' is reported sold_out, not defaulted to on_sale", () => {
+  const raw = makeRaw({
+    source_name: "Ticket Plus",
+    date_raw: "2027-01-09 ~ 2027-01-09 18:00 ~ 18:00",
+    tickets_raw: [],
+    sale_status_text: "銷售一空",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "sold_out");
+});
+
+test("normalize(): a Ticket Plus session showing '登記截止' (this listing's lottery-signup window closed) is also treated as sold_out/ended, not left announced or defaulted to on_sale", () => {
+  const raw = makeRaw({
+    source_name: "Ticket Plus",
+    date_raw: "2027-01-09 ~ 2027-01-09 18:00 ~ 18:00",
+    tickets_raw: [],
+    sale_status_text: "登記截止",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "sold_out");
+});
+
+test("normalize(): a Ticket Plus session with NO sale_status_text still falls through to the existing default-to-on_sale behavior", () => {
+  const raw = makeRaw({
+    source_name: "Ticket Plus",
+    date_raw: "2027-01-09 ~ 2027-01-09 18:00 ~ 18:00",
+    tickets_raw: [],
+    sale_status_text: "",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "on_sale");
+});
