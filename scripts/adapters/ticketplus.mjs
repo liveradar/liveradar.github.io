@@ -71,6 +71,20 @@ async function fetchSaleStatusMap(browser, eventId) {
       timeout: STATUS_NAV_TIMEOUT_MS,
     });
     await page.waitForSelector(".row.pa-4.flex-column.flex-sm-row.no-gutters", { timeout: STATUS_NAV_TIMEOUT_MS });
+    // 2026-09-22 real bug, found AFTER this shipped and a full re-fetch quietly
+    // lost the YOASOBI sold-out signal Max had just confirmed: `.text-title`
+    // is populated by a SEPARATE async call the page makes after the row
+    // itself renders — confirmed directly (`.text-title` reads back as `[]`
+    // immediately after the row selector resolves, but correctly shows
+    // "銷售一空" once that follow-up request settles). Reading it right after
+    // the row appears silently got every session's status as "" — no error
+    // was ever thrown, so 289 events could go through a full re-fetch with
+    // this appearing to work while actually reporting nothing, ever. Waiting
+    // for the network to go idle (not a fixed sleep — a genuinely-open
+    // session has no such follow-up call to wait for, so this returns as
+    // soon as it can either way, ~3s observed for both cases) instead of
+    // guessing a delay long enough to be a safe fixed number.
+    await page.waitForLoadState("networkidle", { timeout: STATUS_NAV_TIMEOUT_MS }).catch(() => {});
     return await page.$$eval(".row.pa-4.flex-column.flex-sm-row.no-gutters", (rows) =>
       rows.map((row) => ({
         name: row.querySelector(".font-weight-bold.text-regular")?.textContent.trim() ?? "",
