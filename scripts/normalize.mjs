@@ -360,6 +360,18 @@ function normalizeFullwidthAscii(text) {
   return text.replace(/[！-～]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0xfee0));
 }
 
+// 2026-09-22 real bug (Max, FANSI GO 950003: "票價｜預售單人$𝟱𝟬𝟬"): a
+// DIFFERENT decorative digit style than fullwidth — Unicode "Mathematical
+// Alphanumeric Symbols" (bold/double-struck/sans-serif/sans-serif-bold/
+// monospace digits, U+1D7CE-U+1D7FF), a separate block from the fullwidth
+// ASCII one above and not covered by that shift. All five digit styles in
+// this block are laid out as five consecutive runs of 0-9, so one shared
+// formula (offset mod 10) covers all of them without needing to know which
+// style is in use.
+function normalizeMathDigits(text) {
+  return text.replace(/[\u{1D7CE}-\u{1D7FF}]/gu, (ch) => String((ch.codePointAt(0) - 0x1d7ce) % 10));
+}
+
 // Turns a raw HTML blob into newline-separated plain text WITHOUT breaking a
 // sentence mid-way — block-level tags (<br>/<p>/<div>/<li>) become line
 // breaks, everything else (<span>, <strong>, inline style wrappers) is just
@@ -393,7 +405,15 @@ function htmlToLines(html) {
 // with fullwidth spaces for visual alignment — "票　　價｜" — \s in a JS regex
 // already matches U+3000 (ideographic space), so "票\s*價" is enough, no new
 // character class needed.
-const PRICE_LABEL_RE = /(?:票\s*價|門\s*票)[：｜|:]\s*([^\n]{1,200})/;
+// 2026-09-22 real bug (Max, FANSI GO 690007): "票務：優先入場1500元...一般入場
+// 700元" — a genuinely different label word, not a typo/spacing variant of
+// 票價/門票.
+// 2026-09-22 real bug (Ticket Plus, 風間俊介 KAZAMA SHUNSUKE event): "【票價
+// 資訊】全區座位｜NTD 3,680" — filler text ("資訊") between the label and the
+// actual separator, same shape as iNDIEVOX's "票價資訊 Ticket Price：" gap fix
+// (scripts/adapters/indievox.mjs) but this one lives in the SHARED parser, so
+// every source benefits from widening it once here instead of per-adapter.
+const PRICE_LABEL_RE = /(?:票\s*價|門\s*票|票務)[^\n｜:：]{0,10}[：｜|:]\s*([^\n]{1,200})/;
 // 2026-09-21 real bug (Max): Ticket Plus writes currency as "TWD 4,280" or
 // "NT4,000" (no $ sign at all) about as often as "NT$"/"$" — neither matched
 // this regex, silently losing the price on every such event. Added both as
@@ -459,13 +479,39 @@ function priceRangeFromNumbers(numbers) {
  * (price_min may end up a little higher than the true cheapest tier) rather
  * than risking a wrong one.
  */
+// 2026-09-22 real bug (Ticket Plus, 風間俊介 KAZAMA SHUNSUKE event): the price
+// label sometimes sits ALONE on its own line as a bracketed section header
+// ("【票價資訊】", nothing after it) with the actual tiers on SEPARATE
+// following lines that don't contain "票價"/"門票" themselves at all
+// ("全區座位｜NTD 3,680" / "身障區｜NTD 1,840") — PRICE_LABEL_RE's same-line
+// capture group comes back empty. Same shape as iNDIEVOX's "票價 :" own-line
+// case (scripts/adapters/indievox.mjs's extractLabeledField), generalized
+// here so every source gets it, not just iNDIEVOX's own adapter code.
+function labelBlockText(plain) {
+  const labelMatch = plain.match(PRICE_LABEL_RE);
+  if (labelMatch && labelMatch[1].trim()) return labelMatch[1];
+
+  const lines = plain.split("\n");
+  const headerRe = /(?:票\s*價|門\s*票|票務)/;
+  for (let i = 0; i < lines.length; i++) {
+    if (!headerRe.test(lines[i])) continue;
+    const rest = lines
+      .slice(i + 1, i + 6)
+      .map((l) => l.trim())
+      .filter(Boolean)
+      .join("\n");
+    if (rest) return rest;
+  }
+  return null;
+}
+
 export function parsePriceFromText(html) {
   if (!html) return { min: null, max: null };
-  const plain = normalizeFullwidthAscii(htmlToLines(html));
+  const plain = normalizeMathDigits(normalizeFullwidthAscii(htmlToLines(html)));
 
-  const labelMatch = plain.match(PRICE_LABEL_RE);
-  if (labelMatch) {
-    const stripped = stripDiscountTierText(labelMatch[1]);
+  const labelText = labelBlockText(plain);
+  if (labelText) {
+    const stripped = stripDiscountTierText(labelText);
     const numbers = [...stripped.matchAll(CURRENCY_NUMBER_RE)].map((m) => Number((m[1] ?? m[2]).replace(/,/g, "")));
     const fromLabel = priceRangeFromNumbers(numbers);
     if (fromLabel.min != null) return fromLabel;
@@ -483,7 +529,25 @@ export function parsePriceFromText(html) {
   const keywordNumbers = [...stripDiscountTierText(plain).matchAll(PRICE_KEYWORD_RE)].map((m) =>
     Number(m[1].replace(/,/g, ""))
   );
-  return priceRangeFromNumbers(keywordNumbers);
+  const fromKeyword = priceRangeFromNumbers(keywordNumbers);
+  if (fromKeyword.min != null) return fromKeyword;
+
+  // 2026-09-22 real bug (Max, FANSI GO: "沒有什麼ampm 你讀html的文字" — a real
+  // page, go.fansi.me/events/140015, defeated BOTH tiers above at once):
+  // tier names ("ᴀᴅᴠ"/"ᴅᴏᴏʀ"/"ꜱɪɴɢʟᴇ ᴛɪᴄᴋᴇᴛ") are typed in Unicode small-caps
+  // styling (U+1D00 range, "Phonetic Extensions"), not the plain ASCII
+  // letters /adv|door/i matches — PRICE_KEYWORD_RE's keywords never fire.
+  // The tier NAME and its NT$ price also sit several characters or even a
+  // whole line apart ("NTD $1100" trails "・單人票 ꜱɪɴɢʟᴇ ᴛɪᴄᴋᴇᴛ　　　　"), past
+  // PRICE_KEYWORD_RE's 8-char proximity window even where the keyword text
+  // does match. Last-resort tier: trust any bare $-marked number anywhere in
+  // the page when NEITHER a label NOR a proximity keyword matched anything —
+  // requiring the $ sign itself (not just any digit) keeps this conservative,
+  // same reasoning BARE_NUMBER_LIST_RE uses within an already-confirmed label.
+  const dollarNumbers = [...stripDiscountTierText(plain).matchAll(/\$\s*([\d,]+)/g)].map((m) =>
+    Number(m[1].replace(/,/g, ""))
+  );
+  return priceRangeFromNumbers(dollarNumbers);
 }
 
 /**
