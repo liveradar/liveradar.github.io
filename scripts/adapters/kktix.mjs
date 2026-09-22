@@ -220,12 +220,57 @@ async function fetchSearchResultUrls(keyword) {
   });
 }
 
-/** Scrapes one event's own page — this is the only place price/venue/date are complete. */
-async function fetchEventDetail(url) {
-  const html = await fetchHtml(url);
-  const $ = cheerio.load(html);
+/**
+ * 2026-09-22 real bug (陳如山 @ 海邊的卡夫卡, kafka.kktix.cc/events/sparkkafka
+ * sat in needs-review.json as "date_unparseable" even though the page has a
+ * perfectly normal date on it): KKTIX serves at least two different event
+ * detail page templates. Most orgs (e.g. thewall.kktix.cc) use the older
+ * `.event-info ul.info li` layout this adapter was written against, but
+ * some orgs get a newer `.side-inner .section` layout with completely
+ * different markup for date/venue/tickets — same underlying data, different
+ * HTML. Silently missing this returned empty strings, which
+ * parseKktixDate() correctly refused to guess at rather than inventing a
+ * wrong date, but it meant a genuine event just sat in the review queue
+ * forever with no path back out. Detect which template loaded and use the
+ * matching selectors for each.
+ */
+function extractNewTemplateFields($) {
+  const sections = $(".side-inner .section");
+  const sectionByLabel = (label) =>
+    sections.filter((_, el) => $(el).find(".info-title").text().includes(label)).first();
 
-  const title_raw = $(".header-title h1").first().text().trim();
+  const date_raw = sectionByLabel("活動時間").find(".timezoneSuffix").first().text().trim();
+
+  const venueP = sectionByLabel("活動地點").find("p").first().clone();
+  const addressText = venueP.find(".address").text().trim().replace(/^\(|\)$/g, "");
+  venueP.find(".address").remove();
+  const venueName = venueP.text().trim();
+  const venue_raw = addressText ? `${venueName} / ${addressText}` : venueName;
+
+  const tickets_raw = [];
+  $(".ticket-price > li").each((_, li) => {
+    const nameSpan = $(li).find(".name").first().clone();
+    nameSpan.find(".sell-time, .use-kkpoints-buy-tickets-info").remove();
+    const name = nameSpan.text().trim();
+    const priceText = $(li).find(".currency-value").first().text().trim();
+    const price = priceText ? Number(priceText.replace(/,/g, "")) : null;
+    const statusEl = $(li).find(".status").first();
+    const closed = statusEl.hasClass("closed");
+    // ⚠️ inferred, not confirmed live: no "尚未開賣" example seen yet on this
+    // template, assuming it shares the old template's `.waiting` class name
+    // since both are KKTIX's own ticket-status vocabulary, just re-skinned.
+    const waiting = statusEl.hasClass("waiting");
+    const on_sale_at_raw = waiting ? $(li).find(".sell-time .timezoneSuffix").first().text().trim() : null;
+    if (name) tickets_raw.push({ name, price, closed, waiting, on_sale_at_raw });
+  });
+
+  return { date_raw, venue_raw, tickets_raw };
+}
+
+// 2026-09-22 (EIR AOI 尚未開賣 fix, see below): the OLD template's three real
+// ticket-status states, unchanged from before the new-template branch above
+// was added.
+function extractOldTemplateFields($) {
   const infoLis = $(".event-info ul.info li");
   const date_raw = $(infoLis.get(0)).find(".timezoneSuffix").first().text().trim();
   const venue_raw = $(infoLis.get(1)).find(".info-desc").first().text().trim();
@@ -256,6 +301,18 @@ async function fetchEventDetail(url) {
       : null;
     if (name) tickets_raw.push({ name, price, closed, waiting, on_sale_at_raw });
   });
+
+  return { date_raw, venue_raw, tickets_raw };
+}
+
+/** Scrapes one event's own page — this is the only place price/venue/date are complete. */
+async function fetchEventDetail(url) {
+  const html = await fetchHtml(url);
+  const $ = cheerio.load(html);
+
+  const title_raw = $(".header-title h1").first().text().trim();
+  const usesNewTemplate = $(".side-inner").length > 0 && $(".event-info").length === 0;
+  const { date_raw, venue_raw, tickets_raw } = usesNewTemplate ? extractNewTemplateFields($) : extractOldTemplateFields($);
 
   const raw_id = url.split("/").filter(Boolean).pop();
   return { raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, source_name: name };

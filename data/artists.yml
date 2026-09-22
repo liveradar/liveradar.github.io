@@ -992,3 +992,32 @@
 - canonical: MOB PARTY
   aliases: []
   tags_origin_default: 本地
+
+# 2026-09-22 待整理清單清空，逐筆開票券頁查證身分
+- canonical: 曾艾佳
+  aliases: []
+  tags_origin_default: 本地  # 國風抒情/另類搖滾獨唱藝人（查證：xinyaomade.kktix.cc）
+- canonical: 回聲樂團
+  aliases: ["Echo of Your Soul"]
+  tags_origin_default: 本地  # 查證：indievox.com，《靈魂的回聲》雙專輯巡演
+- canonical: BORIS
+  aliases: []
+  tags_origin_default: 日韓  # 日本實驗/重型樂團，《PINK》20週年世界巡迴（查證：go.fansi.me）
+- canonical: KITA
+  aliases: []
+  tags_origin_default: 歐美  # 紐西蘭迷幻獨立三人組，主唱 Nikita 雅涵 Tu-Bryant（查證：ticketplus.com.tw）
+- canonical: 周穆
+  aliases: []
+  tags_origin_default: 本地  # 華語口述影像/語詞創作吟誦表演者（查證：ticketplus.com.tw）
+- canonical: 葉澈
+  aliases: ["YehChe"]
+  tags_origin_default: 本地  # 影像藝術家，Sonomorph 雙人組視覺端（查證：ticketplus.com.tw）
+- canonical: 尚霖
+  aliases: ["Shanglin"]
+  tags_origin_default: 本地  # 聲音藝術家，Sonomorph 雙人組聲音端（查證：ticketplus.com.tw）
+- canonical: 陳如山
+  aliases: []
+  tags_origin_default: 本地  # 四分衛主唱，個人彈唱巡迴（查證：kafka.kktix.cc）
+- canonical: Juice=Juice
+  aliases: []
+  tags_origin_default: 日韓  # Hello! Project 旗下日本女子偶像團體（查證：welcome-music.kktix.cc）

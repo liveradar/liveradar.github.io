@@ -235,6 +235,23 @@ async function main() {
   const deduped = dedupe(normalizedEvents);
   const { events, digest } = diff(previousEvents, deduped);
 
+  // 2026-09-22 real bug: a single adapter run can legitimately produce the
+  // same raw event twice within itself — e.g. KKTIX's org-page and
+  // search-venue strategies (§5.1) both covering the same org, or a
+  // fallback-reuse run (source-fallback.mjs) re-adding an item a fresh
+  // strategy also just found. dedupe() above only dedupes recognized
+  // events across sources; needsReview never went through any dedup, so the
+  // exact same "指派藝人" item showed up twice in review.html (found live:
+  // 陳如山「那些我賣不出去的歌」城市小巡迴). Keyed on (source, raw_id), same
+  // identity KKTIX itself uses for a listing.
+  const seenReviewKeys = new Set();
+  const dedupedNeedsReview = needsReview.filter((item) => {
+    const key = `${item.source}::${item.raw_id}`;
+    if (seenReviewKeys.has(key)) return false;
+    seenReviewKeys.add(key);
+    return true;
+  });
+
   writeFileSync(
     path.join(DATA_DIR, "events.json"),
     JSON.stringify({ generated_at: new Date().toISOString(), events }, null, 2) + "\n"
@@ -242,7 +259,7 @@ async function main() {
   writeFileSync(path.join(DATA_DIR, "digest.json"), JSON.stringify(digest, null, 2) + "\n");
   writeFileSync(
     path.join(DATA_DIR, "needs-review.json"),
-    JSON.stringify({ items: needsReview }, null, 2) + "\n"
+    JSON.stringify({ items: dedupedNeedsReview }, null, 2) + "\n"
   );
   writeFileSync(
     path.join(DATA_DIR, "sources.json"),
@@ -250,7 +267,7 @@ async function main() {
   );
 
   console.log(
-    `LiveRadar fetch complete: ${events.length} recognized event(s) (${digest.added_ids.length} new, ${digest.updated.length} updated), ${needsReview.length} needing review.`
+    `LiveRadar fetch complete: ${events.length} recognized event(s) (${digest.added_ids.length} new, ${digest.updated.length} updated), ${dedupedNeedsReview.length} needing review.`
   );
 }
 

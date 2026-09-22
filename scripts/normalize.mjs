@@ -658,6 +658,7 @@ const NOISE_KEYWORDS = [
   "chiikawa", // character-brand exhibition
   "des bishop", // stand-up comedy, not music
   "podcast", // podcast anniversary live shows — spoken word, not music
+  "紙博", // "紙博 in 台北" — Japanese paper-goods/stationery fair, not a concert (2026-09-22, verified via ticketplus.com.tw event page)
 ];
 
 function isNonMusicNoise(titleRaw) {
