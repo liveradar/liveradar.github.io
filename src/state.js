@@ -271,25 +271,6 @@ export function saveFavView(view) {
   localStorage.setItem(FAV_VIEW_KEY, view);
 }
 
-// --- Timeline intro card dismissal (2026-09-20) --------------------------
-// Same "screen state, not a rule" spirit as the two above — whether you've
-// already read the intro/tutorial card isn't something that needs to sync
-// across devices; a second device is a legitimate reason to see it again.
-
-const INTRO_DISMISSED_KEY = "liveradar:intro_dismissed";
-
-export function loadIntroDismissed() {
-  try {
-    return localStorage.getItem(INTRO_DISMISSED_KEY) === "1";
-  } catch {
-    return false;
-  }
-}
-
-export function dismissIntro() {
-  localStorage.setItem(INTRO_DISMISSED_KEY, "1");
-}
-
 // --- Light/dark theme override (FR-27, 2026-09-18) ----------------------
 // Dark mode was purely automatic (prefers-color-scheme) until it turned out
 // to strain Max's eyes with no way to force light regardless of the OS

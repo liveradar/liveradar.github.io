@@ -60,8 +60,6 @@ import {
   saveFavView,
   loadTheme,
   saveTheme,
-  loadIntroDismissed,
-  dismissIntro,
 } from "./state.js";
 import { getSession, signInWithGoogle, signOut, reportIssue } from "./supabase.js";
 import { buildOnSaleReminderIcs } from "./ics.js";
@@ -76,6 +74,7 @@ import {
   showYamlSnippetDialog,
   openFilterSheet,
   openReportDialog,
+  openIntroDialog,
 } from "./interactions.js";
 
 function escapeHtml(s) {
@@ -259,15 +258,10 @@ function wireViewFilterChips(events, getFilters, onChange) {
   refreshLabels();
 }
 
-/** 2026-09-20: first-run intro/tutorial card on the timeline — shows once, dismissed permanently via localStorage (src/state.js). */
-function initIntroCard() {
-  const card = document.getElementById("intro-card");
-  if (!card) return;
-  card.hidden = loadIntroDismissed();
-  document.getElementById("intro-dismiss-btn").addEventListener("click", () => {
-    dismissIntro();
-    card.hidden = true;
-  });
+/** 2026-09-22: replaces the old dismiss-forever intro card — a persistent ⓘ icon reachable any time (see openIntroDialog's doc comment). */
+function wireIntroInfoButton() {
+  const btn = document.getElementById("intro-info-btn");
+  btn?.addEventListener("click", () => openIntroDialog());
 }
 
 /** FR-14/62, AC-14: warn on the timeline if any source's last run wasn't clean. Fire-and-forget — shouldn't block the main render. */
@@ -486,7 +480,7 @@ async function initTimeline(container) {
     return;
   }
 
-  initIntroCard();
+  wireIntroInfoButton();
   checkSourceWarning();
 
   let viewFilters = loadViewFilters();

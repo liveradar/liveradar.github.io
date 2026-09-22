@@ -309,3 +309,34 @@ export function showYamlSnippetDialog(snippet) {
     }
   });
 }
+
+/**
+ * 2026-09-22: replaces the old always-on-first-visit, dismiss-forever intro
+ * card (Max: 內容變長之後想改成彈窗，機制照現有 .dialog-box 走) — this is
+ * reachable any time from the ⓘ icon in the topbar instead of showing once
+ * and then being gone for good, and now also covers the two features added
+ * the same day (report an issue, on-sale calendar reminder) that the old
+ * card predates.
+ */
+export function openIntroDialog() {
+  const html = `
+    <div class="overlay-scrim" data-close></div>
+    <div class="dialog-box" role="dialog" aria-modal="true">
+      <div class="dialog-box__title">LiveRadar 是什麼？</div>
+      <div class="dialog-box__body">
+        把 KKTIX、拓元、iNDIEVOX、FANSI GO、Ticket Plus 的音樂展演演出全部收在一起，不用再一個一個網站翻。
+      </div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.9;border-top:1px solid var(--border);padding-top:10px;">
+        ★ 收藏喜歡的場次，✕ 排除不想看到的，之後都會記住。<br>
+        可以篩城市、月份、類型、地區、價格，也可以直接搜尋演出者。<br>
+        登入帳號後，換裝置也不會不見。<br>
+        🚩 場次資訊有誤？卡片的 ✕ 選單裡可以直接回報。<br>
+        🔔 尚未開賣的場次可以加入行事曆，開賣前會提醒你。
+      </div>
+      <button class="btn-ghost" data-close style="margin-top:14px;width:100%;">關閉</button>
+    </div>
+  `;
+  overlayRoot().innerHTML = html;
+  const root = overlayRoot();
+  root.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", clearOverlay));
+}
