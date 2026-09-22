@@ -48,6 +48,19 @@ const DETAIL_NAV_TIMEOUT_MS = 20000;
 // 05/01(</span>六<span>) 18:45</span>"), so a naive "\s*\d{4}" right after
 // the colon matched nothing at all until this was added.
 const SHOW_TIME_RE = /📅\s*時間[：:]\s*(?:<[^>]+>\s*)*\d{4}\/\d{2}\/\d{2}\([^)]*\)\s*(\d{1,2}:\d{2})/;
+// 2026-09-22 real bug (Max: "拓元的同樣也是在節目介紹的文字內...你自己想辦法
+// 找" — SHOW_TIME_RE alone wasn't enough): not every organizer uses the
+// 📅-emoji convention at all. Confirmed on a real page (26_slowdive, via
+// browser — no 📅 anywhere on it): "演出時間：2026-12-10（四）" carries only the
+// date, with the actual start time in a SEPARATE "演出開始：8pm" line, written
+// in English am/pm instead of 24-hour HH:MM.
+const SHOW_START_AMPM_RE = /演出開始[：:]\s*(?:<[^>]+>\s*)*(\d{1,2})\s*(am|pm)/i;
+
+function amPmTo24Hour(hour, meridiem) {
+  let h = Number(hour) % 12;
+  if (meridiem.toLowerCase() === "pm") h += 12;
+  return `${String(h).padStart(2, "0")}:00`;
+}
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -146,7 +159,12 @@ export async function fetch(knownRawIds = new Set()) {
         await page.waitForSelector("#intro", { timeout: DETAIL_NAV_TIMEOUT_MS });
         event.price_text_raw = await page.$eval("#intro", (el) => el.innerHTML);
         const timeMatch = event.price_text_raw.match(SHOW_TIME_RE);
-        if (timeMatch) event.date_raw = `${event.date_raw} ${timeMatch[1]}`;
+        if (timeMatch) {
+          event.date_raw = `${event.date_raw} ${timeMatch[1]}`;
+        } else {
+          const ampmMatch = event.price_text_raw.match(SHOW_START_AMPM_RE);
+          if (ampmMatch) event.date_raw = `${event.date_raw} ${amPmTo24Hour(ampmMatch[1], ampmMatch[2])}`;
+        }
         const totalMs = Date.now() - startedAt;
         // 2026-09-18: diagnosing unexplained run-to-run slowness in this loop
         // (measured 2min+ for just 20 events some runs, expected under 1min)

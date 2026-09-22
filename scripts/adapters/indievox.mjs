@@ -116,7 +116,11 @@ const FIELD_LABEL_RE = /^(?:地點|場地|場館|日期|票價|門票|演出者|
 
 function extractLabeledField(html, keywordPattern, maxLen) {
   const lines = htmlToFieldLines(html);
-  const labelRe = new RegExp(`${keywordPattern}[^｜:：]{0,10}[｜:：]\\s*(.*)$`);
+  // 20 chars, not 10 — real case (26_iv0421681): "票價資訊 Ticket Price：" has
+  // 13 characters of bilingual filler between the keyword and the actual
+  // separator. Safe to be generous here since this now runs per-line (each
+  // line already block-tag-bounded to one field), not across the whole page.
+  const labelRe = new RegExp(`${keywordPattern}[^｜:：]{0,20}[｜:：]\\s*(.*)$`);
   for (let i = 0; i < lines.length; i++) {
     const m = lines[i].match(labelRe);
     if (!m) continue;
@@ -176,20 +180,54 @@ function parseDateLine(html) {
   return value && /\d{4}/.test(value) ? value : null;
 }
 
-/**
- * "票價：Shhh! ALL IN｜三場套票 9900元 / ..." -> raw clause, same freeform-info
- * block as the date/venue lines above, normalize.mjs's parsePriceFromText
- * pulls the actual numbers back out. 200 chars (not date/venue's 60-80) since
- * a multi-tier price list runs a lot longer than a venue name.
- */
-function parsePriceLine(html) {
-  return extractLabeledField(html, "票價", 400);
+// 2026-09-22 real bug (Max: Quanzo + O.Dkizzya, 26_iv0411695): some
+// organizers skip "日期" entirely and only ever write a bare "時間：9/25
+// （五）19:00" — no year at all, so parseDateLine's 4-digit-year guard
+// (there specifically to reject a stray per-tier order-table date, see its
+// own comment) correctly rejects it as a full date, but that guard was also
+// throwing out the one thing this field DOES reliably carry: the real start
+// time. `(?<!售票)` excludes "售票時間：2026/08/22（六）12:00 開始販售" (the
+// separate ticket-sale-open time, a real field on the same page) from
+// matching — without it this would grab the wrong time entirely.
+function parseTimeOnlyLine(html) {
+  const value = extractLabeledField(html, "(?<!售票)時間", 200);
+  // Fullwidth colon ("晚上19：00") shows up here as often as halfwidth —
+  // same family of bug as PRICE_LABEL_RE's fullwidth-pipe miss (normalize.mjs,
+  // 2026-09-21): don't assume organizers only ever type halfwidth punctuation.
+  const m = value?.match(/(\d{1,2})[:：](\d{2})/);
+  return m ? `${m[1]}:${m[2]}` : null;
+}
+
+// 2026-09-22 real bug (Max: "拓元的同樣也是...甚至演出資訊這邊都有 你自己想
+// 辦法找" — pushed to audit every remaining gap instead of one at a time):
+// narrowing to just a "票價" line, like parseVenueLine/parseDateLine do,
+// throws away every event whose organizer never writes that literal label at
+// all — found real events using "線上預售票：NT$1,200 / 現場衝動票：NT$1,800"
+// (26_iv0418478, no "票價" anywhere) and "🎫 ADV. NT$650 / DOOR NT$800"
+// (26_iv041795d, English convention, same as FANSI GO). tixcraft/FANSI GO
+// already solved this correctly by handing normalize.mjs's
+// parsePriceFromText() the WHOLE "節目介紹" block instead of a pre-narrowed
+// line — it already does its own label-scoped extraction FIRST and only
+// falls back to PRICE_KEYWORD_RE (預售/現場/adv/door/...) across the full
+// text when no label is found, so there's no reason iNDIEVOX should
+// re-implement a narrower, less capable version of the same thing. Same
+// #intro tab container tixcraft uses exists here too.
+function extractIntroHtml($) {
+  const el = $("#intro");
+  return el.length ? el.html() ?? "" : "";
 }
 
 async function fetchEventDetail(item) {
   const html = await fetchHtml(item.url);
+  const $ = cheerio.load(html);
   const venue_raw = parseVenueLine(html) ?? "";
-  const date_raw = parseDateLine(html) ?? item.date_raw;
+  let date_raw = parseDateLine(html) ?? item.date_raw;
+  // Listing-page date_raw never has a time; splice one on from the bare
+  // "時間：" field when parseDateLine itself didn't already carry one.
+  if (!/\d{1,2}:\d{2}/.test(date_raw)) {
+    const timeOnly = parseTimeOnlyLine(html);
+    if (timeOnly) date_raw = `${date_raw} ${timeOnly}`;
+  }
   const raw_id = item.url.split("/").filter(Boolean).pop();
   return {
     raw_id,
@@ -198,7 +236,7 @@ async function fetchEventDetail(item) {
     date_raw,
     venue_raw,
     tickets_raw: [],
-    price_text_raw: parsePriceLine(html) ?? "",
+    price_text_raw: extractIntroHtml($),
     source_name: name,
   };
 }

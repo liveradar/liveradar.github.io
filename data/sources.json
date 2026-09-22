@@ -2,42 +2,42 @@
   "sources": [
     {
       "name": "KKTIX",
-      "last_success": "2026-09-22T01:32:50.937Z",
+      "last_success": "2026-09-22T01:53:54.317Z",
       "last_error": null,
-      "last_count": 57,
+      "last_count": 59,
       "status": "ok"
     },
     {
       "name": "拓元",
-      "last_success": "2026-09-22T01:35:29.329Z",
+      "last_success": "2026-09-22T01:57:07.115Z",
       "last_error": null,
       "last_count": 73,
       "status": "ok"
     },
     {
       "name": "iNDIEVOX",
-      "last_success": "2026-09-22T01:30:46.758Z",
+      "last_success": "2026-09-22T01:51:53.038Z",
       "last_error": null,
       "last_count": 73,
       "status": "ok"
     },
     {
       "name": "FANSI GO",
-      "last_success": "2026-09-22T01:29:53.808Z",
+      "last_success": "2026-09-22T01:50:54.814Z",
       "last_error": null,
       "last_count": 23,
       "status": "ok"
     },
     {
       "name": "Ticket Plus",
-      "last_success": "2026-09-22T01:28:49.688Z",
+      "last_success": "2026-09-22T01:49:59.703Z",
       "last_error": null,
       "last_count": 129,
       "status": "ok"
     },
     {
       "name": "manual",
-      "last_success": "2026-09-22T01:27:46.803Z",
+      "last_success": "2026-09-22T01:48:52.620Z",
       "last_error": null,
       "last_count": 0,
       "status": "ok"

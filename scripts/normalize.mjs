@@ -274,9 +274,13 @@ export function parseIndievoxDate(dateRaw) {
   if (!m) return null;
   const [, y, mo, d] = m;
   const date = `${y}-${mo.padStart(2, "0")}-${d.padStart(2, "0")}`;
-  const startMatch = dateRaw.match(/(\d{1,2}:\d{2})\s*start/i);
-  const anyTimeMatch = dateRaw.match(/(\d{1,2}:\d{2})/);
-  const time = (startMatch ?? anyTimeMatch)?.[1] ?? null;
+  // 2026-09-22 real bug: some organizers write the time with a fullwidth
+  // colon ("晚上19：00") — same family of bug as PRICE_LABEL_RE's fullwidth-
+  // pipe miss (2026-09-21 above), a halfwidth-only regex silently drops it.
+  const startMatch = dateRaw.match(/(\d{1,2})[:：](\d{2})\s*start/i);
+  const anyTimeMatch = dateRaw.match(/(\d{1,2})[:：](\d{2})/);
+  const timeMatch = startMatch ?? anyTimeMatch;
+  const time = timeMatch ? `${timeMatch[1]}:${timeMatch[2]}` : null;
   return { date, time };
 }
 
@@ -385,7 +389,11 @@ function htmlToLines(html) {
 // next to the numbers — the label match itself was silently broken the whole
 // time, just invisibly, until a bare unmarked list ("Ticket Plus's
 // 票價｜8,500/8,000/…" test) had nothing else to fall back on.
-const PRICE_LABEL_RE = /(?:票價|門票)[：｜|:]\s*([^\n]{1,200})/;
+// 2026-09-22 real bug: an iNDIEVOX organizer (26_iv04219b4) pads the label
+// with fullwidth spaces for visual alignment — "票　　價｜" — \s in a JS regex
+// already matches U+3000 (ideographic space), so "票\s*價" is enough, no new
+// character class needed.
+const PRICE_LABEL_RE = /(?:票\s*價|門\s*票)[：｜|:]\s*([^\n]{1,200})/;
 // 2026-09-21 real bug (Max): Ticket Plus writes currency as "TWD 4,280" or
 // "NT4,000" (no $ sign at all) about as often as "NT$"/"$" — neither matched
 // this regex, silently losing the price on every such event. Added both as
