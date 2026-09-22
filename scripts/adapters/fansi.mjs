@@ -170,6 +170,36 @@ export async function fetch(knownRawIds = new Set()) {
           if (timeMatch) event.date_raw = `${event.date_raw} ${timeMatch[1]}`;
         } catch (err) {
           logProgress(`FANSI GO time fetch failed for ${event.url}: ${err.message}`);
+        }
+        // 2026-09-22 (Max: "如果拿到的不是熱賣中的文字是其他的文字，你可以看
+        // 那個文字判斷吧"): the actual ticket-selection page (a separate
+        // /tickets/show/{sessionId} URL linked from THIS page, not the same
+        // id as the event's own /events/{raw_id} URL) has a "★ 熱賣中"
+        // section header when something's sellable — but a first attempt at
+        // reading that text broke immediately: the SAME page randomly
+        // rendered in English ("★ Hot Item") on a fresh headless session,
+        // even with newPage()'s locale explicitly set to zh-TW (confirmed by
+        // reloading the identical URL twice). Text matching against one
+        // language is fragile here. Language-independent signal instead:
+        // each ticket tier has a `.sale-end-time time[datetime="YYYY/MM/DD
+        // HH:MM"]` — real, structured, and doesn't care what language the
+        // surrounding label renders in. If EVERY tier's sale-end time has
+        // already passed, nothing on this page is purchasable.
+        try {
+          const ticketLink = await page.$eval("a[href*='/tickets/show/']", (el) => el.getAttribute("href"));
+          await page.goto(new URL(ticketLink, event.url).href, { waitUntil: "domcontentloaded", timeout: PRICE_NAV_TIMEOUT_MS });
+          const endTimes = await page.$$eval(".sale-end-time time", (els) => els.map((el) => el.getAttribute("datetime")));
+          const now = Date.now();
+          const parsed = endTimes.map((dt) => Date.parse((dt ?? "").replace(/\//g, "-"))).filter((t) => !Number.isNaN(t));
+          if (parsed.length > 0 && parsed.every((t) => t <= now)) {
+            // Synthetic marker, not scraped text — reuses one of the same
+            // Chinese terms normalize.mjs's shared SOLD_OUT_TEXT_RE already
+            // recognizes from the other sources, rather than inventing a
+            // parallel English signal it would need its own regex branch for.
+            event.sale_status_text = "完售";
+          }
+        } catch (err) {
+          logProgress(`FANSI GO ticket-status fetch failed for ${event.url}: ${err.message}`);
         } finally {
           await page.close();
         }
