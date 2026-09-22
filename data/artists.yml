@@ -1043,3 +1043,112 @@
 - canonical: Fear, and Loathing in Las Vegas
   aliases: []
   tags_origin_default: 日韓  # 查證：atc-twn.kktix.cc，日本電子核樂團台北演唱會
+
+# 2026-09-22：KKTIX 全站音樂類別掃描（Strategy 3）上線後冒出的待整理清單，
+# 逐筆開票券頁查證身分／場地是否在台灣（不是台灣的另外用 venue_raw 過濾掉了，
+# 見 normalize.mjs 的 isOutsideTaiwanVenue）
+- canonical: 花澤香菜
+  aliases: ["HANAZAWA KANA"]
+  tags_origin_default: 日韓  # 日本聲優歌手，Legacy Taipei
+- canonical: LEE MINHYUK
+  aliases: ["HUTA", "李旼赫"]
+  tags_origin_default: 日韓  # 韓國團體 MONSTA X 成員個人活動，Clapper Studio
+- canonical: 葛瑞蓋斯
+  aliases: ["Gareth Gates"]
+  tags_origin_default: 歐美  # 英國歌手，Zepp New Taipei
+- canonical: HYTES
+  aliases: []
+  tags_origin_default: 日韓  # 韓國實力派團體，台北專場
+- canonical: 英格伯漢普汀克
+  aliases: ["Engelbert Humperdinck"]
+  tags_origin_default: 歐美  # 英國國寶級歌手，TICC台北國際會議中心
+- canonical: 尾巴音樂節
+  aliases: []
+  tags_origin_default: 本地  # 音樂祭品牌名，烏日啤酒廠（台中）
+- canonical: Cameron Picton
+  aliases: []
+  tags_origin_default: 歐美  # 前 Black Country, New Road 成員，Fan Meeting in Taipei
+- canonical: KREAM
+  aliases: []
+  tags_origin_default: 歐美  # 挪威 DJ 雙人組，Ai-X Nightclub 台北站
+- canonical: 呼聲
+  aliases: ["VOICES"]
+  tags_origin_default: 本地  # 音樂祭品牌名，臺北大佳河濱公園
+- canonical: Splash fest
+  aliases: []
+  tags_origin_default: 本地  # 音樂祭品牌名，金門縣烈嶼鄉習山湖公園
+- canonical: SKR FAMILY PARTY
+  aliases: []
+  tags_origin_default: 本地  # SKR唱片十週年活動品牌，Loi了咖啡（高雄）
+- canonical: 眠氣
+  aliases: ["HYPERSOMNIA"]
+  tags_origin_default: 本地  # 台灣樂團（查證：也出現在同批 2026 囪擊音樂祭陣容裡）
+- canonical: 阿丹玩球球
+  aliases: []
+  tags_origin_default: 本地
+- canonical: 淺眠躁動
+  aliases: []
+  tags_origin_default: 本地
+- canonical: 書名號
+  aliases: []
+  tags_origin_default: 本地
+- canonical: 王子欣
+  aliases: ["Amabile"]
+  tags_origin_default: 本地  # 小提琴獨奏會，陽明交大演藝廳
+- canonical: RIVO
+  aliases: []
+  tags_origin_default: 歐美  # 法國旋律新浪潮藝人，Ai-X Nightclub 首度登台
+- canonical: ZAKES BANTWINI
+  aliases: []
+  tags_origin_default: 歐美  # 南非葛萊美得主，SUPERHOUSE（台中）——沒有更貼切的地區分類，暫歸international bucket
+- canonical: TINY ISLAND
+  aliases: []
+  tags_origin_default: 本地  # 沙灘派對品牌名，漁光島（台南）
+- canonical: 邱冠瑜
+  aliases: ["Guanyu-Chiu"]
+  tags_origin_default: 本地  # 鋼琴家，線上獨奏音樂會
+- canonical: 神永大輔
+  aliases: []
+  tags_origin_default: 日韓  # 日本音樂人，遊音殘響 Presents
+- canonical: Ari Hoenig
+  aliases: []
+  tags_origin_default: 歐美  # 美國爵士鼓手，河岸留言西門紅樓展演館
+- canonical: 小櫻花
+  aliases: []
+  tags_origin_default: 本地  # 個人首場音樂會，雅痞書店
+- canonical: 英語金曲復興運動
+  aliases: []
+  tags_origin_default: 本地  # 活動品牌名，SUB（台北）
+- canonical: Rabbithole
+  aliases: []
+  tags_origin_default: 本地  # 活動品牌名，桃園玉山街影視基地
+- canonical: BEN NICKY
+  aliases: []
+  tags_origin_default: 歐美  # 英國 DJ，SUPERHOUSE（台中）
+- canonical: 德葵祭
+  aliases: []
+  tags_origin_default: 本地  # 音樂祭品牌名，The Wall Live House
+- canonical: 浪人祭
+  aliases: ["Vagabond Festival"]
+  tags_origin_default: 本地  # 音樂祭品牌名，台南安平（住宿專案是同一場的加購項目，不是獨立場次，已用 NOISE 邏輯排除重複)
+- canonical: 和東獅樂團
+  aliases: []
+  tags_origin_default: 本地  # 台灣樂團，八週年演唱會
+- canonical: 朱頭皮
+  aliases: []
+  tags_origin_default: 本地  # 台灣資深音樂人，60小壽嘉年華
+- canonical: TECHNO BUS
+  aliases: []
+  tags_origin_default: 本地  # FORGED PRESENTS 活動品牌名（台中）
+- canonical: 天韻
+  aliases: ["空中英語教室與天韻"]
+  tags_origin_default: 本地  # 台灣基督教詩歌團隊，聖誕晚會巡迴（高雄/台南/台北）
+- canonical: BENI NINAGAWA
+  aliases: []
+  tags_origin_default: 日韓  # 日本偶像歌手，Live House D（台北南港）
+- canonical: 蔡宇歆
+  aliases: []
+  tags_origin_default: 本地  # 鋼琴演奏會，陽明交大演藝廳
+- canonical: Re:Dino
+  aliases: []
+  tags_origin_default: 本地  # 阿卡貝拉演唱團體，台北西門紅樓

@@ -434,11 +434,43 @@ test("normalize(): non-music noise (sports tickets, courses, exhibitions, comedy
     "CHIIKAWA DAYS 台北特展（一般全票）",
     "Des Bishop Live in Taipei",
     "2026 法白 13 週年 LIVE PODCAST SHOW｜建國派對",
+    // 2026-09-22, KKTIX's sitewide category-browse batch:
+    "1500 SOUND ACADEMY 聲量音創學院 歌唱體驗課",
+    "【爵士與藍調：音樂診療室】一對一諮詢示範",
+    "【音樂解密沙龍】週五限定：一杯咖啡聽懂爵士樂！",
+    "【一杯咖啡聽我彈爵士吉他】秋季特典：海風、Bossa、拉丁",
+    "2026曉韵巴洛克秋冬系列講座【2026曉韵秋冬號】",
+    "2026TECA台北國際音響大展 5折早鳥預售門票",
+    "POP! POP! POP! 流行音樂互動展 ＠ 高雄流行音樂中心",
   ];
   for (const title_raw of cases) {
     const result = normalize(makeRaw({ title_raw }), yml, []);
     assert.equal(result.excluded?.reason, "non_music_noise", `expected "${title_raw}" to be excluded`);
   }
+});
+
+test("normalize() real bug (KKTIX's sitewide category browse surfaced the SAME artist's Hong Kong/Macau/Shenzhen tour date, not a Taipei one — my little airport, D'MASIV, PENTAGON etc.): a listing whose own venue_raw is outside Taiwan is excluded, checked via venue_raw specifically so a title merely mentioning '世界巡迴' doesn't false-positive", () => {
+  const yml = [];
+  const venues = [
+    "PORTAL / 九龍新蒲崗彩虹道212號THE BURROW 1樓",
+    "TIDES / Site 6, The Whampoa, 1 Tak On Street",
+    "澳門上葡京綜藝館 / The Grand Hall, Grand Lisboa Palace Resort Macau",
+    "CH8-LIVEHOUSE (深圳粵海店) / CH8-LIVEHOUSE (Shenzhen Yuehai Branch)",
+    "檳城基督徒中心 PCC BATU KAWAN / 31, 33, VERVEA, 35, Jalan Vervea 12, 14110 Simpang Ampa",
+  ];
+  for (const venue_raw of venues) {
+    const result = normalize(makeRaw({ venue_raw }), yml, []);
+    assert.equal(result.excluded?.reason, "outside_taiwan", `expected venue_raw "${venue_raw}" to be excluded`);
+  }
+});
+
+test("normalize(): a title that mentions '世界巡迴' (world tour) but has a normal Taiwan venue_raw is NOT excluded as outside_taiwan — only the listing's own venue field is checked, not the title", () => {
+  const result = normalize(
+    makeRaw({ title_raw: "某藝人 2026 世界巡迴演唱會－台北站", venue_raw: "Legacy Taipei / 台北市中正區" }),
+    [{ canonical: "某藝人", aliases: [], tags_origin_default: "本地" }],
+    [],
+  );
+  assert.notEqual(result.excluded?.reason, "outside_taiwan");
 });
 
 test("normalize(): a bare 'https://' title (a real FANSI GO scrape artifact) is excluded as junk, not sent to needs-review", () => {
@@ -582,6 +614,28 @@ test("normalize(): a Ticket Plus session with NO sale_status_text still falls th
   });
   const { event } = normalize(raw, artistsYml);
   assert.equal(event.status, "on_sale");
+});
+
+test("normalize() real bug (Max, 岡崎體育: show was cancelled, Ticket Plus page said '銷售截止', but events.json still showed on_sale): a THIRD distinct status string, not in the original exact-phrase list", () => {
+  const raw = makeRaw({
+    source_name: "Ticket Plus",
+    date_raw: "2027-01-09 ~ 2027-01-09 18:00 ~ 18:00",
+    tickets_raw: [],
+    sale_status_text: "銷售截止",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "sold_out");
+});
+
+test("normalize() (Max pushback after the 銷售截止 fix: \"不要因為沒把...列進已知的六種同義詞就忽略，你可以自己判斷詞彙意思吧\"): SOLD_OUT_TEXT_RE is a verb+ending STRUCTURAL pattern now, not an exact-phrase whitelist — a never-seen-before combination like '販售結束' (販售 + 結束, neither logged verbatim anywhere in this codebase) is still recognized without needing its own new case added", () => {
+  const raw = makeRaw({
+    source_name: "Ticket Plus",
+    date_raw: "2027-01-09 ~ 2027-01-09 18:00 ~ 18:00",
+    tickets_raw: [],
+    sale_status_text: "販售結束",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "sold_out");
 });
 
 test("normalize() real bug (Max, Stray Kids: \"他們不是沒有可用訊號 完售的會寫在這邊\" — a real tixcraft purchase page I'd missed): a tixcraft event whose ticket page reports '選購一空' is sold_out, not defaulted to on_sale", () => {

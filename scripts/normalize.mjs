@@ -659,11 +659,47 @@ const NOISE_KEYWORDS = [
   "des bishop", // stand-up comedy, not music
   "podcast", // podcast anniversary live shows — spoken word, not music
   "紙博", // "紙博 in 台北" — Japanese paper-goods/stationery fair, not a concert (2026-09-22, verified via ticketplus.com.tw event page)
+  // 2026-09-22, KKTIX's sitewide category-browse turned up a batch of these —
+  // one-on-one lessons/consultations and lecture-style "sit and learn about
+  // jazz" salons, not performances (all verified via their own KKTIX pages):
+  "音創學院", "歌唱體驗課", "音樂診療室", "音樂解密沙龍", "一杯咖啡聽我彈爵士吉他",
+  "秋冬系列講座", // a baroque-music lecture series, not a concert
+  "音響大展", // a hi-fi/audio-equipment trade show
+  "流行音樂互動展", // an exhibition/interactive display, not a live performance
 ];
 
 function isNonMusicNoise(titleRaw) {
   const lower = titleRaw.toLowerCase();
   return NOISE_KEYWORDS.some((kw) => lower.includes(kw.toLowerCase()));
+}
+
+// 2026-09-22 (KKTIX's new sitewide category-browse strategy, see kktix.mjs's
+// Strategy 3): once discovery isn't scoped to a known-Taiwan org/venue list
+// anymore, a real fraction of what turns up is the SAME artist's Hong Kong/
+// Macau/Shenzhen tour date, not a Taipei one — many orgs run both cities'
+// listings off one KKTIX account. Checked via `venue_raw` specifically (the
+// listing's own structured venue/address field), not the title or
+// description — a title can legitimately mention "世界巡迴" and other cities
+// in passing without this listing itself being one of them, but venue_raw is
+// exactly where THIS listing's own location lives, so matching there is safe
+// the same way sale_status_text's narrow scope makes SOLD_OUT_TEXT_RE safe.
+// This is a structural, geography-based filter, not a per-artist exclude —
+// keeps working for artists never seen before, unlike naming each one.
+// 九龍/新界: Hong Kong addresses commonly name the district (Kowloon/New
+// Territories) without ever spelling out "香港"/"Hong Kong" in full — real
+// case: a PORTAL (The Burrow) venue_raw said only "九龍新蒲崗彩虹道...".
+// Whampoa/MacPherson/West Kowloon: specific HK venue names seen repeatedly
+// across the batch that found this whole problem (TIDES, 麥花臣場館, AXA
+// WONDERLAND WestK) — their addresses don't name a country OR a district
+// keyword above at all, just a street name, so there's no way to generalize
+// further than listing the ones actually observed; expect to keep adding to
+// this list as new HK venues turn up the same way, same spirit as
+// NOISE_KEYWORDS above.
+const OUTSIDE_TAIWAN_VENUE_RE =
+  /香港|Hong ?Kong|九龍|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|The Burrow|Choi Hung/i;
+
+function isOutsideTaiwanVenue(venueRaw) {
+  return OUTSIDE_TAIWAN_VENUE_RE.test(venueRaw ?? "");
 }
 
 // A handful of FANSI GO raw events come through with a bare "https://" as
@@ -770,6 +806,9 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   if (isNonMusicNoise(rawEvent.title_raw)) {
     return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: "non_music_noise" } };
   }
+  if (isOutsideTaiwanVenue(rawEvent.venue_raw)) {
+    return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: "outside_taiwan" } };
+  }
 
   const parseDate = DATE_PARSERS[rawEvent.source_name] ?? parseKktixDate;
   const parseVenue = VENUE_PARSERS[rawEvent.source_name] ?? parseKktixVenue;
@@ -862,20 +901,30 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
     // uses "選購一空" instead of "銷售一空" for the same idea.
     // 2026-09-22 real bug (Max, real report: 岡崎體育10週年巡演 shown as
     // on_sale when the artist announced an indefinite hiatus and the show
-    // was fully cancelled): Ticket Plus shows "銷售截止" ("sales closed")
-    // as a THIRD, distinct status string this regex didn't cover at all — a
+    // was fully cancelled): Ticket Plus showed "銷售截止" ("sales closed"),
+    // a status string this regex didn't have in its exact-phrase list — a
     // cancelled show's page collapses to a single row whose name is the
     // event's own title rather than a per-session label, but the row and
     // its status text ARE still scraped correctly by fetchSaleStatusMap;
-    // the regex here just never recognized what it found. Not
-    // distinguishable from an ordinary "sales window closed" cutoff purely
-    // from this string, but either way it's not truthfully "on_sale" —
-    // mapping it into the existing sold_out/ended branch below (same as
-    // the other synonyms) is honest about "you can't buy this anymore"
-    // without inventing a new status this project doesn't have reliable
-    // signal to fill in (WHY it's closed — cancelled vs. simply over —
-    // needs reading the announcement text, which isn't done here).
-    const SOLD_OUT_TEXT_RE = /銷售一空|選購一空|售完|完售|售罄|登記截止|銷售截止/;
+    // the regex here just never recognized what it found.
+    //
+    // 2026-09-22, same day, Max's follow-up pushback after that fix landed
+    // ("不要因為沒把「銷售截止」列進已知的六種同義詞就忽略，你可以自己判斷
+    // 詞彙意思吧，我覺得這個不能當藉口"): fair — an exact-phrase whitelist
+    // just moves the same failure to the next unseen phrase a platform
+    // happens to word slightly differently, and "add one more literal
+    // string when someone notices" isn't a real fix. Rewritten as a
+    // structural pattern instead: any of 銷售/選購/販售/售票/登記 (the verbs
+    // this project has actually seen platforms use for "buying/signing up")
+    // followed by 一空/截止/結束 (endings that all mean the window is
+    // closed, however it's phrased), plus the handful of standalone
+    // sold-out compounds (售完/完售/售罄/停售) that don't fit that
+    // verb+ending shape. This is still string matching, not real language
+    // understanding — sale_status_text is scraped from a narrow, dedicated
+    // status UI element (not free-form prose), which is what makes a
+    // broader pattern safe here without needing to read surrounding
+    // context to avoid false positives.
+    const SOLD_OUT_TEXT_RE = /(?:銷售|選購|販售|售票|登記)(?:一空|截止|結束)|售完|完售|售罄|停售/;
     if (SOLD_OUT_TEXT_RE.test(rawEvent.sale_status_text ?? "")) {
       status = dateParsed.date >= taiwanTodayDateStr() ? "sold_out" : "ended";
     } else {

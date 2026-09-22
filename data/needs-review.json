@@ -1,49 +1,217 @@
 {
   "items": [
     {
-      "raw_id": "d349797f",
+      "raw_id": "20260923",
+      "title_raw": "Cello In Between．樂無止境",
+      "url": "https://nycuartscenter.kktix.cc/events/20260923",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "tailmusicfest",
       "title_raw": "",
-      "url": "https://kklivetw.kktix.cc/events/d349797f",
+      "url": "https://ilove78813.kktix.cc/events/tailmusicfest",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "goodnightlillie-2026",
+      "title_raw": "晚安莉莉 2026 LIVE：Wish You GoodNight Lillie!",
+      "url": "https://ccyent.kktix.cc/events/goodnightlillie-2026",
       "source": "KKTIX",
       "reason": "date_unparseable",
       "detail": ""
     },
     {
-      "raw_id": "476bcfdb",
+      "raw_id": "u-know-hk-2026",
+      "title_raw": "U-KNOW PROJECT 26 : SCENE#1 in HONG KONG",
+      "url": "https://tix-get-go.kktix.cc/events/u-know-hk-2026",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "20260930",
+      "title_raw": "巴雀室”重瘋：弦樂四重奏《日出．映像》",
+      "url": "https://nycuartscenter.kktix.cc/events/20260930",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "xinshanshe",
       "title_raw": "",
-      "url": "https://kklivetw.kktix.cc/events/476bcfdb",
+      "url": "https://misty-tide-production.kktix.cc/events/xinshanshe",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "c7362a7d",
+      "title_raw": "Regallily “Dawn”《TAIPEI》",
+      "url": "https://gutspromotion.kktix.cc/events/c7362a7d",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "ff7284f5",
+      "title_raw": "2026 SKR FAMILY PARTY",
+      "url": "https://skr.kktix.cc/events/ff7284f5",
       "source": "KKTIX",
       "reason": "date_unparseable",
       "detail": ""
     },
     {
-      "raw_id": "35d9126d",
-      "title_raw": "",
-      "url": "https://atc-twn.kktix.cc/events/35d9126d",
+      "raw_id": "diorhk2026",
+      "title_raw": "DIOR 大穎 2026《KAMPUNG GIRL普通人》世界巡迴演唱會｜香港站",
+      "url": "https://aboutnowent.kktix.cc/events/diorhk2026",
       "source": "KKTIX",
       "reason": "date_unparseable",
       "detail": ""
     },
     {
-      "raw_id": "jrsfe",
-      "title_raw": "",
-      "url": "https://atc-twn.kktix.cc/events/jrsfe",
+      "raw_id": "ambiotaiwan2026",
+      "title_raw": "AmbiO 1st LIVE IN TAIWAN",
+      "url": "https://jackartzone.kktix.cc/events/ambiotaiwan2026",
       "source": "KKTIX",
       "reason": "date_unparseable",
       "detail": ""
     },
     {
-      "raw_id": "aikorf",
+      "raw_id": "rivotaiepi2026",
       "title_raw": "",
-      "url": "https://atc-twn.kktix.cc/events/aikorf",
+      "url": "https://aixnightclub.kktix.cc/events/rivotaiepi2026",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "6458a781-copy-1",
+      "title_raw": "《OUTSIDE THE GATE》 VOL.1",
+      "url": "https://seetytainanlive.kktix.cc/events/6458a781-copy-1",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "261013-0622--b-copy-1",
+      "title_raw": "【Ponpon  ASIA TOUR 2026 】",
+      "url": "https://riversidelivehouse.kktix.cc/events/261013-0622--b-copy-1",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "sheng-hao-live-2026",
+      "title_raw": "蝕光跡 Traces of Time",
+      "url": "https://acac.kktix.cc/events/sheng-hao-live-2026",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "dmasiv-2026-hk",
+      "title_raw": "D’MASIV ASIA HOMERUN: HONG KONG",
+      "url": "https://flabbergast.kktix.cc/events/dmasiv-2026-hk",
       "source": "KKTIX",
       "reason": "date_unparseable",
       "detail": ""
     },
     {
-      "raw_id": "acc67277",
-      "title_raw": "",
-      "url": "https://atc-twn.kktix.cc/events/acc67277",
+      "raw_id": "accommodation-2026",
+      "title_raw": "2026 浪人祭｜百年好運・億載千秋｜住宿專案",
+      "url": "https://vagabondfest.kktix.cc/events/accommodation-2026",
+      "source": "KKTIX",
+      "reason": "date_unparseable",
+      "detail": ""
+    },
+    {
+      "raw_id": "misterk2026",
+      "title_raw": "MISTERK台北專場",
+      "url": "https://nuzone.kktix.cc/events/misterk2026",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "echoesofman-2026",
+      "title_raw": "建行（亞洲）信用卡呈獻： 蔓蔓蔓蔓蔓蔓 Echoes of Man",
+      "url": "https://kklivehk.kktix.cc/events/echoesofman-2026",
+      "source": "KKTIX",
+      "reason": "date_unparseable",
+      "detail": ""
+    },
+    {
+      "raw_id": "20261126",
+      "title_raw": "搖擺不設限．致敬大師風範",
+      "url": "https://nycuarts.kktix.cc/events/20261126",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "whib-hk-2026",
+      "title_raw": "2026 WHIB FAN CONCERT [BLUE HOUR] IN HONGKONG",
+      "url": "https://legendent.kktix.cc/events/whib-hk-2026",
+      "source": "KKTIX",
+      "reason": "date_unparseable",
+      "detail": ""
+    },
+    {
+      "raw_id": "hitorie2026",
+      "title_raw": "HITORI-ESCAPE ASIA TOUR 2026 【TAIPEI】",
+      "url": "https://gutspromotion.kktix.cc/events/hitorie2026",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "simpleplan-hk-2026",
+      "title_raw": "Simple Plan - The Bigger Than You Think! Tour - Live in Hong Kong",
+      "url": "https://tix-get-go.kktix.cc/events/simpleplan-hk-2026",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "20261202",
+      "title_raw": "魯特琴與歌曲，紀念道蘭逝世400週年",
+      "url": "https://nycuarts.kktix.cc/events/20261202",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "marasy2026ks",
+      "title_raw": "幻想遊戲演奏會2026 in Kaohsiung",
+      "url": "https://kuroko.kktix.cc/events/marasy2026ks",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "961a330d",
+      "title_raw": "懷念老朋友~家駒紀念音樂會",
+      "url": "https://beyond1206taipei.kktix.cc/events/961a330d",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "mla-2026",
+      "title_raw": "my little airport live 2026 你一定覺得我是飲醉酒",
+      "url": "https://tix-get-go.kktix.cc/events/mla-2026",
+      "source": "KKTIX",
+      "reason": "date_unparseable",
+      "detail": ""
+    },
+    {
+      "raw_id": "dp27",
+      "title_raw": "DaguerreoPhonic‘27",
+      "url": "https://daguerreophonic.kktix.cc/events/dp27",
       "source": "KKTIX",
       "reason": "date_unparseable",
       "detail": ""

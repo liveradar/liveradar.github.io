@@ -68,6 +68,26 @@ const ORG_PAGE_VENUES = [
 // gets through. Event detail pages found via search are NOT behind this
 // challenge and still use plain fetch. See LIVERADAR-SPEC.md §5.1.
 
+// 2026-09-22 (Max real reports, 藤井風/高橋洋子 missing entirely because
+// kklivetw/atc-twn had never been added to ORG_PAGE_VENUES — Max: "帳號沒被
+// 收錄過為什麼就不會出現，之後會有一堆沒收錄過的任何資訊，你都要這樣忽略
+// 掉嗎"): a whitelist of known orgs/venues structurally can never be
+// complete — it only grows when someone happens to notice a specific miss.
+// Strategy 3 below (fetchCategoryBrowsePages) closes that gap directly
+// instead of just adding one more name each time: kktix.com's own "音樂"
+// category filter is a real, paginated, sitewide listing covering every
+// organizer, confirmed by clicking the category chip on kktix.com's explore
+// page and reading the resulting query string. 13 is 音樂's tag id.
+const MUSIC_CATEGORY_TAG_ID = 13;
+// Confirmed NOT strictly date-sorted (page 1 mixed an already-ended 9/22
+// show among several in October) — a page cap can't guarantee catching
+// every event in one run. Accepted trade-off: this is a daily job, and the
+// existing known-raw-id skip means anything missed on one run is still
+// free to catch on a later one once it resurfaces in the window this cap
+// covers, at near-zero marginal cost (skip, not a full re-fetch). Raise
+// this if a future gap traces back to a page beyond it.
+const CATEGORY_BROWSE_MAX_PAGES = 20;
+
 // Real Taiwanese address data mixes the colloquial (台北/台中) and official
 // (臺北/臺中) characters — normalizeTraditionalChars (shared with
 // normalize.mjs's city/venue matching, see its own doc comment) collapses
@@ -242,6 +262,25 @@ async function fetchSearchResultUrls(keyword) {
   });
 }
 
+/** One page of the sitewide 音樂-category browse (Strategy 3, see its doc comment above ORG_PAGE_VENUES/SEARCH_VENUES's own). Same Cloudflare-bypass shape as fetchSearchResultUrls. */
+async function fetchCategoryBrowsePage(pageNum) {
+  return withPage(async (page) => {
+    await page.goto(
+      `https://kktix.com/events?end_at=&event_tag_ids_in=${MUSIC_CATEGORY_TAG_ID}&max_price=&min_price=&page=${pageNum}&search=&start_at=`,
+      { waitUntil: "domcontentloaded", timeout: REQUEST_TIMEOUT_MS },
+    );
+    await page.waitForTimeout(1500); // let Cloudflare's challenge script finish running
+    const hrefs = await page.$$eval("a[href*='/events/']", (els) => els.map((a) => a.href));
+    const urls = new Set();
+    for (const href of hrefs) {
+      if (href && !href.includes("kktix.com/dashboard") && !href.endsWith(".ics")) {
+        urls.add(href.split("?")[0]);
+      }
+    }
+    return Array.from(urls);
+  });
+}
+
 /**
  * 2026-09-22 real bug (陳如山 @ 海邊的卡夫卡, kafka.kktix.cc/events/sparkkafka
  * sat in needs-review.json as "date_unparseable" even though the page has a
@@ -327,14 +366,80 @@ function extractOldTemplateFields($) {
   return { date_raw, venue_raw, tickets_raw };
 }
 
+/**
+ * 2026-09-22, found while chasing the same class of bug that produced the
+ * other two templates above (Max: "那個第三種模板也修一下" — 6 events sat in
+ * needs-review with a blank title_raw and date_unparseable): a THIRD KKTIX
+ * template, seen on kklivetw/atc-twn (promoter-account, not livehouse-venue)
+ * events. No `.header-title h1` at all — the page is a freeform campaign
+ * layout (a hero image + rich-text blocks the organizer pastes in
+ * themselves), so date/venue only exist as PROSE inside `.description-
+ * wrapper .description`, not structured markup — same category of problem
+ * iNDIEVOX/tixcraft/FANSI GO's price text already deals with, just for
+ * date/venue instead of price. Every organizer phrases it slightly
+ * differently (confirmed against 3+ different orgs, label variants:
+ * "活動時間｜"/"活動日期："/"演出時間："/"演出日期｜", "活動地點｜"/"演出地點：",
+ * "｜" vs "：" as the separator, and even the date's own internal
+ * separator varies — "2026年10月4日" vs "2026.09.26" (HANAZAWA KANA,
+ * welcome-music.kktix.cc) — regex is deliberately loose on the label,
+ * separator, AND the date's internal punctuation, tight on the actual
+ * 4-digit-year/month/day SHAPE that has to be there regardless of how it's
+ * punctuated.
+ * Time extraction is best-effort only: some orgs put a single time right
+ * after the date, others list multiple session times (matinee/evening)
+ * with no single correct answer — falls back to the first time found near
+ * "開演" (show start) when the date line itself has none, and to null
+ * (shown as "time not yet known" downstream, an already-established honest
+ * gap elsewhere in this app) rather than guessing among several.
+ */
+function extractCampaignTemplateFields($) {
+  const descText = $(".description-wrapper .description").text();
+
+  // [^\d]{0,30} tolerates a short parenthetical note sitting between the
+  // label and the actual date (real case, LEE MINHYUK: "活動時間｜（實際演出
+  // 時間以現場公告為準） 2026 年 10 月 09 日"), not just plain whitespace.
+  const dateMatch = descText.match(
+    /(?:活動|演出)(?:時間|日期)[｜:：][^\d]{0,30}(\d{4})\s*[年.\/]\s*(\d{1,2})\s*[月.\/]\s*(\d{1,2})\s*日?/,
+  );
+  let date_raw = "";
+  if (dateMatch) {
+    const [, y, mo, d] = dateMatch;
+    date_raw = `${y}/${mo.padStart(2, "0")}/${d.padStart(2, "0")}`;
+    const inlineTimeMatch = descText
+      .slice(dateMatch.index, dateMatch.index + 60)
+      .match(/(\d{1,2}):(\d{2})/);
+    const openingTimeMatch = descText.match(/(\d{1,2}):(\d{2})\s*開演/);
+    const timeMatch = inlineTimeMatch ?? openingTimeMatch;
+    if (timeMatch) date_raw += ` ${timeMatch[1].padStart(2, "0")}:${timeMatch[2]}`;
+  }
+
+  const venueMatch = descText.match(/(?:活動|演出)地點[｜:：]\s*([^（(\n]+)[（(]([^）)]+)[）)]/);
+  const venue_raw = venueMatch
+    ? `${venueMatch[1].trim()} / ${venueMatch[2].trim().replace(/^地址[：:]\s*/, "")}`
+    : "";
+
+  // Price/ticket-status live behind a separate "活動場次" tab this doesn't
+  // follow — KKTIX has no price_text_raw fallback path the way tixcraft/
+  // iNDIEVOX/FANSI GO do (it's never needed one before now, ticket tiers
+  // normally carry price directly), so tickets_raw stays empty and price
+  // is simply unknown for this template, same honest gap as an event whose
+  // old/new-template ticket table genuinely isn't published yet.
+  return { date_raw, venue_raw, tickets_raw: [] };
+}
+
 /** Scrapes one event's own page — this is the only place price/venue/date are complete. */
 async function fetchEventDetail(url) {
   const html = await fetchHtml(url);
   const $ = cheerio.load(html);
 
-  const title_raw = $(".header-title h1").first().text().trim();
   const usesNewTemplate = $(".side-inner").length > 0 && $(".event-info").length === 0;
-  const { date_raw, venue_raw, tickets_raw } = usesNewTemplate ? extractNewTemplateFields($) : extractOldTemplateFields($);
+  const usesCampaignTemplate = $(".header-title h1").text().trim() === "" && $(".description-wrapper").length > 0;
+  const title_raw = usesCampaignTemplate ? $("title").first().text().trim() : $(".header-title h1").first().text().trim();
+  const { date_raw, venue_raw, tickets_raw } = usesCampaignTemplate
+    ? extractCampaignTemplateFields($)
+    : usesNewTemplate
+      ? extractNewTemplateFields($)
+      : extractOldTemplateFields($);
 
   const raw_id = url.split("/").filter(Boolean).pop();
   return { raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, source_name: name };
@@ -344,6 +449,12 @@ export async function fetch(knownRawIds = new Set()) {
   const results = [];
   const warnings = [];
   let skippedKnown = 0;
+  // Tracks every raw_id already added to `results` THIS run, across all
+  // three strategies — Strategy 3 (category browse) is a superset of what
+  // 1/2 already find, so without this it would re-discover and re-queue the
+  // same events a second time, producing duplicate needs-review entries the
+  // same way Ticket Plus's missing dedup did (see fetch.mjs's 2026-09-22 fix).
+  const seenRawIds = new Set();
 
   // Strategy 1: self-promoting venues, one listing page each.
   for (const org of ORG_PAGE_VENUES) {
@@ -364,6 +475,7 @@ export async function fetch(knownRawIds = new Set()) {
       // no delay either since there's no request being made. fetch.mjs
       // reuses its previous normalized data (see reuse_previous).
       const raw_id = url.split("/").filter(Boolean).pop();
+      seenRawIds.add(raw_id);
       if (knownRawIds.has(raw_id)) {
         skippedKnown += 1;
         results.push({ raw_id, url, title_raw: null, source_name: name, reuse_previous: true });
@@ -399,6 +511,7 @@ export async function fetch(knownRawIds = new Set()) {
       // venue-match filter below on a previous run (a venue doesn't change),
       // so re-verifying it here would just burn a request for the same answer.
       const raw_id = url.split("/").filter(Boolean).pop();
+      seenRawIds.add(raw_id);
       if (knownRawIds.has(raw_id)) {
         skippedKnown += 1;
         results.push({ raw_id, url, title_raw: null, source_name: name, reuse_previous: true });
@@ -422,6 +535,46 @@ export async function fetch(knownRawIds = new Set()) {
       // else: search false-positive (venue name mentioned but not actually the venue) — drop silently.
     }
   }
+
+  // Strategy 3: sitewide 音樂-category browse — catches events from ANY
+  // organizer, known or not (see the doc comment above MUSIC_CATEGORY_TAG_ID).
+  let categoryFoundCount = 0;
+  for (let pageNum = 1; pageNum <= CATEGORY_BROWSE_MAX_PAGES; pageNum++) {
+    await sleep(REQUEST_DELAY_MS);
+    logProgress(`fetching category browse page ${pageNum}/${CATEGORY_BROWSE_MAX_PAGES}`);
+    let eventUrls = [];
+    try {
+      eventUrls = await fetchCategoryBrowsePage(pageNum);
+    } catch (err) {
+      warnings.push(`category browse page ${pageNum} failed: ${err.message}`);
+      break; // stop paginating on a real failure rather than silently skipping ahead to the next page
+    }
+    if (eventUrls.length === 0) break; // ran past the last page
+
+    for (const url of eventUrls) {
+      const raw_id = url.split("/").filter(Boolean).pop();
+      if (seenRawIds.has(raw_id)) continue; // already found via Strategy 1/2, or an earlier page this run
+      seenRawIds.add(raw_id);
+      categoryFoundCount += 1;
+
+      if (knownRawIds.has(raw_id)) {
+        skippedKnown += 1;
+        results.push({ raw_id, url, title_raw: null, source_name: name, reuse_previous: true });
+        continue;
+      }
+
+      await sleep(REQUEST_DELAY_MS);
+      logProgress(`fetching detail: ${url}`);
+      try {
+        const detail = await fetchEventDetail(url);
+        results.push(detail);
+        logProgress(`  + ${detail.title_raw}`);
+      } catch (err) {
+        warnings.push(`event detail failed for ${url}: ${err.message}`);
+      }
+    }
+  }
+  logProgress(`category browse: ${categoryFoundCount} event(s) not already found by Strategy 1/2`);
 
   if (skippedKnown > 0) {
     logProgress(`KKTIX: ${skippedKnown} event(s) already known, skipping detail fetch`);
