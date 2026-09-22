@@ -231,6 +231,18 @@ async function fetchEventDetail(url) {
   const venue_raw = $(infoLis.get(1)).find(".info-desc").first().text().trim();
 
   const tickets_raw = [];
+  // 2026-09-22 real bug (Max, EIR AOI: "他在票券這邊寫尚未開賣...那不就代表
+  // 他尚未開賣嗎"): a ticket row's `.status` span has THREE real states on
+  // KKTIX, not two — `.status.closed` ("結束販售", sale over), `.status
+  // .waiting` ("尚未開賣", sale hasn't started), or no `.status` span at all
+  // (currently open/on sale). This adapter only ever checked for `.closed`,
+  // so a "waiting" row (not closed, but also very much not open) counted as
+  // "not closed" and got treated as open — reporting the whole event as
+  // on_sale when every tier still said "尚未開賣" on KKTIX's own page. The
+  // `td.period` cell that carries the status also carries the tier's real
+  // sale-start time (`.period-time .time` — first one is the start, second
+  // is the end), which is exactly what normalize.mjs needs to show a real
+  // countdown instead of an empty "尚未開賣" badge.
   $("table tbody tr").each((_, tr) => {
     const nameCell = $(tr).find("td.name").first().clone();
     nameCell.children().remove();
@@ -238,7 +250,11 @@ async function fetchEventDetail(url) {
     const priceText = $(tr).find("td.price .currency-value").first().text().trim();
     const price = priceText ? Number(priceText.replace(/,/g, "")) : null;
     const closed = $(tr).find(".status.closed").length > 0;
-    if (name) tickets_raw.push({ name, price, closed });
+    const waiting = $(tr).find(".status.waiting").length > 0;
+    const on_sale_at_raw = waiting
+      ? $(tr).find(".period-time .time .timezoneSuffix").first().text().trim()
+      : null;
+    if (name) tickets_raw.push({ name, price, closed, waiting, on_sale_at_raw });
   });
 
   const raw_id = url.split("/").filter(Boolean).pop();

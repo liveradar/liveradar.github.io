@@ -512,3 +512,41 @@ test("normalize(): a genuine KKTIX event with an empty tickets_raw (ticket table
   const { event } = normalize(raw, artistsYml);
   assert.equal(event.status, "announced");
 });
+
+test("normalize() real bug (Max, EIR AOI: \"他在票券這邊寫尚未開賣...那不就代表他尚未開賣嗎\"): a KKTIX ticket row with a '.status.waiting' span (not closed, but not open either) must not be counted as on_sale", () => {
+  const raw = makeRaw({
+    source_name: "KKTIX",
+    tickets_raw: [
+      { name: "1F GA 站票", price: 2380, closed: false, waiting: true, on_sale_at_raw: "2026/11/13 12:00(+0800)" },
+      { name: "2F SEATED 坐票", price: 2680, closed: false, waiting: true, on_sale_at_raw: "2026/11/13 12:00(+0800)" },
+    ],
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "announced");
+  assert.equal(event.on_sale_at, "2026-11-13T12:00:00+08:00");
+});
+
+test("normalize(): a mix of 'waiting' and genuinely open KKTIX ticket rows is still on_sale — at least one tier being buyable right now is what matters", () => {
+  const raw = makeRaw({
+    source_name: "KKTIX",
+    tickets_raw: [
+      { name: "早鳥已完售", price: 2380, closed: true, waiting: false },
+      { name: "VIP（晚一點開賣）", price: 3680, closed: false, waiting: true, on_sale_at_raw: "2099/01/01 12:00(+0800)" },
+      { name: "一般票", price: 2680, closed: false, waiting: false },
+    ],
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "on_sale");
+});
+
+test("normalize(): multiple 'waiting' KKTIX tiers with different sale-start times report the EARLIEST one, not just the first row", () => {
+  const raw = makeRaw({
+    source_name: "KKTIX",
+    tickets_raw: [
+      { name: "VIP", price: 3680, closed: false, waiting: true, on_sale_at_raw: "2026/12/01 12:00(+0800)" },
+      { name: "一般票", price: 2680, closed: false, waiting: true, on_sale_at_raw: "2026/11/13 12:00(+0800)" },
+    ],
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.on_sale_at, "2026-11-13T12:00:00+08:00");
+});

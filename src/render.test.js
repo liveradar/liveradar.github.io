@@ -86,3 +86,13 @@ test("renderEventCard: an 'announced' event WITH a known on_sale_at shows the co
   const html = renderEventCard(makeEvent({ status: "announced", on_sale_at: "2099-01-01T12:00:00+08:00" }));
   assert.match(html, /badge-onsale">⏱ 即將開賣・/);
 });
+
+test("renderEventCard: is_lottery shows a distinct badge (Max, MAHIRU: \"有些場次的票券是要用登記的...如果你抓到是有寫的，請標上\")", () => {
+  const html = renderEventCard(makeEvent({ is_lottery: true }));
+  assert.match(html, /badge-lottery">🎟️ 需登記抽選</);
+});
+
+test("renderEventCard: no lottery badge when is_lottery is false/undefined", () => {
+  const html = renderEventCard(makeEvent({ is_lottery: false }));
+  assert.doesNotMatch(html, /badge-lottery/);
+});

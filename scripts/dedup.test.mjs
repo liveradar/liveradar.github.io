@@ -137,3 +137,46 @@ test("mergeGroup fix: price_max is merged across sources, not just price_min", (
   assert.equal(merged.price_min, 800);
   assert.equal(merged.price_max, 3800, "price_max must pick up KKTIX's value even though it merged second");
 });
+
+test("mergeGroup real bug (Max, MAHIRU: \"你卡片內的連結還連錯不同場次\"): a special-purpose listing (VIP addon lottery signup) scraped FIRST must not win the merged ticket_url/title over a plain on-sale listing scraped later", () => {
+  const vipLottery = makeEvent({
+    title_raw: "MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei VIP PASS限量加購 登記抽選",
+    ticket_url: "https://ticketplus.com.tw/activity/vip",
+    sources: [{ name: "Ticket Plus", url: "https://ticketplus.com.tw/activity/vip", raw_id: "vip" }],
+  });
+  const plain = makeEvent({
+    title_raw: "MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei",
+    ticket_url: "https://ticketplus.com.tw/activity/plain",
+    sources: [{ name: "Ticket Plus", url: "https://ticketplus.com.tw/activity/plain", raw_id: "plain" }],
+  });
+  const lotteryOnly = makeEvent({
+    title_raw: "MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei 登記抽選",
+    ticket_url: "https://ticketplus.com.tw/activity/lottery",
+    sources: [{ name: "Ticket Plus", url: "https://ticketplus.com.tw/activity/lottery", raw_id: "lottery" }],
+  });
+
+  const [merged] = dedupe([vipLottery, plain, lotteryOnly]);
+
+  assert.equal(merged.title_raw, "MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei");
+  assert.equal(merged.ticket_url, "https://ticketplus.com.tw/activity/plain");
+  assert.equal(merged.sources.length, 3, "all three real listings are still kept as sources");
+});
+
+test("mergeGroup: is_lottery is true when ANY merged listing mentions 登記抽選, even though the plain listing correctly wins the title/url (Max: \"有些場次的票券是要用登記的...如果你抓到是有寫的，請標上\")", () => {
+  const plain = makeEvent({
+    title_raw: "MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei",
+    sources: [{ name: "Ticket Plus", url: "https://ticketplus.com.tw/activity/plain", raw_id: "plain" }],
+  });
+  const lotteryOnly = makeEvent({
+    title_raw: "MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei 登記抽選",
+    sources: [{ name: "Ticket Plus", url: "https://ticketplus.com.tw/activity/lottery", raw_id: "lottery" }],
+  });
+
+  const [merged] = dedupe([plain, lotteryOnly]);
+  assert.equal(merged.is_lottery, true);
+});
+
+test("mergeGroup: an ordinary event with no lottery-signup listing anywhere reports is_lottery: false", () => {
+  const [merged] = dedupe([makeEvent({})]);
+  assert.equal(merged.is_lottery, false);
+});

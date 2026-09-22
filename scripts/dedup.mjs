@@ -15,6 +15,24 @@ export function computeId(headliner, date, venue) {
 
 const SOURCE_PRIORITY = { KKTIX: 1, "拓元": 2, "iNDIEVOX": 3, "FANSI GO": 4, "Ticket Plus": 5, manual: 6 };
 
+// 2026-09-22 real bug (Max, MAHIRU: "你卡片內的連結還連錯不同場次"): Ticket
+// Plus sometimes lists ONE real show as several separate "activities" for
+// different sale mechanisms — a plain on-sale listing, a lottery-signup-only
+// listing ("...登記抽選"), and an addon-purchase listing ("VIP PASS限量加購
+// 登記抽選") — same headliner/date/venue, so they hash to the same baseId and
+// get merged as if they were cross-platform duplicates of the same event
+// (which is what this merge logic is FOR). The bug: ticket_url picked
+// whichever listing happened to be scraped first, with no tie-break at all
+// between same-source entries (SOURCE_PRIORITY only distinguishes across
+// platforms) — for MAHIRU that landed on the VIP-addon lottery listing, not
+// the actual general-sale page a buyer wants.
+const SPECIAL_LISTING_RE = /登記抽選|抽選登記|限量加購|VIP PASS/;
+
+function listingRank(event) {
+  const sourceRank = SOURCE_PRIORITY[event.sources[0]?.name] ?? 99;
+  return SPECIAL_LISTING_RE.test(event.title_raw) ? sourceRank + 0.5 : sourceRank;
+}
+
 /** Coarse time-of-day bucket, or null when the source didn't report a time at all. */
 function timeBucket(time) {
   if (!time) return null;
@@ -23,12 +41,20 @@ function timeBucket(time) {
 }
 
 function mergeGroup(group, id) {
-  let result = null;
-  for (const event of group) {
-    if (!result) {
-      result = { ...event, id, merged_ids: [id] };
-      continue;
-    }
+  // Pick the best-ranked listing as the base for title_raw/ticket_url/venue/
+  // etc. (the "identity" of the merged card) — not just group[0], whichever
+  // order the adapters happened to return it in. A special-purpose listing
+  // (lottery signup, VIP addon) never wins this over a plain one, and across
+  // platforms the existing SOURCE_PRIORITY order still applies.
+  const [base, ...rest] = [...group].sort((a, b) => listingRank(a) - listingRank(b));
+  const result = { ...base, id, merged_ids: [id] };
+  // 2026-09-22 (Max: "有些場次的票券是要用登記的...如果你抓到是有寫的，請標
+  // 上"): true if ANY listing for this show — not just whichever one won as
+  // the base — mentions a lottery-signup mechanism, so the badge still shows
+  // even when the plain listing (correctly) won the ticket_url/title.
+  result.is_lottery = group.some((e) => SPECIAL_LISTING_RE.test(e.title_raw));
+
+  for (const event of rest) {
     result.sources = [...result.sources, ...event.sources];
     result.lineup = Array.from(new Set([...result.lineup, ...event.lineup]));
     result.tags_type = Array.from(new Set([...result.tags_type, ...event.tags_type]));
@@ -38,11 +64,6 @@ function mergeGroup(group, id) {
     }
     if (event.price_max != null && (result.price_max == null || event.price_max > result.price_max)) {
       result.price_max = event.price_max;
-    }
-    const existingPriority = Math.min(...result.sources.map((s) => SOURCE_PRIORITY[s.name] ?? 99));
-    const newPriority = SOURCE_PRIORITY[event.sources[0]?.name] ?? 99;
-    if (newPriority < existingPriority) {
-      result.ticket_url = event.ticket_url;
     }
   }
   return result;

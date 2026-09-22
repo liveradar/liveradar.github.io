@@ -604,9 +604,31 @@ function taiwanTodayDateStr() {
   return taiwanNow.toISOString().slice(0, 10);
 }
 
+// "2026/11/13 12:00(+0800)" (KKTIX's own `.timezoneSuffix` text) -> ISO with
+// the Taiwan offset, same shape parseOnSaleAt() produces from freeform text.
+function parseKktixTimestamp(raw) {
+  if (!raw) return null;
+  const m = raw.match(/(\d{4})\/(\d{2})\/(\d{2})\s+(\d{1,2}):(\d{2})/);
+  if (!m) return null;
+  const [, y, mo, d, h, mi] = m;
+  return `${y}-${mo}-${d}T${h.padStart(2, "0")}:${mi}:00+08:00`;
+}
+
 function statusFromTickets(ticketsRaw, eventDate) {
-  const anyOpen = ticketsRaw.some((t) => !t.closed);
+  // 2026-09-22 real bug (Max, EIR AOI): a ticket row can be "waiting" (尚未
+  // 開賣, sale hasn't started) — that's neither "closed" (sale over) nor
+  // truly "open" (buyable right now). The old `!t.closed` check treated
+  // "waiting" as open. See kktix.mjs's fetchEventDetail for where `waiting`/
+  // `on_sale_at_raw` come from.
+  const anyOpen = ticketsRaw.some((t) => !t.closed && !t.waiting);
   if (anyOpen) return { status: "on_sale", on_sale_at: null };
+  const waitingTickets = ticketsRaw.filter((t) => t.waiting);
+  if (waitingTickets.length > 0) {
+    // Earliest sale-start across tiers (a VIP tier often opens later than
+    // general admission) — the soonest date is what a countdown should show.
+    const onSaleDates = waitingTickets.map((t) => parseKktixTimestamp(t.on_sale_at_raw)).filter(Boolean).sort();
+    return { status: "announced", on_sale_at: onSaleDates[0] ?? null };
+  }
   if (ticketsRaw.length === 0) return { status: "announced", on_sale_at: null };
   // All tiers closed. Can't distinguish "sold out" from "moved to door sales only" —
   // documented limitation, see SPEC §5.2.

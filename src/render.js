@@ -71,6 +71,13 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
       ? `<span class="badge-onsale">⏱ ${onSaleCountdown ? `即將開賣・${escapeHtml(onSaleCountdown)}` : "尚未開賣"}</span>`
       : "";
 
+  // 2026-09-22 (Max, MAHIRU: "有些場次的票券是要用登記的...如果你抓到是有寫
+  // 的，請標上") — dedup.mjs's mergeGroup() sets this true when ANY of the
+  // merged listings for this show mentioned a lottery-signup mechanism (登記
+  // 抽選), even on events where the plain/general-sale listing correctly won
+  // the card's title and link.
+  const lotteryBadge = event.is_lottery ? `<span class="badge-lottery">🎟️ 需登記抽選</span>` : "";
+
   const pinnedBadge = mode === "timeline" && pinned ? `<span class="badge-pinned">已收藏，忽略排除規則</span>` : "";
   const daysUntilLine =
     mode === "favorites" ? `<div style="font-size:12px;font-weight:700;color:var(--coral-ink);">距今 ${daysUntil(event.date)} 天</div>` : "";
@@ -128,6 +135,7 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
         }
         <div class="event-meta">${metaText}</div>
         ${onSaleBadge}
+        ${lotteryBadge}
         ${priceLine}
       </div>
       ${ctaButton}
