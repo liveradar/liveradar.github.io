@@ -18,6 +18,7 @@ function makeEvent(overrides = {}) {
     status: "on_sale",
     tags_type: ["專場"],
     tags_origin: ["本地"],
+    is_lottery: false,
     ticket_url: "https://example.com/a",
     sources: [{ name: "KKTIX", url: "https://example.com/a", raw_id: "a" }],
     first_seen_at: "2026-09-01T00:00:00Z",
@@ -162,18 +163,46 @@ test("mergeGroup real bug (Max, MAHIRU: \"你卡片內的連結還連錯不同�
   assert.equal(merged.sources.length, 3, "all three real listings are still kept as sources");
 });
 
-test("mergeGroup: is_lottery is true when ANY merged listing mentions 登記抽選, even though the plain listing correctly wins the title/url (Max: \"有些場次的票券是要用登記的...如果你抓到是有寫的，請標上\")", () => {
+test("mergeGroup: is_lottery comes from the WINNING (base) listing only — normalize.mjs computes it per-listing, dedup.mjs just propagates whichever one wins the title/url", () => {
   const plain = makeEvent({
     title_raw: "MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei",
+    // normalize.mjs already determined THIS listing's own general-ticket sale
+    // itself requires lottery registration (real case: its sale-time section
+    // lists 登記抽選 as the first phase, with general sale only "視情況").
+    is_lottery: true,
     sources: [{ name: "Ticket Plus", url: "https://ticketplus.com.tw/activity/plain", raw_id: "plain" }],
   });
   const lotteryOnly = makeEvent({
     title_raw: "MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei 登記抽選",
+    is_lottery: true,
     sources: [{ name: "Ticket Plus", url: "https://ticketplus.com.tw/activity/lottery", raw_id: "lottery" }],
   });
 
   const [merged] = dedupe([plain, lotteryOnly]);
   assert.equal(merged.is_lottery, true);
+});
+
+test("mergeGroup real bug (Max, 音田雅則: \"需登記抽選這個...是VIP PASS 加購才要登記抽選 這種特殊就不用管了 需登記抽選的標籤只適用於全部票券都要抽選的\"): a VIP-only lottery sibling listing must NOT flip is_lottery to true when the winning plain listing's own general-ticket sale doesn't require it", () => {
+  const plain = makeEvent({
+    title_raw: "音田雅則 One Man Tour 2026 “Hiraeth” in Taipei",
+    // normalize.mjs determined: this listing's own text offers an
+    // unconditional general sale date, with 登記抽選 only ever mentioned in a
+    // VIP-PASS-addon context — so this listing itself is false.
+    is_lottery: false,
+    sources: [{ name: "Ticket Plus", url: "https://ticketplus.com.tw/activity/plain", raw_id: "plain" }],
+  });
+  const vipLottery = makeEvent({
+    title_raw: "音田雅則 One Man Tour 2026 “Hiraeth” in Taipei VIP PASS加購 登記抽選",
+    // this sibling's OWN title contains "VIP" so normalize.mjs also reports
+    // false for it specifically — it's a real listing, just not the general
+    // ticket path, and (before this fix) used to be the thing that made the
+    // OLD "true if ANY listing mentions it" rule wrongly flag the whole card.
+    is_lottery: false,
+    sources: [{ name: "Ticket Plus", url: "https://ticketplus.com.tw/activity/vip", raw_id: "vip" }],
+  });
+
+  const [merged] = dedupe([plain, vipLottery]);
+  assert.equal(merged.is_lottery, false);
 });
 
 test("mergeGroup: an ordinary event with no lottery-signup listing anywhere reports is_lottery: false", () => {

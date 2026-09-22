@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseTixcraftDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, parseOnSaleAt, guessTagsType, findNameIndex } from "./normalize.mjs";
+import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseTixcraftDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, parseOnSaleAt, isGeneralTicketLottery, guessTagsType, findNameIndex } from "./normalize.mjs";
 
 const artistsYml = [{ canonical: "深海系樂團", aliases: [], tags_origin_default: "本地" }];
 
@@ -591,4 +591,35 @@ test("normalize() real bug (Max, Stray Kids: \"他們不是沒有可用訊號 �
   });
   const { event } = normalize(raw, artistsYml);
   assert.equal(event.status, "sold_out");
+});
+
+test("isGeneralTicketLottery real bug (Max, 音田雅則: \"是VIP PASS 加購才要登記抽選 這種特殊就不用管了\"): 登記抽選 mentioned only in a VIP-PASS-addon context is NOT a general-ticket lottery (real captured text from https://ticketplus.com.tw/activity/4b47b5360d42451f65704664c40b1c72)", () => {
+  const priceText =
+    "一般票券開售｜2026/07/08（三）12:00\n\nVIP PASS 加購價｜NT $1,300（不包含門票）\n\nVIP PASS 加購登記抽選連結\n\nVIP PASS 登記抽選｜2026/08/05（三）12:00－2026/08/12（三）12:00";
+  assert.equal(isGeneralTicketLottery("音田雅則 One Man Tour 2026 “Hiraeth” in Taipei", priceText), false);
+});
+
+test("isGeneralTicketLottery real bug: a LATER, unrelated footnote mentioning 登記抽選 with no VIP/加購 nearby (real captured text — overseas ID-check instructions, still about the same VIP addon discussed earlier) must not flip this to true — proximity-to-VIP alone isn't reliable prose parsing, an unconditional general-sale statement earlier in the text is what actually decides it", () => {
+  const priceText =
+    "一般票券開售｜2026/07/08（三）12:00\n\n&nbsp;\n\nVIP PASS 加購價｜NT $1,300（不包含門票）\n\nVIP PASS 加購登記抽選連結\n\nVIP PASS 登記抽選｜2026/08/05（三）12:00－2026/08/12（三）12:00\n\n" +
+    "・海外人士參加者入場核對護照資料，僅限核對與登記抽選資料相同之護照正本，恕不接受因護照更換等理由使用新護照核對入場。";
+  assert.equal(isGeneralTicketLottery("音田雅則 One Man Tour 2026 “Hiraeth” in Taipei", priceText), false);
+});
+
+test("isGeneralTicketLottery: a listing whose own title contains VIP is never a general-ticket lottery, regardless of its body text", () => {
+  assert.equal(isGeneralTicketLottery("音田雅則 One Man Tour 2026 “Hiraeth” in Taipei VIP PASS加購 登記抽選", "登記抽選：任何內容"), false);
+});
+
+test("isGeneralTicketLottery real bug (Max, MAHIRU — the original report this feature was built for): 登記抽選 listed as the regular ticket's own first sale phase, with general sale only conditional, IS a general-ticket lottery (real captured text)", () => {
+  const priceText =
+    "票　　價：1F站席 NT$ 2,200 / 2F座席A區 NT$ 3,000\n\n售票時間：\n\n　登記抽選：2026年5月11日（一）20:00〜2026年5月13日（三）20:00\n\n　一般販售：2026年5月27日（三）中午12:00\n\n　※視主辦單位票券販售情況，將有不實施一般販售之可能。";
+  assert.equal(isGeneralTicketLottery("MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei", priceText), true);
+});
+
+test("isGeneralTicketLottery: a bare 登記抽選 in the title itself (no VIP qualifier) is a general-ticket lottery even with no body text", () => {
+  assert.equal(isGeneralTicketLottery("MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei 登記抽選", ""), true);
+});
+
+test("isGeneralTicketLottery: no 登記抽選 mention anywhere is false", () => {
+  assert.equal(isGeneralTicketLottery("深海系樂團 Live", "票價：500 元"), false);
 });

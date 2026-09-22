@@ -700,6 +700,68 @@ const DATE_PARSERS = {
 // parseKktixVenue fallback below instead — see fansi.mjs's fetchDetail().
 const VENUE_PARSERS = { "拓元": parseTixcraftVenue, "iNDIEVOX": parseIndievoxVenue };
 
+// 2026-09-22 real bug (Max, 音田雅則: "需登記抽選這個 有些是全部票券都要抽選
+// 有些是一般買票不用登記抽選 是VIP PASS 加購才要登記抽選 這種特殊就不用管
+// 了 需登記抽選的標籤只適用於全部票券都要抽選的"): dedup.mjs's original
+// is_lottery — "true if ANY merged Ticket Plus listing's title mentions
+// 登記抽選/VIP PASS" — over-flagged. Real case: 音田雅則 has 4 merged Ticket
+// Plus listings; the plain one (correctly chosen as the card's own
+// title/link) explicitly offers unconditional general sale ("一般票券開售｜
+// 2026/07/08"), and its ONLY "登記抽選" mentions are scoped to a separate VIP
+// PASS addon ("VIP PASS 加購登記抽選"). A sibling listing happens to also
+// exist for the VIP-only lottery — merging that in and flagging the whole
+// card was wrong, since clicking through goes to the plain listing where no
+// lottery is needed. Contrast with MAHIRU (the original report this feature
+// was built for): its own plain listing's sale-time section lists "登記抽選"
+// as the FIRST phase for the regular ticket price itself, with general sale
+// only "視情況" (conditionally) happening after — genuinely no guaranteed
+// non-lottery path. The real distinguishing signal was never "does ANY
+// listing mention 登記抽選" — it's "does the listing that ACTUALLY WINS as
+// this card's title/link require it". Scoped to that one listing's own
+// title + price text; "VIP" anywhere close to a 登記抽選 mention means that
+// specific mention is addon-scoped, not about the base ticket.
+// Two separate patterns, not one shared `/g` regex reused across both a
+// `.test()` call and an `.exec()` loop — a global regex's `.lastIndex` is
+// stateful across calls on the SAME object, and this one is module-scoped
+// (reused on every invocation). Caught this the hard way: a title-only test
+// case failed depending on which OTHER test happened to run immediately
+// before it in the same process, because an earlier call's `.test()` had
+// left `.lastIndex` pointing partway through the string.
+const GENERAL_LOTTERY_TITLE_RE = /登記抽選|抽選登記/;
+// 2026-09-22 real bug, found immediately after shipping a first attempt at
+// this that checked "is 登記抽選 near the word VIP": a real 音田雅則 page has a
+// LATER, unrelated section — entry-verification instructions for overseas
+// participants — that happens to say "...核對與登記抽選資料相同之護照..."
+// with no "VIP"/"加購" anywhere near it, even though it's still clearly
+// talking about the same VIP-only lottery discussed earlier. Proximity to
+// one specific mention isn't reliable prose parsing. More robust: look for
+// an UNCONDITIONAL general-sale statement instead — "一般票券開售｜.../一般
+// 販售：..." with no hedge ("視...情況"/"可能不實施"/etc) nearby. If the text
+// confirms regular tickets go on sale on a firm date, nothing else on the
+// page (VIP addon lottery, ID-check footnotes mentioning it in passing)
+// changes that a buyer never HAS to enter a lottery. MAHIRU's real text is
+// the contrasting case: "一般販售：2026年5月27日...※視主辦單位票券販售情況，
+// 將有不實施一般販售之可能" — explicitly hedged, so no confirmed non-lottery
+// path exists.
+const GENERAL_SALE_RE = /一般(?:票券)?(?:開售|發售|開賣|販售|售票)/;
+const GENERAL_SALE_HEDGE_RE = /視.{0,10}情況|視.{0,10}而定|可能不|不(?:一定|保證)?實施|恐不開放|視售況/;
+export function isGeneralTicketLottery(titleRaw, priceTextRaw) {
+  if (/VIP/i.test(titleRaw)) return false; // this listing IS the VIP-scoped variant
+  if (GENERAL_LOTTERY_TITLE_RE.test(titleRaw)) return true; // e.g. "...登記抽選" with no VIP qualifier in the title itself
+  const plain = (priceTextRaw ?? "").replace(/<[^>]+>/g, "");
+  const generalSaleIdx = plain.search(GENERAL_SALE_RE);
+  if (generalSaleIdx !== -1 && !GENERAL_SALE_HEDGE_RE.test(plain.slice(generalSaleIdx, generalSaleIdx + 150))) {
+    return false; // confirmed unconditional general sale — no lottery required
+  }
+  let match;
+  const bodyRe = /登記抽選|抽選登記/g;
+  while ((match = bodyRe.exec(plain))) {
+    const contextBefore = plain.slice(Math.max(0, match.index - 20), match.index);
+    if (!/VIP|加購/i.test(contextBefore)) return true;
+  }
+  return false;
+}
+
 export function normalize(rawEvent, artistsYml, venuesYml = []) {
   if (isJunkTitle(rawEvent.title_raw)) {
     return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: "junk_title" } };
@@ -837,6 +899,7 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
       status,
       tags_type: guessTagsType(rawEvent.title_raw, headliners.length),
       tags_origin: originTags,
+      is_lottery: isGeneralTicketLottery(rawEvent.title_raw, rawEvent.price_text_raw ?? ""),
       ticket_url: rawEvent.url,
       sources: [{ name: rawEvent.source_name, url: rawEvent.url, raw_id: rawEvent.raw_id }],
       first_seen_at: new Date().toISOString(),

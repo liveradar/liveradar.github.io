@@ -48,11 +48,17 @@ function mergeGroup(group, id) {
   // platforms the existing SOURCE_PRIORITY order still applies.
   const [base, ...rest] = [...group].sort((a, b) => listingRank(a) - listingRank(b));
   const result = { ...base, id, merged_ids: [id] };
-  // 2026-09-22 (Max: "有些場次的票券是要用登記的...如果你抓到是有寫的，請標
-  // 上"): true if ANY listing for this show — not just whichever one won as
-  // the base — mentions a lottery-signup mechanism, so the badge still shows
-  // even when the plain listing (correctly) won the ticket_url/title.
-  result.is_lottery = group.some((e) => SPECIAL_LISTING_RE.test(e.title_raw));
+  // 2026-09-22 real bug (Max, 音田雅則: "需登記抽選的標籤只適用於全部票券都
+  // 要抽選的"): `is_lottery` USED to be "true if ANY merged listing mentions
+  // 登記抽選/VIP PASS", which over-flagged shows where only a separate VIP
+  // addon needs a lottery and the regular ticket (the plain listing that
+  // correctly won as `base` above) is a normal sale. `is_lottery` is now
+  // computed per-listing in normalize.mjs, scoped to that ONE listing's own
+  // title+price text — `base` already carries the right value via the
+  // spread above, nothing to do here. Deliberately NOT `group.some(...)`
+  // anymore: only the listing that actually wins the card's title/link
+  // should decide whether the badge shows, since that's the page a click
+  // actually lands on.
 
   for (const event of rest) {
     result.sources = [...result.sources, ...event.sources];
