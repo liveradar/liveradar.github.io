@@ -15,22 +15,25 @@ const STAR_FILLED = `<svg viewBox="0 0 24 24" width="16" height="16" fill="curre
 const X_ICON = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>`;
 
 /**
- * 2026-09-21 real bug (Max): "2026 FIREBALL Fest. 火球祭" showed as just
- * "火球祭" on its card. `data/artists.yml` has festival BRAND names like
- * 火球祭/ASIA METAL FESTIVAL/囪擊音樂祭 registered as "canonical artists"
- * purely so matchArtists()/guessTagsType() recognize them as 音樂祭 (see
- * normalize.mjs's D15-reversal comments) — but they aren't real performers,
- * so treating the matched brand name as "the headliner" for card-title
- * purposes throws away the rest of the real title (the year, an English
- * name, a venue-day suffix, …). A festival's own event name is what should
- * show, not a re-statement of whichever brand string matched it — check
- * tags_type instead of is_festival, since the latter only catches titles
- * that literally spell out "音樂祭" and misses brand-keyword matches like
- * this one entirely.
+ * 2026-09-21: first only reverted to the raw title for 音樂祭-tagged shows
+ * ("2026 FIREBALL Fest. 火球祭" was showing as just "火球祭", throwing away
+ * the year/English name/venue-day suffix — see that day's HANDOFF entry).
+ * 2026-09-22 real bug (Max, Chevon pre.Yoshinani 〜Nomadic Edition〜: "這場是
+ * 專場，而Yoshinani是巡迴標題...你這樣簡寫就造成你自己判斷失誤了對吧"):
+ * the same failure mode wasn't specific to festivals — `matchArtists()`
+ * false-matched "Yoshinani" (a tour-concept name, "Chevon pre.[tour name]",
+ * not a second performer) as a second headliner purely because a bogus
+ * "Yoshinani" entry existed in artists.yml, and collapsing the card to just
+ * the matched names ("Chevon / Yoshinani") threw away the actual tour
+ * title AND masked the classification being wrong (拼盤 instead of 專場,
+ * see data/artists.yml's fix removing that entry). Headliner-matching is
+ * still useful for exclude rules and tags_origin — this just stops treating
+ * "the names we managed to match" as trustworthy enough to show as truth.
+ * Always show the scraped title as-is now — simplest, and immune to this
+ * whole bug class by construction, not by chasing down every bad match.
  */
 export function displayTitle(event) {
-  if (!event.headliners.length || event.tags_type.includes("音樂祭")) return event.title_raw;
-  return event.headliners.join(" / ");
+  return event.title_raw;
 }
 
 /**

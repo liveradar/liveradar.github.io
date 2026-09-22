@@ -34,7 +34,29 @@ const REQUEST_TIMEOUT_MS = 30000; // SPEC §4.3 — every adapter request needs 
 // the same pass (Zepp, Blue Note, SUB LIVE, 野地方 Wild Lab) all turned out to
 // be rented multi-promoter venues instead (different org per show), which
 // SEARCH_VENUES can't currently reach anyway (see the Cloudflare note below).
-const ORG_PAGE_VENUES = ["thewalllivehouse", "kafka", "pipelivemusic", "emergelivehouse", "emergelivehouse2", "cohesionmusic"];
+//
+// kklivetw/atc-twn added 2026-09-22 (Max real reports: 藤井風 @ 高雄國家體育場
+// on 10/31, 高橋洋子 @ Legacy TERA both missing entirely). These two aren't
+// physical venues at all — despite the "VENUES" name, this list works for
+// any single KKTIX org account that self-hosts most of its own shows,
+// whether that's a livehouse or (this case) a promoter/media company running
+// events across many different venues (KKLIVE Taiwan: 滅火器/洪佩瑜/藤井風 at
+// Zepp/stadiums/Legacy; ATC Taiwan: a Japan-idol-focused promoter running
+// shows mostly at Clapper Studio/Legacy TERA). Confirmed both org pages use
+// the same `li.clearfix h2 a[href*='/events/']` listing structure
+// fetchOrgListing() already expects — kklivetw had 7 upcoming events, atc-twn
+// 16, all previously invisible to LiveRadar (neither org page nor any venue
+// name they use was covered by ORG_PAGE_VENUES or SEARCH_VENUES before this).
+const ORG_PAGE_VENUES = [
+  "thewalllivehouse",
+  "kafka",
+  "pipelivemusic",
+  "emergelivehouse",
+  "emergelivehouse2",
+  "cohesionmusic",
+  "kklivetw",
+  "atc-twn",
+];
 
 // 2026-09-17: kktix.com/events?search=... returns a genuine Cloudflare JS
 // challenge (403, <title>Just a moment...</title>) to plain HTTP clients —

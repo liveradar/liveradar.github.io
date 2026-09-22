@@ -860,7 +860,22 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
     // tixcraft's own real purchase page (checked after Max caught that
     // "沒有可用訊號" was wrong — see fetchTicketStatusText's doc comment)
     // uses "選購一空" instead of "銷售一空" for the same idea.
-    const SOLD_OUT_TEXT_RE = /銷售一空|選購一空|售完|完售|售罄|登記截止/;
+    // 2026-09-22 real bug (Max, real report: 岡崎體育10週年巡演 shown as
+    // on_sale when the artist announced an indefinite hiatus and the show
+    // was fully cancelled): Ticket Plus shows "銷售截止" ("sales closed")
+    // as a THIRD, distinct status string this regex didn't cover at all — a
+    // cancelled show's page collapses to a single row whose name is the
+    // event's own title rather than a per-session label, but the row and
+    // its status text ARE still scraped correctly by fetchSaleStatusMap;
+    // the regex here just never recognized what it found. Not
+    // distinguishable from an ordinary "sales window closed" cutoff purely
+    // from this string, but either way it's not truthfully "on_sale" —
+    // mapping it into the existing sold_out/ended branch below (same as
+    // the other synonyms) is honest about "you can't buy this anymore"
+    // without inventing a new status this project doesn't have reliable
+    // signal to fill in (WHY it's closed — cancelled vs. simply over —
+    // needs reading the announcement text, which isn't done here).
+    const SOLD_OUT_TEXT_RE = /銷售一空|選購一空|售完|完售|售罄|登記截止|銷售截止/;
     if (SOLD_OUT_TEXT_RE.test(rawEvent.sale_status_text ?? "")) {
       status = dateParsed.date >= taiwanTodayDateStr() ? "sold_out" : "ended";
     } else {

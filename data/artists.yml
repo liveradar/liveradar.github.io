@@ -739,10 +739,11 @@
   tags_origin_default: 歐美
 - canonical: Chevon
   aliases: []
-  tags_origin_default: 本地
-- canonical: Yoshinani
-  aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日韓  # 2026-09-22 修正：查證後是日本札幌發跡的3人組搖滾樂團，不是本地（查證：ticketplus.com.tw/activity/1432a04903bc5a7e5301a524ef9153d1），先前標成本地是誤植
+# 2026-09-22 拿掉 Yoshinani：不是真實演出者，是 Chevon 這次巡迴的企劃/概念
+# 名稱（「Chevon pre.よしなに〜遊牧編〜（Yoshinani〜Nomadic Edition〜）」，
+# pre. 是「presents」的意思，Yoshinani 是巡迴主題不是第二位演出者）。使用者
+# 回報這場被誤標成拼盤（因為假的第二位「演出者」被比對到），真正是專場。
 - canonical: BIGBANG
   aliases: []
   tags_origin_default: 日韓
@@ -1021,3 +1022,24 @@
 - canonical: Juice=Juice
   aliases: []
   tags_origin_default: 日韓  # Hello! Project 旗下日本女子偶像團體（查證：welcome-music.kktix.cc）
+
+# 2026-09-22：新增 kklivetw／atc-twn 兩個 KKTIX 主辦帳號涵蓋範圍後冒出的待整理
+# 清單，逐一查證（使用者回報 KKTIX 漏抓場次，追出這兩個帳號完全沒被收錄）
+- canonical: 藤井風
+  aliases: ["Fujii Kaze"]
+  tags_origin_default: 日韓  # 查證：kklivetw.kktix.cc，生涯最大規模世界巡演
+- canonical: 高橋洋子
+  aliases: []
+  tags_origin_default: 日韓  # 查證：atc-twn.kktix.cc，2026亞洲巡迴演唱會
+- canonical: 滅火器
+  aliases: ["Fire EX"]
+  tags_origin_default: 本地  # 查證：kklivetw.kktix.cc，ON FIRE DAY 高雄巨蛋演唱會
+- canonical: 山下智久
+  aliases: []
+  tags_origin_default: 日韓  # 查證：atc-twn.kktix.cc，2026 巡迴演唱會 DREAMING
+- canonical: TayNewPolcasan
+  aliases: ["TayNew"]
+  tags_origin_default: 亞洲其他  # 查證：kklivetw.kktix.cc，泰國藝人 TayNew 見面會
+- canonical: Fear, and Loathing in Las Vegas
+  aliases: []
+  tags_origin_default: 日韓  # 查證：atc-twn.kktix.cc，日本電子核樂團台北演唱會

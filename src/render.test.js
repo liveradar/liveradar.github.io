@@ -60,9 +60,9 @@ test("displayTitle: a 音樂祭-tagged event shows the full raw title, not just 
   assert.equal(displayTitle(event), "2026 FIREBALL Fest. 火球祭");
 });
 
-test("displayTitle: a normal (non-festival) recognized artist still shows the headliner(s), not the raw title", () => {
+test("displayTitle: a normal recognized artist ALSO shows the raw title now, not just the matched headliner(s) (2026-09-22 reversal, Max: \"你顯示的名稱不用少，直接把那個演出的標題同步顯示就好，你這樣簡寫就造成你自己判斷失誤了對吧\" — a real case, Chevon pre.Yoshinani, had a bogus second headliner match that both mislabeled the card AND masked a misclassified tags_type)", () => {
   const event = makeEvent({ title_raw: "【Legacy Presents】深海系樂團", headliners: ["深海系樂團"], tags_type: ["專場"] });
-  assert.equal(displayTitle(event), "深海系樂團");
+  assert.equal(displayTitle(event), "【Legacy Presents】深海系樂團");
 });
 
 test("renderEventCard: a missing time is left out entirely, not shown as '時間未公布' (Max: writing that states it as a checked fact rather than a scraper gap)", () => {
