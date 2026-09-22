@@ -51,3 +51,20 @@ export function formatOnSaleCountdown(onSaleAtIso) {
   if (days <= 0) return null;
   return `${days} 天後`;
 }
+
+/**
+ * "2026-09-23T20:00:00+08:00" -> "9/23 20:00" (Max: "但我想要知道的預售
+ * 準確的時間" — the "X 天後" countdown alone doesn't say WHEN, just how far
+ * off). Reads the date/time digits straight out of the string instead of
+ * going through a Date object — on_sale_at is always stored with an explicit
+ * +08:00 offset already (see normalize.mjs's parseOnSaleAt/
+ * parseKktixTimestamp), so there's no timezone conversion to get right or
+ * wrong here, just formatting.
+ */
+export function formatOnSaleDateTime(onSaleAtIso) {
+  if (!onSaleAtIso) return null;
+  const m = onSaleAtIso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+  if (!m) return null;
+  const [, , mo, d, h, mi] = m;
+  return `${Number(mo)}/${Number(d)} ${h}:${mi}`;
+}

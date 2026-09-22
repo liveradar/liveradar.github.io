@@ -1,4 +1,4 @@
-import { splitDate, formatOnSaleCountdown, daysUntil } from "./format.js";
+import { splitDate, formatOnSaleCountdown, formatOnSaleDateTime, daysUntil } from "./format.js";
 
 function escapeHtml(s) {
   return String(s)
@@ -65,10 +65,14 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
   // parseOnSaleAt() was wired up today) — Max: "有一些表演目前是尚未開賣...
   // 卡片設計上可以做出一些區別". Now it always gets a badge, with the
   // countdown layered on top when the date is actually known.
+  // 2026-09-22 (Max: "但我想要知道的預售準確的時間" — "1 天後" alone doesn't
+  // say WHEN, just how far off): show the actual date/time first, countdown
+  // second as a quick-scan add-on, not a replacement for it.
   const onSaleCountdown = event.status === "announced" ? formatOnSaleCountdown(event.on_sale_at) : null;
+  const onSaleDateTime = event.status === "announced" ? formatOnSaleDateTime(event.on_sale_at) : null;
   const onSaleBadge =
     event.status === "announced"
-      ? `<span class="badge-onsale">⏱ ${onSaleCountdown ? `即將開賣・${escapeHtml(onSaleCountdown)}` : "尚未開賣"}</span>`
+      ? `<span class="badge-onsale">⏱ ${onSaleDateTime ? `${escapeHtml(onSaleDateTime)} 開賣${onSaleCountdown ? `・${escapeHtml(onSaleCountdown)}` : ""}` : "尚未開賣"}</span>`
       : "";
 
   // 2026-09-22 (Max, MAHIRU: "有些場次的票券是要用登記的...如果你抓到是有寫
