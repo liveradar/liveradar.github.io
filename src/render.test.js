@@ -64,3 +64,25 @@ test("displayTitle: a normal (non-festival) recognized artist still shows the he
   const event = makeEvent({ title_raw: "【Legacy Presents】深海系樂團", headliners: ["深海系樂團"], tags_type: ["專場"] });
   assert.equal(displayTitle(event), "深海系樂團");
 });
+
+test("renderEventCard: a missing time is left out entirely, not shown as '時間未公布' (Max: writing that states it as a checked fact rather than a scraper gap)", () => {
+  const html = renderEventCard(makeEvent({ time: null }));
+  assert.doesNotMatch(html, /未公布/);
+  assert.match(html, /📍 Legacy Taipei · 台北</);
+});
+
+test("renderEventCard: a missing price is left out entirely, not shown as '票價未公布' — the source name still shows so there's something to click through to", () => {
+  const html = renderEventCard(makeEvent({ price_min: null, price_max: null }));
+  assert.doesNotMatch(html, /未公布/);
+  assert.match(html, /event-price muted">KKTIX</);
+});
+
+test("renderEventCard: an 'announced' (not yet on sale) event always gets a badge, even with no known on_sale_at — real gap Max flagged (\"有一些表演目前是尚未開賣...卡片設計上可以做出一些區別\")", () => {
+  const html = renderEventCard(makeEvent({ status: "announced", on_sale_at: null }));
+  assert.match(html, /badge-onsale">⏱ 尚未開賣</);
+});
+
+test("renderEventCard: an 'announced' event WITH a known on_sale_at shows the countdown instead of the bare badge", () => {
+  const html = renderEventCard(makeEvent({ status: "announced", on_sale_at: "2099-01-01T12:00:00+08:00" }));
+  assert.match(html, /badge-onsale">⏱ 即將開賣・/);
+});

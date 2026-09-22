@@ -550,6 +550,46 @@ export function parsePriceFromText(html) {
   return priceRangeFromNumbers(dollarNumbers);
 }
 
+// 2026-09-22 (Max: "有一些表演目前是尚未開賣，可以加售票時間"): the same
+// freeform description block already fetched for price almost always also
+// states when tickets go on sale — real examples seen today: iNDIEVOX
+// "售票時間：2026/08/22（六）12:00 開始販售", "開賣時間：2026 年 09 月 15 日
+// （二）16:00"; tixcraft "開放售票：7月22日（三）中午12點"; Ticket Plus
+// "起售時間｜2026年10月10日 13:00". No new fetch needed — every non-KKTIX
+// source already passes this whole block as price_text_raw (see the D15-era
+// comment above statusFromTickets's call site).
+// Caught myself almost reintroducing the 2026-09-21 fullwidth-pipe bug here:
+// normalizeFullwidthAscii() runs before this ever matches and converts "｜"
+// to halfwidth "|" — the separator class needs BOTH, same as PRICE_LABEL_RE.
+const ON_SALE_LABEL_RE = /(?:開賣|起售|開放售票|售票)[^｜:：|\n]{0,10}[｜:：|]\s*([^\n]{1,60})/;
+
+export function parseOnSaleAt(html) {
+  if (!html) return null;
+  const plain = normalizeMathDigits(normalizeFullwidthAscii(htmlToLines(html)));
+  const m = plain.match(ON_SALE_LABEL_RE);
+  if (!m) return null;
+  const raw = m[1];
+
+  // Only the full "YYYY/MM/DD" or "YYYY年MM月DD日" forms are trusted — a
+  // no-year "7月22日" is genuinely ambiguous (which year?) and, in practice,
+  // only shows up for a sale that already started (organizers writing a
+  // FUTURE on-sale date always include the year, since ambiguity there would
+  // actually confuse buyers) — exactly the case the caller doesn't need a
+  // date for anyway, since formatOnSaleCountdown() only renders something
+  // when the date is still ahead of today.
+  const dateMatch =
+    raw.match(/(\d{4})\s*[/.]\s*(\d{1,2})\s*[/.]\s*(\d{1,2})/) ??
+    raw.match(/(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/);
+  if (!dateMatch) return null;
+  const [, y, mo, d] = dateMatch;
+  const date = `${y}-${mo.padStart(2, "0")}-${d.padStart(2, "0")}`;
+
+  const timeMatch = raw.match(/(\d{1,2})[:：](\d{2})/);
+  const time = timeMatch ? `${timeMatch[1].padStart(2, "0")}:${timeMatch[2]}` : "00:00";
+
+  return `${date}T${time}:00+08:00`;
+}
+
 /**
  * "YYYY-MM-DD" for the current date in Taiwan time (UTC+8, no DST) — never
  * compare event dates via `new Date(dateStr) > new Date()`: the pipeline runs
@@ -703,7 +743,14 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   const { min, max } = (rawEvent.tickets_raw ?? []).length
     ? priceFromTickets(rawEvent.tickets_raw)
     : parsePriceFromText(rawEvent.price_text_raw ?? "");
-  const { status, on_sale_at } = statusFromTickets(rawEvent.tickets_raw ?? [], dateParsed.date);
+  const { status, on_sale_at: ticketsOnSaleAt } = statusFromTickets(rawEvent.tickets_raw ?? [], dateParsed.date);
+  // statusFromTickets() never actually populates on_sale_at (KKTIX has no
+  // structured "registration opens" field to read it from) — everyone else
+  // can get it from the same freeform text already fetched for price, see
+  // parseOnSaleAt's doc comment. Only worth trying for "announced" (not yet
+  // on sale) events — on_sale_at is only ever displayed as a countdown to a
+  // FUTURE date, so there's nothing to show once tickets are already open.
+  const on_sale_at = ticketsOnSaleAt ?? (status === "announced" ? parseOnSaleAt(rawEvent.price_text_raw ?? "") : null);
   // Union across ALL recognized headliners, not just headliners[0] — a
   // multi-artist bill (common now that artists.yml has ~230 entries) can mix
   // origins, and picking only the first-billed act's origin silently dropped

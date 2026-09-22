@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseTixcraftDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, guessTagsType, findNameIndex } from "./normalize.mjs";
+import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseTixcraftDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, parseOnSaleAt, guessTagsType, findNameIndex } from "./normalize.mjs";
 
 const artistsYml = [{ canonical: "深海系樂團", aliases: [], tags_origin_default: "本地" }];
 
@@ -463,4 +463,24 @@ test("normalize() D15 reversal: an unrecognized artist still produces a visible 
   assert.deepEqual(result.event.lineup, []);
   assert.deepEqual(result.event.tags_origin, [], "no recognized artist means no origin tag, not a guess");
   assert.deepEqual(result.event.tags_type, ["專場"], "guessTagsType still falls back sensibly with 0 headliners");
+});
+
+test("parseOnSaleAt: finds a real iNDIEVOX 售票時間 line and returns a Taiwan-offset ISO datetime", () => {
+  assert.equal(parseOnSaleAt("售票時間：2026/08/22（六）12:00 開始販售"), "2026-08-22T12:00:00+08:00");
+});
+
+test("parseOnSaleAt: finds a Chinese-unit 開賣時間 line (no slashes)", () => {
+  assert.equal(parseOnSaleAt("開賣時間：2026 年 09 月 15 日（二）16:00"), "2026-09-15T16:00:00+08:00");
+});
+
+test("parseOnSaleAt: a fullwidth ｜ separator still matches (same fullwidth-to-halfwidth pipe conversion PRICE_LABEL_RE hit on 2026-09-21 — caught here before it shipped)", () => {
+  assert.equal(parseOnSaleAt("起售時間｜2026年10月10日 13:00"), "2026-10-10T13:00:00+08:00");
+});
+
+test("parseOnSaleAt: a no-year date (real tixcraft case, '開放售票：7月22日（三）中午12點') is rejected rather than guessing the wrong year", () => {
+  assert.equal(parseOnSaleAt("開放售票：7月22日（三）中午12點"), null);
+});
+
+test("parseOnSaleAt: no 開賣/售票/起售 label anywhere returns null", () => {
+  assert.equal(parseOnSaleAt("演出時間：2026-12-10（四）\n演出票價：$2,680"), null);
 });

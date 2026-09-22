@@ -48,13 +48,28 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
     ...event.tags_origin.map((t) => `<span class="tag-origin">${escapeHtml(t)}</span>`),
   ].join("");
 
-  const timeText = event.time ? `${escapeHtml(event.time)}` : "時間未公布";
-  const metaText = `${escapeHtml(event.venue)} · ${escapeHtml(event.city)} · ${timeText}`;
+  // 2026-09-22 (Max: "如果你還沒確定票價和演出時間的，不要寫未公布，就空白
+  // 就好" — writing "時間未公布"/"票價未公布" states it as a checked fact
+  // ("we looked, it isn't announced") when really it just means the scraper
+  // didn't find it on this pass; showing nothing is honest about that
+  // instead of implying more certainty than there is. 📍/🕐 prefixes replace
+  // the old "·"-joined venue/city/time blob so the two kinds of information
+  // (where vs. when) read as distinct fields instead of one run-on line.
+  const locationText = [event.venue, event.city].filter(Boolean).map(escapeHtml).join(" · ");
+  const metaText = event.time
+    ? `📍 ${locationText}　🕐 ${escapeHtml(event.time)}`
+    : `📍 ${locationText}`;
 
+  // A "announced but not yet on sale" event previously only got a badge when
+  // the exact on-sale date was known (rare, on_sale_at was always null until
+  // parseOnSaleAt() was wired up today) — Max: "有一些表演目前是尚未開賣...
+  // 卡片設計上可以做出一些區別". Now it always gets a badge, with the
+  // countdown layered on top when the date is actually known.
   const onSaleCountdown = event.status === "announced" ? formatOnSaleCountdown(event.on_sale_at) : null;
-  const onSaleBadge = onSaleCountdown
-    ? `<span class="badge-onsale">⏱ 即將開賣・${escapeHtml(onSaleCountdown)}</span>`
-    : "";
+  const onSaleBadge =
+    event.status === "announced"
+      ? `<span class="badge-onsale">⏱ ${onSaleCountdown ? `即將開賣・${escapeHtml(onSaleCountdown)}` : "尚未開賣"}</span>`
+      : "";
 
   const pinnedBadge = mode === "timeline" && pinned ? `<span class="badge-pinned">已收藏，忽略排除規則</span>` : "";
   const daysUntilLine =
@@ -67,9 +82,11 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
   if (event.status === "sold_out") {
     priceLine = `<div class="event-price muted">已售完</div>`;
   } else {
-    const priceText = event.price_min != null ? `NT$${event.price_min.toLocaleString()} up` : "票價未公布";
     const sourceNames = [...new Set(event.sources.map((s) => s.name))].join(" · ");
-    priceLine = `<div class="event-price">${priceText} <span class="muted">· ${escapeHtml(sourceNames)}</span></div>`;
+    priceLine =
+      event.price_min != null
+        ? `<div class="event-price">NT$${event.price_min.toLocaleString()} up <span class="muted">· ${escapeHtml(sourceNames)}</span></div>`
+        : `<div class="event-price muted">${escapeHtml(sourceNames)}</div>`;
   }
   // Sold out still gets the link — the external page is still worth reaching
   // (resale, waitlists, checking for a newly added date) even once the
