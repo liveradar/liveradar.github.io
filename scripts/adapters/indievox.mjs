@@ -217,6 +217,27 @@ function extractIntroHtml($) {
   return el.length ? el.html() ?? "" : "";
 }
 
+// 2026-09-22 (Max, Stray Kids on tixcraft: "他們不是沒有可用訊號 完售的會寫
+// 在這邊" — after that real miss, checked iNDIEVOX's own purchase page too,
+// not just its marketing/detail page): iNDIEVOX shares the exact same
+// underlying ticketing platform as tixcraft — `/activity/game/{raw_id}` has
+// the identical server-rendered `<table>` (演出時間/場次名稱/場地/購買狀態),
+// last `<td>` holding either a live "立即訂購" button or "選購一空"/"...截止"
+// next to/instead of it. Unlike tixcraft this page has NO anti-bot wall at
+// all — confirmed with a plain fetch, 200 OK, full table in the raw HTML —
+// so no Playwright needed here, just one more cheap GET.
+const TICKET_TERMINAL_TEXT_RE = /選購一空|銷售一空|完售|售罄|截止/;
+
+async function fetchTicketStatusText(rawId) {
+  const html = await fetchHtml(`https://www.indievox.com/activity/game/${rawId}`);
+  const $ = cheerio.load(html);
+  const rowTexts = $("table tbody tr td:last-child")
+    .map((_, td) => $(td).text().trim())
+    .get();
+  if (rowTexts.length === 0 || !rowTexts.every((t) => TICKET_TERMINAL_TEXT_RE.test(t))) return "";
+  return rowTexts[0];
+}
+
 async function fetchEventDetail(item) {
   const html = await fetchHtml(item.url);
   const $ = cheerio.load(html);
@@ -229,6 +250,12 @@ async function fetchEventDetail(item) {
     if (timeOnly) date_raw = `${date_raw} ${timeOnly}`;
   }
   const raw_id = item.url.split("/").filter(Boolean).pop();
+  let sale_status_text = "";
+  try {
+    sale_status_text = await fetchTicketStatusText(raw_id);
+  } catch (err) {
+    logProgress(`indievox ticket-status fetch failed for ${raw_id}: ${err.message}`);
+  }
   return {
     raw_id,
     url: item.url,
@@ -237,6 +264,7 @@ async function fetchEventDetail(item) {
     venue_raw,
     tickets_raw: [],
     price_text_raw: extractIntroHtml($),
+    sale_status_text,
     source_name: name,
   };
 }

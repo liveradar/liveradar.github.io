@@ -62,6 +62,30 @@ function amPmTo24Hour(hour, meridiem) {
   return `${String(h).padStart(2, "0")}:00`;
 }
 
+// 2026-09-22 real bug (Max, Stray Kids: "他們不是沒有可用訊號...完售的會寫
+// 在這邊" — a screenshot of a REAL page I hadn't checked): I'd only ever
+// looked at `/activity/detail/{id}` (the marketing/intro page) and its
+// page-wide "完售" text, which turned out to be narrative prose, not a live
+// status — and concluded tixcraft had no usable signal. Wrong: the actual
+// PURCHASE page, `/activity/game/{id}` (what "立即購票" links to), has a
+// genuine server-rendered `<table>` — one row per ticket tier/fan-zone, last
+// `<td>` holding either a live "立即訂購" button, "選購一空" (sold out) right
+// next to/under it, or "YYYY/MM/DD HH:MM 截止" (this tier's registration
+// window already closed, same idea as Ticket Plus's "登記截止"). Only worth
+// reporting the WHOLE event unavailable when EVERY row is in one of those
+// terminal states — a general-admission row still open next to a closed
+// special fan-zone (the real Stray Kids case) is still a genuinely buyable
+// show.
+const TICKET_TERMINAL_TEXT_RE = /選購一空|銷售一空|完售|售罄|截止/;
+
+async function fetchTicketStatusText(page, rawId) {
+  await page.goto(`https://tixcraft.com/activity/game/${rawId}`, { waitUntil: "domcontentloaded", timeout: DETAIL_NAV_TIMEOUT_MS });
+  await page.waitForSelector("table tbody tr", { timeout: DETAIL_NAV_TIMEOUT_MS });
+  const rowTexts = await page.$$eval("table tbody tr td:last-child", (cells) => cells.map((c) => c.textContent.trim()));
+  if (rowTexts.length === 0 || !rowTexts.every((t) => TICKET_TERMINAL_TEXT_RE.test(t))) return "";
+  return rowTexts[0];
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -177,6 +201,14 @@ export async function fetch(knownRawIds = new Set()) {
       } catch (err) {
         priceFailures += 1;
         logProgress(`tixcraft price fetch failed for ${event.url}: ${err.message} (after ${Date.now() - startedAt}ms)`);
+      }
+      // 2026-09-22 (Max): same page, one more navigation — see
+      // fetchTicketStatusText's doc comment for why the detail page above
+      // can't tell us this (it never could).
+      try {
+        event.sale_status_text = await fetchTicketStatusText(page, event.raw_id);
+      } catch (err) {
+        logProgress(`tixcraft ticket-status fetch failed for ${event.url}: ${err.message}`);
       } finally {
         await page.close();
       }

@@ -583,3 +583,12 @@ test("normalize(): a Ticket Plus session with NO sale_status_text still falls th
   const { event } = normalize(raw, artistsYml);
   assert.equal(event.status, "on_sale");
 });
+
+test("normalize() real bug (Max, Stray Kids: \"他們不是沒有可用訊號 完售的會寫在這邊\" — a real tixcraft purchase page I'd missed): a tixcraft event whose ticket page reports '選購一空' is sold_out, not defaulted to on_sale", () => {
+  const raw = makeRaw({
+    source_name: "拓元",
+    sale_status_text: "立即訂購選購一空",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "sold_out");
+});

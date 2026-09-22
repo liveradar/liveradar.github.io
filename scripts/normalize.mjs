@@ -794,7 +794,10 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
     // fetchSaleStatusMap. Checked BEFORE the on_sale_at/default-to-on_sale
     // logic below: a sold-out or registration-closed session is neither
     // "announced" nor genuinely "on_sale", it's over.
-    const SOLD_OUT_TEXT_RE = /銷售一空|售完|完售|售罄|登記截止/;
+    // tixcraft's own real purchase page (checked after Max caught that
+    // "沒有可用訊號" was wrong — see fetchTicketStatusText's doc comment)
+    // uses "選購一空" instead of "銷售一空" for the same idea.
+    const SOLD_OUT_TEXT_RE = /銷售一空|選購一空|售完|完售|售罄|登記截止/;
     if (SOLD_OUT_TEXT_RE.test(rawEvent.sale_status_text ?? "")) {
       status = dateParsed.date >= taiwanTodayDateStr() ? "sold_out" : "ended";
     } else {
