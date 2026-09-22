@@ -48,3 +48,27 @@ export async function signInWithGoogle(redirectTo) {
 export async function signOut() {
   await supabase.auth.signOut();
 }
+
+/**
+ * FR-xx (2026-09-22, Max: "使用者可以回報...我可以確認問題，並且你可以修掉
+ * 問題"): write-only from the browser's side — anon/authenticated can INSERT
+ * but there's no SELECT policy on public.event_reports (see
+ * supabase/schema.sql), so a report can't be read back through this client
+ * even by its own author. Max reviews reports directly in the Supabase
+ * dashboard, same workflow already used for every other table in this
+ * project — no separate admin UI needed for a personal-scale report queue.
+ * Works whether or not the reporter is logged in; reporter_user_id is just
+ * whatever getSession() currently returns, null when signed out.
+ */
+export async function reportIssue({ eventId, eventTitle, eventUrl, description }) {
+  const session = await getSession();
+  const { error } = await supabase.from("event_reports").insert({
+    event_id: eventId,
+    event_title: eventTitle,
+    event_url: eventUrl,
+    description,
+    reporter_user_id: session?.user.id ?? null,
+    page_url: window.location.href,
+  });
+  if (error) throw error;
+}

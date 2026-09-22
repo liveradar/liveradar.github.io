@@ -75,6 +75,19 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
       ? `<span class="badge-onsale">⏱ ${onSaleDateTime ? `${escapeHtml(onSaleDateTime)} 開賣${onSaleCountdown ? `・${escapeHtml(onSaleCountdown)}` : ""}` : "尚未開賣"}</span>`
       : "";
 
+  // 2026-09-22 (Max: "是否可以多做一個提醒使用者要買票的機制"): only makes
+  // sense once there's an actual on_sale_at to put in the reminder — a
+  // "尚未開賣" badge with no known date has nothing to set an alarm for.
+  // Downloads a single-event .ics with a VALARM (see src/ics.js) rather than
+  // a server-pushed notification — this is a static site with no backend
+  // capable of firing something at a future moment on its own, but the
+  // user's own OS/calendar app already does exactly that once it's holding
+  // the event.
+  const remindButton =
+    event.status === "announced" && event.on_sale_at
+      ? `<button class="btn-remind" type="button" data-remind-ics="${escapeHtml(event.id)}" data-remind-title="${escapeHtml(displayTitle(event))}" data-remind-venue="${escapeHtml(locationText)}" data-remind-onsale="${escapeHtml(event.on_sale_at)}" data-remind-url="${escapeHtml(event.ticket_url ?? "")}">🔔 開賣提醒加入行事曆</button>`
+      : "";
+
   // 2026-09-22 (Max, MAHIRU: "有些場次的票券是要用登記的...如果你抓到是有寫
   // 的，請標上") — dedup.mjs's mergeGroup() sets this true when ANY of the
   // merged listings for this show mentioned a lottery-signup mechanism (登記
@@ -139,6 +152,7 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
         }
         <div class="event-meta">${metaText}</div>
         ${onSaleBadge}
+        ${remindButton}
         ${lotteryBadge}
         ${priceLine}
       </div>

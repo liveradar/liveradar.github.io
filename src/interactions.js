@@ -24,10 +24,11 @@ const ICON_TYPE = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" s
 const ICON_CHEVRON = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--muted)" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>`;
 const ICON_UNDO = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10a8 8 0 1 1 2 5"/><path d="M4 4v6h6"/></svg>`;
 const ICON_CHECK = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--coral-ink)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>`;
+const ICON_FLAG = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h13l-3 4 3 4H5"/></svg>`;
 
 /**
  * @param {object} event
- * @param {{ onHideEvent(): void, onBlockArtist(): void, onBlockType(): void }} handlers
+ * @param {{ onHideEvent(): void, onBlockArtist(): void, onBlockType(): void, onReportIssue(): void }} handlers
  */
 export function openExcludeMenu(event, handlers) {
   const headliner = event.headliners[0] ?? event.title_raw;
@@ -60,6 +61,11 @@ export function openExcludeMenu(event, handlers) {
             </button>`
           : ""
       }
+      <button class="sheet-option" data-action="report-issue" style="border-top:1px solid var(--border);margin-top:6px;padding-top:14px;">
+        <span class="sheet-option__icon">${ICON_FLAG}</span>
+        <span class="sheet-option__label">回報這場資訊有誤</span>
+        ${ICON_CHEVRON}
+      </button>
       <button class="btn-ghost" data-close style="margin:14px 22px 0;width:calc(100% - 44px);">取消</button>
     </div>
   `;
@@ -78,6 +84,39 @@ export function openExcludeMenu(event, handlers) {
   root.querySelector('[data-action="block-type"]')?.addEventListener("click", () => {
     clearOverlay();
     handlers.onBlockType();
+  });
+  root.querySelector('[data-action="report-issue"]')?.addEventListener("click", () => {
+    clearOverlay();
+    handlers.onReportIssue();
+  });
+}
+
+/** FR-xx (2026-09-22): free-text issue report for one card, prefilled with enough context (title/date/venue) that Max doesn't have to go hunting for which event this was about. */
+export function openReportDialog(event, onSubmit) {
+  const title = event.headliners?.length ? event.headliners.join(" / ") : event.title_raw;
+  const html = `
+    <div class="overlay-scrim" data-close></div>
+    <div class="dialog-box" role="dialog" aria-modal="true">
+      <div class="dialog-box__title">回報這場資訊有誤</div>
+      <div class="dialog-box__body">「${escapeHtml(title)}」・${escapeHtml(event.date)} ${escapeHtml(event.venue ?? "")}</div>
+      <div class="field-group">
+        <label class="field-label" for="report-description">哪裡不對？（例如：時間/票價/場館錯誤、場次已取消、重複顯示…）</label>
+        <textarea class="field-input" id="report-description" rows="4" placeholder="請描述問題"></textarea>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn-ghost" data-close style="flex:1;">取消</button>
+        <button class="btn-primary" data-confirm style="flex:1;">送出</button>
+      </div>
+    </div>
+  `;
+  overlayRoot().innerHTML = html;
+  const root = overlayRoot();
+  root.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", clearOverlay));
+  root.querySelector("[data-confirm]")?.addEventListener("click", () => {
+    const description = root.querySelector("#report-description").value.trim();
+    if (!description) return;
+    clearOverlay();
+    onSubmit(description);
   });
 }
 

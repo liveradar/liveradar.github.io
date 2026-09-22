@@ -87,6 +87,21 @@ test("renderEventCard: an 'announced' event WITH a known on_sale_at shows the ex
   assert.match(html, /badge-onsale">⏱ 1\/1 12:00 開賣・/);
 });
 
+test("renderEventCard: 'announced' event WITH a known on_sale_at gets the 開賣提醒加入行事曆 button (Max: \"是否可以多做一個提醒使用者要買票的機制\")", () => {
+  const html = renderEventCard(makeEvent({ status: "announced", on_sale_at: "2099-01-01T12:00:00+08:00" }));
+  assert.match(html, /data-remind-ics="/);
+});
+
+test("renderEventCard: 'announced' event with NO known on_sale_at does not get the reminder button — there's no date to put in the calendar entry", () => {
+  const html = renderEventCard(makeEvent({ status: "announced", on_sale_at: null }));
+  assert.doesNotMatch(html, /data-remind-ics="/);
+});
+
+test("renderEventCard: an on_sale event does not get the reminder button — the reminder is for buying before it goes on sale, not after", () => {
+  const html = renderEventCard(makeEvent({ status: "on_sale", on_sale_at: "2020-01-01T12:00:00+08:00" }));
+  assert.doesNotMatch(html, /data-remind-ics="/);
+});
+
 test("renderEventCard: is_lottery shows a distinct badge (Max, MAHIRU: \"有些場次的票券是要用登記的...如果你抓到是有寫的，請標上\")", () => {
   const html = renderEventCard(makeEvent({ is_lottery: true }));
   assert.match(html, /badge-lottery">🎟️ 需登記抽選</);

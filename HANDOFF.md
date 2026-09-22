@@ -1,6 +1,6 @@
 # 交接文件 — 換電腦/換 session 接續開發前先看這份
 
-寫於 2026-09-15，2026-09-20 更新，2026-09-21 再更新。**2026-09-21 最新狀態**：專案全面改名 GigRadar → LiveRadar（含 GitHub org/repo/文件/UI，網址換成乾淨的 `https://liveradar.github.io`），新增首頁介紹卡/基本 SEO，修掉 FAB 擋住設定分頁的版面 bug，設定頁拿掉多餘的同步狀態顯示，部署版隱藏只有本機才動得了的「重新抓取」按鈕；另外實測驗證了恢復 GitHub Actions 自動排程會讓拓元／Ticket Plus 兩個來源持續被擋（403），正在規劃改用 Max 上班電腦的 Claude 排程任務代替，細節見文件尾端對應章節。M1~M12 全部跑完一輪，覆蓋率抽樣（M12）結果不好，過程中還發現 KKTIX 的搜尋策略被 Cloudflare 擋住。**2026-09-20 最新狀態**：Gist token 同步已經整個換成 Supabase 帳號登入，**已經動工完成並實測過**（真的登入成功、資料庫真的寫入資料）——只留 Google 登入，email/密碼那條路做完後又拿掉了，細節見文件尾端「Supabase 帳號登入上線」章節。2026-09-19 待整理清單也從 71 筆清到只剩 1 筆（見「待整理清單大清理」章節）。**同一天稍晚，Max 帶了一份參考實作過來（另一個 Claude 對話產出、已經有人實際跑起來的 Python/Flask 版本），示範了用 Playwright 真瀏覽器繞過 Cloudflare、外加幾個新來源的做法，因此：(1) 資料抓取改成純手動觸發（決策 S5，取消 GitHub Actions 排程），(2) 新增 iNDIEVOX、FANSI GO、Ticket Plus 三個 adapter（Max 一開始要求的完整來源清單全部做完了），(3) 用 Playwright 真的修好了 KKTIX 搜尋策略被 Cloudflare 擋住的問題，覆蓋率抽樣從 3.4% 一路推到 51.7%**——看下方各來源對應章節跟 `reports/coverage-sample-2026-09-17.md` 的完整過程。這份文件的目的：讓一個完全沒看過這個對話紀錄的人（包含未來的你，或另一台電腦上全新開的 Claude Code session）能在 5 分鐘內知道現在做到哪、能不能信任目前的程式碼、下一步該做什麼。
+寫於 2026-09-15，2026-09-20 更新，2026-09-21 再更新，2026-09-22 再更新。**2026-09-22 最新狀態**：上班電腦那台的 Claude 排程任務（`liveradar-daily-fetch`）已經上線並實測跑過，資料每天會自動更新，不用 Max 手動觸發；上班電腦那次的 session 也順便做了大量真實 bug 修復（售票狀態偵測、票價/日期擷取、逆轉 D15「未辨識藝人擋場次上架」的產品決策）。這台 Mac 這邊清空了待整理佇列（修好 KKTIX 新版頁面模板的解析 bug、needs-review 去重、補齊 9 位真實藝人資料），還新增了兩個使用者功能：每張卡片可以「回報這場資訊有誤」（寫進 Supabase `event_reports` 表，**這張表的 SQL 還沒在 Supabase 後台真的執行過**，看 `supabase/schema.sql` 尾端）、以及「尚未開賣」場次可以「🔔 開賣提醒加入行事曆」匯出 .ics（含開賣前 15 分鐘＋開賣當下兩個鬧鐘）。細節見文件尾端對應章節。**2026-09-21 最新狀態**：專案全面改名 GigRadar → LiveRadar（含 GitHub org/repo/文件/UI，網址換成乾淨的 `https://liveradar.github.io`），新增首頁介紹卡/基本 SEO，修掉 FAB 擋住設定分頁的版面 bug，設定頁拿掉多餘的同步狀態顯示，部署版隱藏只有本機才動得了的「重新抓取」按鈕；另外實測驗證了恢復 GitHub Actions 自動排程會讓拓元／Ticket Plus 兩個來源持續被擋（403），正在規劃改用 Max 上班電腦的 Claude 排程任務代替，細節見文件尾端對應章節。M1~M12 全部跑完一輪，覆蓋率抽樣（M12）結果不好，過程中還發現 KKTIX 的搜尋策略被 Cloudflare 擋住。**2026-09-20 最新狀態**：Gist token 同步已經整個換成 Supabase 帳號登入，**已經動工完成並實測過**（真的登入成功、資料庫真的寫入資料）——只留 Google 登入，email/密碼那條路做完後又拿掉了，細節見文件尾端「Supabase 帳號登入上線」章節。2026-09-19 待整理清單也從 71 筆清到只剩 1 筆（見「待整理清單大清理」章節）。**同一天稍晚，Max 帶了一份參考實作過來（另一個 Claude 對話產出、已經有人實際跑起來的 Python/Flask 版本），示範了用 Playwright 真瀏覽器繞過 Cloudflare、外加幾個新來源的做法，因此：(1) 資料抓取改成純手動觸發（決策 S5，取消 GitHub Actions 排程），(2) 新增 iNDIEVOX、FANSI GO、Ticket Plus 三個 adapter（Max 一開始要求的完整來源清單全部做完了），(3) 用 Playwright 真的修好了 KKTIX 搜尋策略被 Cloudflare 擋住的問題，覆蓋率抽樣從 3.4% 一路推到 51.7%**——看下方各來源對應章節跟 `reports/coverage-sample-2026-09-17.md` 的完整過程。這份文件的目的：讓一個完全沒看過這個對話紀錄的人（包含未來的你，或另一台電腦上全新開的 Claude Code session）能在 5 分鐘內知道現在做到哪、能不能信任目前的程式碼、下一步該做什麼。
 
 ## 這是什麼專案
 
@@ -521,3 +521,34 @@ Max 再次質疑「但我還是看到很多時間或票價沒有上，是發生�
 - **拓元、FANSI GO 兩份 adapter 的 file header 註解都寫死「時間抓不到／是裝飾文字」的結論**——這是本次 session 第二次證明「舊的 code comment 不能信」（第一次是 FANSI GO 的場館欄位）。實際打開真實頁面查證，拓元的 `#intro` 區塊裡有 `📅 時間：` 開頭的真實結構化時間（用 `<span>` 標籤把日期字元拆開，正則要加標籤容忍度才吃得到），FANSI GO 詳情頁場館區塊正上方的 sibling 元素也有真實的「YYYY/MM/DD HH:MM」文字，兩者都跟已經在抓的資料同一次頁面載入就能拿到，不需要額外的網路請求。新增 `SHOW_TIME_RE`（拓元）跟對應的擷取邏輯（FANSI GO），`parseTixcraftDate()`（兩者共用）也跟著支援解析附加在 `date_raw` 尾端的 `HH:MM`。
 
 全量重新抓取驗證（清空 `events.json` 重跑 `node scripts/fetch.mjs`）：289 場總數不變，時間缺漏 97→65（拓元 52、iNDIEVOX 24，多數是頁面真的還沒公布時間），票價缺漏→61（Ticket Plus 33、iNDIEVOX 25、拓元 9、FANSI GO 7，抽查確認至少一筆是頁面本身寫「票價另行公告」）。`npm test` 100 個測試全過。
+
+## 待整理清單清到 0 筆，順便修好 KKTIX 新版頁面模板 bug（2026-09-22）
+
+Max 說「我沒有想要手動整理欸，請你自己整理」——這台 Mac 上直接接手了待整理佇列（跟上班電腦那邊各自獨立進行，兩邊 commit 過幾輪後有合併）。7 筆原始清單逐一開票券頁查證（不是憑標題猜）：
+
+- **陳如山「那些我賣不出去的歌」城市小巡迴**卡在 `date_unparseable`，但頁面上的日期格式完全正常——追出真正原因：**KKTIX 現在同時存在兩種活動頁面模板**，`kktix.mjs` 的 `fetchEventDetail()` 只認舊版的 `.event-info ul.info li` 結構（例如 thewall.kktix.cc 用的），這場用的是新版 `.side-inner .section` 結構，選不到任何東西，`date_raw`/`venue_raw`/`tickets_raw` 全部抓空。新增模板偵測（`$(".side-inner").length > 0 && $(".event-info").length === 0`），兩種版面分別用對應的選擇器解析，票券狀態的 `.waiting`（尚未開賣）class 名稱在新版沒有實例可以驗證，標成 ⚠️ 推測未證實。
+- **紙博 in 台北 vol.2**（Ticket Plus 兩個場次）查證後是日本紙品文具展，不是音樂演出，加進 `NOISE_KEYWORDS`。
+- **曾艾佳、回聲樂團、BORIS、KITA、周穆、葉澈、尚霖、Juice=Juice** 逐一開票券頁確認身分後補進 `artists.yml`（KITA/周穆/葉澈/尚霖是同一場拼盤演出的四位演出者，查證頁面：ticketplus.com.tw/activity/6def673ab73ab7d7a4d0597ae84809ca）。
+
+**順便修好一個真實 bug**：`needs-review.json` 從來沒有去重過——陳如山那場因為同時命中 KKTIX 的 org 頁跟搜尋兩種抓取策略，在待整理頁重複出現兩次。`fetch.mjs` 寫檔前加了 `(source, raw_id)` 去重。
+
+三輪 `npm run fetch` 實際跑驗證（不是只改完程式碼就假設有效）：7 筆 → 2 筆（KKTIX 模板 bug 修好但陳如山還沒進 artists.yml，加上一筆新出現的 Juice=Juice）→ 1 筆（補完陳如山）→ **0 筆**。`npm test` 134 個全過。Commit `05663cb`。
+
+## 新增兩個使用者功能：回報問題、開賣提醒加入行事曆（2026-09-22）
+
+Max 提了兩個功能需求，先用 `AskUserQuestion` 確認做法（因為兩個都有明顯的分岔，不想自己假設）：
+
+**1. 回報問題**——「使用者回報以後，Max 確認問題，Claude 修掉問題」。入口選在**每張卡片的排除選單裡**（推薦選項，比另開一個統一的意見回饋頁精準，缺點是要多改一點畫面，Max 選了這個）：
+
+- 新增 Supabase 表 `public.event_reports`（event_id/event_title/event_url/description/reporter_user_id/page_url/created_at/status），**只有 INSERT policy，沒有 SELECT**——連回報的人自己都讀不回來，Max 直接在 Supabase 後台 Table Editor 看，不做管理畫面（跟這個專案其他表同一個模式）。**這份 SQL 還沒有在 Supabase 後台真的執行過**，見 `supabase/schema.sql` 尾端的完整語句，Max 要自己去 SQL Editor 跑一次才會生效——瀏覽器裡已經實測過「表不存在時」的失敗路徑（`PGRST205` 錯誤，畫面正確顯示「回報失敗，請稍後再試」，不會讓整頁掛掉），但成功寫入的路徑要等 Max 跑完 SQL 才能驗證。
+- `src/interactions.js` 的 `openExcludeMenu()` 加了第四個選項「回報這場資訊有誤」（跟前三個排除選項之間用一條分隔線隔開，語意上是不同類的操作），點了開 `openReportDialog()`（新函式，跟既有的 `openAssignArtistDialog()` 同一種 `.dialog-box` 樣式），送出呼叫 `src/supabase.js` 新增的 `reportIssue()`。不登入也能回報（`reporter_user_id` 是 `getSession()` 目前有沒有 session，沒有就是 `null`，不是必填）。
+
+**2. 開賣提醒加入行事曆**——延伸既有的「尚未開賣」倒數標籤（見上面 2026-09-22 稍早的票價/時間 bug 修復章節）。做法選了**匯出 .ics**（推薦選項，純前端零後端；沒選 Web Push 是因為那需要新增 service worker + VAPID + 一個會定時檢查「誰的收藏快開賣了」的伺服器排程，工程量大很多，Max 選了 .ics）：
+
+- 新增 `src/ics.js`：純函式 `buildOnSaleReminderIcs(event)`，產生單一 VEVENT + 兩個 VALARM（開賣前 15 分鐘、開賣當下各一個），UID 用場次 id 固定住（重複下載同一場的提醒會更新既有行事曆項目，不會一直重複新增）。刻意不做 RFC 5545 的長行折疊（line folding）——測過 Google Calendar/Apple Calendar 都能正常吃未折疊的長行，中文字折疊要處理多位元組邊界，這次沒有真的遇到問題，不值得先做。配 6 個單元測試 `src/ics.test.js`。
+- `src/render.js` 的 `renderEventCard()` 在 `status === "announced" && on_sale_at` 已知時，於「尚未開賣」badge 下方加一顆「🔔 開賣提醒加入行事曆」按鈕（`.btn-remind`，新 CSS class）。**已經是 on_sale 或已售完的場次不會顯示**——這個提醒是「幫你記得去買」，不是「幫你記得這場秀」（後者才是 FR-35 原本規劃、還沒做的「收藏匯出 .ics」，是不同的功能）。
+- `src/app.js` 新增 `wireRemindButtons(container)`，用跟 `wireTicketButtons()` 完全一樣的自足模式（所有需要的欄位都編碼在按鈕的 `data-*` 屬性裡，不用回頭查 `events` 陣列），接到全部 6 個會渲染卡片的地方（時間表、新上架、收藏列表、收藏日曆、搜尋、已隱藏管理）。點擊後用 `Blob` + `<a download>` 觸發瀏覽器下載，跟既有的匯出 JSON（FR-63）同一套機制。
+
+**實測**：瀏覽器裡確認過按鈕只在正確的狀態下出現、點擊觸發下載無 console 錯誤、直接呼叫 `buildOnSaleReminderIcs()` 檢查過輸出格式正確（`DTSTART` 真的是開賣時間、不是演出時間）；回報表單填寫送出、確認打中 Supabase（目前因為表還沒建，收到預期中的 `PGRST205` 錯誤，UI 正確顯示失敗提示而不是整頁掛掉）。`npm test` 143 個全過（新增 9 個：6 個 `ics.test.js` + 3 個 `render.test.js` 的按鈕顯示條件）。
+
+**Max 還沒做的事**：去 Supabase SQL Editor 跑 `supabase/schema.sql` 尾端 `event_reports` 那段 SQL，回報功能才會真的可用；跑完之後可以把 schema.sql 裡「這份 SQL 還沒真的執行過」那句話刪掉。

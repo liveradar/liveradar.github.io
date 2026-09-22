@@ -63,7 +63,8 @@ import {
   loadIntroDismissed,
   dismissIntro,
 } from "./state.js";
-import { getSession, signInWithGoogle, signOut } from "./supabase.js";
+import { getSession, signInWithGoogle, signOut, reportIssue } from "./supabase.js";
+import { buildOnSaleReminderIcs } from "./ics.js";
 import { renderEventList, renderFavoritesList, renderNewArrivalsList, renderEmptyList, displayTitle } from "./render.js";
 import { splitDate, daysSince } from "./format.js";
 import { buildMonthGrid, addMonths } from "./calendar.js";
@@ -74,6 +75,7 @@ import {
   openAssignArtistDialog,
   showYamlSnippetDialog,
   openFilterSheet,
+  openReportDialog,
 } from "./interactions.js";
 
 function escapeHtml(s) {
@@ -303,6 +305,27 @@ function wireTicketButtons(container) {
   });
 }
 
+function wireRemindButtons(container) {
+  container.querySelectorAll("[data-remind-ics]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const ics = buildOnSaleReminderIcs({
+        id: btn.dataset.remindIcs,
+        title: btn.dataset.remindTitle,
+        venue: btn.dataset.remindVenue,
+        onSaleAt: btn.dataset.remindOnsale,
+        ticketUrl: isSafeUrl(btn.dataset.remindUrl) ? btn.dataset.remindUrl : null,
+      });
+      const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `liveradar-開賣提醒-${btn.dataset.remindIcs}.ics`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  });
+}
+
 function wireFavoriteToggle(container, render) {
   container.querySelectorAll("[data-favorite-toggle]").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -361,6 +384,22 @@ function openMenuFor(event, events, render) {
         render();
       });
     },
+    onReportIssue() {
+      openReportDialog(event, async (description) => {
+        try {
+          await reportIssue({
+            eventId: event.id,
+            eventTitle: headliner,
+            eventUrl: event.ticket_url,
+            description,
+          });
+          alert("已送出，謝謝回報！");
+        } catch (err) {
+          console.error("Failed to submit report:", err);
+          alert("回報失敗，請稍後再試。");
+        }
+      });
+    },
   });
 }
 
@@ -400,6 +439,7 @@ function wireInlineSearch(events, restoreRender) {
         ? renderEmptyList(`沒有符合「${query}」的場次。`)
         : renderEventList(groupByDate(matches));
     wireTicketButtons(container);
+    wireRemindButtons(container);
     wireFavoriteToggle(container, renderSearch);
     wireExcludeMenu(container, events, renderSearch);
   }
@@ -466,6 +506,7 @@ async function initTimeline(container) {
         : renderEventList(groupByDate(visible));
 
     wireTicketButtons(container);
+    wireRemindButtons(container);
     wireFavoriteToggle(container, render);
     wireExcludeMenu(container, events, render);
     updateHiddenBar(hiddenByRules);
@@ -519,6 +560,7 @@ async function initSearch(container) {
         : renderEventList(groupByDate(matches));
 
     wireTicketButtons(container);
+    wireRemindButtons(container);
     wireFavoriteToggle(container, render);
     wireExcludeMenu(container, events, render);
   }
@@ -559,6 +601,7 @@ async function initNewArrivals(container) {
         : renderNewArrivalsList(today, pastWeek);
 
     wireTicketButtons(container);
+    wireRemindButtons(container);
     wireFavoriteToggle(container, render);
     wireExcludeMenu(container, events, render);
   }
@@ -654,6 +697,7 @@ async function initFavorites(container) {
   function renderCalendarView() {
     renderFavCalendar(calendarEl, favorited, calendarView);
     wireTicketButtons(calendarEl);
+    wireRemindButtons(calendarEl);
     wireFavoriteToggle(calendarEl, render);
     calendarEl.querySelectorAll("[data-cal-nav]").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -718,6 +762,7 @@ async function initFavorites(container) {
         : renderFavoritesList(favorited);
 
     wireTicketButtons(container);
+    wireRemindButtons(container);
     wireFavoriteToggle(container, render);
 
     container.querySelectorAll("[data-updated-fields]").forEach((link) => {

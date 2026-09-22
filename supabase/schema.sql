@@ -57,6 +57,43 @@ with check (auth.uid() = user_id);
 -- where polrelid = 'public.user_prefs'::regclass;
 
 -- ============================================================
+-- Table: public.event_reports
+-- ============================================================
+-- 2026-09-22（Max: 使用者可以回報有誤的場次資訊，Max 確認後回來改程式）。
+-- 寫入用途，前端只 INSERT，刻意沒有 SELECT policy——連回報的人自己都讀不回
+-- 來，Max 直接在 Supabase 後台 Table Editor 看，跟這個專案其他表一樣不另外
+-- 做一個管理畫面。匿名（沒登入）也能回報，reporter_user_id 純粹是「如果當
+-- 下有登入就順便記一下是誰」，不是必要欄位。
+--
+-- 這份 SQL 還沒真的在後台執行過——Max 要在 Supabase SQL Editor 手動跑一次
+-- 才會生效，執行完回來把這句話刪掉、改成跟 user_prefs 一樣的「最後對照日
+-- 期」註記。
+--
+-- create table public.event_reports (
+--   id uuid primary key default gen_random_uuid(),
+--   event_id text not null,
+--   event_title text not null,
+--   event_url text,
+--   description text not null,
+--   reporter_user_id uuid references auth.users(id),
+--   page_url text,
+--   created_at timestamptz not null default now(),
+--   status text not null default 'open'
+-- );
+--
+-- alter table public.event_reports enable row level security;
+--
+-- create policy "anyone can report"
+-- on public.event_reports
+-- for insert
+-- with check (true);
+--
+-- 「自動曝光新表」被關掉，所以額外需要：
+-- grant insert on public.event_reports to anon, authenticated;
+-- （沒有 grant select/update/delete 給任何角色——前端完全無法讀取或竄改
+--   既有回報，只能新增一筆新的。）
+
+-- ============================================================
 -- Auth: Redirect URLs（Authentication → URL Configuration）
 -- ============================================================
 -- 2026-09-21 收窄過，原本 https://liveradar.github.io/** 太寬（整個網域
