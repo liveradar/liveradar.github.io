@@ -743,14 +743,34 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   const { min, max } = (rawEvent.tickets_raw ?? []).length
     ? priceFromTickets(rawEvent.tickets_raw)
     : parsePriceFromText(rawEvent.price_text_raw ?? "");
-  const { status, on_sale_at: ticketsOnSaleAt } = statusFromTickets(rawEvent.tickets_raw ?? [], dateParsed.date);
-  // statusFromTickets() never actually populates on_sale_at (KKTIX has no
-  // structured "registration opens" field to read it from) — everyone else
-  // can get it from the same freeform text already fetched for price, see
-  // parseOnSaleAt's doc comment. Only worth trying for "announced" (not yet
-  // on sale) events — on_sale_at is only ever displayed as a countdown to a
-  // FUTURE date, so there's nothing to show once tickets are already open.
-  const on_sale_at = ticketsOnSaleAt ?? (status === "announced" ? parseOnSaleAt(rawEvent.price_text_raw ?? "") : null);
+  let { status, on_sale_at } = statusFromTickets(rawEvent.tickets_raw ?? [], dateParsed.date);
+  // 2026-09-22 real bug (Max: "尚未開賣標籤你是不是亂給啊 明明有超多早就已經
+  // 開賣了"): statusFromTickets()'s "announced" branch fires whenever
+  // tickets_raw is empty — but only KKTIX ever populates tickets_raw at all
+  // (FANSI GO/iNDIEVOX/tixcraft/Ticket Plus all pass `[]` unconditionally,
+  // they have no structured open/closed ticket-tier data to scrape). That
+  // made EVERY event from those four sources report "announced" regardless
+  // of whether it's actually on sale — a real gap that sat silent (the only
+  // visible effect used to be a subtle CTA-label difference) until today's
+  // new 尚未開賣 badge made it loudly, visibly wrong on nearly every card.
+  // Fix: for these sources, only trust "announced" when there's POSITIVE
+  // evidence — a parsed on_sale_at date that's genuinely still ahead of
+  // today. No such evidence just means "we don't know the ticket-tier
+  // state", and a listed event with a working ticket link is overwhelmingly
+  // more likely to already be on sale than not — default to that instead.
+  // Scoped to non-KKTIX sources specifically (rather than "any empty
+  // tickets_raw"): a real KKTIX event CAN legitimately have an empty
+  // tickets_raw because its ticket table genuinely isn't published yet, and
+  // that IS trustworthy "announced" evidence for KKTIX — it just isn't for a
+  // source that never had ticket-tier data to begin with.
+  if (status === "announced" && rawEvent.source_name !== "KKTIX") {
+    const parsedOnSaleAt = parseOnSaleAt(rawEvent.price_text_raw ?? "");
+    if (parsedOnSaleAt && parsedOnSaleAt.slice(0, 10) > taiwanTodayDateStr()) {
+      on_sale_at = parsedOnSaleAt;
+    } else {
+      status = "on_sale";
+    }
+  }
   // Union across ALL recognized headliners, not just headliners[0] — a
   // multi-artist bill (common now that artists.yml has ~230 entries) can mix
   // origins, and picking only the first-billed act's origin silently dropped

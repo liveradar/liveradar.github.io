@@ -484,3 +484,31 @@ test("parseOnSaleAt: a no-year date (real tixcraft case, '開放售票：7月22�
 test("parseOnSaleAt: no 開賣/售票/起售 label anywhere returns null", () => {
   assert.equal(parseOnSaleAt("演出時間：2026-12-10（四）\n演出票價：$2,680"), null);
 });
+
+test("normalize() real bug (Max: \"尚未開賣標籤你是不是亂給啊 明明有超多早就已經開賣了\"): a non-KKTIX event (tickets_raw: []) with no future on_sale_at defaults to on_sale, not announced", () => {
+  // FANSI GO/iNDIEVOX/tixcraft/Ticket Plus never populate tickets_raw at
+  // all — statusFromTickets() used to call that "announced" unconditionally,
+  // which the new 尚未開賣 badge (2026-09-22) turned into a loud, visibly
+  // wrong claim on nearly every non-KKTIX card.
+  const raw = makeRaw({ source_name: "iNDIEVOX", tickets_raw: [], price_text_raw: "票價：500 元" });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "on_sale");
+  assert.equal(event.on_sale_at, null);
+});
+
+test("normalize(): a non-KKTIX event with a genuinely future on_sale_at parsed from its price text IS reported as announced", () => {
+  const raw = makeRaw({
+    source_name: "iNDIEVOX",
+    tickets_raw: [],
+    price_text_raw: "售票時間：2099/01/01（一）12:00 開始販售\n票價：500 元",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "announced");
+  assert.equal(event.on_sale_at, "2099-01-01T12:00:00+08:00");
+});
+
+test("normalize(): a genuine KKTIX event with an empty tickets_raw (ticket table not published yet) still reports announced — the non-KKTIX default-to-on_sale override must not swallow KKTIX's real signal", () => {
+  const raw = makeRaw({ source_name: "KKTIX", tickets_raw: [] });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "announced");
+});
