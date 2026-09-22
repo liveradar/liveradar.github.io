@@ -73,7 +73,69 @@ async function fetchListingPage(startDate) {
   return items;
 }
 
-/** Best-effort: pulls "地點｜X" / "地點：X" (fullwidth or ASCII separator, optionally wrapped in one or more tags) out of the detail page's freeform info block. Organizer-authored text, not a strict field — absence just means this event falls back to venues.yml/city:null downstream, same as tixcraft's untracked venues. */
+// 2026-09-22 real bug (Max: "還有很多, 我沒有時間一個一個抓" — this was
+// clearly not a one-off, so fixed the extraction mechanism instead of one
+// event): the old approach only tolerated tags BEFORE the value started
+// (`(?:<[^>]+>\s*)*` prefix, then `[^<\n]{2,N}` demanding unbroken plain text
+// after that). Real organizer text often has tags scattered THROUGHOUT the
+// value too — e.g. EmptyORio's price line (26_iv041598a) is Outlook-paste
+// debris: `票價：<span data-olk-copy-source="MessageBody">家己擔單人</span>
+// <span>預售</span><span>票</span>&nbsp;1000 元 / ...` — every organizer-authored
+// field on this platform is one un-sanitized paste away from this. The old
+// regex's capture group stopped dead at the first `<`, returning just "家己擔
+// 單人" and silently losing every number.
+//
+// First fix attempt (capture up to the next `<br`) was ALSO wrong — audited
+// every one of the 70 known iNDIEVOX events against it and found 3 new
+// regressions: some organizers close each field with `</p><p>` instead of
+// `<br` (26_iv0411494 — no `<br` for paragraphs, capture ran unbounded into
+// the NEXT field and beyond), which produced garbled multi-field blobs, worse
+// than the original bug. Block-level tags (`<p>`/`<div>`/`<li>`, not just
+// `<br>`) are what actually separates one field from the next on this
+// platform — reusing normalize.mjs's htmlToLines() strategy (turn block tags
+// into real line breaks, strip inline tags, keep each field on its own
+// logical line) sidesteps the "how far do I capture" guess entirely.
+//
+// One more real shape found during that same audit (26_iv041871d): a label
+// sometimes sits alone on its own line with nothing after the separator
+// ("票價 :" as its own `<div>`), and the actual values are itemized on the
+// following lines ("預售票 : 450元", "現場票 : 500元") — collect forward until
+// a blank line or another recognized label starts, instead of giving up.
+function htmlToFieldLines(html) {
+  return html
+    .replace(/<(?:br|p|div|li)\b[^>]*>/gi, "\n")
+    .replace(/<\/(?:p|div|li)>/gi, "\n")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/gi, " ")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+const FIELD_LABEL_RE = /^(?:地點|場地|場館|日期|票價|門票|演出者|售票時間|售票平台)/;
+
+function extractLabeledField(html, keywordPattern, maxLen) {
+  const lines = htmlToFieldLines(html);
+  const labelRe = new RegExp(`${keywordPattern}[^｜:：]{0,10}[｜:：]\\s*(.*)$`);
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(labelRe);
+    if (!m) continue;
+    let value = m[1].trim();
+    if (!value) {
+      const extra = [];
+      for (let j = i + 1; j < lines.length && extra.length < 6; j++) {
+        if (FIELD_LABEL_RE.test(lines[j])) break;
+        extra.push(lines[j]);
+      }
+      value = extra.join(" / ");
+    }
+    value = value.slice(0, maxLen).trim();
+    if (value) return value;
+  }
+  return null;
+}
+
+/** Best-effort: pulls "地點｜X" / "地點：X" (fullwidth or ASCII separator) out of the detail page's freeform info block. Organizer-authored text, not a strict field — absence just means this event falls back to venues.yml/city:null downstream, same as tixcraft's untracked venues. */
 // 2026-09-21 real bug: organizers use at least 3 different labels for this
 // field — "地點" (originally the only one handled), "場地" (26_iv0418516:
 // "場地：迴響音樂展演空間"), and "場館" (26_iv04186a4: "場館｜迴響音樂展演空間"
@@ -88,8 +150,7 @@ function parseVenueLine(html) {
   // outright, same as parseDateLine's "日期及時間" fix below — allow a short
   // flexible run of characters (prefix text, whitespace, whatever) between
   // the keyword and the actual separator instead of requiring them adjacent.
-  const m = html.match(/(?:地點|場地|場館)[^｜:：\n]{0,10}[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,60})/);
-  return m ? m[1].trim() : null;
+  return extractLabeledField(html, "(?:地點|場地|場館)", 200);
 }
 
 /**
@@ -111,8 +172,8 @@ function parseVenueLine(html) {
  * the keyword and the separator instead of requiring them adjacent.
  */
 function parseDateLine(html) {
-  const m = html.match(/日期[^｜:：\n]{0,6}[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,80})/);
-  return m && /\d{4}/.test(m[1]) ? m[1].trim() : null;
+  const value = extractLabeledField(html, "日期", 200);
+  return value && /\d{4}/.test(value) ? value : null;
 }
 
 /**
@@ -122,11 +183,7 @@ function parseDateLine(html) {
  * a multi-tier price list runs a lot longer than a venue name.
  */
 function parsePriceLine(html) {
-  // Same flexible-prefix fix as parseVenueLine/parseDateLine — an organizer
-  // writing "活動票價 ｜..." (extra prefix text and/or a space before the
-  // separator) would otherwise match nothing at all.
-  const m = html.match(/票價[^｜:：\n]{0,10}[｜:：]\s*(?:<[^>]+>\s*)*([^<\n]{2,200})/);
-  return m ? m[1].trim() : null;
+  return extractLabeledField(html, "票價", 400);
 }
 
 async function fetchEventDetail(item) {
