@@ -924,6 +924,8 @@ function initSettings() {
   const muteKeywordInput = document.getElementById("mute-keyword-input");
   const refetchBtn = document.getElementById("refetch-btn");
   const refetchStatus = document.getElementById("refetch-status");
+  const reviewQueueLink = document.getElementById("review-queue-link");
+  const hiddenManagementLink = document.getElementById("hidden-management-link");
   const themeButtons = document.querySelectorAll("[data-theme-value]");
 
   // Google's redirectTo always points back at this page (see the click
@@ -1055,6 +1057,15 @@ function initSettings() {
   const isLocalDev = ["localhost", "127.0.0.1"].includes(window.location.hostname);
   if (!isLocalDev) {
     refetchBtn.hidden = true;
+  }
+
+  // 2026-09-22: 「待整理」是給維護者自己看的內部佇列（指派藝人會產生 YAML 片段
+  // 要人工貼進 data/artists.yml，不是使用者操作）——部署版對一般訪客沒有意義，
+  // 同樣只在本機顯示。拿掉後「已隱藏管理」變成清單最後一項，順便拿掉它的
+  // border-bottom，不然會留一條沒有意義的分隔線。
+  if (!isLocalDev) {
+    reviewQueueLink.hidden = true;
+    hiddenManagementLink.style.borderBottom = "none";
   }
   refetchBtn.addEventListener("click", async () => {
     refetchBtn.disabled = true;
