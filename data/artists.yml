@@ -1224,6 +1224,9 @@
 - canonical: 周治平
   aliases: []
   tags_origin_default: 本地  # 台灣資深創作歌手/音樂製作人
+- canonical: Marasy
+  aliases: ["まらしぃ", "幻想遊戲演奏會"]
+  tags_origin_default: 日本  # 日本鋼琴演奏家，名古屋出身，東方Project鋼琴演奏會系列；標題本身沒有藝人名，用系列演出名當別名才吃得到
 
 # 2026-09-23 查證：U-KNOW（東方神起 Yunho 個人企劃）——這次待整理清單裡的
 # 場次（u-know-hk-2026）實際是香港站，查證後應該被地區過濾擋掉而不是留著
