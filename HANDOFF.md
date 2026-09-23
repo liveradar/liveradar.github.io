@@ -6,7 +6,7 @@
 
 個人用的獨立/地下音樂演出雷達。**完整需求**看 [`LIVERADAR-SRS.md`](./LIVERADAR-SRS.md)，**技術架構與所有踩過的坑**看 [`LIVERADAR-SPEC.md`](./LIVERADAR-SPEC.md)——這兩份是唯一該信任的來源，這份 HANDOFF 只是導覽，內容有衝突以那兩份為準。
 
-## 現在的狀態：M1~M12 全部完成，都在瀏覽器裡實測過，不是只寫完沒測（一個例外見下方 M9 那一列）；抓取一律手動觸發（決策 S5，沒有自動排程），五個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus，Max 要求的完整清單）都在運作，覆蓋率抽樣 51.7%，離 80% 目標更近了但還沒到
+## 現在的狀態：M1~M12 全部完成，都在瀏覽器裡實測過，不是只寫完沒測（一個例外見下方 M9 那一列）；抓取不走 GitHub Actions（決策 S5），改由上班電腦的 Claude 排程任務每天自動跑（2026-09-21 起，見「你打開這個 repo 應該先做的事」），五個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus，Max 要求的完整清單）都在運作，覆蓋率抽樣 51.7%，離 80% 目標更近了但還沒到
 
 | 里程碑 | 內容 | 狀態 |
 |---|---|---|
@@ -45,9 +45,9 @@ npm run fetch          # 會打真的 KKTIX / 拓元網站，跑完會覆寫 dat
 npm test                # 跑全部單元測試（見下方「測試怎麼跑」）
 ```
 
-⚠️ **`npm run fetch` 目前一定會讓 `data/events.json` 變回空的**——不是 bug，是因為 `data/artists.yml` 現在只有兩筆示範資料（深海系樂團、ABC Band），跟真實抓到的樂團名字對不上，所有場次都會被歸類到「待整理」而不是正式清單。如果你想在畫面上看到真的資料流動，兩個選項：
-1. 打開 `data/needs-review.json` 看看今天抓到哪些真實藝人，挑幾個手動加進 `data/artists.yml`，再跑一次 `npm run fetch`。
-2. 或直接把假資料寫進 `data/events.json` 測 UI（我在做 M4/M5 時就是這樣測的，格式照抄現有的 `events` 陣列結構就好，測完記得換回 `npm run fetch` 產生的真資料，不要把假資料 commit 上去）。
+`npm run fetch` 會打五個平台的真實網站，一輪大約 30-40 分鐘（KKTIX 分類掃描加上庫存查詢佔了大部分時間，見文件尾端「抓取速度分析」），跑完覆寫 `data/*.json`。`data/artists.yml` 已經有 400 多筆真實藝人；辨識不到藝人的場次一樣會上架（D15 reversal），只是會列進 `data/needs-review.json` 等待查證補登記。（2026-09-23 更正：這裡原本寫「`artists.yml` 只有兩筆示範資料，fetch 完 `events.json` 一定是空的」，那是專案最早期的狀況，早就不成立了。）
+
+**上班電腦**（`/Users/megamount/Documents/personal/liveradar`）有 Claude 排程任務 `liveradar-daily-fetch`，每天約上午 10:00 自動 `git pull` → `npm ci` → `node scripts/fetch.mjs` → `npm test` → 測試通過才 commit + push。那台的環境（相依套件、Chromium）都已經裝好，也實際跑過。要手動多跑一次的話，直接 `npm run fetch` 就好。
 
 ## 開發時踩過、別再踩一次的坑
 
@@ -653,7 +653,7 @@ Max 這次回報三個真實問題，都追到根因修好：
 
 ### 📌 交接任務：下一次在上班電腦跑完抓取後，由那台的 session 做統計分析
 
-Max 會在上班電腦跑下一次抓取（排程或手動都可以）。**統計分析就在那台做**，不用回 Mac。那台這次的 IP 沒有被今天的反覆重跑影響，所以數字剛好代表「正常一天跑一次」的真實情況，可以拿來跟今天比。
+Max 會在上班電腦跑下一次抓取：等每天約 10:00 的 `liveradar-daily-fetch` 排程自動跑，或手動 `npm run fetch` 都可以。**統計分析就在那台做**，不用回 Mac。排程本身只負責抓取跟 commit，不會自動做下面的分析，要 Max 在那台另外開一個 session，說「讀 HANDOFF.md，做交接任務」。那台這次的 IP 沒有被今天的反覆重跑影響，所以數字剛好代表「正常一天跑一次」的真實情況，可以拿來跟今天比。
 
 1. **讀數字**：`data/sources.json` → `name: "KKTIX"` 的 `stats.register_info`。那台本機的 `fetch-progress.log` 也有每一次查詢的細節（這個檔案不進 git，只有跑的那台看得到）。如果沒有 `stats` 欄位，代表那次跑的還是舊版程式碼，先確認有沒有 `git pull` 到 commit `1aeb012` 以後的版本。
 2. **算三個比例**（分母都是 `checked`）：
