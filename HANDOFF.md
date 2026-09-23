@@ -587,4 +587,26 @@ Max 看完上面三個回報的修法後回饋三點，核心是同一個問題�
 
 **還沒解決、誠實記錄的殘留缺口（27 筆）**：一部分是本節修好的地理過濾/日期樣式沒能涵蓋到的個案（例如某些香港場地名稱還沒進 `OUTSIDE_TAIWAN_VENUE_RE`，或日期文字格式還有沒見過的寫法），另一部分是身分/來源地真的需要開頁面查證但這次沒時間逐一確認的藝人（Cello In Between 的演奏者是誰、晚安莉莉這場到底在不在台灣、Ponpon/MISTERK/HITORI-ESCAPE 的正確身分等）——這些寧可留在待整理清單裡誠實承認「還沒查證」，也不要用標題猜一個可能錯的身分或地區標籤硬塞進 `artists.yml`。
 
+## 首頁介紹卡改成彈出視窗、日韓分類拆成日本／韓國（2026-09-23）
+
+**首頁介紹卡改彈出視窗**：Max 貼了介紹卡的截圖，指出常駐在頁首的說明卡「應該可以在新增回報機制的說明，但我覺得他會變得有點長所以我想改成彈出視窗」。先把機制說明講清楚讓 Max 確認過（觸發方式選項用 `AskUserQuestion` 問，Max 選了「常駐 ⓘ 圖示按鈕」而不是把說明塞進其他選單裡），才動手做：`index.html` 拿掉整塊可關閉的 `#intro-card`，改成 `.topbar` 裡搜尋按鈕旁邊加一顆 `#intro-info-btn`（ⓘ 圖示），點了開 `openIntroDialog()`（`src/interactions.js` 新函式，跟其他說明性彈窗一樣是 `.dialog-box` 樣式，不是 `.sheet`）。內容比原本的卡片多兩行，把這個 session 新增的兩個功能也一併寫進說明：「🚩 場次資訊有誤？卡片的 ✕ 選單裡可以直接回報。」「🔔 尚未開賣的場次可以加入行事曆，開賣前會提醒你。」`state.js` 的 `loadIntroDismissed`/`dismissIntro`（原本用來記「使用者關掉過卡片」的 localStorage 邏輯）整段刪掉——彈出視窗本來就不需要「記得使用者關過」這件事，每次點 ⓘ 才會跳出來。
+
+**日韓分類拆成日本／韓國**：Max 要求「日韓分類可以分開成日本韓國兩個類別」。查證方式先問過 Max（三個選項：憑既有知識直接分、逐筆開票券頁/搜尋查證、混合），Max 明確選了**逐筆開票券頁/搜尋查證（推薦，最準確）**、不要用既有知識猜——`data/artists.yml` 裡標 `日韓` 的有 105 筆，**逐一**用 WebSearch 查證每個藝人的真實國籍/出身，不是照名字或團名的既有印象分類。
+
+查證結果：66 筆歸日本、35 筆歸韓國，**過程中順便抓到 4 個原本被 `日韓` 這個合併分類掩蓋掉的真實資料錯誤**（這正是 Max 之前對「銷售截止」白名單那次回饋點出的同一種問題——分類粗糙會讓底下的錯誤沒人發現）：
+
+- **W!nky 被誤標成日韓，實際是台灣選秀節目（宇宙少女應援團）出身的 9 人女團** → 修正成 `本地`。
+- **JUST YOU & WIN 被誤標成日韓，「WIN」其實是泰國演員 Win Metawin（薇恩）** → 修正成 `亞洲其他`。
+- **HANAZAWA KANA（花澤香菜）跟 LEE MINHYUK 各自有兩筆重複的 `artists.yml` 條目**（應該是不同批次補藝人時沒檢查已存在條目造成的），逐一比對後合併，保留有 alias 的那筆、刪掉沒有 alias 的重複筆。
+
+修正過程用暫時腳本 `scripts/_split-origin.mjs`（跑完即刪除，不留在 repo 裡）批次改寫 `tags_origin_default`，過程中三次漏查（先是 3 筆條目因為 canonical 那行帶了行內註解導致正則沒吃到、後來發現 9 筆條目其實已經有查證註解但還沒改值、最後又漏了 5 筆完全沒被納入查證清單）——每次都是靠 `grep -B2 "tags_origin_default: 日韓"` 重新掃一次抓出遺漏，不是查完一輪就假設做完了。最終確認 0 筆殘留 `日韓`。
+
+**踩到跟先前 Chevon/岡崎體育同一個雷：增量抓取的 `reuse_previous` 機制**——`data/artists.yml` 改完後直接跑 `npm run fetch` 是沒用的，因為現有 358 場正式場次全部已經是「已知」場次，`reuse_previous: true` 會直接沿用舊的 `tags_origin`，不會重新跑 `normalize()`。寫了暫時腳本 `scripts/_recompute-origins.mjs`（同樣跑完即刪除），直接對 `data/events.json` 每一筆已知場次重算 `tags_origin`（邏輯跟 `normalize.mjs` 的「聯集所有已辨識演出者的 `tags_origin_default`」完全一致，不是另外寫一套），跑完顯示「recomputed tags_origin for 116 of 359 event(s)」。
+
+**順便清掉一批被同一種增量快取機制放過的舊資料**：瀏覽器裡人工檢查時發現有 5 場已經快取的 KKTIX 場次場地在香港（麥花臣場館、AXA安盛創夢館等），這是因為這幾筆是在這個 session 稍早新增 `isOutsideTaiwanVenue()` 地理過濾**之前**就已經抓進來的舊資料，同樣不會被增量抓取自動重新過濾掉。寫了另一個暫時腳本 `scripts/_remove-outside-taiwan.mjs`（跑完即刪除）直接比對現有的 `OUTSIDE_TAIWAN_VENUE_RE` 從 `events.json` 移除這 5 筆（Yuki Kajiura in Hong Kong、YUURI IN HONG KONG、5 Seconds of Summer Live in Hong Kong、U-KNOW PROJECT in HONG KONG、Simple Plan Live in Hong Kong）。**這是一個值得記住的通用模式**：任何時候修改 `artists.yml` 的分類邏輯或新增/調整排除規則，都要記得增量抓取的「已知場次不會重新 normalize」這個特性會讓舊資料卡住不會自動套用新規則，需要額外一個直接патch `events.json` 的腳本，不能只靠重跑 `npm run fetch`。
+
+**其他程式碼改動**：`src/app.js` 的 `ORIGIN_DISPLAY_ORDER` 從 `[本地, 日韓, 歐美, 亞洲其他]` 改成 `[本地, 日本, 韓國, 歐美, 亞洲其他]`；`add.html` 的手動新增場次表單「來源地」chip 群組同步更新（順便修掉一個更早以前就存在、這次才發現的舊 bug：清單裡還留著改名前的舊字「海外」，這次一起換成「亞洲其他」）；`src/interactions.js` 的 `openAssignArtistDialog()` 指派來源地下拉選單同步更新；`src/filter.test.js` 的測試 fixture 把 `"日韓"` 改成 `"韓國"`（原本測試變數命名就叫 `kpop`，改完更貼合語意）。
+
+**驗證方式**：`npm test` 147 個全過；瀏覽器裡開發伺服器實測，`get_page_text` 確認畫面上多筆真實場次（TREASURE→韓國、藤井風→日本、BTS→韓國）標籤正確，篩選 chip 的 bottom sheet 正確列出「全部地區／本地／日本／韓國／歐美／亞洲其他」五個選項；確認 console 無錯誤。
+
 `npm test` 147 個全過（新增 6 個：`SOLD_OUT_TEXT_RE` 語意化樣式 2 個、`isOutsideTaiwanVenue` 地理過濾 2 個、噪音關鍵字批次 1 個）。`npm run fetch` 這次分三輪驗證（地理過濾/日期樣式修好 → 加確認的藝人 → 最終日期樣式再擴充），最終 358 場正式場次、27 筆待整理。

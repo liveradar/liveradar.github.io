@@ -146,7 +146,11 @@ const PRICE_PRESETS = [500, 1000, 2000, 3000];
 // Fixed display order, same spirit as CITY_DISPLAY_ORDER above — not every
 // value necessarily exists in the current data, filtered down per-call.
 const TYPE_DISPLAY_ORDER = ["專場", "拼盤", "音樂祭", "見面會", "簽唱會", "音樂劇", "巡迴", "古典"];
-const ORIGIN_DISPLAY_ORDER = ["本地", "日韓", "歐美", "亞洲其他"];
+// 2026-09-23 (Max: "日韓分類可以分開成日本韓國兩個類別"): 日韓 split into 日本/
+// 韓國 — every artists.yml entry that was tagged 日韓 got individually
+// reclassified (WebSearch-verified per artist, see HANDOFF.md), not just a
+// find-and-replace on the category label.
+const ORIGIN_DISPLAY_ORDER = ["本地", "日本", "韓國", "歐美", "亞洲其他"];
 
 // Options are built from upcoming events only — an already-ended event's
 // month/city would otherwise show up as a selectable chip option that's

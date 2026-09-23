@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T16:38:36.684Z",
+  "generated_at": "2026-09-23T01:51:37.144Z",
   "events": [
     {
       "title_raw": "音羽-otoha- OUR PLANET additional in TAIPEI",
@@ -22,7 +22,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://emergelivehouse2.kktix.cc/events/e6fa4076",
@@ -61,7 +61,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://emergelivehouse2.kktix.cc/events/uhdry",
@@ -139,7 +139,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://youngteam.kktix.cc/events/silicagel26",
@@ -216,9 +216,7 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [
-        "日韓"
-      ],
+      "tags_origin": [],
       "is_lottery": false,
       "ticket_url": "https://welcome-music.kktix.cc/events/0bc26b19",
       "first_seen_at": "2026-09-22T06:17:14.690Z",
@@ -255,9 +253,7 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [
-        "日韓"
-      ],
+      "tags_origin": [],
       "is_lottery": false,
       "ticket_url": "https://welcome-music.kktix.cc/events/11da7a3a",
       "first_seen_at": "2026-09-22T06:17:14.691Z",
@@ -295,7 +291,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ldh.kktix.cc/events/therampage-live-2026-3",
@@ -306,6 +302,11 @@
           "name": "KKTIX",
           "url": "https://ldh.kktix.cc/events/therampage-live-2026-3",
           "raw_id": "therampage-live-2026-3"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://ldh.kktix.cc/events/therampage-live-2026-1",
+          "raw_id": "therampage-live-2026-1"
         }
       ],
       "id": "9bef0b055525cadf",
@@ -412,7 +413,7 @@
         "見面會"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/p8130587",
@@ -451,7 +452,7 @@
         "見面會"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/d8a6cdd1",
@@ -462,6 +463,16 @@
           "name": "KKTIX",
           "url": "https://atc-twn.kktix.cc/events/d8a6cdd1",
           "raw_id": "d8a6cdd1"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://atc-twn.kktix.cc/events/35d9126d",
+          "raw_id": "35d9126d"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://atc-twn.kktix.cc/events/35d9126d",
+          "raw_id": "35d9126d"
         }
       ],
       "id": "9fccb6d6649feba6-day",
@@ -490,7 +501,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://oaklight.kktix.cc/events/b3abaace",
@@ -501,6 +512,11 @@
           "name": "KKTIX",
           "url": "https://oaklight.kktix.cc/events/b3abaace",
           "raw_id": "b3abaace"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://oaklight.kktix.cc/events/a3f1475d",
+          "raw_id": "a3f1475d"
         }
       ],
       "id": "b3da7f13f4ef7099",
@@ -529,7 +545,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://oaklight.kktix.cc/events/d870e7c6",
@@ -540,6 +556,11 @@
           "name": "KKTIX",
           "url": "https://oaklight.kktix.cc/events/d870e7c6",
           "raw_id": "d870e7c6"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://oaklight.kktix.cc/events/cf5fc638",
+          "raw_id": "cf5fc638"
         }
       ],
       "id": "8bc06b8977845e38",
@@ -568,7 +589,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/427dbf2a",
@@ -579,6 +600,11 @@
           "name": "KKTIX",
           "url": "https://atc-twn.kktix.cc/events/427dbf2a",
           "raw_id": "427dbf2a"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://atc-twn.kktix.cc/events/acc67277",
+          "raw_id": "acc67277"
         }
       ],
       "id": "1097cd8282efa3c0-day",
@@ -607,7 +633,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/c09dd1b0",
@@ -646,7 +672,7 @@
         "見面會"
       ],
       "tags_origin": [
-        "日韓"
+        "本地"
       ],
       "is_lottery": false,
       "ticket_url": "https://topgenius.kktix.cc/events/wh5y8htr",
@@ -685,7 +711,7 @@
         "見面會"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/jrsfeb02",
@@ -724,7 +750,7 @@
         "見面會"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/jrsfeb01",
@@ -735,6 +761,11 @@
           "name": "KKTIX",
           "url": "https://atc-twn.kktix.cc/events/jrsfeb01",
           "raw_id": "jrsfeb01"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://atc-twn.kktix.cc/events/jrsfe",
+          "raw_id": "jrsfe"
         }
       ],
       "id": "616834bfe09e1bd3-day",
@@ -763,7 +794,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/2ccc2740",
@@ -802,7 +833,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/f4841443",
@@ -841,7 +872,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://youngteam.kktix.cc/events/snowdrop",
@@ -880,7 +911,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://youngteam.kktix.cc/events/agefactory26",
@@ -930,6 +961,16 @@
           "name": "KKTIX",
           "url": "https://theflabbergast.kktix.cc/events/135e6dc7",
           "raw_id": "135e6dc7"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://theflabbergast.kktix.cc/events/78746040",
+          "raw_id": "78746040"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://theflabbergast.kktix.cc/events/e6e3122b",
+          "raw_id": "e6e3122b"
         }
       ],
       "id": "b8547085165f3566",
@@ -997,7 +1038,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://chau-chau.kktix.cc/events/92914-2026",
@@ -1036,7 +1077,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://offtimemusic.kktix.cc/events/omoinotake2026",
@@ -1125,11 +1166,6 @@
           "name": "KKTIX",
           "url": "https://spaceport.kktix.cc/events/jonyj-2",
           "raw_id": "jonyj-2"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://spaceport.kktix.cc/events/jonyj-1",
-          "raw_id": "jonyj-1"
         }
       ],
       "id": "e06d3ec7ad10b0c2",
@@ -1158,7 +1194,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://freeplanetml.kktix.cc/events/takasetoya202611-3",
@@ -1236,7 +1272,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://freeplanetml.kktix.cc/events/takasetoya202611-1",
@@ -1275,7 +1311,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://msg.kktix.cc/events/comicbookep0",
@@ -1353,7 +1389,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://romanticoffice.kktix.cc/events/poisongirlfriend",
@@ -1550,7 +1586,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://romanticoffice.kktix.cc/events/mononoaware2027",
@@ -1589,7 +1625,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://offtimemusic.kktix.cc/events/7co2026",
@@ -1628,7 +1664,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://youngteam.kktix.cc/events/yosea",
@@ -1862,7 +1898,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://baodaorecords.kktix.cc/events/7d4a9a50",
@@ -1901,7 +1937,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://baodaorecords.kktix.cc/events/58eae147",
@@ -1979,7 +2015,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://deaftouch.kktix.cc/events/schizophragm26",
@@ -2149,8 +2185,8 @@
         },
         {
           "name": "KKTIX",
-          "url": "https://kklivetw.kktix.cc/events/3f23d28a",
-          "raw_id": "3f23d28a"
+          "url": "https://kklivetw.kktix.cc/events/d349797f",
+          "raw_id": "d349797f"
         }
       ],
       "id": "3887c3cbf50aa4c1",
@@ -2179,7 +2215,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://kklivetw.kktix.cc/events/34473ba4",
@@ -2229,6 +2265,11 @@
           "name": "KKTIX",
           "url": "https://kklivetw.kktix.cc/events/7ed8da97",
           "raw_id": "7ed8da97"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://kklivetw.kktix.cc/events/476bcfdb",
+          "raw_id": "476bcfdb"
         }
       ],
       "id": "e9b4496a84ba4bb5",
@@ -2296,7 +2337,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/5c93827f",
@@ -2335,7 +2376,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/0b8a45ac",
@@ -2374,7 +2415,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/jfdfrt8",
@@ -2385,6 +2426,11 @@
           "name": "KKTIX",
           "url": "https://atc-twn.kktix.cc/events/jfdfrt8",
           "raw_id": "jfdfrt8"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://atc-twn.kktix.cc/events/aikorf",
+          "raw_id": "aikorf"
         }
       ],
       "id": "8e5fcace2a2167b0-day",
@@ -2413,7 +2459,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://atc-twn.kktix.cc/events/rfrgo6",
@@ -2642,123 +2688,6 @@
       ]
     },
     {
-      "title_raw": "Yuki Kajiura LIVE vol.#22 ~precious pieces~ in Hong Kong —SPECIAL SETLIST—",
-      "headliners": [
-        "梶浦由記"
-      ],
-      "lineup": [
-        "梶浦由記"
-      ],
-      "is_festival": false,
-      "venue": "麥花臣場館",
-      "city": "未知",
-      "date": "2026-11-15",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 1212,
-      "price_max": 1612,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "日韓"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://edproduction.kktix.cc/events/yuki-kajiura-hk-2026",
-      "first_seen_at": "2026-09-22T16:08:18.606Z",
-      "updated_at": "2026-09-22T16:08:18.606Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://edproduction.kktix.cc/events/yuki-kajiura-hk-2026",
-          "raw_id": "yuki-kajiura-hk-2026"
-        }
-      ],
-      "id": "791a46586dc033ca",
-      "merged_ids": [
-        "791a46586dc033ca"
-      ]
-    },
-    {
-      "title_raw": "YUURI LIVE 2026 IN HONG KONG",
-      "headliners": [
-        "YUURI"
-      ],
-      "lineup": [
-        "YUURI"
-      ],
-      "is_festival": false,
-      "venue": "亞洲國際博覽館 10號展館",
-      "city": "未知",
-      "date": "2026-11-27",
-      "time": "20:00",
-      "on_sale_at": null,
-      "price_min": 980,
-      "price_max": 1680,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "日韓"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://asiaworld-expo.kktix.cc/events/yuurihk2026",
-      "first_seen_at": "2026-09-22T16:08:18.606Z",
-      "updated_at": "2026-09-22T16:08:18.606Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://asiaworld-expo.kktix.cc/events/yuurihk2026",
-          "raw_id": "yuurihk2026"
-        }
-      ],
-      "id": "c02a56bb19b1fc08",
-      "merged_ids": [
-        "c02a56bb19b1fc08"
-      ]
-    },
-    {
-      "title_raw": "5 Seconds of Summer: EVERYONE'S A STAR! World Tour 2026 - Live in Hong Kong",
-      "headliners": [
-        "5 SECONDS OF SUMMER"
-      ],
-      "lineup": [
-        "5 SECONDS OF SUMMER"
-      ],
-      "is_festival": false,
-      "venue": "AXA WONDERLAND, WestK",
-      "city": "未知",
-      "date": "2026-11-27",
-      "time": "20:00",
-      "on_sale_at": null,
-      "price_min": 810,
-      "price_max": 2138,
-      "status": "on_sale",
-      "tags_type": [
-        "巡迴"
-      ],
-      "tags_origin": [
-        "歐美"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://tix-get-go.kktix.cc/events/5sos-hk-2026",
-      "first_seen_at": "2026-09-22T16:08:18.607Z",
-      "updated_at": "2026-09-22T16:08:18.607Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://tix-get-go.kktix.cc/events/5sos-hk-2026",
-          "raw_id": "5sos-hk-2026"
-        }
-      ],
-      "id": "5d24b54bcf0aac73",
-      "merged_ids": [
-        "5d24b54bcf0aac73"
-      ]
-    },
-    {
       "title_raw": "MONO NO AWARE PASSION TOUR 2027 in Kaohsiung",
       "headliners": [
         "MONO NO AWARE"
@@ -2779,7 +2708,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://romanticoffice.kktix.cc/events/mononoawarektown",
@@ -3331,7 +3260,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://kuroko.kktix.cc/events/fa21c1d2",
@@ -3838,7 +3767,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://piaxstudioco.kktix.cc/events/benirestart1",
@@ -3877,7 +3806,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://piaxstudioco.kktix.cc/events/benirestart2",
@@ -4111,7 +4040,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://jackartzone.kktix.cc/events/hytes2ndintaipei2026",
@@ -4189,10 +4118,12 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ldh.kktix.cc/events/fantastics-live-2026-2",
+      "first_seen_at": "2026-09-22T06:17:14.691Z",
+      "updated_at": "2026-09-22T16:38:36.683Z",
       "sources": [
         {
           "name": "KKTIX",
@@ -4200,15 +4131,9 @@
           "raw_id": "fantastics-live-2026-2"
         }
       ],
-      "first_seen_at": "2026-09-22T06:17:14.691Z",
-      "updated_at": "2026-09-22T16:38:36.683Z",
       "id": "f5980594fdd14fda",
       "merged_ids": [
         "f5980594fdd14fda"
-      ],
-      "updated_fields": [
-        "price_min",
-        "price_max"
       ]
     },
     {
@@ -4236,6 +4161,8 @@
       ],
       "is_lottery": false,
       "ticket_url": "https://nicetoseeyou.kktix.cc/events/48d24194",
+      "first_seen_at": "2026-09-22T16:38:36.674Z",
+      "updated_at": "2026-09-22T16:38:36.674Z",
       "sources": [
         {
           "name": "KKTIX",
@@ -4243,8 +4170,6 @@
           "raw_id": "48d24194"
         }
       ],
-      "first_seen_at": "2026-09-22T16:38:36.674Z",
-      "updated_at": "2026-09-22T16:38:36.674Z",
       "id": "45127d2bcf8edefa",
       "merged_ids": [
         "45127d2bcf8edefa"
@@ -4271,10 +4196,12 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://oaklight.kktix.cc/events/d0e16889",
+      "first_seen_at": "2026-09-22T16:38:36.675Z",
+      "updated_at": "2026-09-22T16:38:36.675Z",
       "sources": [
         {
           "name": "KKTIX",
@@ -4282,11 +4209,48 @@
           "raw_id": "d0e16889"
         }
       ],
-      "first_seen_at": "2026-09-22T16:38:36.675Z",
-      "updated_at": "2026-09-22T16:38:36.675Z",
       "id": "d57a73fbe641a2a0",
       "merged_ids": [
         "d57a73fbe641a2a0"
+      ]
+    },
+    {
+      "title_raw": "HANAZAWA KANA LIVE 2026 KANAMEGURI in TAIPEI",
+      "headliners": [
+        "花澤香菜"
+      ],
+      "lineup": [
+        "花澤香菜"
+      ],
+      "is_festival": false,
+      "venue": "Legacy Taipei",
+      "city": "台北",
+      "date": "2026-09-26",
+      "time": null,
+      "on_sale_at": null,
+      "price_min": null,
+      "price_max": null,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "日本"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://welcome-music.kktix.cc/events/e6d90f77",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://welcome-music.kktix.cc/events/e6d90f77",
+          "raw_id": "e6d90f77"
+        }
+      ],
+      "first_seen_at": "2026-09-23T01:51:37.136Z",
+      "updated_at": "2026-09-23T01:51:37.136Z",
+      "id": "ca414f99a3edbd63",
+      "merged_ids": [
+        "ca414f99a3edbd63"
       ]
     },
     {
@@ -4353,39 +4317,6 @@
       "id": "ff146e5da4fd6262",
       "merged_ids": [
         "ff146e5da4fd6262"
-      ]
-    },
-    {
-      "title_raw": "U-KNOW PROJECT 26 : SCENE#1 in HONG KONG",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "AXA安盛創夢館",
-      "city": "未知",
-      "date": "2026-09-26",
-      "time": "19:00",
-      "on_sale_at": null,
-      "price_min": 999,
-      "price_max": 1799,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://tix-get-go.kktix.cc/events/u-know-hk-2026",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://tix-get-go.kktix.cc/events/u-know-hk-2026",
-          "raw_id": "u-know-hk-2026"
-        }
-      ],
-      "first_seen_at": "2026-09-22T16:08:18.591Z",
-      "updated_at": "2026-09-22T16:08:18.591Z",
-      "id": "2a4cdf36bec96bce",
-      "merged_ids": [
-        "2a4cdf36bec96bce"
       ]
     },
     {
@@ -4719,39 +4650,6 @@
       ]
     },
     {
-      "title_raw": "Simple Plan - The Bigger Than You Think! Tour - Live in Hong Kong",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "AXA WONDERLAND, WestK",
-      "city": "未知",
-      "date": "2026-12-01",
-      "time": "20:30",
-      "on_sale_at": null,
-      "price_min": 829,
-      "price_max": 1029,
-      "status": "on_sale",
-      "tags_type": [
-        "巡迴"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://tix-get-go.kktix.cc/events/simpleplan-hk-2026",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://tix-get-go.kktix.cc/events/simpleplan-hk-2026",
-          "raw_id": "simpleplan-hk-2026"
-        }
-      ],
-      "first_seen_at": "2026-09-22T16:08:18.607Z",
-      "updated_at": "2026-09-22T16:08:18.607Z",
-      "id": "d14e38fd50f53894",
-      "merged_ids": [
-        "d14e38fd50f53894"
-      ]
-    },
-    {
       "title_raw": "魯特琴與歌曲，紀念道蘭逝世400週年",
       "headliners": [],
       "lineup": [],
@@ -5027,7 +4925,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/27_bnd",
@@ -5107,7 +5005,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_straykids",
@@ -5421,7 +5319,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_youngk",
@@ -5471,6 +5369,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_joji_c",
           "raw_id": "26_joji_c"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_joji",
+          "raw_id": "26_joji"
         }
       ],
       "id": "d6d6df06cec0348f",
@@ -5510,6 +5413,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_5sos",
           "raw_id": "26_5sos"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_5sos_v",
+          "raw_id": "26_5sos_v"
         }
       ],
       "id": "fa77bc12d592c9b8",
@@ -5538,7 +5446,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_wte_v",
@@ -5549,6 +5457,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_wte_v",
           "raw_id": "26_wte_v"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_wte",
+          "raw_id": "26_wte"
         }
       ],
       "id": "fa004027fb7565ae",
@@ -5616,7 +5529,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_btskns",
@@ -5666,6 +5579,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_bini_v",
           "raw_id": "26_bini_v"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_bini",
+          "raw_id": "26_bini"
         }
       ],
       "id": "7bdb29cc34c278be",
@@ -5694,7 +5612,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_lsf",
@@ -5850,7 +5768,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_kimjiwon",
@@ -5889,7 +5807,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_82major",
@@ -5939,6 +5857,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_vashhsu",
           "raw_id": "26_vashhsu"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_vashhsu_v",
+          "raw_id": "26_vashhsu_v"
         }
       ],
       "id": "afa14a26670acd07",
@@ -5967,7 +5890,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_sojisub",
@@ -6084,7 +6007,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_twskh",
@@ -6166,7 +6089,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_plavetp",
@@ -6255,6 +6178,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_cp",
           "raw_id": "26_cp"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_cp_c",
+          "raw_id": "26_cp_c"
         }
       ],
       "id": "22a822cb1593b3a3",
@@ -6322,7 +6250,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_qwer",
@@ -6400,7 +6328,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_izna",
@@ -6478,7 +6406,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_plavekh",
@@ -6556,7 +6484,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_befirst",
@@ -6595,7 +6523,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_fearless",
@@ -6650,6 +6578,16 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_lany",
           "raw_id": "26_lany"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_lany_v",
+          "raw_id": "26_lany_v"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_lany_c",
+          "raw_id": "26_lany_c"
         }
       ],
       "id": "4347b7fe0e4855b3",
@@ -6678,7 +6616,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_dai0920",
@@ -6717,7 +6655,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_youngji",
@@ -6728,6 +6666,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_youngji",
           "raw_id": "26_youngji"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_youngji_c",
+          "raw_id": "26_youngji_c"
         }
       ],
       "id": "2eb80cb276000cf7",
@@ -6767,6 +6710,11 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_malone",
           "raw_id": "26_malone"
+        },
+        {
+          "name": "拓元",
+          "url": "https://tixcraft.com/activity/detail/26_malone_c",
+          "raw_id": "26_malone_c"
         }
       ],
       "id": "334bafb8e4e9734a",
@@ -6795,7 +6743,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_therose",
@@ -7318,7 +7266,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv04161ba",
@@ -7480,7 +7428,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv04209e9",
@@ -7759,7 +7707,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv042050f",
@@ -7837,7 +7785,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv0420335",
@@ -8151,7 +8099,7 @@
         "拼盤"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv0421681",
@@ -8580,7 +8528,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv041703a",
@@ -8736,7 +8684,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv041670e",
@@ -9555,7 +9503,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv04142fd",
@@ -10185,7 +10133,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/750002",
@@ -10224,7 +10172,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/690007",
@@ -10341,7 +10289,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/140016",
@@ -10497,7 +10445,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/970001",
@@ -10536,7 +10484,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/970002",
@@ -10969,7 +10917,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/5ebc3e83590d7e0ce5a100ea97ac5d5e",
@@ -11008,7 +10956,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/5ebc3e83590d7e0ce5a100ea97ac5d5e",
@@ -11359,7 +11307,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/6d2868aeec40f3676950edc8fb70a1f4",
@@ -11398,7 +11346,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/de6f72b0d273639acfae66cf38cbd165",
@@ -11437,7 +11385,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "亞洲其他"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/695ce01b63bf2a2d5f480785665c033f",
@@ -11476,7 +11424,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "亞洲其他"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/993e73c01ab8d4c4380cc62bf1f203fe",
@@ -11634,7 +11582,7 @@
         "拼盤"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/937f68df5d081249eabbb3b07ee2a03d",
@@ -11673,7 +11621,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/017266f1d31197001346497774e29b64",
@@ -11684,6 +11632,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/017266f1d31197001346497774e29b64",
           "raw_id": "017266f1d31197001346497774e29b64_4cd3875aba2365f8e95036b93f8e9306"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/c3dc337da337c035c92bb65268f10986",
+          "raw_id": "c3dc337da337c035c92bb65268f10986_65958c4579118ea187082e582e1b63f6"
         }
       ],
       "id": "a2edf56861473df0",
@@ -11712,7 +11665,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/017266f1d31197001346497774e29b64",
@@ -11723,6 +11676,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/017266f1d31197001346497774e29b64",
           "raw_id": "017266f1d31197001346497774e29b64_6bee681a8d035ccde5696995580aba9f"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/c3dc337da337c035c92bb65268f10986",
+          "raw_id": "c3dc337da337c035c92bb65268f10986_663e87046a34e1cf19cd483a71ebee7c"
         }
       ],
       "id": "e28587fe94ba0355",
@@ -11833,7 +11791,7 @@
         "音樂祭"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/b61bb16ce02e0f41548cd0c0e9ac79f9",
@@ -11872,7 +11830,7 @@
         "音樂祭"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/b61bb16ce02e0f41548cd0c0e9ac79f9",
@@ -11911,7 +11869,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/b4a291097d613c267c068024b59dfb97",
@@ -11950,7 +11908,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/b4a291097d613c267c068024b59dfb97",
@@ -12227,7 +12185,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/641abfeafd8760018e1f02fadcf3d4c0",
@@ -12266,7 +12224,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/05749091d05a5686994c5046f27137e6",
@@ -12305,7 +12263,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/05749091d05a5686994c5046f27137e6",
@@ -12383,7 +12341,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/dfbbddff9cdd97f305c00ad7fbbe9875",
@@ -12461,7 +12419,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/0dcd13114224adf9ff51382e8b535894",
@@ -12500,7 +12458,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/0dcd13114224adf9ff51382e8b535894",
@@ -12578,7 +12536,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/21d3c3504ff522a6732789a46f5796d7",
@@ -12617,7 +12575,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/21d3c3504ff522a6732789a46f5796d7",
@@ -12656,7 +12614,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/21d3c3504ff522a6732789a46f5796d7",
@@ -12812,7 +12770,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/e5baf60463fccb6391ae4dcb2e314978",
@@ -12851,7 +12809,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/999a09ed2fe976ff4872705f746de36a",
@@ -12890,7 +12848,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/4532326416b0ccf5f7e1fbb8769337e7",
@@ -12929,7 +12887,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/4b47b5360d42451f65704664c40b1c72",
@@ -12940,6 +12898,21 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/4b47b5360d42451f65704664c40b1c72",
           "raw_id": "4b47b5360d42451f65704664c40b1c72_8bd271d31324af3a6f908f839b062da4"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/e96255fb45cb9e0611d3f0d87443edd4",
+          "raw_id": "e96255fb45cb9e0611d3f0d87443edd4_c68b6fd5113b6528b2093663b54f12f9"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/da00f569c53db3161de3e89fe125a6c0",
+          "raw_id": "da00f569c53db3161de3e89fe125a6c0_de31512c0ea7f9e87a0cdff373352c06"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/391162b411b775da381cb2635dc7b821",
+          "raw_id": "391162b411b775da381cb2635dc7b821_39f865bf9dfa7e2b89d9a910f043d2c3"
         }
       ],
       "id": "49a758928db5869b",
@@ -12968,7 +12941,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/7acedf4b414903ac17104384cb416849",
@@ -12979,6 +12952,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/7acedf4b414903ac17104384cb416849",
           "raw_id": "7acedf4b414903ac17104384cb416849_c88be5c1c01bf684e9a56b6defcd6e8d"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/133e449ef09df003e3031b684b9e220b",
+          "raw_id": "133e449ef09df003e3031b684b9e220b_f96793c6efd6f85ea3d80ff9925eb16a"
         }
       ],
       "id": "138a1d334220c645",
@@ -13007,7 +12985,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/7acedf4b414903ac17104384cb416849",
@@ -13018,6 +12996,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/7acedf4b414903ac17104384cb416849",
           "raw_id": "7acedf4b414903ac17104384cb416849_2606691b5fcc73c52940bfb047a3d622"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/133e449ef09df003e3031b684b9e220b",
+          "raw_id": "133e449ef09df003e3031b684b9e220b_1bea30873d920876da52c2e759e2993b"
         }
       ],
       "id": "c2134db2f773a83c",
@@ -13046,7 +13029,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/9ad96f595f7a69c462551debfe4f88c0",
@@ -13085,7 +13068,7 @@
         "見面會"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/14b934c1397c1f913aa0f6f005d420ba",
@@ -13124,7 +13107,7 @@
         "見面會"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/14b934c1397c1f913aa0f6f005d420ba",
@@ -13163,7 +13146,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/6bf36c84810b2fbfc9d6bae7908c350c",
@@ -13174,6 +13157,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/6bf36c84810b2fbfc9d6bae7908c350c",
           "raw_id": "6bf36c84810b2fbfc9d6bae7908c350c_46cfd1b76b43b034f8bb9af16b2e9933"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/91f0a4f4836861c6b87d91ef2112cf52",
+          "raw_id": "91f0a4f4836861c6b87d91ef2112cf52_329b7be748a291b552f7e4cb852bc0b0"
         }
       ],
       "id": "1c8a08143b835997",
@@ -13280,7 +13268,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/a56fce0af2da4d41e26b2dfa34b7babc",
@@ -13291,6 +13279,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/a56fce0af2da4d41e26b2dfa34b7babc",
           "raw_id": "a56fce0af2da4d41e26b2dfa34b7babc_08395a17e23d5664ce65fa61aaaba059"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/6c3d8c24e0f00c9c84777615c001bebe",
+          "raw_id": "6c3d8c24e0f00c9c84777615c001bebe_b1e4fa413da5717718d2fbbdf29b4a0e"
         }
       ],
       "id": "cb9ccdeee8db8d07",
@@ -13319,7 +13312,7 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/a56fce0af2da4d41e26b2dfa34b7babc",
@@ -13330,6 +13323,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/a56fce0af2da4d41e26b2dfa34b7babc",
           "raw_id": "a56fce0af2da4d41e26b2dfa34b7babc_debf14611c86559f4c28d8005b063ccf"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/6c3d8c24e0f00c9c84777615c001bebe",
+          "raw_id": "6c3d8c24e0f00c9c84777615c001bebe_96335ac02144ba5591d7d1c1bb57a1f5"
         }
       ],
       "id": "a737c58b8ddd14d0",
@@ -13358,7 +13356,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/2d71c25c10caa0f43c02bd61e1840655",
@@ -13369,6 +13367,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/2d71c25c10caa0f43c02bd61e1840655",
           "raw_id": "2d71c25c10caa0f43c02bd61e1840655_f188efe6d32bbf9abaffef2ac96508a0"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/94cb4c96a0237447b068117608ae96c8",
+          "raw_id": "94cb4c96a0237447b068117608ae96c8_bd94347f0966ebc1310bd519354d1113"
         }
       ],
       "id": "f06377d4777555c4",
@@ -13397,7 +13400,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/2f6431aac30afb722f615b9b95aabb0e",
@@ -13408,6 +13411,16 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/2f6431aac30afb722f615b9b95aabb0e",
           "raw_id": "2f6431aac30afb722f615b9b95aabb0e_13e6b5882dde571ca565921867223617"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/69bc76ae2f280748cd8cd8f7d7444008",
+          "raw_id": "69bc76ae2f280748cd8cd8f7d7444008_53c44e15c26f6c54552dfa9918fa5ae7"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/a22262dab0ab7f83a1f8e9a918bd9eb6",
+          "raw_id": "a22262dab0ab7f83a1f8e9a918bd9eb6_d5cce01fdf654bd24c702eace4d1b024"
         }
       ],
       "id": "01ce898cee66cbc1",
@@ -13436,7 +13449,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/2f6431aac30afb722f615b9b95aabb0e",
@@ -13447,6 +13460,16 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/2f6431aac30afb722f615b9b95aabb0e",
           "raw_id": "2f6431aac30afb722f615b9b95aabb0e_2b20b3f078a21b7d5206f4ee9d32d5da"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/69bc76ae2f280748cd8cd8f7d7444008",
+          "raw_id": "69bc76ae2f280748cd8cd8f7d7444008_8922d4bb11f3a3f81ce7b2281e6da83f"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/a22262dab0ab7f83a1f8e9a918bd9eb6",
+          "raw_id": "a22262dab0ab7f83a1f8e9a918bd9eb6_9f2ad37da5bd95116e3072515f6c0229"
         }
       ],
       "id": "e7b5a9d9af17bab4",
@@ -13638,7 +13661,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/1432a04903bc5a7e5301a524ef9153d1",
@@ -13677,7 +13700,7 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/b767f90ef9f546b3f7eded5755576cd6",
@@ -13716,19 +13739,29 @@
         "專場"
       ],
       "tags_origin": [
-        "日韓"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/9c037e47b58a0963794885ae3a3aa67c",
-      "first_seen_at": "2026-09-22T06:16:44.987Z",
-      "updated_at": "2026-09-22T06:16:44.987Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/9c037e47b58a0963794885ae3a3aa67c",
           "raw_id": "9c037e47b58a0963794885ae3a3aa67c_1decfcf37b777b6761658425ae70f65e"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/9c037e47b58a0963794885ae3a3aa67c",
+          "raw_id": "9c037e47b58a0963794885ae3a3aa67c_978fc9137a3abc0e5da9e93d9e406aa2"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/997ad769741638217f322a1d16744bbc",
+          "raw_id": "997ad769741638217f322a1d16744bbc_9a300457a246928e65eb03f74cdc7576"
         }
       ],
+      "first_seen_at": "2026-09-22T06:16:44.987Z",
+      "updated_at": "2026-09-22T06:16:44.987Z",
       "id": "048be206f0d7b8b4",
       "merged_ids": [
         "048be206f0d7b8b4"
@@ -13759,15 +13792,20 @@
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
-      "first_seen_at": "2026-09-22T06:16:45.002Z",
-      "updated_at": "2026-09-22T06:16:45.002Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
           "raw_id": "c534363deb6aec26e431aba4676ca20c_621b8971b4be8f563d706e8cc11b0774"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
+          "raw_id": "c534363deb6aec26e431aba4676ca20c_21fa35cb39a2c68bde419dcb18835d9f"
         }
       ],
+      "first_seen_at": "2026-09-22T06:16:45.002Z",
+      "updated_at": "2026-09-22T06:16:45.002Z",
       "id": "2954a1988afcde82",
       "merged_ids": [
         "2954a1988afcde82"
@@ -13798,8 +13836,6 @@
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
-      "first_seen_at": "2026-09-22T06:16:45.002Z",
-      "updated_at": "2026-09-22T06:16:45.002Z",
       "sources": [
         {
           "name": "Ticket Plus",
@@ -13807,6 +13843,8 @@
           "raw_id": "c534363deb6aec26e431aba4676ca20c_a91d7c400807437210fa4f8eb9f1db38"
         }
       ],
+      "first_seen_at": "2026-09-22T06:16:45.002Z",
+      "updated_at": "2026-09-22T06:16:45.002Z",
       "id": "202f263d79a982ee",
       "merged_ids": [
         "202f263d79a982ee"
@@ -13833,19 +13871,24 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
-      "first_seen_at": "2026-09-22T06:16:45.006Z",
-      "updated_at": "2026-09-22T06:16:45.006Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
           "raw_id": "39e011c895a371c40416497f696652bd_1db09484a02062eb8098bae389cc045d"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
+          "raw_id": "39e011c895a371c40416497f696652bd_6daa1c48b92b635ccd5eb3a621950580"
         }
       ],
+      "first_seen_at": "2026-09-22T06:16:45.006Z",
+      "updated_at": "2026-09-22T06:16:45.006Z",
       "id": "8da662efe0bb8444",
       "merged_ids": [
         "8da662efe0bb8444"
@@ -13872,19 +13915,24 @@
         "巡迴"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
-      "first_seen_at": "2026-09-22T06:16:45.006Z",
-      "updated_at": "2026-09-22T06:16:45.006Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
           "raw_id": "39e011c895a371c40416497f696652bd_f86c73b679db462dd652afba6e9ea8a6"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
+          "raw_id": "39e011c895a371c40416497f696652bd_c2df611c68f3b496657015098b393b33"
         }
       ],
+      "first_seen_at": "2026-09-22T06:16:45.006Z",
+      "updated_at": "2026-09-22T06:16:45.006Z",
       "id": "b65795c666bc065e",
       "merged_ids": [
         "b65795c666bc065e"
@@ -13913,19 +13961,24 @@
         "拼盤"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
-      "first_seen_at": "2026-09-22T06:16:45.007Z",
-      "updated_at": "2026-09-22T06:16:45.007Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
           "raw_id": "dd245f0210985ec16a62e87212366b38_71ba0272be8d9458e2a129b7288f6fb7"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
+          "raw_id": "dd245f0210985ec16a62e87212366b38_de0f7649827548168e53e1c9e0416204"
         }
       ],
+      "first_seen_at": "2026-09-22T06:16:45.007Z",
+      "updated_at": "2026-09-22T06:16:45.007Z",
       "id": "5af121af4ca5f089",
       "merged_ids": [
         "5af121af4ca5f089"
@@ -13954,12 +14007,10 @@
         "拼盤"
       ],
       "tags_origin": [
-        "日韓"
+        "日本"
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
-      "first_seen_at": "2026-09-22T06:16:45.008Z",
-      "updated_at": "2026-09-22T06:16:45.008Z",
       "sources": [
         {
           "name": "Ticket Plus",
@@ -13967,6 +14018,8 @@
           "raw_id": "dd245f0210985ec16a62e87212366b38_bac5ef491c23b0d41f818f743adfdf9c"
         }
       ],
+      "first_seen_at": "2026-09-22T06:16:45.008Z",
+      "updated_at": "2026-09-22T06:16:45.008Z",
       "id": "ac29eda2fedd4557",
       "merged_ids": [
         "ac29eda2fedd4557"

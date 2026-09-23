@@ -24,17 +24,17 @@
 # 來源地（不是憑標題猜），對應 SUB LIVE/Zepp/野地方涵蓋率修正後新冒出來的名字。
 - canonical: MONO
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: MONO NO AWARE
   # A real, distinct Japanese band whose name happens to start with "MONO"
   # (unrelated to the MONO entry above) — matchArtists() now prefers the
   # longer match when two entries tie on the same starting position, so
   # having both registered is safe (2026-09-21, see normalize.mjs).
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: POiSON GiRL FRiEND
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: TOTORRO
   aliases: []
   tags_origin_default: 歐美
@@ -52,10 +52,10 @@
   tags_origin_default: 亞洲其他
 - canonical: 7co
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Yo-Sea
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 黃莑茗
   aliases: []
   tags_origin_default: 本地
@@ -67,10 +67,10 @@
   tags_origin_default: 本地
 - canonical: 羊文学
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Schizophragm
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: D'MASIV
   # KKTIX's own listing renders this with a curly/smart apostrophe (U+2019 ’),
   # not the straight one (U+0027 ') — looks identical, doesn't string-match.
@@ -81,10 +81,10 @@
   tags_origin_default: 本地
 - canonical: "92914"
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Omoinotake
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Karencici
   aliases: []
   tags_origin_default: 本地
@@ -93,16 +93,16 @@
   tags_origin_default: 亞洲其他
 - canonical: TAKASE TOYA
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 40 Fingers
   aliases: []
   tags_origin_default: 歐美
 - canonical: EIR AOI
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: eldon
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Shye
   aliases: []
   tags_origin_default: 亞洲其他
@@ -123,10 +123,10 @@
   tags_origin_default: 本地
 - canonical: 音羽-otoha-
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：日文姓名讀音（otoha），查證為日本
 - canonical: go!go!vanillas
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 島嶼都市浪漫譚
   aliases: []
   tags_origin_default: 本地
@@ -141,47 +141,40 @@
   tags_origin_default: 本地
 - canonical: Silica Gel
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Age Factory
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Kiefer
   aliases: []
   tags_origin_default: 歐美
 - canonical: THE RAMPAGE
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: FANTASTICS
   aliases: []
-  tags_origin_default: 日韓
-- canonical: HANAZAWA KANA
-  aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 椅子樂團
   aliases: []
   tags_origin_default: 本地
 - canonical: 伊波杏樹
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 小原好美
   aliases: []
-  tags_origin_default: 日韓
-- canonical: LEE MINHYUK
-  aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 工藤晴香
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: W!nky
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 本地  # 2026-09-23 修正：查證後是台灣選秀出身的9人女團，不是日韓（WebSearch）
 - canonical: 伊藤美來
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 玉置成實
   aliases: []
-  tags_origin_default: 日韓
-
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Bruno Mars
   aliases: []
   tags_origin_default: 歐美
@@ -196,7 +189,7 @@
   tags_origin_default: 歐美
 - canonical: BOYNEXTDOOR
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 鼓鼓
   aliases: []
   tags_origin_default: 本地
@@ -205,7 +198,7 @@
   tags_origin_default: 本地
 - canonical: Stray Kids
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Slowdive
   aliases: []
   tags_origin_default: 歐美
@@ -223,7 +216,7 @@
   tags_origin_default: 歐美
 - canonical: AAA 2026
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: DOMi
   aliases: []
   tags_origin_default: 歐美
@@ -232,7 +225,7 @@
   tags_origin_default: 歐美
 - canonical: Young K
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: JOJI
   aliases: []
   tags_origin_default: 歐美
@@ -241,19 +234,19 @@
   tags_origin_default: 歐美
 - canonical: wave to earth
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Malcolm Todd
   aliases: []
   tags_origin_default: 歐美
 - canonical: BTS
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: BINI
   aliases: []
   tags_origin_default: 亞洲其他
 - canonical: LE SSERAFIM
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Juice Boy
   aliases: []
   tags_origin_default: 本地
@@ -262,16 +255,16 @@
   tags_origin_default: 歐美
 - canonical: KIM JI WON
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 82MAJOR
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 徐暐翔
   aliases: []
   tags_origin_default: 本地
 - canonical: SO JI SUB
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 告五人
   aliases: ["Accusefive"]
   tags_origin_default: 本地
@@ -289,10 +282,10 @@
   tags_origin_default: 本地
 - canonical: TWS
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: PLAVE
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Charlie Puth
   aliases: []
   tags_origin_default: 歐美
@@ -301,7 +294,7 @@
   tags_origin_default: 本地
 - canonical: QWER
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 派偉俊
   # "Patrick Brasca" alias removed (2026-09-17 review): it's a case-insensitive
   # substring collision with canonical "ASCA" below ("brASCA" contains "asca"),
@@ -314,28 +307,28 @@
   tags_origin_default: 本地
 - canonical: izna
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Henry Moodie
   aliases: []
   tags_origin_default: 歐美
 - canonical: BE：FIRST
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: LANY
   aliases: []
   tags_origin_default: 歐美
 - canonical: NIEL
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Do As Infinity
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: THE ROSE
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: LEE YOUNGJI
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Post Malone
   aliases: []
   tags_origin_default: 歐美
@@ -347,13 +340,13 @@
   tags_origin_default: 本地
 - canonical: HWANG IN YOUP
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 潘越雲
   aliases: []
   tags_origin_default: 本地
 - canonical: IVE WORLD TOUR  # 不能只用 "IVE"：會是 "LIVE"/"Live"/"live" 任何字串的子字串，測試時抓到 36 個誤判
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：IVE 是 Starship Entertainment 韓國女團，查證為韓國
 - canonical: 蕭景鴻
   aliases: ["Edy Hsiao"]
   tags_origin_default: 本地
@@ -423,7 +416,7 @@
   tags_origin_default: 本地
 - canonical: MONZEN NO KOZO
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Control T
   aliases: []
   tags_origin_default: 本地
@@ -453,10 +446,10 @@
   tags_origin_default: 本地
 - canonical: Parannoul
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Shin Yunsu
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 莊鵑瑛
   aliases: ["小球"]  # ⚠️「小球」是常見詞，只當 alias 沒當 canonical 降低風險
   tags_origin_default: 本地
@@ -474,7 +467,7 @@
   tags_origin_default: 本地
 - canonical: 藥師寺寛邦
   aliases: ["藥師寺寬邦"]
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 黃玠
   aliases: []
   tags_origin_default: 本地
@@ -521,7 +514,7 @@
   # 字元（𝐑𝐔𝐑𝐈𝐊𝐀），跟一般 ASCII "RURIKA" 不是同一個字元序列，比對不到；只留
   # 中文部分反而比較穩，不用去猜對方會用哪種 Unicode 變體（2026-09-18 查證修正）。
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：原始別名 RURIKA 是日文姓名讀音，查證為日本
 
 - canonical: 一點生
   aliases: []
@@ -573,10 +566,10 @@
   tags_origin_default: 歐美
 - canonical: Eddie Marcon
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: THE ORCHESTRA TOKYO
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 逐火
   aliases: []
   tags_origin_default: 本地
@@ -585,13 +578,13 @@
   tags_origin_default: 本地
 - canonical: MASS OF THE FERMENTING DREGS
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Blood As Ink
   aliases: []
   tags_origin_default: 本地
 - canonical: SIGH  # ⚠️ 常見字
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 
 - canonical: 步行者
   aliases: []
@@ -616,7 +609,7 @@
   tags_origin_default: 本地
 - canonical: KNK
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 王立  # ⚠️ 常見姓名
   aliases: []
   tags_origin_default: 本地
@@ -634,28 +627,28 @@
   tags_origin_default: 本地
 - canonical: R1AN
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: JIAHN
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 溫室雜草
   aliases: []
   tags_origin_default: 本地
 - canonical: 梶浦由記
   aliases: ["Yuki Kajiura"]
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：日本知名作曲家，查證為日本
 - canonical: jiMMY CHYN
   aliases: []
   tags_origin_default: 本地
 - canonical: THE SPELLBOUND
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: BOOM BOOM SATELLITES
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: YOASOBI
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 李芳旭
   aliases: []
   tags_origin_default: 本地
@@ -673,10 +666,10 @@
   tags_origin_default: 本地
 - canonical: FNC BAND KINGDOM
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: WHIB
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 魏妙如
   aliases: []
   tags_origin_default: 本地
@@ -697,7 +690,7 @@
   tags_origin_default: 本地
 - canonical: OK TAECYEON
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 呂杰達
   aliases: []
   tags_origin_default: 本地
@@ -718,13 +711,13 @@
   tags_origin_default: 本地
 - canonical: UVERworld
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 風間俊介
   aliases: ["Kazama Shunsuke"]
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: INFINITE
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：Woollim Entertainment 韓國男團，查證為韓國
 - canonical: 李東軒
   aliases: ["Austin Lee"]
   tags_origin_default: 本地
@@ -733,80 +726,80 @@
   tags_origin_default: 歐美
 - canonical: Tiffany Young
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: PREP
   aliases: []
   tags_origin_default: 歐美
 - canonical: Chevon
   aliases: []
-  tags_origin_default: 日韓  # 2026-09-22 修正：查證後是日本札幌發跡的3人組搖滾樂團，不是本地（查證：ticketplus.com.tw/activity/1432a04903bc5a7e5301a524ef9153d1），先前標成本地是誤植
+  tags_origin_default: 日本  # 2026-09-22 修正：查證後是日本札幌發跡的3人組搖滾樂團，不是本地（查證：ticketplus.com.tw/activity/1432a04903bc5a7e5301a524ef9153d1），先前標成本地是誤植
 # 2026-09-22 拿掉 Yoshinani：不是真實演出者，是 Chevon 這次巡迴的企劃/概念
 # 名稱（「Chevon pre.よしなに〜遊牧編〜（Yoshinani〜Nomadic Edition〜）」，
 # pre. 是「presents」的意思，Yoshinani 是巡迴主題不是第二位演出者）。使用者
 # 回報這場被誤標成拼盤（因為假的第二位「演出者」被比對到），真正是專場。
 - canonical: BIGBANG
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: 無妄合作社
   aliases: []
   tags_origin_default: 本地
 - canonical: TREASURE
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: ASCA
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: EMI NODA
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 音田雅則
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: YUURI
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: FLOW
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: TAKUYA KIMURA
   aliases: ["木村拓哉"]
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 志崎樺音
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: CHIAI FUJIKAWA
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: The Omnific
   aliases: []
   tags_origin_default: 本地
 - canonical: 岡崎體育
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: LORNA SHORE
   aliases: []
   tags_origin_default: 歐美
 - canonical: Moi dix Mois
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Kaya  # ⚠️ 常見短字
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Vaundy
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: RUSH BALL
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: FRIENDSHIP.
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: MAHIRU
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Mili
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 高明駿
   aliases: []
   tags_origin_default: 本地
@@ -818,7 +811,7 @@
   tags_origin_default: 本地
 - canonical: JUST YOU & WIN
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 亞洲其他  # 2026-09-23 修正：WIN 是泰國演員 Win Metawin，不是日韓（WebSearch）
 
 # --- 2026-09-18 第二批：對照待整理清單裡「看得出是真的音樂演出，只是還沒被
 # 辨識」的場次逐筆開票券頁查證後補的（不是憑標題猜的）。同時也補了幾個確認
@@ -892,10 +885,10 @@
   tags_origin_default: 本地
 - canonical: 天使シグナル
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 白玖ウタノ
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 鄭小韻
   aliases: []
   tags_origin_default: 本地
@@ -913,7 +906,7 @@
   tags_origin_default: 亞洲其他
 - canonical: MISOGI  # ⚠️ 日文常見詞（禊），查證是日本樂團「真天地開闢集團」的巡迴名稱
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本
 - canonical: The Next Big Thing  # ⚠️ 常見英文詞組
   aliases: []
   tags_origin_default: 本地
@@ -922,7 +915,7 @@
   tags_origin_default: 亞洲其他
 - canonical: PERSONA LIVE TOUR
   aliases: []
-  tags_origin_default: 日韓
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: GMMTV FANDAY
   aliases: []
   tags_origin_default: 亞洲其他
@@ -1003,7 +996,7 @@
   tags_origin_default: 本地  # 查證：indievox.com，《靈魂的回聲》雙專輯巡演
 - canonical: BORIS
   aliases: []
-  tags_origin_default: 日韓  # 日本實驗/重型樂團，《PINK》20週年世界巡迴（查證：go.fansi.me）
+  tags_origin_default: 日本  # 日本實驗/重型樂團，《PINK》20週年世界巡迴（查證：go.fansi.me）
 - canonical: KITA
   aliases: []
   tags_origin_default: 歐美  # 紐西蘭迷幻獨立三人組，主唱 Nikita 雅涵 Tu-Bryant（查證：ticketplus.com.tw）
@@ -1021,44 +1014,44 @@
   tags_origin_default: 本地  # 四分衛主唱，個人彈唱巡迴（查證：kafka.kktix.cc）
 - canonical: Juice=Juice
   aliases: []
-  tags_origin_default: 日韓  # Hello! Project 旗下日本女子偶像團體（查證：welcome-music.kktix.cc）
+  tags_origin_default: 日本  # Hello! Project 旗下日本女子偶像團體（查證：welcome-music.kktix.cc）
 
 # 2026-09-22：新增 kklivetw／atc-twn 兩個 KKTIX 主辦帳號涵蓋範圍後冒出的待整理
 # 清單，逐一查證（使用者回報 KKTIX 漏抓場次，追出這兩個帳號完全沒被收錄）
 - canonical: 藤井風
   aliases: ["Fujii Kaze"]
-  tags_origin_default: 日韓  # 查證：kklivetw.kktix.cc，生涯最大規模世界巡演
+  tags_origin_default: 日本  # 查證：kklivetw.kktix.cc，生涯最大規模世界巡演
 - canonical: 高橋洋子
   aliases: []
-  tags_origin_default: 日韓  # 查證：atc-twn.kktix.cc，2026亞洲巡迴演唱會
+  tags_origin_default: 日本  # 查證：atc-twn.kktix.cc，2026亞洲巡迴演唱會
 - canonical: 滅火器
   aliases: ["Fire EX"]
   tags_origin_default: 本地  # 查證：kklivetw.kktix.cc，ON FIRE DAY 高雄巨蛋演唱會
 - canonical: 山下智久
   aliases: []
-  tags_origin_default: 日韓  # 查證：atc-twn.kktix.cc，2026 巡迴演唱會 DREAMING
+  tags_origin_default: 日本  # 查證：atc-twn.kktix.cc，2026 巡迴演唱會 DREAMING
 - canonical: TayNewPolcasan
   aliases: ["TayNew"]
   tags_origin_default: 亞洲其他  # 查證：kklivetw.kktix.cc，泰國藝人 TayNew 見面會
 - canonical: Fear, and Loathing in Las Vegas
   aliases: []
-  tags_origin_default: 日韓  # 查證：atc-twn.kktix.cc，日本電子核樂團台北演唱會
+  tags_origin_default: 日本  # 查證：atc-twn.kktix.cc，日本電子核樂團台北演唱會
 
 # 2026-09-22：KKTIX 全站音樂類別掃描（Strategy 3）上線後冒出的待整理清單，
 # 逐筆開票券頁查證身分／場地是否在台灣（不是台灣的另外用 venue_raw 過濾掉了，
 # 見 normalize.mjs 的 isOutsideTaiwanVenue）
 - canonical: 花澤香菜
   aliases: ["HANAZAWA KANA"]
-  tags_origin_default: 日韓  # 日本聲優歌手，Legacy Taipei
+  tags_origin_default: 日本  # 日本聲優歌手，Legacy Taipei
 - canonical: LEE MINHYUK
   aliases: ["HUTA", "李旼赫"]
-  tags_origin_default: 日韓  # 韓國團體 MONSTA X 成員個人活動，Clapper Studio
+  tags_origin_default: 韓國  # 韓國團體 MONSTA X 成員個人活動，Clapper Studio
 - canonical: 葛瑞蓋斯
   aliases: ["Gareth Gates"]
   tags_origin_default: 歐美  # 英國歌手，Zepp New Taipei
 - canonical: HYTES
   aliases: []
-  tags_origin_default: 日韓  # 韓國實力派團體，台北專場
+  tags_origin_default: 韓國  # 韓國實力派團體，台北專場
 - canonical: 英格伯漢普汀克
   aliases: ["Engelbert Humperdinck"]
   tags_origin_default: 歐美  # 英國國寶級歌手，TICC台北國際會議中心
@@ -1109,7 +1102,7 @@
   tags_origin_default: 本地  # 鋼琴家，線上獨奏音樂會
 - canonical: 神永大輔
   aliases: []
-  tags_origin_default: 日韓  # 日本音樂人，遊音殘響 Presents
+  tags_origin_default: 日本  # 日本音樂人，遊音殘響 Presents
 - canonical: Ari Hoenig
   aliases: []
   tags_origin_default: 歐美  # 美國爵士鼓手，河岸留言西門紅樓展演館
@@ -1145,7 +1138,7 @@
   tags_origin_default: 本地  # 台灣基督教詩歌團隊，聖誕晚會巡迴（高雄/台南/台北）
 - canonical: BENI NINAGAWA
   aliases: []
-  tags_origin_default: 日韓  # 日本偶像歌手，Live House D（台北南港）
+  tags_origin_default: 日本  # 日本偶像歌手，Live House D（台北南港）
 - canonical: 蔡宇歆
   aliases: []
   tags_origin_default: 本地  # 鋼琴演奏會，陽明交大演藝廳

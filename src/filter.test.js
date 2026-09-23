@@ -68,16 +68,16 @@ test("partitionEvents: type view filter only shows events with a matching tags_t
 
 test("partitionEvents: origin view filter only shows events with a matching tags_origin", () => {
   const local = makeEvent({ id: "l", tags_origin: ["本地"] });
-  const kpop = makeEvent({ id: "k", tags_origin: ["日韓"] });
+  const kpop = makeEvent({ id: "k", tags_origin: ["韓國"] });
 
-  const { visible } = partitionEvents([local, kpop], defaultPrefs(), { origin: "日韓" });
+  const { visible } = partitionEvents([local, kpop], defaultPrefs(), { origin: "韓國" });
 
   assert.deepEqual(visible.map((v) => v.event.id), ["k"]);
 });
 
 test("partitionEvents: type and origin filters combine (both must match)", () => {
   const match = makeEvent({ id: "m", tags_type: ["音樂祭"], tags_origin: ["本地"] });
-  const wrongOrigin = makeEvent({ id: "w", tags_type: ["音樂祭"], tags_origin: ["日韓"] });
+  const wrongOrigin = makeEvent({ id: "w", tags_type: ["音樂祭"], tags_origin: ["韓國"] });
 
   const { visible } = partitionEvents([match, wrongOrigin], defaultPrefs(), { type: "音樂祭", origin: "本地" });
 

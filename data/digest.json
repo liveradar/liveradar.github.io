@@ -1,16 +1,7 @@
 {
-  "generated_at": "2026-09-22T16:38:36.683Z",
+  "generated_at": "2026-09-23T01:51:37.144Z",
   "added_ids": [
-    "45127d2bcf8edefa",
-    "d57a73fbe641a2a0"
+    "ca414f99a3edbd63"
   ],
-  "updated": [
-    {
-      "id": "f5980594fdd14fda",
-      "fields": [
-        "price_min",
-        "price_max"
-      ]
-    }
-  ]
+  "updated": []
 }
