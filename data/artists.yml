@@ -1235,3 +1235,164 @@
 - canonical: U-KNOW
   aliases: ["Yunho", "유노윤호"]
   tags_origin_default: 韓國  # 東方神起（TVXQ）成員個人企劃巡演
+
+# 2026-09-23 查證：待整理清單剩下 2 筆的其中 3 位演出者/1 位主角，開票券頁/搜尋確認
+- canonical: HWANG MIN HYUN
+  aliases: ["황민현", "黃旼炫"]
+  tags_origin_default: 韓國  # NU'EST／Wanna One 前成員，現於 Pledis 娛樂旗下發展個人活動
+- canonical: 恐象
+  aliases: ["Deinovore"]
+  tags_origin_default: 本地  # 台北的雙貝斯+鼓 sludge metal 樂團（無吉他），StreetVoice 資料確認
+- canonical: 我衝動
+  aliases: ["My Intrusive Mind"]
+  tags_origin_default: 本地  # 與恐象、負能株式會社同場拼盤演出於台中 SOUND Live House，StreetVoice 上為台灣獨立樂團
+- canonical: 負能株式會社
+  aliases: ["Fuunenn"]
+  tags_origin_default: 本地  # StreetVoice 有作品發布，與台北市政府文化局登記的演出團體同名，台灣獨立樂團
+- canonical: 狀態疊加Project
+  aliases: []
+  tags_origin_default: 本地  # 跟「火球祭」同一種情況：標題本身只有企劃/系列名稱，沒有任何演出者名字（3 位真實演出者恐象/我衝動/負能株式會社都已登記，但名字只出現在內文陣容介紹，不在標題裡），註冊企劃名本身才能讓這場被辨識到
+
+# 2026-09-23，KKTIX 全站掃描擴大到演唱會(1)/音樂會(6) 兩個新標籤後，待整理
+# 清單一次冒出 95 筆，逐一開真實頁面/WebSearch 查證（Max 明確要求「不用等
+# 我手動發現才處理」，見 HANDOFF.md「開發時踩過、別再踩一次的坑」第 8 條）：
+- canonical: KIRIS
+  aliases: []
+  tags_origin_default: 本地  # KIRABASE（台灣動漫偶像餐廳）旗下培訓中的日韓風唱跳女團，查證確認為台灣本地企劃
+- canonical: Zi:zoo Taipei
+  aliases: ["Zizoo Taipei", "姬實股份有限公司"]
+  tags_origin_default: 本地  # 日本公司在台灣的分公司，專門製作台北在地藝人的定期偶像劇場公演，標題本身只有公司/劇場品牌名，同「火球祭」模式註冊品牌本身
+- canonical: TSUMUGI RISA
+  aliases: ["紡木吏佐", "紬悠里沙"]
+  tags_origin_default: 日本  # 日本聲優/DJ/饒舌歌手/歌手，沖繩出身，Raise A Suilen（BanG Dream!）成員，WebSearch 確認
+- canonical: 黃之儀
+  aliases: ["Kyra Zilver"]
+  tags_origin_default: 亞洲其他  # 中國長沙出身饒舌/創作歌手，FEVER 廠牌藝人，WebSearch 確認非台灣籍
+- canonical: 鄧典果
+  aliases: ["DDG"]
+  tags_origin_default: 亞洲其他  # 中國饒舌歌手（Trap & Drill），四川口音為特色，從成都出道，WebSearch 確認
+- canonical: 名譽傳說
+  aliases: ["名誉伝説"]
+  tags_origin_default: 日本  # 日本樂團（Vo. こたに/Gt. けっさく 兩人編制），甫從環球音樂主流出道，巡迴含札幌/首爾/福岡/台北/東京/大阪，WebSearch 確認
+- canonical: Atarayo
+  aliases: ["あたらよ"]
+  tags_origin_default: 日本  # 日本樂團，ASIA TOUR 巡迴含大阪/名古屋/福岡/東京/香港/台北，WebSearch 確認
+- canonical: AIOZ
+  aliases: ["林昭良"]
+  tags_origin_default: 亞洲其他  # 中國創作歌手（北京科技大學畢業，前 CUBA 籃球員），WebSearch 確認
+- canonical: 奇蹟 MIRACLE FESTIVAL
+  aliases: ["Miracle Festival"]
+  tags_origin_default: 本地  # Moon Fairy Project 主辦，2017 年起每年在苗栗舉辦的台灣迷幻電子音樂祭，WebSearch 確認
+- canonical: 活俠傳
+  aliases: ["Legend of Mortal"]
+  tags_origin_default: 本地  # 台灣獨立團隊「原始鳥熊」武俠遊戲，音樂會由台灣「遊音交響樂團」演出，標題本身只有遊戲/品牌名，同「火球祭」模式註冊品牌本身
+- canonical: Ru's Piano
+  aliases: ["RuRu"]
+  tags_origin_default: 本地  # 台灣 ACG 鋼琴 YouTuber（頻道「Ru味春捲」），每年生日音樂會，WebSearch 確認
+- canonical: 空中補給
+  aliases: ["Air Supply"]
+  tags_origin_default: 歐美  # 澳洲/英國組成的西洋 soft rock 二人組合，WebSearch 確認
+- canonical: 蔡健雅
+  aliases: ["Tanya Chua"]
+  tags_origin_default: 亞洲其他  # 新加坡籍創作歌手，2006 年才定居台北，WebSearch 確認國籍為新加坡（非台灣本地）
+- canonical: 巫啟賢
+  aliases: []
+  tags_origin_default: 亞洲其他  # 馬來西亞籍資深歌手，2000 年移居台灣但未歸化，WebSearch 確認持大馬身分證
+- canonical: 顏社
+  aliases: ["Kao!Inc"]
+  tags_origin_default: 本地  # 台灣饒舌廠牌（旗下含熱狗 MC HotDog 等），21 週年演唱會，標題只有廠牌名，同「火球祭」模式註冊品牌本身
+- canonical: 理想混蛋
+  aliases: []
+  tags_origin_default: 本地  # 台灣獨立流行樂團，WebSearch 確認
+- canonical: 鄭宜農
+  aliases: ["Enno Cheng"]
+  tags_origin_default: 本地  # 台灣創作歌手，WebSearch 確認
+- canonical: 尤雅
+  aliases: []
+  tags_origin_default: 本地  # 台灣資深歌手，WebSearch 確認
+- canonical: 金琳
+  aliases: []
+  tags_origin_default: 韓國  # 演出標題本身自述「從韓國來的」，WebSearch 確認為韓國歌手
+- canonical: SKE48
+  aliases: []
+  tags_origin_default: 日本  # AKB48 姊妹團，日本偶像團體，WebSearch 確認
+- canonical: JUSTHIS
+  aliases: []
+  tags_origin_default: 韓國  # 韓國饒舌歌手，WebSearch 確認
+- canonical: SUPER JUNIOR
+  aliases: ["Super Junior"]
+  tags_origin_default: 韓國  # 韓國男團，WebSearch 確認
+- canonical: T-ARA
+  aliases: []
+  tags_origin_default: 韓國  # 韓國女團，WebSearch 確認
+- canonical: JESSICA
+  aliases: ["Jessica Jung"]
+  tags_origin_default: 韓國  # 前少女時代成員 Jessica Jung，個人巡演，WebSearch 確認
+- canonical: NELL
+  aliases: []
+  tags_origin_default: 韓國  # 韓國獨立搖滾樂團，WebSearch 確認
+- canonical: YESUNG
+  aliases: []
+  tags_origin_default: 韓國  # Super Junior 成員個人巡演，WebSearch 確認
+- canonical: YERIN
+  aliases: []
+  tags_origin_default: 韓國  # 韓國偶像（GFriend 前成員）個人歌迷會，WebSearch 確認
+- canonical: May'n
+  aliases: []
+  tags_origin_default: 日本  # 日本歌手，動畫歌曲代表作品多，WebSearch 確認
+- canonical: 張雨生
+  aliases: ["雨生60"]
+  tags_origin_default: 本地  # 已故台灣傳奇歌手，60週年紀念音樂會，WebSearch 確認
+- canonical: 張正傑
+  aliases: []
+  tags_origin_default: 本地  # 台灣資深大提琴家，輪椅族公益音樂會主辦人，WebSearch 確認
+- canonical: Disney in Concert
+  aliases: []
+  tags_origin_default: 歐美  # 迪士尼官方授權的電影配樂管弦樂團巡演品牌，美國迪士尼製作，標題只有品牌名，同「火球祭」模式註冊品牌本身
+- canonical: DISORDER LIVE
+  aliases: []
+  tags_origin_default: 本地  # 迴響音樂展演空間（台中）的常態拼盤演出系列（已編號至 #23），標題只有系列名沒有個別演出者名字，同「火球祭」模式註冊系列品牌本身；本次陣容（壞梅森BAD MEDICINE/縷之光LIGHT/布萊克BLACK）查無個別資料，系列本身查證為台灣獨立樂團拼盤場，WebSearch 確認
+- canonical: 失落的人在未來裡相遇
+  aliases: []
+  tags_origin_default: 本地  # 迴響音樂展演空間（台中）拼盤演出企劃名，陣容為留聲機樂團/盈希ADM/4Futures未來肆，皆為台灣獨立樂團（盈希ADM 確認來自台中），標題只有企劃名，同「狀態疊加Project」模式註冊企劃名本身
+- canonical: 布萊梅樂隊
+  aliases: []
+  tags_origin_default: 本地  # 台灣「如果兒童劇團」/音樂繪本形式的格林童話改編兒童音樂會，木管五重奏演出，WebSearch 確認為台灣本地製作
+- canonical: 陳謙文
+  aliases: []
+  tags_origin_default: 本地  # 台灣藝人，自掏腰包貸款300萬主辦《情歌若響》公益演唱會，WebSearch 確認
+- canonical: 方馨
+  aliases: []
+  tags_origin_default: 本地  # 台灣藝人，與陳謙文/簡沛恩共同主演《情歌若響》公益演唱會，WebSearch 確認
+- canonical: 簡沛恩
+  aliases: []
+  tags_origin_default: 本地  # 台灣歌手，出道25年代表作「手放開」，公益演唱會重新登台，WebSearch 確認
+
+# 2026-09-23 補漏：上面這批查證完就直接開了下一輪 npm run fetch（進程已經把
+# artists.yml 讀進記憶體），結果這幾個是查證完但補登記的時間點太晚才加、或
+# 根本忘記真的加進檔案，導致上一輪沒吃到——回頭用 needs-review.json 的殘留
+# 清單核對一次才抓到，以後查完不要邊查邊跑下一輪 fetch，要先全部補完再跑。
+- canonical: The Notwist
+  aliases: []
+  tags_origin_default: 歐美  # 1989年成團，自己創辦德國廠牌 Alien Transistor，票券頁自述確認為德國樂團
+- canonical: 向井太一
+  aliases: ["MUKAI TAICHI"]
+  tags_origin_default: 日本  # 日本都會 R&B 創作歌手，WebSearch 確認（動畫《強風吹拂》片尾曲創作者）
+- canonical: UPIKO
+  aliases: ["うぴ子"]
+  tags_origin_default: 日本  # 日本山口縣出身創作歌手，主辦方（JMG極星國際娛樂）官方頁面自述確認
+- canonical: 乃紫
+  aliases: ["noa"]
+  tags_origin_default: 日本  # 日本創作歌手，2000年出生，WebSearch 確認（「全方向美少女」TikTok爆紅單曲）
+- canonical: 天慕LE CIEL
+  aliases: ["ESCAPE ABOVE"]
+  tags_origin_default: 本地  # 高雄承億酒店頂樓高空酒吧開幕派對，標題只有場地/活動品牌名（真正演出者KIRE的名字只在內文陣容介紹，不在標題），同「火球祭」模式註冊品牌本身，KIRE本身已另外登記
+- canonical: 打狗祭
+  aliases: ["Takao Rock"]
+  tags_origin_default: 本地  # 高雄流行音樂中心自辦的年度音樂祭品牌，WebSearch 確認
+- canonical: 中村百合香
+  aliases: ["中村ゆりか", "Yurika Nakamura"]
+  tags_origin_default: 日本  # 日本女演員/歌手，WebSearch 確認
+- canonical: KIRE
+  aliases: ["KIRE Yung", "凱爾"]
+  tags_origin_default: 本地  # 台灣饒舌/R&B創作歌手，2024年在倫敦海德公園為Stray Kids開場的第一位台灣男歌手，查證確認非藝名巧合

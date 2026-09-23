@@ -1,28 +1,3 @@
 {
-  "items": [
-    {
-      "raw_id": "marasy2026ks",
-      "title_raw": "幻想遊戲演奏會2026 in Kaohsiung",
-      "url": "https://kuroko.kktix.cc/events/marasy2026ks",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "26_minhyun",
-      "title_raw": "2026 HWANG MIN HYUN FANMEETING [PEACH-BLOSSOM] - TAIPEI",
-      "url": "https://tixcraft.com/activity/detail/26_minhyun",
-      "source": "拓元",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "26_iv0423341",
-      "title_raw": "10.4 (Sun.) 狀態疊加Project： Superposition Vol.3",
-      "url": "https://www.indievox.com/activity/detail/26_iv0423341",
-      "source": "iNDIEVOX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    }
-  ]
+  "items": []
 }

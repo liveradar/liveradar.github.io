@@ -58,6 +58,7 @@ npm test                # 跑全部單元測試（見下方「測試怎麼跑」
 5. **前端 `fetch("./data/events.json")` 一定要加 `{ cache: "no-store" }`**——不加的話瀏覽器分頁開著、或同一個 session 內重複導覽，會一直吃到舊的快取版本，即使檔案內容已經在磁碟上更新了。M7 測「手動新增場次被真實抓到後應該消失」時就是被這個絆住，才發現這個問題，已經修在 `src/app.js` 的 `loadEvents()`。
 6. **日期比較不要用 `new Date(dateStr) > new Date()`**——`new Date("2026-10-15")` 會被當成 UTC 午夜，跟本地/台灣時間的「現在」比較時，同一天的場次在某些時段會被誤判成「已過期」。`scripts/normalize.mjs` 的 `statusFromTickets` 和 `src/filter.js` 的 `isPast()` 都踩過這個坑，兩處都已經改成用日期字串（`YYYY-MM-DD`）直接比較，不要再改回 Date 物件比較。
 7. **`normalize()`（或任何 per-item 的 pipeline 處理函式）處理陣列時一定要包 try/catch**——單一筆原始資料格式異常就丟例外的話，會讓整個 pipeline run 中斷，當天完全不會更新，而不是只把那一筆丟進待整理。`scripts/fetch.mjs` 已經修好，之後新增 per-item 處理邏輯要延續這個模式。
+8. **`npm run fetch` 跑完之後，只要 `data/needs-review.json` 非空，不要等 Max 發現才處理**——主動逐筆開真實頁面查證（能開票券頁就開票券頁，查不到細節再用 WebSearch），能查到身分就直接補進 `data/artists.yml`（含來源地、真正查到的判斷依據寫進註解），查不到才留著誠實記錄不要用標題猜。這是 2026-09-23 Max 明確要求的標準流程（"能不能把整個待整理清單自動批次用 WebSearch 查完，不用等我手動發現才處理"），不是選擇性的加分項——任何一個 session（包含上班電腦那個 `liveradar-daily-fetch` 排程任務）跑完 fetch 後都要照做。
 
 ## M11 的重大發現：GitHub Actions 的 IP 會被來源網站部分擋掉（已修好，且 2026-09-17 起這個問題本身不再相關）
 
@@ -627,3 +628,25 @@ Max 這次回報三個真實問題，都追到根因修好：
 - **`幻想遊戲演奏會2026 in Kaohsiung`**（KKTIX，`kuroko.kktix.cc/events/marasy2026ks`）——這筆其實已經查證過是日本鋼琴演奏家 Marasy（まらしぃ，東方 Project 鋼琴演奏會系列），`artists.yml` 也已經補上對應別名，理論上下次 `npm run fetch` 就會自動清掉，列在這裡只是防呆確認。
 - **`2026 HWANG MIN HYUN FANMEETING [PEACH-BLOSSOM] - TAIPEI`**（拓元，`tixcraft.com/activity/detail/26_minhyun`）——還沒查證，HWANG MIN HYUN 看起來是韓國偶像（NU'EST 成員黃旼炫），但沒有實際開票券頁確認，不要用猜的直接加。
 - **`10.4 (Sun.) 狀態疊加Project： Superposition Vol.3`**（iNDIEVOX，`indievox.com/activity/detail/26_iv0423341`）——完全沒查證過，標題看起來像本地拼盤演出企劃名稱，不是單一藝人名，需要開頁面看陣容才知道怎麼標。
+
+**更新（同一天稍晚，Mac 這台）：上面 3 筆都已查證處理完，見下一節。**
+
+## KKTIX 分類標籤不一致、待整理清單 95→0、抓取速度分析（2026-09-23，Mac 這台）
+
+**1. The Notwist、向井太一台北場漏抓（Max 回報）**：直接看 KKTIX 自己的分類篩選頁查證，兩場都**沒有被主辦方標進「音樂」分類（tag 13）**，而是標成「演唱會」(1)、「音樂會」(6)、「藝文活動」(11)。全站掃描原本只查 tag 13，所以結構上看不到。修法：`CATEGORY_TAG_IDS = [13, 1, 6]`（Max 選的，「藝文活動」太廣、雜訊太多，先不加），主辦帳號 `originalive-wwr`（本事現場）、`jmgroup`（極星國際娛樂）也加進 `ORG_PAGE_VENUES` 當雙重保險。代價是分類掃描頁數變成 3 倍。
+
+**2. 待整理清單 95 → 0**：擴大標籤後一次冒出 95 筆，全部逐筆開頁面／WebSearch 查證（依 Max 規則：不等他發現才處理，見「開發時踩過、別再踩一次的坑」第 8 條）：
+- 約 50 位新藝人／品牌補進 `artists.yml`。國籍判斷以**國籍**為準，不是居住地：蔡健雅（新加坡）、巫啟賢（馬來西亞）都歸「亞洲其他」。
+- 標題只有企劃名、沒有演出者名字的拼盤場（狀態疊加Project、失落的人在未來裡相遇、DISORDER LIVE、天慕LE CIEL），同「火球祭」模式把企劃名本身登記進去。
+- 新增噪音關鍵字：教育補助券、場地租借、歌唱選秀大賞、校園音樂藝術交流晚會、洛基恐怖秀（電影放映＋真人演員，不是演唱會）、百靈果（Podcast）、康康SHOW（脫口秀）。**注意 `NOISE_KEYWORDS` 是純字串比對，不是正則**，寫萬用字元不會生效（這次差點踩到）。
+- `isPlatformOwnDemoEvent()`：`kktix.kktix.cc` 是 KKTIX 自己的產品展示頁，標題空白。刻意用「組織帳號」判斷而不是「標題空白」，避免把真的抓取 bug 靜默吞掉。
+- `OUTSIDE_TAIWAN_VENUE_RE` 原本**完全沒涵蓋日本**（只有港澳深圳馬來西亞），讚美之泉東京場才露出這個洞，補上日本／東京／大阪／名古屋。
+- NELL 的標題用 Unicode 數學粗體字（`𝗡𝗘𝗟𝗟`，看起來像英文字母但是不同的字元），藝人有登記卻比對不到。`matchArtists()` 開頭改成先做 `.normalize("NFKC")`，這是通用修法，不是替這場加別名。
+- **自己犯的錯**：查完一批就開下一輪 fetch，然後才補登記最後幾位藝人，但進程早就把 `artists.yml` 讀進記憶體了，導致多跑一輪。**以後要全部補完、測試通過，才跑 fetch。**
+
+**3. 抓取速度分析：`register_info` 庫存查詢佔一半時間，而且大多被 Cloudflare 擋**
+- 第四輪 log 拆解：31 分鐘裡有 17 分鐘（55%）花在 `register_info` 的重試上，第一次嘗試 275 次幾乎全失敗。原本程式碼註解寫的是「約 1/3 失敗」。
+- 對照實驗（5 場已知場次，抓取結束後才跑）：10 次嘗試只有第 1 次成功，之後全部 **HTTP 403**。改成共用瀏覽器環境（沿用 Cloudflare cookie）也一樣失敗。結論：**不是 cookie 問題，比較像 Cloudflare 對這個端點按 IP 限流**。
+- **這是正確性問題，不只是速度問題**：查詢失敗時，已知場次會默默沿用舊狀態，新場次會退回用票價表推測。所以售完偵測是時靈時不靈（第四輪還是有 10 場成功偵測到售完）。
+- 已做：(a) 統計寫進 `sources.json` 的 `stats.register_info`（checked／ok_first_try／ok_on_retry／failed／blocked_403／skipped_known），**這個檔案會進 git，上班電腦排程跑完 push 後在任何一台 `git pull` 就能看，不用額外發請求**；(b) `needsRegisterCheck()`：之前是已售完／已結束，或開賣日還沒到的已知場次就跳過。這兩種情況查了本來也不會改變任何結果，用現有資料估算可以少查約 25%（228 → 172）。
+- **下一步**：看上班電腦下一次排程跑完的 `stats.register_info`。如果 `ok_on_retry` 幾乎是 0，重試就可以拿掉（再省將近一半時間）；如果 `blocked_403` 很高，要考慮拉長查詢間隔或只查近期場次。**不要在同一台電腦上為了驗證反覆重跑**：今天這台跑了 4 輪完整抓取加實驗，幾千次請求很可能就是 403 暴增的原因之一。

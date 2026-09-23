@@ -70,8 +70,12 @@ function buildKnownRawIdsBySource(previousEvents) {
     // fetched fresh every run until it resolves.
     if (event.headliners.length === 0) continue;
     for (const source of event.sources) {
-      if (!map.has(source.name)) map.set(source.name, new Set());
-      map.get(source.name).add(source.raw_id);
+      if (!map.has(source.name)) map.set(source.name, new Map());
+      // Carries the previous run's status, not just "seen before" — KKTIX
+      // uses it to skip register_info checks that can't change anything
+      // (see needsRegisterCheck in kktix.mjs). Every other adapter only ever
+      // calls .has(), which a Map supports the same as the Set this used to be.
+      map.get(source.name).set(source.raw_id, { status: event.status, on_sale_at: event.on_sale_at });
     }
   }
   return map;
@@ -92,7 +96,7 @@ async function runAdapter(adapter, context) {
   let rawEvents = [];
   let error = null;
   try {
-    rawEvents = await adapter.fetch(knownRawIdsBySource.get(adapter.name) ?? new Set());
+    rawEvents = await adapter.fetch(knownRawIdsBySource.get(adapter.name) ?? new Map());
   } catch (err) {
     error = err.message;
     logProgress(`${adapter.name} fetch() threw: ${err.stack}`);
@@ -101,6 +105,13 @@ async function runAdapter(adapter, context) {
 
   const previous = previousSources.find((s) => s.name === adapter.name);
   const { entry, anomaly } = classifySourceRun(adapter.name, { error, rawCount: rawEvents.length }, previous);
+  // Written into sources.json (committed), so a run on another machine — the
+  // scheduled liveradar-daily-fetch — can be inspected after a git pull
+  // without making any extra requests from here.
+  if (typeof adapter.runStats === "function") {
+    entry.stats = adapter.runStats();
+    logProgress(`${adapter.name} stats: ${JSON.stringify(entry.stats)}`);
+  }
 
   const normalizedEvents = [];
   const needsReview = [];

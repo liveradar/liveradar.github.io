@@ -300,6 +300,11 @@ test("matchArtists: word-boundary check does not affect CJK/mixed-script names, 
   assert.deepEqual(matchArtists("莊鵑瑛（小球）Live in 台北", yml), ["小球"]);
 });
 
+test("matchArtists real bug (NELL's own Taipei show titled with Unicode Mathematical Sans-Serif Bold letters, a 'fancy text generator' style pasted into the KKTIX title): a canonical still matches even when the title's letters are visually identical but different Unicode codepoints, not literal ASCII", () => {
+  const yml = [{ canonical: "NELL", aliases: [], tags_origin_default: "韓國" }];
+  assert.deepEqual(matchArtists("<𝗢𝗡𝗟𝗬 𝗢𝗡𝗘> 𝗡𝗘𝗟𝗟 𝗟𝗜𝗩𝗘 𝗜𝗡 𝗧𝗔𝗜𝗣𝗘𝗜", yml), ["NELL"]);
+});
+
 test("artists.yml has no substring collisions between any two canonical/alias names that matchArtists() would actually mismatch on", () => {
   // Regression guard for the real "IVE"/"LIVE" and "ASCA"/"Patrick Brasca"
   // bugs found in review (2026-09-17): a short or common canonical/alias name
@@ -478,6 +483,14 @@ test("normalize(): non-music noise (sports tickets, courses, exhibitions, comedy
     "2026曉韵巴洛克秋冬系列講座【2026曉韵秋冬號】",
     "2026TECA台北國際音響大展 5折早鳥預售門票",
     "POP! POP! POP! 流行音樂互動展 ＠ 高雄流行音樂中心",
+    // 2026-09-23, KKTIX category-browse expanded to 演唱會(1)/音樂會(6) tags:
+    "【免費領取】教育補助券4合1，有補助快搶！",
+    "台中西屯│七期頂級商務核心│會議空間│活動場地租借│商務活動│社群交流",
+    "2026【雲耀星聲】歌唱選秀大賞",
+    "115年度中彰投地區校園音樂藝術交流晚會【1F劃位座釋票】",
+    "《洛基恐怖秀》Tim Curry致敬之夜 Rocky Horror Picture Show：a tribute to Tim Curry",
+    "【10/13】百靈果《給約嗎》全亞洲最真實的矇眼約會",
+    "康康SHOW-色·可餐",
   ];
   for (const title_raw of cases) {
     const result = normalize(makeRaw({ title_raw }), yml, []);
@@ -500,6 +513,18 @@ test("normalize() real bug (KKTIX's sitewide category browse surfaced the SAME a
   }
 });
 
+test("normalize() real bug (讚美之泉敬拜讚美節慶's own Tokyo date, venue_raw the literal English address of Yohan Tokyo Christ Church): OUTSIDE_TAIWAN_VENUE_RE never covered Japan at all, only HK/Macau/Shenzhen/Malaysia — a real gap, not just a missing venue name", () => {
+  const yml = [];
+  const venues = [
+    "Yohan Tokyo Christ Church / 4 Chome-30-2 Kitashinjuku, Shinjuku City, Tokyo 169-0074, Japan",
+    "淀橋教会 Yodobashi Church / 東京都新宿区北新宿4-32-14", // sanity: Chinese-only 東京 (no romanized "Tokyo") still catches it
+  ];
+  for (const venue_raw of venues) {
+    const result = normalize(makeRaw({ venue_raw }), yml, []);
+    assert.equal(result.excluded?.reason, "outside_taiwan", `expected venue_raw "${venue_raw}" to be excluded`);
+  }
+});
+
 test("normalize(): a title that mentions '世界巡迴' (world tour) but has a normal Taiwan venue_raw is NOT excluded as outside_taiwan — only the listing's own venue field is checked, not the title", () => {
   const result = normalize(
     makeRaw({ title_raw: "某藝人 2026 世界巡迴演唱會－台北站", venue_raw: "Legacy Taipei / 台北市中正區" }),
@@ -512,6 +537,20 @@ test("normalize(): a title that mentions '世界巡迴' (world tour) but has a n
 test("normalize(): a bare 'https://' title (a real FANSI GO scrape artifact) is excluded as junk, not sent to needs-review", () => {
   const result = normalize(makeRaw({ title_raw: "https://" }), [], []);
   assert.equal(result.excluded?.reason, "junk_title");
+});
+
+test("normalize() real bug (KKTIX's sitewide category browse surfaced kktix.kktix.cc/events/virtualevent and .../virtualvenue-copy-1, both with a blank title_raw): KKTIX's own demo pages for its 'virtual event' product feature, hosted under the platform's own org account, are excluded specifically by that org subdomain — not by 'title is blank' generically, since a genuinely real event scraped with a blank title would be a bug worth seeing, not something to swallow silently", () => {
+  const result = normalize(
+    makeRaw({ title_raw: "", url: "https://kktix.kktix.cc/events/virtualevent" }),
+    [],
+    [],
+  );
+  assert.equal(result.excluded?.reason, "platform_demo_content");
+});
+
+test("normalize(): a blank title from a REAL organizer's URL is NOT swallowed as platform demo content — only kktix.kktix.cc specifically is", () => {
+  const result = normalize(makeRaw({ title_raw: "", url: "https://someband.kktix.cc/events/abc" }), [], []);
+  assert.notEqual(result.excluded?.reason, "platform_demo_content");
 });
 
 test("normalize(): a real music event is not caught by the noise filter just because it shares a word with a noise keyword", () => {

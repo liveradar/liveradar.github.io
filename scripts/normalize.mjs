@@ -160,8 +160,24 @@ export function findNameIndex(titleRaw, name) {
  * mattered rarely with a 2-entry file; with ~230 entries, multi-headliner
  * bills are common enough that file-order was producing an effectively
  * arbitrary "main act" (found in review, 2026-09-17).
+ *
+ * 2026-09-23 real bug (NELL's own Taipei show, title styled as
+ * "<𝗢𝗡𝗟𝗬 𝗢𝗡𝗘> 𝗡𝗘𝗟𝗟 𝗟𝗜𝗩𝗘 𝗜𝗡 𝗧𝗔𝗜𝗣𝗘𝗜" — a "fancy text generator" style
+ * organizers paste into KKTIX titles for visual flair): those look like
+ * plain Latin letters but are actually distinct Unicode Mathematical
+ * Alphanumeric Symbols codepoints (U+1D400 block, Sans-Serif Bold in this
+ * case), so a literal string search for canonical "NELL" against the raw
+ * title never matched at all — the artist WAS registered, this wasn't a
+ * missing-artist gap. `.normalize("NFKC")` is the general fix (not a
+ * one-off alias for this one title): Unicode defines these styled
+ * codepoints as compatibility equivalents of the plain ASCII letters
+ * specifically so normalization can fold them back, and it's
+ * length-preserving here (confirmed: same character count in and out), so
+ * every position/word-boundary check below still lines up correctly against
+ * the normalized string.
  */
 export function matchArtists(titleRaw, artistsYml) {
+  titleRaw = titleRaw.normalize("NFKC");
   const matches = [];
   for (const entry of artistsYml) {
     const names = [entry.canonical, ...(entry.aliases ?? [])];
@@ -599,7 +615,7 @@ export function parseOnSaleAt(html) {
  * every single run. String comparison of two YYYY-MM-DD values is safe and
  * sidesteps timezone math entirely.
  */
-function taiwanTodayDateStr() {
+export function taiwanTodayDateStr() {
   const taiwanNow = new Date(Date.now() + 8 * 60 * 60 * 1000);
   return taiwanNow.toISOString().slice(0, 10);
 }
@@ -678,6 +694,15 @@ const NOISE_KEYWORDS = [
   "秋冬系列講座", // a baroque-music lecture series, not a concert
   "音響大展", // a hi-fi/audio-equipment trade show
   "流行音樂互動展", // an exhibition/interactive display, not a live performance
+  // 2026-09-23, KKTIX category-browse expanded to 演唱會(1)/音樂會(6) tags
+  // turned up a new batch — verified each via its own KKTIX page:
+  "教育補助券", // a government subsidy-coupon giveaway page, not an event
+  "場地租借", // venue-rental listing ads (KKTIX doubles as a booking/CRM tool for meeting spaces), not performances
+  "歌唱選秀大賞", // a singing-competition/talent-contest show, not a specific artist's gig
+  "校園音樂藝術交流晚會", // a student-association campus variety night (anti-drug/anti-bullying awareness programming, unnamed performers) — not a touring artist's show. NOISE_KEYWORDS is a plain substring match (see isNonMusicNoise below), not a regex — this must be the literal phrase, not a wildcard pattern
+  "洛基恐怖秀", // Rocky Horror Picture Show fan-run screenings with live shadowcast actors — a movie-screening/cosplay event, not a music concert, despite the source material being a "rock musical"
+  "百靈果", // 百靈果 News is a podcast brand; this is a live podcast blind-dating show, spoken word not music (same category as the existing "podcast" keyword, kept separate because this title doesn't contain the English word)
+  "康康SHOW", // 康康's stand-up comedy show, same category as "des bishop" above
 ];
 
 function isNonMusicNoise(titleRaw) {
@@ -714,8 +739,17 @@ function isNonMusicNoise(titleRaw) {
 // doesn't spell out "Kowloon" so the existing West?Kowloon pattern missed
 // it, and 西九 (the common Chinese abbreviation for 西九龍/West Kowloon) is
 // a separate written form from 九龍 itself.
+// 2026-09-23 (KKTIX category-browse batch surfaced 讚美之泉敬拜讚美節慶's own
+// Tokyo dates — venue_raw was the literal English address "...Shinjuku City,
+// Tokyo 169-0074, Japan"): this whole regex had never covered Japan at all,
+// only HK/Macau/Shenzhen/Malaysia — a real coverage gap, not just a missing
+// venue name. Added Tokyo/Japan/日本/東京 plus 大阪/Osaka and 名古屋/Nagoya
+// (both already seen in real cross-border tour announcements this session,
+// e.g. Atarayo's own tour — same reasoning as adding a city the moment it's
+// confirmed real, not waiting for every possible Japanese city to surface
+// on its own first).
 const OUTSIDE_TAIWAN_VENUE_RE =
-  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland/i;
+  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland|日本|東京|Tokyo|大阪|Osaka|名古屋|Nagoya|Japan/i;
 
 function isOutsideTaiwanVenue(venueRaw) {
   return OUTSIDE_TAIWAN_VENUE_RE.test(venueRaw ?? "");
@@ -727,6 +761,20 @@ function isOutsideTaiwanVenue(venueRaw) {
 // slot either.
 function isJunkTitle(titleRaw) {
   return /^https?:\/\/?\s*$/i.test(titleRaw.trim());
+}
+
+// 2026-09-23 (KKTIX category-browse batch surfaced two entries with a blank
+// title_raw: kktix.kktix.cc/events/virtualevent and .../virtualvenue-copy-1
+// — confirmed by opening both that they're KKTIX's OWN demo/showcase pages
+// for their "virtual event" product feature, hosted under the platform's
+// own "kktix" org account, not real user-submitted events). Checking the
+// org subdomain specifically (not just "title is blank") is deliberate: a
+// genuinely real event with a blank title would be a real scraping bug
+// worth seeing, not something to silently swallow under a generic
+// "empty title = junk" rule.
+const KKTIX_OWN_DEMO_ORG_RE = /^https?:\/\/kktix\.kktix\.cc\//i;
+function isPlatformOwnDemoEvent(url) {
+  return KKTIX_OWN_DEMO_ORG_RE.test(url ?? "");
 }
 
 /**
@@ -824,6 +872,9 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   }
   if (isNonMusicNoise(rawEvent.title_raw)) {
     return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: "non_music_noise" } };
+  }
+  if (isPlatformOwnDemoEvent(rawEvent.url)) {
+    return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: "platform_demo_content" } };
   }
   if (isOutsideTaiwanVenue(rawEvent.venue_raw)) {
     return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: "outside_taiwan" } };

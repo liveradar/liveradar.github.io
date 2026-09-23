@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
 import { logProgress } from "../progress-log.mjs";
 import { withPage, withBrowser, newPage } from "../browser.mjs";
-import { normalizeTraditionalChars } from "../normalize.mjs";
+import { normalizeTraditionalChars, taiwanTodayDateStr } from "../normalize.mjs";
 
 /**
  * KKTIX adapter (SPEC §5, §5.1, §5.2). Two fetch strategies, decided during
@@ -67,6 +67,23 @@ const REGISTER_CHECK_DELAY_MS = 400;
 // invisible). Neither showed up via Strategy 3's category browse either —
 // unclear why (indexing lag, ranking, something else), not investigated
 // further since ORG_PAGE_VENUES closes the gap directly regardless.
+//
+// originalive-wwr/jmgroup added 2026-09-23 (Max real reports: The Notwist
+// @ SUB 10/2 and 向井太一 Taipei stop @ Legacy Taipei 10/22 both missing).
+// Root cause for THIS pair confirmed directly (not just "unclear why" like
+// the offtimemusic/baodaorecords note above): checked kktix.com's own
+// category-filtered search — https://kktix.com/events?event_tag_ids_in=13
+// (the "音樂" tag id Strategy 3 filters on) — and neither event shows up
+// under it. The Notwist isn't tagged under 音樂 at all; 向井太一's Taipei
+// stop isn't either (only its Hong Kong stop is, which our geo-filter
+// correctly excludes anyway). So Strategy 3 can only ever find events the
+// *organizer themselves* tagged into KKTIX's own 音樂 category — tagging
+// is opt-in per event, not something LiveRadar controls, so any org that
+// skips it (even sporadically, like originalive-wwr did for one show but
+// not another) needs its own ORG_PAGE_VENUES entry to be reliably covered.
+// 本事現場 ORIGINALIVE runs a numbered concert series (本事現場 #27/28/29...)
+// almost entirely through this one account; JMG 極星國際娛樂 self-promotes
+// its full slate of Japanese-artist Taiwan tour stops the same way.
 const ORG_PAGE_VENUES = [
   "thewalllivehouse",
   "kafka",
@@ -78,6 +95,8 @@ const ORG_PAGE_VENUES = [
   "atc-twn",
   "offtimemusic",
   "baodaorecords",
+  "originalive-wwr",
+  "jmgroup",
 ];
 
 // 2026-09-17: kktix.com/events?search=... returns a genuine Cloudflare JS
@@ -100,7 +119,26 @@ const ORG_PAGE_VENUES = [
 // category filter is a real, paginated, sitewide listing covering every
 // organizer, confirmed by clicking the category chip on kktix.com's explore
 // page and reading the resulting query string. 13 is 音樂's tag id.
-const MUSIC_CATEGORY_TAG_ID = 13;
+//
+// 2026-09-23 (Max real reports: The Notwist @ SUB, 向井太一 Taipei stop @
+// Legacy — both missing despite Strategy 3 running): checked each event's
+// own tag chips directly on its detail page (the links under the title
+// pointing at kktix.cc/events?event_tag_ids_in=N) and found KKTIX's own
+// taxonomy has several overlapping music-adjacent categories that
+// organizers use inconsistently — sometimes even the SAME org tags one
+// show under 音樂 and another under a different one. The Notwist was tagged
+// 演唱會(1)/音樂會(6)/藝文活動(11), never 13. 向井太一's Taipei stop was
+// tagged 演唱會(1) only. Scanning only tag 13 structurally can't see events
+// an organizer tagged some other way — same "whitelist can never be
+// complete" problem as ORG_PAGE_VENUES, just one level up. Added 演唱會(1)
+// and 音樂會(6) as well (Max's call: closest in meaning to 音樂, lowest
+// noise) — 藝文活動(11) deliberately left out, it's broad enough (arts/
+// culture generally, not music specifically) that it would need a lot more
+// NOISE_KEYWORDS upkeep for what it adds; revisit if a future miss traces
+// back to it. Each additional tag re-walks the same CATEGORY_BROWSE_MAX_PAGES
+// pages, so this roughly triples Strategy 3's own runtime — accepted
+// trade-off, same reasoning as the original 2min->6-8min one.
+const CATEGORY_TAG_IDS = [13, 1, 6]; // 音樂, 演唱會, 音樂會
 // Confirmed NOT strictly date-sorted (page 1 mixed an already-ended 9/22
 // show among several in October) — a page cap can't guarantee catching
 // every event in one run. Accepted trade-off: this is a daily job, and the
@@ -284,11 +322,11 @@ async function fetchSearchResultUrls(keyword) {
   });
 }
 
-/** One page of the sitewide 音樂-category browse (Strategy 3, see its doc comment above ORG_PAGE_VENUES/SEARCH_VENUES's own). Same Cloudflare-bypass shape as fetchSearchResultUrls. */
-async function fetchCategoryBrowsePage(pageNum) {
+/** One page of the sitewide category browse for a given tag id (Strategy 3, see its doc comment above ORG_PAGE_VENUES/SEARCH_VENUES's own and CATEGORY_TAG_IDS). Same Cloudflare-bypass shape as fetchSearchResultUrls. */
+async function fetchCategoryBrowsePage(tagId, pageNum) {
   return withPage(async (page) => {
     await page.goto(
-      `https://kktix.com/events?end_at=&event_tag_ids_in=${MUSIC_CATEGORY_TAG_ID}&max_price=&min_price=&page=${pageNum}&search=&start_at=`,
+      `https://kktix.com/events?end_at=&event_tag_ids_in=${tagId}&max_price=&min_price=&page=${pageNum}&search=&start_at=`,
       { waitUntil: "domcontentloaded", timeout: REQUEST_TIMEOUT_MS },
     );
     await page.waitForTimeout(1500); // let Cloudflare's challenge script finish running
@@ -481,8 +519,44 @@ function extractCampaignTemplateFields($) {
  * a same-page JS fetch) but the only version actually confirmed to get past
  * Cloudflare, which is what matters here.
  */
+// 2026-09-23 measurement that prompted tracking this at all: a real run
+// logged 275 first-attempt failures out of ~275 checks (the comment below
+// assumed ~1 in 3), and a follow-up 5-event experiment got HTTP 403
+// (Cloudflare's challenge page) on 9 of 10 attempts after the first one
+// succeeded — consistent with per-IP rate limiting on this endpoint, not a
+// per-page cookie problem (a shared browser context failed the same way).
+// Success was never logged, so the real hit rate was unknowable; these
+// counters end up in sources.json via runStats().
+let registerStats = null;
+function resetRegisterStats() {
+  registerStats = { checked: 0, ok_first_try: 0, ok_on_retry: 0, failed: 0, blocked_403: 0, skipped_known: 0 };
+}
+resetRegisterStats();
+
+export function runStats() {
+  return { register_info: { ...registerStats } };
+}
+
+/**
+ * Whether a KNOWN event's register_info check can change anything.
+ * resolveKnownEvent() only acts on SOLD_OUT/REGISTRATION_CLOSED, so:
+ * - already sold_out/ended: a repeat SOLD_OUT just re-fetched the detail page
+ *   to arrive at the same status, and a revert to IN_STOCK was never acted
+ *   on either — skipping loses nothing the old behavior actually did.
+ * - announced with an on-sale date still in the future: tickets aren't on
+ *   sale yet, so they can't be sold out.
+ * Fewer checks is also fewer chances to trip the rate limit above.
+ */
+export function needsRegisterCheck(previous, todayStr = taiwanTodayDateStr()) {
+  if (!previous) return true;
+  if (previous.status === "sold_out" || previous.status === "ended") return false;
+  if (previous.status === "announced" && previous.on_sale_at && previous.on_sale_at.slice(0, 10) > todayStr) return false;
+  return true;
+}
+
 async function fetchRegisterStatus(browser, rawId) {
   if (!browser) return null;
+  registerStats.checked += 1;
   // 2026-09-23 real bug (found by running this THREE times in a row against
   // the exact same live event: SOLD_OUT, null, SOLD_OUT): Cloudflare's
   // challenge on this endpoint is genuinely flaky per-attempt — roughly 1 in
@@ -497,8 +571,10 @@ async function fetchRegisterStatus(browser, rawId) {
     try {
       page = await newPage(browser);
       let captured = null;
+      let saw403 = false;
       page.on("response", async (res) => {
         if (captured || !res.url().includes(`/g/events/${rawId}/register_info`)) return;
+        if (res.status() === 403) saw403 = true;
         try {
           captured = await res.json();
         } catch {
@@ -510,7 +586,12 @@ async function fetchRegisterStatus(browser, rawId) {
         timeout: REQUEST_TIMEOUT_MS,
       });
       await page.waitForTimeout(2000); // let Cloudflare's challenge + the page's own register_info XHR both finish
-      if (captured?.register_status) return captured.register_status;
+      if (saw403) registerStats.blocked_403 += 1;
+      if (captured?.register_status) {
+        if (attempt === 0) registerStats.ok_first_try += 1;
+        else registerStats.ok_on_retry += 1;
+        return captured.register_status;
+      }
       if (attempt === 0) logProgress(`register_info check for ${rawId} got no usable response, retrying once`);
     } catch (err) {
       logProgress(`register_info check failed for ${rawId} (attempt ${attempt + 1}): ${err.message}`);
@@ -518,6 +599,7 @@ async function fetchRegisterStatus(browser, rawId) {
       if (page) await page.close().catch(() => {});
     }
   }
+  registerStats.failed += 1;
   return null;
 }
 
@@ -639,7 +721,11 @@ function extractJsonLdEvent($) {
  * `reuse_previous` stub (nothing changed) or a full fetchEventDetail()
  * result (status flipped) — `null` only if the forced re-fetch itself failed.
  */
-async function resolveKnownEvent(raw_id, url, browser, warnings) {
+async function resolveKnownEvent(raw_id, url, browser, warnings, previous) {
+  if (!needsRegisterCheck(previous)) {
+    registerStats.skipped_known += 1;
+    return { raw_id, url, title_raw: null, source_name: name, reuse_previous: true };
+  }
   await sleep(REGISTER_CHECK_DELAY_MS);
   const registerStatus = await fetchRegisterStatus(browser, raw_id);
   if (registerStatus !== "SOLD_OUT" && registerStatus !== "REGISTRATION_CLOSED") {
@@ -655,7 +741,8 @@ async function resolveKnownEvent(raw_id, url, browser, warnings) {
   }
 }
 
-export async function fetch(knownRawIds = new Set()) {
+export async function fetch(knownRawIds = new Map()) {
+  resetRegisterStats();
   return withBrowser(async (browser) => fetchWithBrowser(browser, knownRawIds));
 }
 
@@ -701,7 +788,7 @@ async function fetchWithBrowser(browser, knownRawIds) {
       seenRawIds.add(raw_id);
       if (knownRawIds.has(raw_id)) {
         skippedKnown += 1;
-        const resolved = await resolveKnownEvent(raw_id, url, browser, warnings);
+        const resolved = await resolveKnownEvent(raw_id, url, browser, warnings, knownRawIds.get(raw_id));
         if (resolved) {
           results.push(resolved);
           if (!resolved.reuse_previous) logProgress(`  + ${resolved.title_raw} (sale status changed, re-fetched)`);
@@ -741,7 +828,7 @@ async function fetchWithBrowser(browser, knownRawIds) {
       seenRawIds.add(raw_id);
       if (knownRawIds.has(raw_id)) {
         skippedKnown += 1;
-        const resolved = await resolveKnownEvent(raw_id, url, browser, warnings);
+        const resolved = await resolveKnownEvent(raw_id, url, browser, warnings, knownRawIds.get(raw_id));
         if (resolved?.reuse_previous) {
           results.push(resolved);
         } else if (resolved) {
@@ -776,45 +863,49 @@ async function fetchWithBrowser(browser, knownRawIds) {
     }
   }
 
-  // Strategy 3: sitewide 音樂-category browse — catches events from ANY
-  // organizer, known or not (see the doc comment above MUSIC_CATEGORY_TAG_ID).
+  // Strategy 3: sitewide category browse across every music-adjacent tag —
+  // catches events from ANY organizer, known or not, regardless of which of
+  // KKTIX's overlapping music categories they happened to tag it under (see
+  // the doc comment above CATEGORY_TAG_IDS).
   let categoryFoundCount = 0;
-  for (let pageNum = 1; pageNum <= CATEGORY_BROWSE_MAX_PAGES; pageNum++) {
-    await sleep(REQUEST_DELAY_MS);
-    logProgress(`fetching category browse page ${pageNum}/${CATEGORY_BROWSE_MAX_PAGES}`);
-    let eventUrls = [];
-    try {
-      eventUrls = await fetchCategoryBrowsePage(pageNum);
-    } catch (err) {
-      warnings.push(`category browse page ${pageNum} failed: ${err.message}`);
-      break; // stop paginating on a real failure rather than silently skipping ahead to the next page
-    }
-    if (eventUrls.length === 0) break; // ran past the last page
-
-    for (const url of eventUrls) {
-      const raw_id = url.split("/").filter(Boolean).pop();
-      if (seenRawIds.has(raw_id)) continue; // already found via Strategy 1/2, or an earlier page this run
-      seenRawIds.add(raw_id);
-      categoryFoundCount += 1;
-
-      if (knownRawIds.has(raw_id)) {
-        skippedKnown += 1;
-        const resolved = await resolveKnownEvent(raw_id, url, browser, warnings);
-        if (resolved) {
-          results.push(resolved);
-          if (!resolved.reuse_previous) logProgress(`  + ${resolved.title_raw} (sale status changed, re-fetched)`);
-        }
-        continue;
-      }
-
+  for (const tagId of CATEGORY_TAG_IDS) {
+    for (let pageNum = 1; pageNum <= CATEGORY_BROWSE_MAX_PAGES; pageNum++) {
       await sleep(REQUEST_DELAY_MS);
-      logProgress(`fetching detail: ${url}`);
+      logProgress(`fetching category browse tag=${tagId} page ${pageNum}/${CATEGORY_BROWSE_MAX_PAGES}`);
+      let eventUrls = [];
       try {
-        const detail = await fetchEventDetail(url, browser);
-        results.push(detail);
-        logProgress(`  + ${detail.title_raw}`);
+        eventUrls = await fetchCategoryBrowsePage(tagId, pageNum);
       } catch (err) {
-        warnings.push(`event detail failed for ${url}: ${err.message}`);
+        warnings.push(`category browse tag=${tagId} page ${pageNum} failed: ${err.message}`);
+        break; // stop paginating this tag on a real failure rather than silently skipping ahead
+      }
+      if (eventUrls.length === 0) break; // ran past the last page for this tag
+
+      for (const url of eventUrls) {
+        const raw_id = url.split("/").filter(Boolean).pop();
+        if (seenRawIds.has(raw_id)) continue; // already found via Strategy 1/2, or an earlier tag/page this run
+        seenRawIds.add(raw_id);
+        categoryFoundCount += 1;
+
+        if (knownRawIds.has(raw_id)) {
+          skippedKnown += 1;
+          const resolved = await resolveKnownEvent(raw_id, url, browser, warnings, knownRawIds.get(raw_id));
+          if (resolved) {
+            results.push(resolved);
+            if (!resolved.reuse_previous) logProgress(`  + ${resolved.title_raw} (sale status changed, re-fetched)`);
+          }
+          continue;
+        }
+
+        await sleep(REQUEST_DELAY_MS);
+        logProgress(`fetching detail: ${url}`);
+        try {
+          const detail = await fetchEventDetail(url, browser);
+          results.push(detail);
+          logProgress(`  + ${detail.title_raw}`);
+        } catch (err) {
+          warnings.push(`event detail failed for ${url}: ${err.message}`);
+        }
       }
     }
   }
