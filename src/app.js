@@ -212,13 +212,13 @@ function wireViewFilterChips(events, getFilters, onChange) {
 
   function refreshLabels() {
     const f = getFilters();
-    cityChip.textContent = f.city ?? "全部城市";
+    cityChip.textContent = f.city ?? "城市";
     cityChip.setAttribute("aria-pressed", String(!!f.city));
     const monthOpt = monthFilterOptions(events).find((o) => o.value === (f.month ?? null));
-    monthChip.textContent = f.month ? (monthOpt?.label ?? f.month) : "全部月份";
+    monthChip.textContent = f.month ? (monthOpt?.label ?? f.month) : "月份";
     monthChip.setAttribute("aria-pressed", String(!!f.month));
     if (typeChip) {
-      typeChip.textContent = f.type ?? "全部類型";
+      typeChip.textContent = f.type ?? "類型";
       typeChip.setAttribute("aria-pressed", String(!!f.type));
     }
     if (originChip) {
