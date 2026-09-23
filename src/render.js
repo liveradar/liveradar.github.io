@@ -105,9 +105,16 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
   const updatedBadge =
     mode === "favorites" && event.updated_fields?.length ? `<span class="badge-updated">已更新</span>` : "";
 
+  // 2026-09-23 (Max, 岡崎體育場次真的是因為取消才沒在賣票，不是單純賣光):
+  // `status === "sold_out"` covers both "actually sold out" and "sales
+  // closed for some other reason (cancellation, etc.)" — the data has no
+  // reliable way to tell those two apart (see statusFromTickets/
+  // SOLD_OUT_TEXT_RE), so the label says "結束販售" (sales ended), not
+  // "已售完" (sold out) — accurate either way instead of asserting a
+  // specific reason the data doesn't actually know.
   let priceLine;
   if (event.status === "sold_out") {
-    priceLine = `<div class="event-price muted">已售完</div>`;
+    priceLine = `<div class="event-price muted">結束販售</div>`;
   } else {
     const sourceNames = [...new Set(event.sources.map((s) => s.name))].join(" · ");
     priceLine =
@@ -119,7 +126,7 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
   // (resale, waitlists, checking for a newly added date) even once the
   // primary sale is over; only the label changes to stop implying you can
   // still buy a ticket there.
-  const ctaLabel = event.status === "on_sale" ? "購票" : event.status === "sold_out" ? "已售完，查看頁面" : "查看頁面";
+  const ctaLabel = event.status === "on_sale" ? "購票" : event.status === "sold_out" ? "結束販售，查看頁面" : "查看頁面";
   const ctaButton = `<button class="pill-arrow" aria-label="${ctaLabel}" data-ticket-url="${escapeHtml(event.ticket_url)}">${ARROW_ICON}</button>`;
 
   const actionButtons =

@@ -29,8 +29,8 @@ function makeEvent(overrides = {}) {
 test("renderEventCard: a sold-out event still renders the ticket link, just with a different label", () => {
   const html = renderEventCard(makeEvent({ status: "sold_out" }));
   assert.match(html, /data-ticket-url="https:\/\/example\.com\/a"/);
-  assert.match(html, /已售完，查看頁面/);
-  assert.match(html, /已售完<\/div>/);
+  assert.match(html, /結束販售，查看頁面/);
+  assert.match(html, /結束販售<\/div>/);
 });
 
 test("renderEventCard: on_sale shows the 購票 label", () => {

@@ -614,7 +614,19 @@ function parseKktixTimestamp(raw) {
   return `${y}-${mo}-${d}T${h.padStart(2, "0")}:${mi}:00+08:00`;
 }
 
-function statusFromTickets(ticketsRaw, eventDate) {
+function statusFromTickets(ticketsRaw, eventDate, registerStatus) {
+  // 2026-09-23 real bug (Max: 藤井風 10/31 高雄場已售完卻仍顯示 on_sale) —
+  // some KKTIX event pages (confirmed: kklivetw/atc-twn large-venue org
+  // pages) never render ANY `.status` marker in the ticket table's static
+  // HTML, even once every tier is genuinely sold out; the table's rows all
+  // come through with `closed: false, waiting: false`, which the check
+  // below reads as "open". `registerStatus` is kktix.mjs's own real-time
+  // inventory check (register_info endpoint) — authoritative over whatever
+  // the ticket table does or doesn't show, checked first and short-circuits
+  // the table-based inference entirely when it says sales are over.
+  if (registerStatus === "SOLD_OUT" || registerStatus === "REGISTRATION_CLOSED") {
+    return { status: eventDate >= taiwanTodayDateStr() ? "sold_out" : "ended", on_sale_at: null };
+  }
   // 2026-09-22 real bug (Max, EIR AOI): a ticket row can be "waiting" (尚未
   // 開賣, sale hasn't started) — that's neither "closed" (sale over) nor
   // truly "open" (buyable right now). The old `!t.closed` check treated
@@ -695,8 +707,15 @@ function isNonMusicNoise(titleRaw) {
 // further than listing the ones actually observed; expect to keep adding to
 // this list as new HK venues turn up the same way, same spirit as
 // NOISE_KEYWORDS above.
+// 2026-09-23: 西九/AXA WONDERLAND/AXA安盛創夢館 added — found via the JSON-LD
+// switch (see kktix.mjs's extractJsonLdEvent), which finally surfaced real
+// venue text for events that used to fail date/venue extraction entirely
+// (Simple Plan/my little airport/U-KNOW's Hong Kong dates) — "WestK" alone
+// doesn't spell out "Kowloon" so the existing West?Kowloon pattern missed
+// it, and 西九 (the common Chinese abbreviation for 西九龍/West Kowloon) is
+// a separate written form from 九龍 itself.
 const OUTSIDE_TAIWAN_VENUE_RE =
-  /香港|Hong ?Kong|九龍|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|The Burrow|Choi Hung/i;
+  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland/i;
 
 function isOutsideTaiwanVenue(venueRaw) {
   return OUTSIDE_TAIWAN_VENUE_RE.test(venueRaw ?? "");
@@ -867,7 +886,7 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   const { min, max } = (rawEvent.tickets_raw ?? []).length
     ? priceFromTickets(rawEvent.tickets_raw)
     : parsePriceFromText(rawEvent.price_text_raw ?? "");
-  let { status, on_sale_at } = statusFromTickets(rawEvent.tickets_raw ?? [], dateParsed.date);
+  let { status, on_sale_at } = statusFromTickets(rawEvent.tickets_raw ?? [], dateParsed.date, rawEvent.register_status);
   // 2026-09-22 real bug (Max: "尚未開賣標籤你是不是亂給啊 明明有超多早就已經
   // 開賣了"): statusFromTickets()'s "announced" branch fires whenever
   // tickets_raw is empty — but only KKTIX ever populates tickets_raw at all

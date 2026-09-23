@@ -251,10 +251,10 @@ export function openAssignArtistDialog(item, onSubmit) {
         <label class="field-label" for="assign-origin">來源地</label>
         <select class="field-input" id="assign-origin">
           <option value="本地">本地</option>
+          <option value="亞洲其他">亞洲其他</option>
           <option value="日本">日本</option>
           <option value="韓國">韓國</option>
           <option value="歐美">歐美</option>
-          <option value="亞洲其他">亞洲其他</option>
         </select>
       </div>
       <div style="display:flex;gap:10px;">

@@ -66,6 +66,42 @@ test("statusFromTickets: a clearly past date with closed tiers is 'ended'", () =
   assert.equal(event.status, "ended");
 });
 
+test("statusFromTickets: register_status SOLD_OUT overrides a ticket table that looks open (real bug: 藤井風 10/31 高雄場)", () => {
+  // Reproduces the real KKTIX org-page bug: every ticket row comes through
+  // with closed:false, waiting:false (no `.status` marker rendered in the
+  // static HTML at all), which the table-only check would read as "open" —
+  // register_status from kktix.mjs's live inventory check must win instead.
+  const raw = makeRaw({
+    tickets_raw: [
+      { name: "全票(特A區)", price: 5800, closed: false, waiting: false },
+      { name: "全票(1F)", price: 3800, closed: false, waiting: false },
+    ],
+    register_status: "SOLD_OUT",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "sold_out");
+});
+
+test("statusFromTickets: register_status REGISTRATION_CLOSED also overrides an apparently-open ticket table", () => {
+  const raw = makeRaw({
+    tickets_raw: [{ name: "一般", price: 800, closed: false, waiting: false }],
+    register_status: "REGISTRATION_CLOSED",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "sold_out");
+});
+
+test("statusFromTickets: register_status IN_STOCK/COMING_SOON/null don't override the ticket-table result", () => {
+  for (const registerStatus of ["IN_STOCK", "COMING_SOON", null, undefined]) {
+    const raw = makeRaw({
+      tickets_raw: [{ name: "一般", price: 800, closed: false, waiting: false }],
+      register_status: registerStatus,
+    });
+    const { event } = normalize(raw, artistsYml);
+    assert.equal(event.status, "on_sale", `register_status ${registerStatus} should not override an open ticket table`);
+  }
+});
+
 test("parseIndievoxDate: prefers the 'start' time over the earlier 'open' (doors) time", () => {
   const result = parseIndievoxDate("2026.09.19 (Sat.) 19:30 open / 20:00 start");
   assert.deepEqual(result, { date: "2026-09-19", time: "20:00" });
@@ -252,7 +288,7 @@ test("normalize(): tags_origin is the union of ALL recognized headliners' origin
 });
 
 test("matchArtists: a pure-Latin canonical requires a word boundary, not a bare substring match", () => {
-  const yml = [{ canonical: "FLOW", aliases: [], tags_origin_default: "日韓" }];
+  const yml = [{ canonical: "FLOW", aliases: [], tags_origin_default: "日本" }];
   // Real bug found live in production data (2026-09-17): FLOW (a real J-rock
   // band) matched inside LE SSERAFIM's unrelated "PUREFLOW" tour name.
   assert.deepEqual(matchArtists("2026 LE SSERAFIM TOUR 'PUREFLOW' IN TAIPEI", yml), []);
@@ -315,8 +351,8 @@ test("artists.yml has no substring collisions between any two canonical/alias na
 
 test("matchArtists: two real, distinct artists where one's name is an exact word-prefix of the other's — the longer/more specific match wins (real bug: 'MONO NO AWARE PASSION TOUR 2027' was misattributed to the unrelated band 'MONO')", () => {
   const yml = [
-    { canonical: "MONO", aliases: [], tags_origin_default: "日韓" },
-    { canonical: "MONO NO AWARE", aliases: [], tags_origin_default: "日韓" },
+    { canonical: "MONO", aliases: [], tags_origin_default: "日本" },
+    { canonical: "MONO NO AWARE", aliases: [], tags_origin_default: "日本" },
   ];
   assert.deepEqual(matchArtists("MONO NO AWARE PASSION TOUR 2027 in Taipei", yml), ["MONO NO AWARE"]);
   assert.deepEqual(matchArtists('MONO "Snowdrop" Asia Tour 2026 - TAIPEI', yml), ["MONO"]);
@@ -405,11 +441,11 @@ test("normalize(): a branded festival name in the title is tagged 音樂祭 even
 });
 
 test("normalize(): RUSH BALL and FNC BAND KINGDOM are also recognized festival brands", () => {
-  const yml = [{ canonical: "RUSH BALL", aliases: [], tags_origin_default: "日韓" }];
+  const yml = [{ canonical: "RUSH BALL", aliases: [], tags_origin_default: "日本" }];
   const raw1 = normalize(makeRaw({ title_raw: "RUSH BALL 2026 in Taipei & Taichung on the ROAD(台北場)" }), yml, []);
   assert.deepEqual(raw1.event.tags_type, ["音樂祭"]);
 
-  const yml2 = [{ canonical: "FNC BAND KINGDOM", aliases: [], tags_origin_default: "日韓" }];
+  const yml2 = [{ canonical: "FNC BAND KINGDOM", aliases: [], tags_origin_default: "韓國" }];
   const raw2 = normalize(makeRaw({ title_raw: "2026 FNC BAND KINGDOM IN TAIPEI（11/7場次）" }), yml2, []);
   assert.deepEqual(raw2.event.tags_type, ["音樂祭"]);
 });

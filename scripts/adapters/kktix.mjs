@@ -1,6 +1,6 @@
 import * as cheerio from "cheerio";
 import { logProgress } from "../progress-log.mjs";
-import { withPage } from "../browser.mjs";
+import { withPage, withBrowser, newPage } from "../browser.mjs";
 import { normalizeTraditionalChars } from "../normalize.mjs";
 
 /**
@@ -27,6 +27,11 @@ export const priority = 1;
 const UA = "LiveRadar/1.0 (personal use, non-commercial; github.com/<you>/liveradar)";
 const REQUEST_DELAY_MS = 2000;
 const REQUEST_TIMEOUT_MS = 30000; // SPEC §4.3 — every adapter request needs a hard timeout so one slow page can't hang the whole pipeline.
+// Lighter delay for register_info checks specifically (see fetchRegisterStatus):
+// these are same-page JS fetch() calls against an already-Cloudflare-cleared
+// page, not full navigations, so they don't need REQUEST_DELAY_MS's 2s —
+// just enough spacing to not look like a hammering script.
+const REGISTER_CHECK_DELAY_MS = 400;
 
 // cohesionmusic added 2026-09-17 (M12 coverage follow-up): confirmed via
 // browser research that 凝聚力展演空間/Cohesion Space runs its own org account
@@ -47,6 +52,21 @@ const REQUEST_TIMEOUT_MS = 30000; // SPEC §4.3 — every adapter request needs 
 // fetchOrgListing() already expects — kklivetw had 7 upcoming events, atc-twn
 // 16, all previously invisible to LiveRadar (neither org page nor any venue
 // name they use was covered by ORG_PAGE_VENUES or SEARCH_VENUES before this).
+// offtimemusic/baodaorecords added 2026-09-23 (Max real reports: iri
+// 12/6@Legacy TERA and 羊文学 10/24@高雄巨蛋 both missing entirely, plus
+// Max's earlier "每個場次的任何資訊都不可以漏掉" pushback). Same pattern as
+// kklivetw/atc-twn above — these aren't physical venues either, they're
+// promoter accounts that self-host almost all their own shows: OFF TIME
+// (offtimemusic, 提外文化) runs Japanese/Thai indie-pop tours (Omoinotake,
+// 7co, SCRUBB, iri — 4 upcoming, all previously invisible), 宝島制作委員会
+// (baodaorecords) runs a much larger slate of the same genre (AiNA THE END,
+// Suchmos, JANNABI, Daoko, Ave Mujica, and — confirmed the actual scale of
+// this miss — 羊文学's own 10/24 高雄 show despite 羊文学 already being a
+// tracked artist in this file, because the SHOW's promoter account wasn't
+// covered even though the ARTIST was; 13 upcoming events, all previously
+// invisible). Neither showed up via Strategy 3's category browse either —
+// unclear why (indexing lag, ranking, something else), not investigated
+// further since ORG_PAGE_VENUES closes the gap directly regardless.
 const ORG_PAGE_VENUES = [
   "thewalllivehouse",
   "kafka",
@@ -56,6 +76,8 @@ const ORG_PAGE_VENUES = [
   "cohesionmusic",
   "kklivetw",
   "atc-twn",
+  "offtimemusic",
+  "baodaorecords",
 ];
 
 // 2026-09-17: kktix.com/events?search=... returns a genuine Cloudflare JS
@@ -427,25 +449,226 @@ function extractCampaignTemplateFields($) {
   return { date_raw, venue_raw, tickets_raw: [] };
 }
 
-/** Scrapes one event's own page — this is the only place price/venue/date are complete. */
-async function fetchEventDetail(url) {
+/**
+ * 2026-09-23 real bug (Max: 藤井風 10/31 高雄場票早就賣完了，卻仍顯示可購買):
+ * the event page HTML this adapter scrapes for ticket-tier status
+ * (extractOldTemplateFields/extractNewTemplateFields's `.status.closed`/
+ * `.status.waiting` checks) simply never renders ANY status marker for some
+ * large-venue org pages (confirmed: kklivetw/atc-twn) even once every tier
+ * is genuinely sold out — the "已售完" badge only ever shows up client-side
+ * on the separate /registrations/new sub-page, driven by this JSON endpoint.
+ * A ticket row with no status marker at all was (wrongly) treated as "open"
+ * by statusFromTickets(), so a fully sold-out show reported on_sale.
+ * `register_status` here (IN_STOCK / SOLD_OUT / REGISTRATION_CLOSED /
+ * COMING_SOON) is KKTIX's own real-time inventory check, authoritative
+ * regardless of what the static ticket table shows or doesn't show —
+ * confirmed by cross-checking against the registration page's rendered
+ * "已售完" text for this exact event.
+ *
+ * 2026-09-23 follow-up (first version of this function shipped broken, only
+ * caught by actually re-running the fetch and checking real output, not just
+ * `npm test`): calling the bare `/g/events/{id}/register_info` JSON endpoint
+ * with `fetch()` from an unrelated already-loaded page — even one that had
+ * just passed kktix.com's own Cloudflare challenge — still got a 403 "Just a
+ * moment..." challenge page every time (confirmed directly: a page that
+ * successfully rendered kktix.com's homepage got blocked calling this exact
+ * endpoint moments later). This sub-resource endpoint sits behind a
+ * stricter/separate Cloudflare rule than the page it's normally fetched
+ * from. What actually works (confirmed): a real navigation to the event's
+ * own `/registrations/new` page, which triggers this same endpoint as part
+ * of ITS OWN legitimate page load — intercept that response instead of
+ * calling the endpoint directly. Heavier (a full navigation per check, not
+ * a same-page JS fetch) but the only version actually confirmed to get past
+ * Cloudflare, which is what matters here.
+ */
+async function fetchRegisterStatus(browser, rawId) {
+  if (!browser) return null;
+  // 2026-09-23 real bug (found by running this THREE times in a row against
+  // the exact same live event: SOLD_OUT, null, SOLD_OUT): Cloudflare's
+  // challenge on this endpoint is genuinely flaky per-attempt — roughly 1 in
+  // 3 real attempts served the "Just a moment..." HTML challenge page again
+  // instead of the real JSON, even from a brand-new page with no prior
+  // navigation. A single null here used to silently fall through to the
+  // ticket-table's (wrong, for this class of page) "no status marker = open"
+  // default — one retry with a fresh page, same one-retry shape fetchHtml()
+  // already uses elsewhere in this file for the same kind of transient miss.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    let page;
+    try {
+      page = await newPage(browser);
+      let captured = null;
+      page.on("response", async (res) => {
+        if (captured || !res.url().includes(`/g/events/${rawId}/register_info`)) return;
+        try {
+          captured = await res.json();
+        } catch {
+          // response body already consumed/not JSON (Cloudflare challenge page) — leave captured null, retry below
+        }
+      });
+      await page.goto(`https://kktix.com/events/${rawId}/registrations/new`, {
+        waitUntil: "domcontentloaded",
+        timeout: REQUEST_TIMEOUT_MS,
+      });
+      await page.waitForTimeout(2000); // let Cloudflare's challenge + the page's own register_info XHR both finish
+      if (captured?.register_status) return captured.register_status;
+      if (attempt === 0) logProgress(`register_info check for ${rawId} got no usable response, retrying once`);
+    } catch (err) {
+      logProgress(`register_info check failed for ${rawId} (attempt ${attempt + 1}): ${err.message}`);
+    } finally {
+      if (page) await page.close().catch(() => {});
+    }
+  }
+  return null;
+}
+
+/**
+ * Scrapes one event's own page — this is the only place price/venue/date are
+ * complete.
+ *
+ * `knownRegisterStatus` (2026-09-23 real bug, found by actually re-running
+ * fetch and checking the output rather than trusting the code read right):
+ * resolveKnownEvent() below already calls fetchRegisterStatus() once to
+ * DECIDE whether a known event needs re-fetching at all — calling it a
+ * SECOND time in here (once per re-fetch) to fill in the returned object's
+ * own `register_status` field sent two back-to-back real navigations to the
+ * same event's Cloudflare-protected registrations page. The second one
+ * intermittently came back null (confirmed live: 藤井風 10/31 高雄場 —
+ * resolveKnownEvent's own check correctly saw SOLD_OUT and triggered a
+ * re-fetch, but the re-fetch's own internal check silently got nothing back,
+ * so the re-fetched event ended up on_sale again, the exact bug this file
+ * was supposed to have fixed). Pass an already-known status through instead
+ * of re-deriving it whenever the caller has one, so this only ever hits the
+ * network when nobody's checked yet (a genuinely new event).
+ */
+async function fetchEventDetail(url, browser, knownRegisterStatus) {
   const html = await fetchHtml(url);
   const $ = cheerio.load(html);
 
   const usesNewTemplate = $(".side-inner").length > 0 && $(".event-info").length === 0;
   const usesCampaignTemplate = $(".header-title h1").text().trim() === "" && $(".description-wrapper").length > 0;
-  const title_raw = usesCampaignTemplate ? $("title").first().text().trim() : $(".header-title h1").first().text().trim();
-  const { date_raw, venue_raw, tickets_raw } = usesCampaignTemplate
+  const templateTitle = usesCampaignTemplate ? $("title").first().text().trim() : $(".header-title h1").first().text().trim();
+  const templateFields = usesCampaignTemplate
     ? extractCampaignTemplateFields($)
     : usesNewTemplate
       ? extractNewTemplateFields($)
       : extractOldTemplateFields($);
 
+  // 2026-09-23 (Max: "如果有第五種模板 你是不是又抓不到，然後等使用者發現
+  // 少場次" — fair: three template-specific extractors already exist and a
+  // FOURTH turned up the same day, confirmed live (baodaorecords/some HK
+  // organizers: `.event-info` exists so it's misdetected as the old
+  // template, but it's a flat `<p>date</p>` + two `.info-desc` spans, not
+  // the `ul.info li` list the old-template selector needs — date AND venue
+  // both come back empty, and the venue miss means isOutsideTaiwanVenue()
+  // never even got a chance to filter an actual Hong Kong show). Chasing
+  // template shapes one at a time is exactly the reactive, always-one-step-
+  // behind pattern this project has already pushed back on for org
+  // whitelists (see ORG_PAGE_VENUES's 2026-09-22 comment) — the real fix is
+  // to stop depending on organizer-controlled page markup for these three
+  // fields at all. Confirmed live (old template, this 4th template, and a
+  // Hong Kong organizer's page all checked): every KKTIX event page embeds
+  // a `<script type="application/ld+json">` Schema.org Event block with a
+  // real title/startDate/venue — this is KKTIX's own SEO output, generated
+  // server-side the same way regardless of which visual template the
+  // organizer's page happens to render with, not something an organizer's
+  // page design can vary. Used as the PRIMARY source for title/date/venue
+  // now, with the template-specific extractors only as a fallback for a
+  // page that somehow lacks it — a genuinely future-proof fix for THESE
+  // three fields regardless of how many more template shapes KKTIX grows.
+  // Ticket price/status (`tickets_raw`) still needs template-specific
+  // scraping — the JSON-LD's `offers` array is empty on every page checked,
+  // KKTIX doesn't populate it — so a 5th template could still miss price/
+  // status, but that fails safe (empty tickets_raw reads as "known event,
+  // price/status just not published yet", never as a lost event).
+  const jsonLd = extractJsonLdEvent($);
+  const title_raw = jsonLd?.name || templateTitle;
+  const date_raw = jsonLd?.date_raw || templateFields.date_raw;
+  const venue_raw = jsonLd?.venue_raw || templateFields.venue_raw;
+  const { tickets_raw } = templateFields;
+
   const raw_id = url.split("/").filter(Boolean).pop();
-  return { raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, source_name: name };
+  const register_status = knownRegisterStatus !== undefined ? knownRegisterStatus : await fetchRegisterStatus(browser, raw_id);
+  return { raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, register_status, source_name: name };
+}
+
+/**
+ * KKTIX's own server-generated Schema.org Event JSON-LD block — see the doc
+ * comment above its call site for why this is preferred over any of the
+ * template-specific extractors for title/date/venue. Formats date/venue
+ * into the same raw-text shapes parseKktixDate()/parseKktixVenue() already
+ * expect from the template extractors (`YYYY/MM/DD HH:MM`, `venue / address`)
+ * rather than changing what normalize.mjs accepts — this is a second SOURCE
+ * for those strings, not a new format for them to handle.
+ */
+function extractJsonLdEvent($) {
+  for (const el of $('script[type="application/ld+json"]').toArray()) {
+    let parsed;
+    try {
+      parsed = JSON.parse($(el).text());
+    } catch {
+      continue;
+    }
+    const entries = Array.isArray(parsed) ? parsed : [parsed];
+    const event = entries.find((e) => e && e["@type"] === "Event");
+    if (!event?.startDate) continue;
+    const m = event.startDate.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+    if (!m) continue;
+    const [, y, mo, d, h, mi] = m;
+    const venueName = event.location?.name?.trim();
+    const venueAddress = event.location?.address?.trim();
+    return {
+      name: event.name?.trim() || null,
+      date_raw: `${y}/${mo}/${d} ${h}:${mi}`,
+      venue_raw: venueName ? (venueAddress ? `${venueName} / ${venueAddress}` : venueName) : null,
+    };
+  }
+  return null;
+}
+
+/**
+ * 2026-09-23 (same real bug as fetchRegisterStatus's doc comment, the
+ * staleness half of it): incremental fetch normally skips an already-known
+ * event's detail page entirely — cheap, but it also means a status change
+ * (most importantly: going sold out) on an event LiveRadar already knows
+ * about would never be picked up again, ever, even after fetchEventDetail's
+ * fix above stops the bug from happening to newly-discovered events. Check
+ * the same lightweight register_info endpoint for known events too before
+ * accepting reuse_previous — if it now says sales are over, treat the event
+ * as needing a real re-fetch (also picks up a since-updated price) instead
+ * of blindly reusing possibly-stale normalized data. Returns either a
+ * `reuse_previous` stub (nothing changed) or a full fetchEventDetail()
+ * result (status flipped) — `null` only if the forced re-fetch itself failed.
+ */
+async function resolveKnownEvent(raw_id, url, browser, warnings) {
+  await sleep(REGISTER_CHECK_DELAY_MS);
+  const registerStatus = await fetchRegisterStatus(browser, raw_id);
+  if (registerStatus !== "SOLD_OUT" && registerStatus !== "REGISTRATION_CLOSED") {
+    return { raw_id, url, title_raw: null, source_name: name, reuse_previous: true };
+  }
+  await sleep(REQUEST_DELAY_MS);
+  logProgress(`known event ${raw_id} now reports ${registerStatus}, re-fetching detail instead of reusing stale data`);
+  try {
+    return await fetchEventDetail(url, browser, registerStatus);
+  } catch (err) {
+    warnings.push(`event detail failed for ${url}: ${err.message}`);
+    return null;
+  }
 }
 
 export async function fetch(knownRawIds = new Set()) {
+  return withBrowser(async (browser) => fetchWithBrowser(browser, knownRawIds));
+}
+
+/**
+ * The real body of fetch(), given a browser that's kept open for the whole
+ * run — 2026-09-23: needed so every event's register_info sale-status check
+ * (see fetchRegisterStatus, which opens and closes its own short-lived page
+ * per check against this shared browser) reuses one browser PROCESS instead
+ * of paying a fresh-launch cost per event the way fetchSearchResultUrls/
+ * fetchCategoryBrowsePage's per-call withPage() does (fine for a handful of
+ * listing pages, far too slow for one call per event).
+ */
+async function fetchWithBrowser(browser, knownRawIds) {
   const results = [];
   const warnings = [];
   let skippedKnown = 0;
@@ -478,14 +701,18 @@ export async function fetch(knownRawIds = new Set()) {
       seenRawIds.add(raw_id);
       if (knownRawIds.has(raw_id)) {
         skippedKnown += 1;
-        results.push({ raw_id, url, title_raw: null, source_name: name, reuse_previous: true });
+        const resolved = await resolveKnownEvent(raw_id, url, browser, warnings);
+        if (resolved) {
+          results.push(resolved);
+          if (!resolved.reuse_previous) logProgress(`  + ${resolved.title_raw} (sale status changed, re-fetched)`);
+        }
         continue;
       }
 
       await sleep(REQUEST_DELAY_MS);
       logProgress(`fetching detail: ${url}`);
       try {
-        const detail = await fetchEventDetail(url);
+        const detail = await fetchEventDetail(url, browser);
         results.push(detail);
         logProgress(`  + ${detail.title_raw}`);
       } catch (err) {
@@ -514,7 +741,20 @@ export async function fetch(knownRawIds = new Set()) {
       seenRawIds.add(raw_id);
       if (knownRawIds.has(raw_id)) {
         skippedKnown += 1;
-        results.push({ raw_id, url, title_raw: null, source_name: name, reuse_previous: true });
+        const resolved = await resolveKnownEvent(raw_id, url, browser, warnings);
+        if (resolved?.reuse_previous) {
+          results.push(resolved);
+        } else if (resolved) {
+          // Sale status changed and got a real re-fetch — still needs the
+          // same venue-match filter the fresh path below applies, since a
+          // known raw_id passing that filter last run doesn't exempt a
+          // freshly re-scraped venue_raw from being checked again.
+          const [venuePart, addressPart = ""] = resolved.venue_raw.split("/").map((s) => s.trim());
+          if (match(venuePart, addressPart)) {
+            results.push(resolved);
+            logProgress(`  + ${resolved.title_raw} (sale status changed, re-fetched)`);
+          }
+        }
         continue;
       }
 
@@ -522,7 +762,7 @@ export async function fetch(knownRawIds = new Set()) {
       logProgress(`fetching detail: ${url}`);
       let detail;
       try {
-        detail = await fetchEventDetail(url);
+        detail = await fetchEventDetail(url, browser);
       } catch (err) {
         warnings.push(`event detail failed for ${url}: ${err.message}`);
         continue;
@@ -559,14 +799,18 @@ export async function fetch(knownRawIds = new Set()) {
 
       if (knownRawIds.has(raw_id)) {
         skippedKnown += 1;
-        results.push({ raw_id, url, title_raw: null, source_name: name, reuse_previous: true });
+        const resolved = await resolveKnownEvent(raw_id, url, browser, warnings);
+        if (resolved) {
+          results.push(resolved);
+          if (!resolved.reuse_previous) logProgress(`  + ${resolved.title_raw} (sale status changed, re-fetched)`);
+        }
         continue;
       }
 
       await sleep(REQUEST_DELAY_MS);
       logProgress(`fetching detail: ${url}`);
       try {
-        const detail = await fetchEventDetail(url);
+        const detail = await fetchEventDetail(url, browser);
         results.push(detail);
         logProgress(`  + ${detail.title_raw}`);
       } catch (err) {

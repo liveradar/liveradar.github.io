@@ -46,7 +46,27 @@ function mergeGroup(group, id) {
   // order the adapters happened to return it in. A special-purpose listing
   // (lottery signup, VIP addon) never wins this over a plain one, and across
   // platforms the existing SOURCE_PRIORITY order still applies.
-  const [base, ...rest] = [...group].sort((a, b) => listingRank(a) - listingRank(b));
+  //
+  // 2026-09-23 real bug (羊文学 10/24@高雄, confirmed live: register_info
+  // correctly caught this show going SOLD_OUT and re-fetched it, but the
+  // merged card still showed on_sale): KKTIX sometimes serves the SAME real
+  // show under two different raw_ids from the same org — a real ticketed
+  // page (own price tiers, own live status) plus a purely decorative
+  // "info" page with no ticket table of its own (just a link over to the
+  // real one). Both are same-source (KKTIX) and neither matches
+  // SPECIAL_LISTING_RE, so they tied on listingRank — a tie `.sort()`
+  // breaks by original array order, which has nothing to do with which one
+  // actually carries real data, so the decorative page (price_min: null)
+  // could silently win `base` over the real ticketed page's fresher
+  // status. Tie-break by whether a listing actually has real price data
+  // (price_min != null) before falling back to array order — a listing
+  // with no ticket-tier data of its own is never the more authoritative
+  // one to build the merged card's status from.
+  const [base, ...rest] = [...group].sort((a, b) => {
+    const rankDiff = listingRank(a) - listingRank(b);
+    if (rankDiff !== 0) return rankDiff;
+    return (b.price_min != null ? 1 : 0) - (a.price_min != null ? 1 : 0);
+  });
   const result = { ...base, id, merged_ids: [id] };
   // 2026-09-22 real bug (Max, 音田雅則: "需登記抽選的標籤只適用於全部票券都
   // 要抽選的"): `is_lottery` USED to be "true if ANY merged listing mentions

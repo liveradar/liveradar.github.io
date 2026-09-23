@@ -209,3 +209,27 @@ test("mergeGroup: an ordinary event with no lottery-signup listing anywhere repo
   const [merged] = dedupe([makeEvent({})]);
   assert.equal(merged.is_lottery, false);
 });
+
+test("mergeGroup real bug (羊文学 10/24@高雄: register_info correctly caught the show going SOLD_OUT, but the merged card still showed on_sale): when two same-source listings tie on listingRank, the one that actually has real price data wins base over a decorative info-only listing with no ticket data of its own", () => {
+  const infoOnly = makeEvent({
+    title_raw: "羊文学 Hitsujibungaku TOUR 2026",
+    price_min: null,
+    price_max: null,
+    status: "on_sale", // stale/default — this listing never had its own ticket table to derive a real status from
+    sources: [{ name: "KKTIX", url: "https://baodaorecords.kktix.cc/events/ff315f99", raw_id: "ff315f99" }],
+  });
+  const realTicketPage = makeEvent({
+    title_raw: "【10/24】羊文学 Hitsujibungaku TOUR 2026",
+    price_min: 1100,
+    price_max: 2200,
+    status: "sold_out", // the freshly re-fetched, register_info-confirmed real status
+    sources: [{ name: "KKTIX", url: "https://baodaorecords.kktix.cc/events/58eae147", raw_id: "58eae147" }],
+  });
+
+  // Order matters for reproducing the original bug (array-order tiebreak
+  // used to just take whichever came first) — put the decorative listing
+  // first, the way the adapter happened to return it that day.
+  const [merged] = dedupe([infoOnly, realTicketPage]);
+  assert.equal(merged.status, "sold_out");
+  assert.equal(merged.price_min, 1100);
+});

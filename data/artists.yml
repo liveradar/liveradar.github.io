@@ -1145,3 +1145,90 @@
 - canonical: Re:Dino
   aliases: []
   tags_origin_default: 本地  # 阿卡貝拉演唱團體，台北西門紅樓
+# 2026-09-23 查證補齊：baodaorecords（宝島制作委員会）新加入的主辦帳號一次
+# 帶進大批日本歌手，逐一搜尋官方資料確認身分（不是憑標題猜），來源見各自註記。
+- canonical: iri
+  aliases: []
+  tags_origin_default: 日本  # ⚠️ 短字，查證：日本 R&B/Hip-Hop 女歌手，2024 武道館個唱完售，offtimemusic 主辦
+- canonical: 浜野はるき
+  aliases: []
+  tags_origin_default: 日本  # 日本福岡出身創作歌手，2026 首次海外巡迴（台/港/韓）
+- canonical: TeddyLoid
+  aliases: []
+  tags_origin_default: 日本  # 日本電音/DJ 製作人，代表作 Ado〈踊〉、動畫《Panty & Stocking》配樂
+- canonical: Daoko
+  aliases: []
+  tags_origin_default: 日本  # 日本饒舌/歌手，代表作〈打上花火〉
+- canonical: CHIANZ
+  aliases: []
+  tags_origin_default: 日本  # 日本女子搖滾樂團（eill、Foi、Chie、月川玲四位發小組成）
+- canonical: AKANE YONEZAWA
+  aliases: ["米澤茜"]
+  tags_origin_default: 日本  # 日本鼓手/聲優，BanG Dream! Ave Mujica 樂團鼓手
+- canonical: AIMI
+  aliases: ["愛美"]
+  tags_origin_default: 日本  # ⚠️ 短字，查證：日本聲優/歌手，BanG Dream! 戸山香澄配音、Poppin'Party 吉他手
+- canonical: XinU
+  aliases: ["シンユウ"]
+  tags_origin_default: 日本  # 日本創作歌手，東京發跡，代表作〈ココカラ〉
+- canonical: BLU-SWING
+  aliases: ["Across the Blue"]
+  tags_origin_default: 日本  # 日本爵士樂團，"Across the Blue" 是這次巡演名稱，標題本身沒有團名
+- canonical: Himegoto
+  aliases: ["秘めごと"]
+  tags_origin_default: 日本  # 日本雙人音樂團體（主唱詩音、作曲木天蓼）
+- canonical: KORESAWA
+  aliases: ["コレサワ"]
+  tags_origin_default: 日本  # 日本蒙面創作女歌手，大阪出身
+- canonical: HITORIE
+  aliases: ["HITORI-ESCAPE", "ヒトリエ"]
+  tags_origin_default: 日本  # 日本搖滾樂團，"HITORI-ESCAPE" 是巡演名稱，標題本身沒有團名全稱
+- canonical: Regallily
+  aliases: ["リーガルリリー"]
+  tags_origin_default: 日本  # 日本女子搖滾樂團，唱過《迷宮飯》片尾曲
+- canonical: AmbiO
+  aliases: []
+  tags_origin_default: 韓國  # 韓國男子新人團體，2026 年 3 月出道
+
+# 2026-09-23 查證補齊：其餘待整理清單裡查到的個案。
+- canonical: Ponpon
+  aliases: ["陳芃瑄"]
+  tags_origin_default: 本地  # 台灣爵士歌手/吉他手，出身台北
+- canonical: MISTERK
+  aliases: []
+  tags_origin_default: 亞洲其他  # 查證：票券頁自述「來自北京的地下獨立音樂人」，中國饒舌/說唱歌手
+- canonical: 蝕光跡
+  aliases: ["沈聖豪", "SHENG-HAO"]
+  tags_origin_default: 本地  # 標題是演唱會名稱不是藝人名，查證：票券頁內文「蝕光跡 Traces of Time 沈聖豪 2026 個人演唱會」
+- canonical: OUTSIDE THE GATE
+  aliases: []
+  tags_origin_default: 本地  # 台南 SEETY 新城視展演空間拼盤演出企劃系列，非單一藝人
+- canonical: Cello In Between
+  aliases: []
+  tags_origin_default: 本地  # 2026 陽明交大藝術季節目名稱（校方藝文中心主辦，非單一藝人）
+- canonical: 巴雀室
+  aliases: []
+  tags_origin_default: 本地  # 2026 陽明交大藝術季節目「巴雀室"重瘋：弦樂四重奏」
+- canonical: 搖擺不設限
+  aliases: []
+  tags_origin_default: 本地  # 2026 陽明交大藝術季節目，單簧管大師致敬音樂會
+- canonical: 魯特琴與歌曲
+  aliases: []
+  tags_origin_default: 本地  # 2026 陽明交大藝術季節目，紀念魯特琴作曲家道蘭逝世 400 週年
+- canonical: 家駒紀念音樂會
+  aliases: []
+  tags_origin_default: 本地  # 查證：票券頁自述是台灣本地 Beyond 樂迷籌辦的紀念演出，不是 Beyond 本人來台
+- canonical: Freya Skye
+  aliases: []
+  tags_origin_default: 歐美  # 英國創作歌手/演員，曾代表英國參加 Junior Eurovision
+- canonical: 周治平
+  aliases: []
+  tags_origin_default: 本地  # 台灣資深創作歌手/音樂製作人
+
+# 2026-09-23 查證：U-KNOW（東方神起 Yunho 個人企劃）——這次待整理清單裡的
+# 場次（u-know-hk-2026）實際是香港站，查證後應該被地區過濾擋掉而不是留著
+# 等查證，見 OUTSIDE_TAIWAN_VENUE_RE 的對應修正；先把藝人本身補進來，未來
+# 台北站（巡迴公告已提到）才不會又卡在待整理。
+- canonical: U-KNOW
+  aliases: ["Yunho", "유노윤호"]
+  tags_origin_default: 韓國  # 東方神起（TVXQ）成員個人企劃巡演
