@@ -471,6 +471,47 @@ function wireInlineSearch(events, restoreRender) {
   });
 }
 
+/**
+ * .sticky-header (topbar + optional inline search + page-header/filters) is
+ * pinned at the top of the viewport; this slides it out on scroll-down and
+ * back in on scroll-up, tracking the delta rather than requiring a return to
+ * scrollY 0 — so 搜尋/篩選 stay reachable with just a small upward swipe.
+ * Runs unconditionally since .sticky-header only exists on the pages that
+ * have one (index/favorites/new); a no-op elsewhere.
+ */
+function wireStickyHeader() {
+  const header = document.querySelector(".sticky-header");
+  if (!header) return;
+
+  let lastY = Math.max(window.scrollY, 0);
+  let ticking = false;
+
+  function onScroll() {
+    const y = Math.max(window.scrollY, 0);
+    const delta = y - lastY;
+    if (y <= 0) {
+      header.classList.remove("sticky-header--hidden");
+    } else if (delta > 4) {
+      header.classList.add("sticky-header--hidden");
+    } else if (delta < -4) {
+      header.classList.remove("sticky-header--hidden");
+    }
+    lastY = y;
+    ticking = false;
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
+}
+
 async function initTimeline(container) {
   let events;
   try {
@@ -1267,6 +1308,8 @@ function initManualAdd(form) {
     }
   });
 }
+
+wireStickyHeader();
 
 const timelineContainer = document.querySelector('[data-page="timeline"]');
 if (timelineContainer) {

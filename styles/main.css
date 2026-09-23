@@ -57,6 +57,22 @@ button {
 
 /* ---------- Top bar ---------- */
 
+/* Wraps topbar + (optional inline search) + page-header on list pages so
+   they stick together: pinned at the top of the viewport, and slid out of
+   view on scroll-down / back in on scroll-up (see wireStickyHeader() in
+   src/app.js) — so 搜尋/篩選 are reachable with a small upward swipe instead
+   of scrolling all the way back to the top. */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  transition: transform 0.25s ease;
+}
+.sticky-header--hidden {
+  transform: translateY(-100%);
+}
+
 .topbar {
   height: 58px;
   flex: 0 0 auto;

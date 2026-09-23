@@ -17,33 +17,35 @@
 <body>
 <div class="app" id="app">
 
-  <div class="topbar">
-    <div class="wordmark">LiveRadar</div>
-    <div style="display:flex;gap:4px;">
-      <button type="button" class="icon-btn" id="intro-info-btn" aria-label="關於 LiveRadar">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v6" stroke-linecap="round"/><circle cx="12" cy="7.5" r="0.9" fill="currentColor" stroke="none"/></svg>
-      </button>
-      <button type="button" class="icon-btn" id="search-toggle-btn" aria-label="搜尋" aria-expanded="false" aria-controls="search-panel">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      </button>
+  <div class="sticky-header">
+    <div class="topbar">
+      <div class="wordmark">LiveRadar</div>
+      <div style="display:flex;gap:4px;">
+        <button type="button" class="icon-btn" id="intro-info-btn" aria-label="關於 LiveRadar">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v6" stroke-linecap="round"/><circle cx="12" cy="7.5" r="0.9" fill="currentColor" stroke="none"/></svg>
+        </button>
+        <button type="button" class="icon-btn" id="search-toggle-btn" aria-label="搜尋" aria-expanded="false" aria-controls="search-panel">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+      </div>
     </div>
-  </div>
 
-  <!-- Slide-down inline search — replaces navigating to search.html; reuses the timeline's already-loaded events (see wireInlineSearch() in src/app.js). search.html itself stays as a shareable/bookmarkable URL. -->
-  <div class="search-panel" id="search-panel">
-    <div class="search-panel__inner">
-      <input type="search" class="field-input" id="inline-search-input" placeholder="搜尋藝人或標題…" aria-label="搜尋藝人或標題" />
+    <!-- Slide-down inline search — replaces navigating to search.html; reuses the timeline's already-loaded events (see wireInlineSearch() in src/app.js). search.html itself stays as a shareable/bookmarkable URL. -->
+    <div class="search-panel" id="search-panel">
+      <div class="search-panel__inner">
+        <input type="search" class="field-input" id="inline-search-input" placeholder="搜尋藝人或標題…" aria-label="搜尋藝人或標題" />
+      </div>
     </div>
-  </div>
 
-  <div class="page-header">
-    <div class="page-title">時間表</div>
-    <div class="filter-row" data-view-filters>
-      <button type="button" class="chip" data-filter="city">全部城市</button>
-      <button type="button" class="chip" data-filter="month">全部月份</button>
-      <button type="button" class="chip" data-filter="type">全部類型</button>
-      <button type="button" class="chip" data-filter="origin">音樂人地區</button>
-      <button type="button" class="chip" data-filter="price">價格</button>
+    <div class="page-header">
+      <div class="page-title">時間表</div>
+      <div class="filter-row" data-view-filters>
+        <button type="button" class="chip" data-filter="city">全部城市</button>
+        <button type="button" class="chip" data-filter="month">全部月份</button>
+        <button type="button" class="chip" data-filter="type">全部類型</button>
+        <button type="button" class="chip" data-filter="origin">音樂人地區</button>
+        <button type="button" class="chip" data-filter="price">價格</button>
+      </div>
     </div>
   </div>
 
