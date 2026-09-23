@@ -1,6 +1,18 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { needsRegisterCheck, runStats } from "./adapters/kktix.mjs";
+import { needsRegisterCheck, runStats, SEARCH_VENUES } from "./adapters/kktix.mjs";
+
+const venueRule = (keyword) => SEARCH_VENUES.find((v) => v.keyword === keyword).match;
+
+test("SEARCH_VENUES Legacy Taipei real bug (ZAZEN to VOOID, missing every run): an address that starts with a postal code still matches", () => {
+  assert.equal(venueRule("Legacy Taipei")("Legacy", "100臺北市中正區梅花里八德路一段1號華山1914創意文化園區中5A館"), true);
+  assert.equal(venueRule("Legacy Taipei")("Legacy", "台北市中正區八德路一段1號"), true);
+});
+
+test("SEARCH_VENUES Legacy Taipei/Taichung still tell the two cities apart", () => {
+  assert.equal(venueRule("Legacy Taichung")("Legacy", "100臺北市中正區八德路一段1號"), false);
+  assert.equal(venueRule("Legacy Taipei")("Legacy Taichung 傳 音樂展演空間", "403臺中市西區英才路"), false);
+});
 
 const TODAY = "2026-09-23";
 

@@ -155,14 +155,17 @@ const CATEGORY_BROWSE_MAX_PAGES = 20;
 // maintaining its own separate [台臺] regex (that drift is exactly how this
 // bug shipped in the first place — normalize.mjs's address matching and this
 // file's venue matching were fixed as two unrelated one-off patches).
-const SEARCH_VENUES = [
+// Legacy's address checks use includes(), not startsWith(): real addresses
+// often lead with a postal code ("100臺北市中正區…", ZAZEN to VOOID,
+// 2026-09-23) — the same bug cityFromAddress() already had fixed on 09-21.
+export const SEARCH_VENUES = [
   {
     keyword: "Legacy Taipei",
-    match: (venue, address) => /^Legacy(\s|$)/.test(venue) && normalizeTraditionalChars(address).startsWith("台北"),
+    match: (venue, address) => /^Legacy(\s|$)/.test(venue) && normalizeTraditionalChars(address).includes("台北"),
   },
   {
     keyword: "Legacy Taichung",
-    match: (venue, address) => /^Legacy(\s|$)/.test(venue) && normalizeTraditionalChars(address).startsWith("台中"),
+    match: (venue, address) => /^Legacy(\s|$)/.test(venue) && normalizeTraditionalChars(address).includes("台中"),
   },
   { keyword: "Revolver", match: (venue) => /^Revolver/i.test(venue) },
   { keyword: "Clapper Studio", match: (venue) => /^Clapper/i.test(venue) },
@@ -765,6 +768,9 @@ async function fetchWithBrowser(browser, knownRawIds) {
   // same events a second time, producing duplicate needs-review entries the
   // same way Ticket Plus's missing dedup did (see fetch.mjs's 2026-09-22 fix).
   const seenRawIds = new Set();
+  // raw_id -> already-fetched detail for events Strategy 2's venue filter
+  // rejected (see the comment where it's filled in).
+  const searchRejected = new Map();
 
   // Strategy 1: self-promoting venues, one listing page each.
   for (const org of ORG_PAGE_VENUES) {
@@ -825,8 +831,9 @@ async function fetchWithBrowser(browser, knownRawIds) {
       // venue-match filter below on a previous run (a venue doesn't change),
       // so re-verifying it here would just burn a request for the same answer.
       const raw_id = url.split("/").filter(Boolean).pop();
-      seenRawIds.add(raw_id);
+      if (seenRawIds.has(raw_id) || searchRejected.has(raw_id)) continue; // same URL can come back from several venue searches
       if (knownRawIds.has(raw_id)) {
+        seenRawIds.add(raw_id);
         skippedKnown += 1;
         const resolved = await resolveKnownEvent(raw_id, url, browser, warnings, knownRawIds.get(raw_id));
         if (resolved?.reuse_previous) {
@@ -856,10 +863,18 @@ async function fetchWithBrowser(browser, knownRawIds) {
       }
       const [venuePart, addressPart = ""] = detail.venue_raw.split("/").map((s) => s.trim());
       if (match(venuePart, addressPart)) {
+        seenRawIds.add(raw_id);
         results.push(detail);
         logProgress(`  + ${detail.title_raw}`);
+      } else {
+        // Not at THIS search's venue, but not necessarily junk. 2026-09-23 real
+        // bug (ZAZEN to VOOID @ Legacy Taipei, missing every run): this used to
+        // mark the raw_id seen before the venue check, so a rejected event was
+        // also skipped by Strategy 3 below even when it's a real show sitting in
+        // the music category. Kept (not marked seen) so Strategy 3 can still
+        // accept it, reusing this already-fetched detail instead of a 2nd request.
+        searchRejected.set(raw_id, detail);
       }
-      // else: search false-positive (venue name mentioned but not actually the venue) — drop silently.
     }
   }
 
@@ -886,6 +901,13 @@ async function fetchWithBrowser(browser, knownRawIds) {
         if (seenRawIds.has(raw_id)) continue; // already found via Strategy 1/2, or an earlier tag/page this run
         seenRawIds.add(raw_id);
         categoryFoundCount += 1;
+
+        if (searchRejected.has(raw_id)) {
+          const detail = searchRejected.get(raw_id);
+          results.push(detail);
+          logProgress(`  + ${detail.title_raw} (rejected by a venue search, recovered via category browse)`);
+          continue;
+        }
 
         if (knownRawIds.has(raw_id)) {
           skippedKnown += 1;
