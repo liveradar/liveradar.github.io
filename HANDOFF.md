@@ -610,3 +610,20 @@ Max 看完上面三個回報的修法後回饋三點，核心是同一個問題�
 **驗證方式**：`npm test` 147 個全過；瀏覽器裡開發伺服器實測，`get_page_text` 確認畫面上多筆真實場次（TREASURE→韓國、藤井風→日本、BTS→韓國）標籤正確，篩選 chip 的 bottom sheet 正確列出「全部地區／本地／日本／韓國／歐美／亞洲其他」五個選項；確認 console 無錯誤。
 
 `npm test` 147 個全過（新增 6 個：`SOLD_OUT_TEXT_RE` 語意化樣式 2 個、`isOutsideTaiwanVenue` 地理過濾 2 個、噪音關鍵字批次 1 個）。`npm run fetch` 這次分三輪驗證（地理過濾/日期樣式修好 → 加確認的藝人 → 最終日期樣式再擴充），最終 358 場正式場次、27 筆待整理。
+
+## 藤井風售完誤判、KKTIX 漏抓、dedup bug 修復（2026-09-23）
+
+Max 這次回報三個真實問題，都追到根因修好：
+
+1. **藤井風 10/31 高雄場已售完卻仍顯示 on_sale**：kklivetw 這類大型場館主辦頁面的靜態 HTML 完全不輸出售票狀態標記，舊邏輯「沒有 status 標記 = 開賣中」因此誤判。改用 KKTIX 自己的即時庫存查詢（`kktix.com/g/events/{id}/register_info`）當權威訊號覆蓋 HTML 表格的推論，也套用在已收錄場次上（不只新場次），這樣賣完才發生在收錄之後的場次隔天也抓得到。這個查詢本身是 Cloudflare 保護的端點，直接 `fetch()` 會被擋，要導覽到訂票頁讓它自己觸發請求再攔截；同一場次連續打兩次還可能第二次失敗拿到空值，改成把已知結果往下傳＋加一次重試。
+2. **「已售完」文案改成「結束販售」**：岡崎體育那場其實是取消不是單純賣完，兩者現有資料沒辦法可靠分辨，講「結束販售」比較誠實，不管是售完還是取消都用這個字。
+3. **iri（offtimemusic）、羊文学（baodaorecords）等場次完全沒被抓到**：這兩個主辦帳號沒被加進 `ORG_PAGE_VENUES`。順便發現 KKTIX 已經長出第四種頁面模板（`.event-info` 容器存在但不是 `ul.info li` 清單，是攤平的 `<p>`+`.info-desc` 排列），改成優先讀取 KKTIX 每頁都有的 Schema.org JSON-LD 結構化資料（title/date/venue），模板專屬選擇器只當備援——不管以後又長出第幾種版面，這三個欄位都不會再壞掉。待整理清單的 `date_unparseable` 因此從 11 筆變 0 筆。
+4. **dedup bug**：羊文学 10/24 場在 KKTIX 上有兩個頁面（真購票頁 + 純介紹用連結頁），同天同場地被判定同一場秀合併，但合併邏輯沒有「優先採用有真實票券資料的那頁」規則，售完的真實頁面被沒資料的介紹頁蓋掉。改成同分時優先選有 `price_min` 的那筆。
+
+同一天另一台電腦的 session 也獨立在做「日韓拆分成日本/韓國」跟首頁標題格式調整，兩邊幾乎同時 push，這台 Mac 這邊本機的 git 自動同步把兩份工作合併時一度把這次的改動從工作目錄清空（原因不明，懷疑是自動 rebase 相關），所幸在 `git stash` 記錄裡找到系統自動建立的備份救回來，合併時 artists.yml 的日韓拆分以另一台電腦那份已查證過的 105 筆分類為準，避免同一批資料兩邊分別查證兩次。如果之後又遇到「本機改動突然消失」，先查 `git reflog` 跟 `git fsck --unreachable`，很可能是同一種自動 stash 機制救得回來，不要急著重做。
+
+**還沒查證、留給下一個 session 的 3 筆待整理**（`npm run fetch` 每次跑分類瀏覽策略都可能滑出新的一批，這是最新一次跑完的快照）：
+
+- **`幻想遊戲演奏會2026 in Kaohsiung`**（KKTIX，`kuroko.kktix.cc/events/marasy2026ks`）——這筆其實已經查證過是日本鋼琴演奏家 Marasy（まらしぃ，東方 Project 鋼琴演奏會系列），`artists.yml` 也已經補上對應別名，理論上下次 `npm run fetch` 就會自動清掉，列在這裡只是防呆確認。
+- **`2026 HWANG MIN HYUN FANMEETING [PEACH-BLOSSOM] - TAIPEI`**（拓元，`tixcraft.com/activity/detail/26_minhyun`）——還沒查證，HWANG MIN HYUN 看起來是韓國偶像（NU'EST 成員黃旼炫），但沒有實際開票券頁確認，不要用猜的直接加。
+- **`10.4 (Sun.) 狀態疊加Project： Superposition Vol.3`**（iNDIEVOX，`indievox.com/activity/detail/26_iv0423341`）——完全沒查證過，標題看起來像本地拼盤演出企劃名稱，不是單一藝人名，需要開頁面看陣容才知道怎麼標。
