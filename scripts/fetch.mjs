@@ -15,6 +15,7 @@ import { resetProgressLog, logProgress } from "./progress-log.mjs";
 import { notifySourceAnomaly } from "./notify.mjs";
 import { classifySourceRun } from "./source-status.mjs";
 import { fallbackEventsForSource, fallbackReviewItemsForSource } from "./source-fallback.mjs";
+import { refreshedStatus } from "./sale-signal.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "..", "data");
@@ -141,18 +142,34 @@ async function runAdapter(adapter, context) {
   // page (see e.g. tixcraft.mjs) — reuse its previous normalized data outright
   // rather than re-running normalize() on the deliberately-incomplete stub.
   const reuseRawIds = new Set();
+  const reuseSignals = new Map(); // raw_id -> { sale_signal, on_sale_at } (see sale-signal.mjs)
   const freshRawEvents = [];
   for (const raw of rawEvents) {
     if (raw.reuse_previous) {
       reuseRawIds.add(raw.raw_id);
+      if (raw.sale_signal !== undefined) reuseSignals.set(raw.raw_id, raw);
     } else {
       freshRawEvents.push(raw);
     }
   }
   if (reuseRawIds.size > 0) {
     const reused = fallbackEventsForSource(previousEvents, adapter.name, reuseRawIds);
+    // 2026-09-24: reused data used to keep its status forever. Apply the
+    // adapter's fresh sale signal (if it checked one) — see sale-signal.mjs.
+    let statusChanged = 0;
+    for (const event of reused) {
+      const signal = reuseSignals.get(event.sources[0].raw_id);
+      const next = refreshedStatus(event, signal?.sale_signal ?? null, signal?.on_sale_at ?? null);
+      if (!next) continue;
+      logProgress(`${adapter.name}: status ${event.status} -> ${next.status}: ${event.title_raw}`);
+      Object.assign(event, next, { updated_at: new Date().toISOString() });
+      statusChanged += 1;
+    }
     normalizedEvents.push(...reused);
-    logProgress(`${adapter.name}: reused ${reused.length} already-known event(s) without re-fetching detail`);
+    logProgress(
+      `${adapter.name}: reused ${reused.length} already-known event(s) without re-fetching detail, ` +
+        `${reuseSignals.size} status-checked, ${statusChanged} status change(s)`,
+    );
   }
 
   for (const raw of freshRawEvents) {

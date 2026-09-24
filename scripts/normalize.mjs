@@ -997,7 +997,7 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
     // status UI element (not free-form prose), which is what makes a
     // broader pattern safe here without needing to read surrounding
     // context to avoid false positives.
-    const SOLD_OUT_TEXT_RE = /(?:銷售|選購|販售|售票|登記)(?:一空|截止|結束)|售完|完售|售罄|停售/;
+    const SOLD_OUT_TEXT_RE = /(?:銷售|選購|販售|售票|登記)(?:一空|截止|結束)|售完|完售|售罄|停售|截止/; // bare 截止 added 2026-09-24: a tixcraft row's own text is "YYYY/MM/DD HH:MM 截止", see sale-signal.mjs
     if (SOLD_OUT_TEXT_RE.test(rawEvent.sale_status_text ?? "")) {
       status = dateParsed.date >= taiwanTodayDateStr() ? "sold_out" : "ended";
     } else {

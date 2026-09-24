@@ -1,7 +1,8 @@
 import * as cheerio from "cheerio";
 import { logProgress } from "../progress-log.mjs";
 import { withPage, withBrowser, newPage } from "../browser.mjs";
-import { normalizeTraditionalChars, taiwanTodayDateStr } from "../normalize.mjs";
+import { normalizeTraditionalChars } from "../normalize.mjs";
+import { needsStatusCheck, saleStatusFromOffers } from "../sale-signal.mjs";
 
 /**
  * KKTIX adapter (SPEC §5, §5.1, §5.2). Two fetch strategies, decided during
@@ -551,12 +552,7 @@ export function runStats() {
  *   sale yet, so they can't be sold out.
  * Fewer checks is also fewer chances to trip the rate limit above.
  */
-export function needsRegisterCheck(previous, todayStr = taiwanTodayDateStr()) {
-  if (!previous) return true;
-  if (previous.status === "sold_out" || previous.status === "ended") return false;
-  if (previous.status === "announced" && previous.on_sale_at && previous.on_sale_at.slice(0, 10) > todayStr) return false;
-  return true;
-}
+export const needsRegisterCheck = needsStatusCheck;
 
 async function fetchRegisterStatus(browser, rawId) {
   if (!browser) return null;
@@ -693,16 +689,7 @@ export async function fetchEventDetail(url, browser, knownRegisterStatus) {
  * needs register_info. Returns register_info's own vocabulary so
  * normalize.mjs's existing override path doesn't change.
  */
-export function saleStatusFromOffers(offers, nowMs = Date.now()) {
-  if (!Array.isArray(offers) || offers.length === 0) return null;
-  const ts = (s) => (s ? Date.parse(s) : NaN);
-  const inStock = offers.filter((o) => /InStock|LimitedAvailability|PreSale|PreOrder/i.test(o.availability ?? ""));
-  if (inStock.length === 0) return "SOLD_OUT";
-  const stillOpen = inStock.filter((o) => !(ts(o.validThrough) < nowMs));
-  if (stillOpen.length === 0) return "REGISTRATION_CLOSED";
-  if (stillOpen.every((o) => ts(o.validFrom) > nowMs)) return "COMING_SOON";
-  return "IN_STOCK";
-}
+export { saleStatusFromOffers };
 
 function resolveFromJsonLd(jsonLd) {
   const status = saleStatusFromOffers(jsonLd?.offers);

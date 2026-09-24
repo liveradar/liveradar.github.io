@@ -1,3 +1,4 @@
+import { needsStatusCheck, saleStatusFromOffers } from "../sale-signal.mjs";
 import { withBrowser, newPage } from "../browser.mjs";
 import { logProgress } from "../progress-log.mjs";
 
@@ -84,6 +85,45 @@ async function fetchCards(page) {
 
 const PRICE_REQUEST_DELAY_MS = 800; // see tixcraft.mjs's identical constant — same rationale
 const PRICE_NAV_TIMEOUT_MS = 20000;
+const STATUS_CHECK_DELAY_MS = 500;
+
+/**
+ * 2026-09-24: sale status for an ALREADY-KNOWN event (see sale-signal.mjs)
+ * without Playwright. The ticket page the fresh-event path navigates to is
+ * statically generated (Next.js SSG): a plain GET returns a Schema.org
+ * JSON-LD block with per-tier `offers[].availability` (InStock/OutOfStock)
+ * and a __NEXT_DATA__ payload with each tier's real `saleEnd` — the same
+ * sale-end signal the Playwright path reads off `.sale-end-time`. JSON-LD
+ * offers here carry no validThrough, so saleEnd is checked separately.
+ */
+export async function fetchShowSaleSignal(eventId) {
+  const get = async (path) => {
+    const res = await globalThis.fetch(`https://go.fansi.me/${path}`, {
+      headers: { "User-Agent": "Mozilla/5.0" },
+      signal: AbortSignal.timeout(15000),
+    });
+    return res.ok ? res.text() : null;
+  };
+  try {
+    // The event id is NOT always the ticket-show id (verified 2026-09-24:
+    // event 500060's ticket page is tickets/show/500062, and tickets/show/
+    // 500060 is a different, later show). Take the event page's first
+    // ticket link, same as the Playwright path does for new events.
+    const eventHtml = await get(`events/${eventId}`);
+    const showId = eventHtml?.match(/tickets\/show\/(\d+)/)?.[1];
+    if (!showId) return null;
+    const html = await get(`tickets/show/${showId}`);
+    if (!html) return null;
+    const ld = html.match(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/);
+    const offers = ld ? (JSON.parse(ld[1]).offers ?? []) : [];
+    const saleEnds = [...html.matchAll(/\\"saleEnd\\":\\"([^\\"]+)\\"/g)].map((m) => Date.parse(m[1])).filter((t) => !Number.isNaN(t));
+    if (saleEnds.length > 0 && saleEnds.every((t) => t <= Date.now())) return "REGISTRATION_CLOSED";
+    return saleStatusFromOffers(offers);
+  } catch (err) {
+    logProgress(`FANSI GO status check failed for ${showId}: ${err.message}`);
+    return null;
+  }
+}
 
 export async function fetch(knownRawIds = new Set()) {
   logProgress("fetching FANSI GO /allevents");
@@ -120,6 +160,12 @@ export async function fetch(knownRawIds = new Set()) {
       }
       if (toFetch.length < events.length) {
         logProgress(`FANSI GO: ${events.length - toFetch.length} event(s) already known, skipping detail/price fetch`);
+      }
+      // 2026-09-24: known events still get a cheap sale-status re-check.
+      for (const event of events) {
+        if (!event.reuse_previous || !needsStatusCheck(knownRawIds.get?.(event.raw_id))) continue;
+        await sleep(STATUS_CHECK_DELAY_MS);
+        event.sale_signal = await fetchShowSaleSignal(event.raw_id);
       }
 
       let priceFailures = 0;

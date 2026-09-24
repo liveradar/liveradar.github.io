@@ -1,3 +1,5 @@
+import { createDecipheriv } from "node:crypto";
+import { needsStatusCheck } from "../sale-signal.mjs";
 import { logProgress } from "../progress-log.mjs";
 import { withBrowser, newPage } from "../browser.mjs";
 
@@ -50,6 +52,45 @@ const STATUS_NAV_TIMEOUT_MS = 20000;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * 2026-09-24: cheap per-session sale status for ALREADY-KNOWN sessions (see
+ * sale-signal.mjs), without the Playwright page visit fetchSaleStatusMap
+ * below needs. Ticket Plus's own event page calls
+ * `config/api/v1/get?eventId=e000001535&sessionId=s000002268`, which returns
+ * each session's `status` — verified against 13 sessions of known status:
+ * soldout (YOASOBI, BIGBANG), over (梶浦由記 — sale window closed, the
+ * 岡崎體育 "銷售截止" case), onsale, pending (+ saleStart). The page gets
+ * those e/s ids from the long hex ids in its URLs by AES-decrypting them with
+ * a key hardcoded in its own public app bundle (getInfos() in app.*.js); this
+ * does the same conversion. Max OK'd this 2026-09-24 — it's the same
+ * computation every visitor's browser runs, not a login/paywall bypass, and
+ * returns only what the public page already shows.
+ */
+const TP_ID_KEY = "ILOVEFETIXFETIX!";
+const TP_ID_IV = "!@#$FETIXEVENTiv";
+const STATUS_CHECK_DELAY_MS = 300;
+const SESSION_STATUS_SIGNAL = { soldout: "SOLD_OUT", over: "REGISTRATION_CLOSED", onsale: "IN_STOCK", pending: "COMING_SOON" };
+
+export function decodeTicketPlusId(hexId) {
+  const decipher = createDecipheriv("aes-128-cbc", TP_ID_KEY, TP_ID_IV);
+  return Buffer.concat([decipher.update(Buffer.from(hexId, "hex")), decipher.final()]).toString();
+}
+
+export async function fetchSessionSaleSignal(rawId) {
+  try {
+    const [eventHex, sessionHex] = rawId.split("_");
+    const url = `https://apis.ticketplus.com.tw/config/api/v1/get?eventId=${decodeTicketPlusId(eventHex)}&sessionId=${decodeTicketPlusId(sessionHex)}`;
+    const res = await globalThis.fetch(url, { headers: { "User-Agent": "Mozilla/5.0" }, signal: AbortSignal.timeout(15000) });
+    const session = (await res.json())?.result?.session?.[0];
+    const sale_signal = SESSION_STATUS_SIGNAL[session?.status] ?? null;
+    if (session && !sale_signal) logProgress(`Ticket Plus: unknown session status "${session.status}" for ${rawId}`);
+    return { sale_signal, on_sale_at: sale_signal === "COMING_SOON" ? (session.saleStart ?? null) : null };
+  } catch (err) {
+    logProgress(`Ticket Plus status check failed for ${rawId}: ${err.message}`);
+    return { sale_signal: null };
+  }
 }
 
 // 2026-09-22 (Max: "結束販售（或已售完）/尚未開賣/現正開賣...如果沒有api或
@@ -156,7 +197,12 @@ export async function fetch(knownRawIds = new Set()) {
       if (sessionRawIds.every((rawId) => knownRawIds.has(rawId))) {
         skippedEventCount += 1;
         for (const rawId of sessionRawIds) {
-          results.push({ raw_id: rawId, source_name: name, reuse_previous: true });
+          const stub = { raw_id: rawId, source_name: name, reuse_previous: true };
+          if (needsStatusCheck(knownRawIds.get?.(rawId))) {
+            await sleep(STATUS_CHECK_DELAY_MS);
+            Object.assign(stub, await fetchSessionSaleSignal(rawId));
+          }
+          results.push(stub);
         }
         continue;
       }

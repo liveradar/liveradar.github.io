@@ -1,3 +1,4 @@
+import { needsStatusCheck, TICKET_TERMINAL_TEXT_RE } from "../sale-signal.mjs";
 import * as cheerio from "cheerio";
 import { logProgress } from "../progress-log.mjs";
 import { withBrowser, newPage } from "../browser.mjs";
@@ -76,7 +77,6 @@ function amPmTo24Hour(hour, meridiem) {
 // terminal states — a general-admission row still open next to a closed
 // special fan-zone (the real Stray Kids case) is still a genuinely buyable
 // show.
-const TICKET_TERMINAL_TEXT_RE = /選購一空|銷售一空|完售|售罄|截止/;
 
 async function fetchTicketStatusText(page, rawId) {
   await page.goto(`https://tixcraft.com/activity/game/${rawId}`, { waitUntil: "domcontentloaded", timeout: DETAIL_NAV_TIMEOUT_MS });
@@ -209,6 +209,24 @@ export async function fetch(knownRawIds = new Set()) {
         event.sale_status_text = await fetchTicketStatusText(page, event.raw_id);
       } catch (err) {
         logProgress(`tixcraft ticket-status fetch failed for ${event.url}: ${err.message}`);
+      } finally {
+        await page.close();
+      }
+    }
+
+    // 2026-09-24: known events get a sale-status re-check too (see
+    // sale-signal.mjs). No cheap signal exists on tixcraft — the listing
+    // page has no status, and both the detail and /activity/game pages
+    // answer a plain request with 401 {"response":"identify"} — so this is
+    // the same one-page Playwright check new events already get, ~5s each.
+    for (const event of results) {
+      if (!event.reuse_previous || !needsStatusCheck(knownRawIds.get?.(event.raw_id))) continue;
+      await sleep(DETAIL_REQUEST_DELAY_MS);
+      const page = await newPage(browser);
+      try {
+        event.sale_signal = (await fetchTicketStatusText(page, event.raw_id)) ? "SOLD_OUT" : null;
+      } catch (err) {
+        logProgress(`tixcraft status check failed for ${event.raw_id}: ${err.message}`);
       } finally {
         await page.close();
       }

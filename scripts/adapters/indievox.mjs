@@ -1,4 +1,5 @@
 import * as cheerio from "cheerio";
+import { needsStatusCheck, TICKET_TERMINAL_TEXT_RE } from "../sale-signal.mjs";
 import { logProgress } from "../progress-log.mjs";
 
 /**
@@ -19,6 +20,7 @@ export const priority = 3;
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
 const REQUEST_DELAY_MS = 2000;
+const STATUS_CHECK_DELAY_MS = 500; // known-event status re-check: one light GET per event, see fetch()
 const REQUEST_TIMEOUT_MS = 30000;
 const MAX_ROUNDS = 15; // listing pages are date-windowed (~7 days each); safety cap on pagination
 
@@ -226,9 +228,8 @@ function extractIntroHtml($) {
 // next to/instead of it. Unlike tixcraft this page has NO anti-bot wall at
 // all — confirmed with a plain fetch, 200 OK, full table in the raw HTML —
 // so no Playwright needed here, just one more cheap GET.
-const TICKET_TERMINAL_TEXT_RE = /選購一空|銷售一空|完售|售罄|截止/;
 
-async function fetchTicketStatusText(rawId) {
+export async function fetchTicketStatusText(rawId) {
   const html = await fetchHtml(`https://www.indievox.com/activity/game/${rawId}`);
   const $ = cheerio.load(html);
   const rowTexts = $("table tbody tr td:last-child")
@@ -302,7 +303,20 @@ export async function fetch(knownRawIds = new Set()) {
       const raw_id = item.url.split("/").filter(Boolean).pop();
       if (knownRawIds.has(raw_id)) {
         skippedKnown += 1;
-        results.push({ raw_id, url: item.url, title_raw: item.title_raw, source_name: name, reuse_previous: true });
+        const stub = { raw_id, url: item.url, title_raw: item.title_raw, source_name: name, reuse_previous: true };
+        // 2026-09-24: re-check sale status for known events too (see
+        // sale-signal.mjs) — fetchTicketStatusText is one plain GET, no
+        // anti-bot wall. Only a terminal text is a positive signal; an empty
+        // one means "on sale OR not yet on sale", so it isn't reported.
+        if (needsStatusCheck(knownRawIds.get?.(raw_id))) {
+          await sleep(STATUS_CHECK_DELAY_MS);
+          try {
+            stub.sale_signal = (await fetchTicketStatusText(raw_id)) ? "SOLD_OUT" : null;
+          } catch (err) {
+            logProgress(`indievox status check failed for ${raw_id}: ${err.message}`);
+          }
+        }
+        results.push(stub);
         continue;
       }
 
