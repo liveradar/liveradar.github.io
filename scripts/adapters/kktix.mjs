@@ -1,6 +1,6 @@
 import * as cheerio from "cheerio";
 import { logProgress } from "../progress-log.mjs";
-import { withPage, withBrowser, newPage } from "../browser.mjs";
+import { withBrowser, newPage } from "../browser.mjs";
 import { normalizeTraditionalChars } from "../normalize.mjs";
 import { needsStatusCheck, saleStatusFromOffers } from "../sale-signal.mjs";
 
@@ -321,45 +321,60 @@ async function fetchOrgListing(org) {
 }
 
 /**
+ * One KKTIX listing page (search or category browse) -> event URLs.
+ * 2026-09-24: used to launch a whole new browser per page (withPage) and
+ * then sleep a fixed 1.5s for Cloudflare's challenge. Measured on 6 real
+ * category pages: 16.7s that way vs ~5.5s with a new page (= new isolated
+ * context, so Cloudflare treats it like a fresh visitor, same as before) in
+ * the one browser fetch() already keeps open, returning as soon as event
+ * links render. Reusing the SAME page for the next listing page does NOT
+ * work — tried, the second navigation sits on the "請稍候..." challenge.
+ * A still-challenged page also has 0 links, which callers read as "past the
+ * last page" — so wait out a visible challenge before trusting an empty page.
+ */
+async function fetchListingUrls(browser, url) {
+  const page = await newPage(browser);
+  try {
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: REQUEST_TIMEOUT_MS });
+    // Event-card links specifically, and "attached" not the default
+    // "visible": the first generic /events/ link on the page is a hidden nav
+    // link, so waiting for a visible one timed out (5s) on EVERY page — found
+    // by timing each step, not assumed. 3s is only paid on a genuinely empty
+    // page (past the last page / a search with no hits).
+    await page
+      .waitForSelector("a[href*='kktix.cc/events/']", { state: "attached", timeout: 3000 })
+      .catch(() => {});
+    for (let i = 0; i < 10 && /請稍候|Just a moment/.test(await page.title()); i++) {
+      await page.waitForTimeout(1000);
+    }
+    const hrefs = await page.$$eval("a[href*='/events/']", (els) => els.map((a) => a.href));
+    const urls = new Set();
+    for (const href of hrefs) {
+      if (href && !href.includes("kktix.com/dashboard") && !href.endsWith(".ics")) {
+        urls.add(href.split("?")[0]);
+      }
+    }
+    return Array.from(urls);
+  } finally {
+    await page.close();
+  }
+}
+
+/**
  * Needs a real browser (Playwright), not plain fetch — see the long comment
  * near the top of this file. Detail pages found this way are still plain
  * `fetchEventDetail()` below; only this one listing endpoint is protected.
  */
-async function fetchSearchResultUrls(keyword) {
-  return withPage(async (page) => {
-    await page.goto(`https://kktix.com/events?search=${encodeURIComponent(keyword)}`, {
-      waitUntil: "domcontentloaded",
-      timeout: REQUEST_TIMEOUT_MS,
-    });
-    await page.waitForTimeout(1500); // let Cloudflare's challenge script finish running
-    const hrefs = await page.$$eval("a[href*='/events/']", (els) => els.map((a) => a.href));
-    const urls = new Set();
-    for (const href of hrefs) {
-      if (href && !href.includes("kktix.com/dashboard") && !href.endsWith(".ics")) {
-        urls.add(href.split("?")[0]);
-      }
-    }
-    return Array.from(urls);
-  });
+async function fetchSearchResultUrls(browser, keyword) {
+  return fetchListingUrls(browser, `https://kktix.com/events?search=${encodeURIComponent(keyword)}`);
 }
 
 /** One page of the sitewide category browse for a given tag id (Strategy 3, see its doc comment above ORG_PAGE_VENUES/SEARCH_VENUES's own and CATEGORY_TAG_IDS). Same Cloudflare-bypass shape as fetchSearchResultUrls. */
-async function fetchCategoryBrowsePage(tagId, pageNum) {
-  return withPage(async (page) => {
-    await page.goto(
-      `https://kktix.com/events?end_at=&event_tag_ids_in=${tagId}&max_price=&min_price=&page=${pageNum}&search=&start_at=`,
-      { waitUntil: "domcontentloaded", timeout: REQUEST_TIMEOUT_MS },
-    );
-    await page.waitForTimeout(1500); // let Cloudflare's challenge script finish running
-    const hrefs = await page.$$eval("a[href*='/events/']", (els) => els.map((a) => a.href));
-    const urls = new Set();
-    for (const href of hrefs) {
-      if (href && !href.includes("kktix.com/dashboard") && !href.endsWith(".ics")) {
-        urls.add(href.split("?")[0]);
-      }
-    }
-    return Array.from(urls);
-  });
+export async function fetchCategoryBrowsePage(browser, tagId, pageNum) {
+  return fetchListingUrls(
+    browser,
+    `https://kktix.com/events?end_at=&event_tag_ids_in=${tagId}&max_price=&min_price=&page=${pageNum}&search=&start_at=`,
+  );
 }
 
 /**
@@ -807,12 +822,10 @@ export async function fetch(knownRawIds = new Map()) {
 
 /**
  * The real body of fetch(), given a browser that's kept open for the whole
- * run — 2026-09-23: needed so every event's register_info sale-status check
- * (see fetchRegisterStatus, which opens and closes its own short-lived page
- * per check against this shared browser) reuses one browser PROCESS instead
- * of paying a fresh-launch cost per event the way fetchSearchResultUrls/
- * fetchCategoryBrowsePage's per-call withPage() does (fine for a handful of
- * listing pages, far too slow for one call per event).
+ * run, so every Playwright step — listing pages (fetchListingUrls, since
+ * 2026-09-24) and the register_info fallback (fetchRegisterStatus) — opens a
+ * short-lived page in this one browser PROCESS instead of paying a fresh
+ * browser launch per page.
  */
 async function fetchWithBrowser(browser, knownRawIds) {
   const results = [];
@@ -876,7 +889,7 @@ async function fetchWithBrowser(browser, knownRawIds) {
     logProgress(`fetching search: ${keyword}`);
     let eventUrls = [];
     try {
-      eventUrls = await fetchSearchResultUrls(keyword);
+      eventUrls = await fetchSearchResultUrls(browser, keyword);
     } catch (err) {
       warnings.push(`search failed for "${keyword}": ${err.message}`);
       continue;
@@ -945,7 +958,7 @@ async function fetchWithBrowser(browser, knownRawIds) {
       logProgress(`fetching category browse tag=${tagId} page ${pageNum}/${CATEGORY_BROWSE_MAX_PAGES}`);
       let eventUrls = [];
       try {
-        eventUrls = await fetchCategoryBrowsePage(tagId, pageNum);
+        eventUrls = await fetchCategoryBrowsePage(browser, tagId, pageNum);
       } catch (err) {
         warnings.push(`category browse tag=${tagId} page ${pageNum} failed: ${err.message}`);
         break; // stop paginating this tag on a real failure rather than silently skipping ahead
