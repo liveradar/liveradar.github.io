@@ -1,20 +1,3 @@
 {
-  "items": [
-    {
-      "raw_id": "rsmusic",
-      "title_raw": "雄岸折光-2027高雄五校熱音社聯合成果發表會",
-      "url": "https://rsmusic2027.kktix.cc/events/rsmusic",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "fdef73bb",
-      "title_raw": "林逸欣2026生日音樂會",
-      "url": "https://sharalinmusic.kktix.cc/events/fdef73bb",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    }
-  ]
+  "items": []
 }

@@ -8041,8 +8041,12 @@
     },
     {
       "title_raw": "雄岸折光-2027高雄五校熱音社聯合成果發表會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "雄岸折光"
+      ],
+      "lineup": [
+        "雄岸折光"
+      ],
       "is_festival": false,
       "venue": "LiveWareHouse 大庫",
       "city": "高雄",
@@ -8055,7 +8059,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://rsmusic2027.kktix.cc/events/rsmusic",
       "sources": [
@@ -8066,7 +8072,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T03:16:00.664Z",
-      "updated_at": "2026-09-24T03:16:00.664Z",
+      "updated_at": "2026-09-24T03:43:12.370Z",
       "id": "7f03d205277ef470",
       "merged_ids": [
         "7f03d205277ef470"
@@ -8113,8 +8119,12 @@
     },
     {
       "title_raw": "林逸欣2026生日音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "林逸欣"
+      ],
+      "lineup": [
+        "林逸欣"
+      ],
       "is_festival": false,
       "venue": "Corner Max",
       "city": "台北",
@@ -8127,7 +8137,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://sharalinmusic.kktix.cc/events/fdef73bb",
       "sources": [
@@ -8138,7 +8150,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T03:16:00.668Z",
-      "updated_at": "2026-09-24T03:16:00.668Z",
+      "updated_at": "2026-09-24T03:43:12.382Z",
       "id": "1d8c49f46018aff1",
       "merged_ids": [
         "1d8c49f46018aff1"

@@ -625,7 +625,7 @@ async function fetchRegisterStatus(browser, rawId) {
  * of re-deriving it whenever the caller has one, so this only ever hits the
  * network when nobody's checked yet (a genuinely new event).
  */
-async function fetchEventDetail(url, browser, knownRegisterStatus) {
+export async function fetchEventDetail(url, browser, knownRegisterStatus) {
   const html = await fetchHtml(url);
   const $ = cheerio.load(html);
 
