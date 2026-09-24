@@ -24,88 +24,88 @@
 # 來源地（不是憑標題猜），對應 SUB LIVE/Zepp/野地方涵蓋率修正後新冒出來的名字。
 - canonical: MONO
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 youngteam.kktix.cc、場地「SUB LIVE」、標題「MONO "Snowdrop" Asia Tour 2026 - TAIPEI」
 - canonical: MONO NO AWARE
   # A real, distinct Japanese band whose name happens to start with "MONO"
   # (unrelated to the MONO entry above) — matchArtists() now prefers the
   # longer match when two entries tie on the same starting position, so
   # having both registered is safe (2026-09-21, see normalize.mjs).
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 romanticoffice.kktix.cc、場地「The Wall Live House」、標題「MONO NO AWARE PASSION TOUR 2027 in Taipei/Kaohsiung」、共 2 場（台北/高雄）
 - canonical: POiSON GiRL FRiEND
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 romanticoffice.kktix.cc、場地「The Wall Live House」、標題「POiSON GiRL FRiEND 2026 TOUR in Taipei」
 - canonical: TOTORRO
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 WebSearch 查證：法國雷恩（Rennes）數學搖滾/後搖滾樂團
 - canonical: VOOID
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 redoyster2026.kktix.cc、場地「THE WALL LIVE HOUSE」、標題「VOOID 2026 線下P2P超慢速低傳真  & 洪申豪 Solo 專場演唱會」、同場演出者 ['洪申豪']、共 2 場（台北）
 - canonical: 洪申豪
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 redoyster2026.kktix.cc、場地「THE WALL LIVE HOUSE」、標題「VOOID 2026 線下P2P超慢速低傳真  & 洪申豪 Solo 專場演唱會」、同場演出者 ['VOOID']
 - canonical: 雀斑 Freckles
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 romanticoffice.kktix.cc、場地「The Wall Live House」、標題「雀斑 Freckles 2026 Tour in Taipei 「不標準情人」黑膠發片場」
 - canonical: SCRUBB
   aliases: []
-  tags_origin_default: 亞洲其他
+  tags_origin_default: 亞洲其他  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 offtimemusic.kktix.cc、場地「The Wall Live House」、標題「SCRUBB LIVE IN TAIPEI 2026」
 - canonical: 7co
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 offtimemusic.kktix.cc、場地「The Wall Live House」、標題「7co 1st ONEMAN LIVE in Taipei 2026」
 - canonical: Yo-Sea
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 youngteam.kktix.cc、場地「The Wall Live House」、標題「Yo-Sea Asia Tour 2026 - Minimum Band Set」
 - canonical: 黃莑茗
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 7eo8rge.kktix.cc、場地「沃茲新創空間 Words Live丨忠明館」、標題「【台中場】黃莑茗 【哎呀！跌個狗吃屎！Mini Tour】」、共 3 場（台中/台北/高雄）
 - canonical: Eüreka
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 moshound.kktix.cc、場地「LIVE WAREHOUSE 小庫」、標題「Eüreka《A Story of Epiphany》同名專輯發片巡迴 - 高雄」、共 3 場（台中/台北/高雄）
 - canonical: 普通隊長
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 captain.kktix.cc、場地「高雄 LIVE WAREHOUSE 小庫」、標題「【高雄場】普通隊長pre. “100秒的紅燈ENDLESS TRIP TOUR”」、共 3 場（台中/台北/高雄）
 - canonical: 羊文学
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 baodaorecords.kktix.cc、場地「LIVE WAREHOUSE 大庫」、標題「【10/25加場】羊文学 Hitsujibungaku TOUR 2026 "SU———HA———"」、共 2 場（高雄）
 - canonical: Schizophragm
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 deaftouch.kktix.cc、場地「Paramount Bar [百樂門酒館] & Revolver Taipei [左輪酒吧]」、標題「Schizophragm - 2026 臺灣巡迴」
 - canonical: D'MASIV
   # KKTIX's own listing renders this with a curly/smart apostrophe (U+2019 ’),
   # not the straight one (U+0027 ') — looks identical, doesn't string-match.
   aliases: ["DMASIV", "D’MASIV"]
-  tags_origin_default: 亞洲其他
+  tags_origin_default: 亞洲其他  # 2026-09-25 WebSearch 查證：印尼雅加達搖滾樂團，2003年成軍
 - canonical: LICHANG.rar
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 sunsetmusic.kktix.cc、場地「SUB LIVE」、標題「LICHANG.rar album release party 最終站」
 - canonical: "92914"
   aliases: []
   tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
 - canonical: Omoinotake
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 offtimemusic.kktix.cc、場地「Zepp New Taipei」、標題「Omoinotake ONE MAN TOUR 2026 TAIPEI」
 - canonical: Karencici
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 warnermusictwtw.kktix.cc、場地「Zepp New Taipei」、標題「Karencici The Loser Live In Concert」
 - canonical: Jony J
   aliases: []
-  tags_origin_default: 亞洲其他
+  tags_origin_default: 亞洲其他  # 2026-09-25 WebSearch 查證：中國饒舌歌手，本名肖佳，福建福州出身，中國嘻哈圈成名（《中國有嘻哈》等節目）
 - canonical: TAKASE TOYA
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 freeplanetml.kktix.cc、場地「Zepp New Taipei」、標題「【兩日通票】TAKASE TOYA 5th Album “∞” Release Live in Ta」、共 2 場（新北）
 - canonical: 40 Fingers
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 harmoniemusictw.kktix.cc、場地「Zepp New Taipei」、標題「[台北場]義大利指彈天團-40 Fingers亞洲巡迴演出」、共 2 場（新北/高雄）
 - canonical: EIR AOI
   aliases: []
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: eldon
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 msg.kktix.cc、場地「野地方 Wild Lab」、標題「eldon [ THE COMIC BOOK WORLD TOUR: EP.0 ] _ TAIPEI」
 - canonical: Shye
   aliases: []
-  tags_origin_default: 亞洲其他
+  tags_origin_default: 亞洲其他  # 2026-09-25 WebSearch 查證：新加坡創作歌手，本名 Trinity Shye-Anne Brown
 
 # --- 2026-09-17 草稿：對照 342 筆待整理場次補的第一批，還沒 commit ---
 # 標了「⚠️ 短字/常見字」的是子字串比對風險較高、之後如果誤觸發到不相關的
@@ -126,7 +126,7 @@
   tags_origin_default: 日本  # 日本奈良出身的創作歌手（otohaofficial.com PROFILE；票券頁 emergelivehouse2 OUR PLANET 巡演台北加場）。2026-09-24 補依據：原註解寫「日文姓名讀音」，結論對但理由是從名字推測
 - canonical: go!go!vanillas
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 emergelivehouse2.kktix.cc、場地「The Wall Live House」、標題「go!go!vanillas Asia Tour 2026 in Taipei」
 - canonical: 島嶼都市浪漫譚
   aliases: []
   tags_origin_default: 本地
@@ -141,160 +141,160 @@
   tags_origin_default: 本地
 - canonical: Silica Gel
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 youngteam.kktix.cc、場地「Legacy Taipei」、標題「Silica Gel Asia Tour <Syn.THE.Size: Ballad of You>」
 - canonical: Age Factory
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 youngteam.kktix.cc、場地「SUB LIVE」、標題「Age Factory “静脈/ERROR” Release Tour 2026 Taipei」
 - canonical: Kiefer
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 WebSearch 查證：美國爵士鋼琴家/製作人，洛杉磯出身，UCLA爵士系，簽約Blue Note
 - canonical: THE RAMPAGE
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ldh.kktix.cc、場地「Legacy TERA」、標題「【9/25特典加購】THE RAMPAGE PREMIUM LIVE EVENT 2026 in T」、共 2 場（台北）
 - canonical: FANTASTICS
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ldh.kktix.cc、場地「Legacy TERA」、標題「【特典加購】FANTASTICS LIVE 2026 in TAIPEI "放大絶"」
 - canonical: 椅子樂團
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 sotmrtw.kktix.cc、場地「Legacy Taichung」、標題「【台中場加場】椅子樂團 Rolling On, Marching On 十週年巡演」、共 5 場（台中/台北/高雄）
 - canonical: 伊波杏樹
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 atc-twn.kktix.cc、場地「Clapper Studio」、標題「【第一場】伊波杏樹 ASIA FAN MEETING TOUR 台北站」、共 2 場（台北）
 - canonical: 小原好美
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 atc-twn.kktix.cc、場地「Clapper Studio」、標題「【下午場】小原好美 粉絲見面會2026 feat. 古賀葵」、共 2 場（台北）
 - canonical: 工藤晴香
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 atc-twn.kktix.cc、場地「Clapper Studio」、標題「【下午場】工藤晴香2026 台北粉絲見面會」、共 2 場（台北）
 - canonical: W!nky
   aliases: []
   tags_origin_default: 本地  # 2026-09-23 修正：查證後是台灣選秀出身的9人女團，不是日韓（WebSearch）
 - canonical: 伊藤美來
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 atc-twn.kktix.cc、場地「Clapper Studio」、標題「伊藤美來 出道十週年紀念演唱會「39rpm」台北場」
 - canonical: 玉置成實
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 atc-twn.kktix.cc、場地「Clapper Studio」、標題「玉置成實 2026亞洲巡迴演唱會 台北場」
 - canonical: Bruno Mars
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「高雄國家體育場(世運主場館)」、標題「Bruno Mars - The Romantic Tour」
 - canonical: WESTLIFE
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「高雄巨蛋」、標題「WESTLIFE 25：THE ANNIVERSARY WORLD TOUR」
 - canonical: Maroon 5
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「高雄國家體育場(世運主場館)」、標題「Maroon 5 Asia 2027 in Kaohsiung」
 - canonical: AGAINST THE CURRENT
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北國際會議中心TICC」、標題「AGAINST THE CURRENT：TILL DEATH＆BACK TOUR IN TAIPEI」
 - canonical: BOYNEXTDOOR
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「國立體育大學綜合體育館」、標題「BOYNEXTDOOR TOUR ‘KNOCK ON Vol.2’ IN TAIPEI」
 - canonical: 鼓鼓
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北流行音樂中心表演廳」、標題「鼓鼓 呂思緯《我現在又在想你了》巡迴演唱會 GBOYSWAG《Missing You All Ove」、同場演出者 ['GBOYSWAG']
 - canonical: GBOYSWAG
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北流行音樂中心表演廳」、標題「鼓鼓 呂思緯《我現在又在想你了》巡迴演唱會 GBOYSWAG《Missing You All Ove」、同場演出者 ['鼓鼓']
 - canonical: Stray Kids
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「臺北大巨蛋」、標題「Stray Kids World Tour ＜RUN IT TAIPEI＞」
 - canonical: Slowdive
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Zepp New Taipei」、標題「Slowdive 2026 Live in Taipei」
 - canonical: FKJ
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Zepp New Taipei」、標題「FKJ – Tyber Tour in Taipei」
 - canonical: Khalid
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北國際會議中心TICC」、標題「Khalid： It’s Always Summer Somewhere Tour in Taipe」
 - canonical: 劉若英
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北小巨蛋」、標題「劉若英 [飛行日] 2026巡迴演唱會 台北站 Rene [Final Call] 2026 Liv」
 - canonical: brb.
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Clapper Studio」、標題「brb. “half/lives” Tour in Taipei」
 - canonical: AAA 2026
   aliases: []
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: DOMi
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Clapper Studio」、標題「DOMi ＆ JD BECK - WHO ASKED? Tour」、同場演出者 ['JD BECK']
 - canonical: JD BECK
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Clapper Studio」、標題「DOMi ＆ JD BECK - WHO ASKED? Tour」、同場演出者 ['DOMi']
 - canonical: Young K
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「台北國際會議中心TICC」、標題「Young K Solo Tour ＜YOUNGEST＞ in TAIPEI」
 - canonical: JOJI
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「高雄巨蛋」、標題「【Mastercard專區】JOJI SOLARIS」
 - canonical: 5 SECONDS OF SUMMER
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tix-get-go.kktix.cc、場地「AXA WONDERLAND, WestK」、標題「5 Seconds of Summer: EVERYONE'S A STAR! World Tour」、共 2 場（台北/未知）
 - canonical: wave to earth
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「台北國際會議中心TICC」、標題「【VIP Upgrade/升級VIP】wave to earth - the pieces tour」
 - canonical: Malcolm Todd
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北國際會議中心TICC」、標題「Malcolm Todd： Do That Again Tour in Taipei」
 - canonical: BTS
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「高雄國家體育場」、標題「BTS WORLD TOUR ’ARIRANG’ IN KAOHSIUNG」
 - canonical: BINI
   aliases: []
-  tags_origin_default: 亞洲其他
+  tags_origin_default: 亞洲其他  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「新北市工商展覽中心」、標題「【加購福利-Add on Benefit】BINI：SIGNALS WORLD TOUR 2026 」
 - canonical: LE SSERAFIM
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「國立體育大學綜合體育館」、標題「2026 LE SSERAFIM TOUR ‘PUREFLOW’ IN TAIPEI」
 - canonical: Juice Boy
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「SUB LIVE」、標題「Juice Boy《所以說永遠多長》台北演唱會」
 - canonical: yung kai
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Zepp New Taipei」、標題「yung kai - stay with the ocean， i’ll find you： asi」
 - canonical: KIM JI WON
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「Legacy TERA」、標題「2026 KIM JI WON FANMEETING ＜WONEDERLAND＞ in TAIPEI」
 - canonical: 82MAJOR
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「Clapper Studio」、標題「82MAJOR ＜82CLUB ： OUT OF CONTROL＞ in TAIPEI」
 - canonical: 徐暐翔
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Legacy Taipei」、標題「徐暐翔《愛火山的人》專場演唱會」
 - canonical: SO JI SUB
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「台北國際會議中心TICC」、標題「2026 SO JI SUB ASIA FANMEETING TOUR [Soulmate The 」
 - canonical: 告五人
   aliases: ["Accusefive"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北小巨蛋」、標題「凱基金控xAccusefive告五人 [在這裡 @century] 世界巡迴演唱會」
 - canonical: 孫盛希
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Legacy TERA」、標題「孫盛希Shi Shi [The Taste of …] 台北演唱會」
 - canonical: 潤少
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「WESTAR」、標題「潤少╳徐晧程徐晧程╳c8ight陳全 《男孩兒 THE BOYZ》演唱會」、同場演出者 ['徐晧程', 'c8ight陳全']
 - canonical: 徐晧程
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「WESTAR」、標題「潤少╳徐晧程徐晧程╳c8ight陳全 《男孩兒 THE BOYZ》演唱會」、同場演出者 ['潤少', 'c8ight陳全']
 - canonical: c8ight陳全
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「WESTAR」、標題「潤少╳徐晧程徐晧程╳c8ight陳全 《男孩兒 THE BOYZ》演唱會」、同場演出者 ['潤少', '徐晧程']
 - canonical: TWS
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「高雄巨蛋」、標題「2026 TWS TOUR ‘24/7：FOR：YOU’ IN KAOHSIUNG」
 - canonical: PLAVE
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「國立體育大學綜合體育館」、標題「2026 PLAVE World Tour [KEEP IT MANIC] in Taipei」、共 2 場（桃園/高雄）
 - canonical: Charlie Puth
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北小巨蛋」、標題「Charlie Puth - Whatever’s Clever! World Tour」、共 2 場（台北/桃園）
 - canonical: 劉芯妤
   aliases: ["Roselyn"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Clapper Studio」、標題「劉芯妤 Roselyn 20Hz：Shine with Starlight」
 - canonical: QWER
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「國立體育大學綜合體育館」、標題「中華電信冠名贊助 QWER 2nd TOUR ＜ROCKATION：ROCKET LAUNCH!!＞」
 - canonical: 派偉俊
   # "Patrick Brasca" alias removed (2026-09-17 review): it's a case-insensitive
   # substring collision with canonical "ASCA" below ("brASCA" contains "asca"),
@@ -304,34 +304,34 @@
   # actually needed (e.g. a full "Patrick Brasca" match won't help since ASCA
   # is still a substring of it).
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北流行音樂中心表演廳」、標題「派偉俊 Patrick Brasca《BAD IDEA》2026個人演唱會」
 - canonical: izna
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「Zepp New Taipei」、標題「2026 izna Concert Tour：WHO DAT GIRL? in TAIPEI」
 - canonical: Henry Moodie
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Legacy Taipei」、標題「Henry Moodie： Mood Swings World Tour in Taipei」、共 2 場（台北/高雄）
 - canonical: BE：FIRST
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「Legacy TERA」、標題「BE：FIRST WORLD SHOWCASE 2026」
 - canonical: LANY
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北小巨蛋」、標題「LANY：soft world tour」
 - canonical: NIEL
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「Clapper Studio」、標題「【NIEL 無畏FEARLESS SHOWCASE IN TAIPEI】」
 - canonical: Do As Infinity
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「Zepp New Taipei」、標題「Do As Infinity 27th Anniversary LIVE TOUR IN TAIPE」
 - canonical: THE ROSE
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「高雄流行音樂中心海音館」、標題「THE ROSE ROSETOPIA ASIA TOUR 2026 IN KAOHSIUNG」
 - canonical: LEE YOUNGJI
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「台北流行音樂中心表演廳」、標題「2026 LEE YOUNGJI WORLD TOUR ＜2.0＞」
 - canonical: Post Malone
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「高雄國家體育場」、標題「Post Malone Presents The BIG ASS Stadium World Tou」
 - canonical: 李大奔
   aliases: []
   tags_origin_default: 本地
@@ -349,11 +349,11 @@
   tags_origin_default: 韓國  # 2026-09-23 日韓拆分：IVE 是 Starship Entertainment 韓國女團，查證為韓國
 - canonical: 蕭景鴻
   aliases: ["Edy Hsiao"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「多個表演場地」、標題「蕭景鴻Edy Hsiao《以我為名Who I Am》 New Album Live Tour」
 
 - canonical: Ozone
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「WESTAR」、標題「2026 Ozone 4週年 FANCON：Self!shhh」
 - canonical: Suming
   aliases: ["舒米恩"]
   tags_origin_default: 本地
@@ -374,139 +374,139 @@
   tags_origin_default: 本地
 - canonical: EmptyORio
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「Legacy Taipei 音樂展演空間」、標題「EmptyORio ALL THE BEAST 台北場」、共 2 場（台北/高雄）
 - canonical: Quanzo
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「HOMECOMING BARBER - 忠明店」、標題「小大人二：慶功派對｜Quanzo + O.Dkizzya」、同場演出者 ['O.Dkizzya']
 - canonical: O.Dkizzya
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「HOMECOMING BARBER - 忠明店」、標題「小大人二：慶功派對｜Quanzo + O.Dkizzya」、同場演出者 ['Quanzo']
 - canonical: Peatle
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「HOMECOMING BARBER - 忠明店」、標題「移地訓練：EP 發行派對｜Peatle + SiNNER MOON」、同場演出者 ['SiNNER MOON']
 - canonical: SiNNER MOON
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「HOMECOMING BARBER - 忠明店」、標題「移地訓練：EP 發行派對｜Peatle + SiNNER MOON」、同場演出者 ['Peatle']
 - canonical: 布魯飛斯
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「迴響音樂展演空間」、標題「9.26 (Sat.)「Prison」布魯飛斯與鐵人巡演-台中場」
 - canonical: 阿橘
   aliases: ["Ahh G"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「Bullet Burger 子彈漢堡 403台灣臺中市西區美村路一段164巷17號1樓」、標題「From KL to TPE 都市女聲夜洋通話｜阿橘 Ahh G X JAYWANG王子慧」、同場演出者 ['JAYWANG王子慧']
 - canonical: JAYWANG王子慧
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「Bullet Burger 子彈漢堡 403台灣臺中市西區美村路一段164巷17號1樓」、標題「From KL to TPE 都市女聲夜洋通話｜阿橘 Ahh G X JAYWANG王子慧」、同場演出者 ['阿橘']
 - canonical: Theseus忒修斯
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「Legacy Taichung 音樂展演空間」、標題「From MO to TPE｜好耐冇見老友記｜Theseus忒修斯 + 青原 Fida」、同場演出者 ['青原Fida']、共 2 場（台中/高雄）
 - canonical: 青原Fida
   aliases: ["青原 Fida", "青原FIDA"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「Legacy Taichung 音樂展演空間」、標題「From MO to TPE｜好耐冇見老友記｜Theseus忒修斯 + 青原 Fida」、同場演出者 ['Theseus忒修斯']、共 2 場（台中/台北）
 - canonical: OBSESS
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「THE WALL表演廳外L形走廊」、標題「OBSESS《今晚唱新歌》Live Tour 台北場」
 - canonical: 大墩釀
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「」、標題「10.2（五）DISORDER LIVE ＃22 大墩釀、未來肆、茜茜溱妮」、同場演出者 ['未來肆', '茜茜溱妮']
 - canonical: 未來肆
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「」、標題「10.2（五）DISORDER LIVE ＃22 大墩釀、未來肆、茜茜溱妮」、同場演出者 ['大墩釀', '茜茜溱妮']
 - canonical: 茜茜溱妮
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「」、標題「10.2（五）DISORDER LIVE ＃22 大墩釀、未來肆、茜茜溱妮」、同場演出者 ['大墩釀', '未來肆']
 - canonical: MONZEN NO KOZO
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-25 WebSearch 查證：日本音樂企劃「MonZenノKozō／門前ノ小僧」
 - canonical: Control T
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 thepillars.kktix.cc、場地「柱 THE PILLARS」、標題「Control T《Waste Land》十週年發片巡迴｜台中站」、共 3 場（台中/屏東/高雄）
 - canonical: cephalo
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「The Wall Live House」、標題「cephalo x iVy Live in Taipei」、同場演出者 ['iVy']
 - canonical: iVy  # ⚠️ 短字
   aliases: []
   tags_origin_default: 本地
 - canonical: 王泰翔2000wtx
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「Legacy Taipei 音樂展演空間」、標題「王泰翔2000wtx  2026演唱會《愛・輪迴Karma》」
 - canonical: 風旅藏花
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「LIVE WAREHOUSE」、標題「風旅藏花：璀璨之篋 曖昧な宝石一週年紀念公演」
 - canonical: Johnny Pandora
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「台中迴響 SOUND LIVE HOUSE」、標題「10.9（五）Johnny Pandora 台中專場」
 - canonical: 那閃爍的到底是什麼
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「畔bar」、標題「那閃爍的到底是什麼【恆春場】」、共 3 場（台東/屏東/花蓮）
 - canonical: 邱淑蟬
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「玉成戲院錄音室」、標題「邱淑蟬 2026《無爭》發行巡迴【台北場】」、共 3 場（台北）
 - canonical: 草包小姐
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「LIVE WAREHOUSE 小庫」、標題「草包小姐 2026 專場 ⟪霧之後⟫」
 - canonical: Parannoul
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 www、場地「杰克文創 2廳」、標題「韓國瞪鞋音樂人 Parannoul ＋Shin Yunsu 台北聯合演出」、同場演出者 ['Shin Yunsu']
 - canonical: Shin Yunsu
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 www、場地「杰克文創 2廳」、標題「韓國瞪鞋音樂人 Parannoul ＋Shin Yunsu 台北聯合演出」、同場演出者 ['Parannoul']
 - canonical: 莊鵑瑛
   aliases: ["小球"]  # ⚠️「小球」是常見詞，只當 alias 沒當 canonical 降低風險
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「Legacy Taipei 音樂展演空間」、標題「Legacy Presents【2026都市女聲】：小球（莊鵑瑛）《Reset：Me》－台北場」、共 3 場（台中/台北）
 - canonical: A_Root同根生
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「LIVE WAREHOUSE 小庫」、標題「A_Root同根生十週年臺灣小巡演《神遊〉高雄場」、共 3 場（南投/台南/高雄）
 - canonical: 小男孩樂團
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 rockrecords.kktix.cc、場地「後台 Backstage Live」、標題「Hey Girl！跌得漂亮 小男孩樂團巡迴演唱會 高雄場」、共 3 場（台中/台北/高雄）
 - canonical: 紙鳶Seizer
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「SUB」、標題「紙鳶Seizer《缺頁的名冊》發片專場」
 - canonical: 奔等泰迪
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「LIVE WAREHOUSE 小庫」、標題「奔等泰迪『心宿』發片巡迴-高雄場」
 - canonical: 藥師寺寛邦
   aliases: ["藥師寺寬邦"]
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 www、場地「Legacy Taichung 音樂展演空間」、標題「「圓– Circle of Harmony 」藥師寺寛邦般若心經MUSIC 10周年世界巡演 in 」、共 2 場（台中/高雄）
 - canonical: 黃玠
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「Legacy TERA」、標題「黃玠〈冬。Cry〉演唱會」
 - canonical: 琳誼Ring
   aliases: ["琳誼 Ring"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「SUB LIVE」、標題「琳誼 Ring《歡迎光琳2.0》巡迴演唱會」
 - canonical: DSPS
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 airheadrecords.kktix.cc、場地「LIVE WAREHOUSE大庫」、標題「DSPS “yolk on rice” release party 高雄場」、共 3 場（台北/高雄）
 - canonical: 蔡題謙
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「Legacy Taichung 音樂展演空間」、標題「蔡題謙 2026 專場【中間】」
 - canonical: PiA吳蓓雅
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「LIVE WAREHOUSE」、標題「PiA吳蓓雅《幸福帶著走》高雄安可場-金曲慶功系列」
 - canonical: 格式塔少女
   aliases: ["Gestalt Girl"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「LIVE WAREHOUSE」、標題「格式塔少女 Gestalt Girl 「働くこと、休むこと。」專輯發片巡迴 - 高雄場」、共 2 場（台北/高雄）
 - canonical: 蔡旻佑
   aliases: ["Evan Yo"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「三創CLAPPER STUDIO」、標題「蔡旻佑 Evan Yo《快樂有時有》演唱會 20週年 台北站」
 - canonical: honeydip
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「SUB」、標題「honeydip 2026 ”Before Sunrise” 台北公演」
 - canonical: 輻射馬卡龍
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「台中迴響藝文展演空間」、標題「12.19 (Sat.)《 核子風暴NUCLEAR TEMPEST 》-輻射馬卡龍 中北巡迴 台中場」
 - canonical: 薄暮EVENFALL
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「SUB」、標題「薄暮EVENFALL 2026年度專場《暮已成舟》」
 - canonical: Makav真愛
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「SUB」、標題「Makav真愛《真的愛了》首次專場演唱會」
 - canonical: Holotropics
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「迴響音樂展演空間」、標題「10.3 (Fri.)  [ALTERED STATES] Holotropics x Temple」、同場演出者 ['Temple Smoke', 'Cowman']
 - canonical: Temple Smoke
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「迴響音樂展演空間」、標題「10.3 (Fri.)  [ALTERED STATES] Holotropics x Temple」、同場演出者 ['Holotropics', 'Cowman']
 - canonical: Cowman  # ⚠️ 短字/常見字
   aliases: []
   tags_origin_default: 本地
@@ -518,7 +518,7 @@
 
 - canonical: 一點生
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「Revolver」、標題「一點生【蓬萊異象】專輯發行台灣巡迴」
 - canonical: Tickle Tickle癢癢
   aliases: []
   tags_origin_default: 本地
@@ -533,98 +533,98 @@
   tags_origin_default: 本地
 - canonical: MCNI
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「百樂門酒館」、標題「MCNI 3rd e.p.『Chrono Pulse』Release Live Tour in Ta」
 - canonical: LEIGHT NINE
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「Revolver」、標題「LEIGHT NINE - AREA NIGHT TOUR」
 - canonical: 法克遊
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「Cocco & Co.」、標題「法克遊 LIVE《直南》高雄場」、共 2 場（高雄）
 - canonical: 塵沐
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「百樂門酒館」、標題「塵沐《什麼時候，你》巡迴 - 高雄場 w/陳俊名、含金鵲」、同場演出者 ['陳俊名', '含金鵲']
 - canonical: 陳俊名
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「百樂門酒館」、標題「塵沐《什麼時候，你》巡迴 - 高雄場 w/陳俊名、含金鵲」、同場演出者 ['塵沐', '含金鵲']
 - canonical: 含金鵲
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「百樂門酒館」、標題「塵沐《什麼時候，你》巡迴 - 高雄場 w/陳俊名、含金鵲」、同場演出者 ['塵沐', '陳俊名']
 - canonical: Geloomy
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「Pipe Live House」、標題「《Word of Mouth Vol.02》Geloomy 1st one-man tour『FUL」
 - canonical: yeti  # ⚠️ 短字/常見字
   aliases: []
   tags_origin_default: 本地
 - canonical: Salut Sonia淞雅
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「PIPE Live Music派譜音樂空間」、標題「Salut Sonia淞雅 浮生若有夢《海月》單曲發行紀念專場 ft.路阿春」、同場演出者 ['路阿春']
 - canonical: 路阿春
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「PIPE Live Music派譜音樂空間」、標題「Salut Sonia淞雅 浮生若有夢《海月》單曲發行紀念專場 ft.路阿春」、同場演出者 ['Salut Sonia淞雅']
 - canonical: EVILDEAD
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 WebSearch 查證：美國鞭擊金屬樂團，1986年成軍於洛杉磯
 - canonical: Eddie Marcon
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 go、場地「THE WALL LIVE HOUSE」、標題「Eddie Marcon Live in Taipei」
 - canonical: THE ORCHESTRA TOKYO
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 go、場地「NUZONE 展演空間」、標題「THE ORCHESTRA TOKYO単独公演」
 - canonical: 逐火
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「野地方 Wild Lab」、標題「逐火《Miðgarðr》2026專場」
 - canonical: can't be blue
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「ZEPP NEW TAIPEI」、標題「can't be blue BACK FOR LONGER」
 - canonical: MASS OF THE FERMENTING DREGS
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 go、場地「THE WALL LIVEHOUSE」、標題「MASS OF THE FERMENTING DREGS "Iwaou" THE TOUR LIVE」
 - canonical: Blood As Ink
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「THE WALL LIVE HOUSE」、標題「Blood As Ink - 以血為墨」
 - canonical: SIGH  # ⚠️ 常見字
   aliases: []
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 
 - canonical: 步行者
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「漢神洲際 8樓天際營地」、標題「步行者《城市裡的後搖》漢神洲際 專場」
 - canonical: 李拾壹
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「大範大聲（tuā-pān tuā-siann）Vol.02｜李拾壹 X Yo Chen」、同場演出者 ['Yo Chen']
 - canonical: Yo Chen
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「大範大聲（tuā-pān tuā-siann）Vol.02｜李拾壹 X Yo Chen」、同場演出者 ['李拾壹']
 - canonical: 氣象限定
   aliases: ["Quadrant"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「杰克音樂Jack Studio」、標題「氣象限定 Quadrant Asia Tour Live in Taipei」、共 2 場（台北/高雄）
 - canonical: 孫一軒
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「孫一軒《尋－找到你、找到我》」
 - canonical: 蓋亞
   aliases: ["Gaea Lee"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「蓋亞 Gaea Lee《PARADISE 尋找樂園》」
 - canonical: 曾稔文
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「OK!COOL（feat.曾稔文from DSPS）」、同場演出者 ['DSPS']
 - canonical: KNK
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「CLAPPER STUDIO」、標題「2026 KNK 10TH ANNIVERSARY CONCERT <10VE DAY> IN TA」、共 2 場（台北）
 - canonical: 王立  # ⚠️ 常見姓名
   aliases: []
   tags_origin_default: 本地
 - canonical: 閻韋伶
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「閻韋伶 2026 特別專場【在路上】」
 - canonical: OURA歐拉
   aliases: ["OURA 歐拉"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「OURA 歐拉《島嶼滋養的人》」
 - canonical: 伯爵白
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「LIVE WAREHOUSE 小庫」、標題「伯爵白《情人未遂 Situationtrip》2026 發片專場（高雄場）」、共 2 場（台北/高雄）
 - canonical: 爛泥發芽
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「新莊運動公園陽光草坪」、標題「爛泥發芽10週年」
 - canonical: R1AN
   aliases: []
   tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
@@ -639,58 +639,58 @@
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：日本知名作曲家，查證為日本
 - canonical: jiMMY CHYN
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「jiMMY CHYN 首張EP《26.mp3》發行專場」
 - canonical: THE SPELLBOUND
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「SUB LIVE」、標題「THE SPELLBOUNDxBOOM BOOM SATELLITES TAIPEI LIVE 20」、同場演出者 ['BOOM BOOM SATELLITES']
 - canonical: BOOM BOOM SATELLITES
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「SUB LIVE」、標題「THE SPELLBOUNDxBOOM BOOM SATELLITES TAIPEI LIVE 20」、同場演出者 ['THE SPELLBOUND']
 - canonical: YOASOBI
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「臺北大巨蛋」、標題「YOASOBI ASIA 10-CITY DOME & STADIUM TOUR 2026-2027」、共 2 場（台北）
 - canonical: 李芳旭
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「2026臺北爵士音樂節 感爵夜現場 Jazz Right Here｜李芳旭三重奏」
 - canonical: 楊大葳
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「楊大葳 Ｘ 地瓜蘇 Ｘ 郝方竹「你在幹什麼？」」、同場演出者 ['地瓜蘇', '郝方竹']
 - canonical: 地瓜蘇
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「楊大葳 Ｘ 地瓜蘇 Ｘ 郝方竹「你在幹什麼？」」、同場演出者 ['楊大葳', '郝方竹']
 - canonical: 郝方竹
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「楊大葳 Ｘ 地瓜蘇 Ｘ 郝方竹「你在幹什麼？」」、同場演出者 ['楊大葳', '地瓜蘇']
 - canonical: 巴賴Balai
   aliases: []
   tags_origin_default: 本地
 - canonical: FNC BAND KINGDOM
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「國立體育大學綜合體育館」、標題「2026 FNC BAND KINGDOM IN TAIPEI（11/7場次）」、共 2 場（桃園）
 - canonical: WHIB
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「CLAPPER STUDIO」、標題「2026 WHIB FAN CONCERT <BLUE HOUR> IN TAIPEI（第一場次）」、共 2 場（台北）
 - canonical: 魏妙如
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「魏妙如 X 謝紫若 《三千兩百公里》」、同場演出者 ['謝紫若']
 - canonical: 謝紫若
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「魏妙如 X 謝紫若 《三千兩百公里》」、同場演出者 ['魏妙如']
 - canonical: Crossing Road
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「Crossing Road《一起過馬路》年度專場」
 - canonical: sulysalt
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「sulysalt "opposite" album release show #2」
 - canonical: skipskipbenben
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「skipskipbenben＆ 蔡元彰《到處存在場所 到 不存在的我》」、同場演出者 ['蔡元彰']
 - canonical: 蔡元彰
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「skipskipbenben＆ 蔡元彰《到處存在場所 到 不存在的我》」、同場演出者 ['skipskipbenben']
 - canonical: OK TAECYEON
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「Legacy TERA」、標題「【1：1自拍】2026 OK TAECYEON SPECIAL EVENT IN TAIPEI To」
 - canonical: 呂杰達
   aliases: []
   tags_origin_default: 本地
@@ -702,7 +702,7 @@
   tags_origin_default: 本地
 - canonical: Ilid Kaolo
   aliases: ["以莉高露"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「【09/26】Ilid Kaolo 以莉高露－專輯發行前的暖身操」、共 2 場（台北）
 - canonical: 房潔恩
   aliases: ["James Fong"]
   tags_origin_default: 本地
@@ -711,25 +711,25 @@
   tags_origin_default: 本地
 - canonical: UVERworld
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「Zepp New Taipei」、標題「UVERworld LIVE TOUR 2026 in TAIPEI」
 - canonical: 風間俊介
   aliases: ["Kazama Shunsuke"]
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「三創生活園區 Clapper Studio」、標題「【第一部】風間俊介KAZAMA SHUNSUKE meets TAIPEI -初・海外出差篇-」、共 2 場（台北）
 - canonical: INFINITE
   aliases: []
   tags_origin_default: 韓國  # 2026-09-23 日韓拆分：Woollim Entertainment 韓國男團，查證為韓國
 - canonical: 李東軒
   aliases: ["Austin Lee"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「Legacy Taipei」、標題「李東軒AUSTIN LEE《FOREVER 我們・不變》十週年演唱會」
 - canonical: Amenra
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「The Wall Live House」、標題「Amenra Live in Taipei」
 - canonical: Tiffany Young
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「國立臺灣大學綜合體育館」、標題「Tiffany Young：Edge of Calm Tour In Taipei（10/9場次）」、共 2 場（台北）
 - canonical: PREP
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「Legacy Taipei」、標題「PREP Live In Taipei」
 - canonical: Chevon
   aliases: []
   tags_origin_default: 日本  # 2026-09-22 修正：查證後是日本札幌發跡的3人組搖滾樂團，不是本地（查證：ticketplus.com.tw/activity/1432a04903bc5a7e5301a524ef9153d1），先前標成本地是誤植
@@ -739,55 +739,55 @@
 # 回報這場被誤標成拼盤（因為假的第二位「演出者」被比對到），真正是專場。
 - canonical: BIGBANG
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「臺北大巨蛋」、標題「BIGBANG 2026-2027 WORLD TOUR < XX：COSMOS > IN TAIP」、共 3 場（台北）
 - canonical: 無妄合作社
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「台北  Legacy Tera」、標題「【台北場】我們搖滾——無妄合作社十週年演唱會」、共 3 場（台中/台北/高雄）
 - canonical: TREASURE
   aliases: []
-  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）
+  tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「高雄巨蛋」、標題「TREASURE THE STAGE 2026 NEW WAV : LIVE IN KAOHSIUN」
 - canonical: ASCA
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「NUZONE」、標題「ASCA LIVE TOUR 2026 -Remedy- 台北公演」
 - canonical: EMI NODA
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「The Wall Live House」、標題「EMI NODA Live Tour "film" in Taipei」
 - canonical: 音田雅則
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「SUB LIVE」、標題「音田雅則 One Man Tour 2026 “Hiraeth” in Taipei」
 - canonical: YUURI
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 asiaworld-expo.kktix.cc、場地「亞洲國際博覽館 10號展館」、標題「YUURI LIVE 2026 IN HONG KONG」、共 3 場（台北/未知）
 - canonical: FLOW
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「Legacy Taipei」、標題「FLOW WORLD TOUR 2026 "NARUTO THE ROCK" Live in Tai」
 - canonical: TAKUYA KIMURA
   aliases: ["木村拓哉"]
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「台北流行音樂中心表演廳」、標題「「TAKUYA KIMURA Live Tour 2026 Checkpoint」 in TAIPE」、共 2 場（台北）
 - canonical: 志崎樺音
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「HANASPACE花漾展演空間」、標題「志崎樺音台北粉絲見面會 (午場)」、共 2 場（台北）
 - canonical: CHIAI FUJIKAWA
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「Zepp New Taipei」、標題「CHIAI FUJIKAWA LIVE TOUR 2026 "RADIUS OF 3 METERS"」
 - canonical: The Omnific
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「The Wall Live House」、標題「The Omnific Asia Tour Live in Taipei」
 - canonical: 岡崎體育
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「Zepp New Taipei」、標題「岡崎體育10週年巡演＂Zepp10 連單全押＂<台北水啦賞>」
 - canonical: LORNA SHORE
   aliases: []
-  tags_origin_default: 歐美
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「Legacy Taipei」、標題「LORNA SHORE LIVE IN TAIPEI」
 - canonical: Moi dix Mois
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「這牆音樂展演空間」、標題「Moi dix Mois Live in Taipei 2026 with Kaya 〜Compag」、同場演出者 ['Kaya']、共 2 場（台北）
 - canonical: Kaya  # ⚠️ 常見短字
   aliases: []
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: Vaundy
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「台北小巨蛋 Taipei Arena」、標題「Vaundy ASIA  ARENA TOUR 2026 “HORO” IN TAIPEI（10/3」、共 2 場（台北）
 - canonical: RUSH BALL
   aliases: []
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
@@ -796,19 +796,19 @@
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: MAHIRU
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「Zepp New Taipei」、標題「MAHIRU ONE-MAN LIVE 2027 in Zepp New Taipei(3/27場次」、共 2 場（新北）
 - canonical: Mili
   aliases: []
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
 - canonical: 高明駿
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「新莊宏匯廣場 Zepp New Taipei」、標題「誰說我不在乎　高明駿2026演唱會-台北站」
 - canonical: 旺福
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「Legacy Taipei」、標題「旺福 2026 旺聖節 –《魂遊世界》」
 - canonical: 張秀卿
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「大臺南會展中心 ICC TAINAN」、標題「張秀卿 辣妹駕到2 巡迴演唱會」
 - canonical: JUST YOU & WIN
   aliases: []
   tags_origin_default: 亞洲其他  # 2026-09-23 修正：WIN 是泰國演員 Win Metawin，不是日韓（WebSearch）
@@ -862,7 +862,7 @@
 # Wah SUB！014（查證：indievox 26_iv041925e，標題裡已經直接列出團名）
 - canonical: 龐氏騙局2
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「SUB」、標題「Wah SUB！014 龐氏騙局2；BB彈。Shootup。頂加集會。擊沈女孩」、同場演出者 ['BB彈', 'Shootup', '頂加集會', '擊沈女孩']
 - canonical: BB彈  # ⚠️ 短字
   aliases: []
   tags_origin_default: 本地
@@ -871,10 +871,10 @@
   tags_origin_default: 本地
 - canonical: 頂加集會
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「SUB」、標題「Wah SUB！014 龐氏騙局2；BB彈。Shootup。頂加集會。擊沈女孩」、同場演出者 ['龐氏騙局2', 'BB彈', 'Shootup', '擊沈女孩']
 - canonical: 擊沈女孩
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「SUB」、標題「Wah SUB！014 龐氏騙局2；BB彈。Shootup。頂加集會。擊沈女孩」、同場演出者 ['龐氏騙局2', 'BB彈', 'Shootup', '頂加集會']
 
 # 個別藝人/團體（逐筆查證過票券頁，不是猜的）
 - canonical: Andr  # ⚠️ 短字，亞洲巡迴獨立藝人（查證：fujimusic.kktix.cc）
@@ -885,16 +885,16 @@
   tags_origin_default: 本地
 - canonical: 天使シグナル
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 www、場地「LIVE WAREHOUSE」、標題「最初の信号 〜天使シグナルDEBUT LIVE〜」
 - canonical: 白玖ウタノ
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「CLAPPER STUDIO」、標題「白玖ウタノ UTANOLIVE!! In Taipei 2026」
 - canonical: 鄭小韻
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「鄭小韻年度演出《游雲》」
 - canonical: 青虫aoi
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 b16act.kktix.cc、場地「臺南文創園區-漂丿白鷺Live House」、標題「青虫aoi 2026 冬季小巡迴《Before Sunrise》 l 台南場」、共 3 場（台中/台南/高雄）
 - canonical: 日日春  # ⚠️ 常見詞組（也是日日春關懷互助協會的簡稱），3字仍有風險
   aliases: []
   tags_origin_default: 本地
@@ -903,7 +903,7 @@
   tags_origin_default: 本地
 - canonical: TIPA西藏表演藝術學院
   aliases: []
-  tags_origin_default: 亞洲其他
+  tags_origin_default: 亞洲其他  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「國立臺灣師範大學和平校區禮堂」、標題「TIPA西藏表演藝術學院-相遇西藏~雪域長歌・千年迴響~」
 - canonical: MISOGI  # ⚠️ 日文常見詞（禊），查證是日本樂團「真天地開闢集團」的巡迴名稱
   aliases: []
   tags_origin_default: 日本
@@ -912,48 +912,48 @@
   tags_origin_default: 本地
 - canonical: Asia Artist Awards
   aliases: []
-  tags_origin_default: 亞洲其他
+  tags_origin_default: 亞洲其他  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「高雄國家體育場(世運主場館)」、標題「2026 Asia Artist Awards in Kaohsiung」
 - canonical: PERSONA LIVE TOUR
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 ticketplus、場地「Zepp New Taipei」、標題「PERSONA LIVE TOUR 2026 - Resonance - 台北公演」
 - canonical: GMMTV FANDAY
   aliases: []
-  tags_origin_default: 亞洲其他
+  tags_origin_default: 亞洲其他  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「Zepp New Taipei」、標題「2026 GMMTV FANDAY 39 in TAIPEI [AlmondProgress] 」、共 2 場（新北）
 - canonical: hyper_link
   aliases: ["Wrong Game"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「台北流行音樂中心 Live House D」、標題「Wrong Game Present : hyper_link 電音派對」
 
 # 確認過真的是音樂祭/派對品牌（TYPE_KEYWORDS 已對應好分類，見 normalize.mjs）
 - canonical: ASIA METAL FESTIVAL
   aliases: []
-  tags_origin_default: 亞洲其他
+  tags_origin_default: 亞洲其他  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 cohesionmusic.kktix.cc、場地「凝聚力展演空間」、標題「【ASIA METAL FESTIVAL 2026 — TAIPEI】」
 - canonical: 火球祭
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「樂天桃園棒球場」、標題「2026 FIREBALL Fest. 火球祭」
 - canonical: 秋夜爵醒祭
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「霧峰立法院民主議政園區&mdash;民主草坪」、標題「2026 秋夜爵醒祭｜霧峰盛典」
 - canonical: X-Formosa
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「活動時程｜表演者｜注意事項」、標題「X-Formosa 2026 彩虹音樂節」
 - canonical: 囪擊音樂祭
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ten-drum.kktix.cc、場地「十鼓文創園區-夢糖劇場」、標題「【10/24】2026 囪擊音樂祭」、共 4 場（台南/未知）
 - canonical: Kaohsiung Park Music Festival
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「高雄展覽館」、標題「【10/09】Kaohsiung Park Music Festival」、共 2 場（高雄）
 - canonical: FRIENDS MEETING  # ⚠️ 常見英文詞組
   aliases: []
   tags_origin_default: 亞洲其他
 - canonical: 重型宇宙派對
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「百樂門酒館」、標題「重型宇宙派對EXTRA：MiNi FEST」、共 2 場（高雄）
 - canonical: Punk Strike
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「迴響音樂展演空間」、標題「9.27(日)PUNK STRIKE ： NEXT GENERATION」
 - canonical: PHANTASMAGORIA
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「LIVE WAREHOUSE 小庫」、標題「PHANTASMAGORIA： Psychedelic Halloween Party」
 - canonical: 西部地區懸賞公告
   aliases: []
   tags_origin_default: 本地
@@ -962,10 +962,10 @@
   tags_origin_default: 本地
 - canonical: 交個朋友吧
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 www、場地「LIVE WAREHOUSE 小庫」、標題「交個朋友吧演出系列-番外」
 - canonical: 戀愛即興曲
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「📍信誼好好生活廣場｜知新劇場」、標題「❤️戀愛即興曲 🎶 長篇即興音樂劇」
 - canonical: 隨性  # ⚠️ 常見詞（隨性/casual），查證是真的台語歌手（查證：nicetoseeyou.kktix.cc）
   aliases: []
   tags_origin_default: 本地
@@ -979,13 +979,13 @@
   tags_origin_default: 本地  # 音樂祭品牌名，非個別樂團（同 重型宇宙派對／Kaohsiung Park Music Festival 的收法）
 - canonical: 八十八顆芭樂籽
   aliases: ["88balaz"]
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「八十八顆芭樂籽 88balaz 30th Anniversary 感恩酬賓不插電巡迴！」
 - canonical: Funkdationn
   aliases: []
   tags_origin_default: 本地  # 全台鎖舞(breaking)盛會品牌名
 - canonical: MOB PARTY
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 go、場地「Red CNX」、標題「MOB PARTY 26」
 
 # 2026-09-22 待整理清單清空，逐筆開票券頁查證身分
 - canonical: 曾艾佳
@@ -1078,13 +1078,13 @@
   tags_origin_default: 本地  # 台灣樂團（查證：也出現在同批 2026 囪擊音樂祭陣容裡）
 - canonical: 阿丹玩球球
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 riversidelivehouse.kktix.cc、場地「河岸留言西門紅樓展演館」、標題「《今晚到底誰要睡？》眠氣 × 阿丹玩球球 × 淺眠躁動 × 書名號」、同場演出者 ['眠氣', '淺眠躁動', '書名號']
 - canonical: 淺眠躁動
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 riversidelivehouse.kktix.cc、場地「河岸留言西門紅樓展演館」、標題「《今晚到底誰要睡？》眠氣 × 阿丹玩球球 × 淺眠躁動 × 書名號」、同場演出者 ['眠氣', '阿丹玩球球', '書名號']
 - canonical: 書名號
   aliases: []
-  tags_origin_default: 本地
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 riversidelivehouse.kktix.cc、場地「河岸留言西門紅樓展演館」、標題「《今晚到底誰要睡？》眠氣 × 阿丹玩球球 × 淺眠躁動 × 書名號」、同場演出者 ['眠氣', '阿丹玩球球', '淺眠躁動']
 - canonical: 王子欣
   aliases: ["Amabile"]
   tags_origin_default: 本地  # 小提琴獨奏會，陽明交大演藝廳
