@@ -83,3 +83,45 @@ test("a field NOT in the watched list (e.g. title_raw) changing does not trigger
 
   assert.deepEqual(digest.updated, []);
 });
+
+test("diff real bug (Max, 2026-09-25: \"我發現我收藏的場次不見了\"): an artist getting recognized changes dedup.mjs's computed id (headliners[0] now exists where it used to fall back to title_raw), but the raw_id/source stays the same — diff() must keep the OLD id, not treat this as a brand-new event", () => {
+  const oldId = "titleHashId"; // computed from title_raw while headliners was []
+  const newId = "headlinerHashId"; // computed from headliners[0] once the artist is recognized
+  const previous = [
+    makeEvent(oldId, {
+      headliners: [],
+      lineup: [],
+      tags_origin: [],
+      sources: [{ name: "KKTIX", url: "https://example.com/raw1", raw_id: "raw1" }],
+      first_seen_at: "2026-09-10T00:00:00Z",
+      updated_at: "2026-09-10T00:00:00Z",
+    }),
+  ];
+  const next = [
+    makeEvent(newId, {
+      headliners: ["Real Artist"],
+      lineup: ["Real Artist"],
+      tags_origin: ["本地"],
+      sources: [{ name: "KKTIX", url: "https://example.com/raw1", raw_id: "raw1" }],
+    }),
+  ];
+
+  const { events, digest } = diff(previous, next);
+
+  assert.equal(events[0].id, oldId, "must keep the id a favorite/exclusion would already be stored under");
+  assert.deepEqual(events[0].merged_ids, [oldId]);
+  assert.deepEqual(digest.added_ids, [], "must NOT show up as 新上架 — it's the same show, already seen 9/10");
+  assert.equal(events[0].first_seen_at, "2026-09-10T00:00:00Z", "must keep the ORIGINAL first-seen date, not today");
+});
+
+test("diff: a genuinely new event (no source raw_id seen before) still gets its fresh id and lands in added_ids normally", () => {
+  const previous = [makeEvent("a", { sources: [{ name: "KKTIX", url: "https://example.com/raw1", raw_id: "raw1" }] })];
+  const next = [
+    makeEvent("a", { sources: [{ name: "KKTIX", url: "https://example.com/raw1", raw_id: "raw1" }] }),
+    makeEvent("b", { sources: [{ name: "KKTIX", url: "https://example.com/raw2", raw_id: "raw2" }] }),
+  ];
+
+  const { digest } = diff(previous, next);
+
+  assert.deepEqual(digest.added_ids, ["b"]);
+});
