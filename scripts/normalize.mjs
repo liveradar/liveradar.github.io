@@ -703,6 +703,9 @@ const NOISE_KEYWORDS = [
   "洛基恐怖秀", // Rocky Horror Picture Show fan-run screenings with live shadowcast actors — a movie-screening/cosplay event, not a music concert, despite the source material being a "rock musical"
   "百靈果", // 百靈果 News is a podcast brand; this is a live podcast blind-dating show, spoken word not music (same category as the existing "podcast" keyword, kept separate because this title doesn't contain the English word)
   "康康SHOW", // 康康's stand-up comedy show, same category as "des bishop" above
+  // 2026-09-24 batch (手動補跑排程當天發現，見 HANDOFF）：
+  "投資心法", // a financial-professor investment seminar (FANSI GO), not a performance
+  "尾牙同樂會", // a corporate year-end banquet listing (Ticket Plus), not a public concert
 ];
 
 function isNonMusicNoise(titleRaw) {

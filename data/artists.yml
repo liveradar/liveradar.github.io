@@ -1396,3 +1396,21 @@
 - canonical: KIRE
   aliases: ["KIRE Yung", "凱爾"]
   tags_origin_default: 本地  # 台灣饒舌/R&B創作歌手，2024年在倫敦海德公園為Stray Kids開場的第一位台灣男歌手，查證確認非藝名巧合
+- canonical: Paul Gilbert
+  aliases: []
+  tags_origin_default: 歐美  # 美國吉他手，Mr. Big / Racer X 成員
+- canonical: TOSHIKI SOEJIMA
+  aliases: ["添島壽起", "副島俊樹"]
+  tags_origin_default: 日本  # 日本 Neo-Soul 吉他手
+- canonical: 林生祥
+  aliases: []
+  tags_origin_default: 本地  # 台灣客家獨立音樂創作人，出身高雄美濃
+- canonical: 羅暎錫
+  aliases: ["이응석", "羅PD"]
+  tags_origin_default: 韓國  # 韓國知名綜藝製作人（羅英錫/羅PD），粉絲見面會
+- canonical: 林逸欣
+  aliases: ["Shara Lin"]
+  tags_origin_default: 本地  # 台灣創作歌手，出身台南
+- canonical: 雄岸折光
+  aliases: []
+  tags_origin_default: 本地  # 高雄五校熱音社聯合成果發表會品牌名，非單一藝人
