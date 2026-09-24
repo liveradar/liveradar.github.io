@@ -17,6 +17,9 @@ import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadArtists, matchArtists, guessTagsType } from "./normalize.mjs";
+import { acquireRunLock } from "./run-lock.mjs";
+
+acquireRunLock("npm run renormalize");
 
 const DATA_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "data");
 const EVENTS_PATH = path.join(DATA_DIR, "events.json");
@@ -48,9 +51,9 @@ const remaining = reviewItems.filter(
   (item) => !(item.reason === "artist_unrecognized" && resolvedRawIds.has(`${item.source}|${item.raw_id}`)),
 );
 
-writeFileSync(EVENTS_PATH, JSON.stringify(eventsFile, null, 2));
+writeFileSync(EVENTS_PATH, JSON.stringify(eventsFile, null, 2) + "\n"); // same format fetch.mjs writes
 writeFileSync(
   REVIEW_PATH,
-  JSON.stringify(Array.isArray(reviewFile) ? remaining : { ...reviewFile, items: remaining }, null, 2),
+  JSON.stringify(Array.isArray(reviewFile) ? remaining : { ...reviewFile, items: remaining }, null, 2) + "\n",
 );
 console.log(`${resolvedRawIds.size} source listing(s) resolved, ${remaining.length} needs-review item(s) remaining`);

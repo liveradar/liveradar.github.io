@@ -16,6 +16,7 @@ import { notifySourceAnomaly } from "./notify.mjs";
 import { classifySourceRun } from "./source-status.mjs";
 import { fallbackEventsForSource, fallbackReviewItemsForSource } from "./source-fallback.mjs";
 import { refreshedStatus } from "./sale-signal.mjs";
+import { acquireRunLock } from "./run-lock.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "..", "data");
@@ -220,6 +221,7 @@ async function runAdapter(adapter, context) {
 }
 
 async function main() {
+  acquireRunLock("npm run fetch");
   resetProgressLog();
   const artistsYml = loadArtists();
   const venuesYml = loadVenues();
