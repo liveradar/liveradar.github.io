@@ -309,7 +309,7 @@ async function fetchOnce(url) {
 }
 
 /** Fetch with one retry on timeout/network error (SPEC §4.3). */
-async function fetchHtml(url) {
+export async function fetchHtml(url) {
   try {
     return await fetchOnce(url);
   } catch (err) {
@@ -780,7 +780,7 @@ function resolveFromJsonLd(jsonLd) {
   return status;
 }
 
-function extractTemplate($) {
+export function extractTemplate($) {
   const usesNewTemplate = $(".side-inner").length > 0 && $(".event-info").length === 0;
   const usesCampaignTemplate = $(".header-title h1").text().trim() === "" && $(".description-wrapper").length > 0;
   const templateTitle = usesCampaignTemplate ? $("title").first().text().trim() : $(".header-title h1").first().text().trim();
@@ -829,7 +829,7 @@ const MAX_CHILD_EVENTS = 8;
  * coming soon; sold out only when every child's status is known and ended —
  * one unreadable child leaves the answer unknown (null) rather than guessing.
  */
-async function resolveFromChildEvents($, url, jsonLd) {
+export async function resolveFromChildEvents($, url, jsonLd) {
   const ownId = url.split("/").filter(Boolean).pop();
   const childIds = [
     ...new Set(
@@ -877,7 +877,7 @@ async function resolveFromChildEvents($, url, jsonLd) {
  * rather than changing what normalize.mjs accepts — this is a second SOURCE
  * for those strings, not a new format for them to handle.
  */
-function extractJsonLdEvent($) {
+export function extractJsonLdEvent($) {
   for (const el of $('script[type="application/ld+json"]').toArray()) {
     let parsed;
     try {
