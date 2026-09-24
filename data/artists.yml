@@ -1294,10 +1294,10 @@
   tags_origin_default: 歐美  # 澳洲/英國組成的西洋 soft rock 二人組合，WebSearch 確認
 - canonical: 蔡健雅
   aliases: ["Tanya Chua"]
-  tags_origin_default: 亞洲其他  # 新加坡籍創作歌手，2006 年才定居台北，WebSearch 確認國籍為新加坡（非台灣本地）
+  tags_origin_default: 本地  # 2026-09-24 依「在哪個音樂圈成名」規則改回本地：新加坡籍、最早在新加坡發片，但成名、得金曲獎、主要發片都在台灣華語樂壇（原本依國籍標亞洲其他）
 - canonical: 巫啟賢
   aliases: []
-  tags_origin_default: 亞洲其他  # 馬來西亞籍資深歌手，2000 年移居台灣但未歸化，WebSearch 確認持大馬身分證
+  tags_origin_default: 本地  # 2026-09-24 依「在哪個音樂圈成名」規則改回本地：馬來西亞籍、1985 在馬來西亞出道，1986 被劉文正發掘來台發展，1994《太傻》為當年台灣最紅專輯（udn 報時光、維基百科）
 - canonical: 顏社
   aliases: ["Kao!Inc"]
   tags_origin_default: 本地  # 台灣饒舌廠牌（旗下含熱狗 MC HotDog 等），21 週年演唱會，標題只有廠牌名，同「火球祭」模式註冊品牌本身
@@ -1440,7 +1440,7 @@
   tags_origin_default: 日本  # 票券頁 digitalidea 自述「日本人氣聲優・演員」
 - canonical: 韓東
   aliases: ["HANDONG"]
-  tags_origin_default: 亞洲其他  # 韓國女團 Dreamcatcher 成員 HANDONG，本人是中國籍（武漢）。依「看國籍不看發展地」規則歸亞洲其他（同蔡健雅歸新加坡）
+  tags_origin_default: 韓國  # 韓國女團 Dreamcatcher 成員 HANDONG，本人中國籍（武漢），但在韓國經紀公司出道、在 K-pop 圈成名，依「在哪個音樂圈成名」規則歸韓國（2026-09-24 Max 確認規則）
 - canonical: B CRUSH
   aliases: ["B CRUSH不小心製造"]
   tags_origin_default: 本地  # 台灣三男一女團體，成員來自《原子少年2》《菱格世代DD52》；票券頁 kkboxtw 為 KKBOX FANKLUB 一週年派對
@@ -1468,3 +1468,6 @@
 - canonical: THE CHOSENs
   aliases: ["天選"]
   tags_origin_default: 本地  # 台灣女子國風電音國樂團（thechosens.com.tw，台北）
+- canonical: SLUTs
+  aliases: ["#DAMUR"]
+  tags_origin_default: 本地  # 台灣派對品牌（票券頁 lafin.kktix.cc，The Horny Night 系列，多位 DJ／表演者參與）。2026-09-24 Max 定的規則：派對、音樂節這類多人參與的活動一律判定本地

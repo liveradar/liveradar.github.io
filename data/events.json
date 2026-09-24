@@ -5426,12 +5426,12 @@
         "專場"
       ],
       "tags_origin": [
-        "亞洲其他"
+        "本地"
       ],
       "is_lottery": false,
       "ticket_url": "https://kpmc.kktix.cc/events/tanya26",
       "first_seen_at": "2026-09-23T10:42:10.283Z",
-      "updated_at": "2026-09-23T10:42:10.283Z",
+      "updated_at": "2026-09-24T07:39:01.648Z",
       "sources": [
         {
           "name": "KKTIX",
@@ -6110,12 +6110,12 @@
         "巡迴"
       ],
       "tags_origin": [
-        "亞洲其他"
+        "本地"
       ],
       "is_lottery": false,
       "ticket_url": "https://casaentertainment.kktix.cc/events/51b02629",
       "first_seen_at": "2026-09-23T10:42:10.289Z",
-      "updated_at": "2026-09-23T10:42:10.289Z",
+      "updated_at": "2026-09-24T07:39:01.657Z",
       "sources": [
         {
           "name": "KKTIX",
@@ -8350,7 +8350,7 @@
         "專場"
       ],
       "tags_origin": [
-        "亞洲其他"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://weekendplanent.kktix.cc/events/d23c8c16",
@@ -8362,7 +8362,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.285Z",
-      "updated_at": "2026-09-24T07:29:05.062Z",
+      "updated_at": "2026-09-24T07:39:01.658Z",
       "id": "31573b8a000d6048",
       "merged_ids": [
         "31573b8a000d6048"
@@ -8389,7 +8389,7 @@
         "專場"
       ],
       "tags_origin": [
-        "亞洲其他"
+        "韓國"
       ],
       "is_lottery": false,
       "ticket_url": "https://weekendplanent.kktix.cc/events/7345d6b9",
@@ -8401,7 +8401,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.285Z",
-      "updated_at": "2026-09-24T07:29:05.062Z",
+      "updated_at": "2026-09-24T07:39:01.658Z",
       "id": "6bb308862b4c2f1d",
       "merged_ids": [
         "6bb308862b4c2f1d"
@@ -8916,8 +8916,12 @@
     },
     {
       "title_raw": "The Horny Night - SLUTs 25hrs LOVE by #DAMUR",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "SLUTs"
+      ],
+      "lineup": [
+        "SLUTs"
+      ],
       "is_festival": false,
       "venue": "La Fin Taipei",
       "city": "台北",
@@ -8930,7 +8934,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://lafin.kktix.cc/events/rlswgd",
       "sources": [
@@ -8941,7 +8947,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.289Z",
-      "updated_at": "2026-09-24T07:19:37.289Z",
+      "updated_at": "2026-09-24T07:40:37.036Z",
       "id": "b2fc76fdf96e9f6a",
       "merged_ids": [
         "b2fc76fdf96e9f6a"
