@@ -768,8 +768,13 @@ function isNonMusicNoise(titleRaw) {
 // e.g. Atarayo's own tour — same reasoning as adding a city the moment it's
 // confirmed real, not waiting for every possible Japanese city to surface
 // on its own first).
+// 2026-09-25 real bug (Max 回報，found while chasing an unrelated city:未知
+// investigation): 麥花臣場館/AsiaWorld-Expo were only ever named in THIS
+// comment block's own history notes above, never actually added to the
+// regex itself — Yuki Kajiura's and YUURI's Hong Kong shows were genuinely
+// live on the production site with city:未知, not caught by anything.
 const OUTSIDE_TAIWAN_VENUE_RE =
-  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland|日本|東京|Tokyo|大阪|Osaka|名古屋|Nagoya|Japan|首爾|Seoul|KDB ?生命/i; // 首爾/KDB 生命塔 added 2026-09-24: 黃致列簽名會 was sold in TWD to Taiwan fans but held in Seoul
+  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland|麥花臣|MacPherson ?Stadium|亞洲國際博覽館|AsiaWorld[- ]?Expo|日本|東京|Tokyo|大阪|Osaka|名古屋|Nagoya|Japan|首爾|Seoul|KDB ?生命/i; // 首爾/KDB 生命塔 added 2026-09-24: 黃致列簽名會 was sold in TWD to Taiwan fans but held in Seoul
 
 function isOutsideTaiwanVenue(venueRaw) {
   return OUTSIDE_TAIWAN_VENUE_RE.test(venueRaw ?? "");

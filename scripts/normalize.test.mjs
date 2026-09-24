@@ -535,6 +535,18 @@ test("normalize() real bug (讚美之泉敬拜讚美節慶's own Tokyo date, ven
   }
 });
 
+test("normalize() real bug (Max 回報, 2026-09-25: Yuki Kajiura/YUURI 兩場香港秀實際顯示在正式網站上，city:未知): 麥花臣場館/AsiaWorld-Expo were only ever named in a code comment, never actually added to OUTSIDE_TAIWAN_VENUE_RE itself", () => {
+  const yml = [];
+  const venues = [
+    "麥花臣場館 / 界限街1號", // Yuki Kajiura LIVE vol.#22 in Hong Kong
+    "亞洲國際博覽館 10號展館 / AsiaWorld-Expo, Hong Kong", // YUURI LIVE 2026 IN HONG KONG
+  ];
+  for (const venue_raw of venues) {
+    const result = normalize(makeRaw({ venue_raw }), yml, []);
+    assert.equal(result.excluded?.reason, "outside_taiwan", `expected venue_raw "${venue_raw}" to be excluded`);
+  }
+});
+
 test("normalize(): a title that mentions '世界巡迴' (world tour) but has a normal Taiwan venue_raw is NOT excluded as outside_taiwan — only the listing's own venue field is checked, not the title", () => {
   const result = normalize(
     makeRaw({ title_raw: "某藝人 2026 世界巡迴演唱會－台北站", venue_raw: "Legacy Taipei / 台北市中正區" }),
