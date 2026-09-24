@@ -36,6 +36,25 @@ export function loadPrefs() {
   }
 }
 
+// 2026-09-25 real bug (Max: "我發現我收藏的場次不見了...我指的是收藏的資料
+// 被清空喔"): defaultPrefs() stamps updated_at as "right now" even when
+// there's NO saved localStorage entry at all — a brand new browser,
+// incognito window, or just cleared storage. reconcileSupabaseSync() below
+// compares that fresh "now" against the real remote save time and, being
+// newer, pushed the EMPTY defaults to Supabase, overwriting the user's real
+// favorites there. This happens on literally every page load for a logged-
+// in user on a device with no local prefs yet (see src/app.js: it's called
+// once per page render). hasStoredPrefs() lets reconcileSupabaseSync tell
+// "genuinely fresh, nothing to push" apart from "just edited, push me" —
+// loadPrefs()'s own stamped updated_at can't do that on its own.
+function hasStoredPrefs() {
+  try {
+    return localStorage.getItem(STORAGE_KEY) !== null;
+  } catch {
+    return false;
+  }
+}
+
 function persistPrefs(next) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
   return next;
@@ -334,6 +353,30 @@ function scheduleSupabaseSync(prefs) {
 }
 
 /**
+ * Pure decision function for reconcileSupabaseSync — no localStorage/network
+ * I/O, so it's directly unit-testable without mocking either (state.test.js).
+ * @param {{ localIsFresh: boolean, local: object, remote: {prefs: object, manual_events: object[]}|null }} args
+ * @returns {"seed"|"pull"|"push"|"none"}
+ */
+export function decideSyncAction({ localIsFresh, local, remote }) {
+  if (!remote) return "seed"; // nothing in the cloud yet — genuinely nothing to lose, seed it from local (empty or not)
+
+  // 2026-09-25 real bug (Max: "我指的是收藏的資料被清空喔"): a device with no
+  // saved prefs at all must NEVER be allowed to win the timestamp race below
+  // — defaultPrefs() stamps updated_at as "right now" even for a state that
+  // was never actually edited, so it'll almost always look "newer" than a
+  // real remote save from the past and silently overwrite it. Always pull
+  // in this case, never push.
+  if (localIsFresh) return "pull";
+
+  const remoteTime = new Date(remote.prefs.updated_at).getTime();
+  const localTime = new Date(local.updated_at).getTime();
+  if (remoteTime > localTime) return "pull";
+  if (localTime > remoteTime) return "push";
+  return "none";
+}
+
+/**
  * Call once per page load. Not authenticated → no-op (matches the old Gist
  * "not_connected" early return, never makes a network request). First login
  * ever (no remote row yet) → seed the remote row from local data instead of
@@ -347,6 +390,7 @@ export async function reconcileSupabaseSync() {
   const session = await getSession();
   if (!session) return { status: "not_authenticated", changed: false };
 
+  const localIsFresh = !hasStoredPrefs(); // nothing saved on this device yet — see decideSyncAction's comment
   const local = loadPrefs();
   let remote;
   try {
@@ -362,21 +406,15 @@ export async function reconcileSupabaseSync() {
     return { status: "error", changed: false };
   }
 
-  if (!remote) {
+  const action = decideSyncAction({ localIsFresh, local, remote });
+  if (action === "seed" || action === "push") {
     await pushToSupabase(local).catch((err) => console.error("Supabase push failed:", err));
     return { status: "ok", changed: false };
   }
-
-  const remoteTime = new Date(remote.prefs.updated_at).getTime();
-  const localTime = new Date(local.updated_at).getTime();
-
-  if (remoteTime > localTime) {
+  if (action === "pull") {
     persistManualEvents(remote.manual_events ?? []);
     persistPrefs(remote.prefs);
     return { status: "ok", changed: true };
-  }
-  if (localTime > remoteTime) {
-    await pushToSupabase(local).catch((err) => console.error("Supabase push failed:", err));
   }
   return { status: "ok", changed: false };
 }
