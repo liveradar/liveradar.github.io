@@ -565,7 +565,7 @@ function extractCampaignTemplateFields($) {
 // counters end up in sources.json via runStats().
 let registerStats = null;
 function resetRegisterStats() {
-  registerStats = { jsonld_resolved: 0, checked: 0, ok_first_try: 0, ok_on_retry: 0, failed: 0, blocked_403: 0, skipped_known: 0 };
+  registerStats = { jsonld_resolved: 0, children_resolved: 0, checked: 0, ok_first_try: 0, ok_on_retry: 0, failed: 0, blocked_403: 0, skipped_known: 0 };
 }
 resetRegisterStats();
 
@@ -701,7 +701,9 @@ export async function fetchEventDetail(url, browser, knownRegisterStatus) {
   const register_status =
     knownRegisterStatus !== undefined
       ? knownRegisterStatus
-      : (resolveFromJsonLd(jsonLd) ?? (await fetchRegisterStatus(browser, raw_id)));
+      : (resolveFromJsonLd(jsonLd) ??
+        (await resolveFromChildEvents($, url, jsonLd)) ??
+        (await fetchRegisterStatus(browser, raw_id)));
   return { raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, register_status, source_name: name };
 }
 
@@ -726,6 +728,65 @@ export { saleStatusFromOffers };
 function resolveFromJsonLd(jsonLd) {
   const status = saleStatusFromOffers(jsonLd?.offers);
   if (status) registerStats.jsonld_resolved += 1;
+  return status;
+}
+
+const MAX_CHILD_EVENTS = 8;
+
+/**
+ * 2026-09-24 (the 15 events whose register_info kept failing, checked one by
+ * one in a real browser — 6 of them showed the wrong status on LiveRadar):
+ * most were NOT ordinary event pages but KKTIX "group" pages — a parent page
+ * that sells nothing itself and only links out to one child event per date
+ * or ticket type (`/events/<child>/registrations/new`). The parent's JSON-LD
+ * has no offers, and its register_info reports SOLD_OUT simply because it
+ * has no tickets of its own (林鼓子 見面會 came back SOLD_OUT that way while
+ * its one child was on sale). The children are ordinary pages whose JSON-LD
+ * does carry offers, fetched here with plain HTTP from the organizer's own
+ * subdomain (kktix.com/events/<id> is Cloudflare-blocked, the subdomain
+ * isn't). A group page can span several dates (理想混蛋's 10/17 page also
+ * links the 10/18 show; 顏社 K21 links both 12/12 and 12/13), so only the
+ * children on the parent's own date count, falling back to all of them if
+ * none match. Any child on sale = on sale; otherwise any coming soon =
+ * coming soon; sold out only when every child's status is known and ended —
+ * one unreadable child leaves the answer unknown (null) rather than guessing.
+ */
+async function resolveFromChildEvents($, url, jsonLd) {
+  const ownId = url.split("/").filter(Boolean).pop();
+  const childIds = [
+    ...new Set(
+      $('a[href*="/registrations/new"]')
+        .toArray()
+        .map((a) => $(a).attr("href")?.match(/\/events\/([^/?#]+)\/registrations/)?.[1])
+        .filter((id) => id && id !== ownId),
+    ),
+  ].slice(0, MAX_CHILD_EVENTS);
+  if (childIds.length === 0) return null;
+
+  const children = [];
+  for (const id of childIds) {
+    await sleep(REQUEST_DELAY_MS);
+    try {
+      const child = extractJsonLdEvent(cheerio.load(await fetchHtml(new URL(`/events/${id}`, url).href)));
+      children.push({ day: child?.date_raw?.slice(0, 10), status: saleStatusFromOffers(child?.offers) });
+    } catch (err) {
+      logProgress(`child event ${id} of ${ownId} failed: ${err.message}`);
+      children.push({ day: null, status: null });
+    }
+  }
+  const ownDay = jsonLd?.date_raw?.slice(0, 10);
+  const sameDay = children.filter((c) => c.day && c.day === ownDay);
+  const relevant = sameDay.length > 0 ? sameDay : children;
+  const statuses = relevant.map((c) => c.status);
+
+  let status = null;
+  if (statuses.includes("IN_STOCK")) status = "IN_STOCK";
+  else if (statuses.includes("COMING_SOON")) status = "COMING_SOON";
+  else if (statuses.every((st) => st === "SOLD_OUT" || st === "REGISTRATION_CLOSED")) {
+    status = statuses.every((st) => st === "REGISTRATION_CLOSED") ? "REGISTRATION_CLOSED" : "SOLD_OUT";
+  }
+  if (status) registerStats.children_resolved += 1;
+  logProgress(`group page ${ownId}: ${childIds.length} child event(s) -> ${status ?? "unknown"}`);
   return status;
 }
 
@@ -790,7 +851,9 @@ async function resolveKnownEvent(raw_id, url, browser, warnings, previous) {
   // for the rare page whose `offers` is empty.
   let registerStatus = null;
   try {
-    registerStatus = resolveFromJsonLd(extractJsonLdEvent(cheerio.load(await fetchHtml(url))));
+    const $ = cheerio.load(await fetchHtml(url));
+    const jsonLd = extractJsonLdEvent($);
+    registerStatus = resolveFromJsonLd(jsonLd) ?? (await resolveFromChildEvents($, url, jsonLd));
   } catch (err) {
     logProgress(`JSON-LD probe failed for ${raw_id}: ${err.message}`);
   }
@@ -803,7 +866,9 @@ async function resolveKnownEvent(raw_id, url, browser, warnings, previous) {
   const ended = registerStatus === "SOLD_OUT" || registerStatus === "REGISTRATION_CLOSED";
   const opened = registerStatus === "IN_STOCK" && previous?.status === "announced";
   if (!ended && !opened) {
-    return { raw_id, url, title_raw: null, source_name: name, reuse_previous: true };
+    // Hand the signal to fetch.mjs's refreshedStatus too, so e.g. an on_sale
+    // event that has gone back to COMING_SOON is still corrected cheaply.
+    return { raw_id, url, title_raw: null, source_name: name, reuse_previous: true, sale_signal: registerStatus };
   }
   await sleep(REQUEST_DELAY_MS);
   logProgress(`known event ${raw_id} now reports ${registerStatus}, re-fetching detail instead of reusing stale data`);

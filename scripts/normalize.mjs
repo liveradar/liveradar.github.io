@@ -643,6 +643,10 @@ function statusFromTickets(ticketsRaw, eventDate, registerStatus) {
   if (registerStatus === "SOLD_OUT" || registerStatus === "REGISTRATION_CLOSED") {
     return { status: eventDate >= taiwanTodayDateStr() ? "sold_out" : "ended", on_sale_at: null };
   }
+  // 2026-09-24: a KKTIX group page (see kktix.mjs resolveFromChildEvents) has
+  // no ticket table of its own, so the table-based inference below would call
+  // it "announced" even when its child events are selling right now.
+  if (registerStatus === "IN_STOCK") return { status: "on_sale", on_sale_at: null };
   // 2026-09-22 real bug (Max, EIR AOI): a ticket row can be "waiting" (尚未
   // 開賣, sale hasn't started) — that's neither "closed" (sale over) nor
   // truly "open" (buyable right now). The old `!t.closed` check treated

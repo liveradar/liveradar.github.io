@@ -43,6 +43,7 @@ test("runStats: exposes the register_info counters fetch.mjs writes into sources
   assert.deepEqual(Object.keys(runStats().register_info).sort(), [
     "blocked_403",
     "checked",
+    "children_resolved",
     "failed",
     "jsonld_resolved",
     "ok_first_try",

@@ -102,6 +102,12 @@ test("statusFromTickets: register_status IN_STOCK/COMING_SOON/null don't overrid
   }
 });
 
+test("statusFromTickets: register_status IN_STOCK with no ticket table is on_sale, not announced (real bug 2026-09-24: KKTIX group pages like 林鼓子見面會 sell only through child events)", () => {
+  const raw = makeRaw({ tickets_raw: [], register_status: "IN_STOCK" });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "on_sale");
+});
+
 test("parseIndievoxDate: prefers the 'start' time over the earlier 'open' (doors) time", () => {
   const result = parseIndievoxDate("2026.09.19 (Sat.) 19:30 open / 20:00 start");
   assert.deepEqual(result, { date: "2026-09-19", time: "20:00" });
