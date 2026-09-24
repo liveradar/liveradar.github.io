@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { refreshedStatus, needsStatusCheck } from "./sale-signal.mjs";
+import { refreshedStatus, needsStatusCheck, combineSaleSignals } from "./sale-signal.mjs";
 import { decodeTicketPlusId } from "./adapters/ticketplus.mjs";
 
 const NOW = Date.parse("2026-09-24T12:00:00+08:00");
@@ -62,4 +62,29 @@ test("TICKET_TERMINAL_TEXT_RE real bug (Stray Kids tixcraft purchase page: first
   const { TICKET_TERMINAL_TEXT_RE } = await import("./sale-signal.mjs");
   for (const t of ["已售完", "選購一空", "2026/09/19 12:00 截止", "銷售截止", "販售結束"]) assert.equal(TICKET_TERMINAL_TEXT_RE.test(t), true, t);
   assert.equal(TICKET_TERMINAL_TEXT_RE.test("立即訂購"), false);
+});
+
+test("combineSaleSignals real bug (HANDOFF 9/24 待辦第4項: a merged card's daily recheck only ever looked at sources[0]): a VIP tier reporting SOLD_OUT must not sink a plain tier that's still IN_STOCK — the card is still buyable", () => {
+  const result = combineSaleSignals([{ sale_signal: "SOLD_OUT" }, { sale_signal: "IN_STOCK" }]);
+  assert.equal(result.sale_signal, "IN_STOCK");
+});
+
+test("combineSaleSignals: only sold_out/closed when EVERY source that had a signal this run agrees there's nothing left", () => {
+  const result = combineSaleSignals([{ sale_signal: "SOLD_OUT" }, { sale_signal: "REGISTRATION_CLOSED" }]);
+  assert.equal(result.sale_signal, "SOLD_OUT");
+});
+
+test("combineSaleSignals: COMING_SOON beats a terminal signal but loses to IN_STOCK", () => {
+  assert.equal(combineSaleSignals([{ sale_signal: "COMING_SOON" }, { sale_signal: "SOLD_OUT" }]).sale_signal, "COMING_SOON");
+  assert.equal(combineSaleSignals([{ sale_signal: "COMING_SOON" }, { sale_signal: "IN_STOCK" }]).sale_signal, "IN_STOCK");
+});
+
+test("combineSaleSignals: a source with no signal this run (undefined, or sale_signal: null) doesn't count against the others", () => {
+  const result = combineSaleSignals([undefined, { sale_signal: "IN_STOCK" }, { sale_signal: null }]);
+  assert.equal(result.sale_signal, "IN_STOCK");
+});
+
+test("combineSaleSignals: no source had any signal at all -> null, same as before this fix (keep the previous status)", () => {
+  assert.equal(combineSaleSignals([undefined, { sale_signal: null }]), null);
+  assert.equal(combineSaleSignals([]), null);
 });

@@ -15,7 +15,7 @@ import { resetProgressLog, logProgress } from "./progress-log.mjs";
 import { notifySourceAnomaly } from "./notify.mjs";
 import { classifySourceRun } from "./source-status.mjs";
 import { fallbackEventsForSource, fallbackReviewItemsForSource } from "./source-fallback.mjs";
-import { refreshedStatus } from "./sale-signal.mjs";
+import { refreshedStatus, combineSaleSignals } from "./sale-signal.mjs";
 import { acquireRunLock } from "./run-lock.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -159,7 +159,12 @@ async function runAdapter(adapter, context) {
     // adapter's fresh sale signal (if it checked one) — see sale-signal.mjs.
     let statusChanged = 0;
     for (const event of reused) {
-      const signal = reuseSignals.get(event.sources[0].raw_id);
+      // 2026-09-25 real bug: a merged card can carry a fresh signal on MORE
+      // THAN ONE of its sources this run (e.g. a VIP tier + a plain tier,
+      // each their own KKTIX raw_id) — only checking sources[0] meant
+      // whichever tier happened to be listed first decided the whole card's
+      // status, even when a different tier's signal was the accurate one.
+      const signal = combineSaleSignals(event.sources.map((s) => reuseSignals.get(s.raw_id)));
       const next = refreshedStatus(event, signal?.sale_signal ?? null, signal?.on_sale_at ?? null);
       if (!next) continue;
       logProgress(`${adapter.name}: status ${event.status} -> ${next.status}: ${event.title_raw}`);

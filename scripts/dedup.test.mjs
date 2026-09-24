@@ -233,3 +233,51 @@ test("mergeGroup real bug (羊文学 10/24@高雄: register_info correctly caugh
   assert.equal(merged.status, "sold_out");
   assert.equal(merged.price_min, 1100);
 });
+
+test("dedupe real bug (HANDOFF 9/24 待辦第4項: Disney in Concert 13:00 場 and 16:30 場 merged into one card): two showtimes 210 minutes apart both read as the day/evening 'day' bucket under the old single-cutoff split, so they wrongly merged — must stay two separate events", () => {
+  const early = makeEvent({
+    title_raw: "【13:00】《Disney in Concert: Once Upon a Time》",
+    time: "13:00",
+    sources: [{ name: "KKTIX", url: "https://example.com/early", raw_id: "early" }],
+  });
+  const late = makeEvent({
+    title_raw: "【16:30】《Disney in Concert: Once Upon a Time》",
+    time: "16:30",
+    sources: [{ name: "KKTIX", url: "https://example.com/late", raw_id: "late" }],
+  });
+
+  const result = dedupe([early, late]);
+
+  assert.equal(result.length, 2, "13:00 and 16:30 are different showtimes, not one event");
+  assert.notEqual(result[0].id, result[1].id);
+});
+
+test("dedupe: two reported times close together (same show, one platform reports door time vs start time) still merge into one event", () => {
+  const startTime = makeEvent({
+    time: "19:30",
+    sources: [{ name: "KKTIX", url: "https://example.com/a", raw_id: "a" }],
+  });
+  const doorTime = makeEvent({
+    time: "19:00", // 30 min apart — well within TIME_CLUSTER_GAP_MINUTES
+    sources: [{ name: "拓元", url: "https://example.com/b", raw_id: "b" }],
+  });
+
+  const result = dedupe([startTime, doorTime]);
+
+  assert.equal(result.length, 1, "same show reported 30 minutes apart across platforms must still merge");
+});
+
+test("dedupe: id stability — a show with only ONE reported time (the common case) gets the exact same id scheme as before the clustering fix, not a new time-based suffix", () => {
+  const single = makeEvent({ time: "19:30" });
+  const [result] = dedupe([single]);
+  assert.equal(result.id, computeId("深海系樂團", "2026-10-15", "Legacy Taipei"), "single-time groups must keep the plain baseId, no suffix");
+});
+
+test("dedupe: id stability — an already-correct matinee/evening split (6 hours apart) still gets the old '-day'/'-evening' suffix, not a time-based one, so existing favorites/exclusions keyed by id don't silently break", () => {
+  const matinee = makeEvent({ time: "14:00", sources: [{ name: "KKTIX", url: "https://example.com/m", raw_id: "m" }] });
+  const evening = makeEvent({ time: "20:00", sources: [{ name: "KKTIX", url: "https://example.com/e", raw_id: "e" }] });
+  const [a, b] = dedupe([matinee, evening]).sort((x, y) => (x.time < y.time ? -1 : 1));
+  const baseId = computeId("深海系樂團", "2026-10-15", "Legacy Taipei");
+  assert.equal(a.id, `${baseId}-day`);
+  assert.equal(b.id, `${baseId}-evening`);
+});

@@ -33,11 +33,48 @@ function listingRank(event) {
   return SPECIAL_LISTING_RE.test(event.title_raw) ? sourceRank + 0.5 : sourceRank;
 }
 
-/** Coarse time-of-day bucket, or null when the source didn't report a time at all. */
+function timeToMinutes(time) {
+  const [h, m] = time.split(":").map(Number);
+  return h * 60 + m;
+}
+
+/** Coarse time-of-day bucket, or null when the source didn't report a time at all. Kept as the PRIMARY split (unchanged) so ids for every already-correctly-split show stay stable — see clusterWithinBucket below for the part that changed. */
 function timeBucket(time) {
   if (!time) return null;
   const hour = Number(time.split(":")[0]);
   return hour < 17 ? "day" : "evening";
+}
+
+// 2026-09-25 real bug (HANDOFF 9/24 待辦第 4 項: Disney in Concert 13:00 場
+// and 16:30 場 merged into one card): both showtimes are < 17:00, so the
+// day/evening split above put them in the same bucket. Fix is a SECOND,
+// finer pass only within a bucket that itself contains multiple distinct
+// times far enough apart to be different showtimes — not a wider primary
+// split, which would change the id suffix (literally "-day"/"-evening",
+// see mergeGroup's `id` param) for every show that was already correctly
+// single-bucketed, silently dropping them from anyone's saved favorites/
+// exclusions (both keyed by `id`, see src/state.js). A show that was
+// previously wrongly merged into one card had no "old correct id" worth
+// preserving anyway, so splitting it into fresh ids here is fine.
+// 90 minutes comfortably absorbs realistic cross-platform reporting slop
+// for the SAME show (door-vs-start time, one adapter rounding to the half
+// hour) while still splitting anything as far apart as 13:00/16:30 (210
+// min) — see dedup.test.mjs for both directions of this tradeoff.
+const TIME_CLUSTER_GAP_MINUTES = 90;
+
+/** Distinct reported times sharing one bucket -> Map<time, clusterKey>. Times within TIME_CLUSTER_GAP_MINUTES of the previous one (sorted) share a cluster; clusterKey is that cluster's earliest time, used only as an id suffix. */
+function clusterWithinBucket(times) {
+  const sorted = [...times].sort((a, b) => timeToMinutes(a) - timeToMinutes(b));
+  const clusterOf = new Map();
+  let clusterKey = null;
+  let prevMinutes = null;
+  for (const t of sorted) {
+    const minutes = timeToMinutes(t);
+    if (prevMinutes === null || minutes - prevMinutes > TIME_CLUSTER_GAP_MINUTES) clusterKey = t;
+    clusterOf.set(t, clusterKey);
+    prevMinutes = minutes;
+  }
+  return clusterOf;
 }
 
 function mergeGroup(group, id) {
@@ -96,6 +133,41 @@ function mergeGroup(group, id) {
 }
 
 /**
+ * Given a group that's already one day/evening bucket (or the whole thing,
+ * when there's only one bucket), applies the finer within-bucket time
+ * clustering and merges each resulting cluster. `bucket` is the label used
+ * for the OUTER split ("day"/"evening"), or null when there wasn't one —
+ * passed through only so the id suffix scheme can stay unchanged for the
+ * common case where clustering doesn't find a further split within it (see
+ * the id-stability comment on TIME_CLUSTER_GAP_MINUTES above).
+ */
+function splitByCluster(group, baseId, bucket) {
+  const distinctTimes = [...new Set(group.map((e) => e.time).filter(Boolean))];
+  const clusterOf = distinctTimes.length >= 2 ? clusterWithinBucket(distinctTimes) : null;
+  const clusterCount = clusterOf ? new Set(clusterOf.values()).size : 1;
+
+  if (clusterCount <= 1) {
+    // No further split needed — id suffix is exactly what it would have
+    // been before this clustering pass existed.
+    return [mergeGroup(group, bucket ? `${baseId}-${bucket}` : baseId)];
+  }
+
+  const firstCluster = clusterOf.get(distinctTimes[0]);
+  const byCluster = new Map();
+  for (const event of group) {
+    const cluster = event.time ? clusterOf.get(event.time) : firstCluster;
+    if (!byCluster.has(cluster)) byCluster.set(cluster, []);
+    byCluster.get(cluster).push(event);
+  }
+  const results = [];
+  for (const [cluster, clusterGroup] of byCluster) {
+    const suffix = bucket ? `${bucket}-${cluster}` : cluster;
+    results.push(mergeGroup(clusterGroup, `${baseId}-${suffix}`));
+  }
+  return results;
+}
+
+/**
  * @param {object[]} events - Event-shaped objects (no id yet), each already
  *   carrying a single-element `sources` array from whichever adapter found it.
  * @returns {object[]} deduped Event[] with id/merged_ids/sources/ticket_url set.
@@ -116,8 +188,13 @@ export function dedupe(events) {
     if (nonNullBuckets.length <= 1) {
       // Same headliner/date/venue and no conflicting time-of-day info — this
       // is one show, possibly reported with a missing/imprecise time by one
-      // source (e.g. 拓元 never gives a time at all). Safe to merge.
-      results.push(mergeGroup(group, baseId));
+      // source (e.g. 拓元 never gives a time at all). Safe to merge — UNLESS
+      // the within-bucket clustering pass below finds this "one bucket" is
+      // actually two showtimes close enough together to both read as "day"
+      // (13:00 + 16:30 — the real bug this file fixes), in which case
+      // splitByCluster adds a suffix; otherwise it returns baseId unchanged,
+      // exactly like before this change.
+      results.push(...splitByCluster(group, baseId, null));
       continue;
     }
 
@@ -133,7 +210,7 @@ export function dedupe(events) {
       byBucket.get(bucket).push(event);
     }
     for (const [bucket, bucketGroup] of byBucket) {
-      results.push(mergeGroup(bucketGroup, `${baseId}-${bucket}`));
+      results.push(...splitByCluster(bucketGroup, baseId, bucket));
     }
   }
 

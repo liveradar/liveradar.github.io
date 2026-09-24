@@ -56,6 +56,32 @@ export function saleStatusFromOffers(offers, nowMs = Date.now()) {
   return "IN_STOCK";
 }
 
+// 2026-09-25 real bug (HANDOFF 9/24 待辦第4項: a merged card's daily recheck
+// only ever looked at event.sources[0]'s signal — if that happens to be a
+// VIP-only tier that's sold out while a plain-GA tier (sources[1]) still has
+// tickets, the whole card gets wrongly marked sold_out, or the reverse if
+// sources[0] is the one still open). A merged card can carry a fresh signal
+// per source this run (each raw_id checked independently), so they need
+// combining, not picking just the first — same priority resolveFromChildEvents
+// already uses for KKTIX group pages: any listing still on sale wins outright,
+// otherwise any still-upcoming wins, only sold_out when every known signal
+// agrees there's nothing left to buy. A source with no signal this run
+// doesn't count against the others.
+const SIGNAL_RANK = { IN_STOCK: 0, COMING_SOON: 1, SOLD_OUT: 2, REGISTRATION_CLOSED: 2 };
+
+/**
+ * @param {{sale_signal: string|null, on_sale_at?: string|null}[]} signals - one entry per source this run had a signal for (skip sources with none)
+ * @returns {{sale_signal: string, on_sale_at: string|null}|null} the best (most optimistic) signal, or null if none of the sources had one
+ */
+export function combineSaleSignals(signals) {
+  let best = null;
+  for (const s of signals) {
+    if (!s || s.sale_signal == null) continue;
+    if (!best || SIGNAL_RANK[s.sale_signal] < SIGNAL_RANK[best.sale_signal]) best = s;
+  }
+  return best;
+}
+
 /**
  * The status/on_sale_at a reused event should have given a fresh signal, or
  * null if nothing changes. With no signal, an "announced" event whose on-sale
