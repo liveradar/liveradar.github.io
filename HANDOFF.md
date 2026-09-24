@@ -756,3 +756,12 @@ Max 會在上班電腦跑下一次抓取：等每天約 10:00 的 `liveradar-dai
 **修法**（`kktix.mjs` 的 `resolveFromChildEvents`）：JSON-LD 沒有 offers 時，找頁面上連到其他活動的購票連結，用主辦單位網域（`xxx.kktix.cc`，不會被 Cloudflare 擋；`kktix.com/events/...` 會 403）讀子活動的 JSON-LD。只看跟總覽頁同一天的子活動（理想混蛋 10/17 的總覽頁也連到 10/18 場）。任一子活動販售中＝販售中；否則任一即將開賣＝即將開賣；全部都確定結束才算售完；有讀不到的就維持不確定。`normalize.mjs` 也改成 register_status=IN_STOCK 時直接判定販售中（總覽頁沒有票價表，原本會被當成即將開賣）。統計多一個 `children_resolved`。
 
 **座位圖售票頁**（JSON-LD offers 是空的，例如 OrmFolk、Disney 16:30、TayNew VIP）：Max 指出活動頁下方「活動票券」表格每種票都會標「結束販售」。改用 `ticketTableStatus`：表格上**每一種票都標結束販售／售完才判定售完**（Max：「只要還有票就不會是販售結束，全部都賣完的再標就好」），有任何一種沒標就不判斷。一般請求就讀得到，每頁約 0.2 秒，不用 register_info。判斷順序：JSON-LD → 子活動 → 票券表格 → register_info。**已知限制**：少數頁面表格上完全不標狀態（藤井風 10/31、理想混蛋 10/18），這種還是只能靠常被擋的 register_info。另外合併成一張卡的多個 KKTIX 頁面（例如 TayNew 的 VIP／非VIP），每日更新只看第一個來源頁的狀態。
+
+## 2026-09-24 尚未完成的待辦（下一個 session 從這裡接）
+
+Max 排定的順序，第 1 項已完成（上面兩節），剩下：
+
+1. **重新查證藝人分類**：`artists.yml` 約 88 筆註解只寫「查證為X（WebSearch）」沒寫依據、約 216 筆完全沒註解。依第 12 條新規則（看在哪個音樂圈成名，不是國籍）逐筆重查，特別是當初照國籍分的（外籍但在台灣成名的藝人可能被誤標亞洲其他）。改完用 `npm run renormalize` 套用，不要重跑整套 fetch。
+2. **KKTIX 沒選分類的活動會漏抓**：目前只有加進 `ORG_PAGE_VENUES` 白名單的主辦單位才抓得到（例如 iri）。需要想一個不靠白名單的方法。
+3. **全面掃一次 KKTIX 已收錄場次**，找出票券表格完全不標狀態的頁面（像理想混蛋 10/18、藤井風 10/31），確認這類有多少；這類目前只能靠常被擋的 register_info。只讀一般網頁，不會被擋。
+4. **合併卡片只看第一個來源頁的狀態**：一張卡合併多個 KKTIX 頁面時（TayNew VIP／非VIP、Disney 13:00／16:30），每日更新只看 `sources[0]`（`source-fallback.mjs` 的 `fallbackEventsForSource` 用 `sources.find`）。若第一頁剛好是 VIP 或已售完的場次，整張卡會被誤標。另外 Disney 13:00 與 16:30 兩個場次被合成一張卡，可能不該合併。
