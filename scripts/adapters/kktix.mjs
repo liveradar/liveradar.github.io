@@ -532,7 +532,7 @@ function extractCampaignTemplateFields($) {
 // counters end up in sources.json via runStats().
 let registerStats = null;
 function resetRegisterStats() {
-  registerStats = { checked: 0, ok_first_try: 0, ok_on_retry: 0, failed: 0, blocked_403: 0, skipped_known: 0 };
+  registerStats = { jsonld_resolved: 0, checked: 0, ok_first_try: 0, ok_on_retry: 0, failed: 0, blocked_403: 0, skipped_known: 0 };
 }
 resetRegisterStats();
 
@@ -542,7 +542,8 @@ export function runStats() {
 
 /**
  * Whether a KNOWN event's register_info check can change anything.
- * resolveKnownEvent() only acts on SOLD_OUT/REGISTRATION_CLOSED, so:
+ * resolveKnownEvent() only acts on SOLD_OUT/REGISTRATION_CLOSED (or an
+ * announced event that has since opened), so:
  * - already sold_out/ended: a repeat SOLD_OUT just re-fetched the detail page
  *   to arrive at the same status, and a revert to IN_STOCK was never acted
  *   on either — skipping loses nothing the old behavior actually did.
@@ -573,23 +574,20 @@ async function fetchRegisterStatus(browser, rawId) {
     let page;
     try {
       page = await newPage(browser);
-      let captured = null;
-      let saw403 = false;
-      page.on("response", async (res) => {
-        if (captured || !res.url().includes(`/g/events/${rawId}/register_info`)) return;
-        if (res.status() === 403) saw403 = true;
-        try {
-          captured = await res.json();
-        } catch {
-          // response body already consumed/not JSON (Cloudflare challenge page) — leave captured null, retry below
-        }
-      });
+      // Wait for the page's own register_info response instead of a fixed
+      // 2s sleep after load (2026-09-24): a 403 comes back fast, and so does
+      // a real answer — the fixed sleep was paid on every attempt either way.
+      const responsePromise = page
+        .waitForResponse((res) => res.url().includes(`/g/events/${rawId}/register_info`), { timeout: 8000 })
+        .catch(() => null);
       await page.goto(`https://kktix.com/events/${rawId}/registrations/new`, {
         waitUntil: "domcontentloaded",
         timeout: REQUEST_TIMEOUT_MS,
       });
-      await page.waitForTimeout(2000); // let Cloudflare's challenge + the page's own register_info XHR both finish
-      if (saw403) registerStats.blocked_403 += 1;
+      const res = await responsePromise;
+      let captured = null;
+      if (res?.status() === 403) registerStats.blocked_403 += 1;
+      else if (res) captured = await res.json().catch(() => null); // not JSON = Cloudflare challenge page, retry below
       if (captured?.register_status) {
         if (attempt === 0) registerStats.ok_first_try += 1;
         else registerStats.ok_on_retry += 1;
@@ -660,11 +658,11 @@ export async function fetchEventDetail(url, browser, knownRegisterStatus) {
   // now, with the template-specific extractors only as a fallback for a
   // page that somehow lacks it — a genuinely future-proof fix for THESE
   // three fields regardless of how many more template shapes KKTIX grows.
-  // Ticket price/status (`tickets_raw`) still needs template-specific
-  // scraping — the JSON-LD's `offers` array is empty on every page checked,
-  // KKTIX doesn't populate it — so a 5th template could still miss price/
-  // status, but that fails safe (empty tickets_raw reads as "known event,
-  // price/status just not published yet", never as a lost event).
+  // Ticket price (`tickets_raw`) still comes from the template-specific
+  // table scraping. Sale STATUS now comes from the JSON-LD `offers` first
+  // (see saleStatusFromOffers) — an earlier version of this comment said
+  // `offers` was always empty; that was a 3-page sample, and a 51-page
+  // sample on 2026-09-24 found it populated on 50/51.
   const jsonLd = extractJsonLdEvent($);
   const title_raw = jsonLd?.name || templateTitle;
   const date_raw = jsonLd?.date_raw || templateFields.date_raw;
@@ -672,8 +670,44 @@ export async function fetchEventDetail(url, browser, knownRegisterStatus) {
   const { tickets_raw } = templateFields;
 
   const raw_id = url.split("/").filter(Boolean).pop();
-  const register_status = knownRegisterStatus !== undefined ? knownRegisterStatus : await fetchRegisterStatus(browser, raw_id);
+  const register_status =
+    knownRegisterStatus !== undefined
+      ? knownRegisterStatus
+      : (resolveFromJsonLd(jsonLd) ?? (await fetchRegisterStatus(browser, raw_id)));
   return { raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, register_status, source_name: name };
+}
+
+/**
+ * 2026-09-24 (交接任務, register_info 成功率分析): sources.json stats from
+ * a full run were checked 270 / ok_first_try 66 / ok_on_retry 40 / failed
+ * 164 — 61% of register_info checks failed outright (Cloudflare 403), and
+ * those checks were ~24 of the run's ~30 minutes. Meanwhile the event page
+ * this adapter ALREADY fetches with plain HTTP (not Cloudflare-protected)
+ * carries the same information in its JSON-LD: `offers[].availability`
+ * (InStock / SoldOut / OutOfStock) plus `validFrom`/`validThrough` per
+ * ticket tier. Checked against 22 events whose status register_info had
+ * already confirmed: every sold_out one had only SoldOut/OutOfStock offers,
+ * every on_sale one had at least one InStock offer. Only 1 of 51 sampled
+ * pages had an empty `offers` (a fully sold-out seat-map show, the same
+ * shape as the original 藤井風 case) — that's the only case that still
+ * needs register_info. Returns register_info's own vocabulary so
+ * normalize.mjs's existing override path doesn't change.
+ */
+export function saleStatusFromOffers(offers, nowMs = Date.now()) {
+  if (!Array.isArray(offers) || offers.length === 0) return null;
+  const ts = (s) => (s ? Date.parse(s) : NaN);
+  const inStock = offers.filter((o) => /InStock|LimitedAvailability|PreSale|PreOrder/i.test(o.availability ?? ""));
+  if (inStock.length === 0) return "SOLD_OUT";
+  const stillOpen = inStock.filter((o) => !(ts(o.validThrough) < nowMs));
+  if (stillOpen.length === 0) return "REGISTRATION_CLOSED";
+  if (stillOpen.every((o) => ts(o.validFrom) > nowMs)) return "COMING_SOON";
+  return "IN_STOCK";
+}
+
+function resolveFromJsonLd(jsonLd) {
+  const status = saleStatusFromOffers(jsonLd?.offers);
+  if (status) registerStats.jsonld_resolved += 1;
+  return status;
 }
 
 /**
@@ -705,6 +739,7 @@ function extractJsonLdEvent($) {
       name: event.name?.trim() || null,
       date_raw: `${y}/${mo}/${d} ${h}:${mi}`,
       venue_raw: venueName ? (venueAddress ? `${venueName} / ${venueAddress}` : venueName) : null,
+      offers: Array.isArray(event.offers) ? event.offers : [],
     };
   }
   return null;
@@ -730,8 +765,25 @@ async function resolveKnownEvent(raw_id, url, browser, warnings, previous) {
     return { raw_id, url, title_raw: null, source_name: name, reuse_previous: true };
   }
   await sleep(REGISTER_CHECK_DELAY_MS);
-  const registerStatus = await fetchRegisterStatus(browser, raw_id);
-  if (registerStatus !== "SOLD_OUT" && registerStatus !== "REGISTRATION_CLOSED") {
+  // 2026-09-24: probe with a plain-HTTP fetch of the event page's JSON-LD
+  // (see saleStatusFromOffers) instead of a Playwright navigation to the
+  // Cloudflare-protected register_info — register_info is only the fallback
+  // for the rare page whose `offers` is empty.
+  let registerStatus = null;
+  try {
+    registerStatus = resolveFromJsonLd(extractJsonLdEvent(cheerio.load(await fetchHtml(url))));
+  } catch (err) {
+    logProgress(`JSON-LD probe failed for ${raw_id}: ${err.message}`);
+  }
+  if (registerStatus === null) registerStatus = await fetchRegisterStatus(browser, raw_id);
+
+  // Re-fetch when sales ended (the original reason for this check), and also
+  // when a previously "announced" event has since opened — the 2026-09-24
+  // sample found one (TAKASE TOYA 11/08) still showing 尚未開賣 a day after
+  // its sale start, with tiers already selling out.
+  const ended = registerStatus === "SOLD_OUT" || registerStatus === "REGISTRATION_CLOSED";
+  const opened = registerStatus === "IN_STOCK" && previous?.status === "announced";
+  if (!ended && !opened) {
     return { raw_id, url, title_raw: null, source_name: name, reuse_previous: true };
   }
   await sleep(REQUEST_DELAY_MS);

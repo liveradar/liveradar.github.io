@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { needsRegisterCheck, runStats, SEARCH_VENUES } from "./adapters/kktix.mjs";
+import { needsRegisterCheck, runStats, SEARCH_VENUES, saleStatusFromOffers } from "./adapters/kktix.mjs";
 
 const venueRule = (keyword) => SEARCH_VENUES.find((v) => v.keyword === keyword).match;
 
@@ -44,8 +44,40 @@ test("runStats: exposes the register_info counters fetch.mjs writes into sources
     "blocked_403",
     "checked",
     "failed",
+    "jsonld_resolved",
     "ok_first_try",
     "ok_on_retry",
     "skipped_known",
   ]);
+});
+
+// 2026-09-24: JSON-LD offers replace register_info as the primary sale-status
+// signal (register_info failed 61% of the time behind Cloudflare). Shapes
+// below are copied from real KKTIX pages sampled that day.
+const NOW = Date.parse("2026-09-24T12:00:00+08:00");
+const offer = (availability, validFrom = "2026-08-01T12:00:00+08:00", validThrough = "2026-12-01T19:00:00+08:00") => ({
+  availability,
+  validFrom,
+  validThrough,
+});
+
+test("saleStatusFromOffers: every tier SoldOut/OutOfStock is SOLD_OUT (real: 羊文学 10/25 加場, SKR FAMILY PARTY)", () => {
+  assert.equal(saleStatusFromOffers([offer("http://schema.org/SoldOut"), offer("http://schema.org/OutOfStock")], NOW), "SOLD_OUT");
+});
+
+test("saleStatusFromOffers: one InStock tier among sold-out ones is IN_STOCK (real: 音羽-otoha-, 椅子樂團 加場)", () => {
+  assert.equal(saleStatusFromOffers([offer("SoldOut"), offer("InStock")], NOW), "IN_STOCK");
+});
+
+test("saleStatusFromOffers: InStock tiers whose sale hasn't started yet are COMING_SOON", () => {
+  assert.equal(saleStatusFromOffers([offer("InStock", "2026-10-06T12:00:00+08:00")], NOW), "COMING_SOON");
+});
+
+test("saleStatusFromOffers: InStock tiers whose sale window already ended are REGISTRATION_CLOSED", () => {
+  assert.equal(saleStatusFromOffers([offer("InStock", "2026-08-01T12:00:00+08:00", "2026-09-20T23:59:00+08:00")], NOW), "REGISTRATION_CLOSED");
+});
+
+test("saleStatusFromOffers: empty offers is null — the only case that still falls back to register_info (real: fully sold-out seat-map shows like 藤井風/YESUNG)", () => {
+  assert.equal(saleStatusFromOffers([], NOW), null);
+  assert.equal(saleStatusFromOffers(undefined, NOW), null);
 });

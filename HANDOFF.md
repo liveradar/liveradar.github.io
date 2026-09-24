@@ -672,3 +672,24 @@ Max 會在上班電腦跑下一次抓取：等每天約 10:00 的 `liveradar-dai
    - **失敗率還是很高（例如 > 50%）**：就算一天跑一次也會被限流。可以考慮兩個方向：拉長 `REGISTER_CHECK_DELAY_MS`（目前 400ms），或只查近期場次。後者要先問 Max，因為會影響遠期場次的售完偵測。
 4. **改完之後**：`npm test` 通過，然後**只跑一次**真實抓取確認，不要改一次跑一次。確認後 commit + push，並把結果補記在這一節下面。
 5. **把數字跟決定回報給 Max**，用白話講：成功率多少、改了什麼、預計省多少時間。
+
+#### ✅ 交接任務結果（2026-09-24）
+
+**數字**（`sources.json` 的 `stats.register_info`，當天第二輪完整抓取）：checked 270、第一次成功 66（24%）、重試才成功 40（15%）、兩次都失敗 164（**61%**）、`blocked_403` 336 次、跳過 52。落在「失敗率 > 50%」那一格。KKTIX 整段約 30 分鐘，其中約 24 分鐘花在這個查詢上。
+
+**但沒有照原本兩個選項（拉長間隔／只查近期）改，找到更好的解法**：KKTIX 活動頁本來就用普通 HTTP 抓（不經過 Cloudflare），頁面裡的 JSON-LD `offers[]` 每個票種都有 `availability`（InStock／SoldOut／OutOfStock）跟 `validFrom`/`validThrough`。對照實驗：
+- 22 場已知狀態的場次，JSON-LD 判斷跟 register_info 確認過的狀態 **22/22 吻合**（售完的全部只有 SoldOut/OutOfStock，開賣中的都至少一個 InStock）。
+- 51 頁抽樣只有 **1 頁 `offers` 是空的**（YESUNG，整場座位售完的大型場，跟當初藤井風同一種）——只有這種情況還需要 register_info。
+- 抽樣順便抓到一個 staleness bug：TAKASE TOYA 11/08 開賣日已經過了，卻還停在「尚未開賣」。
+
+**改了什麼**（`scripts/adapters/kktix.mjs`）：
+1. 新增 `saleStatusFromOffers()`，售票狀態優先看 JSON-LD；`offers` 空的才退回 register_info。
+2. 已收錄場次的複查（`resolveKnownEvent`）改成普通 HTTP 抓活動頁看 JSON-LD，不再每場都開 Playwright 打 register_info；除了「轉成售完」之外，「原本尚未開賣、現在已開賣」也會觸發重抓。
+3. register_info 本身（現在只剩極少數會用到）拿掉每次固定等 2 秒，改成等到回應就繼續。
+4. `stats.register_info` 新增 `jsonld_resolved` 計數，明天排程跑完可以直接看有多少場是靠 JSON-LD 判斷的、register_info 還剩幾次。
+
+**預計效果**：register_info 從每天約 270 次（+200 次重試）降到個位數，這段從約 24 分鐘降到約 3~4 分鐘（剩下是普通 HTTP 請求＋400ms 間隔）；售完偵測從「61% 查不到、沿用舊狀態」變成幾乎每場都查得到。整體抓取時間預估從約 30 分鐘降到 10 分鐘上下（剩下的大頭是分類瀏覽 3 個標籤 × 20 頁）。**沒有另外跑真實抓取驗證**（今天這台已經跑了 3 輪，不再加重），明天 10 點排程就是第一次真實驗證，看 `sources.json` 的 `jsonld_resolved`／`checked` 就知道。
+
+**另外修掉每天都在浪費的重跑**：排程步驟 6 原本規定「補完 artists.yml 就重跑整套 fetch」，改成新增的 `node scripts/renormalize.mjs`——不發網路請求，只把新的 artists.yml 套用到還沒辨識出藝人的場次上，並清掉對應的待整理項目，幾秒跑完。排程指令（`~/.claude/scheduled-tasks/liveradar-daily-fetch/SKILL.md`）已同步更新。
+
+**排程本身也修了**：9/24 10:11 那次被 Skipped，原因是排程的 Folder 設定還指向已經刪掉的 `gigradar` 資料夾（改名成 liveradar 時沒跟著改，UI 上也沒有編輯入口），已經刪掉重建，改從 liveradar 目錄建立。
