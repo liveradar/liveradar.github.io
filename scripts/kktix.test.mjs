@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { needsRegisterCheck, runStats, SEARCH_VENUES, saleStatusFromOffers } from "./adapters/kktix.mjs";
+import { needsRegisterCheck, runStats, SEARCH_VENUES, saleStatusFromOffers, ticketTableStatus } from "./adapters/kktix.mjs";
 
 const venueRule = (keyword) => SEARCH_VENUES.find((v) => v.keyword === keyword).match;
 
@@ -49,6 +49,7 @@ test("runStats: exposes the register_info counters fetch.mjs writes into sources
     "ok_first_try",
     "ok_on_retry",
     "skipped_known",
+    "table_resolved",
   ]);
 });
 
@@ -81,4 +82,14 @@ test("saleStatusFromOffers: InStock tiers whose sale window already ended are RE
 test("saleStatusFromOffers: empty offers is null — the only case that still falls back to register_info (real: fully sold-out seat-map shows like 藤井風/YESUNG)", () => {
   assert.equal(saleStatusFromOffers([], NOW), null);
   assert.equal(saleStatusFromOffers(undefined, NOW), null);
+});
+
+test("ticketTableStatus: every tier marked closed (結束販售) is SOLD_OUT (real case: OrmFolk 見面會, seat-map page with empty JSON-LD offers)", () => {
+  assert.equal(ticketTableStatus([{ closed: true }, { closed: true }]), "SOLD_OUT");
+});
+
+test("ticketTableStatus: any unmarked tier means unknown, never sold out (Max: 只要還有票就不會是販售結束)", () => {
+  assert.equal(ticketTableStatus([{ closed: true }, { closed: false }]), null);
+  assert.equal(ticketTableStatus([{ closed: false }]), null);
+  assert.equal(ticketTableStatus([]), null);
 });

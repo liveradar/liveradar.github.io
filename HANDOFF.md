@@ -755,4 +755,4 @@ Max 會在上班電腦跑下一次抓取：等每天約 10:00 的 `liveradar-dai
 
 **修法**（`kktix.mjs` 的 `resolveFromChildEvents`）：JSON-LD 沒有 offers 時，找頁面上連到其他活動的購票連結，用主辦單位網域（`xxx.kktix.cc`，不會被 Cloudflare 擋；`kktix.com/events/...` 會 403）讀子活動的 JSON-LD。只看跟總覽頁同一天的子活動（理想混蛋 10/17 的總覽頁也連到 10/18 場）。任一子活動販售中＝販售中；否則任一即將開賣＝即將開賣；全部都確定結束才算售完；有讀不到的就維持不確定。`normalize.mjs` 也改成 register_status=IN_STOCK 時直接判定販售中（總覽頁沒有票價表，原本會被當成即將開賣）。統計多一個 `children_resolved`。
 
-**已知限制**：座位圖售票的頁面（JSON-LD offers 是空的，例如 SJ-83z 台北場的子活動、TayNew VIP、理想混蛋 10/18）還是只能靠 register_info，常被擋。已標售完的場次不會重查，所以不影響；新出現的這類場次可能先顯示成即將開賣。另外合併成一張卡的多個 KKTIX 頁面（例如 TayNew 的 VIP／非VIP），每日更新只看第一個來源頁的狀態。
+**座位圖售票頁**（JSON-LD offers 是空的，例如 OrmFolk、Disney 16:30、TayNew VIP）：Max 指出活動頁下方「活動票券」表格每種票都會標「結束販售」。改用 `ticketTableStatus`：表格上**每一種票都標結束販售／售完才判定售完**（Max：「只要還有票就不會是販售結束，全部都賣完的再標就好」），有任何一種沒標就不判斷。一般請求就讀得到，每頁約 0.2 秒，不用 register_info。判斷順序：JSON-LD → 子活動 → 票券表格 → register_info。**已知限制**：少數頁面表格上完全不標狀態（藤井風 10/31、理想混蛋 10/18），這種還是只能靠常被擋的 register_info。另外合併成一張卡的多個 KKTIX 頁面（例如 TayNew 的 VIP／非VIP），每日更新只看第一個來源頁的狀態。

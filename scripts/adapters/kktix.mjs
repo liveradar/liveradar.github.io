@@ -565,7 +565,7 @@ function extractCampaignTemplateFields($) {
 // counters end up in sources.json via runStats().
 let registerStats = null;
 function resetRegisterStats() {
-  registerStats = { jsonld_resolved: 0, children_resolved: 0, checked: 0, ok_first_try: 0, ok_on_retry: 0, failed: 0, blocked_403: 0, skipped_known: 0 };
+  registerStats = { jsonld_resolved: 0, children_resolved: 0, table_resolved: 0, checked: 0, ok_first_try: 0, ok_on_retry: 0, failed: 0, blocked_403: 0, skipped_known: 0 };
 }
 resetRegisterStats();
 
@@ -655,14 +655,7 @@ export async function fetchEventDetail(url, browser, knownRegisterStatus) {
   const html = await fetchHtml(url);
   const $ = cheerio.load(html);
 
-  const usesNewTemplate = $(".side-inner").length > 0 && $(".event-info").length === 0;
-  const usesCampaignTemplate = $(".header-title h1").text().trim() === "" && $(".description-wrapper").length > 0;
-  const templateTitle = usesCampaignTemplate ? $("title").first().text().trim() : $(".header-title h1").first().text().trim();
-  const templateFields = usesCampaignTemplate
-    ? extractCampaignTemplateFields($)
-    : usesNewTemplate
-      ? extractNewTemplateFields($)
-      : extractOldTemplateFields($);
+  const { templateTitle, templateFields } = extractTemplate($);
 
   // 2026-09-23 (Max: "如果有第五種模板 你是不是又抓不到，然後等使用者發現
   // 少場次" — fair: three template-specific extractors already exist and a
@@ -703,6 +696,7 @@ export async function fetchEventDetail(url, browser, knownRegisterStatus) {
       ? knownRegisterStatus
       : (resolveFromJsonLd(jsonLd) ??
         (await resolveFromChildEvents($, url, jsonLd)) ??
+        ticketTableStatus(tickets_raw) ??
         (await fetchRegisterStatus(browser, raw_id)));
   return { raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, register_status, source_name: name };
 }
@@ -729,6 +723,35 @@ function resolveFromJsonLd(jsonLd) {
   const status = saleStatusFromOffers(jsonLd?.offers);
   if (status) registerStats.jsonld_resolved += 1;
   return status;
+}
+
+function extractTemplate($) {
+  const usesNewTemplate = $(".side-inner").length > 0 && $(".event-info").length === 0;
+  const usesCampaignTemplate = $(".header-title h1").text().trim() === "" && $(".description-wrapper").length > 0;
+  const templateTitle = usesCampaignTemplate ? $("title").first().text().trim() : $(".header-title h1").first().text().trim();
+  const templateFields = usesCampaignTemplate
+    ? extractCampaignTemplateFields($)
+    : usesNewTemplate
+      ? extractNewTemplateFields($)
+      : extractOldTemplateFields($);
+  return { templateTitle, templateFields };
+}
+
+/**
+ * 2026-09-24 (Max, OrmFolk 見面會 screenshot: every row of the page's own
+ * 活動票券 table says 結束販售): seat-map pages have empty JSON-LD offers, so
+ * the only other signal was the Cloudflare-blocked register_info — but the
+ * page's ticket table, fetched with plain HTTP, marks each tier 結束販售/已售完
+ * once it's gone. Only "every tier marked closed" is trusted, and only as
+ * SOLD_OUT (Max: "只要還有票就不會是販售結束，全部都賣完的再標就好"): an
+ * unmarked row can't be read as "open", because some pages never render a
+ * marker at all (藤井風 10/31, 理想混蛋 10/18) — those stay unknown.
+ */
+export function ticketTableStatus(ticketsRaw) {
+  if (!Array.isArray(ticketsRaw) || ticketsRaw.length === 0) return null;
+  if (!ticketsRaw.every((t) => t.closed)) return null;
+  registerStats.table_resolved += 1;
+  return "SOLD_OUT";
 }
 
 const MAX_CHILD_EVENTS = 8;
@@ -853,7 +876,10 @@ async function resolveKnownEvent(raw_id, url, browser, warnings, previous) {
   try {
     const $ = cheerio.load(await fetchHtml(url));
     const jsonLd = extractJsonLdEvent($);
-    registerStatus = resolveFromJsonLd(jsonLd) ?? (await resolveFromChildEvents($, url, jsonLd));
+    registerStatus =
+      resolveFromJsonLd(jsonLd) ??
+      (await resolveFromChildEvents($, url, jsonLd)) ??
+      ticketTableStatus(extractTemplate($).templateFields.tickets_raw);
   } catch (err) {
     logProgress(`JSON-LD probe failed for ${raw_id}: ${err.message}`);
   }
