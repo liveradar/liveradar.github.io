@@ -139,7 +139,19 @@ const ORG_PAGE_VENUES = [
 // back to it. Each additional tag re-walks the same CATEGORY_BROWSE_MAX_PAGES
 // pages, so this roughly triples Strategy 3's own runtime — accepted
 // trade-off, same reasoning as the original 2min->6-8min one.
-const CATEGORY_TAG_IDS = [13, 1, 6]; // 音樂, 演唱會, 音樂會
+//
+// 2026-09-24 (item 3 of the 9/24 review, Max: "為什麼別的帳號會漏抓"):
+// walked KKTIX's unfiltered listing (65 pages, 770 events) and checked every
+// music-looking event missing from LiveRadar. Ten of them were tagged ONLY
+// 藝人見面會(7) — BOY SOMPOB's live show, STAYC's fan concert, 韓東's Fan
+// Concert, 林鼓子/小宮有紗/ONG SEONGWU/LUDA fan meetings — and two only
+// 電音派對(9) (LA FIN NIGHT, FUSION TAIWAN). LiveRadar already classifies both
+// kinds (見面會 / 電音派對 in TYPE_KEYWORDS), they just never got discovered.
+// Both tags are small (7: ~6 pages, 9: ~1 page). Scanning the whole
+// unfiltered listing instead was considered and rejected: ~500 of its 770
+// events are comedy/courses/expos that would each cost a detail fetch and
+// then show up on the site as unrecognized-artist events.
+const CATEGORY_TAG_IDS = [13, 1, 6, 7, 9]; // 音樂, 演唱會, 音樂會, 藝人見面會, 電音派對
 // Confirmed NOT strictly date-sorted (page 1 mixed an already-ended 9/22
 // show among several in October) — a page cap can't guarantee catching
 // every event in one run. Accepted trade-off: this is a daily job, and the
@@ -147,7 +159,12 @@ const CATEGORY_TAG_IDS = [13, 1, 6]; // 音樂, 演唱會, 音樂會
 // free to catch on a later one once it resurfaces in the window this cap
 // covers, at near-zero marginal cost (skip, not a full re-fetch). Raise
 // this if a future gap traces back to a page beyond it.
-const CATEGORY_BROWSE_MAX_PAGES = 20;
+// 2026-09-24: measured the real listing sizes — 13: 11 pages, 1: 19 pages,
+// 6: 6, 7: 6, 9: 1 — sorted by date with only a handful of past events on
+// page 1. 演唱會 at 19 was one page short of silently truncating. The loop
+// already stops at the first empty page, so a higher cap costs nothing on
+// short tags; it's only a runaway guard.
+const CATEGORY_BROWSE_MAX_PAGES = 40;
 
 // Real Taiwanese address data mixes the colloquial (台北/台中) and official
 // (臺北/臺中) characters — normalizeTraditionalChars (shared with
