@@ -148,9 +148,22 @@ const ORG_PAGE_VENUES = [
 // 電音派對(9) (LA FIN NIGHT, FUSION TAIWAN). LiveRadar already classifies both
 // kinds (見面會 / 電音派對 in TYPE_KEYWORDS), they just never got discovered.
 // Both tags are small (7: ~6 pages, 9: ~1 page). Scanning the whole
-// unfiltered listing instead was considered and rejected: ~500 of its 770
-// events are comedy/courses/expos that would each cost a detail fetch and
-// then show up on the site as unrecognized-artist events.
+// unfiltered listing instead was considered and rejected 2026-09-24: ~500 of
+// its 770 events are comedy/courses/expos that would each cost a detail
+// fetch and then show up on the site as unrecognized-artist events.
+//
+// 2026-09-25 (iri's own event stayed invisible even after the fix above —
+// it carries NO tag at all, so it can't be caught by scanning tag ids no
+// matter how many are added): re-examined the unfiltered listing and found
+// the rejection above missed something — each card's own HTML already
+// carries a coarse category label (`<span class="category">`, e.g. 演出/
+// 學習/展覽/同好/其他), readable directly off the listing page with no
+// extra request. iri's own card there reads 其他 ("other" — KKTIX's catch-
+// all for events with no tag). That means the 500 comedy/courses/expos
+// don't actually need to be paid for: they already carry their OWN proper
+// category (學習/展覽/etc, same as the tags above), so only cards labeled
+// 其他 specifically need a detail fetch — a much smaller, and exactly
+// right, subset. See fetchUnfilteredListingPage below (Strategy 4).
 const CATEGORY_TAG_IDS = [13, 1, 6, 7, 9]; // 音樂, 演唱會, 音樂會, 藝人見面會, 電音派對
 // Confirmed NOT strictly date-sorted (page 1 mixed an already-ended 9/22
 // show among several in October) — a page cap can't guarantee catching
@@ -165,6 +178,14 @@ const CATEGORY_TAG_IDS = [13, 1, 6, 7, 9]; // 音樂, 演唱會, 音樂會, 藝�
 // already stops at the first empty page, so a higher cap costs nothing on
 // short tags; it's only a runaway guard.
 const CATEGORY_BROWSE_MAX_PAGES = 40;
+// 2026-09-25: measured the real unfiltered listing directly — 65 pages
+// total (confirmed: page 65 has a partial 9 cards, page 66 is the
+// Cloudflare challenge page, i.e. past the end). 其他's own share of each
+// page varies a lot (33%-78% in the pages sampled, no clean pattern), so
+// this just needs to cover the whole listing rather than trying to guess
+// where 其他 clusters. Same "loop stops at the first empty page" safety net
+// as CATEGORY_BROWSE_MAX_PAGES above.
+const UNFILTERED_LISTING_MAX_PAGES = 80;
 
 // Real Taiwanese address data mixes the colloquial (台北/台中) and official
 // (臺北/臺中) characters — normalizeTraditionalChars (shared with
@@ -375,6 +396,40 @@ export async function fetchCategoryBrowsePage(browser, tagId, pageNum) {
     browser,
     `https://kktix.com/events?end_at=&event_tag_ids_in=${tagId}&max_price=&min_price=&page=${pageNum}&search=&start_at=`,
   );
+}
+
+/**
+ * One page of the UNFILTERED sitewide listing (Strategy 4, see the doc
+ * comment above CATEGORY_TAG_IDS) — every card's own coarse category label
+ * (演出/學習/展覽/同好/其他/...), read straight off the listing HTML, no
+ * extra request. Confirmed via real browsing (2026-09-25) this endpoint sits
+ * behind the same Cloudflare challenge as the tag-filtered listing, so it
+ * reuses fetchListingUrls' navigation shape rather than a bare fetch().
+ * Returns only the cards labeled 其他 — every other label already has its
+ * own real category (music-relevant ones are covered by CATEGORY_TAG_IDS
+ * above; the rest, same as before, aren't worth a detail fetch each).
+ */
+async function fetchUnfilteredListingPage(browser, pageNum) {
+  const page = await newPage(browser);
+  try {
+    await page.goto(`https://kktix.com/events?page=${pageNum}`, { waitUntil: "domcontentloaded", timeout: REQUEST_TIMEOUT_MS });
+    await page
+      .waitForSelector("a[href*='kktix.cc/events/']", { state: "attached", timeout: 3000 })
+      .catch(() => {});
+    for (let i = 0; i < 10 && /請稍候|Just a moment/.test(await page.title()); i++) {
+      await page.waitForTimeout(1000);
+    }
+    return page.$$eval('li[class^="type-"]', (lis) =>
+      lis
+        .map((li) => ({
+          category: li.querySelector(".category")?.textContent.trim(),
+          href: li.querySelector('a[href*="/events/"]')?.href, // resolved absolute URL, matching fetchListingUrls' own a.href usage
+        }))
+        .filter((c) => c.category === "其他" && c.href && !c.href.includes("kktix.com/dashboard")),
+    );
+  } finally {
+    await page.close();
+  }
 }
 
 /**
@@ -1092,6 +1147,53 @@ async function fetchWithBrowser(browser, knownRawIds) {
     }
   }
   logProgress(`category browse: ${categoryFoundCount} event(s) not already found by Strategy 1/2`);
+
+  // Strategy 4: unfiltered sitewide listing, cards labeled 其他 only (see
+  // the doc comment above CATEGORY_TAG_IDS and fetchUnfilteredListingPage) —
+  // catches events an organizer never tagged at all (iri's own show, the
+  // real report that found this gap), which no tag-based strategy above can
+  // ever see no matter how many tag ids get added to CATEGORY_TAG_IDS.
+  let otherFoundCount = 0;
+  for (let pageNum = 1; pageNum <= UNFILTERED_LISTING_MAX_PAGES; pageNum++) {
+    await sleep(REQUEST_DELAY_MS);
+    logProgress(`fetching unfiltered listing (其他 only) page ${pageNum}/${UNFILTERED_LISTING_MAX_PAGES}`);
+    let cards = [];
+    try {
+      cards = await fetchUnfilteredListingPage(browser, pageNum);
+    } catch (err) {
+      warnings.push(`unfiltered listing page ${pageNum} failed: ${err.message}`);
+      break;
+    }
+    if (cards.length === 0) break; // ran past the last page (or every card on it had a real category already)
+
+    for (const { href: url } of cards) {
+      const raw_id = url.split("/").filter(Boolean).pop();
+      if (seenRawIds.has(raw_id) || searchRejected.has(raw_id)) continue;
+      seenRawIds.add(raw_id);
+      otherFoundCount += 1;
+
+      if (knownRawIds.has(raw_id)) {
+        skippedKnown += 1;
+        const resolved = await resolveKnownEvent(raw_id, url, browser, warnings, knownRawIds.get(raw_id));
+        if (resolved) {
+          results.push(resolved);
+          if (!resolved.reuse_previous) logProgress(`  + ${resolved.title_raw} (sale status changed, re-fetched)`);
+        }
+        continue;
+      }
+
+      await sleep(REQUEST_DELAY_MS);
+      logProgress(`fetching detail (其他): ${url}`);
+      try {
+        const detail = await fetchEventDetail(url, browser);
+        results.push(detail);
+        logProgress(`  + ${detail.title_raw}`);
+      } catch (err) {
+        warnings.push(`event detail failed for ${url}: ${err.message}`);
+      }
+    }
+  }
+  logProgress(`unfiltered listing (其他): ${otherFoundCount} untagged card(s) checked`);
 
   if (skippedKnown > 0) {
     logProgress(`KKTIX: ${skippedKnown} event(s) already known, skipping detail fetch`);

@@ -710,6 +710,19 @@ const NOISE_KEYWORDS = [
   // 2026-09-24 batch (手動補跑排程當天發現，見 HANDOFF）：
   "投資心法", // a financial-professor investment seminar (FANSI GO), not a performance
   "尾牙同樂會", // a corporate year-end banquet listing (Ticket Plus), not a public concert
+  // 2026-09-25, KKTIX Strategy 4 (untagged/其他 sitewide listing, added to
+  // catch events like iri's own show that carry no category tag at all):
+  // the same untagged bucket also surfaces SEO/content-marketing spam
+  // accounts abusing KKTIX's free event-page creation for search indexing —
+  // confirmed real examples: "Affordable SEO Services for Small Businesses:
+  // A Complete Guide to Growing Locally and Online", "Invisalign Parramatta"
+  // (a dental clinic's own landing page, not an event). These aren't a
+  // curated, closed list the way the phrases above are — expect to keep
+  // adding to this as new ones turn up, same as every other NOISE_KEYWORDS
+  // batch. Kept lowercase since isNonMusicNoise() already lowercases both
+  // sides for the comparison.
+  "seo services", "seo company", "generative engine optimization", "invisalign",
+  "dental clinic", "car recovery", "auto repair", "numerologist",
 ];
 
 function isNonMusicNoise(titleRaw) {

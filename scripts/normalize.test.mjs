@@ -497,6 +497,10 @@ test("normalize(): non-music noise (sports tickets, courses, exhibitions, comedy
     "《洛基恐怖秀》Tim Curry致敬之夜 Rocky Horror Picture Show：a tribute to Tim Curry",
     "【10/13】百靈果《給約嗎》全亞洲最真實的矇眼約會",
     "康康SHOW-色·可餐",
+    // 2026-09-25, KKTIX Strategy 4 (untagged/其他 listing) turned up SEO/
+    // content-marketing spam accounts, real examples confirmed live:
+    "Affordable SEO Services for Small Businesses: A Complete Guide to Growing Locally and Online",
+    "Invisalign Parramatta",
   ];
   for (const title_raw of cases) {
     const result = normalize(makeRaw({ title_raw }), yml, []);
