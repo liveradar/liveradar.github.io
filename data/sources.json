@@ -2,52 +2,53 @@
   "sources": [
     {
       "name": "KKTIX",
-      "last_success": "2026-09-24T03:16:00.618Z",
+      "last_success": "2026-09-24T07:19:37.269Z",
       "last_error": null,
-      "last_count": 312,
+      "last_count": 340,
       "status": "ok",
       "stats": {
         "register_info": {
-          "checked": 270,
-          "ok_first_try": 66,
-          "ok_on_retry": 40,
-          "failed": 164,
-          "blocked_403": 336,
-          "skipped_known": 52
+          "jsonld_resolved": 262,
+          "checked": 30,
+          "ok_first_try": 2,
+          "ok_on_retry": 1,
+          "failed": 27,
+          "blocked_403": 54,
+          "skipped_known": 62
         }
       }
     },
     {
       "name": "拓元",
-      "last_success": "2026-09-24T02:49:21.375Z",
+      "last_success": "2026-09-24T07:14:52.895Z",
       "last_error": null,
       "last_count": 74,
       "status": "ok"
     },
     {
       "name": "iNDIEVOX",
-      "last_success": "2026-09-24T02:46:56.853Z",
+      "last_success": "2026-09-24T07:09:51.943Z",
       "last_error": null,
       "last_count": 79,
       "status": "ok"
     },
     {
       "name": "FANSI GO",
-      "last_success": "2026-09-24T02:46:51.325Z",
+      "last_success": "2026-09-24T07:09:55.274Z",
       "last_error": null,
-      "last_count": 25,
+      "last_count": 26,
       "status": "ok"
     },
     {
       "name": "Ticket Plus",
-      "last_success": "2026-09-24T02:48:29.207Z",
+      "last_success": "2026-09-24T07:10:17.781Z",
       "last_error": null,
       "last_count": 134,
       "status": "ok"
     },
     {
       "name": "manual",
-      "last_success": "2026-09-24T02:46:30.441Z",
+      "last_success": "2026-09-24T07:08:32.155Z",
       "last_error": null,
       "last_count": 0,
       "status": "ok"
