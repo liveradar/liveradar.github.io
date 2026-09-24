@@ -123,7 +123,7 @@
   tags_origin_default: 本地
 - canonical: 音羽-otoha-
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：日文姓名讀音（otoha），查證為日本
+  tags_origin_default: 日本  # 日本奈良出身的創作歌手（otohaofficial.com PROFILE；票券頁 emergelivehouse2 OUR PLANET 巡演台北加場）。2026-09-24 補依據：原註解寫「日文姓名讀音」，結論對但理由是從名字推測
 - canonical: go!go!vanillas
   aliases: []
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
@@ -514,7 +514,7 @@
   # 字元（𝐑𝐔𝐑𝐈𝐊𝐀），跟一般 ASCII "RURIKA" 不是同一個字元序列，比對不到；只留
   # 中文部分反而比較穩，不用去猜對方會用哪種 Unicode 變體（2026-09-18 查證修正）。
   aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：原始別名 RURIKA 是日文姓名讀音，查證為日本
+  tags_origin_default: 本地  # 2026-09-24 更正：9/23 依「RURIKA 是日文姓名讀音」判成日本是從名字推測。對照票券頁（iNDIEVOX 26_iv04142fd：高雄 LIVE WAREHOUSE 自辦主催，同場天国地獄、終焉 Rebirth 等團）＋ idolinfohub.com、台灣地下偶像 Wiki：台灣的日系地下偶像團體，團名用日文風格但是本地團
 
 - canonical: 一點生
   aliases: []
