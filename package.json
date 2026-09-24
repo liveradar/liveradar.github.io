@@ -7,7 +7,9 @@
   "scripts": {
     "fetch": "node scripts/fetch.mjs",
     "serve": "node scripts/dev-server.mjs",
-    "test": "node --test scripts/*.test.mjs src/*.test.js"
+    "test": "node --test scripts/*.test.mjs src/*.test.js",
+    "fetch-one": "node scripts/fetch-one.mjs",
+    "renormalize": "node scripts/renormalize.mjs"
   },
   "dependencies": {
     "cheerio": "^1.2.0",

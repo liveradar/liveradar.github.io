@@ -59,6 +59,7 @@ npm test                # 跑全部單元測試（見下方「測試怎麼跑」
 6. **日期比較不要用 `new Date(dateStr) > new Date()`**——`new Date("2026-10-15")` 會被當成 UTC 午夜，跟本地/台灣時間的「現在」比較時，同一天的場次在某些時段會被誤判成「已過期」。`scripts/normalize.mjs` 的 `statusFromTickets` 和 `src/filter.js` 的 `isPast()` 都踩過這個坑，兩處都已經改成用日期字串（`YYYY-MM-DD`）直接比較，不要再改回 Date 物件比較。
 7. **`normalize()`（或任何 per-item 的 pipeline 處理函式）處理陣列時一定要包 try/catch**——單一筆原始資料格式異常就丟例外的話，會讓整個 pipeline run 中斷，當天完全不會更新，而不是只把那一筆丟進待整理。`scripts/fetch.mjs` 已經修好，之後新增 per-item 處理邏輯要延續這個模式。
 8. **`npm run fetch` 跑完之後，只要 `data/needs-review.json` 非空，不要等 Max 發現才處理**——主動逐筆開真實頁面查證（能開票券頁就開票券頁，查不到細節再用 WebSearch），能查到身分就直接補進 `data/artists.yml`（含來源地、真正查到的判斷依據寫進註解），查不到才留著誠實記錄不要用標題猜。這是 2026-09-23 Max 明確要求的標準流程（"能不能把整個待整理清單自動批次用 WebSearch 查完，不用等我手動發現才處理"），不是選擇性的加分項——任何一個 session（包含上班電腦那個 `liveradar-daily-fetch` 排程任務）跑完 fetch 後都要照做。
+9. **改了抓取程式，不要用整套 `npm run fetch` 驗證**——用 `npm run fetch-one -- <活動網址> [<活動網址> ...]`，挑幾場這次修改應該會影響的真實場次（售完的、新版型的、被回報漏抓的），幾秒鐘就能看到會存成什麼、跟現有 `events.json` 差在哪，不會寫入任何檔案。整套抓取要 25~30 分鐘、發幾百個請求，2026-09-23~24 兩天因為「改一點就整套重跑確認」跑了約 14 輪，佔掉 Max 大量等待時間，反覆重跑也很可能是 register_info 被 Cloudflare 403 暴增的原因之一。一天只該有排程那一次完整抓取；補完藝人用 `npm run renormalize`（不發網路請求）。目前 `fetch-one` 只支援 KKTIX。
 
 ## M11 的重大發現：GitHub Actions 的 IP 會被來源網站部分擋掉（已修好，且 2026-09-17 起這個問題本身不再相關）
 
