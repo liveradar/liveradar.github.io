@@ -752,7 +752,7 @@ function isNonMusicNoise(titleRaw) {
 // confirmed real, not waiting for every possible Japanese city to surface
 // on its own first).
 const OUTSIDE_TAIWAN_VENUE_RE =
-  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland|日本|東京|Tokyo|大阪|Osaka|名古屋|Nagoya|Japan/i;
+  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland|日本|東京|Tokyo|大阪|Osaka|名古屋|Nagoya|Japan|首爾|Seoul|KDB ?生命/i; // 首爾/KDB 生命塔 added 2026-09-24: 黃致列簽名會 was sold in TWD to Taiwan fans but held in Seoul
 
 function isOutsideTaiwanVenue(venueRaw) {
   return OUTSIDE_TAIWAN_VENUE_RE.test(venueRaw ?? "");

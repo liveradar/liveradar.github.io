@@ -992,7 +992,7 @@
   aliases: []
   tags_origin_default: 本地  # 國風抒情/另類搖滾獨唱藝人（查證：xinyaomade.kktix.cc）
 - canonical: 回聲樂團
-  aliases: ["Echo of Your Soul"]
+  aliases: ["Echo of Your Soul", "靈魂的回聲"]  # 「靈魂的回聲」2026-09-24 加：高雄聖誕場標題只有專輯名，票券頁主辦「回聲社音樂有限公司」、內文「2015 年暫別巡迴…五個人帶著新專輯回來」
   tags_origin_default: 本地  # 查證：indievox.com，《靈魂的回聲》雙專輯巡演
 - canonical: BORIS
   aliases: []
@@ -1414,3 +1414,57 @@
 - canonical: 雄岸折光
   aliases: []
   tags_origin_default: 本地  # 高雄五校熱音社聯合成果發表會品牌名，非單一藝人
+
+# 2026-09-24 查證：新掃「藝人見面會」「電音派對」分類後冒出的待整理。
+# 依防撞名規則，每筆都對照了票券頁內容（依據寫在註解）。
+- canonical: Jane Remover
+  aliases: []
+  tags_origin_default: 歐美  # 美國紐澤西出身（Wikipedia）；票券頁 eelconcerts：Digicore、JPEGMAFIA／Porter Robinson 巡演開場，與搜尋結果一致
+- canonical: BOY SOMPOB
+  aliases: []
+  tags_origin_default: 亞洲其他  # 泰國；票券頁 bstudio 自述「為無數泰國 BL 劇創作主題曲的幕後音樂人」
+- canonical: 林鼓子
+  aliases: []
+  tags_origin_default: 日本  # 票券頁 digitalidea 自述「日本人氣聲優・演員」
+- canonical: 藤岡弘
+  aliases: ["天翔天音"]
+  tags_origin_default: 日本  # 票券頁 starrysky：《假面騎士》本鄉猛飾演者，與女兒天翔天音的見面會（演員，非音樂人）
+- canonical: 黃致列
+  aliases: []
+  tags_origin_default: 韓國  # 韓國歌手 Hwang Chi-yeul；9/24 這場票券頁寫明辦在首爾（已加進地區過濾），登記是為了之後的台灣場
+- canonical: STAYC
+  aliases: []
+  tags_origin_default: 韓國  # 韓國女團；票券頁 farglorycreative：「全能型寶藏愛豆」、粉絲名 SWITH
+- canonical: 小宮有紗
+  aliases: ["Arisa Komiya"]
+  tags_origin_default: 日本  # 票券頁 digitalidea 自述「日本人氣聲優・演員」
+- canonical: 韓東
+  aliases: ["HANDONG"]
+  tags_origin_default: 亞洲其他  # 韓國女團 Dreamcatcher 成員 HANDONG，本人是中國籍（武漢）。依「看國籍不看發展地」規則歸亞洲其他（同蔡健雅歸新加坡）
+- canonical: B CRUSH
+  aliases: ["B CRUSH不小心製造"]
+  tags_origin_default: 本地  # 台灣三男一女團體，成員來自《原子少年2》《菱格世代DD52》；票券頁 kkboxtw 為 KKBOX FANKLUB 一週年派對
+- canonical: ONG SEONGWU
+  aliases: ["邕聖祐"]
+  tags_origin_default: 韓國  # 韓國歌手／演員（Wanna One 出身）；票券頁 oninn 為 <Let's go-ONG!> 台北粉絲見面會
+- canonical: 黃挺瑋
+  aliases: ["瑋瑋"]
+  tags_origin_default: 本地  # 台灣 YouTuber「黃氏兄弟」瑋瑋，2026 發行 EP《Journey》；票券頁 pressplay-inc 見面會名稱同 EP
+- canonical: OrmFolk
+  aliases: []
+  tags_origin_default: 亞洲其他  # 泰國 GL 劇演員 Orm & Folk；票券頁 yanrong 已公告此場取消
+- canonical: LUDA
+  aliases: []
+  tags_origin_default: 韓國  # 票券頁 weekendplanent 自述「宇宙少女（WJSN）成員 LUDA」
+- canonical: BRIANNA BAXTER
+  aliases: []
+  tags_origin_default: 歐美  # 票券頁 lafin 標示 🇦🇺、「來自澳洲墨爾本地下 Techno 場景」。澳洲不在五分類裡，歸最接近的歐美
+- canonical: FUSION TAIWAN
+  aliases: []
+  tags_origin_default: 本地  # 台北同志驕傲週的電音派對品牌，La Fin Taipei 主辦，標題只有活動名（同火球祭模式）
+- canonical: Bear Bump Boyz
+  aliases: []
+  tags_origin_default: 本地  # 台北西門紅樓同志派對品牌（DJ、Drag、舞者），票券頁 shyguy，標題只有活動名（同火球祭模式）
+- canonical: THE CHOSENs
+  aliases: ["天選"]
+  tags_origin_default: 本地  # 台灣女子國風電音國樂團（thechosens.com.tw，台北）

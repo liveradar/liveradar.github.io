@@ -7733,8 +7733,12 @@
     },
     {
       "title_raw": "Jane Remover 亞洲巡迴．台北首演",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Jane Remover"
+      ],
+      "lineup": [
+        "Jane Remover"
+      ],
       "is_festival": false,
       "venue": "SUB",
       "city": "台北",
@@ -7747,7 +7751,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://eelconcerts.kktix.cc/events/jrjrjr2026",
       "sources": [
@@ -7758,7 +7764,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.278Z",
-      "updated_at": "2026-09-24T07:19:37.278Z",
+      "updated_at": "2026-09-24T07:29:05.056Z",
       "id": "b401f25502246912",
       "merged_ids": [
         "b401f25502246912"
@@ -7766,8 +7772,12 @@
     },
     {
       "title_raw": "靈魂的回聲 高雄聖誕場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "回聲樂團"
+      ],
+      "lineup": [
+        "回聲樂團"
+      ],
       "is_festival": false,
       "venue": "後台 Backstage Live",
       "city": "高雄",
@@ -7780,7 +7790,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://echosociety.kktix.cc/events/8d3f7e62",
       "sources": [
@@ -7791,7 +7803,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.278Z",
-      "updated_at": "2026-09-24T07:19:37.278Z",
+      "updated_at": "2026-09-24T07:29:05.059Z",
       "id": "628058afce17d722",
       "merged_ids": [
         "628058afce17d722"
@@ -8007,8 +8019,12 @@
     },
     {
       "title_raw": "BOY SOMPOB WORLD Y TOUR LIVE IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "BOY SOMPOB"
+      ],
+      "lineup": [
+        "BOY SOMPOB"
+      ],
       "is_festival": false,
       "venue": "典空間CODESPACE",
       "city": "台北",
@@ -8021,7 +8037,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://bstudio.kktix.cc/events/boysptp",
       "sources": [
@@ -8032,7 +8050,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.284Z",
-      "updated_at": "2026-09-24T07:19:37.284Z",
+      "updated_at": "2026-09-24T07:29:05.060Z",
       "id": "4db9e0f8e1fd23dd",
       "merged_ids": [
         "4db9e0f8e1fd23dd"
@@ -8040,8 +8058,12 @@
     },
     {
       "title_raw": "【午場】林鼓子台北粉絲見面會2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "林鼓子"
+      ],
+      "lineup": [
+        "林鼓子"
+      ],
       "is_festival": false,
       "venue": "HANA SPACE花漾展演空間",
       "city": "台北",
@@ -8054,7 +8076,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://digitalidea.kktix.cc/events/3d0026bc",
       "sources": [
@@ -8065,7 +8089,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.284Z",
-      "updated_at": "2026-09-24T07:19:37.284Z",
+      "updated_at": "2026-09-24T07:29:05.060Z",
       "id": "fb0b6c31538352e6",
       "merged_ids": [
         "fb0b6c31538352e6"
@@ -8073,8 +8097,12 @@
     },
     {
       "title_raw": "林鼓子台北粉絲見面會2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "林鼓子"
+      ],
+      "lineup": [
+        "林鼓子"
+      ],
       "is_festival": false,
       "venue": "HANA SPACE花漾展演空間",
       "city": "台北",
@@ -8087,7 +8115,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://digitalidea.kktix.cc/events/2d9b4d89",
       "sources": [
@@ -8098,7 +8128,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.284Z",
-      "updated_at": "2026-09-24T07:19:37.284Z",
+      "updated_at": "2026-09-24T07:29:05.060Z",
       "id": "41b9c10f1d45386e",
       "merged_ids": [
         "41b9c10f1d45386e"
@@ -8106,8 +8136,12 @@
     },
     {
       "title_raw": "【晚場】林鼓子台北粉絲見面會2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "林鼓子"
+      ],
+      "lineup": [
+        "林鼓子"
+      ],
       "is_festival": false,
       "venue": "HANA SPACE花漾展演空間",
       "city": "台北",
@@ -8120,7 +8154,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://digitalidea.kktix.cc/events/9c1ca94d",
       "sources": [
@@ -8131,7 +8167,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.284Z",
-      "updated_at": "2026-09-24T07:19:37.284Z",
+      "updated_at": "2026-09-24T07:29:05.061Z",
       "id": "a5287cf757ef37e4",
       "merged_ids": [
         "a5287cf757ef37e4"
@@ -8139,8 +8175,12 @@
     },
     {
       "title_raw": "藤岡弘、＆天翔天音 Legend & Legacy The First Fanmeeting in Taiwan",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "藤岡弘"
+      ],
+      "lineup": [
+        "藤岡弘"
+      ],
       "is_festival": false,
       "venue": "花漾 HANA",
       "city": "台北",
@@ -8153,7 +8193,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://starrysky.kktix.cc/events/0f8afa08",
       "sources": [
@@ -8164,49 +8206,20 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.284Z",
-      "updated_at": "2026-09-24T07:19:37.284Z",
+      "updated_at": "2026-09-24T07:29:05.061Z",
       "id": "4a43acbe2caa434c",
       "merged_ids": [
         "4a43acbe2caa434c"
       ]
     },
     {
-      "title_raw": "2026黃致列夏日專輯[I LOVE SUMMER]韓國簽名會",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "東子藝術廳 (KDB 生命塔 B2)",
-      "city": "未知",
-      "date": "2026-10-11",
-      "time": "13:00",
-      "on_sale_at": null,
-      "price_min": 100,
-      "price_max": 650,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://asiamedia-2.kktix.cc/events/70f6e881",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://asiamedia-2.kktix.cc/events/70f6e881",
-          "raw_id": "70f6e881"
-        }
-      ],
-      "first_seen_at": "2026-09-24T07:19:37.285Z",
-      "updated_at": "2026-09-24T07:19:37.285Z",
-      "id": "2204061d0a886269",
-      "merged_ids": [
-        "2204061d0a886269"
-      ]
-    },
-    {
       "title_raw": "2026 STAYC FAN CONCERT TOUR [STAY CLOSER] IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "STAYC"
+      ],
+      "lineup": [
+        "STAYC"
+      ],
       "is_festival": false,
       "venue": "台北國際會議中心 (TICC)",
       "city": "台北",
@@ -8219,7 +8232,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://farglorycreative.kktix.cc/events/cacf3d76",
       "sources": [
@@ -8230,7 +8245,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.285Z",
-      "updated_at": "2026-09-24T07:19:37.285Z",
+      "updated_at": "2026-09-24T07:29:05.061Z",
       "id": "9a030f405f70ba6d",
       "merged_ids": [
         "9a030f405f70ba6d"
@@ -8238,8 +8253,12 @@
     },
     {
       "title_raw": "【午場】2026 小宮有紗台北粉絲見面會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "小宮有紗"
+      ],
+      "lineup": [
+        "小宮有紗"
+      ],
       "is_festival": false,
       "venue": "Corner House 角落文創展演空間",
       "city": "台北",
@@ -8252,7 +8271,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://digitalidea.kktix.cc/events/4ee2baf8",
       "sources": [
@@ -8263,7 +8284,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.285Z",
-      "updated_at": "2026-09-24T07:19:37.285Z",
+      "updated_at": "2026-09-24T07:29:05.062Z",
       "id": "f6db0ddea2cdee09",
       "merged_ids": [
         "f6db0ddea2cdee09"
@@ -8271,8 +8292,12 @@
     },
     {
       "title_raw": "2026 小宮有紗台北粉絲見面會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "小宮有紗"
+      ],
+      "lineup": [
+        "小宮有紗"
+      ],
       "is_festival": false,
       "venue": "Corner House 角落文創展演空間",
       "city": "台北",
@@ -8285,7 +8310,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://digitalidea.kktix.cc/events/be56fc71",
       "sources": [
@@ -8296,7 +8323,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.285Z",
-      "updated_at": "2026-09-24T07:19:37.285Z",
+      "updated_at": "2026-09-24T07:29:05.062Z",
       "id": "c5cc26a05969e271",
       "merged_ids": [
         "c5cc26a05969e271"
@@ -8304,8 +8331,12 @@
     },
     {
       "title_raw": "韓東《仲夏夜之鏡》Fan Concert in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "韓東"
+      ],
+      "lineup": [
+        "韓東"
+      ],
       "is_festival": false,
       "venue": "WESTAR Taipei",
       "city": "台北",
@@ -8318,7 +8349,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://weekendplanent.kktix.cc/events/d23c8c16",
       "sources": [
@@ -8329,7 +8362,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.285Z",
-      "updated_at": "2026-09-24T07:19:37.285Z",
+      "updated_at": "2026-09-24T07:29:05.062Z",
       "id": "31573b8a000d6048",
       "merged_ids": [
         "31573b8a000d6048"
@@ -8337,8 +8370,12 @@
     },
     {
       "title_raw": "韓東《仲夏夜之鏡》特典會 in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "韓東"
+      ],
+      "lineup": [
+        "韓東"
+      ],
       "is_festival": false,
       "venue": "WESTAR Taipei",
       "city": "台北",
@@ -8351,7 +8388,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://weekendplanent.kktix.cc/events/7345d6b9",
       "sources": [
@@ -8362,7 +8401,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.285Z",
-      "updated_at": "2026-09-24T07:19:37.285Z",
+      "updated_at": "2026-09-24T07:29:05.062Z",
       "id": "6bb308862b4c2f1d",
       "merged_ids": [
         "6bb308862b4c2f1d"
@@ -8370,8 +8409,12 @@
     },
     {
       "title_raw": "【晚場】2026 小宮有紗台北粉絲見面會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "小宮有紗"
+      ],
+      "lineup": [
+        "小宮有紗"
+      ],
       "is_festival": false,
       "venue": "Corner House 角落文創展演空間",
       "city": "台北",
@@ -8384,7 +8427,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://digitalidea.kktix.cc/events/561d58ed",
       "sources": [
@@ -8395,7 +8440,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.285Z",
-      "updated_at": "2026-09-24T07:19:37.285Z",
+      "updated_at": "2026-09-24T07:29:05.063Z",
       "id": "64b6343d897cc370",
       "merged_ids": [
         "64b6343d897cc370"
@@ -8403,8 +8448,12 @@
     },
     {
       "title_raw": "FANKLUB x B CRUSH 一週年派對",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "B CRUSH"
+      ],
+      "lineup": [
+        "B CRUSH"
+      ],
       "is_festival": false,
       "venue": "Social Company 有趣人類社交局",
       "city": "台北",
@@ -8417,7 +8466,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kkboxtw.kktix.cc/events/8ca58e1d",
       "sources": [
@@ -8428,7 +8479,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.285Z",
-      "updated_at": "2026-09-24T07:19:37.285Z",
+      "updated_at": "2026-09-24T07:29:05.063Z",
       "id": "4da72b808a653eb0",
       "merged_ids": [
         "4da72b808a653eb0"
@@ -8436,8 +8487,12 @@
     },
     {
       "title_raw": "2026 ONG SEONGWU FANMEETING  <Let’s go-ONG!> in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "ONG SEONGWU"
+      ],
+      "lineup": [
+        "ONG SEONGWU"
+      ],
       "is_festival": false,
       "venue": "WESTAR",
       "city": "台北",
@@ -8450,7 +8505,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://oninn.kktix.cc/events/84eea69a",
       "sources": [
@@ -8461,7 +8518,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.286Z",
-      "updated_at": "2026-09-24T07:19:37.286Z",
+      "updated_at": "2026-09-24T07:29:05.063Z",
       "id": "8f320bad144a9733",
       "merged_ids": [
         "8f320bad144a9733"
@@ -8508,8 +8565,12 @@
     },
     {
       "title_raw": "𝟮𝟬𝟮𝟲 Bear Bump Boyz x ᴏᴄᴄᴜᴘʀɪᴅᴇ ᴛᴀɪᴘᴇɪ x Jack’d",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Bear Bump Boyz"
+      ],
+      "lineup": [
+        "Bear Bump Boyz"
+      ],
       "is_festival": false,
       "venue": "西門河岸留言",
       "city": "台北",
@@ -8522,7 +8583,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://shyguy.kktix.cc/events/bearbumpboyz-10301031",
       "sources": [
@@ -8533,7 +8596,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.286Z",
-      "updated_at": "2026-09-24T07:19:37.286Z",
+      "updated_at": "2026-09-24T07:29:05.063Z",
       "id": "617b61d6b3400438",
       "merged_ids": [
         "617b61d6b3400438"
@@ -8541,8 +8604,12 @@
     },
     {
       "title_raw": "[上午場]瑋瑋 黃挺瑋 Journey 見面會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "黃挺瑋"
+      ],
+      "lineup": [
+        "黃挺瑋"
+      ],
       "is_festival": false,
       "venue": "CORNER MAX",
       "city": "台北",
@@ -8555,7 +8622,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://pressplay-inc.kktix.cc/events/6111949e",
       "sources": [
@@ -8566,7 +8635,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.286Z",
-      "updated_at": "2026-09-24T07:19:37.286Z",
+      "updated_at": "2026-09-24T07:29:05.063Z",
       "id": "4a2cfc9828732f3b",
       "merged_ids": [
         "4a2cfc9828732f3b"
@@ -8574,8 +8643,12 @@
     },
     {
       "title_raw": "瑋瑋 黃挺瑋 Journey 見面會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "黃挺瑋"
+      ],
+      "lineup": [
+        "黃挺瑋"
+      ],
       "is_festival": false,
       "venue": "CORNER MAX",
       "city": "台北",
@@ -8588,7 +8661,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://pressplay-inc.kktix.cc/events/df3a9fc3",
       "sources": [
@@ -8599,7 +8674,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.287Z",
-      "updated_at": "2026-09-24T07:19:37.287Z",
+      "updated_at": "2026-09-24T07:29:05.063Z",
       "id": "8c1827f74218d2c9",
       "merged_ids": [
         "8c1827f74218d2c9"
@@ -8607,8 +8682,12 @@
     },
     {
       "title_raw": "[下午場]瑋瑋 黃挺瑋 Journey 見面會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "黃挺瑋"
+      ],
+      "lineup": [
+        "黃挺瑋"
+      ],
       "is_festival": false,
       "venue": "CORNER MAX",
       "city": "台北",
@@ -8621,7 +8700,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://pressplay-inc.kktix.cc/events/f94b8acb",
       "sources": [
@@ -8632,7 +8713,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.287Z",
-      "updated_at": "2026-09-24T07:19:37.287Z",
+      "updated_at": "2026-09-24T07:29:05.063Z",
       "id": "201aefb5077dc45d",
       "merged_ids": [
         "201aefb5077dc45d"
@@ -8640,8 +8721,12 @@
     },
     {
       "title_raw": "【見面會】OrmFolk 1st Fan Meeting in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "OrmFolk"
+      ],
+      "lineup": [
+        "OrmFolk"
+      ],
       "is_festival": false,
       "venue": "花漾Hana展演空間",
       "city": "台北",
@@ -8654,7 +8739,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://yanrong.kktix.cc/events/a5d5bde2",
       "sources": [
@@ -8665,7 +8752,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.287Z",
-      "updated_at": "2026-09-24T07:19:37.287Z",
+      "updated_at": "2026-09-24T07:29:05.064Z",
       "id": "edd9ace02381439a",
       "merged_ids": [
         "edd9ace02381439a"
@@ -8673,8 +8760,12 @@
     },
     {
       "title_raw": "OrmFolk 1st Fan Meeting in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "OrmFolk"
+      ],
+      "lineup": [
+        "OrmFolk"
+      ],
       "is_festival": false,
       "venue": "花漾Hana展演空間",
       "city": "台北",
@@ -8687,7 +8778,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://yanrong.kktix.cc/events/8cb62f50",
       "sources": [
@@ -8698,7 +8791,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.287Z",
-      "updated_at": "2026-09-24T07:19:37.287Z",
+      "updated_at": "2026-09-24T07:29:05.064Z",
       "id": "d2db78349514eac4",
       "merged_ids": [
         "d2db78349514eac4"
@@ -8706,8 +8799,12 @@
     },
     {
       "title_raw": "【福利加購】OrmFolk 1st Fan Meeting in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "OrmFolk"
+      ],
+      "lineup": [
+        "OrmFolk"
+      ],
       "is_festival": false,
       "venue": "花漾Hana展演空間",
       "city": "台北",
@@ -8720,7 +8817,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://yanrong.kktix.cc/events/b79ff8c9",
       "sources": [
@@ -8731,7 +8830,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.287Z",
-      "updated_at": "2026-09-24T07:19:37.287Z",
+      "updated_at": "2026-09-24T07:29:05.065Z",
       "id": "f5c2feaaee178066",
       "merged_ids": [
         "f5c2feaaee178066"
@@ -8739,8 +8838,12 @@
     },
     {
       "title_raw": "2026 LUDA 10TH ANNIVERSARY FANMEETING ＜CAPTAIN LU : SECRET BASE＞ IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "LUDA"
+      ],
+      "lineup": [
+        "LUDA"
+      ],
       "is_festival": false,
       "venue": "HANASPACE",
       "city": "台北",
@@ -8753,7 +8856,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://weekendplanent.kktix.cc/events/21fde851",
       "sources": [
@@ -8764,7 +8869,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.288Z",
-      "updated_at": "2026-09-24T07:19:37.288Z",
+      "updated_at": "2026-09-24T07:29:05.065Z",
       "id": "5b43b85a66e4aea0",
       "merged_ids": [
         "5b43b85a66e4aea0"
@@ -8772,8 +8877,12 @@
     },
     {
       "title_raw": "LA FIN NIGHT presents BRIANNA BAXTER",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "BRIANNA BAXTER"
+      ],
+      "lineup": [
+        "BRIANNA BAXTER"
+      ],
       "is_festival": false,
       "venue": "La Fin Taipei",
       "city": "台北",
@@ -8786,7 +8895,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://lafin.kktix.cc/events/kif8e3r",
       "sources": [
@@ -8797,7 +8908,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.288Z",
-      "updated_at": "2026-09-24T07:19:37.288Z",
+      "updated_at": "2026-09-24T07:29:05.065Z",
       "id": "bf593f01b104b409",
       "merged_ids": [
         "bf593f01b104b409"
@@ -8838,8 +8949,12 @@
     },
     {
       "title_raw": "FUSION TAIWAN 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "FUSION TAIWAN"
+      ],
+      "lineup": [
+        "FUSION TAIWAN"
+      ],
       "is_festival": false,
       "venue": "La Fin Taipei",
       "city": "台北",
@@ -8852,7 +8967,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://lafin.kktix.cc/events/ba6022cc",
       "sources": [
@@ -8863,7 +8980,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:19:37.289Z",
-      "updated_at": "2026-09-24T07:19:37.289Z",
+      "updated_at": "2026-09-24T07:29:05.066Z",
       "id": "8cc226bf7055a053",
       "merged_ids": [
         "8cc226bf7055a053"
@@ -14829,8 +14946,12 @@
     },
     {
       "title_raw": "THE CHOSENs 天選神諭｜PROPHECY OF THE CHOSENs",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "THE CHOSENs"
+      ],
+      "lineup": [
+        "THE CHOSENs"
+      ],
       "is_festival": false,
       "venue": "臺北流行音樂中心Live House D",
       "city": "台北",
@@ -14843,7 +14964,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/1010001",
       "sources": [
@@ -14854,7 +14977,7 @@
         }
       ],
       "first_seen_at": "2026-09-24T07:09:55.278Z",
-      "updated_at": "2026-09-24T07:09:55.278Z",
+      "updated_at": "2026-09-24T07:29:05.066Z",
       "id": "9b7650e866ecf09a",
       "merged_ids": [
         "9b7650e866ecf09a"
