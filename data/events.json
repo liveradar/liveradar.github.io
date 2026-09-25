@@ -5868,10 +5868,10 @@
       "city": "台北",
       "date": "2026-12-20",
       "time": "19:30",
-      "on_sale_at": "2026-09-24T18:30:00+08:00",
+      "on_sale_at": null,
       "price_min": 1700,
       "price_max": 2300,
-      "status": "announced",
+      "status": "on_sale",
       "tags_type": [
         "專場"
       ],
@@ -7627,10 +7627,10 @@
       "city": "台北",
       "date": "2026-12-01",
       "time": "20:30",
-      "on_sale_at": "2026-09-24T20:00:00+08:00",
+      "on_sale_at": null,
       "price_min": 1880,
       "price_max": 1880,
-      "status": "announced",
+      "status": "on_sale",
       "tags_type": [
         "巡迴"
       ],

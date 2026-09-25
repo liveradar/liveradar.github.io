@@ -17,8 +17,9 @@ M1~M12 全部完成，五個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus�
 **等真實驗證的（不是 bug，只是還沒等到下次排程跑完確認端到端行為）**：
 - 9/25 新增/修改的多項功能（KKTIX Strategy 4、`register_info`→JSON-LD 優化、四平台每日複查、Disney 合併修正、id 穩定性修正、`refreshedStatus` 過期場次強制轉 ended）都只用單元測試驗證過，沒有跑過真實完整抓取。下次排程跑完看 log／`sources.json` 確認。
 
-**2026-09-25 又查到、修好的一個（Max：「都沒東西要修嗎」，逐筆查資料才發現，不是回報的）**：
+**2026-09-25 又查到、修好的（Max：「都沒東西要修嗎」／「還有什麼要修的」，逐筆查資料才發現，不是回報的）**：
 - ~~7 場日期已經過去、status 還停在 on_sale 的已知場次~~ ✅ 已修好。前端 `isPast()` 會獨立擋掉過期場次，這個**不是使用者看得到的 bug**，但底層資料本身是錯的，指出 `refreshedStatus`（每日複查已知場次售票狀態）原本完全沒有「日期過了就該轉成 ended」這條規則，只在 SOLD_OUT/REGISTRATION_CLOSED 訊號分支裡順便算過——一旦訊號查詢失敗或沒查到，status 就會永遠停在舊值。改成日期優先判斷，不依賴任何訊號，已知場次日期一旦過去一律轉 ended。已套用到 7 場已知的殘留案例。
+- ~~2 場（AIOZ《SELL MY SAD》巡演｜台北、Jane Remover 亞洲巡迴．台北首演）開賣時間已過卻還停在「尚未開賣」~~ ✅ 已修好。追查發現這兩場都是 KKTIX 來源，走 `statusFromTickets()` 專屬路徑，不會碰到 `normalize.mjs` 那段「非 KKTIX 開賣時間已過就直接轉 on_sale」的邏輯——**查證後確認 `normalize.mjs` 初始建立資料時的邏輯本身沒有漏洞**，這兩場只是單純還沒等到當天稍早才修好的 `refreshedStatus()` 每日複查跑過，不是新的獨立 bug。直接把這兩筆已快取資料轉成 on_sale（跟上面 7 場一樣的模式），不用等明天排程。
 
 **刻意不修、已記錄清楚原因的殘留風險**：
 - KKTIX 4 場大型體育場/巨蛋座位制演出（Fujii Kaze 高雄場等）只能靠常被 Cloudflare 擋的 `register_info` 判斷售票狀態，這類場次的票會持續回流重新販售，KKTIX 本身沒有「售完」這種二元狀態可以顯示，不是解析漏洞。
