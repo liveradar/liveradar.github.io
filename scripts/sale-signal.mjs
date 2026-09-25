@@ -91,8 +91,20 @@ export function combineSaleSignals(signals) {
  */
 export function refreshedStatus(event, signal, signalOnSaleAt = null, nowMs = Date.now(), todayStr = taiwanTodayDateStr()) {
   let next = null;
-  if (signal === "SOLD_OUT" || signal === "REGISTRATION_CLOSED") {
-    next = { status: event.date >= todayStr ? "sold_out" : "ended", on_sale_at: null };
+  // 2026-09-25 real bug (Max: "都沒東西要修嗎" — 逐一查資料才發現，不是回報
+  // 的）：找到 7 場日期已經過去、但 status 還停在 on_sale 的已知場次。前端
+  // isPast() 會獨立擋掉過期場次，目前不會顯示在畫面上，不是使用者看得到
+  // 的 bug，但底層資料本身是錯的，而且指出這個函式原本完全沒有「日期過了
+  // 就該轉成 ended」這條規則——只在 SOLD_OUT/REGISTRATION_CLOSED 訊號分支
+  // 裡順便算過（`event.date >= todayStr ? "sold_out" : "ended"`），一旦
+  // 訊號查詢失敗（例如被 Cloudflare 擋）或壓根沒有訊號，status 就會永遠停
+  // 在舊值，直到哪天訊號剛好查到為止。改成日期優先判斷、不依賴任何訊號：
+  // 只要已知場次的日期已經過去，一律轉成 ended，不管這次有沒有查到訊號、
+  // 訊號說了什麼。放在最前面，其餘分支因此保證只會在日期還沒到時才跑到。
+  if (event.date < todayStr) {
+    next = { status: "ended", on_sale_at: null };
+  } else if (signal === "SOLD_OUT" || signal === "REGISTRATION_CLOSED") {
+    next = { status: "sold_out", on_sale_at: null };
   } else if (signal === "IN_STOCK") {
     next = { status: "on_sale", on_sale_at: null };
   } else if (signal === "COMING_SOON") {

@@ -851,7 +851,7 @@
       "on_sale_at": null,
       "price_min": 450,
       "price_max": 1000,
-      "status": "on_sale",
+      "status": "ended",
       "tags_type": [
         "專場"
       ],
@@ -10701,7 +10701,7 @@
       "on_sale_at": null,
       "price_min": 2100,
       "price_max": 4200,
-      "status": "on_sale",
+      "status": "ended",
       "tags_type": [
         "巡迴"
       ],
@@ -10740,7 +10740,7 @@
       "on_sale_at": null,
       "price_min": 2880,
       "price_max": 5680,
-      "status": "on_sale",
+      "status": "ended",
       "tags_type": [
         "巡迴"
       ],
@@ -10779,7 +10779,7 @@
       "on_sale_at": null,
       "price_min": 2490,
       "price_max": 12180,
-      "status": "on_sale",
+      "status": "ended",
       "tags_type": [
         "巡迴"
       ],
@@ -10818,7 +10818,7 @@
       "on_sale_at": null,
       "price_min": 4800,
       "price_max": 5800,
-      "status": "on_sale",
+      "status": "ended",
       "tags_type": [
         "巡迴"
       ],
@@ -10857,7 +10857,7 @@
       "on_sale_at": null,
       "price_min": 2400,
       "price_max": 2400,
-      "status": "on_sale",
+      "status": "ended",
       "tags_type": [
         "巡迴"
       ],
@@ -10974,7 +10974,7 @@
       "on_sale_at": null,
       "price_min": 3500,
       "price_max": 9900,
-      "status": "on_sale",
+      "status": "ended",
       "tags_type": [
         "專場"
       ],

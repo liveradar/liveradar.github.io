@@ -30,6 +30,21 @@ test("refreshedStatus: with NO signal, an announced event whose sale time has pa
   assert.equal(refreshedStatus(ev({ status: "announced", on_sale_at: "2026-09-23T20:00:00+08:00" }), null, null, NOW, TODAY).status, "on_sale");
 });
 
+test("refreshedStatus real bug (Max, 2026-09-25: \"都沒東西要修嗎\" — 逐一查資料才發現 7 場過期但 status 還是 on_sale 的已知場次): an on_sale event whose date has already passed becomes ended even with NO signal at all — the old logic only handled this inside the SOLD_OUT/REGISTRATION_CLOSED branch, so a failed/blocked status check left it stuck on the wrong status forever", () => {
+  assert.deepEqual(refreshedStatus(ev({ date: "2026-09-20" }), null, null, NOW, TODAY), { status: "ended", on_sale_at: null });
+});
+
+test("refreshedStatus: an announced event whose date has passed becomes ended too, not just on_sale ones", () => {
+  assert.deepEqual(
+    refreshedStatus(ev({ date: "2026-09-20", status: "announced", on_sale_at: "2026-09-15T12:00:00+08:00" }), null, null, NOW, TODAY),
+    { status: "ended", on_sale_at: null },
+  );
+});
+
+test("refreshedStatus: a past-date event takes priority over an IN_STOCK/COMING_SOON signal — the date having passed wins regardless of what any signal claims", () => {
+  assert.deepEqual(refreshedStatus(ev({ date: "2026-09-20" }), "IN_STOCK", null, NOW, TODAY), { status: "ended", on_sale_at: null });
+});
+
 test("refreshedStatus: with no signal and nothing time-based to change, keeps the previous status (returns null)", () => {
   assert.equal(refreshedStatus(ev({}), null, null, NOW, TODAY), null);
   assert.equal(refreshedStatus(ev({ status: "announced", on_sale_at: "2026-10-06T12:00:00+08:00" }), null, null, NOW, TODAY), null);
