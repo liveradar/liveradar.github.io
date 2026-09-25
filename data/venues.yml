@@ -108,3 +108,10 @@
 # 海報圖片上、不在任何文字欄位，文字爬蟲原本就抓不到，是人工看圖確認的。
 - match: "DISORDER LIVE"
   city: 台中
+# 2026-09-25，查 city:未知 清單查證補上：
+- match: "漁光島"
+  city: 台南  # WebSearch 查證：台南市安平區漁光路114號
+- match: "Yuguang Island"
+  city: 台南
+- match: "金滿山露營山莊"
+  city: 苗栗  # WebSearch 查證：苗栗縣公館鄉仁安村仁安219之1號

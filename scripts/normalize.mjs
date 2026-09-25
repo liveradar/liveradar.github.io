@@ -230,9 +230,18 @@ export function parseKktixDate(dateRaw) {
  * reason (their listings never have an address at all), instead of settling
  * for "未知" when a perfectly identifiable venue name is right there.
  */
+// 2026-09-25 real bug (Max 回報, 找 city:未知 清單時發現: TECHNO BUS 的
+// venue_raw 是純地址「台中市南屯區五權西路三段1巷59-1號」，完全沒有用
+// "/" 隔開場地名跟地址): 沒有 "/" 時整串文字會被當成 venuePart，
+// addressPart 預設是空字串——cityFromAddress("") 一定找不到城市，而
+// venuePart（其實是地址本身）從來沒被拿去檢查過，直接卡在 venues.yml
+// 查表這個對「地址文字」不會有結果的分支，city 永遠是 null。加一個
+// fallback：addressPart 找不到城市時，再試著把 venuePart 本身當地址檢查
+// 一次（它有可能就是地址），venues.yml 查表留在最後，維持「地址文字比
+// 對優先於場地名稱查表」的既有順序。
 export function parseKktixVenue(venueRaw, venuesYml = []) {
   const [venuePart, addressPart = ""] = venueRaw.split("/").map((s) => s.trim());
-  const city = cityFromAddress(addressPart) ?? parseTixcraftVenue(venuePart, venuesYml).city;
+  const city = cityFromAddress(addressPart) ?? cityFromAddress(venuePart) ?? parseTixcraftVenue(venuePart, venuesYml).city;
   return { venue: venuePart, city };
 }
 

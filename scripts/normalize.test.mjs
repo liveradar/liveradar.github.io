@@ -171,6 +171,11 @@ test("parseKktixVenue: falls back to venues.yml by venue name when the 'address'
   assert.deepEqual(result, { venue: "The Wall Live House", city: "台北" });
 });
 
+test("parseKktixVenue real bug (Max 回報, TECHNO BUS: venue_raw 是純地址「台中市南屯區五權西路三段1巷59-1號」，完全沒有 '/' 隔開場地名跟地址，city 原本一律變 null): venuePart 本身若剛好是地址文字，也要能解析出城市", () => {
+  const result = parseKktixVenue("台中市南屯區五權西路三段1巷59-1號");
+  assert.equal(result.city, "台中");
+});
+
 test("parseIndievoxVenue: a 4th real freeform format — venue and address run together with no parentheses at all (real bug: 'Bullet Burger 子彈漢堡 403台灣臺中市西區...' gave city: null)", () => {
   const result = parseIndievoxVenue("Bullet Burger 子彈漢堡 403台灣臺中市西區美村路一段164巷17號1樓", []);
   assert.equal(result.city, "台中");

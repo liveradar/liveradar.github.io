@@ -149,14 +149,24 @@ function extractLabeledField(html, keywordPattern, maxLen) {
 // either of the other two labels had venue_raw come back completely empty,
 // city always "未知" — not even the venues.yml fallback got a chance to run
 // since there was no venue name text to look up at all.
-function parseVenueLine(html) {
+export function parseVenueLine(html) {
   // 2026-09-21 real bug (found during a full re-normalize sweep, not a
   // one-off report): "活動地點 ｜CLAPPER STUDIO..." — a space between the
   // label and the separator (｜:：), which required-adjacent regex rejected
   // outright, same as parseDateLine's "日期及時間" fix below — allow a short
   // flexible run of characters (prefix text, whitespace, whatever) between
   // the keyword and the actual separator instead of requiring them adjacent.
-  return extractLabeledField(html, "(?:地點|場地|場館)", 200);
+  //
+  // 2026-09-25 real bug (Max 回報, X-Formosa 2026 彩虹音樂節: venue 抓到
+  // 「活動時程｜表演者｜注意事項」): that tolerance is exactly what let a
+  // page's own in-page nav bar — "場地交通住宿｜活動時程｜表演者｜注意事項"
+  // — false-match. "場地" is immediately followed by "交通住宿" (a real,
+  // unrelated compound word, not label filler) before hitting the "｜".
+  // Excluding that one specific compound is a targeted fix, not a general
+  // "reject any Han characters after the keyword" rule — a legitimate case
+  // ("票價資訊 Ticket Price：") also has more Han characters glued right
+  // after its own keyword, so that general rule would break it.
+  return extractLabeledField(html, "(?:地點|場地(?!交通住宿)|場館)", 200);
 }
 
 /**
