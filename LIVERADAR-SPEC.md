@@ -447,6 +447,20 @@ KKTIX／iNDIEVOX／Ticket Plus 三個來源都用「票價｜」這種格式（�
 
 全量重新抓取驗證（清空 `events.json` 重跑 `node scripts/fetch.mjs`）：289 場總數不變，時間缺漏 97→65，票價缺漏→61。剩餘缺漏抽查後多數是頁面真的還沒公布（例如「票價另行公告」），不是格式沒吃到——詳細數字見 `HANDOFF.md`。
 
+### 5.8 Billboard Live TAIPEI 端點實測結果（2026-09-25，第 6 個來源，第一次加場館而非售票平台）
+
+**跟前 5 個不一樣的地方**：這是單一場館（信義區 ATT 4 FUN 7F）自己賣票，不是一個服務多個主辦方的售票平台。Max 提出「評估有沒有其他售票平台可以一起加入」後查證發現：完全沒在 KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus 任何一個平台上架，跟既有 465 場資料零重疊。
+
+**資料來源**：`billboardlivetaipei.tw/tw/events` 是 Next.js app，沒有 Cloudflare、plain fetch 可用，但頁面資料不是伺服器渲染的 HTML 表格，而是內嵌在 React Server Component 的 `self.__next_f.push([1,"..."])` 序列化 payload 裡——把每段的第二個參數（JS 字串字面值）用 `JSON.parse('"' + chunk + '"')` 解開再串接，就是完整的 RSC 純文字，每個活動物件都帶著自己的 `"shows":[...]`（含日期、票種、剩餘票數、售票區間），不用像其他來源一樣另外打每一場的詳細頁。
+
+**`/tw/events` 預設頁面本身不完整**：不帶月份參數時只列出 7 檔活動，漏了 LEO IEIRI／SUBARU SHIBUTANI／culenasm 三檔——這三檔都**沒有售完**（分別剩 9/164/102 張票），原因不明。改成用 `?selectedMonth=YYYY-M`（月份不補零）逐月查詢，範圍是台灣時間當月起算的 7 個月（跟網站自己的月份選單一樣遠），才能拿到完整清單。一個活動可能同時出現在多個月份的查詢結果裡（跨月份的巡演），用場次自己的 `_id` 去重。
+
+**售票狀態沒有直接寫在資料裡，是從網站自己的前端 JS 邏輯逆推的**：`billboard.mjs` 的 `showSaleSignal()` 照抄了網站 bundle 裡 `getShowBadgeStatus` 的判斷順序（先看活動/場次層級的 cancelled/completed，再比對 `salesPeriod.startDate`/`endDate` 跟現在時間，最後看 `availableCount` 是否 `<= 0`——特別注意是 `<=` 不是 `===`，因為網站自己的商務資料有觀察到負數），換算成 LiveRadar 既有的 `SOLD_OUT`/`REGISTRATION_CLOSED`/`COMING_SOON`/`IN_STOCK` 訊號詞彙（`sale-signal.mjs`）餵給 `statusFromTickets`。
+
+**`normalize.mjs` 唯一動到的既有邏輯**：原本「非 KKTIX 來源預設轉成 on_sale」那條規則（2026-09-22 為了修好 FANSI GO/iNDIEVOX/拓元/Ticket Plus 這四個完全沒有結構化票種資料的來源而加的）的判斷條件從「是不是 KKTIX」改成「有沒有 `tickets_raw`」——Billboard Live 雖然不是 KKTIX，但它**有**結構化票種資料（跟 KKTIX 一樣），照舊條件會把它正確算出的「尚未開賣」誤蓋成「開賣中」。其餘 4 個非 KKTIX 來源的 `tickets_raw` 一律是 `[]`，行為完全不變。
+
+**不做 incremental fetch**：其他 5 個來源都有 `reuse_previous` 機制跳過已知場次的詳細頁重抓，因為那些詳細頁通常要開 Playwright 頁面、成本高。Billboard Live 整份清單只要 7 個輕量 HTTP 請求（每月一個），每次都整份重新抓取、重新 normalize，狀態自然保持最新，沒有省成本的理由去加這層複雜度。
+
 ---
 
 ## 6. 前端過濾決策樹（實作規範）

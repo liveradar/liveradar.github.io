@@ -7,6 +7,7 @@ import * as tixcraft from "./adapters/tixcraft.mjs";
 import * as indievox from "./adapters/indievox.mjs";
 import * as fansi from "./adapters/fansi.mjs";
 import * as ticketplus from "./adapters/ticketplus.mjs";
+import * as billboard from "./adapters/billboard.mjs";
 import * as manual from "./adapters/manual.mjs";
 import { loadArtists, loadVenues, normalize } from "./normalize.mjs";
 import { dedupe } from "./dedup.mjs";
@@ -21,7 +22,7 @@ import { acquireRunLock } from "./run-lock.mjs";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "..", "data");
 
-const adapters = [kktix, tixcraft, indievox, fansi, ticketplus, manual];
+const adapters = [kktix, tixcraft, indievox, fansi, ticketplus, billboard, manual];
 
 function loadPreviousEvents() {
   try {

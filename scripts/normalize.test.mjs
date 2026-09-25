@@ -108,6 +108,29 @@ test("statusFromTickets: register_status IN_STOCK with no ticket table is on_sal
   assert.equal(event.status, "on_sale");
 });
 
+test("normalize() (2026-09-25, Billboard Live adapter): a non-KKTIX source WITH real structured tickets_raw keeps its correctly-derived 'announced' status instead of being defaulted to on_sale — the default-to-on_sale override is for sources with NO ticket-tier data, not for 'not KKTIX' specifically", () => {
+  const raw = makeRaw({
+    source_name: "Billboard Live",
+    date_raw: "2026-10-15 19:30", // Billboard Live shares Ticket Plus's dash-separated date_raw shape (parseTicketPlusDate)
+    tickets_raw: [{ name: "標準席", price: 1800, closed: false, waiting: true, on_sale_at_raw: "2099/01/01 12:00(+0800)" }],
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "announced");
+  assert.equal(event.on_sale_at, "2099-01-01T12:00:00+08:00");
+});
+
+test("normalize(): Billboard Live's venue_raw (KKTIX-shaped 'venue / address') resolves city to 台北", () => {
+  const raw = makeRaw({
+    source_name: "Billboard Live",
+    date_raw: "2026-10-15 19:30",
+    venue_raw: "Billboard Live TAIPEI / 台北市信義區松壽路12號7F",
+    tickets_raw: [{ name: "標準席", price: 1800, closed: false, waiting: false }],
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.city, "台北");
+  assert.equal(event.venue, "Billboard Live TAIPEI");
+});
+
 test("parseIndievoxDate: prefers the 'start' time over the earlier 'open' (doors) time", () => {
   const result = parseIndievoxDate("2026.09.19 (Sat.) 19:30 open / 20:00 start");
   assert.deepEqual(result, { date: "2026-09-19", time: "20:00" });

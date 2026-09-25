@@ -6,18 +6,18 @@
 
 ## 現在的狀態（2026-09-25）
 
-M1~M12 全部完成，五個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus）都在運作。抓取不走 GitHub Actions（拓元／Ticket Plus 會被其 IP 擋掉，決策 S5），改由上班電腦的 Claude 排程任務 `liveradar-daily-fetch` 每天約上午 10:00 自動跑（`git pull` → `npm ci` → `node scripts/fetch.mjs` → `npm test` → 通過才 commit+push）。跨裝置同步已經是真帳號登入（Supabase + Google OAuth），取代了最早的 Gist token 機制。
+M1~M12 全部完成，六個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/Billboard Live TAIPEI）都在運作。抓取不走 GitHub Actions（拓元／Ticket Plus 會被其 IP 擋掉，決策 S5），改由上班電腦的 Claude 排程任務 `liveradar-daily-fetch` 每天約上午 10:00 自動跑（`git pull` → `npm ci` → `node scripts/fetch.mjs` → `npm test` → 通過才 commit+push）。跨裝置同步已經是真帳號登入（Supabase + Google OAuth），取代了最早的 Gist token 機制。
 
 近期重大變動：
 - **9/24**：五個平台的已收錄場次每天會複查售票狀態（不再永遠停在剛發現時的狀態）；新增 `fetch-one`／`renormalize` 兩個工具，改抓取程式或補完藝人不用再跑整套 `npm run fetch`；同一時間只允許一個抓取在跑（`.fetch.lock`）；查證藝人身分的規則定案（看在哪個音樂圈成名，不是國籍，見「別再踩的坑」第 11~14 條）。
-- **9/25**：KKTIX 新增 Strategy 4，掃「其他」分類抓沒被主辦方標任何分類的場次；`register_info` 優先改看頁面 JSON-LD，大幅降低被 Cloudflare 擋的次數；修好 Disney 兩場被誤合併、合併卡片複查只看第一個來源的 bug；**修好一個嚴重的資料遺失 bug**——`reconcileSupabaseSync()` 會把全新裝置的空白預設值覆蓋掉雲端真實收藏資料，已修好並測試涵蓋，但當天發生的一次真實資料遺失沒能救回來（見下方「已知問題」）；約 300 筆藝人分類補上查證依據。
+- **9/25**：KKTIX 新增 Strategy 4，掃「其他」分類抓沒被主辦方標任何分類的場次；`register_info` 優先改看頁面 JSON-LD，大幅降低被 Cloudflare 擋的次數；修好 Disney 兩場被誤合併、合併卡片複查只看第一個來源的 bug；**修好一個嚴重的資料遺失 bug**——`reconcileSupabaseSync()` 會把全新裝置的空白預設值覆蓋掉雲端真實收藏資料，已修好並測試涵蓋，但當天發生的一次真實資料遺失沒能救回來（見下方「已知問題」）；約 300 筆藝人分類補上查證依據；**新增第 6 個來源 Billboard Live TAIPEI**（單一場館自己賣票，不在其他 5 個平台上架，22 場零重疊）——技術細節見 LIVERADAR-SPEC.md §5.8，測試已涵蓋（`scripts/billboard.test.mjs`），等下次排程真實跑過確認端到端行為。
 
-**進行中（2026-09-25）**：新增 Billboard Live TAIPEI 來源，研究與實測已完成，程式碼還沒動。完整實作規格見 [PLAN-billboard-live.md](PLAN-billboard-live.md)，照著做即可。其他候選平台（OPENTIX、ibon、寬宏、年代）與「舞台劇/音樂劇分類」的評估結果也還沒寫進文件，要做時再回頭研究（重點：OPENTIX 有公開搜尋 API、戲劇類會讓卡片數暴增，需要先決定「一檔戲一張卡」還是「一場一張卡」）。
+**還沒做的候選項目**：其他售票平台（OPENTIX、ibon、寬宏、年代）與「舞台劇/音樂劇分類」評估過但還沒實作（重點：OPENTIX 有公開搜尋 API、戲劇類會讓卡片數暴增，需要先決定「一檔戲一張卡」還是「一場一張卡」）——要做時再回頭跟 Max 確認範圍。
 
 ## 目前已知還沒解決的問題
 
 **等真實驗證的（不是 bug，只是還沒等到下次排程跑完確認端到端行為）**：
-- 9/25 新增/修改的多項功能（KKTIX Strategy 4、`register_info`→JSON-LD 優化、四平台每日複查、Disney 合併修正、id 穩定性修正、`refreshedStatus` 過期場次強制轉 ended）都只用單元測試驗證過，沒有跑過真實完整抓取。下次排程跑完看 log／`sources.json` 確認。
+- 9/25 新增/修改的多項功能（KKTIX Strategy 4、`register_info`→JSON-LD 優化、四平台每日複查、Disney 合併修正、id 穩定性修正、`refreshedStatus` 過期場次強制轉 ended、**新增 Billboard Live TAIPEI 來源**）都只用單元測試＋一次性腳本手動比對過，沒有跑過真實完整抓取（`npm run fetch`）。下次排程跑完看 log／`sources.json` 確認，Billboard Live 應該新增約 20 個場次。
 
 **2026-09-25 又查到、修好的（Max：「都沒東西要修嗎」／「還有什麼要修的」，逐筆查資料才發現，不是回報的）**：
 - ~~7 場日期已經過去、status 還停在 on_sale 的已知場次~~ ✅ 已修好。前端 `isPast()` 會獨立擋掉過期場次，這個**不是使用者看得到的 bug**，但底層資料本身是錯的，指出 `refreshedStatus`（每日複查已知場次售票狀態）原本完全沒有「日期過了就該轉成 ended」這條規則，只在 SOLD_OUT/REGISTRATION_CLOSED 訊號分支裡順便算過——一旦訊號查詢失敗或沒查到，status 就會永遠停在舊值。改成日期優先判斷，不依賴任何訊號，已知場次日期一旦過去一律轉 ended。已套用到 7 場已知的殘留案例。

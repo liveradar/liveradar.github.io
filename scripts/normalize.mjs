@@ -830,6 +830,10 @@ const DATE_PARSERS = {
   "iNDIEVOX": parseIndievoxDate,
   "FANSI GO": parseTixcraftDate,
   "Ticket Plus": parseTicketPlusDate,
+  // Billboard Live's date_raw is built the same "YYYY-MM-DD HH:MM" shape as
+  // Ticket Plus's (see billboard.mjs's toTaiwanDateTimeDash), so it reuses
+  // the same parser rather than needing its own.
+  "Billboard Live": parseTicketPlusDate,
 };
 // 2026-09-21: FANSI GO used to map here too (bare venue name, no address —
 // same shape as tixcraft's untracked venues). That assumption was wrong: its
@@ -991,7 +995,16 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   // tickets_raw because its ticket table genuinely isn't published yet, and
   // that IS trustworthy "announced" evidence for KKTIX — it just isn't for a
   // source that never had ticket-tier data to begin with.
-  if (status === "announced" && rawEvent.source_name !== "KKTIX") {
+  //
+  // 2026-09-25: Billboard Live is a second exception, but the opposite
+  // shape — it DOES have real structured tickets_raw (see billboard.mjs),
+  // so an "announced" it correctly derived from a waiting/COMING_SOON ticket
+  // tier must not be blindly overridden the way an evidence-free non-KKTIX
+  // "announced" should be. The actual condition this whole block exists for
+  // is "no structured ticket-tier data to trust", not "not KKTIX" — checking
+  // tickets_raw.length directly says that correctly for any current or
+  // future source, Billboard Live included.
+  if (status === "announced" && rawEvent.source_name !== "KKTIX" && (rawEvent.tickets_raw ?? []).length === 0) {
     // 2026-09-22 (Max: "這點在其他平台也都要確認...如果沒有api或是結構化資料
     // 可以確定狀態，那可以從文字內容確認吧"): Ticket Plus's own event page
     // (client-rendered, not in its JSON API at all) shows "銷售一空"/"售完"/
