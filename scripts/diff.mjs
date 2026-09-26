@@ -15,9 +15,17 @@
  */
 
 const WATCHED_FIELDS = ["date", "time", "venue", "status", "price_min", "price_max", "on_sale_at"];
+// A run event's (scripts/runs.mjs) `date`/`time` are just "whichever session
+// is soonest as of this fetch" — they naturally creep forward as earlier
+// performances pass, with nothing about the run itself actually having
+// changed. Watching those would surface a fake FR-34 "已更新" badge every
+// few days on the favorites page. `date_end` (the run's last performance)
+// takes date/time's place — that's a real change worth surfacing.
+const RUN_WATCHED_FIELDS = ["date_end", "venue", "status", "price_min", "price_max", "on_sale_at"];
 
 function fieldsChanged(prev, next) {
-  return WATCHED_FIELDS.filter((f) => JSON.stringify(prev[f]) !== JSON.stringify(next[f]));
+  const fields = next.sessions ? RUN_WATCHED_FIELDS : WATCHED_FIELDS;
+  return fields.filter((f) => JSON.stringify(prev[f]) !== JSON.stringify(next[f]));
 }
 
 /**

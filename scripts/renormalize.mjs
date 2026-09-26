@@ -32,6 +32,10 @@ const events = eventsFile.events ?? eventsFile;
 const resolvedRawIds = new Set();
 for (const event of events) {
   if (event.headliners?.length) continue;
+  // A theater/musical run's tags_type is its own category ("音樂劇"/"舞台劇",
+  // see normalize.mjs), not something guessTagsType() should ever overwrite —
+  // its title rarely names an "artist" matchArtists() would find anyway.
+  if (event.category) continue;
   const headliners = matchArtists(event.title_raw, artistsYml);
   if (headliners.length === 0) continue;
   event.headliners = headliners;

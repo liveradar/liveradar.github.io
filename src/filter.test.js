@@ -93,6 +93,26 @@ test("partitionEvents: a favorited event that doesn't match the active view filt
   assert.deepEqual(visible, []);
 });
 
+test("partitionEvents (PLAN-1-theater-runs.md): a theater run's month filter matches ANY of its upcoming session months, not just the next one's", () => {
+  // Mimics what src/runs.js's materializeRun() hands to filter.js: date/time
+  // already swapped to the next upcoming session, but `sessions` (used by
+  // eventDates()) still carries every one of them.
+  const run = makeEvent({
+    id: "run-a",
+    date: "2099-10-24", // next upcoming session — October
+    sessions: [
+      { date: "2099-10-24", time: "14:30", status: "on_sale" },
+      { date: "2099-11-10", time: "14:30", status: "on_sale" },
+    ],
+  });
+
+  const { visible: novVisible } = partitionEvents([run], defaultPrefs(), { month: "2099-11" });
+  assert.deepEqual(novVisible.map((v) => v.event.id), ["run-a"], "must still show up under November even though its NEXT session is in October");
+
+  const { visible: decVisible } = partitionEvents([run], defaultPrefs(), { month: "2099-12" });
+  assert.deepEqual(decVisible, [], "a month with no session at all must not match");
+});
+
 test("partitionEvents: a favorited event still bypasses every exclude rule regardless of view filters (FR-33 itself is unchanged — only its interaction with view filters changed)", () => {
   const favorited = makeEvent({ id: "f", city: "新北", headliners: ["Blocked Artist"], tags_type: ["音樂祭"] });
   const prefs = defaultPrefs({

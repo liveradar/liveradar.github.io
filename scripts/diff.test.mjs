@@ -114,6 +114,55 @@ test("diff real bug (Max, 2026-09-25: \"我發現我收藏的場次不見了\"):
   assert.equal(events[0].first_seen_at, "2026-09-10T00:00:00Z", "must keep the ORIGINAL first-seen date, not today");
 });
 
+test("diff (PLAN-1-theater-runs.md): a run event's date/time creeping forward as earlier sessions pass is NOT reported as 已更新 — only date_end/venue/status/price/on_sale_at are watched for a run", () => {
+  const previous = [
+    makeEvent("run-a", {
+      sessions: [{ date: "2026-10-24", time: "14:30", status: "on_sale" }, { date: "2026-10-30", time: "19:30", status: "on_sale" }],
+      date: "2026-10-24",
+      time: "14:30",
+      date_end: "2026-10-30",
+    }),
+  ];
+  // The 10/24 session played; the run's own date/time now points at 10/30 —
+  // nothing about the RUN itself changed, just which session is next.
+  const next = [
+    makeEvent("run-a", {
+      sessions: [{ date: "2026-10-30", time: "19:30", status: "on_sale" }],
+      date: "2026-10-30",
+      time: "19:30",
+      date_end: "2026-10-30",
+    }),
+  ];
+
+  const { digest } = diff(previous, next);
+
+  assert.deepEqual(digest.updated, []);
+});
+
+test("diff (PLAN-1-theater-runs.md): a run's date_end actually changing (a new session added) IS reported as 已更新", () => {
+  const previous = [
+    makeEvent("run-a", {
+      sessions: [{ date: "2026-10-24", time: "14:30", status: "on_sale" }],
+      date: "2026-10-24",
+      time: "14:30",
+      date_end: "2026-10-24",
+    }),
+  ];
+  const next = [
+    makeEvent("run-a", {
+      sessions: [{ date: "2026-10-24", time: "14:30", status: "on_sale" }, { date: "2026-11-10", time: "19:30", status: "on_sale" }],
+      date: "2026-10-24",
+      time: "14:30",
+      date_end: "2026-11-10",
+    }),
+  ];
+
+  const { digest } = diff(previous, next);
+
+  assert.equal(digest.updated.length, 1);
+  assert.deepEqual(digest.updated[0].fields, ["date_end"]);
+});
+
 test("diff: a genuinely new event (no source raw_id seen before) still gets its fresh id and lands in added_ids normally", () => {
   const previous = [makeEvent("a", { sources: [{ name: "KKTIX", url: "https://example.com/raw1", raw_id: "raw1" }] })];
   const next = [

@@ -1,3 +1,5 @@
+import { eventDates } from "./runs.js";
+
 /**
  * The single implementation of the visibility decision tree (SPEC §6 / SRS §6.3).
  * Every page imports this instead of re-deriving visibility itself — that's what
@@ -72,7 +74,11 @@ export function isPast(dateStr) {
 
 function passesViewFilters(event, viewFilters) {
   if (viewFilters.city && event.city !== viewFilters.city) return false;
-  if (viewFilters.month && !event.date.startsWith(viewFilters.month)) return false;
+  // A theater run (PLAN-1-theater-runs.md) spans several months of sessions —
+  // event.date alone is only the NEXT upcoming one, so picking October must
+  // still surface a run whose next show is in September but has an October
+  // date too. eventDates() is just [event.date] for a non-run event.
+  if (viewFilters.month && !eventDates(event).some((d) => d.startsWith(viewFilters.month))) return false;
   if (viewFilters.type && !event.tags_type.includes(viewFilters.type)) return false;
   if (viewFilters.origin && !event.tags_origin.includes(viewFilters.origin)) return false;
   if (viewFilters.favoritesOnly) return false; // handled by caller pre-filtering favorites list

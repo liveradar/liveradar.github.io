@@ -12,12 +12,13 @@ M1~M12 全部完成，六個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/
 - **9/24**：五個平台的已收錄場次每天會複查售票狀態（不再永遠停在剛發現時的狀態）；新增 `fetch-one`／`renormalize` 兩個工具，改抓取程式或補完藝人不用再跑整套 `npm run fetch`；同一時間只允許一個抓取在跑（`.fetch.lock`）；查證藝人身分的規則定案（看在哪個音樂圈成名，不是國籍，見「別再踩的坑」第 11~14 條）。
 - **9/25**：KKTIX 新增 Strategy 4，掃「其他」分類抓沒被主辦方標任何分類的場次；`register_info` 優先改看頁面 JSON-LD，大幅降低被 Cloudflare 擋的次數；修好 Disney 兩場被誤合併、合併卡片複查只看第一個來源的 bug；**修好一個嚴重的資料遺失 bug**——`reconcileSupabaseSync()` 會把全新裝置的空白預設值覆蓋掉雲端真實收藏資料，已修好並測試涵蓋，但當天發生的一次真實資料遺失沒能救回來（見下方「已知問題」）；約 300 筆藝人分類補上查證依據；**新增第 6 個來源 Billboard Live TAIPEI**（單一場館自己賣票，不在其他 5 個平台上架，22 場零重疊）——技術細節見 LIVERADAR-SPEC.md §5.8，測試已涵蓋（`scripts/billboard.test.mjs`），等下次排程真實跑過確認端到端行為。
 
-**進行中（2026-09-25）：再加 4 個來源＋舞台劇／音樂劇分類**。研究與實測都做完了，程式碼還沒動。每一份都是完整的實作規格，照順序用新的 session 實作：
+- **9/26**：新增「舞台劇／音樂劇分類＋同場館合併一張卡」這個共同基礎（PLAN-1-theater-runs.md，四份加來源規格的第一份）。`normalize.mjs` 新支援 RawEvent 的 `category`／`run_key` 兩個選填欄位；新模組 `scripts/runs.mjs`（`groupRuns()`，在 `dedupe()` 前把同一檔戲、同場館的所有場次合併成一張帶 `sessions` 陣列的卡）；`dedup.mjs`／`diff.mjs`／`renormalize.mjs`／`fetch.mjs` 的待整理清單都配合跳過或改判斷已合併的「run」事件；前端新模組 `src/runs.js`（`materializeRun`／`eventDates`，把「資料一天只更新一次」跟「場次每天在演完」這兩件事橋接起來），`filter.js`／`app.js`（月份篩選、收藏月曆）／`render.js`（多場次卡片的「🎭 檔期」行）都已串接。**目前還沒有任何 adapter 會實際帶出 `category`／`run_key`**（PLAN-2/3/4 那三個新來源都還沒做），所以這次上線不會改變任何一張現有卡片的外觀，純粹是幫 PLAN-3/PLAN-4 先把地基做好。測試涵蓋（`scripts/runs.test.mjs`、`src/runs.test.js`，加上 dedup/diff/normalize/filter/render 各自補的回歸測試，`npm test` 260 個全過），並用假資料在本機 dev server 手動驗證過時間表分組、月份跨月篩選、類型篩選、收藏月曆跨月點點都正確（驗證完已還原 `data/events.json`，沒有進 commit）。
 
-1. [PLAN-1-theater-runs.md](PLAN-1-theater-runs.md)：戲劇分類＋「同一檔戲在同一場館合併成一張卡」。這是共同基礎，**最先做**。
-2. [PLAN-2-ibon.md](PLAN-2-ibon.md)：ibon（只收娛樂類）。不依賴 1。另外會修 `parsePriceFromText` 兩個實測到的 bug。
-3. [PLAN-3-opentix.md](PLAN-3-opentix.md)：OPENTIX（音樂劇、現代戲劇、流行、爵士、世界音樂）。依賴 1。
-4. [PLAN-4-kham-era.md](PLAN-4-kham-era.md)：寬宏＋年代（演唱會、音樂劇、戲劇），共用一套 adapter。依賴 1。
+**進行中：再加 3 個來源**（OPENTIX／ibon／寬宏＋年代）。研究與實測都做完了，程式碼還沒動。每一份都是完整的實作規格，照順序用新的 session 實作：
+
+1. [PLAN-2-ibon.md](PLAN-2-ibon.md)：ibon（只收娛樂類）。不依賴戲劇分類，可以先做。另外會修 `parsePriceFromText` 兩個實測到的 bug。
+2. [PLAN-3-opentix.md](PLAN-3-opentix.md)：OPENTIX（音樂劇、現代戲劇、流行、爵士、世界音樂）。依賴上面「舞台劇／音樂劇分類」這個基礎（**已完成**）。
+3. [PLAN-4-kham-era.md](PLAN-4-kham-era.md)：寬宏＋年代（演唱會、音樂劇、戲劇），共用一套 adapter。同樣依賴上面的分類基礎（**已完成**）。
 
 Max 已經拍板的範圍：同場館合併卡片、戲劇只收音樂劇＋現代戲劇（不收兒童劇、戲曲、脫口秀）、OPENTIX 音樂只收流行／爵士／世界、寬宏／年代不收「音樂」類（多為古典和社區音樂會）。
 

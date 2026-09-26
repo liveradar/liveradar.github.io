@@ -1,4 +1,5 @@
 import { splitDate, formatOnSaleCountdown, formatOnSaleDateTime, daysUntil } from "./format.js";
+import { upcomingSessions } from "./runs.js";
 
 function escapeHtml(s) {
   return String(s)
@@ -36,6 +37,28 @@ export function displayTitle(event) {
   return event.title_raw;
 }
 
+// "YYYY-MM-DD" -> "M/D", same no-leading-zero convention splitDate() already
+// uses for a card's own date badge.
+function shortDate(isoDate) {
+  const [, m, d] = isoDate.split("-");
+  return `${Number(m)}/${Number(d)}`;
+}
+
+/**
+ * A theater/musical run's (PLAN-1-theater-runs.md) "🎭 檔期 …" line, or null
+ * for a plain single-session event — including a run that's down to its
+ * last upcoming performance, which should look exactly like an ordinary
+ * card, not "檔期 10/25–10/25・共 1 場".
+ */
+function runSessionsLine(event) {
+  if (!event.sessions) return null;
+  const upcoming = upcomingSessions(event);
+  if (upcoming.length <= 1) return null;
+  const first = upcoming[0].date;
+  const last = upcoming[upcoming.length - 1].date;
+  return `🎭 檔期 ${shortDate(first)}–${shortDate(last)}・共 ${upcoming.length} 場`;
+}
+
 /**
  * Renders one event card as an HTML string, matching the markup in styles/main.css.
  * `pinned` doubles as "is favorited" — filter.js only sets it true for events
@@ -59,8 +82,12 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
   // the old "·"-joined venue/city/time blob so the two kinds of information
   // (where vs. when) read as distinct fields instead of one run-on line.
   const locationText = [event.venue, event.city].filter(Boolean).map(escapeHtml).join(" · ");
+  const sessionsLine = runSessionsLine(event);
+  // A multi-session run's own time is just its NEXT show, not the only one —
+  // "下一場" says that instead of implying this is the whole story.
+  const timeLabel = sessionsLine ? `下一場 ${event.time}` : event.time;
   const metaText = event.time
-    ? `📍 ${locationText}　🕐 ${escapeHtml(event.time)}`
+    ? `📍 ${locationText}　🕐 ${escapeHtml(timeLabel)}`
     : `📍 ${locationText}`;
 
   // A "announced but not yet on sale" event previously only got a badge when
@@ -160,6 +187,7 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
             ? `<a href="#" style="font-size:12px;font-weight:700;" data-updated-fields="${escapeHtml(event.updated_fields.join("、"))}">查看變更內容 →</a>`
             : ""
         }
+        ${sessionsLine ? `<div class="event-meta">${sessionsLine}</div>` : ""}
         <div class="event-meta">${metaText}</div>
         ${onSaleBadge}
         ${remindButton}

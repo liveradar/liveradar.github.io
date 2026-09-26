@@ -281,3 +281,20 @@ test("dedupe: id stability — an already-correct matinee/evening split (6 hours
   assert.equal(a.id, `${baseId}-day`);
   assert.equal(b.id, `${baseId}-evening`);
 });
+
+test("dedupe (PLAN-1-theater-runs.md): an event that already carries `sessions` (a run event from scripts/runs.mjs's groupRuns()) passes straight through, with its own id untouched — no cross-source merge, no time-bucket splitting", () => {
+  const run = makeEvent({
+    id: "existing-run-id",
+    sessions: [{ date: "2026-10-24", time: "14:30", status: "on_sale" }, { date: "2026-10-25", time: "19:30", status: "on_sale" }],
+  });
+  const [result] = dedupe([run]);
+  assert.equal(result, run, "must be the exact same object, not rebuilt via mergeGroup");
+});
+
+test("dedupe: a run event and an unrelated plain event in the same batch don't interfere with each other", () => {
+  const run = makeEvent({ id: "run-id", title_raw: "Run", sessions: [{ date: "2026-10-24", time: "14:30", status: "on_sale" }] });
+  const plain = makeEvent({ time: "19:30" });
+  const results = dedupe([run, plain]);
+  assert.equal(results.length, 2);
+  assert.ok(results.includes(run));
+});

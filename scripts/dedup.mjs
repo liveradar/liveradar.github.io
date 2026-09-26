@@ -173,9 +173,19 @@ function splitByCluster(group, baseId, bucket) {
  * @returns {object[]} deduped Event[] with id/merged_ids/sources/ticket_url set.
  */
 export function dedupe(events) {
+  // 2026-09-26 (PLAN-1-theater-runs.md): a run event (scripts/runs.mjs's
+  // groupRuns(), already merged across all its sessions) carries its own
+  // stable `sessions`-derived id and must not go through cross-source merge
+  // or the day/evening time-bucket splitting below — both exist to solve a
+  // different problem (the SAME real-world show reported inconsistently by
+  // different platforms/adapters) that run-grouping already solved for
+  // category events, keyed on run_key instead of headliner+date+venue.
+  const passthrough = events.filter((e) => e.sessions);
+  const rest = events.filter((e) => !e.sessions);
+
   const groups = new Map(); // baseId (headliner+date+venue) -> raw event[]
 
-  for (const event of events) {
+  for (const event of rest) {
     const baseId = computeId(event.headliners[0] ?? event.title_raw, event.date, event.venue);
     if (!groups.has(baseId)) groups.set(baseId, []);
     groups.get(baseId).push(event);
@@ -214,5 +224,5 @@ export function dedupe(events) {
     }
   }
 
-  return results;
+  return [...passthrough, ...results];
 }

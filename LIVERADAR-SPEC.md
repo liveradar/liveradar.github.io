@@ -109,7 +109,7 @@ type Event = {
   price_min: number | null;
   price_max: number | null;
   status: "announced" | "on_sale" | "sold_out" | "postponed" | "cancelled" | "ended";
-  tags_type: string[];     // 專場/巡迴/拼盤/音樂祭/見面會/簽唱會/音樂劇/古典（可複選，通常 1 個）
+  tags_type: string[];     // 專場/巡迴/拼盤/音樂祭/見面會/簽唱會/音樂劇/舞台劇/古典（可複選，通常 1 個）
   tags_origin: string[];   // 本地/亞洲其他/日韓/歐美（2026-09-21 前叫「海外」，見 §3.2 附註）
   ticket_url: string;      // 優先序最高來源的連結
   sources: {               // 保留全部原始來源連結（AC-12 要求）
@@ -120,6 +120,12 @@ type Event = {
   first_seen_at: string;   // 首次被抓到的時間戳，供「新上架」判定 FR-23
   updated_at: string;      // 最近一次欄位有變動的時間戳，供 FR-34 收藏更新提示
   updated_fields?: string[]; // 這次更新變動了哪些欄位（時間/場館/狀態…）
+  // 2026-09-26：只有舞台劇/音樂劇這種「同一檔戲、同一場館演很多場」的節目才有
+  // 下面這四個欄位（見 §3.5）——一般單場次的演出完全不會出現這幾個 key。
+  category?: "音樂劇" | "舞台劇"; // adapter 自己判斷的分類，非 guessTagsType() 猜的
+  run_key?: string;        // 同一檔戲＋同一場館的穩定識別字串，不含日期
+  date_end?: string;       // 最後一場的日期，同 date 格式
+  sessions?: { date: string; time: string | null; status: string }[];
 };
 ```
 
@@ -194,6 +200,20 @@ type UserPrefs = {
 
 `excluded_artists` / `excluded_types` / `mute_keywords` 都是「規則」，不是「當下隱藏的場次快照」——這是 AC-42/AC-44 能通過的關鍵：規則存的是條件本身，每次渲染時即時比對，次日資料更新後新場次一樣會被同一條規則擋下，不需要重新操作。
 
+### 3.5 多場次「檔期」事件（舞台劇／音樂劇，2026-09-26）
+
+**問題**：OPENTIX 光是「戲劇-音樂劇」跟「戲劇-現代戲劇」兩個分類，9/25 實測就有 208 檔節目、744 個場次，其中一檔（《神隱少女》舞台劇）自己就演了約 50 場——照既有「一場一張卡」的模型，這種節目會把時間表灌爆。
+
+**做法**：來源分類確定是音樂劇/舞台劇的 adapter（目前只有規劃中的 OPENTIX、寬宏、年代，還沒有任何一個上線），在自己的 RawEvent 上額外標記 `category`（"音樂劇" 或 "舞台劇"）跟 `run_key`（同一檔戲＋同一場館的穩定字串，不含日期，例如 `opentix:2067174521020350465:臺北市藝文推廣處城市舞台`）。`normalize.mjs` 把這兩個欄位原封不動帶到輸出的 Event 上，`tags_type` 也直接用 `category`，不再讓 `guessTagsType()` 用標題關鍵字猜（音樂劇標題常見的「…巡演」會被誤猜成「巡迴」）。
+
+新模組 `scripts/runs.mjs` 的 `groupRuns()` 在 `fetch.mjs` 裡排在 `normalize()` 之後、`dedupe()` 之前：把所有帶相同 `run_key` 的場次合併成**一筆** run 事件，帶一個 `sessions` 陣列（每筆 `{date, time, status}`）取代單一的 date/time；`date`/`time` 是「即將到來場次裡最早的一場」，`date_end` 是最後一場；`status`/`on_sale_at` 依「任一即將到來場次 on_sale → on_sale，否則 announced（取最早的 on_sale_at）→ announced，否則 sold_out → sold_out，都沒有 → ended」的優先序彙整；`price_min`/`price_max` 取全部場次（含已過去的）的最小/最大值；`id` 只由 `run_key` 算出（`computeId("run", run_key, "")`），刻意不含日期——如果 id 隨著場次演完而改變，使用者的收藏會在某天早上突然消失（見 HANDOFF 9/25 那次真實資料遺失事件的同類教訓）。
+
+`dedup.mjs`／`diff.mjs` 配合調整：`dedupe()` 一開始就把已經帶 `sessions` 的 run 事件挑出來直接放進結果，不參與跨來源合併、也不跑日/晚場時段拆分（那套機制解決的是「同一場秀被不同平台各自報一次」，run 事件用 `run_key` 已經解決了同一個問題，不需要疊加）；`diff.mjs` 的「已更新」欄位監看清單，run 事件改看 `date_end` 而不是 `date`/`time`——後者只是「即將到來的下一場」，會隨著場次一場場演完自然往前移，用原本的監看清單會讓收藏頁每隔幾天就跳出一次假的「已更新」。`fetch.mjs` 也讓帶 `category` 的事件不會被記進 `needs-review.json`——劇團／製作單位的名字不是 `artists.yml` 在追蹤的「藝人」，硬塞進待整理清單只會製造大量沒人會去處理的項目。
+
+**前端**：`data/events.json` 一天只更新一次，但場次每天都在演完，所以「哪一場是即將到來的下一場」不能只靠後端算好的快照，要在瀏覽器端即時重算。新模組 `src/runs.js` 的 `materializeRun(event)` 把一個 run 事件的 `date`/`time` 換成「當下即將到來的下一場」（或者如果全部場次都演完了，換成最後一場，讓既有的 `isPast()` 自然把它歸類成已結束）；`src/app.js` 的 `loadEvents()` 對每一筆事件都跑一次這個函式，之後所有既有邏輯（分組、排序、搜尋、新上架、「距今 N 天」）完全不用知道 run 事件的存在，直接沿用。月份篩選跟收藏月曆這兩處會用到「這張卡橫跨哪些月份/哪些日期」，改用 `eventDates(event)`（run 事件回傳全部即將到來場次的日期，否則回傳 `[event.date]`）而不是單看 `event.date`。卡片本身（`render.js`）在即將到來場次數 > 1 時多顯示一行「🎭 檔期 10/16–10/25・共 6 場」，時間欄位也改標成「下一場 19:30」；只剩最後一場時卡片外觀跟一般卡片完全一樣，不會露出「檔期」字樣。
+
+**已知限制**：同一檔戲如果同時在兩個不同平台上架（例如 OPENTIX 跟寬宏都賣同一齣戲的票），會出現兩張卡——`run_key` 是各平台自己的節目 id 組出來的，天生不會跨平台重疊，要真的合併需要另外比對「標題相似＋同場館＋日期區間重疊」，目前沒有做。
+
 ---
 
 ## 4. 資料採集 Pipeline
@@ -219,10 +239,11 @@ id      = sha1( normalize(headliner) + "|" + date + "|" + venue_normalized )
 3. 失敗 → 記錄 `sources.json` 該來源 `last_error`，`last_success` 維持不變，該來源本次沿用 `events.json` 中屬於它的舊資料（AC-11 負向情境）。
 4. 成功但筆數為 0 且上次 > 0 → 呼叫 `notify.mjs` 開 GitHub issue（AC-14），同時前端從 `sources.json` 的 `status` 欄位讀出異常標示（ErrorState 畫面）。
 5. `normalize.mjs`：日期／時間／價格字串轉換為 §3.1 型別；標題丟進簡單的正則＋`artists.yml` 比對抽取 `headliners`/`lineup`；抽不出來的進 `needs-review.json`（FR-16）。
-6. `dedup.mjs`：套用 §4.1 演算法。
-7. `diff.mjs`：與前一版 `events.json` 比較 `id` 集合與欄位值，產生 `digest.json`（新增/更新/欄位變動列表），供首頁「新上架」與收藏頁「已更新」使用。
-8. 若 `digest.json` 顯示零差異 → **不 commit**（NFR-04 精神：沒必要就不動 repo，Pages 也不必重新部署）。
-9. 有差異 → commit `data/*.json`，GitHub Pages 自動重新部署。
+6. `scripts/runs.mjs` 的 `groupRuns()`：把帶 `run_key` 的舞台劇／音樂劇場次合併成單筆多場次事件（見 §3.5）。沒有 `run_key` 的事件原樣通過，這步驟對現有的一場一張卡演出完全沒有影響。
+7. `dedup.mjs`：套用 §4.1 演算法（已經是 `sessions` 事件的 run 直接跳過這一步，見 §3.5）。
+8. `diff.mjs`：與前一版 `events.json` 比較 `id` 集合與欄位值，產生 `digest.json`（新增/更新/欄位變動列表），供首頁「新上架」與收藏頁「已更新」使用。
+9. 若 `digest.json` 顯示零差異 → **不 commit**（NFR-04 精神：沒必要就不動 repo，Pages 也不必重新部署）。
+10. 有差異 → commit `data/*.json`，GitHub Pages 自動重新部署。
 
 **實作備註（M10，2026-09-16）**：
 - 步驟 3/4 的判斷邏輯抽成純函式 `scripts/source-status.mjs` 的 `classifySourceRun()`，方便直接單元測試，不用整條 pipeline 跑一次才能驗證。

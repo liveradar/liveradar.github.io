@@ -66,6 +66,7 @@ import { buildOnSaleReminderIcs } from "./ics.js";
 import { renderEventList, renderFavoritesList, renderNewArrivalsList, renderEmptyList, displayTitle } from "./render.js";
 import { splitDate, daysSince } from "./format.js";
 import { buildMonthGrid, addMonths } from "./calendar.js";
+import { materializeRun, eventDates } from "./runs.js";
 import {
   openExcludeMenu,
   confirmBlockArtist,
@@ -106,7 +107,13 @@ async function loadEvents() {
     const candidates = e.possible_real_ids ?? [e.id];
     return !candidates.some((id) => realIds.has(id));
   });
-  return [...realEvents, ...manualEvents];
+  // A theater run's date/time (PLAN-1-theater-runs.md) is only refreshed
+  // once a day by the scheduled fetch, but its sessions keep passing every
+  // day in between — materialize "today's view" of it (next upcoming
+  // session) here, once, so every downstream isPast()/sort/group call just
+  // works without needing to know runs exist at all. materializeRun() is a
+  // no-op for a non-run event (no `sessions`), manual events included.
+  return [...realEvents, ...manualEvents].map((e) => materializeRun(e));
 }
 
 function groupByDate(items) {
@@ -145,7 +152,7 @@ const CITY_DISPLAY_ORDER = [
 const PRICE_PRESETS = [500, 1000, 2000, 3000];
 // Fixed display order, same spirit as CITY_DISPLAY_ORDER above — not every
 // value necessarily exists in the current data, filtered down per-call.
-const TYPE_DISPLAY_ORDER = ["專場", "拼盤", "音樂祭", "見面會", "簽唱會", "音樂劇", "巡迴", "古典"];
+const TYPE_DISPLAY_ORDER = ["專場", "拼盤", "音樂祭", "見面會", "簽唱會", "音樂劇", "舞台劇", "巡迴", "古典"];
 // 2026-09-23 (Max: "日韓分類可以分開成日本韓國兩個類別"): split what used
 // to be one combined "日韓" bucket into separate 日本/韓國 filter chips —
 // every artists.yml entry that was tagged 日韓 got individually
@@ -167,7 +174,10 @@ function cityFilterOptions(events) {
 
 function monthFilterOptions(events) {
   const upcoming = events.filter((e) => !isPast(e.date));
-  const months = Array.from(new Set(upcoming.map((e) => e.date.slice(0, 7)))).sort();
+  // eventDates(), not e.date alone: a theater run spanning several months
+  // (PLAN-1-theater-runs.md) must offer every month it still has a session
+  // in, not just the month of its next show.
+  const months = Array.from(new Set(upcoming.flatMap((e) => eventDates(e).map((d) => d.slice(0, 7))))).sort();
   return [
     { label: "全部月份", value: null },
     ...months.map((m) => ({ label: `${m.slice(0, 4)} 年 ${Number(m.slice(5))}月`, value: m })),
@@ -655,8 +665,14 @@ const CAL_WEEKDAYS = ["日", "一", "二", "三", "四", "五", "六"];
 function renderFavCalendar(calendarEl, favorited, view) {
   const byDate = new Map();
   for (const event of favorited) {
-    if (!byDate.has(event.date)) byDate.set(event.date, []);
-    byDate.get(event.date).push(event);
+    // eventDates(), not just event.date: a favorited theater run should get
+    // a dot on EVERY day it still has an upcoming session, not just the
+    // next one (PLAN-1-theater-runs.md) — a non-run event's eventDates() is
+    // just [event.date], so this is a no-op change for every other card.
+    for (const d of eventDates(event)) {
+      if (!byDate.has(d)) byDate.set(d, []);
+      byDate.get(d).push(event);
+    }
   }
 
   const weeks = buildMonthGrid(view.year, view.month);
@@ -750,8 +766,12 @@ async function initFavorites(container) {
         // this month's first favorited day instead, or clear the selection
         // if it has none.
         const prefix = `${year}-${String(month).padStart(2, "0")}`;
-        const firstInMonth = favorited.find((e) => e.date.startsWith(prefix));
-        calendarView = { year, month, selectedDate: firstInMonth?.date ?? null };
+        // eventDates(), not e.date: a run's NEXT session might be in a
+        // different month than one it also plays in — searching every date
+        // it's on (not just event.date) is what actually finds a match in
+        // the month just navigated to (PLAN-1-theater-runs.md).
+        const matchDate = favorited.flatMap((e) => eventDates(e)).find((d) => d.startsWith(prefix));
+        calendarView = { year, month, selectedDate: matchDate ?? null };
         renderCalendarView();
       });
     });
@@ -778,7 +798,7 @@ async function initFavorites(container) {
     } else if (!calendarView) {
       const today = new Date();
       calendarView = { year: today.getFullYear(), month: today.getMonth() + 1, selectedDate: null };
-    } else if (calendarView.selectedDate && !favorited.some((e) => e.date === calendarView.selectedDate)) {
+    } else if (calendarView.selectedDate && !favorited.some((e) => eventDates(e).includes(calendarView.selectedDate))) {
       // The selected day's only event(s) just got unfavorited (e.g. from the
       // exact card this calendar is showing) — the date it points at no
       // longer has anything, so re-render() would otherwise call

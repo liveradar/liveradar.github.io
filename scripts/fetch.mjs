@@ -11,6 +11,7 @@ import * as billboard from "./adapters/billboard.mjs";
 import * as manual from "./adapters/manual.mjs";
 import { loadArtists, loadVenues, normalize } from "./normalize.mjs";
 import { dedupe } from "./dedup.mjs";
+import { groupRuns } from "./runs.mjs";
 import { diff } from "./diff.mjs";
 import { resetProgressLog, logProgress } from "./progress-log.mjs";
 import { notifySourceAnomaly } from "./notify.mjs";
@@ -193,7 +194,12 @@ async function runAdapter(adapter, context) {
         // artist up and add it to artists.yml so future events get proper
         // tags_origin/exclude-by-artist support, it just no longer blocks
         // this event from being visible in the meantime.
-        if (result.event.headliners.length === 0) {
+        // A theater/musical listing (rawEvent.category set) is never held
+        // for artist assignment — a production/theater-company name isn't
+        // an "artist" artists.yml tracks, and there are enough of these
+        // (PLAN-1-theater-runs.md) to flood the review queue with entries
+        // nobody is ever going to resolve.
+        if (result.event.headliners.length === 0 && !result.event.category) {
           needsReview.push({
             raw_id: raw.raw_id,
             title_raw: raw.title_raw ?? null,
@@ -268,7 +274,12 @@ async function main() {
     }
   }
 
-  const deduped = dedupe(normalizedEvents);
+  // groupRuns() before dedupe(): collapses same-production/same-venue
+  // theater listings into one many-sessions card first (PLAN-1-theater-runs.md),
+  // so dedupe()'s cross-source merge and day/evening time-bucket splitting
+  // never see the individual per-performance events at all.
+  const grouped = groupRuns(normalizedEvents);
+  const deduped = dedupe(grouped);
   const { events, digest } = diff(previousEvents, deduped);
 
   // 2026-09-22 real bug: a single adapter run can legitimately produce the

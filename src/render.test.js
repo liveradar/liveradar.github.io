@@ -111,3 +111,37 @@ test("renderEventCard: no lottery badge when is_lottery is false/undefined", () 
   const html = renderEventCard(makeEvent({ is_lottery: false }));
   assert.doesNotMatch(html, /badge-lottery/);
 });
+
+test("renderEventCard (PLAN-1-theater-runs.md): a theater run with multiple upcoming sessions shows the 檔期 line and '下一場' time label", () => {
+  const run = makeEvent({
+    title_raw: "《神隱少女》舞台劇",
+    tags_type: ["舞台劇"],
+    date: "2099-10-24",
+    time: "14:30",
+    sessions: [
+      { date: "2099-10-24", time: "14:30", status: "on_sale" },
+      { date: "2099-10-30", time: "19:30", status: "on_sale" },
+      { date: "2099-11-10", time: "14:30", status: "on_sale" },
+    ],
+  });
+  const html = renderEventCard(run);
+  assert.match(html, /🎭 檔期 10\/24–11\/10・共 3 場/);
+  assert.match(html, /🕐 下一場 14:30/);
+});
+
+test("renderEventCard: a theater run down to its LAST upcoming session looks like an ordinary card — no 檔期 line, no '下一場' prefix", () => {
+  const run = makeEvent({
+    title_raw: "《神隱少女》舞台劇",
+    tags_type: ["舞台劇"],
+    date: "2099-11-10",
+    time: "14:30",
+    sessions: [
+      { date: "2020-01-01", time: "14:30", status: "ended" }, // already past
+      { date: "2099-11-10", time: "14:30", status: "on_sale" }, // the one remaining upcoming session
+    ],
+  });
+  const html = renderEventCard(run);
+  assert.doesNotMatch(html, /🎭 檔期/);
+  assert.doesNotMatch(html, /下一場/);
+  assert.match(html, /🕐 14:30/);
+});

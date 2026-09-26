@@ -131,6 +131,29 @@ test("normalize(): Billboard Live's venue_raw (KKTIX-shaped 'venue / address') r
   assert.equal(event.venue, "Billboard Live TAIPEI");
 });
 
+test("normalize() (PLAN-1-theater-runs.md): rawEvent.category wins outright over guessTagsType() — a title containing '巡演' would otherwise guess 巡迴", () => {
+  const raw = makeRaw({
+    title_raw: "《Crash, Boom Boom Love!》全新巡演音樂劇",
+    category: "音樂劇",
+    run_key: "opentix:123:某劇場",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.deepEqual(event.tags_type, ["音樂劇"]);
+});
+
+test("normalize(): category/run_key are carried through onto the output event", () => {
+  const raw = makeRaw({ category: "舞台劇", run_key: "opentix:123:某劇場" });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.category, "舞台劇");
+  assert.equal(event.run_key, "opentix:123:某劇場");
+});
+
+test("normalize(): with no category/run_key, the output event has neither key at all (not undefined-valued, genuinely absent)", () => {
+  const { event } = normalize(makeRaw(), artistsYml);
+  assert.equal("category" in event, false);
+  assert.equal("run_key" in event, false);
+});
+
 test("parseIndievoxDate: prefers the 'start' time over the earlier 'open' (doors) time", () => {
   const result = parseIndievoxDate("2026.09.19 (Sat.) 19:30 open / 20:00 start");
   assert.deepEqual(result, { date: "2026-09-19", time: "20:00" });

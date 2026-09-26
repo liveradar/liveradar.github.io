@@ -1079,13 +1079,25 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
       price_min: min,
       price_max: max,
       status,
-      tags_type: guessTagsType(rawEvent.title_raw, headliners.length),
+      // 2026-09-26 (PLAN-1-theater-runs.md): a source that already classified
+      // this listing as 音樂劇/舞台劇 (OPENTIX's own category, 寬宏/年代's own
+      // category id, ...) wins outright — guessTagsType()'s keyword guessing
+      // (e.g. a title containing "巡演" landing on 巡迴) is a fallback for
+      // sources with no real category of their own, not something that
+      // should second-guess a source's explicit classification.
+      tags_type: rawEvent.category ? [rawEvent.category] : guessTagsType(rawEvent.title_raw, headliners.length),
       tags_origin: originTags,
       is_lottery: isGeneralTicketLottery(rawEvent.title_raw, rawEvent.price_text_raw ?? ""),
       ticket_url: rawEvent.url,
       sources: [{ name: rawEvent.source_name, url: rawEvent.url, raw_id: rawEvent.raw_id }],
       first_seen_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
+      // Only present for a theater/musical listing — see scripts/runs.mjs's
+      // groupRuns(), which merges every event sharing the same run_key
+      // (same production, same venue) into one many-sessions card instead of
+      // one card per performance.
+      ...(rawEvent.category ? { category: rawEvent.category } : {}),
+      ...(rawEvent.run_key ? { run_key: rawEvent.run_key } : {}),
     },
   };
 }
