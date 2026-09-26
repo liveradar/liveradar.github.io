@@ -753,7 +753,17 @@ export async function fetchEventDetail(url, browser, knownRegisterStatus) {
         (await resolveFromChildEvents($, url, jsonLd)) ??
         ticketTableStatus(tickets_raw) ??
         (await fetchRegisterStatus(browser, raw_id)));
-  return { raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, register_status, source_name: name };
+  // 2026-09-26 (花澤香菜 台北公演 real bug, Max: "是明明就今天演出...你標尚未
+  // 開賣"): a group page (see resolveFromChildEvents above) is itself a real
+  // page the org listing/search/category-browse strategies discover and
+  // fetch just like any other event — nothing before this point stops it
+  // from becoming its OWN card, duplicating whichever of its children also
+  // got discovered separately (as both of this show's sessions were). Kept
+  // as an internal-only field, stripped in fetchWithBrowser's post-pass
+  // (isRedundantGroupHub) once it's known whether those children really did
+  // turn up as their own results this run.
+  const _childIds = findChildEventIds($, url);
+  return { raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, register_status, source_name: name, _childIds };
 }
 
 /**
@@ -812,6 +822,26 @@ export function ticketTableStatus(ticketsRaw) {
 const MAX_CHILD_EVENTS = 8;
 
 /**
+ * The `/events/<child>/registrations/new` links a KKTIX "group" page (see
+ * resolveFromChildEvents below) uses to point at its real, separately
+ * sellable sub-events. Split out from resolveFromChildEvents (2026-09-26)
+ * so a group page's child ids can also be used for the redundant-hub filter
+ * in fetchWithBrowser, without a second, slightly-different regex to keep
+ * in sync.
+ */
+export function findChildEventIds($, url) {
+  const ownId = url.split("/").filter(Boolean).pop();
+  return [
+    ...new Set(
+      $('a[href*="/registrations/new"]')
+        .toArray()
+        .map((a) => $(a).attr("href")?.match(/\/events\/([^/?#]+)\/registrations/)?.[1])
+        .filter((id) => id && id !== ownId),
+    ),
+  ].slice(0, MAX_CHILD_EVENTS);
+}
+
+/**
  * 2026-09-24 (the 15 events whose register_info kept failing, checked one by
  * one in a real browser — 6 of them showed the wrong status on LiveRadar):
  * most were NOT ordinary event pages but KKTIX "group" pages — a parent page
@@ -831,14 +861,7 @@ const MAX_CHILD_EVENTS = 8;
  */
 export async function resolveFromChildEvents($, url, jsonLd) {
   const ownId = url.split("/").filter(Boolean).pop();
-  const childIds = [
-    ...new Set(
-      $('a[href*="/registrations/new"]')
-        .toArray()
-        .map((a) => $(a).attr("href")?.match(/\/events\/([^/?#]+)\/registrations/)?.[1])
-        .filter((id) => id && id !== ownId),
-    ),
-  ].slice(0, MAX_CHILD_EVENTS);
+  const childIds = findChildEventIds($, url);
   if (childIds.length === 0) return null;
 
   const children = [];
@@ -928,8 +951,9 @@ async function resolveKnownEvent(raw_id, url, browser, warnings, previous) {
   // Cloudflare-protected register_info — register_info is only the fallback
   // for the rare page whose `offers` is empty.
   let registerStatus = null;
+  let $ = null;
   try {
-    const $ = cheerio.load(await fetchHtml(url));
+    $ = cheerio.load(await fetchHtml(url));
     const jsonLd = extractJsonLdEvent($);
     registerStatus =
       resolveFromJsonLd(jsonLd) ??
@@ -947,9 +971,13 @@ async function resolveKnownEvent(raw_id, url, browser, warnings, previous) {
   const ended = registerStatus === "SOLD_OUT" || registerStatus === "REGISTRATION_CLOSED";
   const opened = registerStatus === "IN_STOCK" && previous?.status === "announced";
   if (!ended && !opened) {
-    // Hand the signal to fetch.mjs's refreshedStatus too, so e.g. an on_sale
-    // event that has gone back to COMING_SOON is still corrected cheaply.
-    return { raw_id, url, title_raw: null, source_name: name, reuse_previous: true, sale_signal: registerStatus };
+    // _childIds (2026-09-26, see fetchEventDetail's own comment): computed
+    // here too, from the same $ this branch already loaded, so a known
+    // group-hub page whose children turned up separately gets dropped by
+    // fetchWithBrowser's post-pass instead of sitting there forever with a
+    // merely-refreshed (but still duplicate) sale_signal.
+    const _childIds = $ ? findChildEventIds($, url) : [];
+    return { raw_id, url, title_raw: null, source_name: name, reuse_previous: true, sale_signal: registerStatus, _childIds };
   }
   await sleep(REQUEST_DELAY_MS);
   logProgress(`known event ${raw_id} now reports ${registerStatus}, re-fetching detail instead of reusing stale data`);
@@ -959,6 +987,28 @@ async function resolveKnownEvent(raw_id, url, browser, warnings, previous) {
     warnings.push(`event detail failed for ${url}: ${err.message}`);
     return null;
   }
+}
+
+/**
+ * 2026-09-26 real bug (花澤香菜 台北公演: its group/hub page — e6d90f77, no
+ * tickets of its own, links to 【午場】0bc26b19 and 【晚場】11da7a3a — showed
+ * up as a THIRD card stuck on 尚未開賣 even after both real sessions had
+ * been on sale for days; Max noticed it was showing that status for a show
+ * happening THAT DAY). A hub page is safe to drop entirely — not just given
+ * a better register_status via resolveFromChildEvents — only once every one
+ * of its children has ALSO turned up as its own result this run: dropping
+ * it unconditionally would delete the only listing LiveRadar has for shows
+ * whose children (for whatever organizer-side reason) never get discovered
+ * separately by any of the 4 strategies. `raw.tickets_raw` is checked too
+ * (not just childIds) so an ordinary event page that merely happens to link
+ * a *different* show's registration somewhere in its body text is never
+ * mistaken for a hub — a real hub's own page has no ticket tiers at all.
+ */
+export function isRedundantGroupHub(raw, discoveredRawIds) {
+  const childIds = raw._childIds ?? [];
+  if (childIds.length === 0) return false;
+  if (raw.tickets_raw && raw.tickets_raw.length > 0) return false;
+  return childIds.every((id) => discoveredRawIds.has(id));
 }
 
 export async function fetch(knownRawIds = new Map()) {
@@ -1202,5 +1252,20 @@ async function fetchWithBrowser(browser, knownRawIds) {
     console.warn(`[kktix] ${warnings.length} sub-request(s) failed:\n` + warnings.join("\n"));
   }
 
-  return results;
+  // See isRedundantGroupHub's doc comment — drop a group/hub page only once
+  // every child it links to has ALSO turned up as its own result this run.
+  const discoveredRawIds = new Set(results.map((r) => r.raw_id));
+  const deduped = [];
+  let droppedHubs = 0;
+  for (const { _childIds, ...raw } of results) {
+    if (isRedundantGroupHub({ ...raw, _childIds }, discoveredRawIds)) {
+      droppedHubs += 1;
+      logProgress(`dropping redundant group-hub page ${raw.raw_id} — all ${_childIds.length} child event(s) already discovered separately`);
+      continue;
+    }
+    deduped.push(raw);
+  }
+  if (droppedHubs > 0) logProgress(`KKTIX: dropped ${droppedHubs} redundant group-hub page(s)`);
+
+  return deduped;
 }

@@ -1,6 +1,15 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { needsRegisterCheck, runStats, SEARCH_VENUES, saleStatusFromOffers, ticketTableStatus } from "./adapters/kktix.mjs";
+import * as cheerio from "cheerio";
+import {
+  needsRegisterCheck,
+  runStats,
+  SEARCH_VENUES,
+  saleStatusFromOffers,
+  ticketTableStatus,
+  findChildEventIds,
+  isRedundantGroupHub,
+} from "./adapters/kktix.mjs";
 
 const venueRule = (keyword) => SEARCH_VENUES.find((v) => v.keyword === keyword).match;
 
@@ -92,4 +101,48 @@ test("ticketTableStatus: any unmarked tier means unknown, never sold out (Max: �
   assert.equal(ticketTableStatus([{ closed: true }, { closed: false }]), null);
   assert.equal(ticketTableStatus([{ closed: false }]), null);
   assert.equal(ticketTableStatus([]), null);
+});
+
+// 2026-09-26 real bug (花澤香菜 台北公演 e6d90f77: a group/hub page with no
+// tickets of its own, linking to 【午場】0bc26b19 and 【晚場】11da7a3a, showed
+// up as its own THIRD card stuck on 尚未開賣 even though both real sessions
+// had been on sale for days — Max caught it because the status made no
+// sense for a show happening that same day).
+function pageWithChildLinks(hrefs) {
+  const links = hrefs.map((h) => `<a href="${h}">下一步</a>`).join("");
+  return cheerio.load(`<html><body>${links}</body></html>`);
+}
+
+test("findChildEventIds: real 花澤香菜 hub page markup — absolute kktix.com links, own id excluded", () => {
+  const $ = pageWithChildLinks([
+    "https://kktix.com/events/0bc26b19/registrations/new",
+    "https://kktix.com/events/11da7a3a/registrations/new",
+    "https://welcome-music.kktix.cc/events/e6d90f77/registrations/new", // a self-link some pages also render
+  ]);
+  assert.deepEqual(findChildEventIds($, "https://welcome-music.kktix.cc/events/e6d90f77"), ["0bc26b19", "11da7a3a"]);
+});
+
+test("findChildEventIds: an ordinary single-session page with no group links returns empty", () => {
+  const $ = pageWithChildLinks(["https://kktix.com/events/0bc26b19/registrations/new"]);
+  assert.deepEqual(findChildEventIds($, "https://kktix.com/events/0bc26b19"), []);
+});
+
+test("isRedundantGroupHub: real case — both children discovered this run, hub has no tickets of its own -> dropped", () => {
+  const hub = { raw_id: "e6d90f77", tickets_raw: [], _childIds: ["0bc26b19", "11da7a3a"] };
+  assert.equal(isRedundantGroupHub(hub, new Set(["e6d90f77", "0bc26b19", "11da7a3a"])), true);
+});
+
+test("isRedundantGroupHub: a child is missing from this run's results -> kept (only way LiveRadar knows about that session)", () => {
+  const hub = { raw_id: "e6d90f77", tickets_raw: [], _childIds: ["0bc26b19", "11da7a3a"] };
+  assert.equal(isRedundantGroupHub(hub, new Set(["e6d90f77", "0bc26b19"])), false);
+});
+
+test("isRedundantGroupHub: no child links at all -> not a hub, kept regardless of tickets_raw", () => {
+  assert.equal(isRedundantGroupHub({ raw_id: "x", tickets_raw: [], _childIds: [] }, new Set(["x"])), false);
+  assert.equal(isRedundantGroupHub({ raw_id: "x", tickets_raw: [] }, new Set(["x"])), false);
+});
+
+test("isRedundantGroupHub: page has its own ticket tiers -> not a pure hub even if it also links other events, kept", () => {
+  const raw = { raw_id: "x", tickets_raw: [{ price: 1000, closed: false }], _childIds: ["y"] };
+  assert.equal(isRedundantGroupHub(raw, new Set(["x", "y"])), false);
 });
