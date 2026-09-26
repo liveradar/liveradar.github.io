@@ -7901,45 +7901,6 @@
       ]
     },
     {
-      "title_raw": "林鼓子台北粉絲見面會2026",
-      "headliners": [
-        "林鼓子"
-      ],
-      "lineup": [
-        "林鼓子"
-      ],
-      "is_festival": false,
-      "venue": "HANA SPACE花漾展演空間",
-      "city": "台北",
-      "date": "2026-09-27",
-      "time": "14:00",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://digitalidea.kktix.cc/events/2d9b4d89",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://digitalidea.kktix.cc/events/2d9b4d89",
-          "raw_id": "2d9b4d89"
-        }
-      ],
-      "first_seen_at": "2026-09-24T07:19:37.284Z",
-      "updated_at": "2026-09-24T07:29:05.060Z",
-      "id": "41b9c10f1d45386e",
-      "merged_ids": [
-        "41b9c10f1d45386e"
-      ]
-    },
-    {
       "title_raw": "【晚場】林鼓子台北粉絲見面會2026",
       "headliners": [
         "林鼓子"
@@ -8444,45 +8405,6 @@
       "id": "4a2cfc9828732f3b",
       "merged_ids": [
         "4a2cfc9828732f3b"
-      ]
-    },
-    {
-      "title_raw": "瑋瑋 黃挺瑋 Journey 見面會",
-      "headliners": [
-        "黃挺瑋"
-      ],
-      "lineup": [
-        "黃挺瑋"
-      ],
-      "is_festival": false,
-      "venue": "CORNER MAX",
-      "city": "台北",
-      "date": "2026-10-31",
-      "time": "13:00",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://pressplay-inc.kktix.cc/events/df3a9fc3",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://pressplay-inc.kktix.cc/events/df3a9fc3",
-          "raw_id": "df3a9fc3"
-        }
-      ],
-      "first_seen_at": "2026-09-24T07:19:37.287Z",
-      "updated_at": "2026-09-24T07:29:05.063Z",
-      "id": "8c1827f74218d2c9",
-      "merged_ids": [
-        "8c1827f74218d2c9"
       ]
     },
     {
