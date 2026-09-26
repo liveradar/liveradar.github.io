@@ -482,6 +482,23 @@ KKTIX／iNDIEVOX／Ticket Plus 三個來源都用「票價｜」這種格式（�
 
 **不做 incremental fetch**：其他 5 個來源都有 `reuse_previous` 機制跳過已知場次的詳細頁重抓，因為那些詳細頁通常要開 Playwright 頁面、成本高。Billboard Live 整份清單只要 7 個輕量 HTTP 請求（每月一個），每次都整份重新抓取、重新 normalize，狀態自然保持最新，沒有省成本的理由去加這層複雜度。
 
+### 5.9 ibon 端點實測結果（2026-09-26，第 7 個來源，只收「娛樂」類）
+
+**跟現有 6 個來源零重疊**：9/25 實測 ibon「娛樂」類共 30 個活動，逐一比對 `events.json` 完全沒有重疊——KANA-BOON（Legacy Taipei）、時速36公里（PIPE）、厄倫蒂兒（Zepp New Taipei）、青春群像錄（野地方）、山岡晃（SUB LIVE）等真的只在 ibon 上架。
+
+**兩步驟抓取，都是一般 HTTP POST，不需要 Playwright**：`api/Result/GetResultData`（`CategoryCode: "entertainment"`）拿到完整活動清單，但**每個活動只給一筆代表場次**（例如藤本洸大只列出「午場」，晚場不會出現）；完整場次要另外對每個活動打一次 `api/ActivityInfo/GetGameInfoList`，拿到的每一筆「game」帶結構化的 `StartDT`/`EndDT`/`SoldOut`/`CanBuy`。**同一場演出常被拆成好幾個 game**（不同票種或預售階段——BANG YONGGUK 同一時間有 4 個 game），`ibon.mjs` 的 `groupGamesIntoSessions()` 依「(場次開演日期時間, 場館)」合併，再用 `sale-signal.mjs` 的 `combineSaleSignals()` 挑出最樂觀的訊號。
+
+**`normalize.mjs` 新增一種「有結構化訊號、但沒有票種表格」的中間狀態**：ibon 沒有 KKTIX 那種逐票種價格表，但 `GetGameInfoList` 給的 `StartDT`/`CanBuy` 是真實的結構化開賣訊號，不是自由文字。`statusFromTickets()` 新增第四個參數 `rawOnSaleAt`，當 `registerStatus === "COMING_SOON"` 且沒有票種資料時，直接信任這個訊號帶來的開賣時間，不再落到「沒有證據就預設開賣中」的機制。同一條「預設 on_sale」規則（Billboard Live 上線時已經從「是不是 KKTIX」改成「有沒有 `tickets_raw`」，見 §5.8）這次再加一個條件：有 `register_status` 時也不套用這條規則——三個來源（KKTIX 靠票種表、Billboard Live 靠票種表、ibon 靠 `register_status`）各自用不同形狀的「正面證據」跳過這個只給「完全沒有結構化資料」的來源用的推測規則。
+
+**順便修好 `parsePriceFromText` 的兩個真實 bug**（用 ibon 內文實測出來的，影響所有來源的票價解析）：
+
+1. **「票價｜」單獨一行，票種寫在下面幾行**（真實案例：KANA-BOON）——`PRICE_LABEL_RE` 分隔符號後面的 `\s*` 會吃掉換行，抓到下一行當作全部內容，漏掉後面的票種。改成 `[ \t]*`，讓空的同一行不算命中，正確落到既有的「往下讀 5 行」備援。
+2. **標籤跟分隔符號中間文字太長**（真實案例：青春群像錄「票價資訊 Ticket Price：」有 15 個字的中英文雙語間隔）——原本 `{0,10}` 的上限抓不到，退回的備援又跳過標題行本身，誤抓文中一個年份當票價。加寬到 `{0,20}`。**加寬時差點自己造出一個新 bug**：`[^\n｜:：]{0,20}` 這個「間隔」字元類別原本只排除全形的｜／：，沒排除半形的 |／:，在 `{0,10}` 時因為太短沒被踩到，加寬到 20 之後，貪婪比對會跳過文字自己的第一個分隔符號、抓到後面另一個不相干的分隔符號（真實案例：「票價｜TWD 4,280 | 愛心席 TWD 2,140」被抓到「愛心席」那個 `|` 而不是自己的 `｜`）。修法是把半形｜／：也一併排除在間隔字元類別外，確保比對永遠停在標籤自己最近的分隔符號。兩個 bug 都補了用真實內容重現的回歸測試。
+
+**城市判斷**：`parseKktixVenue`（沿用同一套解析器）先從活動內文用 `parseVenueLine`（跟 iNDIEVOX 共用）找場地行帶的地址，再把 `VenueRegion`（API 給的場館名）本身當地址試，最後查 `venues.yml`。9/25 實測用這套邏輯跑 30 筆，只有花漾展演空間 HANASPACE、MOONDOG、台大綜合體育館三個判斷不出城市，逐一 WebSearch 查證地址後補進 `venues.yml`。
+
+**不做 incremental fetch**，理由跟 Billboard Live 一樣：總共約 31 個請求，每次整份重抓成本不高。
+
 ---
 
 ## 6. 前端過濾決策樹（實作規範）

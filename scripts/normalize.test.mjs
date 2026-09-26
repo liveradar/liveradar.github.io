@@ -131,6 +131,31 @@ test("normalize(): Billboard Live's venue_raw (KKTIX-shaped 'venue / address') r
   assert.equal(event.venue, "Billboard Live TAIPEI");
 });
 
+test("normalize() (2026-09-26, ibon adapter): a source with NO ticket table but a structured COMING_SOON signal + on_sale_at keeps 'announced' with that real date, instead of being defaulted to on_sale for 'no evidence'", () => {
+  const raw = makeRaw({
+    source_name: "ibon",
+    date_raw: "2026-11-15 18:00",
+    tickets_raw: [],
+    register_status: "COMING_SOON",
+    on_sale_at: "2026-10-04T13:00:00+08:00",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "announced");
+  assert.equal(event.on_sale_at, "2026-10-04T13:00:00+08:00");
+});
+
+test("normalize(): a non-KKTIX source with NO register_status at all (the other 5 sources) still defaults to on_sale exactly as before — register_status is undefined for them, not something that could accidentally suppress the default", () => {
+  const raw = makeRaw({ source_name: "iNDIEVOX", tickets_raw: [], price_text_raw: "票價：500 元" });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "on_sale");
+});
+
+test("normalize() (ibon): register_status SOLD_OUT with no ticket table still reports sold_out, not announced — the COMING_SOON-specific branch must not swallow the other signals", () => {
+  const raw = makeRaw({ source_name: "ibon", date_raw: "2026-11-15 18:00", tickets_raw: [], register_status: "SOLD_OUT" });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.status, "sold_out");
+});
+
 test("normalize() (PLAN-1-theater-runs.md): rawEvent.category wins outright over guessTagsType() — a title containing '巡演' would otherwise guess 巡迴", () => {
   const raw = makeRaw({
     title_raw: "《Crash, Boom Boom Love!》全新巡演音樂劇",
@@ -461,9 +486,27 @@ test("parsePriceFromText: if a discount tier is the ONLY price mentioned, the re
   assert.deepEqual(parsePriceFromText("票價：身障票 400 元"), { min: null, max: null });
 });
 
-test("parsePriceFromText: Ticket Plus's 'TWD' currency prefix (real bug: '票價｜TWD 4,280 | 愛心席 TWD 2,140' returned null entirely — neither 'NT$'/'$' nor '元' matched 'TWD', and the 愛心席 discount tier is excluded too)", () => {
+test("parsePriceFromText: Ticket Plus's 'TWD' currency prefix (real bug: '票價｜TWD 4,280 | 愛心席 TWD 2,140' returned null entirely — neither 'NT$'/'$' nor '元' matched 'TWD', and the 愛心席 discount tier is excluded too. ALSO doubles as the regression test for 2026-09-25's label-gap widening: a naive {0,20} widen made the gap skip past this text's own first '｜' straight to the SECOND one, in front of '愛心席' instead of 'TWD 4,280')", () => {
   const raw = "票價｜TWD 4,280 | 愛心席 TWD 2,140 (全區座席)";
   assert.deepEqual(parsePriceFromText(raw), { min: 4280, max: 4280 });
+});
+
+test("parsePriceFromText real bug (ibon, KANA-BOON「2026 KANA–BOON「CRITICAL HIT PARADE in TAIPEI」」): '票價｜' sits alone on its own line, empty — the actual tiers are on the FOLLOWING lines, one per line. Used to read only the first following line (2,400) as both min and max, missing 1,800/1,100/2,200 entirely", () => {
+  const raw = [
+    "票價｜",
+    "👑 VIP 票 NT$2,400",
+    "票價$2,400 為＄2,399演出票券＋1元福利票券",
+    "",
+    "⚡ 一般預售票 NT$1,800",
+    "❤️ 愛心票 NT$1,100",
+    "🎫 現場票 NT$2,200",
+  ].join("\n");
+  assert.deepEqual(parsePriceFromText(raw), { min: 1800, max: 2400 });
+});
+
+test("parsePriceFromText real bug (ibon, 青春群像錄初次台北巡演2026): a bilingual label ('票價資訊 Ticket Price：') has 15 filler characters between '票價' and '：', past the old {0,10} gap cap — used to fall through to a nearby stray year number ('2026') and report 2026–2026 instead of the real 1,400–1,600", () => {
+  const raw = "票價資訊 Ticket Price：預售票 NT$ 1,400 | 現場票 NT$ 1,600 | 身障票 NT$ 700（全區站席）※ 身障票僅限網站購票";
+  assert.deepEqual(parsePriceFromText(raw), { min: 1400, max: 1600 });
 });
 
 test("parsePriceFromText: Ticket Plus's bare 'NT' prefix with no $ sign (real bug: '票價：S區 NT4,000...一般區 NT2,500' returned null — 'NT' alone, no '$', matched nothing)", () => {

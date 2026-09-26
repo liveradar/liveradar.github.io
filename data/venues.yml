@@ -115,3 +115,10 @@
   city: 台南
 - match: "金滿山露營山莊"
   city: 苗栗  # WebSearch 查證：苗栗縣公館鄉仁安村仁安219之1號
+# 2026-09-26，新增 ibon 來源（PLAN-2-ibon.md）查 city:未知 時查證補上：
+- match: "HANASPACE"
+  city: 台北  # WebSearch 查證：台北市中正區仁愛路一段17號10樓（花漾展演空間）
+- match: "MOONDOG"
+  city: 台北  # WebSearch 查證：台北市松山區復興南路一段39號9樓（微風廣場9F）
+- match: "台大綜合體育館"
+  city: 台北  # WebSearch 查證：台北市大安區羅斯福路四段一號

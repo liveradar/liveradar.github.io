@@ -438,7 +438,22 @@ function htmlToLines(html) {
 // actual separator, same shape as iNDIEVOX's "票價資訊 Ticket Price：" gap fix
 // (scripts/adapters/indievox.mjs) but this one lives in the SHARED parser, so
 // every source benefits from widening it once here instead of per-adapter.
-const PRICE_LABEL_RE = /(?:票\s*價|門\s*票|票務)[^\n｜:：]{0,10}[：｜|:]\s*([^\n]{1,200})/;
+// 2026-09-25 real bug (ibon, 青春群像錄初次台北巡演2026): "票價資訊 Ticket
+// Price：預售票 NT$ 1,400 | 現場票 NT$ 1,600 | ..." has 15 filler characters
+// between "票價" and "：" (the bilingual "資訊 Ticket Price" gap), past the
+// old {0,10} cap — widened to {0,20} to cover it.
+// Immediately hit a second real bug widening it: the gap class only ever
+// excluded the FULLWIDTH separator chars (｜/：), never the halfwidth ones
+// (|/:) — harmless at {0,10} (nothing that shape fit in 10 chars in
+// practice), but at {0,20} a Ticket Plus real case ("票價|TWD 4,280 | 愛心席
+// TWD 2,140...") let the greedy gap skip straight PAST the label's own
+// first "|" separator and latch onto the SECOND "|" (the one separating
+// price tiers) instead, capturing "愛心席 TWD 2,140..." instead of the real
+// "TWD 4,280 | 愛心席 TWD 2,140...". Excluding all four separator
+// characters from the gap (not just the fullwidth pair) makes the regex
+// always stop at the label's OWN nearest separator, regardless of what
+// other separator-shaped characters show up later in the price text.
+const PRICE_LABEL_RE = /(?:票\s*價|門\s*票|票務)[^\n｜:：|:]{0,20}[：｜|:][ \t]*([^\n]{1,200})/;
 // 2026-09-21 real bug (Max): Ticket Plus writes currency as "TWD 4,280" or
 // "NT4,000" (no $ sign at all) about as often as "NT$"/"$" — neither matched
 // this regex, silently losing the price on every such event. Added both as
@@ -520,12 +535,23 @@ function labelBlockText(plain) {
   const headerRe = /(?:票\s*價|門\s*票|票務)/;
   for (let i = 0; i < lines.length; i++) {
     if (!headerRe.test(lines[i])) continue;
+    // 2026-09-25 real bug (ibon, KANA-BOON: "票價｜" sits alone on its own
+    // line, empty — the actual tiers are on the FOLLOWING lines, one per
+    // line): PRICE_LABEL_RE's [ \t]* fix above (no longer eating the
+    // newline) makes it correctly fail to match here, but this loop used to
+    // start reading at i+1, silently dropping any price text that DOES sit
+    // on the header line itself (past its own "："/"｜"/":") whenever the
+    // header line is long enough to have both — checked separately so
+    // either shape (header-only-then-list, or header-plus-inline-content)
+    // works.
+    const headerTail = lines[i].match(/[：｜|:][ \t]*([^\n]+)/)?.[1]?.trim() || null;
     const rest = lines
       .slice(i + 1, i + 6)
       .map((l) => l.trim())
       .filter(Boolean)
       .join("\n");
-    if (rest) return rest;
+    const combined = [headerTail, rest].filter(Boolean).join("\n");
+    if (combined) return combined;
   }
   return null;
 }
@@ -639,7 +665,7 @@ function parseKktixTimestamp(raw) {
   return `${y}-${mo}-${d}T${h.padStart(2, "0")}:${mi}:00+08:00`;
 }
 
-function statusFromTickets(ticketsRaw, eventDate, registerStatus) {
+function statusFromTickets(ticketsRaw, eventDate, registerStatus, rawOnSaleAt) {
   // 2026-09-23 real bug (Max: 藤井風 10/31 高雄場已售完卻仍顯示 on_sale) —
   // some KKTIX event pages (confirmed: kklivetw/atc-twn large-venue org
   // pages) never render ANY `.status` marker in the ticket table's static
@@ -656,6 +682,18 @@ function statusFromTickets(ticketsRaw, eventDate, registerStatus) {
   // no ticket table of its own, so the table-based inference below would call
   // it "announced" even when its child events are selling right now.
   if (registerStatus === "IN_STOCK") return { status: "on_sale", on_sale_at: null };
+  // 2026-09-25 (ibon adapter): a source can have a structured "not on sale
+  // yet, here's the exact date" signal with NO ticket-tier table at all —
+  // ibon's GetGameInfoList gives StartDT/EndDT/SoldOut/CanBuy per session,
+  // never individual price tiers. Trust that date over falling through to
+  // the generic "ticketsRaw.length === 0 -> announced, on_sale_at: null"
+  // branch further below, which has no date to offer at all. Scoped to
+  // ticketsRaw.length === 0 specifically — a source that DOES have a ticket
+  // table (KKTIX) should keep using that table's own per-tier waiting/
+  // on_sale_at_raw data instead, which the branches below already handle.
+  if (registerStatus === "COMING_SOON" && ticketsRaw.length === 0) {
+    return { status: "announced", on_sale_at: rawOnSaleAt ?? null };
+  }
   // 2026-09-22 real bug (Max, EIR AOI): a ticket row can be "waiting" (尚未
   // 開賣, sale hasn't started) — that's neither "closed" (sale over) nor
   // truly "open" (buyable right now). The old `!t.closed` check treated
@@ -732,6 +770,12 @@ const NOISE_KEYWORDS = [
   // sides for the comparison.
   "seo services", "seo company", "generative engine optimization", "invisalign",
   "dental clinic", "car recovery", "auto repair", "numerologist",
+  // 2026-09-26, ibon's "娛樂" category (PLAN-2-ibon.md) — real non-music
+  // items confirmed from its own listing/event pages:
+  "玩具創作大展", "toy festival", // Taipei Toy Festival, an exhibition not a performance
+  "大銀幕", // 《危城兄弟》 movie premiere screenings
+  "總決賽", // GCS esports finals
+  "gr嘉年華", // TOYOTA GR Festival, a car show
 ];
 
 function isNonMusicNoise(titleRaw) {
@@ -834,6 +878,9 @@ const DATE_PARSERS = {
   // Ticket Plus's (see billboard.mjs's toTaiwanDateTimeDash), so it reuses
   // the same parser rather than needing its own.
   "Billboard Live": parseTicketPlusDate,
+  // ibon's adapter builds date_raw the same dash-separated shape from
+  // ShowSaleDate (see ibon.mjs), also reusing parseTicketPlusDate.
+  "ibon": parseTicketPlusDate,
 };
 // 2026-09-21: FANSI GO used to map here too (bare venue name, no address —
 // same shape as tixcraft's untracked venues). That assumption was wrong: its
@@ -975,7 +1022,12 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   const { min, max } = (rawEvent.tickets_raw ?? []).length
     ? priceFromTickets(rawEvent.tickets_raw)
     : parsePriceFromText(rawEvent.price_text_raw ?? "");
-  let { status, on_sale_at } = statusFromTickets(rawEvent.tickets_raw ?? [], dateParsed.date, rawEvent.register_status);
+  let { status, on_sale_at } = statusFromTickets(
+    rawEvent.tickets_raw ?? [],
+    dateParsed.date,
+    rawEvent.register_status,
+    rawEvent.on_sale_at,
+  );
   // 2026-09-22 real bug (Max: "尚未開賣標籤你是不是亂給啊 明明有超多早就已經
   // 開賣了"): statusFromTickets()'s "announced" branch fires whenever
   // tickets_raw is empty — but only KKTIX ever populates tickets_raw at all
@@ -1004,7 +1056,21 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   // is "no structured ticket-tier data to trust", not "not KKTIX" — checking
   // tickets_raw.length directly says that correctly for any current or
   // future source, Billboard Live included.
-  if (status === "announced" && rawEvent.source_name !== "KKTIX" && (rawEvent.tickets_raw ?? []).length === 0) {
+  //
+  // 2026-09-25 (ibon adapter): a third exception, same reasoning again but
+  // for the OTHER kind of structured evidence — ibon has no tickets_raw at
+  // all, but it DOES have a real registerStatus signal (COMING_SOON, with
+  // an actual date), handled above in statusFromTickets(). That's positive
+  // evidence too, just not ticket-tier-shaped — a source reporting its own
+  // "not on sale yet" with a real date should never get silently
+  // overridden to on_sale for "no evidence", the same way a KKTIX ticket
+  // table's own waiting/on_sale_at_raw data isn't.
+  if (
+    status === "announced" &&
+    rawEvent.source_name !== "KKTIX" &&
+    (rawEvent.tickets_raw ?? []).length === 0 &&
+    !rawEvent.register_status
+  ) {
     // 2026-09-22 (Max: "這點在其他平台也都要確認...如果沒有api或是結構化資料
     // 可以確定狀態，那可以從文字內容確認吧"): Ticket Plus's own event page
     // (client-rendered, not in its JSON API at all) shows "銷售一空"/"售完"/

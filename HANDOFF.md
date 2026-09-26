@@ -6,7 +6,7 @@
 
 ## 現在的狀態（2026-09-25）
 
-M1~M12 全部完成，六個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/Billboard Live TAIPEI）都在運作。抓取不走 GitHub Actions（拓元／Ticket Plus 會被其 IP 擋掉，決策 S5），改由上班電腦的 Claude 排程任務 `liveradar-daily-fetch` 每天約上午 10:00 自動跑（`git pull` → `npm ci` → `node scripts/fetch.mjs` → `npm test` → 通過才 commit+push）。跨裝置同步已經是真帳號登入（Supabase + Google OAuth），取代了最早的 Gist token 機制。
+M1~M12 全部完成，七個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/Billboard Live TAIPEI/ibon）都在運作。抓取不走 GitHub Actions（拓元／Ticket Plus 會被其 IP 擋掉，決策 S5），改由上班電腦的 Claude 排程任務 `liveradar-daily-fetch` 每天約上午 10:00 自動跑（`git pull` → `npm ci` → `node scripts/fetch.mjs` → `npm test` → 通過才 commit+push）。跨裝置同步已經是真帳號登入（Supabase + Google OAuth），取代了最早的 Gist token 機制。
 
 近期重大變動：
 - **9/24**：五個平台的已收錄場次每天會複查售票狀態（不再永遠停在剛發現時的狀態）；新增 `fetch-one`／`renormalize` 兩個工具，改抓取程式或補完藝人不用再跑整套 `npm run fetch`；同一時間只允許一個抓取在跑（`.fetch.lock`）；查證藝人身分的規則定案（看在哪個音樂圈成名，不是國籍，見「別再踩的坑」第 11~14 條）。
@@ -14,18 +14,19 @@ M1~M12 全部完成，六個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/
 
 - **9/26**：新增「舞台劇／音樂劇分類＋同場館合併一張卡」這個共同基礎（PLAN-1-theater-runs.md，四份加來源規格的第一份）。`normalize.mjs` 新支援 RawEvent 的 `category`／`run_key` 兩個選填欄位；新模組 `scripts/runs.mjs`（`groupRuns()`，在 `dedupe()` 前把同一檔戲、同場館的所有場次合併成一張帶 `sessions` 陣列的卡）；`dedup.mjs`／`diff.mjs`／`renormalize.mjs`／`fetch.mjs` 的待整理清單都配合跳過或改判斷已合併的「run」事件；前端新模組 `src/runs.js`（`materializeRun`／`eventDates`，把「資料一天只更新一次」跟「場次每天在演完」這兩件事橋接起來），`filter.js`／`app.js`（月份篩選、收藏月曆）／`render.js`（多場次卡片的「🎭 檔期」行）都已串接。**目前還沒有任何 adapter 會實際帶出 `category`／`run_key`**（PLAN-2/3/4 那三個新來源都還沒做），所以這次上線不會改變任何一張現有卡片的外觀，純粹是幫 PLAN-3/PLAN-4 先把地基做好。測試涵蓋（`scripts/runs.test.mjs`、`src/runs.test.js`，加上 dedup/diff/normalize/filter/render 各自補的回歸測試，`npm test` 260 個全過），並用假資料在本機 dev server 手動驗證過時間表分組、月份跨月篩選、類型篩選、收藏月曆跨月點點都正確（驗證完已還原 `data/events.json`，沒有進 commit）。
 
-**進行中：再加 3 個來源**（OPENTIX／ibon／寬宏＋年代）。研究與實測都做完了，程式碼還沒動。每一份都是完整的實作規格，照順序用新的 session 實作：
+- **9/26（第二筆）**：新增第 7 個來源 **ibon**（PLAN-2-ibon.md，只收「娛樂」類，跟現有 6 個來源零重疊）。技術細節見 LIVERADAR-SPEC.md §5.9。順便修了 `parsePriceFromText` 兩個真實 bug（用 ibon 真實內文發現的，會一起改善所有來源的票價解析）：①「票價｜」單獨一行、票種寫在下面幾行時原本只抓到第一個票種；②標籤跟分隔符號之間文字太長（例如雙語標籤「票價資訊 Ticket Price：」）原本比對不到，會誤抓文中一個年份當票價。加寬比對範圍時差點引入新的回歸（讓比對跳過標籤自己的分隔符號、抓到後面不相干的另一個分隔符號），已修正並補了回歸測試。`normalize.mjs` 的 `statusFromTickets` 也新增支援「沒有票種表格、但有結構化開賣時間訊號」的來源（ibon 屬於這種）。`data/venues.yml` 補了 3 個 WebSearch 查證過的場館（花漾展演空間 HANASPACE、MOONDOG、台大綜合體育館）。測試涵蓋（`scripts/ibon.test.mjs`，加上 normalize 的回歸測試，`npm test` 278 個全過），並用真實抓取的一次性腳本驗證過每一場的日期/狀態/開賣時間/票價/城市（跑完即刪），跟 ibon 網頁逐場對照正確；等下次排程真的跑過整套 pipeline 確認端到端行為。
 
-1. [PLAN-2-ibon.md](PLAN-2-ibon.md)：ibon（只收娛樂類）。不依賴戲劇分類，可以先做。另外會修 `parsePriceFromText` 兩個實測到的 bug。
-2. [PLAN-3-opentix.md](PLAN-3-opentix.md)：OPENTIX（音樂劇、現代戲劇、流行、爵士、世界音樂）。依賴上面「舞台劇／音樂劇分類」這個基礎（**已完成**）。
-3. [PLAN-4-kham-era.md](PLAN-4-kham-era.md)：寬宏＋年代（演唱會、音樂劇、戲劇），共用一套 adapter。同樣依賴上面的分類基礎（**已完成**）。
+**進行中：再加 2 個來源**（OPENTIX／寬宏＋年代）。研究與實測都做完了，程式碼還沒動。每一份都是完整的實作規格，照順序用新的 session 實作：
+
+1. [PLAN-3-opentix.md](PLAN-3-opentix.md)：OPENTIX（音樂劇、現代戲劇、流行、爵士、世界音樂）。依賴「舞台劇／音樂劇分類」這個基礎（**已完成**）。
+2. [PLAN-4-kham-era.md](PLAN-4-kham-era.md)：寬宏＋年代（演唱會、音樂劇、戲劇），共用一套 adapter。同樣依賴上面的分類基礎（**已完成**）。
 
 Max 已經拍板的範圍：同場館合併卡片、戲劇只收音樂劇＋現代戲劇（不收兒童劇、戲曲、脫口秀）、OPENTIX 音樂只收流行／爵士／世界、寬宏／年代不收「音樂」類（多為古典和社區音樂會）。
 
 ## 目前已知還沒解決的問題
 
 **等真實驗證的（不是 bug，只是還沒等到下次排程跑完確認端到端行為）**：
-- 9/25 新增/修改的多項功能（KKTIX Strategy 4、`register_info`→JSON-LD 優化、四平台每日複查、Disney 合併修正、id 穩定性修正、`refreshedStatus` 過期場次強制轉 ended、**新增 Billboard Live TAIPEI 來源**）都只用單元測試＋一次性腳本手動比對過，沒有跑過真實完整抓取（`npm run fetch`）。下次排程跑完看 log／`sources.json` 確認，Billboard Live 應該新增約 20 個場次。
+- 9/25～9/26 新增/修改的多項功能（KKTIX Strategy 4、`register_info`→JSON-LD 優化、四平台每日複查、Disney 合併修正、id 穩定性修正、`refreshedStatus` 過期場次強制轉 ended、**新增 Billboard Live TAIPEI 來源**、舞台劇／音樂劇分類基礎、**新增 ibon 來源**）都只用單元測試＋一次性腳本手動比對過，沒有跑過真實完整抓取（`npm run fetch`）。下次排程跑完看 log／`sources.json` 確認，Billboard Live 應該新增約 20 個場次，ibon 應該新增約 35 個場次。
 
 **2026-09-25 又查到、修好的（Max：「都沒東西要修嗎」／「還有什麼要修的」，逐筆查資料才發現，不是回報的）**：
 - ~~7 場日期已經過去、status 還停在 on_sale 的已知場次~~ ✅ 已修好。前端 `isPast()` 會獨立擋掉過期場次，這個**不是使用者看得到的 bug**，但底層資料本身是錯的，指出 `refreshedStatus`（每日複查已知場次售票狀態）原本完全沒有「日期過了就該轉成 ended」這條規則，只在 SOLD_OUT/REGISTRATION_CLOSED 訊號分支裡順便算過——一旦訊號查詢失敗或沒查到，status 就會永遠停在舊值。改成日期優先判斷，不依賴任何訊號，已知場次日期一旦過去一律轉 ended。已套用到 7 場已知的殘留案例。
