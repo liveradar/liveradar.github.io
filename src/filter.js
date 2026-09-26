@@ -72,17 +72,50 @@ export function isPast(dateStr) {
   return new Date(dateStr + "T00:00:00") < today;
 }
 
+// 2026-09-26 (Max: "地區：台北新北放在一起改叫雙北"): 台北/新北 are shown and
+// filtered as one combined "雙北" bucket — the two cities are functionally
+// one commute area for a gig-goer, and were previously two separate chip
+// options a user had to pick between even though most venues near the
+// border serve both. cityMatches() below is the one place that needs to
+// know about this grouping; event.city itself is left as the raw scraped
+// city (台北/新北), nothing about storage or rendering changes.
+export const DOUBLE_BEI_CITIES = new Set(["台北", "新北"]);
+
+export function cityBucket(city) {
+  return DOUBLE_BEI_CITIES.has(city) ? "雙北" : city;
+}
+
+function cityMatches(eventCity, filterValue) {
+  return filterValue === "雙北" ? DOUBLE_BEI_CITIES.has(eventCity) : eventCity === filterValue;
+}
+
+// 2026-09-26 (Max: "每個篩選器可以多選"): every view filter accepts either a
+// single value (old shape, kept working so already-saved localStorage state
+// and the single-select call sites below don't need a migration) or an
+// array of values — an event passes a given filter if it matches ANY value
+// in the array (OR within one filter; the different filters — city vs.
+// month vs. type — still AND together, unchanged).
+function toValues(v) {
+  if (v == null) return [];
+  return Array.isArray(v) ? v : [v];
+}
+
 function passesViewFilters(event, viewFilters) {
-  if (viewFilters.city && event.city !== viewFilters.city) return false;
+  const cities = toValues(viewFilters.city);
+  if (cities.length > 0 && !cities.some((c) => cityMatches(event.city, c))) return false;
   // A theater run (PLAN-1-theater-runs.md) spans several months of sessions —
   // event.date alone is only the NEXT upcoming one, so picking October must
   // still surface a run whose next show is in September but has an October
   // date too. eventDates() is just [event.date] for a non-run event.
-  if (viewFilters.month && !eventDates(event).some((d) => d.startsWith(viewFilters.month))) return false;
-  if (viewFilters.type && !event.tags_type.includes(viewFilters.type)) return false;
-  if (viewFilters.origin && !event.tags_origin.includes(viewFilters.origin)) return false;
+  const months = toValues(viewFilters.month);
+  if (months.length > 0 && !months.some((m) => eventDates(event).some((d) => d.startsWith(m)))) return false;
+  const types = toValues(viewFilters.type);
+  if (types.length > 0 && !types.some((t) => event.tags_type.includes(t))) return false;
+  const origins = toValues(viewFilters.origin);
+  if (origins.length > 0 && !origins.some((o) => event.tags_origin.includes(o))) return false;
   if (viewFilters.favoritesOnly) return false; // handled by caller pre-filtering favorites list
-  if (viewFilters.priceMax != null && event.price_min != null && event.price_min > viewFilters.priceMax) {
+  const priceMaxes = toValues(viewFilters.priceMax);
+  if (priceMaxes.length > 0 && event.price_min != null && !priceMaxes.some((p) => event.price_min <= p)) {
     return false;
   }
   return true;

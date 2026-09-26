@@ -121,44 +121,64 @@ export function openReportDialog(event, onSubmit) {
 }
 
 /**
- * Single-select bottom sheet for the timeline's city/month/price filter
- * chips (SPEC §6). Picking any option applies it immediately and closes —
- * no separate "confirm" step, matching openExcludeMenu's one-tap style.
+ * Multi-select bottom sheet for the timeline's city/month/type/origin/price
+ * filter chips (SPEC §6). 2026-09-26 (Max: "每個篩選器可以多選"／"若已經
+ * 選取，點擊該項目就會被取消"): tapping a real option TOGGLES it in the
+ * selection and applies immediately (onChange fires on every tap, same
+ * "no separate confirm step" spirit as before) but the sheet stays open —
+ * multi-select needs repeated taps, unlike the old pick-one-and-close
+ * behavior. The first option (value: null, "全部XX") is the one exception:
+ * it means "clear every selection" and closes the sheet right away, same as
+ * picking it always did.
  * @param {string} title
- * @param {{label: string, value: string|number|null}[]} options - value: null means "no filter"
- * @param {string|number|null} currentValue
- * @param {(value: string|number|null) => void} onSelect
+ * @param {{label: string, value: string|number|null}[]} options - first entry's value: null means "no filter" (clears the selection)
+ * @param {(string|number)[]} currentValues - currently selected values (never includes null)
+ * @param {(values: (string|number)[]) => void} onChange
  */
-export function openFilterSheet(title, options, currentValue, onSelect) {
-  const html = `
-    <div class="overlay-scrim" data-close></div>
-    <div class="sheet" role="dialog" aria-modal="true">
-      <div class="sheet-handle"></div>
-      <div class="sheet-header">
-        <div class="sheet-header__title">${escapeHtml(title)}</div>
+export function openFilterSheet(title, options, currentValues, onChange) {
+  const selected = new Set(currentValues ?? []);
+
+  function render() {
+    const html = `
+      <div class="overlay-scrim" data-close></div>
+      <div class="sheet" role="dialog" aria-modal="true">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+          <div class="sheet-header__title">${escapeHtml(title)}</div>
+        </div>
+        ${options
+          .map(
+            (opt, i) => `
+          <button class="sheet-option" data-index="${i}">
+            <span class="sheet-option__label">${escapeHtml(opt.label)}</span>
+            ${(opt.value === null ? selected.size === 0 : selected.has(opt.value)) ? ICON_CHECK : ""}
+          </button>`,
+          )
+          .join("")}
+        <button class="btn-primary" data-close style="margin:14px 22px 0;width:calc(100% - 44px);">完成</button>
       </div>
-      ${options
-        .map(
-          (opt, i) => `
-        <button class="sheet-option" data-index="${i}">
-          <span class="sheet-option__label">${escapeHtml(opt.label)}</span>
-          ${opt.value === currentValue ? ICON_CHECK : ""}
-        </button>`,
-        )
-        .join("")}
-      <button class="btn-ghost" data-close style="margin:14px 22px 0;width:calc(100% - 44px);">取消</button>
-    </div>
-  `;
-  overlayRoot().innerHTML = html;
-  const root = overlayRoot();
-  root.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", clearOverlay));
-  root.querySelectorAll("[data-index]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const opt = options[Number(btn.dataset.index)];
-      clearOverlay();
-      onSelect(opt.value);
+    `;
+    overlayRoot().innerHTML = html;
+    const root = overlayRoot();
+    root.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", clearOverlay));
+    root.querySelectorAll("[data-index]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const opt = options[Number(btn.dataset.index)];
+        if (opt.value === null) {
+          selected.clear();
+          onChange([]);
+          clearOverlay();
+          return;
+        }
+        if (selected.has(opt.value)) selected.delete(opt.value);
+        else selected.add(opt.value);
+        onChange(Array.from(selected));
+        render(); // redraw checkmarks in place, sheet stays open
+      });
     });
-  });
+  }
+
+  render();
 }
 
 /** FR-48: shown before blocking an artist who has favorited events. */

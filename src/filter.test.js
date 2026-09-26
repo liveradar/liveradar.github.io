@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { isPast, partitionEvents } from "./filter.js";
+import { isPast, partitionEvents, cityBucket } from "./filter.js";
 
 function makeEvent(overrides = {}) {
   return {
@@ -126,4 +126,62 @@ test("partitionEvents: a favorited event still bypasses every exclude rule regar
 
   assert.deepEqual(visible.map((v) => v.event.id), ["f"]);
   assert.equal(visible[0].pinned, true);
+});
+
+// 2026-09-26 (Max: "地區：台北新北放在一起改叫雙北")
+test("cityBucket: 台北/新北 both fold into 雙北, everything else passes through unchanged", () => {
+  assert.equal(cityBucket("台北"), "雙北");
+  assert.equal(cityBucket("新北"), "雙北");
+  assert.equal(cityBucket("高雄"), "高雄");
+  assert.equal(cityBucket("未知"), "未知");
+});
+
+test("partitionEvents: city filter '雙北' matches both 台北 and 新北 events, not other cities", () => {
+  const taipei = makeEvent({ id: "t", city: "台北" });
+  const newTaipei = makeEvent({ id: "n", city: "新北" });
+  const kaohsiung = makeEvent({ id: "k", city: "高雄" });
+
+  const { visible } = partitionEvents([taipei, newTaipei, kaohsiung], defaultPrefs(), { city: "雙北" });
+
+  assert.deepEqual(visible.map((v) => v.event.id).sort(), ["n", "t"]);
+});
+
+// 2026-09-26 (Max: "每個篩選器可以多選")
+test("partitionEvents: an array of city values ORs together (multi-select)", () => {
+  const taipei = makeEvent({ id: "t", city: "台北" });
+  const kaohsiung = makeEvent({ id: "k", city: "高雄" });
+  const tainan = makeEvent({ id: "s", city: "台南" });
+
+  const { visible } = partitionEvents([taipei, kaohsiung, tainan], defaultPrefs(), { city: ["雙北", "高雄"] });
+
+  assert.deepEqual(visible.map((v) => v.event.id).sort(), ["k", "t"]);
+});
+
+test("partitionEvents: an array of type values ORs together (multi-select)", () => {
+  const festival = makeEvent({ id: "f", tags_type: ["音樂祭"] });
+  const meetgreet = makeEvent({ id: "m", tags_type: ["見面會"] });
+  const solo = makeEvent({ id: "s", tags_type: ["專場"] });
+
+  const { visible } = partitionEvents([festival, meetgreet, solo], defaultPrefs(), { type: ["音樂祭", "見面會"] });
+
+  assert.deepEqual(visible.map((v) => v.event.id).sort(), ["f", "m"]);
+});
+
+test("partitionEvents: an array of priceMax values ORs together — passes if under ANY selected threshold", () => {
+  const cheap = makeEvent({ id: "c", price_min: 400 });
+  const mid = makeEvent({ id: "m", price_min: 1500 });
+  const expensive = makeEvent({ id: "e", price_min: 5000 });
+
+  const { visible } = partitionEvents([cheap, mid, expensive], defaultPrefs(), { priceMax: [500, 2000] });
+
+  assert.deepEqual(visible.map((v) => v.event.id).sort(), ["c", "m"]);
+});
+
+test("partitionEvents: an empty filter array behaves like no filter at all (city chip cleared back to '全部城市')", () => {
+  const taipei = makeEvent({ id: "t", city: "台北" });
+  const kaohsiung = makeEvent({ id: "k", city: "高雄" });
+
+  const { visible } = partitionEvents([taipei, kaohsiung], defaultPrefs(), { city: [] });
+
+  assert.deepEqual(visible.map((v) => v.event.id).sort(), ["k", "t"]);
 });

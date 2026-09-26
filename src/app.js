@@ -33,7 +33,7 @@
  *   登入是加分項不是門檻，沒登入時完全 no-op，跟以前沒連 Gist 時一樣。
  */
 
-import { partitionEvents, isPast } from "./filter.js";
+import { partitionEvents, isPast, cityBucket } from "./filter.js";
 import {
   loadPrefs,
   savePrefs,
@@ -145,7 +145,7 @@ function updateHiddenBar(hiddenByRules) {
 // Canonical order shared with data/venues.yml's coverage — just for a
 // sensible, stable chip order, not a source of truth for which cities exist.
 const CITY_DISPLAY_ORDER = [
-  "台北", "新北", "桃園", "新竹", "苗栗", "台中", "彰化", "南投",
+  "雙北", "桃園", "新竹", "苗栗", "台中", "彰化", "南投",
   "雲林", "嘉義", "台南", "高雄", "屏東", "宜蘭", "花蓮", "台東",
   "澎湖", "金門", "連江",
 ];
@@ -166,7 +166,10 @@ const ORIGIN_DISPLAY_ORDER = ["本地", "日本", "韓國", "歐美", "亞洲其
 // in filter.js, regardless of which view filter is chosen).
 function cityFilterOptions(events) {
   const upcoming = events.filter((e) => !isPast(e.date));
-  const present = new Set(upcoming.map((e) => e.city).filter(Boolean));
+  // cityBucket() folds 台北/新北 into one "雙北" option (see filter.js) —
+  // event.city itself is left alone, only the filter chip's own option list
+  // and matching are affected.
+  const present = new Set(upcoming.map((e) => cityBucket(e.city)).filter(Boolean));
   const ordered = CITY_DISPLAY_ORDER.filter((c) => present.has(c));
   if (present.has("未知")) ordered.push("未知");
   return [{ label: "全部城市", value: null }, ...ordered.map((c) => ({ label: c, value: c }))];
@@ -212,6 +215,19 @@ function originFilterOptions(events) {
  * render() and read the current filters via getFilters() instead of being
  * recreated each render.
  */
+// 2026-09-26: every filter chip is now multi-select (openFilterSheet keeps
+// the sheet open and toggles one option per tap instead of picking-and-
+// closing — see its own doc comment). A chip's label shows the one picked
+// label when there's exactly one, otherwise a "N 項" count — showing every
+// picked label joined together got unreadable past 2-3 selections.
+function chipLabel(values, options, placeholder) {
+  if (!values || values.length === 0) return placeholder;
+  if (values.length === 1) {
+    return options.find((o) => o.value === values[0])?.label ?? String(values[0]);
+  }
+  return `${placeholder} · ${values.length} 項`;
+}
+
 function wireViewFilterChips(events, getFilters, onChange) {
   const cityChip = document.querySelector('[data-filter="city"]');
   const monthChip = document.querySelector('[data-filter="month"]');
@@ -222,50 +238,49 @@ function wireViewFilterChips(events, getFilters, onChange) {
 
   function refreshLabels() {
     const f = getFilters();
-    cityChip.textContent = f.city ?? "城市";
-    cityChip.setAttribute("aria-pressed", String(!!f.city));
-    const monthOpt = monthFilterOptions(events).find((o) => o.value === (f.month ?? null));
-    monthChip.textContent = f.month ? (monthOpt?.label ?? f.month) : "月份";
-    monthChip.setAttribute("aria-pressed", String(!!f.month));
+    cityChip.textContent = chipLabel(f.city, cityFilterOptions(events), "城市");
+    cityChip.setAttribute("aria-pressed", String(!!f.city?.length));
+    monthChip.textContent = chipLabel(f.month, monthFilterOptions(events), "月份");
+    monthChip.setAttribute("aria-pressed", String(!!f.month?.length));
     if (typeChip) {
-      typeChip.textContent = f.type ?? "類型";
-      typeChip.setAttribute("aria-pressed", String(!!f.type));
+      typeChip.textContent = chipLabel(f.type, typeFilterOptions(events), "類型");
+      typeChip.setAttribute("aria-pressed", String(!!f.type?.length));
     }
     if (originChip) {
-      originChip.textContent = f.origin ?? "音樂人地區";
-      originChip.setAttribute("aria-pressed", String(!!f.origin));
+      originChip.textContent = chipLabel(f.origin, originFilterOptions(events), "音樂人地區");
+      originChip.setAttribute("aria-pressed", String(!!f.origin?.length));
     }
-    priceChip.textContent = f.priceMax != null ? `NT$${f.priceMax.toLocaleString()} 以下` : "價格";
-    priceChip.setAttribute("aria-pressed", String(f.priceMax != null));
+    priceChip.textContent = chipLabel(f.priceMax, priceFilterOptions(), "價格");
+    priceChip.setAttribute("aria-pressed", String(!!f.priceMax?.length));
   }
 
   cityChip.addEventListener("click", () => {
-    openFilterSheet("篩選城市", cityFilterOptions(events), getFilters().city ?? null, (value) => {
-      onChange({ ...getFilters(), city: value });
+    openFilterSheet("篩選城市", cityFilterOptions(events), getFilters().city ?? [], (values) => {
+      onChange({ ...getFilters(), city: values });
       refreshLabels();
     });
   });
   monthChip.addEventListener("click", () => {
-    openFilterSheet("篩選月份", monthFilterOptions(events), getFilters().month ?? null, (value) => {
-      onChange({ ...getFilters(), month: value });
+    openFilterSheet("篩選月份", monthFilterOptions(events), getFilters().month ?? [], (values) => {
+      onChange({ ...getFilters(), month: values });
       refreshLabels();
     });
   });
   typeChip?.addEventListener("click", () => {
-    openFilterSheet("篩選類型", typeFilterOptions(events), getFilters().type ?? null, (value) => {
-      onChange({ ...getFilters(), type: value });
+    openFilterSheet("篩選類型", typeFilterOptions(events), getFilters().type ?? [], (values) => {
+      onChange({ ...getFilters(), type: values });
       refreshLabels();
     });
   });
   originChip?.addEventListener("click", () => {
-    openFilterSheet("篩選音樂人地區", originFilterOptions(events), getFilters().origin ?? null, (value) => {
-      onChange({ ...getFilters(), origin: value });
+    openFilterSheet("篩選音樂人地區", originFilterOptions(events), getFilters().origin ?? [], (values) => {
+      onChange({ ...getFilters(), origin: values });
       refreshLabels();
     });
   });
   priceChip.addEventListener("click", () => {
-    openFilterSheet("篩選價格", priceFilterOptions(), getFilters().priceMax ?? null, (value) => {
-      onChange({ ...getFilters(), priceMax: value });
+    openFilterSheet("篩選價格", priceFilterOptions(), getFilters().priceMax ?? [], (values) => {
+      onChange({ ...getFilters(), priceMax: values });
       refreshLabels();
     });
   });
