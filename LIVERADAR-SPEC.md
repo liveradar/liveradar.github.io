@@ -499,6 +499,22 @@ KKTIX／iNDIEVOX／Ticket Plus 三個來源都用「票價｜」這種格式（�
 
 **不做 incremental fetch**，理由跟 Billboard Live 一樣：總共約 31 個請求，每次整份重抓成本不高。
 
+### 5.10 OPENTIX 端點實測結果（2026-09-26，第 8 個來源，第一個真的用到多場次合併機制的來源）
+
+**範圍是 Max 拍板決定的（2026-09-25）**：只收「戲劇-音樂劇」「戲劇-現代戲劇」「音樂-流行音樂」「音樂-爵士樂」「音樂-世界/民族」5 個分類，不收古典（管絃樂團／室內樂／獨奏／合唱等），親子/兒童節目一律排除。9/25 實測這 5 個分類合計 208 檔節目、744 個場次；9/26 實際抓取（排除親子後）660 個場次。
+
+**§3.5「多場次檔期事件」機制的第一個真正用戶**：`groupRuns()`（§3.5）在 PLAN-1 上線時已經完成，但沒有任何 adapter 實際帶出 `category`/`run_key`。OPENTIX 是第一個——一個節目在同一個場館常常一連演好幾場（《神隱少女》舞台劇一檔就 50 場），這正是 §3.5 那套機制要解決的問題。分類規則：`categories` 含「戲劇-音樂劇」→ `category: "音樂劇"`；否則含「戲劇-現代戲劇」→ `category: "舞台劇"`；否則不設 `category`（音樂類維持一場一張卡）。跨分類節目（例如「寶塚OG夢幻舞台」同時是「戲劇-音樂劇」和「音樂-流行音樂」）依此規則落在音樂劇——簡單、可預期的規則，勝過逐檔判斷。
+
+**兩步驟抓取**：搜尋 API（`search.opentix.life/search`，`categoryFilter`）**一次就拿到節目清單和每一場的完整結構化資料**（開演時間、開賣/停售時間、票價區間、`status` 欄位），不需要像其他來源一樣另外開每個節目的詳情頁才能拿到場次表。**唯一非拿詳情頁不可的資料是剩餘票數**：搜尋 API 完全沒有這個欄位，只有活動頁 `https://www.opentix.life/event/{id}` 自己輸出的 JSON-LD（`<script type="application/ld+json">`，`@type: "Event"`）裡的 `offers.availability`（`InStock`／`SoldOut`）有。9/25 抓了全部 208 個活動頁，InStock 694、SoldOut 47，確認這個訊號真的有在用。
+
+**對應兩邊資料靠「開演時間（到分鐘）＋場館名稱」，不能靠陣列順序**：JSON-LD 的 `startDate` 是沒有時區標記的台灣本地時間字串（`"2026-09-26T14:30:00"`），搜尋 API 的場次時間是 UTC epoch 毫秒——兩者都先轉成同一個 `"YYYY-MM-DD HH:MM"` 格式的 key 再比對。9/25 實測有 2 檔節目兩邊的場次數量不一樣，順序對應會直接對錯場次。
+
+**`status` 欄位不是售完狀態**：從 OPENTIX 前端 JS 挖出的對照表是 `0 正常、1 暫停銷售、2 取消演出、3 延期、4 變更演出者`。9/25 驗證：`2` 的節目標題真的寫著「（取消）」；`4` 的果陀《Crash, Boom Boom Love!》頁面也真的公告有演員退出。`1`／`2` 直接判定「結束販售」（沿用既有的 `sold_out` 狀態，跟已取消的 Ticket Plus 演出用同一套邏輯，見 §5.4／sale-signal.mjs），`3`／`4` 純資訊性，售票邏輯不受影響。
+
+**共用時區轉換工具**：把 `billboard.mjs` 裡的 Taiwan 時區轉換函式抽成 `scripts/taiwan-time.mjs`（`toTaiwanDateTimeDash`／`toTaiwanTimestampSlash`），`billboard.mjs` 改成 import，並重新 export 讓既有的 `billboard.test.mjs` 完全不用改。
+
+**9/26 真實抓取結果**：660 個場次，`register_status` 分布是 `IN_STOCK: 608`、`SOLD_OUT: 42`、`REGISTRATION_CLOSED: 10`、**`COMING_SOON: 0`**——目前上架的節目剛好沒有任何一場「尚未開賣」，不是程式漏判：COMING_SOON 這條路徑已經有完整的合成資料單元測試涵蓋（`timeSaleSignal` 系列測試），純粹是這次真實資料剛好沒有這個案例。`groupRuns()` 之後：音樂劇 45 張卡、舞台劇 113 張卡、音樂類 70 場、sold_out 14 張。跟網站逐一對照：果陀《三個傻瓜》三個場館各一張卡（台北/新竹/嘉義）、《神隱少女》舞台劇 1 張卡 50 場、《鶯鶯》(取消) 顯示「結束販售」，全部正確。
+
 ---
 
 ## 6. 前端過濾決策樹（實作規範）

@@ -6,7 +6,7 @@
 
 ## 現在的狀態（2026-09-25）
 
-M1~M12 全部完成，七個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/Billboard Live TAIPEI/ibon）都在運作。抓取不走 GitHub Actions（拓元／Ticket Plus 會被其 IP 擋掉，決策 S5），改由上班電腦的 Claude 排程任務 `liveradar-daily-fetch` 每天約上午 10:00 自動跑（`git pull` → `npm ci` → `node scripts/fetch.mjs` → `npm test` → 通過才 commit+push）。跨裝置同步已經是真帳號登入（Supabase + Google OAuth），取代了最早的 Gist token 機制。
+M1~M12 全部完成，八個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/Billboard Live TAIPEI/ibon/OPENTIX）都在運作。抓取不走 GitHub Actions（拓元／Ticket Plus 會被其 IP 擋掉，決策 S5），改由上班電腦的 Claude 排程任務 `liveradar-daily-fetch` 每天約上午 10:00 自動跑（`git pull` → `npm ci` → `node scripts/fetch.mjs` → `npm test` → 通過才 commit+push）。跨裝置同步已經是真帳號登入（Supabase + Google OAuth），取代了最早的 Gist token 機制。
 
 近期重大變動：
 - **9/24**：五個平台的已收錄場次每天會複查售票狀態（不再永遠停在剛發現時的狀態）；新增 `fetch-one`／`renormalize` 兩個工具，改抓取程式或補完藝人不用再跑整套 `npm run fetch`；同一時間只允許一個抓取在跑（`.fetch.lock`）；查證藝人身分的規則定案（看在哪個音樂圈成名，不是國籍，見「別再踩的坑」第 11~14 條）。
@@ -16,17 +16,18 @@ M1~M12 全部完成，七個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/
 
 - **9/26（第二筆）**：新增第 7 個來源 **ibon**（PLAN-2-ibon.md，只收「娛樂」類，跟現有 6 個來源零重疊）。技術細節見 LIVERADAR-SPEC.md §5.9。順便修了 `parsePriceFromText` 兩個真實 bug（用 ibon 真實內文發現的，會一起改善所有來源的票價解析）：①「票價｜」單獨一行、票種寫在下面幾行時原本只抓到第一個票種；②標籤跟分隔符號之間文字太長（例如雙語標籤「票價資訊 Ticket Price：」）原本比對不到，會誤抓文中一個年份當票價。加寬比對範圍時差點引入新的回歸（讓比對跳過標籤自己的分隔符號、抓到後面不相干的另一個分隔符號），已修正並補了回歸測試。`normalize.mjs` 的 `statusFromTickets` 也新增支援「沒有票種表格、但有結構化開賣時間訊號」的來源（ibon 屬於這種）。`data/venues.yml` 補了 3 個 WebSearch 查證過的場館（花漾展演空間 HANASPACE、MOONDOG、台大綜合體育館）。測試涵蓋（`scripts/ibon.test.mjs`，加上 normalize 的回歸測試，`npm test` 278 個全過），並用真實抓取的一次性腳本驗證過每一場的日期/狀態/開賣時間/票價/城市（跑完即刪），跟 ibon 網頁逐場對照正確；等下次排程真的跑過整套 pipeline 確認端到端行為。
 
-**進行中：再加 2 個來源**（OPENTIX／寬宏＋年代）。研究與實測都做完了，程式碼還沒動。每一份都是完整的實作規格，照順序用新的 session 實作：
+- **9/26（第三筆）**：新增第 8 個來源 **OPENTIX**（PLAN-3-opentix.md，戲劇-音樂劇/現代戲劇＋音樂-流行/爵士/世界民族 5 個分類，排除親子節目）。技術細節見 LIVERADAR-SPEC.md §5.10。這是**第一個真的用到「舞台劇／音樂劇分類＋合併卡片」機制的來源**（PLAN-1 上線時還沒有任何 adapter 實際帶出 `category`/`run_key`）：搜尋 API 一次拿到節目清單＋每一場的結構化排程/票價資料，售完狀態要另外從活動頁的 JSON-LD 讀，用「開演時間（到分鐘）＋場館名稱」而不是陣列順序對應回搜尋結果（9/25 實測有 2 檔節目兩邊場次數不一樣）。把 `billboard.mjs` 裡的時區轉換函式抽成共用的 `scripts/taiwan-time.mjs`，`billboard.test.mjs` 照樣全過。測試涵蓋（`scripts/opentix.test.mjs`，含一個 normalize+groupRuns 端到端整合測試，`npm test` 304 個全過）。用真實抓取驗證過：《三個傻瓜》多場館各一張卡、《神隱少女》1 張卡 50 場、《鶯鶯》(取消) 顯示「結束販售」都跟網站對照正確；也在本機 dev server 用真實抓到的資料手動驗證過卡片外觀、月份跨月篩選、類型篩選（驗證完已還原 `data/events.json`）。**這次真實抓取（660 個場次）裡沒有任何一場是「尚未開賣」狀態**——不是 bug，OPENTIX 目前上架的節目剛好都已經開賣了，`COMING_SOON` 這條路徑已經用合成資料的單元測試涵蓋過，行為正確。
 
-1. [PLAN-3-opentix.md](PLAN-3-opentix.md)：OPENTIX（音樂劇、現代戲劇、流行、爵士、世界音樂）。依賴「舞台劇／音樂劇分類」這個基礎（**已完成**）。
-2. [PLAN-4-kham-era.md](PLAN-4-kham-era.md)：寬宏＋年代（演唱會、音樂劇、戲劇），共用一套 adapter。同樣依賴上面的分類基礎（**已完成**）。
+**進行中：再加 1 個來源**（寬宏＋年代）。研究與實測都做完了，程式碼還沒動：
+
+- [PLAN-4-kham-era.md](PLAN-4-kham-era.md)：寬宏＋年代（演唱會、音樂劇、戲劇），共用一套 adapter。依賴「舞台劇／音樂劇分類」這個基礎（**已完成**）。
 
 Max 已經拍板的範圍：同場館合併卡片、戲劇只收音樂劇＋現代戲劇（不收兒童劇、戲曲、脫口秀）、OPENTIX 音樂只收流行／爵士／世界、寬宏／年代不收「音樂」類（多為古典和社區音樂會）。
 
 ## 目前已知還沒解決的問題
 
 **等真實驗證的（不是 bug，只是還沒等到下次排程跑完確認端到端行為）**：
-- 9/25～9/26 新增/修改的多項功能（KKTIX Strategy 4、`register_info`→JSON-LD 優化、四平台每日複查、Disney 合併修正、id 穩定性修正、`refreshedStatus` 過期場次強制轉 ended、**新增 Billboard Live TAIPEI 來源**、舞台劇／音樂劇分類基礎、**新增 ibon 來源**）都只用單元測試＋一次性腳本手動比對過，沒有跑過真實完整抓取（`npm run fetch`）。下次排程跑完看 log／`sources.json` 確認，Billboard Live 應該新增約 20 個場次，ibon 應該新增約 35 個場次。
+- 9/25～9/26 新增/修改的多項功能（KKTIX Strategy 4、`register_info`→JSON-LD 優化、四平台每日複查、Disney 合併修正、id 穩定性修正、`refreshedStatus` 過期場次強制轉 ended、**新增 Billboard Live TAIPEI 來源**、舞台劇／音樂劇分類基礎、**新增 ibon 來源**、**新增 OPENTIX 來源**）都只用單元測試＋一次性腳本手動比對過，沒有跑過真實完整抓取（`npm run fetch`）。下次排程跑完看 log／`sources.json` 確認，Billboard Live 應該新增約 20 個場次，ibon 應該新增約 35 個場次，OPENTIX 合併成 run 卡後預計新增約 100～150 張卡（660 個原始場次，大部分是戲劇多場次合併）。
 
 **2026-09-25 又查到、修好的（Max：「都沒東西要修嗎」／「還有什麼要修的」，逐筆查資料才發現，不是回報的）**：
 - ~~7 場日期已經過去、status 還停在 on_sale 的已知場次~~ ✅ 已修好。前端 `isPast()` 會獨立擋掉過期場次，這個**不是使用者看得到的 bug**，但底層資料本身是錯的，指出 `refreshedStatus`（每日複查已知場次售票狀態）原本完全沒有「日期過了就該轉成 ended」這條規則，只在 SOLD_OUT/REGISTRATION_CLOSED 訊號分支裡順便算過——一旦訊號查詢失敗或沒查到，status 就會永遠停在舊值。改成日期優先判斷，不依賴任何訊號，已知場次日期一旦過去一律轉 ended。已套用到 7 場已知的殘留案例。

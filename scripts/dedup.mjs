@@ -13,7 +13,7 @@ export function computeId(headliner, date, venue) {
   return crypto.createHash("sha1").update(key).digest("hex").slice(0, 16);
 }
 
-const SOURCE_PRIORITY = { KKTIX: 1, "拓元": 2, "iNDIEVOX": 3, "FANSI GO": 4, "Ticket Plus": 5, "Billboard Live": 6, ibon: 7, manual: 8 };
+const SOURCE_PRIORITY = { KKTIX: 1, "拓元": 2, "iNDIEVOX": 3, "FANSI GO": 4, "Ticket Plus": 5, "Billboard Live": 6, ibon: 7, OPENTIX: 8, manual: 9 };
 
 // 2026-09-22 real bug (Max, MAHIRU: "你卡片內的連結還連錯不同場次"): Ticket
 // Plus sometimes lists ONE real show as several separate "activities" for

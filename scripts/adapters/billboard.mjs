@@ -1,4 +1,10 @@
 import { logProgress } from "../progress-log.mjs";
+import { toTaiwanDateTimeDash, toTaiwanTimestampSlash } from "../taiwan-time.mjs";
+
+// Re-exported for billboard.test.mjs (and anyone else who imported these
+// from here before the 2026-09-26 extraction into taiwan-time.mjs) — no
+// call site outside this file needs to change.
+export { toTaiwanDateTimeDash, toTaiwanTimestampSlash };
 
 /**
  * Billboard Live TAIPEI adapter (billboardlivetaipei.tw). Added 2026-09-25.
@@ -65,32 +71,6 @@ export function taiwanMonthList(nowMs = Date.now()) {
     }
   }
   return months;
-}
-
-function taiwanParts(isoUtc) {
-  const shifted = new Date(new Date(isoUtc).getTime() + 8 * 60 * 60 * 1000);
-  const pad = (n) => String(n).padStart(2, "0");
-  return {
-    y: shifted.getUTCFullYear(),
-    mo: pad(shifted.getUTCMonth() + 1),
-    d: pad(shifted.getUTCDate()),
-    h: pad(shifted.getUTCHours()),
-    mi: pad(shifted.getUTCMinutes()),
-  };
-}
-
-// "2026-10-04T09:00:00.000Z" -> "2026-10-04 17:00" (Taiwan time), the shape
-// parseTicketPlusDate (normalize.mjs) reads date_raw as.
-export function toTaiwanDateTimeDash(isoUtc) {
-  const { y, mo, d, h, mi } = taiwanParts(isoUtc);
-  return `${y}-${mo}-${d} ${h}:${mi}`;
-}
-
-// Same moment, "YYYY/MM/DD HH:MM" — the shape parseKktixTimestamp
-// (normalize.mjs, used for tickets_raw[].on_sale_at_raw) reads.
-export function toTaiwanTimestampSlash(isoUtc) {
-  const { y, mo, d, h, mi } = taiwanParts(isoUtc);
-  return `${y}/${mo}/${d} ${h}:${mi}`;
 }
 
 // Every self.__next_f.push([1,"..."]) chunk's payload is a JS string

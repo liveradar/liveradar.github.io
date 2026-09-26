@@ -881,6 +881,9 @@ const DATE_PARSERS = {
   // ibon's adapter builds date_raw the same dash-separated shape from
   // ShowSaleDate (see ibon.mjs), also reusing parseTicketPlusDate.
   "ibon": parseTicketPlusDate,
+  // OPENTIX's adapter builds date_raw via the shared toTaiwanDateTimeDash
+  // (scripts/taiwan-time.mjs), same shape again.
+  "OPENTIX": parseTicketPlusDate,
 };
 // 2026-09-21: FANSI GO used to map here too (bare venue name, no address —
 // same shape as tixcraft's untracked venues). That assumption was wrong: its
