@@ -776,6 +776,12 @@ const NOISE_KEYWORDS = [
   "大銀幕", // 《危城兄弟》 movie premiere screenings
   "總決賽", // GCS esports finals
   "gr嘉年華", // TOYOTA GR Festival, a car show
+  // 2026-09-26, 年代's 戲劇 category (PLAN-4-kham-era.md) — WebSearch-verified
+  // real case: "2026火神祭搖滾區席位 - 星火計畫" is a 藝文贊助方案 (arts
+  // sponsorship tier) for a fire-dance art festival, not a ticket to a real
+  // performance — the same "贊助/donation product listed alongside real
+  // tickets" shape as other noise already excluded elsewhere.
+  "星火計畫",
 ];
 
 function isNonMusicNoise(titleRaw) {
@@ -884,6 +890,9 @@ const DATE_PARSERS = {
   // OPENTIX's adapter builds date_raw via the shared toTaiwanDateTimeDash
   // (scripts/taiwan-time.mjs), same shape again.
   "OPENTIX": parseTicketPlusDate,
+  // 寬宏/年代 (utk.mjs) build date_raw as "YYYY-MM-DD HH:MM", same shape.
+  "寬宏": parseTicketPlusDate,
+  "年代": parseTicketPlusDate,
 };
 // 2026-09-21: FANSI GO used to map here too (bare venue name, no address —
 // same shape as tixcraft's untracked venues). That assumption was wrong: its

@@ -6,7 +6,7 @@
 
 ## 現在的狀態（2026-09-25）
 
-M1~M12 全部完成，八個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/Billboard Live TAIPEI/ibon/OPENTIX）都在運作。抓取不走 GitHub Actions（拓元／Ticket Plus 會被其 IP 擋掉，決策 S5），改由上班電腦的 Claude 排程任務 `liveradar-daily-fetch` 每天約上午 10:00 自動跑（`git pull` → `npm ci` → `node scripts/fetch.mjs` → `npm test` → 通過才 commit+push）。跨裝置同步已經是真帳號登入（Supabase + Google OAuth），取代了最早的 Gist token 機制。
+M1~M12 全部完成，十個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/Billboard Live TAIPEI/ibon/OPENTIX/寬宏/年代）都在運作。抓取不走 GitHub Actions（拓元／Ticket Plus 會被其 IP 擋掉，決策 S5），改由上班電腦的 Claude 排程任務 `liveradar-daily-fetch` 每天約上午 10:00 自動跑（`git pull` → `npm ci` → `node scripts/fetch.mjs` → `npm test` → 通過才 commit+push）。跨裝置同步已經是真帳號登入（Supabase + Google OAuth），取代了最早的 Gist token 機制。
 
 近期重大變動：
 - **9/24**：五個平台的已收錄場次每天會複查售票狀態（不再永遠停在剛發現時的狀態）；新增 `fetch-one`／`renormalize` 兩個工具，改抓取程式或補完藝人不用再跑整套 `npm run fetch`；同一時間只允許一個抓取在跑（`.fetch.lock`）；查證藝人身分的規則定案（看在哪個音樂圈成名，不是國籍，見「別再踩的坑」第 11~14 條）。
@@ -18,16 +18,16 @@ M1~M12 全部完成，八個來源（KKTIX/拓元/iNDIEVOX/FANSI GO/Ticket Plus/
 
 - **9/26（第三筆）**：新增第 8 個來源 **OPENTIX**（PLAN-3-opentix.md，戲劇-音樂劇/現代戲劇＋音樂-流行/爵士/世界民族 5 個分類，排除親子節目）。技術細節見 LIVERADAR-SPEC.md §5.10。這是**第一個真的用到「舞台劇／音樂劇分類＋合併卡片」機制的來源**（PLAN-1 上線時還沒有任何 adapter 實際帶出 `category`/`run_key`）：搜尋 API 一次拿到節目清單＋每一場的結構化排程/票價資料，售完狀態要另外從活動頁的 JSON-LD 讀，用「開演時間（到分鐘）＋場館名稱」而不是陣列順序對應回搜尋結果（9/25 實測有 2 檔節目兩邊場次數不一樣）。把 `billboard.mjs` 裡的時區轉換函式抽成共用的 `scripts/taiwan-time.mjs`，`billboard.test.mjs` 照樣全過。測試涵蓋（`scripts/opentix.test.mjs`，含一個 normalize+groupRuns 端到端整合測試，`npm test` 304 個全過）。用真實抓取驗證過：《三個傻瓜》多場館各一張卡、《神隱少女》1 張卡 50 場、《鶯鶯》(取消) 顯示「結束販售」都跟網站對照正確；也在本機 dev server 用真實抓到的資料手動驗證過卡片外觀、月份跨月篩選、類型篩選（驗證完已還原 `data/events.json`）。**這次真實抓取（660 個場次）裡沒有任何一場是「尚未開賣」狀態**——不是 bug，OPENTIX 目前上架的節目剛好都已經開賣了，`COMING_SOON` 這條路徑已經用合成資料的單元測試涵蓋過，行為正確。
 
-**進行中：再加 1 個來源**（寬宏＋年代）。研究與實測都做完了，程式碼還沒動：
+- **9/26（第四筆）**：新增第 9、10 個來源 **寬宏／年代**（PLAN-4-kham-era.md，四份加來源規格的最後一份；演唱會、音樂劇、戲劇三個分類，不收「音樂」類）。技術細節見 LIVERADAR-SPEC.md §5.11。兩個平台是同一套「UTK」售票系統，共用一套 adapter（`scripts/adapters/utk.mjs`，`kham.mjs`／`era.mjs` 各自只傳 host 名稱），是繼 OPENTIX 之後第二個用到「舞台劇／音樂劇分類＋合併卡片」機制的來源。關鍵真實資料坑：不管賣不賣完「立即訂購」按鈕文字都不變，唯一售完訊號是價格數字被 `<s>`（寬宏）／`<del>`（年代）劃線；一場真實演出常被拆成好幾個表格列（不同價位、輪椅場），靠「日期＋時間＋場館」合併；尚未開賣的節目場次表整張是空的（甚至會被 302 導到另一個樣板頁），直接跳過等下次排程。順手排除年代一筆偽裝成戲劇票的贊助方案（「星火計畫」，加進 `NOISE_KEYWORDS`）。測試涵蓋（`scripts/utk.test.mjs`，26 個測試全用真實 HTML 片段/真實案例，`npm test` 330 個全過）。用真實抓取驗證過：BIGBANG 高雄 sold_out、WILD WILD 三場館各一張卡、XG WORLD TOUR 輪椅票排除、Jason Mraz 正常收錄、年代親子演唱會確認排除，全部跟網站對照正確；也在本機 dev server 用真實資料驗證過卡片外觀（驗證完已還原 `data/events.json`）。**已知限制，接受不處理**：跟其他平台之間沒有跨平台去重，場館名稱異體字（「臺北」vs「台北」）差異會讓同一場演出如果在兩個平台都上架，各自出一張卡不會合併——目前沒遇到真實案例。
 
-- [PLAN-4-kham-era.md](PLAN-4-kham-era.md)：寬宏＋年代（演唱會、音樂劇、戲劇），共用一套 adapter。依賴「舞台劇／音樂劇分類」這個基礎（**已完成**）。
+**四份加來源規格（PLAN-1～PLAN-4）已全部完成，目前沒有待處理的 PLAN-*.md。**
 
 Max 已經拍板的範圍：同場館合併卡片、戲劇只收音樂劇＋現代戲劇（不收兒童劇、戲曲、脫口秀）、OPENTIX 音樂只收流行／爵士／世界、寬宏／年代不收「音樂」類（多為古典和社區音樂會）。
 
 ## 目前已知還沒解決的問題
 
 **等真實驗證的（不是 bug，只是還沒等到下次排程跑完確認端到端行為）**：
-- 9/25～9/26 新增/修改的多項功能（KKTIX Strategy 4、`register_info`→JSON-LD 優化、四平台每日複查、Disney 合併修正、id 穩定性修正、`refreshedStatus` 過期場次強制轉 ended、**新增 Billboard Live TAIPEI 來源**、舞台劇／音樂劇分類基礎、**新增 ibon 來源**、**新增 OPENTIX 來源**）都只用單元測試＋一次性腳本手動比對過，沒有跑過真實完整抓取（`npm run fetch`）。下次排程跑完看 log／`sources.json` 確認，Billboard Live 應該新增約 20 個場次，ibon 應該新增約 35 個場次，OPENTIX 合併成 run 卡後預計新增約 100～150 張卡（660 個原始場次，大部分是戲劇多場次合併）。
+- 9/25～9/26 新增/修改的多項功能（KKTIX Strategy 4、`register_info`→JSON-LD 優化、四平台每日複查、Disney 合併修正、id 穩定性修正、`refreshedStatus` 過期場次強制轉 ended、**新增 Billboard Live TAIPEI 來源**、舞台劇／音樂劇分類基礎、**新增 ibon 來源**、**新增 OPENTIX 來源**、**新增寬宏／年代來源**）都只用單元測試＋一次性腳本手動比對過，沒有跑過真實完整抓取（`npm run fetch`）。下次排程跑完看 log／`sources.json` 確認，Billboard Live 應該新增約 20 個場次，ibon 應該新增約 35 個場次，OPENTIX 合併成 run 卡後預計新增約 100～150 張卡（660 個原始場次，大部分是戲劇多場次合併），寬宏／年代合計約 54 個原始場次（實測 29+25，扣除 3 筆噪音）合併後應新增約 43 張卡。
 
 **2026-09-25 又查到、修好的（Max：「都沒東西要修嗎」／「還有什麼要修的」，逐筆查資料才發現，不是回報的）**：
 - ~~7 場日期已經過去、status 還停在 on_sale 的已知場次~~ ✅ 已修好。前端 `isPast()` 會獨立擋掉過期場次，這個**不是使用者看得到的 bug**，但底層資料本身是錯的，指出 `refreshedStatus`（每日複查已知場次售票狀態）原本完全沒有「日期過了就該轉成 ended」這條規則，只在 SOLD_OUT/REGISTRATION_CLOSED 訊號分支裡順便算過——一旦訊號查詢失敗或沒查到，status 就會永遠停在舊值。改成日期優先判斷，不依賴任何訊號，已知場次日期一旦過去一律轉 ended。已套用到 7 場已知的殘留案例。

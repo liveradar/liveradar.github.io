@@ -325,7 +325,7 @@ export function openIntroDialog() {
     <div class="dialog-box" role="dialog" aria-modal="true">
       <div class="dialog-box__title">LiveRadar 是什麼？</div>
       <div class="dialog-box__body">
-        把 KKTIX、拓元、iNDIEVOX、FANSI GO、Ticket Plus、ibon、OPENTIX、Billboard Live TAIPEI 的音樂展演演出全部收在一起，不用再一個一個網站翻。
+        把 KKTIX、拓元、iNDIEVOX、FANSI GO、Ticket Plus、ibon、OPENTIX、寬宏、年代、Billboard Live TAIPEI 的音樂展演演出全部收在一起，不用再一個一個網站翻。
       </div>
       <div style="font-size:12px;color:var(--muted);line-height:1.9;border-top:1px solid var(--border);padding-top:10px;">
         ★ 收藏喜歡的場次，✕ 排除不想看到的，之後都會記住。<br>
