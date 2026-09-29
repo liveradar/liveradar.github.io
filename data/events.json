@@ -15936,8 +15936,12 @@
     },
     {
       "title_raw": "大家的文化祭",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "大家的文化祭"
+      ],
+      "lineup": [
+        "大家的文化祭"
+      ],
       "is_festival": false,
       "venue": "LIVE HOUSE D",
       "city": "台北",
@@ -15950,7 +15954,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://thewalllivehouse.kktix.cc/events/18310e70",
       "sources": [
@@ -15961,7 +15967,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.626Z",
-      "updated_at": "2026-09-29T03:33:10.626Z",
+      "updated_at": "2026-09-29T06:23:50.484Z",
       "id": "44d2732bd67d8ef7",
       "merged_ids": [
         "44d2732bd67d8ef7"
@@ -15969,8 +15975,12 @@
     },
     {
       "title_raw": "Mateus Asato Live in Taiwan 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Mateus Asato"
+      ],
+      "lineup": [
+        "Mateus Asato"
+      ],
       "is_festival": false,
       "venue": "Legacy Taipei",
       "city": "台北",
@@ -15983,7 +15993,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://thewalllivehouse.kktix.cc/events/asato",
       "sources": [
@@ -15994,7 +16006,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.626Z",
-      "updated_at": "2026-09-29T03:33:10.626Z",
+      "updated_at": "2026-09-29T06:23:50.488Z",
       "id": "1ceb2f97f0a72e4b",
       "merged_ids": [
         "1ceb2f97f0a72e4b"
@@ -16134,8 +16146,12 @@
     },
     {
       "title_raw": "IRIS MONDO「LIFELINE」Asia Tour 台灣站",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "IRIS MONDO"
+      ],
+      "lineup": [
+        "IRIS MONDO"
+      ],
       "is_festival": false,
       "venue": "PIPE Live Music",
       "city": "台北",
@@ -16148,7 +16164,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ballinglikejay.kktix.cc/events/ed75e5c5",
       "sources": [
@@ -16159,7 +16177,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.628Z",
-      "updated_at": "2026-09-29T03:33:10.628Z",
+      "updated_at": "2026-09-29T06:23:50.488Z",
       "id": "c3864de03b3ee07f",
       "merged_ids": [
         "c3864de03b3ee07f"
@@ -16296,8 +16314,12 @@
     },
     {
       "title_raw": "FWD富衛保險呈獻：Spooky Halloween 2026 香港萬聖節音樂嘉年華｜灣仔海濱活動空間",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "香港萬聖節音樂嘉年華"
+      ],
+      "lineup": [
+        "香港萬聖節音樂嘉年華"
+      ],
       "is_festival": false,
       "venue": "灣仔海濱活動空間",
       "city": "未知",
@@ -16310,7 +16332,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://livenationelectronicasia.kktix.cc/events/spookyhalloween2026",
       "sources": [
@@ -16321,7 +16345,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.634Z",
-      "updated_at": "2026-09-29T03:33:10.634Z",
+      "updated_at": "2026-09-29T06:23:50.488Z",
       "id": "c44c5c8959312cd2",
       "merged_ids": [
         "c44c5c8959312cd2"
@@ -16329,8 +16353,12 @@
     },
     {
       "title_raw": "【全區通行 All-Access】FWD富衛保險呈獻：Spooky Halloween 2026 香港萬聖節音樂嘉年華",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "香港萬聖節音樂嘉年華"
+      ],
+      "lineup": [
+        "香港萬聖節音樂嘉年華"
+      ],
       "is_festival": false,
       "venue": "灣仔海濱活動空間",
       "city": "未知",
@@ -16343,7 +16371,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://livenationelectronicasia.kktix.cc/events/spookyhalloween2026-all-access",
       "sources": [
@@ -16354,7 +16384,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.634Z",
-      "updated_at": "2026-09-29T03:33:10.634Z",
+      "updated_at": "2026-09-29T06:23:50.489Z",
       "id": "ccd025330ffd94c4",
       "merged_ids": [
         "ccd025330ffd94c4"
@@ -16362,8 +16392,12 @@
     },
     {
       "title_raw": "Taipei After Dark - Keril 韋喆個人專場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Keril 韋喆"
+      ],
+      "lineup": [
+        "Keril 韋喆"
+      ],
       "is_festival": false,
       "venue": "Live House D",
       "city": "台北",
@@ -16376,7 +16410,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://chuan-liu66.kktix.cc/events/taipeiafterdarkkeril",
       "sources": [
@@ -16387,7 +16423,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.634Z",
-      "updated_at": "2026-09-29T03:33:10.634Z",
+      "updated_at": "2026-09-29T06:23:50.489Z",
       "id": "f67dfdb87fa64d49",
       "merged_ids": [
         "f67dfdb87fa64d49"
@@ -16437,8 +16473,12 @@
     },
     {
       "title_raw": "【10/24】霹靂熱血樂章 2026 PILI CONCERT",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "霹靂熱血樂章"
+      ],
+      "lineup": [
+        "霹靂熱血樂章"
+      ],
       "is_festival": false,
       "venue": "誠品生活新店 3F黑盒子",
       "city": "新北",
@@ -16451,7 +16491,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://pili.kktix.cc/events/a7460c73",
       "sources": [
@@ -16462,7 +16504,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.636Z",
-      "updated_at": "2026-09-29T03:33:10.636Z",
+      "updated_at": "2026-09-29T06:23:50.489Z",
       "id": "d3090842d3db7ecc",
       "merged_ids": [
         "d3090842d3db7ecc"
@@ -16470,8 +16512,12 @@
     },
     {
       "title_raw": "【彩排加購】霹靂熱血樂章 2026 PILI CONCERT",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "霹靂熱血樂章"
+      ],
+      "lineup": [
+        "霹靂熱血樂章"
+      ],
       "is_festival": false,
       "venue": "誠品生活新店 3F黑盒子",
       "city": "新北",
@@ -16484,7 +16530,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://pili.kktix.cc/events/c0ed7a4d",
       "sources": [
@@ -16495,7 +16543,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.636Z",
-      "updated_at": "2026-09-29T03:33:10.636Z",
+      "updated_at": "2026-09-29T06:23:50.490Z",
       "id": "367a94d6b3e8215e",
       "merged_ids": [
         "367a94d6b3e8215e"
@@ -16503,8 +16551,12 @@
     },
     {
       "title_raw": "【10/25】霹靂熱血樂章 2026 PILI CONCERT",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "霹靂熱血樂章"
+      ],
+      "lineup": [
+        "霹靂熱血樂章"
+      ],
       "is_festival": false,
       "venue": "誠品生活新店 3F黑盒子",
       "city": "新北",
@@ -16517,7 +16569,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://pili.kktix.cc/events/b0844a5c",
       "sources": [
@@ -16528,7 +16582,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.636Z",
-      "updated_at": "2026-09-29T03:33:10.636Z",
+      "updated_at": "2026-09-29T06:23:50.490Z",
       "id": "4f10d89bfe80aafc",
       "merged_ids": [
         "4f10d89bfe80aafc"
@@ -16536,8 +16590,12 @@
     },
     {
       "title_raw": "【售票頁】HOKUTO LIVE&FAN MEETING 2026 \"JUKE BOX LAND\" IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "HOKUTO"
+      ],
+      "lineup": [
+        "HOKUTO"
+      ],
       "is_festival": false,
       "venue": "Legacy Taipei",
       "city": "台北",
@@ -16550,7 +16608,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ldh.kktix.cc/events/hokuto2026-01",
       "sources": [
@@ -16561,7 +16621,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.636Z",
-      "updated_at": "2026-09-29T03:33:10.636Z",
+      "updated_at": "2026-09-29T06:23:50.491Z",
       "id": "d2a23fed493f0138",
       "merged_ids": [
         "d2a23fed493f0138"
@@ -16683,8 +16743,12 @@
     },
     {
       "title_raw": "古屋呂敏 台北粉絲見面會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "古屋呂敏"
+      ],
+      "lineup": [
+        "古屋呂敏"
+      ],
       "is_festival": false,
       "venue": "CORNER MAX 大角落多功能展演館",
       "city": "台北",
@@ -16697,7 +16761,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://saltsweeet.kktix.cc/events/robinfmtaipei2026",
       "sources": [
@@ -16708,7 +16774,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.638Z",
-      "updated_at": "2026-09-29T03:33:10.638Z",
+      "updated_at": "2026-09-29T06:23:50.491Z",
       "id": "2733355e37af3e0b",
       "merged_ids": [
         "2733355e37af3e0b"
@@ -16837,8 +16903,12 @@
     },
     {
       "title_raw": "李雅英 × 十鼓文創園區 特別見面會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "李雅英"
+      ],
+      "lineup": [
+        "李雅英"
+      ],
       "is_festival": false,
       "venue": "十鼓文創園區-草原廣場",
       "city": "台南",
@@ -16851,7 +16921,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ten-drum.kktix.cc/events/5e9253ab",
       "sources": [
@@ -16862,7 +16934,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:33:10.639Z",
-      "updated_at": "2026-09-29T03:33:10.639Z",
+      "updated_at": "2026-09-29T06:23:50.491Z",
       "id": "c335dc7b03aa5852",
       "merged_ids": [
         "c335dc7b03aa5852"
@@ -19027,8 +19099,12 @@
     },
     {
       "title_raw": "T.O.P PRE-STUDIO 2026 in KAOHSIUNG",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "T.O.P"
+      ],
+      "lineup": [
+        "T.O.P"
+      ],
       "is_festival": false,
       "venue": "高雄巨蛋",
       "city": "高雄",
@@ -19041,7 +19117,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_topkh",
       "sources": [
@@ -19052,7 +19130,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:27:32.447Z",
-      "updated_at": "2026-09-29T03:27:32.447Z",
+      "updated_at": "2026-09-29T06:23:50.492Z",
       "id": "5fb3ae7b60af1195",
       "merged_ids": [
         "5fb3ae7b60af1195"
@@ -19060,8 +19138,12 @@
     },
     {
       "title_raw": "新光人壽冠名贊助 F✦FOREVER 恆星之城・光年赴約・臺北 限定場演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "F✦FOREVER"
+      ],
+      "lineup": [
+        "F✦FOREVER"
+      ],
       "is_festival": false,
       "venue": "臺北大巨蛋",
       "city": "台北",
@@ -19074,7 +19156,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_forever",
       "sources": [
@@ -19085,7 +19169,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:27:32.447Z",
-      "updated_at": "2026-09-29T03:27:32.447Z",
+      "updated_at": "2026-09-29T06:23:50.493Z",
       "id": "18a8f5f9a16a8b23",
       "merged_ids": [
         "18a8f5f9a16a8b23"
@@ -25567,8 +25651,12 @@
     },
     {
       "title_raw": "2026 ONEWE 6th Live Concert ‘O! NEW E!volution ⅤI’ IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "ONEWE"
+      ],
+      "lineup": [
+        "ONEWE"
+      ],
       "is_festival": false,
       "venue": "Legacy TERA",
       "city": "台北",
@@ -25581,7 +25669,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/a601de31176dc59308fd38668e867636",
       "sources": [
@@ -25592,7 +25682,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:23:24.397Z",
-      "updated_at": "2026-09-29T03:23:24.397Z",
+      "updated_at": "2026-09-29T06:23:50.494Z",
       "id": "68e46cfcec9814cc",
       "merged_ids": [
         "68e46cfcec9814cc"
@@ -25600,8 +25690,12 @@
     },
     {
       "title_raw": "2026 fromis_9 ASIA TOUR [TOMORROW GLOW.] IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "fromis_9"
+      ],
+      "lineup": [
+        "fromis_9"
+      ],
       "is_festival": false,
       "venue": "TICC台北國際會議中心",
       "city": "台北",
@@ -25614,7 +25708,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/2912aea91a400874cc01b43cf22574c1",
       "sources": [
@@ -25625,7 +25721,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:23:24.398Z",
-      "updated_at": "2026-09-29T03:23:24.398Z",
+      "updated_at": "2026-09-29T06:23:50.494Z",
       "id": "b50f4ea27ddd55cc",
       "merged_ids": [
         "b50f4ea27ddd55cc"
@@ -25946,8 +26042,12 @@
     },
     {
       "title_raw": "TETSUYA Acoustic Live Tour 2026 at Billboard Live TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "TETSUYA"
+      ],
+      "lineup": [
+        "TETSUYA"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -25960,7 +26060,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/tetsuya2026",
       "sources": [
@@ -25971,7 +26073,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.774Z",
-      "updated_at": "2026-09-29T03:21:15.774Z",
+      "updated_at": "2026-09-29T06:23:50.494Z",
       "id": "fd3eb9a66d68d19e-17:00",
       "merged_ids": [
         "fd3eb9a66d68d19e-17:00"
@@ -25979,8 +26081,12 @@
     },
     {
       "title_raw": "TETSUYA Acoustic Live Tour 2026 at Billboard Live TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "TETSUYA"
+      ],
+      "lineup": [
+        "TETSUYA"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -25993,7 +26099,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/tetsuya2026",
       "sources": [
@@ -26004,7 +26112,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.775Z",
-      "updated_at": "2026-09-29T03:21:15.775Z",
+      "updated_at": "2026-09-29T06:23:50.494Z",
       "id": "fd3eb9a66d68d19e-20:00",
       "merged_ids": [
         "fd3eb9a66d68d19e-20:00"
@@ -26012,8 +26120,12 @@
     },
     {
       "title_raw": "Furui Riho Billboard Live Tour 2026 -The Garden- ",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Furui Riho"
+      ],
+      "lineup": [
+        "Furui Riho"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26026,7 +26138,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/furuiriho2026",
       "sources": [
@@ -26037,7 +26151,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.775Z",
-      "updated_at": "2026-09-29T03:21:15.775Z",
+      "updated_at": "2026-09-29T06:23:50.494Z",
       "id": "83074e5ba9dd0e59-17:00",
       "merged_ids": [
         "83074e5ba9dd0e59-17:00"
@@ -26045,8 +26159,12 @@
     },
     {
       "title_raw": "Furui Riho Billboard Live Tour 2026 -The Garden- ",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Furui Riho"
+      ],
+      "lineup": [
+        "Furui Riho"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26059,7 +26177,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/furuiriho2026",
       "sources": [
@@ -26070,7 +26190,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.775Z",
-      "updated_at": "2026-09-29T03:21:15.775Z",
+      "updated_at": "2026-09-29T06:23:50.494Z",
       "id": "83074e5ba9dd0e59-20:00",
       "merged_ids": [
         "83074e5ba9dd0e59-20:00"
@@ -26226,8 +26346,12 @@
     },
     {
       "title_raw": "adieu Live at Billboard Live TAIPEI 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "adieu"
+      ],
+      "lineup": [
+        "adieu"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26240,7 +26364,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/adieu2026",
       "sources": [
@@ -26251,7 +26377,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.777Z",
-      "updated_at": "2026-09-29T03:21:15.777Z",
+      "updated_at": "2026-09-29T06:25:22.471Z",
       "id": "9f91e4e97e591e38-17:00",
       "merged_ids": [
         "9f91e4e97e591e38-17:00"
@@ -26259,8 +26385,12 @@
     },
     {
       "title_raw": "adieu Live at Billboard Live TAIPEI 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "adieu"
+      ],
+      "lineup": [
+        "adieu"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26273,7 +26403,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/adieu2026",
       "sources": [
@@ -26284,7 +26416,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:25:22.476Z",
       "id": "9f91e4e97e591e38-20:00",
       "merged_ids": [
         "9f91e4e97e591e38-20:00"
@@ -26292,8 +26424,12 @@
     },
     {
       "title_raw": "Ghibli Jazz / ALL THAT JAZZ",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Ghibli Jazz"
+      ],
+      "lineup": [
+        "Ghibli Jazz"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26306,7 +26442,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/allthejazz2026",
       "sources": [
@@ -26317,7 +26455,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:23:50.495Z",
       "id": "f07a7820aef9d9d6-day",
       "merged_ids": [
         "f07a7820aef9d9d6-day"
@@ -26325,8 +26463,12 @@
     },
     {
       "title_raw": "Ghibli Jazz / ALL THAT JAZZ",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Ghibli Jazz"
+      ],
+      "lineup": [
+        "Ghibli Jazz"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26339,7 +26481,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/allthejazz2026",
       "sources": [
@@ -26350,7 +26494,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:23:50.495Z",
       "id": "f07a7820aef9d9d6-evening",
       "merged_ids": [
         "f07a7820aef9d9d6-evening"
@@ -26358,8 +26502,12 @@
     },
     {
       "title_raw": "fox capture plan RE:FRAME-15th Anniversary tour in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "fox capture plan"
+      ],
+      "lineup": [
+        "fox capture plan"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26372,7 +26520,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/foxcaptureplan2026",
       "sources": [
@@ -26383,7 +26533,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:23:50.495Z",
       "id": "204d7aa3bf2bb022-day",
       "merged_ids": [
         "204d7aa3bf2bb022-day"
@@ -26391,8 +26541,12 @@
     },
     {
       "title_raw": "fox capture plan RE:FRAME-15th Anniversary tour in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "fox capture plan"
+      ],
+      "lineup": [
+        "fox capture plan"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26405,7 +26559,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/foxcaptureplan2026",
       "sources": [
@@ -26416,7 +26572,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:23:50.495Z",
       "id": "204d7aa3bf2bb022-evening",
       "merged_ids": [
         "204d7aa3bf2bb022-evening"
@@ -26424,8 +26580,12 @@
     },
     {
       "title_raw": "SUBARU SHIBUTANI 30th Anniversary Asia Tour 2026 in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "SUBARU SHIBUTANI"
+      ],
+      "lineup": [
+        "SUBARU SHIBUTANI"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26438,7 +26598,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/subarushibutani2026",
       "sources": [
@@ -26449,7 +26611,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:23:50.495Z",
       "id": "3520d947e2dcc4d5-17:00",
       "merged_ids": [
         "3520d947e2dcc4d5-17:00"
@@ -26457,8 +26619,12 @@
     },
     {
       "title_raw": "SUBARU SHIBUTANI 30th Anniversary Asia Tour 2026 in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "SUBARU SHIBUTANI"
+      ],
+      "lineup": [
+        "SUBARU SHIBUTANI"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26471,7 +26637,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/subarushibutani2026",
       "sources": [
@@ -26482,7 +26650,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:23:50.496Z",
       "id": "3520d947e2dcc4d5-20:00",
       "merged_ids": [
         "3520d947e2dcc4d5-20:00"
@@ -26490,8 +26658,12 @@
     },
     {
       "title_raw": "SUBARU SHIBUTANI 30th Anniversary Asia Tour 2026 in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "SUBARU SHIBUTANI"
+      ],
+      "lineup": [
+        "SUBARU SHIBUTANI"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26504,7 +26676,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/subarushibutani2026",
       "sources": [
@@ -26515,7 +26689,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:23:50.496Z",
       "id": "3227eaa8c247ef4c-17:00",
       "merged_ids": [
         "3227eaa8c247ef4c-17:00"
@@ -26523,8 +26697,12 @@
     },
     {
       "title_raw": "SUBARU SHIBUTANI 30th Anniversary Asia Tour 2026 in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "SUBARU SHIBUTANI"
+      ],
+      "lineup": [
+        "SUBARU SHIBUTANI"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26537,7 +26715,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/subarushibutani2026",
       "sources": [
@@ -26548,7 +26728,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:23:50.496Z",
       "id": "3227eaa8c247ef4c-20:00",
       "merged_ids": [
         "3227eaa8c247ef4c-20:00"
@@ -26556,8 +26736,12 @@
     },
     {
       "title_raw": "LEO IEIRI Billboard Live in Taipei 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "LEO IEIRI"
+      ],
+      "lineup": [
+        "LEO IEIRI"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26570,7 +26754,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/leoieiri2026",
       "sources": [
@@ -26581,7 +26767,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:23:50.496Z",
       "id": "b466385bd7996f54-17:00",
       "merged_ids": [
         "b466385bd7996f54-17:00"
@@ -26589,8 +26775,12 @@
     },
     {
       "title_raw": "LEO IEIRI Billboard Live in Taipei 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "LEO IEIRI"
+      ],
+      "lineup": [
+        "LEO IEIRI"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26603,7 +26793,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/leoieiri2026",
       "sources": [
@@ -26614,7 +26806,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.778Z",
-      "updated_at": "2026-09-29T03:21:15.778Z",
+      "updated_at": "2026-09-29T06:23:50.496Z",
       "id": "b466385bd7996f54-20:00",
       "merged_ids": [
         "b466385bd7996f54-20:00"
@@ -26622,8 +26814,12 @@
     },
     {
       "title_raw": "culenasm BARIYOKA WINTER TOUR 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "culenasm"
+      ],
+      "lineup": [
+        "culenasm"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26636,7 +26832,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/culenasm2026",
       "sources": [
@@ -26647,7 +26845,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.779Z",
-      "updated_at": "2026-09-29T03:21:15.779Z",
+      "updated_at": "2026-09-29T06:23:50.496Z",
       "id": "8fc2fd0a3722a3b1-day",
       "merged_ids": [
         "8fc2fd0a3722a3b1-day"
@@ -26655,8 +26853,12 @@
     },
     {
       "title_raw": "culenasm BARIYOKA WINTER TOUR 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "culenasm"
+      ],
+      "lineup": [
+        "culenasm"
+      ],
       "is_festival": false,
       "venue": "Billboard Live TAIPEI",
       "city": "台北",
@@ -26669,7 +26871,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/culenasm2026",
       "sources": [
@@ -26680,7 +26884,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:15.779Z",
-      "updated_at": "2026-09-29T03:21:15.779Z",
+      "updated_at": "2026-09-29T06:23:50.496Z",
       "id": "8fc2fd0a3722a3b1-evening",
       "merged_ids": [
         "8fc2fd0a3722a3b1-evening"
@@ -26688,8 +26892,12 @@
     },
     {
       "title_raw": "2026－2027 DOH KYUNG SOO CONCERT TOUR 〔DAY OFF〕 IN KAOHSIUNG",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "DOH KYUNG SOO"
+      ],
+      "lineup": [
+        "DOH KYUNG SOO"
+      ],
       "is_festival": false,
       "venue": "高雄流行音樂中心 海音館",
       "city": "高雄",
@@ -26702,7 +26910,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39978",
       "sources": [
@@ -26713,7 +26923,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.445Z",
-      "updated_at": "2026-09-29T03:21:24.445Z",
+      "updated_at": "2026-09-29T06:23:50.496Z",
       "id": "d16c40250e77f68c",
       "merged_ids": [
         "d16c40250e77f68c"
@@ -26721,8 +26931,12 @@
     },
     {
       "title_raw": "2026－2027 DOH KYUNG SOO CONCERT TOUR 〔DAY OFF〕 IN KAOHSIUNG",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "DOH KYUNG SOO"
+      ],
+      "lineup": [
+        "DOH KYUNG SOO"
+      ],
       "is_festival": false,
       "venue": "高雄流行音樂中心 海音館",
       "city": "高雄",
@@ -26735,7 +26949,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39978",
       "sources": [
@@ -26746,7 +26962,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.445Z",
-      "updated_at": "2026-09-29T03:21:24.445Z",
+      "updated_at": "2026-09-29T06:23:50.496Z",
       "id": "f36e0b8039169131",
       "merged_ids": [
         "f36e0b8039169131"
@@ -26754,8 +26970,12 @@
     },
     {
       "title_raw": "2026 OPEN！ DREAM WORLD 夢想音樂節",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "OPEN！DREAM WORLD 夢想音樂節"
+      ],
+      "lineup": [
+        "OPEN！DREAM WORLD 夢想音樂節"
+      ],
       "is_festival": false,
       "venue": "高雄夢時代正對面廣場",
       "city": "高雄",
@@ -26768,7 +26988,9 @@
       "tags_type": [
         "音樂祭"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39971",
       "sources": [
@@ -26779,7 +27001,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.445Z",
-      "updated_at": "2026-09-29T03:21:24.445Z",
+      "updated_at": "2026-09-29T06:26:17.822Z",
       "id": "45923924972dae8f",
       "merged_ids": [
         "45923924972dae8f"
@@ -26787,8 +27009,12 @@
     },
     {
       "title_raw": "2026 OPEN！ DREAM WORLD 夢想音樂節",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "OPEN！DREAM WORLD 夢想音樂節"
+      ],
+      "lineup": [
+        "OPEN！DREAM WORLD 夢想音樂節"
+      ],
       "is_festival": false,
       "venue": "高雄夢時代正對面廣場",
       "city": "高雄",
@@ -26801,7 +27027,9 @@
       "tags_type": [
         "音樂祭"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39971",
       "sources": [
@@ -26812,7 +27040,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.445Z",
-      "updated_at": "2026-09-29T03:21:24.445Z",
+      "updated_at": "2026-09-29T06:26:17.827Z",
       "id": "4b51009abef526b9",
       "merged_ids": [
         "4b51009abef526b9"
@@ -26820,8 +27048,12 @@
     },
     {
       "title_raw": "青春群像錄初次台北巡演2026 with Marie Louise",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Marie Louise"
+      ],
+      "lineup": [
+        "Marie Louise"
+      ],
       "is_festival": false,
       "venue": "野地方 Wildlab",
       "city": "台北",
@@ -26834,7 +27066,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39962",
       "sources": [
@@ -26845,7 +27079,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.446Z",
-      "updated_at": "2026-09-29T03:21:24.446Z",
+      "updated_at": "2026-09-29T06:23:50.497Z",
       "id": "56918f04175924fa",
       "merged_ids": [
         "56918f04175924fa"
@@ -26853,8 +27087,12 @@
     },
     {
       "title_raw": "MAMAMOO 2026 WORLD TOUR ＜4WARD＞ in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "MAMAMOO"
+      ],
+      "lineup": [
+        "MAMAMOO"
+      ],
       "is_festival": false,
       "venue": "臺北小巨蛋 Taipei Arena",
       "city": "台北",
@@ -26867,7 +27105,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39961",
       "sources": [
@@ -26878,7 +27118,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.446Z",
-      "updated_at": "2026-09-29T03:21:24.446Z",
+      "updated_at": "2026-09-29T06:23:50.497Z",
       "id": "effd7382f87260c4",
       "merged_ids": [
         "effd7382f87260c4"
@@ -26886,8 +27126,12 @@
     },
     {
       "title_raw": "MAMAMOO 2026 WORLD TOUR ＜4WARD＞ in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "MAMAMOO"
+      ],
+      "lineup": [
+        "MAMAMOO"
+      ],
       "is_festival": false,
       "venue": "臺北小巨蛋 Taipei Arena",
       "city": "台北",
@@ -26900,7 +27144,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39961",
       "sources": [
@@ -26911,7 +27157,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.446Z",
-      "updated_at": "2026-09-29T03:21:24.446Z",
+      "updated_at": "2026-09-29T06:23:50.497Z",
       "id": "73f23f378ae30b50",
       "merged_ids": [
         "73f23f378ae30b50"
@@ -26919,8 +27165,12 @@
     },
     {
       "title_raw": "厄倫蒂兒 Earendel 《THE SIGNAL》首場個人演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "厄倫蒂兒"
+      ],
+      "lineup": [
+        "厄倫蒂兒"
+      ],
       "is_festival": false,
       "venue": "Zepp New Taipei",
       "city": "新北",
@@ -26933,7 +27183,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39946",
       "sources": [
@@ -26944,7 +27196,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.448Z",
-      "updated_at": "2026-09-29T03:21:24.448Z",
+      "updated_at": "2026-09-29T06:23:50.497Z",
       "id": "291d50963bdf8233",
       "merged_ids": [
         "291d50963bdf8233"
@@ -26952,8 +27204,12 @@
     },
     {
       "title_raw": "PAYBACK Fan Meeting in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "PAYBACK"
+      ],
+      "lineup": [
+        "PAYBACK"
+      ],
       "is_festival": false,
       "venue": "台大綜合體育館一樓",
       "city": "台北",
@@ -26966,7 +27222,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39942",
       "sources": [
@@ -26977,7 +27235,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.448Z",
-      "updated_at": "2026-09-29T03:21:24.448Z",
+      "updated_at": "2026-09-29T06:23:50.497Z",
       "id": "952db51bf01b7aa3",
       "merged_ids": [
         "952db51bf01b7aa3"
@@ -26985,8 +27243,12 @@
     },
     {
       "title_raw": "《流光穿梭 十年傳說》傳說十週年演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "流光穿梭"
+      ],
+      "lineup": [
+        "流光穿梭"
+      ],
       "is_festival": false,
       "venue": "臺北大巨蛋",
       "city": "台北",
@@ -26999,7 +27261,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39910",
       "sources": [
@@ -27010,7 +27274,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.449Z",
-      "updated_at": "2026-09-29T03:21:24.449Z",
+      "updated_at": "2026-09-29T06:23:50.498Z",
       "id": "3807206fe1c10d54",
       "merged_ids": [
         "3807206fe1c10d54"
@@ -27018,8 +27282,12 @@
     },
     {
       "title_raw": "藤本洸大粉絲見面會 in 臺北",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "藤本洸大"
+      ],
+      "lineup": [
+        "藤本洸大"
+      ],
       "is_festival": false,
       "venue": "花漾展演空間–HANASPACE",
       "city": "台北",
@@ -27032,7 +27300,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39907",
       "sources": [
@@ -27043,7 +27313,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.449Z",
-      "updated_at": "2026-09-29T03:21:24.449Z",
+      "updated_at": "2026-09-29T06:23:50.498Z",
       "id": "e926598c3b6685ee-day",
       "merged_ids": [
         "e926598c3b6685ee-day"
@@ -27051,8 +27321,12 @@
     },
     {
       "title_raw": "藤本洸大粉絲見面會 in 臺北",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "藤本洸大"
+      ],
+      "lineup": [
+        "藤本洸大"
+      ],
       "is_festival": false,
       "venue": "花漾展演空間–HANASPACE",
       "city": "台北",
@@ -27065,7 +27339,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39907",
       "sources": [
@@ -27076,7 +27352,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.449Z",
-      "updated_at": "2026-09-29T03:21:24.449Z",
+      "updated_at": "2026-09-29T06:23:50.498Z",
       "id": "e926598c3b6685ee-evening",
       "merged_ids": [
         "e926598c3b6685ee-evening"
@@ -27084,8 +27360,12 @@
     },
     {
       "title_raw": "2026 ONEW CONCERT〔ONEW THE LIVE：Q〕IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "ONEW THE LIVE"
+      ],
+      "lineup": [
+        "ONEW THE LIVE"
+      ],
       "is_festival": false,
       "venue": "台北國際會議中心（TICC）",
       "city": "台北",
@@ -27098,7 +27378,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39906",
       "sources": [
@@ -27109,7 +27391,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.450Z",
-      "updated_at": "2026-09-29T03:21:24.450Z",
+      "updated_at": "2026-09-29T06:23:50.498Z",
       "id": "d7234819047a736e",
       "merged_ids": [
         "d7234819047a736e"
@@ -27150,8 +27432,12 @@
     },
     {
       "title_raw": "Blush Blossom Fan Fest 2026 in Kaohsiung",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Blush Blossom"
+      ],
+      "lineup": [
+        "Blush Blossom"
+      ],
       "is_festival": false,
       "venue": "高雄流行音樂中心 海音館",
       "city": "高雄",
@@ -27164,7 +27450,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39903",
       "sources": [
@@ -27175,7 +27463,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.450Z",
-      "updated_at": "2026-09-29T03:21:24.450Z",
+      "updated_at": "2026-09-29T06:23:50.498Z",
       "id": "2442146b022e70bd",
       "merged_ids": [
         "2442146b022e70bd"
@@ -27183,8 +27471,12 @@
     },
     {
       "title_raw": "Ayasa 首次臺北粉絲見面會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Ayasa"
+      ],
+      "lineup": [
+        "Ayasa"
+      ],
       "is_festival": false,
       "venue": "MOONDOG",
       "city": "台北",
@@ -27197,7 +27489,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39899",
       "sources": [
@@ -27208,7 +27502,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.450Z",
-      "updated_at": "2026-09-29T03:21:24.450Z",
+      "updated_at": "2026-09-29T06:23:50.498Z",
       "id": "b57d52a2230f654d-day",
       "merged_ids": [
         "b57d52a2230f654d-day"
@@ -27216,8 +27510,12 @@
     },
     {
       "title_raw": "Ayasa 首次臺北粉絲見面會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Ayasa"
+      ],
+      "lineup": [
+        "Ayasa"
+      ],
       "is_festival": false,
       "venue": "MOONDOG",
       "city": "台北",
@@ -27230,7 +27528,9 @@
       "tags_type": [
         "見面會"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39899",
       "sources": [
@@ -27241,7 +27541,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.451Z",
-      "updated_at": "2026-09-29T03:21:24.451Z",
+      "updated_at": "2026-09-29T06:23:50.498Z",
       "id": "b57d52a2230f654d-evening",
       "merged_ids": [
         "b57d52a2230f654d-evening"
@@ -27249,8 +27549,12 @@
     },
     {
       "title_raw": "魔獸世界 World of Warcraft：20 Years of Music",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "魔獸世界"
+      ],
+      "lineup": [
+        "魔獸世界"
+      ],
       "is_festival": false,
       "venue": "高雄市文化中心 至德堂",
       "city": "高雄",
@@ -27263,7 +27567,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39885",
       "sources": [
@@ -27274,7 +27580,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.451Z",
-      "updated_at": "2026-09-29T03:21:24.451Z",
+      "updated_at": "2026-09-29T06:23:50.499Z",
       "id": "13e1b9438f660a8c",
       "merged_ids": [
         "13e1b9438f660a8c"
@@ -27282,8 +27588,12 @@
     },
     {
       "title_raw": "LenaMiu Love Meets You Fan Meeting in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "LenaMiu"
+      ],
+      "lineup": [
+        "LenaMiu"
+      ],
       "is_festival": false,
       "venue": "Legacy TERA",
       "city": "台北",
@@ -27296,7 +27606,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39878",
       "sources": [
@@ -27307,7 +27619,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.451Z",
-      "updated_at": "2026-09-29T03:21:24.451Z",
+      "updated_at": "2026-09-29T06:23:50.499Z",
       "id": "e04dc165d12d0c6d",
       "merged_ids": [
         "e04dc165d12d0c6d"
@@ -27315,8 +27627,12 @@
     },
     {
       "title_raw": "2026 tripleS World Tour ＜ANDLESS＞ in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "tripleS"
+      ],
+      "lineup": [
+        "tripleS"
+      ],
       "is_festival": false,
       "venue": "台北國際會議中心（TICC）",
       "city": "台北",
@@ -27329,7 +27645,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39877",
       "sources": [
@@ -27340,7 +27658,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.451Z",
-      "updated_at": "2026-09-29T03:21:24.451Z",
+      "updated_at": "2026-09-29T06:23:50.499Z",
       "id": "0a876a0683b447d9",
       "merged_ids": [
         "0a876a0683b447d9"
@@ -27348,8 +27666,12 @@
     },
     {
       "title_raw": "2026 BANG YONGGUK WORLD TOUR「HAEBANG」in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "BANG YONGGUK"
+      ],
+      "lineup": [
+        "BANG YONGGUK"
+      ],
       "is_festival": false,
       "venue": "CORNER MAX",
       "city": "台北",
@@ -27362,7 +27684,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39873",
       "sources": [
@@ -27373,7 +27697,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.452Z",
-      "updated_at": "2026-09-29T03:21:24.452Z",
+      "updated_at": "2026-09-29T06:23:50.499Z",
       "id": "6b8736d6e5882d3b",
       "merged_ids": [
         "6b8736d6e5882d3b"
@@ -27381,8 +27705,12 @@
     },
     {
       "title_raw": "山岡晃 Akira Yamaoka『迷霧迴響』2026限定專場．台北",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "山岡晃"
+      ],
+      "lineup": [
+        "山岡晃"
+      ],
       "is_festival": false,
       "venue": "SUB LIVE",
       "city": "台北",
@@ -27395,7 +27723,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39872",
       "sources": [
@@ -27406,7 +27736,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.452Z",
-      "updated_at": "2026-09-29T03:21:24.452Z",
+      "updated_at": "2026-09-29T06:23:50.499Z",
       "id": "268a16f5eada99fd",
       "merged_ids": [
         "268a16f5eada99fd"
@@ -27414,8 +27744,12 @@
     },
     {
       "title_raw": "時速36公里首度海外公演 “市民薄明” Tour 追加 台北站",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "時速36公里"
+      ],
+      "lineup": [
+        "時速36公里"
+      ],
       "is_festival": false,
       "venue": "PIPE Live Music",
       "city": "台北",
@@ -27428,7 +27762,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39776",
       "sources": [
@@ -27439,7 +27775,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.452Z",
-      "updated_at": "2026-09-29T03:21:24.452Z",
+      "updated_at": "2026-09-29T06:23:50.499Z",
       "id": "dc96d8bd26a5d4b2",
       "merged_ids": [
         "dc96d8bd26a5d4b2"
@@ -27447,8 +27783,12 @@
     },
     {
       "title_raw": "2026 KANA–BOON「CRITICAL HIT PARADE in TAIPEI」",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "KANA-BOON"
+      ],
+      "lineup": [
+        "KANA-BOON"
+      ],
       "is_festival": false,
       "venue": "Legacy Taipei",
       "city": "台北",
@@ -27461,7 +27801,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39773",
       "sources": [
@@ -27472,7 +27814,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.452Z",
-      "updated_at": "2026-09-29T03:21:24.452Z",
+      "updated_at": "2026-09-29T06:25:22.477Z",
       "id": "afd99092af05612b",
       "merged_ids": [
         "afd99092af05612b"
@@ -27513,8 +27855,12 @@
     },
     {
       "title_raw": "江美琪《傷心唱出來就沒事了》演唱會 2‧0 台北站",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "江美琪"
+      ],
+      "lineup": [
+        "江美琪"
+      ],
       "is_festival": false,
       "venue": "Zepp New Taipei",
       "city": "新北",
@@ -27527,7 +27873,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39707",
       "sources": [
@@ -27538,7 +27886,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.453Z",
-      "updated_at": "2026-09-29T03:21:24.453Z",
+      "updated_at": "2026-09-29T06:23:50.500Z",
       "id": "fb6bc7dc507d13fa",
       "merged_ids": [
         "fb6bc7dc507d13fa"
@@ -27546,8 +27894,12 @@
     },
     {
       "title_raw": "江美琪《傷心唱出來就沒事了》演唱會 2‧0 台北站",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "江美琪"
+      ],
+      "lineup": [
+        "江美琪"
+      ],
       "is_festival": false,
       "venue": "Zepp New Taipei",
       "city": "新北",
@@ -27560,7 +27912,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39707",
       "sources": [
@@ -27571,7 +27925,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.454Z",
-      "updated_at": "2026-09-29T03:21:24.454Z",
+      "updated_at": "2026-09-29T06:23:50.500Z",
       "id": "e11e2051a4ceec3d",
       "merged_ids": [
         "e11e2051a4ceec3d"
@@ -27579,8 +27933,12 @@
     },
     {
       "title_raw": "UNDERTALE：The Determination Symphony",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "UNDERTALE"
+      ],
+      "lineup": [
+        "UNDERTALE"
+      ],
       "is_festival": false,
       "venue": "高雄文化中心 至德堂",
       "city": "高雄",
@@ -27593,7 +27951,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39696",
       "sources": [
@@ -27604,7 +27964,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.454Z",
-      "updated_at": "2026-09-29T03:21:24.454Z",
+      "updated_at": "2026-09-29T06:23:50.500Z",
       "id": "cc558b36e83dafb7-day",
       "merged_ids": [
         "cc558b36e83dafb7-day"
@@ -27612,8 +27972,12 @@
     },
     {
       "title_raw": "UNDERTALE：The Determination Symphony",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "UNDERTALE"
+      ],
+      "lineup": [
+        "UNDERTALE"
+      ],
       "is_festival": false,
       "venue": "高雄文化中心 至德堂",
       "city": "高雄",
@@ -27626,7 +27990,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39696",
       "sources": [
@@ -27637,7 +28003,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.454Z",
-      "updated_at": "2026-09-29T03:21:24.454Z",
+      "updated_at": "2026-09-29T06:23:50.500Z",
       "id": "cc558b36e83dafb7-evening",
       "merged_ids": [
         "cc558b36e83dafb7-evening"
@@ -27645,8 +28011,12 @@
     },
     {
       "title_raw": "UNDERTALE：The Determination Symphony",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "UNDERTALE"
+      ],
+      "lineup": [
+        "UNDERTALE"
+      ],
       "is_festival": false,
       "venue": "高雄文化中心 至德堂",
       "city": "高雄",
@@ -27659,7 +28029,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39696",
       "sources": [
@@ -27670,7 +28042,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.454Z",
-      "updated_at": "2026-09-29T03:21:24.454Z",
+      "updated_at": "2026-09-29T06:23:50.500Z",
       "id": "c313b5516cc7712d",
       "merged_ids": [
         "c313b5516cc7712d"
@@ -27678,8 +28050,12 @@
     },
     {
       "title_raw": "UNDERTALE：The Determination Symphony",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "UNDERTALE"
+      ],
+      "lineup": [
+        "UNDERTALE"
+      ],
       "is_festival": false,
       "venue": "高雄文化中心 至德堂",
       "city": "高雄",
@@ -27692,7 +28068,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39696",
       "sources": [
@@ -27703,7 +28081,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.454Z",
-      "updated_at": "2026-09-29T03:21:24.454Z",
+      "updated_at": "2026-09-29T06:23:50.500Z",
       "id": "987b56f439e784bf",
       "merged_ids": [
         "987b56f439e784bf"
@@ -27711,8 +28089,12 @@
     },
     {
       "title_raw": "《暗喻幻想》Metaphor：ReFantazio 交響音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "ReFantazio"
+      ],
+      "lineup": [
+        "ReFantazio"
+      ],
       "is_festival": false,
       "venue": "高雄文化中心 至德堂",
       "city": "高雄",
@@ -27725,7 +28107,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39692",
       "sources": [
@@ -27736,7 +28120,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.455Z",
-      "updated_at": "2026-09-29T03:21:24.455Z",
+      "updated_at": "2026-09-29T06:23:50.500Z",
       "id": "ede204478a0cd6d8",
       "merged_ids": [
         "ede204478a0cd6d8"
@@ -28074,8 +28458,12 @@
     },
     {
       "title_raw": "台中愛樂管絃樂團2026二十五週年公演《人海中遇見你》跨界音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "台中愛樂管絃樂團"
+      ],
+      "lineup": [
+        "台中愛樂管絃樂團"
+      ],
       "is_festival": false,
       "venue": "臺中市中山堂",
       "city": "台中",
@@ -28088,7 +28476,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2089887700019679233",
       "sources": [
@@ -28099,7 +28489,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.105Z",
-      "updated_at": "2026-09-29T03:25:46.105Z",
+      "updated_at": "2026-09-29T06:23:50.501Z",
       "id": "a28bb0239dcee553",
       "merged_ids": [
         "a28bb0239dcee553"
@@ -28206,8 +28596,12 @@
     },
     {
       "title_raw": "2026臺北爵士大樂隊《感爵臺灣》美國紐奧良巡演行前音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "臺北爵士大樂隊"
+      ],
+      "lineup": [
+        "臺北爵士大樂隊"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院演奏廳",
       "city": "台北",
@@ -28220,7 +28614,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2076883861296070657",
       "sources": [
@@ -28231,7 +28627,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.105Z",
-      "updated_at": "2026-09-29T03:25:46.105Z",
+      "updated_at": "2026-09-29T06:23:50.502Z",
       "id": "b48e610df1c4cf06",
       "merged_ids": [
         "b48e610df1c4cf06"
@@ -28338,8 +28734,12 @@
     },
     {
       "title_raw": "2026池上秋收稻穗藝術節《愛在秋收，縱谷傳唱》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "池上秋收稻穗藝術節"
+      ],
+      "lineup": [
+        "池上秋收稻穗藝術節"
+      ],
       "is_festival": false,
       "venue": "臺東縣池上鄉萬安社區天堂路稻田區_萬新道路",
       "city": "台東",
@@ -28352,7 +28752,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2065334424462708736",
       "sources": [
@@ -28363,7 +28765,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T03:25:46.106Z",
+      "updated_at": "2026-09-29T06:23:50.502Z",
       "id": "d7cacdb4d2101253",
       "merged_ids": [
         "d7cacdb4d2101253"
@@ -28371,8 +28773,12 @@
     },
     {
       "title_raw": "2026池上秋收稻穗藝術節《愛在秋收，縱谷傳唱》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "池上秋收稻穗藝術節"
+      ],
+      "lineup": [
+        "池上秋收稻穗藝術節"
+      ],
       "is_festival": false,
       "venue": "臺東縣池上鄉萬安社區天堂路稻田區_萬新道路",
       "city": "台東",
@@ -28385,7 +28791,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2065334424462708736",
       "sources": [
@@ -28396,7 +28804,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T03:25:46.106Z",
+      "updated_at": "2026-09-29T06:23:50.502Z",
       "id": "dbd442bc95fd8817",
       "merged_ids": [
         "dbd442bc95fd8817"
@@ -28404,8 +28812,12 @@
     },
     {
       "title_raw": "《聽見那個年代》張林峯2026音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "張林峯"
+      ],
+      "lineup": [
+        "張林峯"
+      ],
       "is_festival": false,
       "venue": "中油大樓國光會議廳",
       "city": "台北",
@@ -28418,7 +28830,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2087818083774783489",
       "sources": [
@@ -28429,7 +28843,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T03:25:46.106Z",
+      "updated_at": "2026-09-29T06:23:50.502Z",
       "id": "56636a93e545390f",
       "merged_ids": [
         "56636a93e545390f"
@@ -28437,8 +28851,14 @@
     },
     {
       "title_raw": "湯妮莉 ✕ 高韻堯 ——《節奏與狂喜》雙鋼琴音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "湯妮莉",
+        "高韻堯"
+      ],
+      "lineup": [
+        "湯妮莉",
+        "高韻堯"
+      ],
       "is_festival": false,
       "venue": "衛武營國家藝術文化中心表演廳",
       "city": "高雄",
@@ -28449,9 +28869,11 @@
       "price_max": 1200,
       "status": "on_sale",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2082777244051320833",
       "sources": [
@@ -28462,7 +28884,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T03:25:46.106Z",
+      "updated_at": "2026-09-29T06:23:50.502Z",
       "id": "a4b59d2943d9a2bb",
       "merged_ids": [
         "a4b59d2943d9a2bb"
@@ -28503,8 +28925,12 @@
     },
     {
       "title_raw": "拾光－2026天狼星口琴樂團音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "天狼星口琴樂團"
+      ],
+      "lineup": [
+        "天狼星口琴樂團"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院演奏廳",
       "city": "台北",
@@ -28517,7 +28943,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2084197567053049856",
       "sources": [
@@ -28528,7 +28956,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T03:25:46.106Z",
+      "updated_at": "2026-09-29T06:23:50.503Z",
       "id": "c8d7958a80d53031-day",
       "merged_ids": [
         "c8d7958a80d53031-day"
@@ -28536,8 +28964,12 @@
     },
     {
       "title_raw": "拾光－2026天狼星口琴樂團音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "天狼星口琴樂團"
+      ],
+      "lineup": [
+        "天狼星口琴樂團"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院演奏廳",
       "city": "台北",
@@ -28550,7 +28982,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2084197567053049856",
       "sources": [
@@ -28561,7 +28995,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T03:25:46.106Z",
+      "updated_at": "2026-09-29T06:23:50.503Z",
       "id": "c8d7958a80d53031-evening",
       "merged_ids": [
         "c8d7958a80d53031-evening"
@@ -28569,8 +29003,12 @@
     },
     {
       "title_raw": "拾光－2026天狼星口琴樂團音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "天狼星口琴樂團"
+      ],
+      "lineup": [
+        "天狼星口琴樂團"
+      ],
       "is_festival": false,
       "venue": "衛武營國家藝術文化中心表演廳",
       "city": "高雄",
@@ -28583,7 +29021,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2084197567053049856",
       "sources": [
@@ -28594,7 +29034,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T03:25:46.106Z",
+      "updated_at": "2026-09-29T06:23:50.503Z",
       "id": "d6686ec79cb52a7a",
       "merged_ids": [
         "d6686ec79cb52a7a"
@@ -28635,8 +29075,12 @@
     },
     {
       "title_raw": "日本Twinkle古典吉他五重奏音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "日本Twinkle古典吉他五重奏"
+      ],
+      "lineup": [
+        "日本Twinkle古典吉他五重奏"
+      ],
       "is_festival": false,
       "venue": "新光音樂廳",
       "city": "新北",
@@ -28649,7 +29093,9 @@
       "tags_type": [
         "古典"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2070397407542661121",
       "sources": [
@@ -28660,7 +29106,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T03:25:46.106Z",
+      "updated_at": "2026-09-29T06:23:50.503Z",
       "id": "5881d337bc0cbf5d",
       "merged_ids": [
         "5881d337bc0cbf5d"
@@ -28668,8 +29114,12 @@
     },
     {
       "title_raw": "《戀戀40─陳明章現場作品四十年》新年音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "陳明章"
+      ],
+      "lineup": [
+        "陳明章"
+      ],
       "is_festival": false,
       "venue": "衛武營國家藝術文化中心音樂廳",
       "city": "高雄",
@@ -28682,7 +29132,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2085334193336229889",
       "sources": [
@@ -28693,7 +29145,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.107Z",
-      "updated_at": "2026-09-29T03:25:46.107Z",
+      "updated_at": "2026-09-29T06:23:50.503Z",
       "id": "610b04c68d75c0b7",
       "merged_ids": [
         "610b04c68d75c0b7"
@@ -28701,8 +29153,12 @@
     },
     {
       "title_raw": "「爵士禾聲」系列音樂會 #06｜DonSir《康達效應》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "爵士禾聲"
+      ],
+      "lineup": [
+        "爵士禾聲"
+      ],
       "is_festival": false,
       "venue": "禾禾文化空間",
       "city": "台北",
@@ -28715,7 +29171,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2064243052747730945",
       "sources": [
@@ -28726,7 +29184,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.107Z",
-      "updated_at": "2026-09-29T03:25:46.107Z",
+      "updated_at": "2026-09-29T06:23:50.503Z",
       "id": "db9e1b439dfc3285",
       "merged_ids": [
         "db9e1b439dfc3285"
@@ -28767,8 +29225,12 @@
     },
     {
       "title_raw": "探歌再敘-臺灣歌謠爵士之夜",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "探歌再敘"
+      ],
+      "lineup": [
+        "探歌再敘"
+      ],
       "is_festival": false,
       "venue": "臺中國家歌劇院中劇院",
       "city": "台中",
@@ -28781,7 +29243,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2073958635633012737",
       "sources": [
@@ -28792,7 +29256,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.107Z",
-      "updated_at": "2026-09-29T03:25:46.107Z",
+      "updated_at": "2026-09-29T06:23:50.503Z",
       "id": "177c124f12e63097",
       "merged_ids": [
         "177c124f12e63097"
@@ -28800,8 +29264,12 @@
     },
     {
       "title_raw": "2026臺中爵士音樂節｜售票系列音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "臺中爵士音樂節"
+      ],
+      "lineup": [
+        "臺中爵士音樂節"
+      ],
       "is_festival": false,
       "venue": "丰二三晨露廳",
       "city": "台中",
@@ -28814,7 +29282,9 @@
       "tags_type": [
         "音樂祭"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2084835650144583680",
       "sources": [
@@ -28825,7 +29295,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.107Z",
-      "updated_at": "2026-09-29T03:25:46.107Z",
+      "updated_at": "2026-09-29T06:23:50.503Z",
       "id": "41e21bbed38d4d00",
       "merged_ids": [
         "41e21bbed38d4d00"
@@ -28833,8 +29303,12 @@
     },
     {
       "title_raw": "2026臺中爵士音樂節｜售票系列音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "臺中爵士音樂節"
+      ],
+      "lineup": [
+        "臺中爵士音樂節"
+      ],
       "is_festival": false,
       "venue": "丰二三晨露廳",
       "city": "台中",
@@ -28847,7 +29321,9 @@
       "tags_type": [
         "音樂祭"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2084835650144583680",
       "sources": [
@@ -28858,7 +29334,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.107Z",
-      "updated_at": "2026-09-29T03:25:46.107Z",
+      "updated_at": "2026-09-29T06:23:50.504Z",
       "id": "c267b5f70c20ef9a",
       "merged_ids": [
         "c267b5f70c20ef9a"
@@ -28866,8 +29342,12 @@
     },
     {
       "title_raw": "2026臺中爵士音樂節｜售票系列音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "臺中爵士音樂節"
+      ],
+      "lineup": [
+        "臺中爵士音樂節"
+      ],
       "is_festival": false,
       "venue": "丰二三晨露廳",
       "city": "台中",
@@ -28880,7 +29360,9 @@
       "tags_type": [
         "音樂祭"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2084835650144583680",
       "sources": [
@@ -28891,7 +29373,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.107Z",
-      "updated_at": "2026-09-29T03:25:46.107Z",
+      "updated_at": "2026-09-29T06:23:50.504Z",
       "id": "0a8f5a6c00f1805c",
       "merged_ids": [
         "0a8f5a6c00f1805c"
@@ -28899,8 +29381,12 @@
     },
     {
       "title_raw": "《玩弦四度》爵士弦樂四重奏",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "玩弦四度"
+      ],
+      "lineup": [
+        "玩弦四度"
+      ],
       "is_festival": false,
       "venue": "臺灣大學藝文中心雅頌坊",
       "city": "台北",
@@ -28913,7 +29399,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2068922635046830081",
       "sources": [
@@ -28924,7 +29412,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.107Z",
-      "updated_at": "2026-09-29T03:25:46.107Z",
+      "updated_at": "2026-09-29T06:23:50.504Z",
       "id": "f18c12e095c0de05",
       "merged_ids": [
         "f18c12e095c0de05"
@@ -28965,8 +29453,12 @@
     },
     {
       "title_raw": "2026年三秀園雅集-聽風藝術節《冬之旅》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "三秀園雅集"
+      ],
+      "lineup": [
+        "三秀園雅集"
+      ],
       "is_festival": false,
       "venue": "雲林縣三秀園",
       "city": "雲林",
@@ -28979,7 +29471,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2077295238766981121",
       "sources": [
@@ -28990,7 +29484,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.107Z",
-      "updated_at": "2026-09-29T03:25:46.107Z",
+      "updated_at": "2026-09-29T06:23:50.504Z",
       "id": "7321d52af60813a3",
       "merged_ids": [
         "7321d52af60813a3"
@@ -28998,8 +29492,12 @@
     },
     {
       "title_raw": "2026年三秀園雅集-聽風藝術節《寶島爵士yeah》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "三秀園雅集"
+      ],
+      "lineup": [
+        "三秀園雅集"
+      ],
       "is_festival": false,
       "venue": "雲林縣三秀園",
       "city": "雲林",
@@ -29012,7 +29510,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2077578343369412609",
       "sources": [
@@ -29023,7 +29523,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.107Z",
-      "updated_at": "2026-09-29T03:25:46.107Z",
+      "updated_at": "2026-09-29T06:23:50.504Z",
       "id": "d6221f7b8a042277",
       "merged_ids": [
         "d6221f7b8a042277"
@@ -29031,8 +29531,12 @@
     },
     {
       "title_raw": "第12屆台北東區 秋季爵士音樂節",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "台北東區秋季爵士音樂節"
+      ],
+      "lineup": [
+        "台北東區秋季爵士音樂節"
+      ],
       "is_festival": false,
       "venue": "台北生技園區多功能廳",
       "city": "台北",
@@ -29045,7 +29549,9 @@
       "tags_type": [
         "音樂祭"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2099757618971582465",
       "sources": [
@@ -29056,7 +29562,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.108Z",
-      "updated_at": "2026-09-29T03:25:46.108Z",
+      "updated_at": "2026-09-29T06:25:22.481Z",
       "id": "f7b2f2663ca36eba",
       "merged_ids": [
         "f7b2f2663ca36eba"
@@ -29097,8 +29603,12 @@
     },
     {
       "title_raw": "「爵士禾聲」系列音樂會 #07｜《他/她們眼中的世界》——爵士創作歌手的音樂說法",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "爵士禾聲"
+      ],
+      "lineup": [
+        "爵士禾聲"
+      ],
       "is_festival": false,
       "venue": "禾禾文化空間",
       "city": "台北",
@@ -29111,7 +29621,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2064248113372274689",
       "sources": [
@@ -29122,7 +29634,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.108Z",
-      "updated_at": "2026-09-29T03:25:46.108Z",
+      "updated_at": "2026-09-29T06:23:50.504Z",
       "id": "4d40dee489b275da",
       "merged_ids": [
         "4d40dee489b275da"
@@ -29196,8 +29708,12 @@
     },
     {
       "title_raw": "力晶世紀美聲系列 次女高音喬伊斯・狄杜娜朵冬日音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "喬伊斯・狄杜娜朵"
+      ],
+      "lineup": [
+        "喬伊斯・狄杜娜朵"
+      ],
       "is_festival": false,
       "venue": "國家音樂廳",
       "city": "台北",
@@ -29210,7 +29726,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2082425418452361217",
       "sources": [
@@ -29221,7 +29739,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.108Z",
-      "updated_at": "2026-09-29T03:25:46.108Z",
+      "updated_at": "2026-09-29T06:23:50.504Z",
       "id": "e7bcf0a10a744f44",
       "merged_ids": [
         "e7bcf0a10a744f44"
@@ -29361,8 +29879,12 @@
     },
     {
       "title_raw": "《古典・當代・跨界》尤里·凱恩 與 新藝術管弦樂團",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "新藝術管弦樂團"
+      ],
+      "lineup": [
+        "新藝術管弦樂團"
+      ],
       "is_festival": false,
       "venue": "誠品表演廳",
       "city": "台北",
@@ -29375,7 +29897,9 @@
       "tags_type": [
         "古典"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2099373541972262913",
       "sources": [
@@ -29386,7 +29910,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T03:25:46.109Z",
+      "updated_at": "2026-09-29T06:23:50.505Z",
       "id": "d1b534b14fcbda84",
       "merged_ids": [
         "d1b534b14fcbda84"
@@ -29394,8 +29918,12 @@
     },
     {
       "title_raw": "日本早稻田爵士大樂團訪臺巡迴音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "早稻田爵士大樂團"
+      ],
+      "lineup": [
+        "早稻田爵士大樂團"
+      ],
       "is_festival": false,
       "venue": "臺北市中山堂光復廳",
       "city": "台北",
@@ -29408,7 +29936,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2096906468333096960",
       "sources": [
@@ -29419,7 +29949,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T03:25:46.109Z",
+      "updated_at": "2026-09-29T06:23:50.505Z",
       "id": "7130dcdceac836f7",
       "merged_ids": [
         "7130dcdceac836f7"
@@ -29427,8 +29957,12 @@
     },
     {
       "title_raw": "日本早稻田爵士大樂團訪臺巡迴音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "早稻田爵士大樂團"
+      ],
+      "lineup": [
+        "早稻田爵士大樂團"
+      ],
       "is_festival": false,
       "venue": "台江文化中心台江劇場",
       "city": "台南",
@@ -29441,7 +29975,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2096906468333096960",
       "sources": [
@@ -29452,7 +29988,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T03:25:46.109Z",
+      "updated_at": "2026-09-29T06:23:50.505Z",
       "id": "ad8ff00dec0769af",
       "merged_ids": [
         "ad8ff00dec0769af"
@@ -29460,8 +29996,14 @@
     },
     {
       "title_raw": "民謠野瘋狂：西非節奏天后X蒙古搖滾先驅",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "西非節奏天后",
+        "蒙古搖滾先驅"
+      ],
+      "lineup": [
+        "西非節奏天后",
+        "蒙古搖滾先驅"
+      ],
       "is_festival": false,
       "venue": "恆春文化中心劇場館表演廳",
       "city": "屏東",
@@ -29472,9 +30014,12 @@
       "price_max": 500,
       "status": "on_sale",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美",
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2082004306746810369",
       "sources": [
@@ -29485,7 +30030,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T03:25:46.109Z",
+      "updated_at": "2026-09-29T06:23:50.505Z",
       "id": "bb4710b3dfab3929-day",
       "merged_ids": [
         "bb4710b3dfab3929-day"
@@ -29493,8 +30038,14 @@
     },
     {
       "title_raw": "民謠野瘋狂：西非節奏天后X蒙古搖滾先驅",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "西非節奏天后",
+        "蒙古搖滾先驅"
+      ],
+      "lineup": [
+        "西非節奏天后",
+        "蒙古搖滾先驅"
+      ],
       "is_festival": false,
       "venue": "恆春文化中心劇場館表演廳",
       "city": "屏東",
@@ -29505,9 +30056,12 @@
       "price_max": 500,
       "status": "on_sale",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美",
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2082004306746810369",
       "sources": [
@@ -29518,7 +30072,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T03:25:46.109Z",
+      "updated_at": "2026-09-29T06:23:50.505Z",
       "id": "bb4710b3dfab3929-evening",
       "merged_ids": [
         "bb4710b3dfab3929-evening"
@@ -29526,8 +30080,12 @@
     },
     {
       "title_raw": "2026新藝術樂季 III ：『光與盼望』",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "新藝術管弦樂團"
+      ],
+      "lineup": [
+        "新藝術管弦樂團"
+      ],
       "is_festival": false,
       "venue": "國家音樂廳",
       "city": "台北",
@@ -29540,7 +30098,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2079564024572174336",
       "sources": [
@@ -29551,7 +30111,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T03:25:46.109Z",
+      "updated_at": "2026-09-29T06:23:50.505Z",
       "id": "e85f9e935627dbea",
       "merged_ids": [
         "e85f9e935627dbea"
@@ -29559,8 +30119,14 @@
     },
     {
       "title_raw": "《轉體》－ Shane Shanahan與Yathi Ensemble世界擊樂團",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Shane Shanahan",
+        "Yathi Ensemble"
+      ],
+      "lineup": [
+        "Shane Shanahan",
+        "Yathi Ensemble"
+      ],
       "is_festival": false,
       "venue": "誠品表演廳",
       "city": "台北",
@@ -29571,9 +30137,12 @@
       "price_max": 1200,
       "status": "on_sale",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美",
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2092089077167427584",
       "sources": [
@@ -29584,7 +30153,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T03:25:46.109Z",
+      "updated_at": "2026-09-29T06:23:50.505Z",
       "id": "ddd7efa9543c088a",
       "merged_ids": [
         "ddd7efa9543c088a"
@@ -29592,8 +30161,12 @@
     },
     {
       "title_raw": "小巨人絲竹樂團-青年演奏家系列【綻放XIX】",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "小巨人絲竹樂團"
+      ],
+      "lineup": [
+        "小巨人絲竹樂團"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院演奏廳",
       "city": "台北",
@@ -29606,7 +30179,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2077271823146872833",
       "sources": [
@@ -29617,7 +30192,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T03:25:46.109Z",
+      "updated_at": "2026-09-29T06:23:50.505Z",
       "id": "ed72b0093910d3cd",
       "merged_ids": [
         "ed72b0093910d3cd"
@@ -29724,8 +30299,12 @@
     },
     {
       "title_raw": "鄭勳琦胡琴音樂會《民謠風》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "鄭勳琦"
+      ],
+      "lineup": [
+        "鄭勳琦"
+      ],
       "is_festival": false,
       "venue": "臺中市屯區藝文中心實驗劇場",
       "city": "台中",
@@ -29738,7 +30317,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2089273711772602368",
       "sources": [
@@ -29749,7 +30330,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T03:25:46.109Z",
+      "updated_at": "2026-09-29T06:23:50.506Z",
       "id": "595a9126080f1e5c",
       "merged_ids": [
         "595a9126080f1e5c"
@@ -29757,8 +30338,12 @@
     },
     {
       "title_raw": "小島大歌《One Ocean》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "小島大歌"
+      ],
+      "lineup": [
+        "小島大歌"
+      ],
       "is_festival": false,
       "venue": "衛武營國家藝術文化中心戲劇院",
       "city": "高雄",
@@ -29771,7 +30356,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2052306394696761345",
       "sources": [
@@ -29782,7 +30369,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.110Z",
-      "updated_at": "2026-09-29T03:25:46.110Z",
+      "updated_at": "2026-09-29T06:23:50.506Z",
       "id": "2bab87da0b428f03",
       "merged_ids": [
         "2bab87da0b428f03"
@@ -29823,8 +30410,12 @@
     },
     {
       "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "木樓合唱團"
+      ],
+      "lineup": [
+        "木樓合唱團"
+      ],
       "is_festival": false,
       "venue": "國家音樂廳",
       "city": "台北",
@@ -29837,7 +30428,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2100491251944562689",
       "sources": [
@@ -29848,7 +30441,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.110Z",
-      "updated_at": "2026-09-29T03:25:46.110Z",
+      "updated_at": "2026-09-29T06:23:50.506Z",
       "id": "c54c54f6dbaae159",
       "merged_ids": [
         "c54c54f6dbaae159"
@@ -29856,8 +30449,12 @@
     },
     {
       "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "木樓合唱團"
+      ],
+      "lineup": [
+        "木樓合唱團"
+      ],
       "is_festival": false,
       "venue": "臺中國家歌劇院中劇院",
       "city": "台中",
@@ -29870,7 +30467,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2100491251944562689",
       "sources": [
@@ -29881,7 +30480,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.110Z",
-      "updated_at": "2026-09-29T03:25:46.110Z",
+      "updated_at": "2026-09-29T06:23:50.506Z",
       "id": "c621f107d13e30e9",
       "merged_ids": [
         "c621f107d13e30e9"
@@ -29889,8 +30488,12 @@
     },
     {
       "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "木樓合唱團"
+      ],
+      "lineup": [
+        "木樓合唱團"
+      ],
       "is_festival": false,
       "venue": "衛武營國家藝術文化中心音樂廳",
       "city": "高雄",
@@ -29903,7 +30506,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2100491251944562689",
       "sources": [
@@ -29914,7 +30519,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.110Z",
-      "updated_at": "2026-09-29T03:25:46.110Z",
+      "updated_at": "2026-09-29T06:23:50.506Z",
       "id": "df3326a88c1d2a7a",
       "merged_ids": [
         "df3326a88c1d2a7a"
@@ -29922,8 +30527,12 @@
     },
     {
       "title_raw": "小巨人絲竹室內樂系列【絲弦情 LXXIII】",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "小巨人絲竹樂團"
+      ],
+      "lineup": [
+        "小巨人絲竹樂團"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院演奏廳",
       "city": "台北",
@@ -29936,7 +30545,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2096198561125683201",
       "sources": [
@@ -29947,7 +30558,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.110Z",
-      "updated_at": "2026-09-29T03:25:46.110Z",
+      "updated_at": "2026-09-29T06:25:22.483Z",
       "id": "706f5f889eeaa91c",
       "merged_ids": [
         "706f5f889eeaa91c"
@@ -30099,8 +30710,12 @@
     },
     {
       "title_raw": "2026 JEONG EUNJI SOLO CONCERT‘SUMMER, I’ASIA TOUR in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "JEONG EUNJI"
+      ],
+      "lineup": [
+        "JEONG EUNJI"
+      ],
       "is_festival": false,
       "venue": "台北國際會議中心 大會堂",
       "city": "台北",
@@ -30113,7 +30728,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1FRRCZ9",
       "sources": [
@@ -30124,7 +30741,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.006Z",
-      "updated_at": "2026-09-29T03:21:19.006Z",
+      "updated_at": "2026-09-29T06:23:50.507Z",
       "id": "85b6d270de00237e",
       "merged_ids": [
         "85b6d270de00237e"
@@ -30132,8 +30749,12 @@
     },
     {
       "title_raw": "2026 EUNHYUK PRE-DEBUT FANCON‘be: WARE OF THE RABBIT’ in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "EUNHYUK"
+      ],
+      "lineup": [
+        "EUNHYUK"
+      ],
       "is_festival": false,
       "venue": "台北國際會議中心 大會堂",
       "city": "台北",
@@ -30146,7 +30767,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1F8LOR3",
       "sources": [
@@ -30157,7 +30780,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.006Z",
-      "updated_at": "2026-09-29T03:21:19.006Z",
+      "updated_at": "2026-09-29T06:23:50.507Z",
       "id": "e4ab898b11b68948",
       "merged_ids": [
         "e4ab898b11b68948"
@@ -30165,8 +30788,12 @@
     },
     {
       "title_raw": "2026 EUNHYUK PRE-DEBUT FANCON‘be: WARE OF THE RABBIT’ in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "EUNHYUK"
+      ],
+      "lineup": [
+        "EUNHYUK"
+      ],
       "is_festival": false,
       "venue": "台北國際會議中心 大會堂",
       "city": "台北",
@@ -30179,7 +30806,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1F8LOR3",
       "sources": [
@@ -30190,7 +30819,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.006Z",
-      "updated_at": "2026-09-29T03:21:19.006Z",
+      "updated_at": "2026-09-29T06:23:50.507Z",
       "id": "a7e6aaa586cc9b6b",
       "merged_ids": [
         "a7e6aaa586cc9b6b"
@@ -30198,8 +30827,12 @@
     },
     {
       "title_raw": "2026玖壹壹南北貳路音樂節",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "玖壹壹"
+      ],
+      "lineup": [
+        "玖壹壹"
+      ],
       "is_festival": false,
       "venue": "台中水湳中央公園",
       "city": "台中",
@@ -30212,7 +30845,9 @@
       "tags_type": [
         "音樂祭"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1ENTKEA",
       "sources": [
@@ -30223,7 +30858,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.007Z",
-      "updated_at": "2026-09-29T03:21:19.007Z",
+      "updated_at": "2026-09-29T06:23:50.507Z",
       "id": "52ab194a8c85176d",
       "merged_ids": [
         "52ab194a8c85176d"
@@ -30231,8 +30866,12 @@
     },
     {
       "title_raw": "2026 N.Flying LIVE‘&CON5：into REM’IN KAOHSIUNG",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "N.Flying"
+      ],
+      "lineup": [
+        "N.Flying"
+      ],
       "is_festival": false,
       "venue": "高雄流行音樂中心 海音館",
       "city": "高雄",
@@ -30245,7 +30884,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1F24HRG",
       "sources": [
@@ -30256,7 +30897,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.007Z",
-      "updated_at": "2026-09-29T03:21:19.007Z",
+      "updated_at": "2026-09-29T06:23:50.507Z",
       "id": "b65bfdff91da18ee",
       "merged_ids": [
         "b65bfdff91da18ee"
@@ -30297,8 +30938,12 @@
     },
     {
       "title_raw": "2026 小宇 宋念宇《不，完美的人》演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "宋念宇"
+      ],
+      "lineup": [
+        "宋念宇"
+      ],
       "is_festival": false,
       "venue": "臺北流行音樂中心 表演廳",
       "city": "台北",
@@ -30311,7 +30956,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1DF32E2",
       "sources": [
@@ -30322,7 +30969,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.007Z",
-      "updated_at": "2026-09-29T03:21:19.007Z",
+      "updated_at": "2026-09-29T06:23:50.507Z",
       "id": "c510ce39228722c0",
       "merged_ids": [
         "c510ce39228722c0"
@@ -30330,8 +30977,12 @@
     },
     {
       "title_raw": "郭子&浮花樂隊 原來的那首歌 Live in Legacy Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "郭子"
+      ],
+      "lineup": [
+        "郭子"
+      ],
       "is_festival": false,
       "venue": "Taipei Legacy傳記-華山1914創意文化園區 中5A館",
       "city": "台北",
@@ -30344,7 +30995,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1DF32E3",
       "sources": [
@@ -30355,7 +31008,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.007Z",
-      "updated_at": "2026-09-29T03:21:19.007Z",
+      "updated_at": "2026-09-29T06:23:50.507Z",
       "id": "a311cf2c12919ae5",
       "merged_ids": [
         "a311cf2c12919ae5"
@@ -30363,8 +31016,12 @@
     },
     {
       "title_raw": "國泰世華銀行 彭佳慧《數著時間的日子》巡迴演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "彭佳慧"
+      ],
+      "lineup": [
+        "彭佳慧"
+      ],
       "is_festival": false,
       "venue": "臺北小巨蛋",
       "city": "台北",
@@ -30377,7 +31034,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1D3G65D",
       "sources": [
@@ -30388,7 +31047,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.007Z",
-      "updated_at": "2026-09-29T03:21:19.007Z",
+      "updated_at": "2026-09-29T06:23:50.508Z",
       "id": "4f0af49629b3e2ed",
       "merged_ids": [
         "4f0af49629b3e2ed"
@@ -30396,8 +31055,12 @@
     },
     {
       "title_raw": "國泰世華銀行 彭佳慧《數著時間的日子》巡迴演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "彭佳慧"
+      ],
+      "lineup": [
+        "彭佳慧"
+      ],
       "is_festival": false,
       "venue": "高雄巨蛋",
       "city": "高雄",
@@ -30410,7 +31073,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1D3G65D",
       "sources": [
@@ -30421,7 +31086,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.007Z",
-      "updated_at": "2026-09-29T03:21:19.007Z",
+      "updated_at": "2026-09-29T06:23:50.508Z",
       "id": "bcf6037f494cdc0d",
       "merged_ids": [
         "bcf6037f494cdc0d"
@@ -30429,8 +31094,12 @@
     },
     {
       "title_raw": "2026吉卜力動畫音樂原唱歌手交響演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "吉卜力動畫音樂原唱歌手交響演唱會"
+      ],
+      "lineup": [
+        "吉卜力動畫音樂原唱歌手交響演唱會"
+      ],
       "is_festival": false,
       "venue": "臺北小巨蛋",
       "city": "台北",
@@ -30443,7 +31112,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1D3G65E",
       "sources": [
@@ -30454,7 +31125,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.007Z",
-      "updated_at": "2026-09-29T03:21:19.007Z",
+      "updated_at": "2026-09-29T06:23:50.508Z",
       "id": "9901f4f74a7ab2a5",
       "merged_ids": [
         "9901f4f74a7ab2a5"
@@ -30561,8 +31232,12 @@
     },
     {
       "title_raw": "【單買門票】Shizuka Kudo 2026 \"Dynamic\" CONCERT in TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Shizuka Kudo"
+      ],
+      "lineup": [
+        "Shizuka Kudo"
+      ],
       "is_festival": false,
       "venue": "台北國際會議中心 大會堂",
       "city": "台北",
@@ -30575,7 +31250,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1BU3K7Z",
       "sources": [
@@ -30586,7 +31263,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.008Z",
-      "updated_at": "2026-09-29T03:21:19.008Z",
+      "updated_at": "2026-09-29T06:23:50.508Z",
       "id": "62b517f2909c49d9",
       "merged_ids": [
         "62b517f2909c49d9"
@@ -30594,8 +31271,12 @@
     },
     {
       "title_raw": "【單買門票】XG世界巡迴演唱會 THE CORE 台北站 XG WORLD TOUR: THE CORE IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "XG WORLD TOUR"
+      ],
+      "lineup": [
+        "XG WORLD TOUR"
+      ],
       "is_festival": false,
       "venue": "臺北小巨蛋",
       "city": "台北",
@@ -30608,7 +31289,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P196NO67",
       "sources": [
@@ -30619,7 +31302,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.008Z",
-      "updated_at": "2026-09-29T03:21:19.008Z",
+      "updated_at": "2026-09-29T06:23:50.508Z",
       "id": "8a1e649d6e36a23a",
       "merged_ids": [
         "8a1e649d6e36a23a"
@@ -30627,8 +31310,12 @@
     },
     {
       "title_raw": "Novelbright ASIA TOUR 2026 ~PYRAMID~ IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Novelbright"
+      ],
+      "lineup": [
+        "Novelbright"
+      ],
       "is_festival": false,
       "venue": "新北市五股工商展覽中心",
       "city": "新北",
@@ -30641,7 +31328,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P19QK265",
       "sources": [
@@ -30652,7 +31341,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.099Z",
-      "updated_at": "2026-09-29T03:21:18.099Z",
+      "updated_at": "2026-09-29T06:23:50.508Z",
       "id": "d816320a25ccf82d",
       "merged_ids": [
         "d816320a25ccf82d"
@@ -30660,8 +31349,12 @@
     },
     {
       "title_raw": "2026 KANG MIN HYUK IF I WERE...FAN MEETING",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "KANG MIN HYUK"
+      ],
+      "lineup": [
+        "KANG MIN HYUK"
+      ],
       "is_festival": false,
       "venue": "壹電視攝影棚",
       "city": "台北",
@@ -30674,7 +31367,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1FMF3AD",
       "sources": [
@@ -30685,7 +31380,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.099Z",
-      "updated_at": "2026-09-29T03:21:18.099Z",
+      "updated_at": "2026-09-29T06:23:50.509Z",
       "id": "49447af4c36be145",
       "merged_ids": [
         "49447af4c36be145"
@@ -30693,8 +31388,12 @@
     },
     {
       "title_raw": "《大學城經典演唱會》～青春不散場・歌聲再飛揚",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "大學城經典演唱會"
+      ],
+      "lineup": [
+        "大學城經典演唱會"
+      ],
       "is_festival": false,
       "venue": "Legacy TERA",
       "city": "台北",
@@ -30707,7 +31406,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1CHP23G",
       "sources": [
@@ -30718,7 +31419,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.100Z",
-      "updated_at": "2026-09-29T03:21:18.100Z",
+      "updated_at": "2026-09-29T06:23:50.509Z",
       "id": "dfd3e0d1578d029b",
       "merged_ids": [
         "dfd3e0d1578d029b"
@@ -30726,8 +31427,12 @@
     },
     {
       "title_raw": "《大學城經典演唱會》～青春不散場・歌聲再飛揚",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "大學城經典演唱會"
+      ],
+      "lineup": [
+        "大學城經典演唱會"
+      ],
       "is_festival": false,
       "venue": "Legacy TERA",
       "city": "台北",
@@ -30740,7 +31445,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1CHP23G",
       "sources": [
@@ -30751,7 +31458,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.100Z",
-      "updated_at": "2026-09-29T03:21:18.100Z",
+      "updated_at": "2026-09-29T06:23:50.509Z",
       "id": "c30c9a32aef18b04-day",
       "merged_ids": [
         "c30c9a32aef18b04-day"
@@ -30759,8 +31466,12 @@
     },
     {
       "title_raw": "《大學城經典演唱會》～青春不散場・歌聲再飛揚",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "大學城經典演唱會"
+      ],
+      "lineup": [
+        "大學城經典演唱會"
+      ],
       "is_festival": false,
       "venue": "Legacy TERA",
       "city": "台北",
@@ -30773,7 +31484,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1CHP23G",
       "sources": [
@@ -30784,7 +31497,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.100Z",
-      "updated_at": "2026-09-29T03:21:18.100Z",
+      "updated_at": "2026-09-29T06:23:50.509Z",
       "id": "c30c9a32aef18b04-evening",
       "merged_ids": [
         "c30c9a32aef18b04-evening"
@@ -30792,8 +31505,12 @@
     },
     {
       "title_raw": "AxMxP X VERSE CONCERT IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "AxMxP"
+      ],
+      "lineup": [
+        "AxMxP"
+      ],
       "is_festival": false,
       "venue": "CLAPPER STUDIO 展演廳(三創生活)",
       "city": "台北",
@@ -30806,7 +31523,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1FWXUND",
       "sources": [
@@ -30817,7 +31536,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.100Z",
-      "updated_at": "2026-09-29T03:21:18.100Z",
+      "updated_at": "2026-09-29T06:23:50.509Z",
       "id": "930a17821c26e24a",
       "merged_ids": [
         "930a17821c26e24a"
@@ -30825,8 +31544,12 @@
     },
     {
       "title_raw": "「2026年國際沈文程日-小琉球情歌演唱會」",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "沈文程"
+      ],
+      "lineup": [
+        "沈文程"
+      ],
       "is_festival": false,
       "venue": "桃園展演中心展演廳",
       "city": "桃園",
@@ -30839,7 +31562,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P0WAULDW",
       "sources": [
@@ -30850,7 +31575,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.100Z",
-      "updated_at": "2026-09-29T03:21:18.100Z",
+      "updated_at": "2026-09-29T06:23:50.509Z",
       "id": "8f3e7ae66a244778",
       "merged_ids": [
         "8f3e7ae66a244778"
@@ -30858,8 +31583,12 @@
     },
     {
       "title_raw": "「2026年國際沈文程日-小琉球情歌演唱會」",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "沈文程"
+      ],
+      "lineup": [
+        "沈文程"
+      ],
       "is_festival": false,
       "venue": "臺東縣立體育館",
       "city": "台東",
@@ -30872,7 +31601,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P0WAULDW",
       "sources": [
@@ -30883,7 +31614,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.100Z",
-      "updated_at": "2026-09-29T03:21:18.100Z",
+      "updated_at": "2026-09-29T06:23:50.509Z",
       "id": "cab0741dc2ae86cc",
       "merged_ids": [
         "cab0741dc2ae86cc"
@@ -30891,8 +31622,12 @@
     },
     {
       "title_raw": "「2026年國際沈文程日-小琉球情歌演唱會」",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "沈文程"
+      ],
+      "lineup": [
+        "沈文程"
+      ],
       "is_festival": false,
       "venue": "台中中興大學惠蓀堂",
       "city": "台中",
@@ -30905,7 +31640,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P0WAULDW",
       "sources": [
@@ -30916,7 +31653,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.101Z",
-      "updated_at": "2026-09-29T03:21:18.101Z",
+      "updated_at": "2026-09-29T06:23:50.509Z",
       "id": "bee524c6a4574001",
       "merged_ids": [
         "bee524c6a4574001"
@@ -30924,8 +31661,12 @@
     },
     {
       "title_raw": "「2026年國際沈文程日-小琉球情歌演唱會」",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "沈文程"
+      ],
+      "lineup": [
+        "沈文程"
+      ],
       "is_festival": false,
       "venue": "台北國際會議中心大會堂",
       "city": "台北",
@@ -30938,7 +31679,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P0WAULDW",
       "sources": [
@@ -30949,7 +31692,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.101Z",
-      "updated_at": "2026-09-29T03:21:18.101Z",
+      "updated_at": "2026-09-29T06:23:50.509Z",
       "id": "7c5ce875457ae3fb",
       "merged_ids": [
         "7c5ce875457ae3fb"
@@ -30957,8 +31700,12 @@
     },
     {
       "title_raw": "Jason Mraz ASIA TOUR 2026 IN TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Jason Mraz"
+      ],
+      "lineup": [
+        "Jason Mraz"
+      ],
       "is_festival": false,
       "venue": "台北南港展覽館一館四樓",
       "city": "台北",
@@ -30971,7 +31718,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1AT93WA",
       "sources": [
@@ -30982,7 +31731,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.101Z",
-      "updated_at": "2026-09-29T03:21:18.101Z",
+      "updated_at": "2026-09-29T06:23:50.510Z",
       "id": "d4d49e85d85d3a92",
       "merged_ids": [
         "d4d49e85d85d3a92"
@@ -30990,8 +31739,12 @@
     },
     {
       "title_raw": "永遠的巨星 謝雷 2026演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "謝雷"
+      ],
+      "lineup": [
+        "謝雷"
+      ],
       "is_festival": false,
       "venue": "高雄市文化中心至德堂",
       "city": "高雄",
@@ -31004,7 +31757,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1A9C2II",
       "sources": [
@@ -31015,7 +31770,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.101Z",
-      "updated_at": "2026-09-29T03:21:18.101Z",
+      "updated_at": "2026-09-29T06:23:50.510Z",
       "id": "15e29d860b7728c0",
       "merged_ids": [
         "15e29d860b7728c0"
@@ -31023,8 +31778,12 @@
     },
     {
       "title_raw": "Novelbright 限量VIP Upgrade 升級加購",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Novelbright"
+      ],
+      "lineup": [
+        "Novelbright"
+      ],
       "is_festival": false,
       "venue": "新北市五股工商展覽中心",
       "city": "新北",
@@ -31037,7 +31796,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P19XNXK1",
       "sources": [
@@ -31048,7 +31809,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.101Z",
-      "updated_at": "2026-09-29T03:21:18.101Z",
+      "updated_at": "2026-09-29T06:23:50.510Z",
       "id": "9bf7049e1abf06a6",
       "merged_ids": [
         "9bf7049e1abf06a6"
@@ -31122,8 +31883,12 @@
     },
     {
       "title_raw": "2026林淑容【您的經典．我的歌】世界巡迴演唱會台中場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "林淑容"
+      ],
+      "lineup": [
+        "林淑容"
+      ],
       "is_festival": false,
       "venue": "台中中興大學惠蓀堂",
       "city": "台中",
@@ -31136,7 +31901,9 @@
       "tags_type": [
         "巡迴"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1DL4DZ2",
       "sources": [
@@ -31147,7 +31914,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.101Z",
-      "updated_at": "2026-09-29T03:21:18.101Z",
+      "updated_at": "2026-09-29T06:23:50.510Z",
       "id": "b7ebb8bf682fe5fa",
       "merged_ids": [
         "b7ebb8bf682fe5fa"
@@ -31155,8 +31922,12 @@
     },
     {
       "title_raw": "2026蔡義德【聲聲不息】演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "蔡義德"
+      ],
+      "lineup": [
+        "蔡義德"
+      ],
       "is_festival": false,
       "venue": "台中中興大學惠蓀堂",
       "city": "台中",
@@ -31169,7 +31940,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1ATPSBQ",
       "sources": [
@@ -31180,7 +31953,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.102Z",
-      "updated_at": "2026-09-29T03:21:18.102Z",
+      "updated_at": "2026-09-29T06:23:50.510Z",
       "id": "4204e90a0c6f9cb4",
       "merged_ids": [
         "4204e90a0c6f9cb4"
@@ -31188,8 +31961,12 @@
     },
     {
       "title_raw": "2026蔡義德【聲聲不息】演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "蔡義德"
+      ],
+      "lineup": [
+        "蔡義德"
+      ],
       "is_festival": false,
       "venue": "台中中興大學惠蓀堂",
       "city": "台中",
@@ -31202,7 +31979,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1ATPSBQ",
       "sources": [
@@ -31213,7 +31992,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.102Z",
-      "updated_at": "2026-09-29T03:21:18.102Z",
+      "updated_at": "2026-09-29T06:23:50.510Z",
       "id": "f6380c132236d334",
       "merged_ids": [
         "f6380c132236d334"

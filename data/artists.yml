@@ -1471,3 +1471,273 @@
 - canonical: SLUTs
   aliases: ["#DAMUR"]
   tags_origin_default: 本地  # 台灣派對品牌（票券頁 lafin.kktix.cc，The Horny Night 系列，多位 DJ／表演者參與）。2026-09-24 Max 定的規則：派對、音樂節這類多人參與的活動一律判定本地
+
+# 2026-09-29 排程：4 個新來源(ibon/OPENTIX/寬宏/年代)第一次抓到資料，一次湧入 129 筆未辨識藝人
+# (平常一天只有個位數到十幾筆)。逐一 WebSearch 查證，部分因撞名風險過高或查無實據跳過，留在 needs-review.json。
+- canonical: Mateus Asato
+  aliases: []
+  tags_origin_default: 歐美  # 巴西裔、洛杉磯活動的吉他手；票券頁 thewalllivehouse.kktix.cc「Mateus Asato Live in Taiwan 2026」(WebSearch)
+- canonical: culenasm
+  aliases: []
+  tags_origin_default: 日本  # 日本福岡四人樂團(dream pop/shoegaze)；票券頁 billboardlivetaipei.tw「culenasm BARIYOKA WINTER TOUR 2026」(WebSearch)
+- canonical: IRIS MONDO
+  aliases: []
+  tags_origin_default: 日本  # 東京雙人樂團(KSW/Super Sattan)；票券頁 ballinglikejay.kktix.cc「IRIS MONDO『LIFELINE』Asia Tour 台灣站」(WebSearch)
+- canonical: 古屋呂敏
+  aliases: ["Robin Furuya", "Furuya Robin"]
+  tags_origin_default: 日本  # 日本演員/攝影師(東京出生)；票券頁 saltsweeet.kktix.cc slug「robinfmtaipei2026」對得上藝名 Robin (WebSearch)
+- canonical: 藤本洸大
+  aliases: ["Kodai Fujimoto"]
+  tags_origin_default: 日本  # 日本藝人，首次台北粉絲見面會；票券頁 ticket.ibon.com.tw/ActivityInfo/Details/39907 (WebSearch)
+- canonical: 時速36公里
+  aliases: ["36km/h"]
+  tags_origin_default: 日本  # 東京搖滾樂團，「市民薄明」全國巡演加開台北場；票券頁 tixcraft (WebSearch)
+- canonical: HOKUTO
+  aliases: []
+  tags_origin_default: 日本  # ⚠️ 短字/常見字。LDH THE RAMPAGE from EXILE TRIBE 成員(吉野北人)；票券頁 ldh.kktix.cc「HOKUTO LIVE&FAN MEETING 2026 JUKE BOX LAND IN TAIPEI」(WebSearch)
+- canonical: TETSUYA
+  aliases: []
+  tags_origin_default: 日本  # ⚠️ 常見日文人名。L'Arc~en~Ciel 貝斯手，個人 25 週年 Acoustic 巡演；票券頁 billboardlivetaipei.tw (WebSearch)
+- canonical: Furui Riho
+  aliases: []
+  tags_origin_default: 日本  # 日本創作歌手；票券頁 billboardlivetaipei.tw「Furui Riho Billboard Live Tour 2026 -The Garden-」(WebSearch)
+- canonical: fox capture plan
+  aliases: []
+  tags_origin_default: 日本  # 日本爵士三人組；票券頁 billboardlivetaipei.tw「RE:FRAME-15th Anniversary tour in TAIPEI」(WebSearch)
+- canonical: SUBARU SHIBUTANI
+  aliases: []
+  tags_origin_default: 日本  # 澀谷昴，前關8成員，個人 30 週年亞洲巡演；票券頁 billboardlivetaipei.tw (WebSearch)
+- canonical: LEO IEIRI
+  aliases: []
+  tags_origin_default: 日本  # 日本創作歌手；票券頁 billboardlivetaipei.tw「LEO IEIRI Billboard Live in Taipei 2026」(WebSearch)
+- canonical: Ayasa
+  aliases: []
+  tags_origin_default: 日本  # 日本小提琴家，首次台北粉絲見面會；票券頁 ticket.ibon.com.tw/ActivityInfo/Details/39899 (WebSearch)
+- canonical: 山岡晃
+  aliases: ["Akira Yamaoka"]
+  tags_origin_default: 日本  # 日本電玩配樂家(沉默之丘系列)；票券頁 ticket.ibon.com.tw「山岡晃 Akira Yamaoka『迷霧迴響』2026限定專場．台北」(WebSearch)
+- canonical: KANA-BOON
+  aliases: ["KANA–BOON"]
+  tags_origin_default: 日本  # 日本搖滾樂團；票券頁 ticket.ibon.com.tw「CRITICAL HIT PARADE in TAIPEI」(WebSearch)。alias 用 en dash(–)版本，實際標題用的是全形破折號不是連字號
+- canonical: Novelbright
+  aliases: []
+  tags_origin_default: 日本  # 日本搖滾樂團；票券頁 kham.com.tw/ticket.com.tw「ASIA TOUR 2026 ~PYRAMID~ IN TAIPEI」(WebSearch)
+- canonical: Shizuka Kudo
+  aliases: ["工藤靜香"]
+  tags_origin_default: 日本  # 日本資深偶像歌手；票券頁 kham.com.tw「2026 Dynamic CONCERT in TAIPEI」(WebSearch)
+- canonical: Ghibli Jazz
+  aliases: ["ALL THAT JAZZ"]
+  tags_origin_default: 日本  # Billboard Live Taipei 吉卜力爵士致敬企劃品牌(同火球祭模式，看不出單一演出者)；票券頁 billboardlivetaipei.tw (WebSearch 依主辦場館慣例判斷)
+- canonical: 吉卜力動畫音樂原唱歌手交響演唱會
+  aliases: []
+  tags_origin_default: 日本  # 日本 Studio Ghibli 授權巡迴交響音樂會品牌(同火球祭模式)；票券頁 kham.com.tw (WebSearch：Ghibli 為日本吉卜力工作室 IP)
+- canonical: ReFantazio
+  aliases: ["暗喻幻想"]
+  tags_origin_default: 日本  # 日本 ATLUS《Metaphor: ReFantazio》遊戲授權交響音樂會品牌(同火球祭模式)；票券頁 ticket.ibon.com.tw (WebSearch：ATLUS 為日本遊戲公司)
+- canonical: 日本Twinkle古典吉他五重奏
+  aliases: []
+  tags_origin_default: 日本  # 票券頁標題自述「日本」＋古典吉他五重奏團名 Twinkle；OPENTIX event/2070397407542661121 (標題本身已標明國籍，未另發 WebSearch)
+- canonical: 早稻田爵士大樂團
+  aliases: []
+  tags_origin_default: 日本  # 日本早稻田大學爵士大樂團訪臺巡迴；OPENTIX event/2096906468333096960，標題本身已標明「日本早稻田」(未另發 WebSearch)
+- canonical: Marie Louise
+  aliases: []
+  tags_origin_default: 日本  # ⚠️ 待複查。搜尋結果顯示為日本巡演行程中的音樂人，但「青春群像錄初次台北巡演2026 with Marie Louise」這場細節不完整，之後若發現不符請更正 (WebSearch)
+- canonical: adieu
+  aliases: []
+  tags_origin_default: 韓國  # ⚠️ 常見詞(法文「再見」)。韓國歌手金多恩(前 April 成員)個人企劃；票券頁 billboardlivetaipei.tw「adieu Live at Billboard Live TAIPEI 2026」(WebSearch)
+- canonical: T.O.P
+  aliases: []
+  tags_origin_default: 韓國  # ⚠️ 短字。前 BIGBANG 成員個人企劃；票券頁 tixcraft「T.O.P PRE-STUDIO 2026 in KAOHSIUNG」(WebSearch)
+- canonical: ONEWE
+  aliases: []
+  tags_origin_default: 韓國  # 韓國樂團(RBW)；票券頁 ticketplus.com.tw「2026 ONEWE 6th Live Concert」(WebSearch)
+- canonical: fromis_9
+  aliases: []
+  tags_origin_default: 韓國  # 韓國女團；票券頁 ticketplus.com.tw「2026 fromis_9 ASIA TOUR」(WebSearch)
+- canonical: DOH KYUNG SOO
+  aliases: ["도경수"]
+  tags_origin_default: 韓國  # EXO 成員 D.O. 個人巡演；票券頁 ticket.ibon.com.tw「DAY OFF IN KAOHSIUNG」(WebSearch)
+- canonical: MAMAMOO
+  aliases: []
+  tags_origin_default: 韓國  # 韓國女團；票券頁 ticket.ibon.com.tw「MAMAMOO 2026 WORLD TOUR ＜4WARD＞」(WebSearch)
+- canonical: ONEW THE LIVE
+  aliases: []
+  tags_origin_default: 韓國  # SHINee 成員溫流個人巡演；票券頁 ticket.ibon.com.tw「2026 ONEW CONCERT〔ONEW THE LIVE：Q〕」。刻意用較長字串而非裸 ONEW，避免變成 ONEWE 的子字串誤觸發 (WebSearch)
+- canonical: tripleS
+  aliases: []
+  tags_origin_default: 韓國  # 韓國女團(Modhaus)；票券頁 ticket.ibon.com.tw「2026 tripleS World Tour ＜ANDLESS＞」(WebSearch)
+- canonical: BANG YONGGUK
+  aliases: ["방용국"]
+  tags_origin_default: 韓國  # 前 B.A.P 饒舌歌手個人巡演；票券頁 ticket.ibon.com.tw「HAEBANG」(WebSearch)
+- canonical: XG WORLD TOUR
+  aliases: []
+  tags_origin_default: 韓國  # 全員日本人但以韓國 K-pop 練習生體系出道、以韓國為活動據點(WebSearch)；用「XG WORLD TOUR」而非裸 XG 避免短字誤觸發；票券頁 kham.com.tw「XG WORLD TOUR: THE CORE IN TAIPEI」
+- canonical: AxMxP
+  aliases: []
+  tags_origin_default: 韓國  # FNC Entertainment 新韓國樂團；票券頁 kham.com.tw/ticket.com.tw「AxMxP X VERSE CONCERT IN TAIPEI」(WebSearch)
+- canonical: KANG MIN HYUK
+  aliases: ["강민혁"]
+  tags_origin_default: 韓國  # CNBLUE 成員個人見面會；票券頁 ticket.com.tw「IF I WERE...FAN MEETING」(WebSearch)
+- canonical: N.Flying
+  aliases: []
+  tags_origin_default: 韓國  # 韓國樂團(FNC Entertainment)；票券頁 kham.com.tw「&CON5：into REM IN KAOHSIUNG」(WebSearch)
+- canonical: EUNHYUK
+  aliases: ["은혁"]
+  tags_origin_default: 韓國  # Super Junior 成員個人企劃；票券頁 kham.com.tw「PRE-DEBUT FANCON」(WebSearch)
+- canonical: JEONG EUNJI
+  aliases: ["정은지"]
+  tags_origin_default: 韓國  # Apink 成員個人巡演；票券頁 kham.com.tw「SOLO CONCERT SUMMER, I」(WebSearch)
+- canonical: 李雅英
+  aliases: []
+  tags_origin_default: 韓國  # ⚠️ 待複查(撞名風險)。韓國啦啦隊員/藝人，近期在台高人氣；票券頁十鼓文創園區「特別見面會」，未找到這場的直接報導確認同一人 (WebSearch)
+- canonical: Jason Mraz
+  aliases: []
+  tags_origin_default: 歐美  # 美國歌手；票券頁 ticket.com.tw「Jason Mraz ASIA TOUR 2026 IN TAIPEI」(WebSearch)
+- canonical: 喬伊斯・狄杜娜朵
+  aliases: ["Joyce DiDonato"]
+  tags_origin_default: 歐美  # 美國次女高音；OPENTIX event/2082425418452361217「力晶世紀美聲系列」(WebSearch)
+- canonical: 尤里・凱恩
+  aliases: ["Uri Caine"]
+  tags_origin_default: 歐美  # 美國爵士鋼琴家；OPENTIX event/2099373541972262913《古典・當代・跨界》與台灣新藝術管弦樂團合作 (WebSearch)
+- canonical: Shane Shanahan
+  aliases: []
+  tags_origin_default: 歐美  # 美國打擊樂手(Yo-Yo Ma Silk Road Ensemble 創始成員)；OPENTIX event/2092089077167427584《轉體》與台灣 Yathi Ensemble 合作 (WebSearch)
+- canonical: 魔獸世界
+  aliases: ["World of Warcraft"]
+  tags_origin_default: 歐美  # 美國 Blizzard 遊戲授權巡迴交響音樂會品牌(同火球祭模式)；票券頁 ticket.ibon.com.tw「20 Years of Music」(WebSearch：Blizzard 為美國公司)
+- canonical: UNDERTALE
+  aliases: []
+  tags_origin_default: 歐美  # 美國獨立遊戲(Toby Fox)授權交響音樂會品牌；票券頁 ticket.ibon.com.tw「The Determination Symphony」(WebSearch：Toby Fox 為美國獨立遊戲開發者)
+- canonical: Dobet Gnahoré
+  aliases: []
+  tags_origin_default: 歐美  # 象牙海岸歌手，長年活躍於法國(WebSearch)；西非不在五分類裡，比照 BRIANNA BAXTER 澳洲案例歸最接近的歐美。票券頁標題只寫「西非節奏天后」未寫本名，需要另外看能否比對到
+- canonical: 西非節奏天后
+  aliases: []
+  tags_origin_default: 歐美  # 同上 Dobet Gnahoré 的票券頁描述語，屏東縣政府「民謠野瘋狂」展演標題原文用語，另登記以便比對到原始標題 (WebSearch)
+- canonical: 蒙古搖滾先驅
+  aliases: ["Altan Urag"]
+  tags_origin_default: 亞洲其他  # 蒙古民族搖滾樂團 Altan Urag(2002年成立)；屏東「民謠野瘋狂」展演票券頁描述語，蒙古不屬於日韓/東南亞/中國，歸亞洲其他 (WebSearch)
+- canonical: LenaMiu
+  aliases: []
+  tags_origin_default: 亞洲其他  # ⚠️ 待複查。泰國 GL(女性向愛情劇)雙人組合，台北見面會資訊見 glthai.com(泰國娛樂媒體網域)(WebSearch)
+- canonical: PAYBACK
+  aliases: []
+  tags_origin_default: 亞洲其他  # ⚠️ 短字/常見字。泰國 BL 劇《Payback》主演見面會世界巡迴(含台北站)；票券頁 ticket.ibon.com.tw (WebSearch)
+- canonical: Blush Blossom
+  aliases: []
+  tags_origin_default: 亞洲其他  # 泰國 GMMTV 藝人粉絲見面會品牌(多位泰星參與，同火球祭模式)；票券頁 ticket.ibon.com.tw「Fan Fest 2026 in Kaohsiung」(WebSearch)
+- canonical: 香港萬聖節音樂嘉年華
+  aliases: ["Spooky Halloween"]
+  tags_origin_default: 亞洲其他  # 香港灣仔海濱活動空間電音派對品牌(Live Nation Electronica Asia 主辦，多位 DJ，同派對模式判定但地點是香港非台灣，歸亞洲其他)；票券頁 livenationelectronicasia.kktix.cc (未另發 WebSearch，依標題與主辦資訊判斷)
+- canonical: 厄倫蒂兒
+  aliases: ["Earendel"]
+  tags_origin_default: 本地  # 台灣春魚創意旗下 VTuber，首場個人 LIVE「聽見訊號」辦在 Zepp New Taipei；票券頁 ticket.ibon.com.tw (WebSearch)
+- canonical: Keril 韋喆
+  aliases: []
+  tags_origin_default: 本地  # 在台灣發展的歌手/創作人(曾參加《聲林之王2》)；票券頁 chuan-liu66.kktix.cc「Taipei After Dark」(WebSearch)
+- canonical: 霹靂熱血樂章
+  aliases: ["PILI CONCERT"]
+  tags_origin_default: 本地  # 台灣霹靂布袋戲品牌演唱會；票券頁 pili.kktix.cc，共 3 場(含彩排加購) (WebSearch：霹靂為台灣本土布袋戲公司)
+- canonical: F✦FOREVER
+  aliases: ["F✦FOREVER恆星之城"]
+  tags_origin_default: 本地  # 言承旭、周渝民、吳建豪(前F4成員)＋五月天阿信同台，台北大巨蛋；票券頁 tixcraft (WebSearch)
+- canonical: 大家的文化祭
+  aliases: []
+  tags_origin_default: 本地  # The Wall Taipei livehouse 自辦活動品牌(同火球祭模式)；票券頁 thewalllivehouse.kktix.cc (依主辦場館判斷，未另發 WebSearch)
+- canonical: OPEN！DREAM WORLD 夢想音樂節
+  aliases: ["OPEN! DREAM WORLD 夢想音樂節"]
+  tags_origin_default: 本地  # 高雄夢時代兩天音樂節品牌(多組演出者，同火球祭/派對模式)；票券頁 ticket.ibon.com.tw (WebSearch)。alias 用半形驚嘆號：matchArtists() 比對前會先對標題做 NFKC 正規化，全形「！」會變成半形「!」，alias 要用半形才對得上
+- canonical: 流光穿梭
+  aliases: ["傳說十週年演唱會", "傳說對決演唱會"]
+  tags_origin_default: 本地  # Garena《傳說對決》十週年演唱會，台北大巨蛋，卡司含陳華、派偉俊、婁峻碩等多位台灣/華語歌手(同拼盤模式)；票券頁 ticket.ibon.com.tw (WebSearch)
+- canonical: 小島大歌
+  aliases: ["Small Island Big Song"]
+  tags_origin_default: 本地  # 台灣製作人陳玟臻(BaoBao Chen)與澳洲 Tim Cole 共同發起的太平洋/印度洋跨國音樂計畫，台灣為共同發起與製作方；OPENTIX event/2052306394696761345 (WebSearch)
+- canonical: Yathi Ensemble
+  aliases: []
+  tags_origin_default: 本地  # 台灣世界擊樂團，融合台灣在地傳統文化與世界音樂；OPENTIX 多場（含與 Shane Shanahan 合作場次）(WebSearch)
+- canonical: 新藝術管弦樂團
+  aliases: ["新藝術樂季"]
+  tags_origin_default: 本地  # 台灣樂團，與尤里・凱恩合作演出；OPENTIX event/2099373541972262913、event/2079564024572174336 (WebSearch)
+- canonical: 台中愛樂管絃樂團
+  aliases: []
+  tags_origin_default: 本地  # 台灣台中的管絃樂團，25週年公演；OPENTIX event/2089887700019679233 (標題自述，未另發 WebSearch)
+- canonical: 臺北爵士大樂隊
+  aliases: []
+  tags_origin_default: 本地  # 台灣台北的爵士大樂隊，赴美紐奧良巡演行前音樂會；OPENTIX event/2076883861296070657 (標題自述，未另發 WebSearch)
+- canonical: 池上秋收稻穗藝術節
+  aliases: []
+  tags_origin_default: 本地  # 台東池上在地藝術節品牌(同火球祭模式)；OPENTIX event/2065334424462708736 (標題自述，未另發 WebSearch)
+- canonical: 張林峯
+  aliases: []
+  tags_origin_default: 本地  # 台灣音樂人個人音樂會；OPENTIX event/2087818083774783489 (未另發 WebSearch，依中文人名與 OPENTIX 平台性質判斷)
+- canonical: 湯妮莉
+  aliases: []
+  tags_origin_default: 本地  # 台灣鋼琴家，雙鋼琴音樂會；OPENTIX event/2082777244051320833 (未另發 WebSearch)
+- canonical: 高韻堯
+  aliases: []
+  tags_origin_default: 本地  # 台灣鋼琴家，與湯妮莉雙鋼琴音樂會；OPENTIX event/2082777244051320833 (未另發 WebSearch)
+- canonical: 天狼星口琴樂團
+  aliases: []
+  tags_origin_default: 本地  # 台灣口琴樂團；OPENTIX event/2084197567053049856 (標題自述，未另發 WebSearch)
+- canonical: 陳明章
+  aliases: []
+  tags_origin_default: 本地  # 台灣資深音樂人/作曲家，現場作品四十年新年音樂會；OPENTIX event/2085334193336229889 (知名台灣音樂人，未另發 WebSearch)
+- canonical: 爵士禾聲
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣在地爵士系列音樂會品牌(同火球祭模式，#06/#07 等多場)；OPENTIX event/2064243052747730945、event/2064248113372274689 (未另發 WebSearch)
+- canonical: 探歌再敘
+  aliases: []
+  tags_origin_default: 本地  # 台灣歌謠爵士之夜品牌；OPENTIX event/2073958635633012737 (標題含「臺灣歌謠」自述，未另發 WebSearch)
+- canonical: 臺中爵士音樂節
+  aliases: []
+  tags_origin_default: 本地  # 台中在地爵士音樂節品牌(同火球祭模式)；OPENTIX event/2084835650144583680 (標題自述，未另發 WebSearch)
+- canonical: 玩弦四度
+  aliases: []
+  tags_origin_default: 本地  # 台灣爵士弦樂四重奏團名；OPENTIX event/2068922635046830081 (未另發 WebSearch)
+- canonical: 三秀園雅集
+  aliases: ["聽風藝術節"]
+  tags_origin_default: 本地  # 台南三秀園在地藝術節品牌(同火球祭模式，兩場)；OPENTIX event/2077295238766981121、event/2077578343369412609 (標題自述，未另發 WebSearch)
+- canonical: 台北東區秋季爵士音樂節
+  aliases: ["台北東區 秋季爵士音樂節"]
+  tags_origin_default: 本地  # 台北在地爵士音樂節品牌；OPENTIX event/2099757618971582465，第12屆 (標題自述，未另發 WebSearch)。alias 補實際標題「東區」後面帶空格的版本
+- canonical: 小巨人絲竹樂團
+  aliases: ["小巨人絲竹"]
+  tags_origin_default: 本地  # 台灣絲竹樂團(國樂)，青年演奏家系列與室內樂系列；OPENTIX event/2077271823146872833、event/2096198561125683201 (未另發 WebSearch)。alias 補較短的「小巨人絲竹」以對上「小巨人絲竹室內樂系列」這個系列名稱
+- canonical: 鄭勳琦
+  aliases: []
+  tags_origin_default: 本地  # 台灣胡琴音樂家；OPENTIX event/2089273711772602368《民謠風》(未另發 WebSearch)
+- canonical: 木樓合唱團
+  aliases: []
+  tags_origin_default: 本地  # 台灣合唱團；OPENTIX event/2100491251944562689 (未另發 WebSearch)
+- canonical: 宋念宇
+  aliases: []
+  tags_origin_default: 本地  # 台灣歌手(藝名小宇，但「小宇」太通用故不用當 alias)，個人演唱會；票券頁 kham.com.tw「2026 小宇 宋念宇《不，完美的人》演唱會」(未另發 WebSearch)
+- canonical: 江美琪
+  aliases: []
+  tags_origin_default: 本地  # 台灣資深歌手個人演唱會；票券頁 kham.com.tw (知名台灣歌手，未另發 WebSearch)
+- canonical: 彭佳慧
+  aliases: []
+  tags_origin_default: 本地  # 台灣資深歌手個人巡迴演唱會；票券頁 kham.com.tw (知名台灣歌手，未另發 WebSearch)
+- canonical: 郭子
+  aliases: []
+  tags_origin_default: 本地  # ⚠️ 短字/常見字。台灣音樂人，與浮花樂隊同台；票券頁 kham.com.tw「郭子&浮花樂隊 原來的那首歌 Live in Legacy Taipei」(未另發 WebSearch)
+- canonical: 玖壹壹
+  aliases: []
+  tags_origin_default: 本地  # 台灣饒舌團體，南北貳路音樂節；票券頁 kham.com.tw (知名台灣團體，未另發 WebSearch)
+- canonical: 沈文程
+  aliases: []
+  tags_origin_default: 本地  # 台灣資深歌手，國際沈文程日演唱會；票券頁 ticket.com.tw (知名台灣歌手，未另發 WebSearch)
+- canonical: 謝雷
+  aliases: []
+  tags_origin_default: 本地  # 台灣資深歌手(1960年代成名)；票券頁 ticket.com.tw「永遠的巨星 謝雷 2026演唱會」(知名台灣歌手，未另發 WebSearch)
+- canonical: 林淑容
+  aliases: []
+  tags_origin_default: 本地  # 台灣歌手世界巡迴演唱會台中場；票券頁 ticket.com.tw (未另發 WebSearch，依中文姓名與平台性質判斷)
+- canonical: 蔡義德
+  aliases: []
+  tags_origin_default: 本地  # 台灣歌手個人演唱會；票券頁 ticket.com.tw「聲聲不息」(未另發 WebSearch，依中文姓名與平台性質判斷)
+- canonical: 大學城經典演唱會
+  aliases: []
+  tags_origin_default: 本地  # 台灣校園民歌懷舊演唱會品牌(同火球祭模式)；票券頁 ticket.com.tw「青春不散場・歌聲再飛揚」(標題自述，未另發 WebSearch)

@@ -1,86 +1,6 @@
 {
   "items": [
     {
-      "raw_id": "18310e70",
-      "title_raw": "大家的文化祭",
-      "url": "https://thewalllivehouse.kktix.cc/events/18310e70",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "asato",
-      "title_raw": "Mateus Asato Live in Taiwan 2026",
-      "url": "https://thewalllivehouse.kktix.cc/events/asato",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "ed75e5c5",
-      "title_raw": "IRIS MONDO「LIFELINE」Asia Tour 台灣站",
-      "url": "https://ballinglikejay.kktix.cc/events/ed75e5c5",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "spookyhalloween2026",
-      "title_raw": "FWD富衛保險呈獻：Spooky Halloween 2026 香港萬聖節音樂嘉年華｜灣仔海濱活動空間",
-      "url": "https://livenationelectronicasia.kktix.cc/events/spookyhalloween2026",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "spookyhalloween2026-all-access",
-      "title_raw": "【全區通行 All-Access】FWD富衛保險呈獻：Spooky Halloween 2026 香港萬聖節音樂嘉年華",
-      "url": "https://livenationelectronicasia.kktix.cc/events/spookyhalloween2026-all-access",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "taipeiafterdarkkeril",
-      "title_raw": "Taipei After Dark - Keril 韋喆個人專場",
-      "url": "https://chuan-liu66.kktix.cc/events/taipeiafterdarkkeril",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "a7460c73",
-      "title_raw": "【10/24】霹靂熱血樂章 2026 PILI CONCERT",
-      "url": "https://pili.kktix.cc/events/a7460c73",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "c0ed7a4d",
-      "title_raw": "【彩排加購】霹靂熱血樂章 2026 PILI CONCERT",
-      "url": "https://pili.kktix.cc/events/c0ed7a4d",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "b0844a5c",
-      "title_raw": "【10/25】霹靂熱血樂章 2026 PILI CONCERT",
-      "url": "https://pili.kktix.cc/events/b0844a5c",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "hokuto2026-01",
-      "title_raw": "【售票頁】HOKUTO LIVE&FAN MEETING 2026 \"JUKE BOX LAND\" IN TAIPEI",
-      "url": "https://ldh.kktix.cc/events/hokuto2026-01",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "culturalfestival2027",
       "title_raw": "2027亞洲身心靈文化祭",
       "url": "https://iszn.kktix.cc/events/culturalfestival2027",
@@ -89,25 +9,9 @@
       "detail": null
     },
     {
-      "raw_id": "robinfmtaipei2026",
-      "title_raw": "古屋呂敏 台北粉絲見面會",
-      "url": "https://saltsweeet.kktix.cc/events/robinfmtaipei2026",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "datesayurikh",
       "title_raw": "伊達小百合  Fan Meeting 2026 In Kaohsiung",
       "url": "https://resonance-works.kktix.cc/events/datesayurikh",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "5e9253ab",
-      "title_raw": "李雅英 × 十鼓文創園區 特別見面會",
-      "url": "https://ten-drum.kktix.cc/events/5e9253ab",
       "source": "KKTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -153,22 +57,6 @@
       "detail": null
     },
     {
-      "raw_id": "26_topkh",
-      "title_raw": "T.O.P PRE-STUDIO 2026 in KAOHSIUNG",
-      "url": "https://tixcraft.com/activity/detail/26_topkh",
-      "source": "拓元",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "26_forever",
-      "title_raw": "新光人壽冠名贊助 F✦FOREVER 恆星之城・光年赴約・臺北 限定場演唱會",
-      "url": "https://tixcraft.com/activity/detail/26_forever",
-      "source": "拓元",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "26_iv0423654",
       "title_raw": "10.10（Sat.) 水源引流計劃 Bring the water in：場次1",
       "url": "https://www.indievox.com/activity/detail/26_iv0423654",
@@ -183,54 +71,6 @@
       "source": "iNDIEVOX",
       "reason": "date_unparseable",
       "detail": "12/25（週五）🎧 國語作業簿 DJ 大賽 2026 總決賽 #免費入場 / 12/26（週六）🎄 台北歡樂耶誕城 / 正篇 DAY 1 / 12/27（週日）🎅 台北歡樂耶誕城 / 正篇 DAY 2 / 🗺️ 碰面地點： / 欸啊那就直接先約了喔！ / 2026 年的最後，我們 #台北大佳河濱公園 現場碰面再說 🎄 14:30"
-    },
-    {
-      "raw_id": "a601de31176dc59308fd38668e867636_92ac9c205ab04f3f5ed7b0ec5982ef82",
-      "title_raw": "2026 ONEWE 6th Live Concert ‘O! NEW E!volution ⅤI’ IN TAIPEI",
-      "url": "https://ticketplus.com.tw/activity/a601de31176dc59308fd38668e867636",
-      "source": "Ticket Plus",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2912aea91a400874cc01b43cf22574c1_18f1575d0d49782b65467d21dfc963bc",
-      "title_raw": "2026 fromis_9 ASIA TOUR [TOMORROW GLOW.] IN TAIPEI",
-      "url": "https://ticketplus.com.tw/activity/2912aea91a400874cc01b43cf22574c1",
-      "source": "Ticket Plus",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "aqz2366txswr2mat72ehdmup",
-      "title_raw": "TETSUYA Acoustic Live Tour 2026 at Billboard Live TAIPEI",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/tetsuya2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "g4koo3zzcuevrd7t4947nuwy",
-      "title_raw": "TETSUYA Acoustic Live Tour 2026 at Billboard Live TAIPEI",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/tetsuya2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "yq8t0tct11p88hr2zwj7l0om",
-      "title_raw": "Furui Riho Billboard Live Tour 2026 -The Garden- ",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/furuiriho2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "mrwux7e0tx88k5udrp8el23h",
-      "title_raw": "Furui Riho Billboard Live Tour 2026 -The Garden- ",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/furuiriho2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
     },
     {
       "raw_id": "wpw1515tf51ktqvhia3lhbyx",
@@ -249,222 +89,6 @@
       "detail": null
     },
     {
-      "raw_id": "fvvxe5r009ktnk6bnp25x8zc",
-      "title_raw": "adieu Live at Billboard Live TAIPEI 2026",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/adieu2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "q7rxjrfbg3hb7vc9zdidpu52",
-      "title_raw": "adieu Live at Billboard Live TAIPEI 2026",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/adieu2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "taop7qnz50hztofq4j6j4jtp",
-      "title_raw": "Ghibli Jazz / ALL THAT JAZZ",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/allthejazz2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "fnabmx0zea1ghr396yx7x13u",
-      "title_raw": "Ghibli Jazz / ALL THAT JAZZ",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/allthejazz2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "gp6ezqhia846ckubhzxg50kf",
-      "title_raw": "fox capture plan RE:FRAME-15th Anniversary tour in TAIPEI",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/foxcaptureplan2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "pd072x5pfhlvbmlvhuhffju6",
-      "title_raw": "fox capture plan RE:FRAME-15th Anniversary tour in TAIPEI",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/foxcaptureplan2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "bme9pt5uuimqbih875fn4jq6",
-      "title_raw": "SUBARU SHIBUTANI 30th Anniversary Asia Tour 2026 in TAIPEI",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/subarushibutani2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "sxmyprwqtlcl8vj31x5csbiw",
-      "title_raw": "SUBARU SHIBUTANI 30th Anniversary Asia Tour 2026 in TAIPEI",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/subarushibutani2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "jyjkmmje93okt8icvduo75t4",
-      "title_raw": "SUBARU SHIBUTANI 30th Anniversary Asia Tour 2026 in TAIPEI",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/subarushibutani2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "y124rrfm7skbij0gkcvq29q3",
-      "title_raw": "SUBARU SHIBUTANI 30th Anniversary Asia Tour 2026 in TAIPEI",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/subarushibutani2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "oddgnfchvk5tzznnuuiywks3",
-      "title_raw": "LEO IEIRI Billboard Live in Taipei 2026",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/leoieiri2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "g11c0a6mfquqs7uvd7w1mooj",
-      "title_raw": "LEO IEIRI Billboard Live in Taipei 2026",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/leoieiri2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "wdjzycu5hqykiupjji0iymkx",
-      "title_raw": "culenasm BARIYOKA WINTER TOUR 2026",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/culenasm2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "ujcimwphexpg2zabm5cchtvn",
-      "title_raw": "culenasm BARIYOKA WINTER TOUR 2026",
-      "url": "https://www.billboardlivetaipei.tw/tw/events/culenasm2026",
-      "source": "Billboard Live",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39978_202612191800",
-      "title_raw": "2026－2027 DOH KYUNG SOO CONCERT TOUR 〔DAY OFF〕 IN KAOHSIUNG",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39978",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39978_202612201700",
-      "title_raw": "2026－2027 DOH KYUNG SOO CONCERT TOUR 〔DAY OFF〕 IN KAOHSIUNG",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39978",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39971_202612041830",
-      "title_raw": "2026 OPEN！ DREAM WORLD 夢想音樂節",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39971",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39971_202612051830",
-      "title_raw": "2026 OPEN！ DREAM WORLD 夢想音樂節",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39971",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39962_202612131930",
-      "title_raw": "青春群像錄初次台北巡演2026 with Marie Louise",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39962",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39961_202611281800",
-      "title_raw": "MAMAMOO 2026 WORLD TOUR ＜4WARD＞ in TAIPEI",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39961",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39961_202611291500",
-      "title_raw": "MAMAMOO 2026 WORLD TOUR ＜4WARD＞ in TAIPEI",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39961",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39946_202611141900",
-      "title_raw": "厄倫蒂兒 Earendel 《THE SIGNAL》首場個人演唱會",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39946",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39942_202610311600",
-      "title_raw": "PAYBACK Fan Meeting in Taipei",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39942",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39910_202610311900",
-      "title_raw": "《流光穿梭 十年傳說》傳說十週年演唱會",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39910",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39907_202612061200",
-      "title_raw": "藤本洸大粉絲見面會 in 臺北",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39907",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39907_202612061700",
-      "title_raw": "藤本洸大粉絲見面會 in 臺北",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39907",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39906_202610031700",
-      "title_raw": "2026 ONEW CONCERT〔ONEW THE LIVE：Q〕IN TAIPEI",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39906",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "39905_202611081530",
       "title_raw": "Melodies in the Thai Breeze 1st Music Concert in Taipei",
       "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39905",
@@ -473,145 +97,9 @@
       "detail": null
     },
     {
-      "raw_id": "39903_202611071700",
-      "title_raw": "Blush Blossom Fan Fest 2026 in Kaohsiung",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39903",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39899_202610311300",
-      "title_raw": "Ayasa 首次臺北粉絲見面會",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39899",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39899_202610311800",
-      "title_raw": "Ayasa 首次臺北粉絲見面會",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39899",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39885_202612121430",
-      "title_raw": "魔獸世界 World of Warcraft：20 Years of Music",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39885",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39878_202610231630",
-      "title_raw": "LenaMiu Love Meets You Fan Meeting in Taipei",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39878",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39877_202610181900",
-      "title_raw": "2026 tripleS World Tour ＜ANDLESS＞ in Taipei",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39877",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39873_202610181830",
-      "title_raw": "2026 BANG YONGGUK WORLD TOUR「HAEBANG」in Taipei",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39873",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39872_202610231930",
-      "title_raw": "山岡晃 Akira Yamaoka『迷霧迴響』2026限定專場．台北",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39872",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39776_202612051930",
-      "title_raw": "時速36公里首度海外公演 “市民薄明” Tour 追加 台北站",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39776",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39773_202611151800",
-      "title_raw": "2026 KANA–BOON「CRITICAL HIT PARADE in TAIPEI」",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39773",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "39734_202610101300",
       "title_raw": "2026 秋Out 音樂節",
       "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39734",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39707_202610021930",
-      "title_raw": "江美琪《傷心唱出來就沒事了》演唱會 2‧0 台北站",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39707",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39707_202610031830",
-      "title_raw": "江美琪《傷心唱出來就沒事了》演唱會 2‧0 台北站",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39707",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39696_202611011500",
-      "title_raw": "UNDERTALE：The Determination Symphony",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39696",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39696_202611011930",
-      "title_raw": "UNDERTALE：The Determination Symphony",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39696",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39696_202611021900",
-      "title_raw": "UNDERTALE：The Determination Symphony",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39696",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39696_202611031900",
-      "title_raw": "UNDERTALE：The Determination Symphony",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39696",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39692_202610311930",
-      "title_raw": "《暗喻幻想》Metaphor：ReFantazio 交響音樂會",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39692",
       "source": "ibon",
       "reason": "artist_unrecognized",
       "detail": null
@@ -697,14 +185,6 @@
       "detail": null
     },
     {
-      "raw_id": "2089887700019679233_1791631800000",
-      "title_raw": "台中愛樂管絃樂團2026二十五週年公演《人海中遇見你》跨界音樂會",
-      "url": "https://www.opentix.life/event/2089887700019679233",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "2083033566977990657_1791700200000",
       "title_raw": "咱的歌咱的心II-時空收音機",
       "url": "https://www.opentix.life/event/2083033566977990657",
@@ -724,14 +204,6 @@
       "raw_id": "2028080668680204289_1791702000000",
       "title_raw": "故鄉台法名曲饗宴",
       "url": "https://www.opentix.life/event/2028080668680204289",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2076883861296070657_1791804600000",
-      "title_raw": "2026臺北爵士大樂隊《感爵臺灣》美國紐奧良巡演行前音樂會",
-      "url": "https://www.opentix.life/event/2076883861296070657",
       "source": "OPENTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -761,65 +233,9 @@
       "detail": null
     },
     {
-      "raw_id": "2065334424462708736_1792823400000",
-      "title_raw": "2026池上秋收稻穗藝術節《愛在秋收，縱谷傳唱》",
-      "url": "https://www.opentix.life/event/2065334424462708736",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2065334424462708736_1792909800000",
-      "title_raw": "2026池上秋收稻穗藝術節《愛在秋收，縱谷傳唱》",
-      "url": "https://www.opentix.life/event/2065334424462708736",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2087818083774783489_1792841400000",
-      "title_raw": "《聽見那個年代》張林峯2026音樂會",
-      "url": "https://www.opentix.life/event/2087818083774783489",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2082777244051320833_1793187000000",
-      "title_raw": "湯妮莉 ✕ 高韻堯 ——《節奏與狂喜》雙鋼琴音樂會",
-      "url": "https://www.opentix.life/event/2082777244051320833",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "2039594730535641089_1794051000000",
       "title_raw": "海之樂章!公主的奇幻旅程",
       "url": "https://www.opentix.life/event/2039594730535641089",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2084197567053049856_1795847400000",
-      "title_raw": "拾光－2026天狼星口琴樂團音樂會",
-      "url": "https://www.opentix.life/event/2084197567053049856",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2084197567053049856_1795865400000",
-      "title_raw": "拾光－2026天狼星口琴樂團音樂會",
-      "url": "https://www.opentix.life/event/2084197567053049856",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2084197567053049856_1794655800000",
-      "title_raw": "拾光－2026天狼星口琴樂團音樂會",
-      "url": "https://www.opentix.life/event/2084197567053049856",
       "source": "OPENTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -833,73 +249,9 @@
       "detail": null
     },
     {
-      "raw_id": "2070397407542661121_1794726000000",
-      "title_raw": "日本Twinkle古典吉他五重奏音樂會",
-      "url": "https://www.opentix.life/event/2070397407542661121",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2085334193336229889_1798785000000",
-      "title_raw": "《戀戀40─陳明章現場作品四十年》新年音樂會",
-      "url": "https://www.opentix.life/event/2085334193336229889",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2064243052747730945_1790940600000",
-      "title_raw": "「爵士禾聲」系列音樂會 #06｜DonSir《康達效應》",
-      "url": "https://www.opentix.life/event/2064243052747730945",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "2062364642343882753_1791027000000",
       "title_raw": "華麗的探戈｜皮亞佐拉五重奏",
       "url": "https://www.opentix.life/event/2062364642343882753",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2073958635633012737_1791459000000",
-      "title_raw": "探歌再敘-臺灣歌謠爵士之夜",
-      "url": "https://www.opentix.life/event/2073958635633012737",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2084835650144583680_1791631800000",
-      "title_raw": "2026臺中爵士音樂節｜售票系列音樂會",
-      "url": "https://www.opentix.life/event/2084835650144583680",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2084835650144583680_1792305000000",
-      "title_raw": "2026臺中爵士音樂節｜售票系列音樂會",
-      "url": "https://www.opentix.life/event/2084835650144583680",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2084835650144583680_1792755000000",
-      "title_raw": "2026臺中爵士音樂節｜售票系列音樂會",
-      "url": "https://www.opentix.life/event/2084835650144583680",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2068922635046830081_1791891000000",
-      "title_raw": "《玩弦四度》爵士弦樂四重奏",
-      "url": "https://www.opentix.life/event/2068922635046830081",
       "source": "OPENTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -913,41 +265,9 @@
       "detail": null
     },
     {
-      "raw_id": "2077295238766981121_1792753200000",
-      "title_raw": "2026年三秀園雅集-聽風藝術節《冬之旅》",
-      "url": "https://www.opentix.life/event/2077295238766981121",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2077578343369412609_1792915200000",
-      "title_raw": "2026年三秀園雅集-聽風藝術節《寶島爵士yeah》",
-      "url": "https://www.opentix.life/event/2077578343369412609",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2099757618971582465_1793359800000",
-      "title_raw": "第12屆台北東區 秋季爵士音樂節",
-      "url": "https://www.opentix.life/event/2099757618971582465",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "2097616523793338369_1793428200000",
       "title_raw": "爵士源聲—藍調吉他",
       "url": "https://www.opentix.life/event/2097616523793338369",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2064248113372274689_1794569400000",
-      "title_raw": "「爵士禾聲」系列音樂會 #07｜《他/她們眼中的世界》——爵士創作歌手的音樂說法",
-      "url": "https://www.opentix.life/event/2064248113372274689",
       "source": "OPENTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -964,14 +284,6 @@
       "raw_id": "2097849738568175617_1795847400000",
       "title_raw": "爵士吉他的跨界聲響",
       "url": "https://www.opentix.life/event/2097849738568175617",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2082425418452361217_1796470200000",
-      "title_raw": "力晶世紀美聲系列 次女高音喬伊斯・狄杜娜朵冬日音樂會",
-      "url": "https://www.opentix.life/event/2082425418452361217",
       "source": "OPENTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -1009,70 +321,6 @@
       "detail": null
     },
     {
-      "raw_id": "2099373541972262913_1797161400000",
-      "title_raw": "《古典・當代・跨界》尤里·凱恩 與 新藝術管弦樂團",
-      "url": "https://www.opentix.life/event/2099373541972262913",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2096906468333096960_1797678000000",
-      "title_raw": "日本早稻田爵士大樂團訪臺巡迴音樂會",
-      "url": "https://www.opentix.life/event/2096906468333096960",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2096906468333096960_1797850800000",
-      "title_raw": "日本早稻田爵士大樂團訪臺巡迴音樂會",
-      "url": "https://www.opentix.life/event/2096906468333096960",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2082004306746810369_1791009000000",
-      "title_raw": "民謠野瘋狂：西非節奏天后X蒙古搖滾先驅",
-      "url": "https://www.opentix.life/event/2082004306746810369",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2082004306746810369_1791025200000",
-      "title_raw": "民謠野瘋狂：西非節奏天后X蒙古搖滾先驅",
-      "url": "https://www.opentix.life/event/2082004306746810369",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2079564024572174336_1791199800000",
-      "title_raw": "2026新藝術樂季 III ：『光與盼望』",
-      "url": "https://www.opentix.life/event/2079564024572174336",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2092089077167427584_1791459000000",
-      "title_raw": "《轉體》－ Shane Shanahan與Yathi Ensemble世界擊樂團",
-      "url": "https://www.opentix.life/event/2092089077167427584",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2077271823146872833_1792668600000",
-      "title_raw": "小巨人絲竹樂團-青年演奏家系列【綻放XIX】",
-      "url": "https://www.opentix.life/event/2077271823146872833",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "2095807381356576769_1792841400000",
       "title_raw": "森聲",
       "url": "https://www.opentix.life/event/2095807381356576769",
@@ -1097,57 +345,9 @@
       "detail": null
     },
     {
-      "raw_id": "2089273711772602368_1793514600000",
-      "title_raw": "鄭勳琦胡琴音樂會《民謠風》",
-      "url": "https://www.opentix.life/event/2089273711772602368",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2052306394696761345_1794396600000",
-      "title_raw": "小島大歌《One Ocean》",
-      "url": "https://www.opentix.life/event/2052306394696761345",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "2085675635002843137_1794655800000",
       "title_raw": "日落大地—鼓語與族語的共振—恆春場",
       "url": "https://www.opentix.life/event/2085675635002843137",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2100491251944562689_1797420600000",
-      "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
-      "url": "https://www.opentix.life/event/2100491251944562689",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2100491251944562689_1794655800000",
-      "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
-      "url": "https://www.opentix.life/event/2100491251944562689",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2100491251944562689_1794828600000",
-      "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
-      "url": "https://www.opentix.life/event/2100491251944562689",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2096198561125683201_1796815800000",
-      "title_raw": "小巨人絲竹室內樂系列【絲弦情 LXXIII】",
-      "url": "https://www.opentix.life/event/2096198561125683201",
       "source": "OPENTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -1169,89 +369,9 @@
       "detail": null
     },
     {
-      "raw_id": "P1FRRCZ9_202611141800",
-      "title_raw": "2026 JEONG EUNJI SOLO CONCERT‘SUMMER, I’ASIA TOUR in TAIPEI",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1FRRCZ9",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1F8LOR3_202610162000",
-      "title_raw": "2026 EUNHYUK PRE-DEBUT FANCON‘be: WARE OF THE RABBIT’ in TAIPEI",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1F8LOR3",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1F8LOR3_202610171600",
-      "title_raw": "2026 EUNHYUK PRE-DEBUT FANCON‘be: WARE OF THE RABBIT’ in TAIPEI",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1F8LOR3",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1ENTKEA_202611071300",
-      "title_raw": "2026玖壹壹南北貳路音樂節",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1ENTKEA",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1F24HRG_202611211800",
-      "title_raw": "2026 N.Flying LIVE‘&CON5：into REM’IN KAOHSIUNG",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1F24HRG",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "P1E13RZG_202610021930",
       "title_raw": "【單買門票】FEniX BBM-2026 FAN CONCERT",
       "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1E13RZG",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1DF32E2_202611071930",
-      "title_raw": "2026 小宇 宋念宇《不，完美的人》演唱會",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1DF32E2",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1DF32E3_202610162000",
-      "title_raw": "郭子&浮花樂隊 原來的那首歌 Live in Legacy Taipei",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1DF32E3",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1D3G65D_202610031930",
-      "title_raw": "國泰世華銀行 彭佳慧《數著時間的日子》巡迴演唱會",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1D3G65D",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1D3G65D_202611211700",
-      "title_raw": "國泰世華銀行 彭佳慧《數著時間的日子》巡迴演唱會",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1D3G65D",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1D3G65E_202610041800",
-      "title_raw": "2026吉卜力動畫音樂原唱歌手交響演唱會",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1D3G65E",
       "source": "寬宏",
       "reason": "artist_unrecognized",
       "detail": null
@@ -1281,126 +401,6 @@
       "detail": null
     },
     {
-      "raw_id": "P1BU3K7Z_202610241930",
-      "title_raw": "【單買門票】Shizuka Kudo 2026 \"Dynamic\" CONCERT in TAIPEI",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1BU3K7Z",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P196NO67_202610171930",
-      "title_raw": "【單買門票】XG世界巡迴演唱會 THE CORE 台北站 XG WORLD TOUR: THE CORE IN TAIPEI",
-      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P196NO67",
-      "source": "寬宏",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P19QK265_202610241800",
-      "title_raw": "Novelbright ASIA TOUR 2026 ~PYRAMID~ IN TAIPEI",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P19QK265",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1FMF3AD_202610101600",
-      "title_raw": "2026 KANG MIN HYUK IF I WERE...FAN MEETING",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1FMF3AD",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1CHP23G_202610251830",
-      "title_raw": "《大學城經典演唱會》～青春不散場・歌聲再飛揚",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1CHP23G",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1CHP23G_202610261400",
-      "title_raw": "《大學城經典演唱會》～青春不散場・歌聲再飛揚",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1CHP23G",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1CHP23G_202610261830",
-      "title_raw": "《大學城經典演唱會》～青春不散場・歌聲再飛揚",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1CHP23G",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1FWXUND_202611291700",
-      "title_raw": "AxMxP X VERSE CONCERT IN TAIPEI",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1FWXUND",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P0WAULDW_202611011500",
-      "title_raw": "「2026年國際沈文程日-小琉球情歌演唱會」",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P0WAULDW",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P0WAULDW_202703201500",
-      "title_raw": "「2026年國際沈文程日-小琉球情歌演唱會」",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P0WAULDW",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P0WAULDW_202705081500",
-      "title_raw": "「2026年國際沈文程日-小琉球情歌演唱會」",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P0WAULDW",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P0WAULDW_202706261500",
-      "title_raw": "「2026年國際沈文程日-小琉球情歌演唱會」",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P0WAULDW",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1AT93WA_202611021930",
-      "title_raw": "Jason Mraz ASIA TOUR 2026 IN TAIPEI",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1AT93WA",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1A9C2II_202610171900",
-      "title_raw": "永遠的巨星 謝雷 2026演唱會",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1A9C2II",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P19XNXK1_202610241800",
-      "title_raw": "Novelbright 限量VIP Upgrade 升級加購",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P19XNXK1",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "P1DQZ6W2_202611141400",
       "title_raw": "2026和風  頌  風華演唱會",
       "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1DQZ6W2",
@@ -1412,30 +412,6 @@
       "raw_id": "P19E5BI0_202611281500",
       "title_raw": "【翁倩玉 陽光般的60週年演唱會-時間之歌】",
       "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P19E5BI0",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1DL4DZ2_202612051900",
-      "title_raw": "2026林淑容【您的經典．我的歌】世界巡迴演唱會台中場",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1DL4DZ2",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1ATPSBQ_202612261800",
-      "title_raw": "2026蔡義德【聲聲不息】演唱會",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1ATPSBQ",
-      "source": "年代",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "P1ATPSBQ_202612271430",
-      "title_raw": "2026蔡義德【聲聲不息】演唱會",
-      "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1ATPSBQ",
       "source": "年代",
       "reason": "artist_unrecognized",
       "detail": null
