@@ -419,7 +419,7 @@ async function fetchUnfilteredListingPage(browser, pageNum) {
     for (let i = 0; i < 10 && /請稍候|Just a moment/.test(await page.title()); i++) {
       await page.waitForTimeout(1000);
     }
-    return page.$$eval('li[class^="type-"]', (lis) =>
+    return await page.$$eval('li[class^="type-"]', (lis) =>
       lis
         .map((li) => ({
           category: li.querySelector(".category")?.textContent.trim(),
