@@ -1741,3 +1741,72 @@
 - canonical: 大學城經典演唱會
   aliases: []
   tags_origin_default: 本地  # 台灣校園民歌懷舊演唱會品牌(同火球祭模式)；票券頁 ticket.com.tw「青春不散場・歌聲再飛揚」(標題自述，未另發 WebSearch)
+
+# 2026-09-29 Max 追加兩條規則：(1)多組演出者的拼盤/商展類活動一律本地 (2)標題只有
+# 系列/企劃名稱、沒有具體演出者名字的，直接登記系列名稱本身即可，不用查是誰辦的
+- canonical: 秋Out 音樂節
+  aliases: []
+  tags_origin_default: 本地  # 多組演出者音樂節品牌(同派對/音樂節模式)；票券頁 ticket.ibon.com.tw。2026-09-29 Max 定規則：拼盤/商展類活動一律本地
+- canonical: 狂美
+  aliases: []
+  tags_origin_default: 本地  # 台灣製作團隊百老匯經典交響音樂會品牌(同派對/音樂節模式，多場)；OPENTIX event/1989181657008705537、event/2062049163975860225。2026-09-29 Max 定規則：拼盤/商展類活動一律本地
+- canonical: FEniX BBM
+  aliases: []
+  tags_origin_default: 本地  # 多組演出者 FAN CONCERT 品牌；票券頁 kham.com.tw。2026-09-29 Max 定規則：拼盤/商展類活動一律本地
+- canonical: MUSIC EXPO LIVE
+  aliases: []
+  tags_origin_default: 本地  # 音樂商展類活動品牌；票券頁 kham.com.tw「MUSIC EXPO LIVE 2026 in TAIPEI」。2026-09-29 Max 定規則：拼盤/商展類活動一律本地
+- canonical: KPOP PRIME
+  aliases: []
+  tags_origin_default: 本地  # 多組演出者 K-pop 展演品牌；票券頁 kham.com.tw。2026-09-29 Max 定規則：拼盤/商展類活動一律本地(即使演出內容是K-pop，主辦與活動本身歸本地)
+- canonical: 咱的歌咱的心
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣音樂會系列品牌；event/2083033566977990657。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記，不用查是誰辦的
+- canonical: 璀璨20
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣音樂會系列品牌；event/2081937773707923457。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 故鄉台法名曲饗宴
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣音樂會標題；event/2028080668680204289。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 陰性書寫
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣音樂會系列品牌；event/2064577167793082369。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 海之樂章
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣音樂會標題；event/2039594730535641089。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 幸福微光
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣公益募款音樂會標題；event/2093264938780463105。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 皮亞佐拉五重奏
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣探戈五重奏音樂會標題；event/2062364642343882753。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 窩噗瘋一下
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣音樂會標題；event/2059476491180302337。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 爵士源聲
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣爵士系列品牌；event/2097616523793338369。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 玫瑰人生
+  aliases: []
+  tags_origin_default: 本地  # ⚠️ 常見詞(La Vie en Rose 中文慣用譯名)。OPENTIX 台灣音樂會標題；event/2095317599825952768。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 爵士吉他的跨界聲響
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣音樂會標題；event/2097849738568175617。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 爵聲拾光
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣爵士系列品牌；event/2099693491957506049。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 南美洲列車
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣音樂會系列品牌；event/2080669466082271233。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 森聲
+  aliases: []
+  tags_origin_default: 本地  # ⚠️ 短字/常見字。OPENTIX 台灣音樂會標題；event/2095807381356576769。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 日落大地
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 台灣原住民主題音樂會標題；event/2085675635002843137。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 三個不老擊敗
+  aliases: []
+  tags_origin_default: 本地  # 票券頁 kham.com.tw「三個不老擊敗之人生跑馬燈 LIVE SHOW」。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+- canonical: 風華演唱會
+  aliases: []
+  tags_origin_default: 本地  # ⚠️ 較通用詞組。票券頁 ticket.com.tw「2026和風 頌 風華演唱會」。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
