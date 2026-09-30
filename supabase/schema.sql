@@ -104,3 +104,33 @@ with check (auth.uid() = user_id);
 --   https://liveradar.github.io/settings.html
 --
 -- 這份清單本身沒有對應的 SQL／API 可查詢備份，只能在後台頁面手動核對。
+
+-- ============================================================
+-- Database Webhook: event_reports → Discord 通知
+-- ============================================================
+-- 2026-09-30：event_reports 原本沒有 SELECT policy，Max 只能自己定期去
+-- Table Editor 看有沒有新回報。改成 INSERT 時透過 Database Webhook 打一個
+-- Edge Function，轉發格式化訊息到 Discord 頻道，這樣有人回報會直接通知。
+--
+-- Edge Function 原始碼：supabase/functions/notify-report/index.ts
+-- 部署：npx supabase functions deploy notify-report --project-ref pfhxrbqburbehmotvtbc --no-verify-jwt
+-- （--no-verify-jwt 是因為 Database Webhook 打過來沒有使用者 JWT）
+--
+-- Secrets（Project Settings → Edge Functions → Secrets，或用
+-- `npx supabase secrets set`）：
+--   DISCORD_WEBHOOK_URL — Discord 頻道的 webhook URL
+--   WEBHOOK_SECRET       — 隨機字串，function 用來驗證請求真的來自這個
+--                          Database Webhook，不是別人亂打進來的
+--
+-- Database Webhook 設定（Database → Webhooks，透過 Integrations →
+-- Database Webhooks 頁面的 "Install integration" 啟用 pg_net／
+-- supabase_functions schema 後才能建立）：
+--   Table:        public.event_reports
+--   Events:       Insert
+--   Type:         Supabase Edge Functions
+--   Edge Function: notify-report
+--   HTTP Headers: x-webhook-secret = <跟上面 WEBHOOK_SECRET 同一組值>
+--
+-- 2026-09-30 已在 SQL Editor 手動 insert 一筆測試資料驗證過整條路徑
+-- （Database Webhook → Edge Function → Discord）真的會通知，驗證完用
+-- delete 清掉測試資料，沒留在正式資料裡。
