@@ -242,7 +242,7 @@ test("normalize()+sessionToRawEvent real case (寬宏《WILD WILD》, checked 20
   ];
   for (const [venueRaw, expectedCity] of cases) {
     const raw = {
-      raw_id: "x", url: "https://x", title_raw: "test", venue_raw: venueRaw, date_raw: "2026-11-21 15:00",
+      raw_id: "x", url: "https://x", title_raw: "WILD WILD", venue_raw: venueRaw, date_raw: "2026-11-21 15:00",
       tickets_raw: [{ name: "4280", price: 4280, closed: false, waiting: false }], register_status: "IN_STOCK", source_name: "寬宏",
     };
     const { event } = normalize(raw, artistsYml);

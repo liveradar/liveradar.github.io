@@ -1856,7 +1856,7 @@
   tags_origin_default: 本地  # WebSearch 查證：台灣胡琴演奏家，於兩廳院OPENTIX售票（同系列另場「夜闌人靜時─王薇胡琴獨奏會」）；本場為「漫步在寧靜森林—王薇胡琴獨奏會」
 - canonical: 翁倩玉
   aliases: ["Judy Ongg"]
-  tags_origin_default: 日本  # WebSearch 查證：台南出生，自幼移居日本，1966年於日本哥倫比亞唱片出道，1979年〈魅せられて〉獲日本唱片大賞（Japan Record Award）——依成名音樂圈判斷歸日本；售票頁「翁倩玉 陽光般的60週年演唱會-時間之歌」(年代)
+  tags_origin_default: 本地  # 2026-09-30 Max 裁定本地。WebSearch 查證：台南出生，1966年於日本哥倫比亞唱片出道、〈魅せられて〉獲日本唱片大賞，1972年獲金馬獎最佳女主角，台日兩地皆有名；售票頁「翁倩玉 陽光般的60週年演唱會-時間之歌」(年代)
 - canonical: TAIPEI:MIX
   aliases: []
   tags_origin_default: 本地  # 派對/多DJ音樂活動，比照既有規則直接登記品牌名。WebFetch 查證：售票頁 technobustw.kktix.cc「TAIPEI:MIX PRESENTS — RUN 2 RAVE」，主辦 TECHNO BUS TW，多位DJ陣容（SAM RITTER、JULIA等）

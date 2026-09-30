@@ -23,6 +23,7 @@ import { classifySourceRun } from "./source-status.mjs";
 import { fallbackEventsForSource, fallbackReviewItemsForSource } from "./source-fallback.mjs";
 import { refreshedStatus, combineSaleSignals } from "./sale-signal.mjs";
 import { acquireRunLock } from "./run-lock.mjs";
+import { loadExclusionCache, recordExclusion, saveExclusionCache, skipIdsForSource } from "./exclusion-cache.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "..", "data");
@@ -98,13 +99,17 @@ function buildKnownRawIdsBySource(previousEvents) {
  * just scoped to a function instead of loop iterations.
  */
 async function runAdapter(adapter, context) {
-  const { artistsYml, venuesYml, previousSources, previousEvents, previousNeedsReview, knownRawIdsBySource } = context;
+  const { artistsYml, venuesYml, previousSources, previousEvents, previousNeedsReview, knownRawIdsBySource, exclusionCache } =
+    context;
 
   logProgress(`=== starting adapter: ${adapter.name} ===`);
   let rawEvents = [];
   let error = null;
   try {
-    rawEvents = await adapter.fetch(knownRawIdsBySource.get(adapter.name) ?? new Map());
+    rawEvents = await adapter.fetch(
+      knownRawIdsBySource.get(adapter.name) ?? new Map(),
+      skipIdsForSource(exclusionCache, adapter.name),
+    );
   } catch (err) {
     error = err.message;
     logProgress(`${adapter.name} fetch() threw: ${err.stack}`);
@@ -219,6 +224,14 @@ async function runAdapter(adapter, context) {
         // result.excluded: confirmed non-music noise or a junk scrape —
         // deliberately dropped, not written to events.json OR needs-review.json.
         logProgress(`${adapter.name}: excluded (${result.excluded.reason}): ${result.excluded.title_raw}`);
+        recordExclusion(exclusionCache, {
+          source: adapter.name,
+          raw_id: raw.raw_id,
+          title_raw: raw.title_raw,
+          url: raw.url,
+          venue_raw: raw.venue_raw,
+          reason: result.excluded.reason,
+        });
       }
     } catch (err) {
       logProgress(`normalize() threw for raw_id=${raw.raw_id}: ${err.stack}`);
@@ -245,7 +258,10 @@ async function main() {
   const previousSources = loadPreviousSources();
   const previousNeedsReview = loadPreviousNeedsReview();
   const knownRawIdsBySource = buildKnownRawIdsBySource(previousEvents);
-  const context = { artistsYml, venuesYml, previousSources, previousEvents, previousNeedsReview, knownRawIdsBySource };
+  const exclusionCache = loadExclusionCache();
+  const context = {
+    artistsYml, venuesYml, previousSources, previousEvents, previousNeedsReview, knownRawIdsBySource, exclusionCache,
+  };
 
   // Each adapter only paces requests against its OWN source (NFR-04) — there's
   // no shared rate limit between, say, tixcraft and iNDIEVOX, so there's no
@@ -316,6 +332,7 @@ async function main() {
     path.join(DATA_DIR, "sources.json"),
     JSON.stringify({ sources: sourcesStatus }, null, 2) + "\n"
   );
+  saveExclusionCache(exclusionCache);
 
   console.log(
     `LiveRadar fetch complete: ${events.length} recognized event(s) (${digest.added_ids.length} new, ${digest.updated.length} updated), ${dedupedNeedsReview.length} needing review.`

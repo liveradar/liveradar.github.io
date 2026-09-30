@@ -1011,9 +1011,9 @@ export function isRedundantGroupHub(raw, discoveredRawIds) {
   return childIds.every((id) => discoveredRawIds.has(id));
 }
 
-export async function fetch(knownRawIds = new Map()) {
+export async function fetch(knownRawIds = new Map(), skipRawIds = new Set()) {
   resetRegisterStats();
-  return withBrowser(async (browser) => fetchWithBrowser(browser, knownRawIds));
+  return withBrowser(async (browser) => fetchWithBrowser(browser, knownRawIds, skipRawIds));
 }
 
 /**
@@ -1023,10 +1023,13 @@ export async function fetch(knownRawIds = new Map()) {
  * short-lived page in this one browser PROCESS instead of paying a fresh
  * browser launch per page.
  */
-async function fetchWithBrowser(browser, knownRawIds) {
+async function fetchWithBrowser(browser, knownRawIds, skipRawIds = new Set()) {
   const results = [];
   const warnings = [];
   let skippedKnown = 0;
+  // Recently confirmed as excluded (see exclusion-cache.mjs) — no detail fetch.
+  let skippedExcluded = 0;
+  const skippedExcludedIds = new Set();
   // Tracks every raw_id already added to `results` THIS run, across all
   // three strategies — Strategy 3 (category browse) is a superset of what
   // 1/2 already find, so without this it would re-discover and re-queue the
@@ -1067,6 +1070,11 @@ async function fetchWithBrowser(browser, knownRawIds) {
         continue;
       }
 
+      if (skipRawIds.has(raw_id)) {
+        skippedExcluded += 1;
+        skippedExcludedIds.add(raw_id);
+        continue;
+      }
       await sleep(REQUEST_DELAY_MS);
       logProgress(`fetching detail: ${url}`);
       try {
@@ -1117,6 +1125,11 @@ async function fetchWithBrowser(browser, knownRawIds) {
         continue;
       }
 
+      if (skipRawIds.has(raw_id)) {
+        skippedExcluded += 1;
+        skippedExcludedIds.add(raw_id);
+        continue;
+      }
       await sleep(REQUEST_DELAY_MS);
       logProgress(`fetching detail: ${url}`);
       let detail;
@@ -1184,6 +1197,11 @@ async function fetchWithBrowser(browser, knownRawIds) {
           continue;
         }
 
+        if (skipRawIds.has(raw_id)) {
+          skippedExcluded += 1;
+          skippedExcludedIds.add(raw_id);
+          continue;
+        }
         await sleep(REQUEST_DELAY_MS);
         logProgress(`fetching detail: ${url}`);
         try {
@@ -1232,6 +1250,11 @@ async function fetchWithBrowser(browser, knownRawIds) {
         continue;
       }
 
+      if (skipRawIds.has(raw_id)) {
+        skippedExcluded += 1;
+        skippedExcludedIds.add(raw_id);
+        continue;
+      }
       await sleep(REQUEST_DELAY_MS);
       logProgress(`fetching detail (其他): ${url}`);
       try {
@@ -1248,13 +1271,16 @@ async function fetchWithBrowser(browser, knownRawIds) {
   if (skippedKnown > 0) {
     logProgress(`KKTIX: ${skippedKnown} event(s) already known, skipping detail fetch`);
   }
+  logProgress(`KKTIX: ${skippedExcluded} recently-excluded event(s) skipped (exclusion-cache)`);
   if (warnings.length) {
     console.warn(`[kktix] ${warnings.length} sub-request(s) failed:\n` + warnings.join("\n"));
   }
 
   // See isRedundantGroupHub's doc comment — drop a group/hub page only once
   // every child it links to has ALSO turned up as its own result this run.
-  const discoveredRawIds = new Set(results.map((r) => r.raw_id));
+  // Skipped-as-excluded ids count as discovered, same as when their detail
+  // pages were still fetched (and only dropped later by normalize()).
+  const discoveredRawIds = new Set([...results.map((r) => r.raw_id), ...skippedExcludedIds]);
   const deduped = [];
   let droppedHubs = 0;
   for (const { _childIds, ...raw } of results) {

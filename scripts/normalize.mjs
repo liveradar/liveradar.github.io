@@ -782,6 +782,16 @@ const NOISE_KEYWORDS = [
   // performance — the same "贊助/donation product listed alongside real
   // tickets" shape as other noise already excluded elsewhere.
   "星火計畫",
+  // 2026-09-30 daily-run batch: KKTIX's untagged listing keeps surfacing
+  // spam/non-event pages that were landing on the live site with city:未知.
+  // Each phrase checked against every title in events.json/needs-review.json
+  // at the time to confirm it hits no real performance.
+  "the uae", "in uae", "in dubai", "abu dhabi", // Dubai car-repair content-marketing pages
+  "astrologer", "assignment help", "local seo", "essay writing", "lower receivers",
+  "buying an apartment", // real-estate spam
+  "請勿下單", "帳號設定費", "代禱", "心智圖", "免費課程", "付費課程", "補助課程",
+  "企業說明會", "志工熱烈招募", "形象照", "主日崇拜", "攝影展", "敏捷思維", "敏捷大賞",
+  "公益講座", "身心靈", "辯論比賽", "水果批發", "咖啡豆品嘗",
 ];
 
 function isNonMusicNoise(titleRaw) {
@@ -844,7 +854,9 @@ function isOutsideTaiwanVenue(venueRaw) {
 // picked up a stray link instead. Not fixable data, not worth a "待整理"
 // slot either.
 function isJunkTitle(titleRaw) {
-  return /^https?:\/\/?\s*$/i.test(titleRaw.trim());
+  const t = titleRaw.trim();
+  // Organizers' own placeholder/test listings ("test", "opentest", "MyTest") — exact title only.
+  return /^https?:\/\/?\s*$/i.test(t) || /^(open|my)?test$/i.test(t);
 }
 
 // 2026-09-23 (KKTIX category-browse batch surfaced two entries with a blank
@@ -963,18 +975,48 @@ export function isGeneralTicketLottery(titleRaw, priceTextRaw) {
   return false;
 }
 
+/** Why a raw event is dropped entirely, or null. Only reads title_raw/url/venue_raw. */
+export function exclusionReason(rawEvent) {
+  if (isJunkTitle(rawEvent.title_raw ?? "")) return "junk_title";
+  if (isNonMusicNoise(rawEvent.title_raw ?? "")) return "non_music_noise";
+  if (isPlatformOwnDemoEvent(rawEvent.url)) return "platform_demo_content";
+  if (isOutsideTaiwanVenue(rawEvent.venue_raw)) return "outside_taiwan";
+  return null;
+}
+
+/**
+ * Re-matches an already-normalized event that has no headliner against the
+ * current artists.yml, in place. Returns true if it now has one. Shared by
+ * renormalize.mjs and fetch.mjs's reuse path so both classify identically.
+ */
+export function applyArtistMatch(event, artistsYml) {
+  if (event.headliners?.length || event.category) return false;
+  const headliners = matchArtists(event.title_raw, artistsYml);
+  if (headliners.length === 0) return false;
+  event.headliners = headliners;
+  event.lineup = headliners;
+  event.tags_type = guessTagsType(event.title_raw, headliners.length);
+  event.tags_origin = [
+    ...new Set(headliners.map((h) => artistsYml.find((a) => a.canonical === h)?.tags_origin_default).filter(Boolean)),
+  ];
+  event.updated_at = new Date().toISOString();
+  return true;
+}
+
+/**
+ * City for an already-normalized event whose city is 未知, from its stored
+ * venue (then title, only when venue is blank) — same order normalize() uses.
+ */
+export function resolveStoredCity(event, venuesYml) {
+  const venue = (event.venue ?? "").trim();
+  if (venue) return cityFromAddress(venue) ?? parseTixcraftVenue(venue, venuesYml).city ?? null;
+  return cityFromAddress(event.title_raw ?? "") ?? parseTixcraftVenue(event.title_raw ?? "", venuesYml).city ?? null;
+}
+
 export function normalize(rawEvent, artistsYml, venuesYml = []) {
-  if (isJunkTitle(rawEvent.title_raw)) {
-    return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: "junk_title" } };
-  }
-  if (isNonMusicNoise(rawEvent.title_raw)) {
-    return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: "non_music_noise" } };
-  }
-  if (isPlatformOwnDemoEvent(rawEvent.url)) {
-    return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: "platform_demo_content" } };
-  }
-  if (isOutsideTaiwanVenue(rawEvent.venue_raw)) {
-    return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: "outside_taiwan" } };
+  const excludedReason = exclusionReason(rawEvent);
+  if (excludedReason) {
+    return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: excludedReason } };
   }
 
   const parseDate = DATE_PARSERS[rawEvent.source_name] ?? parseKktixDate;
