@@ -612,15 +612,37 @@ export function parsePriceFromText(html) {
 // Caught myself almost reintroducing the 2026-09-21 fullwidth-pipe bug here:
 // normalizeFullwidthAscii() runs before this ever matches and converts "｜"
 // to halfwidth "|" — the separator class needs BOTH, same as PRICE_LABEL_RE.
-const ON_SALE_LABEL_RE = /(?:開賣|起售|開放售票|售票)[^｜:：|\n]{0,10}[｜:：|]\s*([^\n]{1,60})/;
+//
+// 2026-09-30 real bug (Malcolm Todd 26_todd shown on_sale, real sale opens
+// 10/3): only the FIRST label match was ever looked at, and tixcraft/Live
+// Nation intros open with a "售票階段及說明：" section header whose line has
+// no date — so the real "🎫正式開賣\n 時間：2026/10/03 (六) 11:00" further
+// down was never reached (it also puts the colon on the NEXT line, after
+// 時間, hence the optional "\n 時間" before the separator). Now every label is
+// tried in order and the first one carrying a full date wins. Scanning
+// resumes one character past each match's START, not its end — the header's
+// own capture can swallow the next label ("售票階段及說明：\n\n正式開賣：").
+// A sale-END date ("停止售票：…", "售票截止：…") is skipped rather than
+// read as an on-sale date, now that later labels can be reached at all.
+const ON_SALE_LABEL_RE = /(?:開賣|起售|開放售票|售票)[^｜:：|\n]{0,10}(?:\s*\n\s*時間)?[｜:：|]\s*([^\n]{1,60})/g;
+const SALE_END_RE = /截止|結束|停止/;
 
 export function parseOnSaleAt(html) {
   if (!html) return null;
   const plain = normalizeMathDigits(normalizeFullwidthAscii(htmlToLines(html)));
-  const m = plain.match(ON_SALE_LABEL_RE);
-  if (!m) return null;
-  const raw = m[1];
+  ON_SALE_LABEL_RE.lastIndex = 0;
+  let m;
+  while ((m = ON_SALE_LABEL_RE.exec(plain))) {
+    ON_SALE_LABEL_RE.lastIndex = m.index + 1;
+    const label = plain.slice(Math.max(0, m.index - 2), m.index) + m[0].slice(0, m[0].length - m[1].length);
+    if (SALE_END_RE.test(label) || SALE_END_RE.test(m[1])) continue;
+    const parsed = onSaleAtFromLabelText(m[1]);
+    if (parsed) return parsed;
+  }
+  return null;
+}
 
+function onSaleAtFromLabelText(raw) {
   // Only the full "YYYY/MM/DD" or "YYYY年MM月DD日" forms are trusted — a
   // no-year "7月22日" is genuinely ambiguous (which year?) and, in practice,
   // only shows up for a sale that already started (organizers writing a

@@ -2,6 +2,7 @@ import { needsStatusCheck, TICKET_TERMINAL_TEXT_RE } from "../sale-signal.mjs";
 import * as cheerio from "cheerio";
 import { logProgress } from "../progress-log.mjs";
 import { withBrowser, newPage } from "../browser.mjs";
+import { parseOnSaleAt } from "../normalize.mjs";
 
 /**
  * 拓元 tixcraft adapter (SPEC §5.3).
@@ -78,12 +79,52 @@ function amPmTo24Hour(hour, meridiem) {
 // special fan-zone (the real Stray Kids case) is still a genuinely buyable
 // show.
 
-async function fetchTicketStatusText(page, rawId) {
+//
+// 2026-09-30 real report (Charlie Puth 桃園場 26_cp, moved to 台北小巨蛋 on
+// 6/12 and fully refunded, still shown on_sale): a withdrawn show's game
+// page has no session rows at all, just one `<td colspan><div class="empty">
+// 目前無場次資訊</div></td>` placeholder — not terminal text, so it read as
+// "still buyable". `noSessions` reports that placeholder separately, since a
+// show whose sale simply hasn't opened yet renders the exact same
+// placeholder (checked the same day on 26_topkh and 26_todd) — see
+// withdrawnRawIds() for how the two are told apart.
+async function fetchTicketStatus(page, rawId) {
   await page.goto(`https://tixcraft.com/activity/game/${rawId}`, { waitUntil: "domcontentloaded", timeout: DETAIL_NAV_TIMEOUT_MS });
   await page.waitForSelector("table tbody tr", { timeout: DETAIL_NAV_TIMEOUT_MS });
+  const noSessions = await page.$$eval("table tbody tr", (rows) => rows.length === 1 && !!rows[0].querySelector(".empty"));
+  if (noSessions) return { terminalText: "", noSessions: true };
   const rowTexts = await page.$$eval("table tbody tr td:last-child", (cells) => cells.map((c) => c.textContent.trim()));
-  if (rowTexts.length === 0 || !rowTexts.every((t) => TICKET_TERMINAL_TEXT_RE.test(t))) return "";
-  return rowTexts[0];
+  if (rowTexts.length === 0 || !rowTexts.every((t) => TICKET_TERMINAL_TEXT_RE.test(t))) return { terminalText: "", noSessions: false };
+  return { terminalText: rowTexts[0], noSessions: false };
+}
+
+/**
+ * Which events to leave out of this run's results entirely because the show
+ * was withdrawn (Max 2026-09-30: cancelled/moved shows are removed, not
+ * shown with a status). An empty game page alone can't say that — a show not
+ * on sale yet looks identical — so it only counts once the intro's own
+ * official on-sale date has already passed (`confirmed`). A companion page
+ * with no on-sale date of its own (a card-holder zone like 26_cp_c, whose
+ * intro never states one) goes with a confirmed page listed for the same
+ * date and venue; on its own it's kept, since nothing says it's over.
+ *
+ * @param {{raw_id: string, key: string, noSessions: boolean, onSaleAt: string|null}[]} checks
+ * @returns {Set<string>} raw_ids to drop
+ */
+export function withdrawnRawIds(checks, nowMs = Date.now()) {
+  const confirmed = checks.filter((c) => c.noSessions && c.onSaleAt && Date.parse(c.onSaleAt) <= nowMs);
+  const confirmedKeys = new Set(confirmed.map((c) => c.key));
+  const drop = new Set(confirmed.map((c) => c.raw_id));
+  for (const c of checks) {
+    if (c.noSessions && !c.onSaleAt && confirmedKeys.has(c.key)) drop.add(c.raw_id);
+  }
+  return drop;
+}
+
+async function fetchIntroHtml(page, url) {
+  await page.goto(url, { waitUntil: "domcontentloaded", timeout: DETAIL_NAV_TIMEOUT_MS });
+  await page.waitForSelector("#intro", { timeout: DETAIL_NAV_TIMEOUT_MS });
+  return page.$eval("#intro", (el) => el.innerHTML);
 }
 
 function sleep(ms) {
@@ -127,6 +168,7 @@ export async function fetch(knownRawIds = new Set()) {
 
   const seen = new Set();
   const results = [];
+  const listingKeys = new Map(); // raw_id -> "date|venue" as listed, before date_raw gets a time appended
 
   $("#all .eventbl .row.align-items-center").each((_, el) => {
     const row = $(el);
@@ -144,6 +186,7 @@ export async function fetch(knownRawIds = new Set()) {
     const raw_id = href.split("/").filter(Boolean).pop();
 
     results.push({ raw_id, url, title_raw, date_raw, venue_raw, tickets_raw: [], price_text_raw: "", source_name: name });
+    listingKeys.set(raw_id, `${date_raw}|${venue_raw}`);
   });
 
   logProgress(`tixcraft: ${results.length} unique upcoming event(s) listed`);
@@ -167,6 +210,7 @@ export async function fetch(knownRawIds = new Set()) {
   }
 
   let priceFailures = 0;
+  const noSessionChecks = []; // see withdrawnRawIds()
   await withBrowser(async (browser) => {
     for (const event of toFetch) {
       await sleep(DETAIL_REQUEST_DELAY_MS);
@@ -203,10 +247,14 @@ export async function fetch(knownRawIds = new Set()) {
         logProgress(`tixcraft price fetch failed for ${event.url}: ${err.message} (after ${Date.now() - startedAt}ms)`);
       }
       // 2026-09-22 (Max): same page, one more navigation — see
-      // fetchTicketStatusText's doc comment for why the detail page above
+      // fetchTicketStatus's doc comment for why the detail page above
       // can't tell us this (it never could).
       try {
-        event.sale_status_text = await fetchTicketStatusText(page, event.raw_id);
+        const status = await fetchTicketStatus(page, event.raw_id);
+        event.sale_status_text = status.terminalText;
+        if (status.noSessions) {
+          noSessionChecks.push({ raw_id: event.raw_id, key: listingKeys.get(event.raw_id), noSessions: true, onSaleAt: parseOnSaleAt(event.price_text_raw) });
+        }
       } catch (err) {
         logProgress(`tixcraft ticket-status fetch failed for ${event.url}: ${err.message}`);
       } finally {
@@ -224,7 +272,22 @@ export async function fetch(knownRawIds = new Set()) {
       await sleep(DETAIL_REQUEST_DELAY_MS);
       const page = await newPage(browser);
       try {
-        event.sale_signal = (await fetchTicketStatusText(page, event.raw_id)) ? "SOLD_OUT" : null;
+        const status = await fetchTicketStatus(page, event.raw_id);
+        event.sale_signal = status.terminalText ? "SOLD_OUT" : null;
+        if (status.noSessions) {
+          // Known events carry no intro text (reuse_previous skipped the
+          // detail page), so fetch it now — only for this rare empty-page
+          // case — to read the on-sale date withdrawnRawIds() needs. A date
+          // still ahead also means the stored on_sale status was wrong (the
+          // real 26_todd case): report it as coming soon.
+          await sleep(DETAIL_REQUEST_DELAY_MS);
+          const onSaleAt = parseOnSaleAt(await fetchIntroHtml(page, event.url));
+          noSessionChecks.push({ raw_id: event.raw_id, key: listingKeys.get(event.raw_id), noSessions: true, onSaleAt });
+          if (onSaleAt && Date.parse(onSaleAt) > Date.now()) {
+            event.sale_signal = "COMING_SOON";
+            event.on_sale_at = onSaleAt;
+          }
+        }
       } catch (err) {
         logProgress(`tixcraft status check failed for ${event.raw_id}: ${err.message}`);
       } finally {
@@ -236,5 +299,9 @@ export async function fetch(knownRawIds = new Set()) {
     logProgress(`tixcraft: price detail fetch failed for ${priceFailures}/${toFetch.length} event(s)`);
   }
 
-  return results;
+  const withdrawn = withdrawnRawIds(noSessionChecks);
+  for (const c of noSessionChecks) {
+    logProgress(`tixcraft: no sessions listed for ${c.raw_id} (on-sale ${c.onSaleAt ?? "unknown"}) — ${withdrawn.has(c.raw_id) ? "withdrawn, dropped" : "kept"}`);
+  }
+  return results.filter((e) => !withdrawn.has(e.raw_id));
 }

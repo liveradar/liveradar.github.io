@@ -18249,10 +18249,10 @@
       "city": "台北",
       "date": "2026-11-23",
       "time": null,
-      "on_sale_at": null,
+      "on_sale_at": "2026-10-03T11:00:00+08:00",
       "price_min": 1980,
       "price_max": 5180,
-      "status": "on_sale",
+      "status": "announced",
       "tags_type": [
         "巡迴"
       ],
@@ -18262,7 +18262,7 @@
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_todd",
       "first_seen_at": "2026-09-22T06:20:34.483Z",
-      "updated_at": "2026-09-22T06:20:34.483Z",
+      "updated_at": "2026-09-30T06:57:46.119Z",
       "sources": [
         {
           "name": "拓元",
@@ -18911,50 +18911,6 @@
       "id": "682756d6c4fff0a4",
       "merged_ids": [
         "682756d6c4fff0a4"
-      ]
-    },
-    {
-      "title_raw": "Charlie Puth - Whatever’s Clever! World Tour",
-      "headliners": [
-        "Charlie Puth"
-      ],
-      "lineup": [
-        "Charlie Puth"
-      ],
-      "is_festival": false,
-      "venue": "桃園陽光劇場",
-      "city": "桃園",
-      "date": "2026-10-18",
-      "time": null,
-      "on_sale_at": null,
-      "price_min": 4380,
-      "price_max": 10400,
-      "status": "on_sale",
-      "tags_type": [
-        "巡迴"
-      ],
-      "tags_origin": [
-        "歐美"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://tixcraft.com/activity/detail/26_cp",
-      "first_seen_at": "2026-09-22T06:20:34.486Z",
-      "updated_at": "2026-09-22T06:20:34.486Z",
-      "sources": [
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_cp",
-          "raw_id": "26_cp"
-        },
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_cp_c",
-          "raw_id": "26_cp_c"
-        }
-      ],
-      "id": "22a822cb1593b3a3",
-      "merged_ids": [
-        "22a822cb1593b3a3"
       ]
     },
     {

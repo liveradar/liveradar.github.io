@@ -708,6 +708,20 @@ test("parseOnSaleAt: no 開賣/售票/起售 label anywhere returns null", () =>
   assert.equal(parseOnSaleAt("演出時間：2026-12-10（四）\n演出票價：$2,680"), null);
 });
 
+test("parseOnSaleAt real bug (Malcolm Todd 26_todd shown on_sale before its 10/3 sale): a dateless '售票階段及說明：' header doesn't hide the real 正式開賣 line below it, whose colon sits after 時間 on the next line", () => {
+  const intro = "售票階段及說明：\n📍各階段售票數量皆有限，售完為止。\n🎫藝人官方預售\n時間：2026/10/01 (四) 11:00 ~ 23:59\n🎫正式開賣\n 時間：2026/10/03 (六) 11:00";
+  assert.equal(parseOnSaleAt(intro), "2026-10-03T11:00:00+08:00");
+});
+
+test("parseOnSaleAt: a header whose own capture swallows the next label still lets that label be read (real 26_cptp/26_cp layout)", () => {
+  assert.equal(parseOnSaleAt("售票階段及說明：\n\n正式開賣：\n時間：2026/04/23（四）12:00"), "2026-04-23T12:00:00+08:00");
+});
+
+test("parseOnSaleAt: a sale-END date is never read as the on-sale date", () => {
+  assert.equal(parseOnSaleAt("停止售票：2026/10/10 12:00\n開賣時間：2026/09/01 12:00"), "2026-09-01T12:00:00+08:00");
+  assert.equal(parseOnSaleAt("售票截止：2026/10/10 12:00"), null);
+});
+
 test("normalize() real bug (Max: \"尚未開賣標籤你是不是亂給啊 明明有超多早就已經開賣了\"): a non-KKTIX event (tickets_raw: []) with no future on_sale_at defaults to on_sale, not announced", () => {
   // FANSI GO/iNDIEVOX/tixcraft/Ticket Plus never populate tickets_raw at
   // all — statusFromTickets() used to call that "announced" unconditionally,
