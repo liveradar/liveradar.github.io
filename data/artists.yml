@@ -1810,3 +1810,59 @@
 - canonical: 風華演唱會
   aliases: []
   tags_origin_default: 本地  # ⚠️ 較通用詞組。票券頁 ticket.com.tw「2026和風 頌 風華演唱會」。2026-09-29 Max 定規則：無具體演出者名字的系列名稱直接登記
+
+# 2026-09-30 每日排程：清 needs-review 的 artist_unrecognized 待清單，逐一 WebSearch/WebFetch 查證來源地
+- canonical: MIERE
+  aliases: []
+  tags_origin_default: 韓國  # WebFetch 查證：售票頁 jackartzone.kktix.cc「MIERE TAIPEI 1st Special LIVE」明確標示「韓國 Live Idol 團體 MIERE」
+- canonical: 榕柱回頭
+  aliases: []
+  tags_origin_default: 本地  # 標題無演出者名字、僅系列名稱。WebFetch 查證：售票頁 thepillars.kktix.cc「【榕柱回頭 EP.1】」，柱 THE PILLARS livehouse 與樓下榕之島跨場地企劃，演出者為本地樂團/DJ（雀斑樂團、閃閃閃閃、林貓王）
+- canonical: Matzka
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：台灣屏東排灣族創作歌手，MATZKA樂團主唱
+- canonical: AYANE
+  aliases: ["彩音"]
+  tags_origin_default: 日本  # WebFetch 查證：售票頁 urbanrootmusic.kktix.cc「蟬鳴迴響」，2004年出道日本動畫/遊戲音樂歌手
+- canonical: ITO KANAKO
+  aliases: ["いとうかなこ"]
+  tags_origin_default: 日本  # WebFetch 查證：售票頁 urbanrootmusic.kktix.cc「蟬鳴迴響」，日本遊戲音樂代表歌手之一（科學アドベンチャーシリーズ）
+- canonical: SHIMAMIYA EIKO
+  aliases: ["島みやえい子"]
+  tags_origin_default: 日本  # WebFetch 查證：售票頁 urbanrootmusic.kktix.cc「蟬鳴迴響」，以北海道札幌為據點的日本歌手/作詞作曲家（暮蟬悲鳴時系列主題曲）
+- canonical: 伊達小百合
+  aliases: []
+  tags_origin_default: 日本  # WebFetch 查證：售票頁 resonance-works.kktix.cc「伊達小百合 Fan Meeting 2026 In Kaohsiung」明確標示「日本聲優、藝人」（Love Live! Superstar!! 配音演員）
+- canonical: JOKESONYOU
+  aliases: []
+  tags_origin_default: 歐美  # WebFetch 查證：售票頁 lafin.kktix.cc「TEMPLE TAIPEI PRESENTS: JOKESONYOU」明確標示「來自墨爾本澳洲」的電子音樂製作人
+- canonical: 奧野香耶
+  aliases: []
+  tags_origin_default: 日本  # WebSearch 查證：日本聲優，1991年生於岩手縣盛岡市，《賽馬娘 Pretty Derby》聲優；售票頁為 KKTIX「日本聲優奧野香耶台北粉絲見面會」
+- canonical: CULTURE WARS
+  aliases: []
+  tags_origin_default: 歐美  # WebSearch 查證：美國德州奧斯汀另類搖滾樂團（Alex Dugan等5人組成）；售票頁「CULTURE WARS LIVE IN TAIPEI 2026」(拓元)
+- canonical: 奧萬大部落楓采
+  aliases: []
+  tags_origin_default: 本地  # 標題無單一演出者名字、僅系列名稱。WebSearch 查證：南投奧萬大森林遊樂區年度活動，邀集多組台灣原住民（泰雅、賽德克、布農）表演團隊輪番演出
+- canonical: LISANI！
+  aliases: ["LISANI!", "リスアニ！"]
+  tags_origin_default: 日本  # WebSearch 查證：日本動畫音樂雜誌「リスアニ！」自2010年起製作的アニソン(anisong)音樂節品牌，Sony Music Solutions Inc.製作；售票頁「LISANI！TAIPEI 2026」(Ticket Plus)，演出陣容為石原夏織、鈴木このみ等日本歌手
+- canonical: Pami
+  aliases: []
+  tags_origin_default: 亞洲其他  # WebSearch 查證：泰國創作歌手，代表作〈puffette〉〈kiss me blue〉；售票頁 ibon「Pami in Taipei 2026」
+- canonical: 王薇
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：台灣胡琴演奏家，於兩廳院OPENTIX售票（同系列另場「夜闌人靜時─王薇胡琴獨奏會」）；本場為「漫步在寧靜森林—王薇胡琴獨奏會」
+- canonical: 翁倩玉
+  aliases: ["Judy Ongg"]
+  tags_origin_default: 日本  # WebSearch 查證：台南出生，自幼移居日本，1966年於日本哥倫比亞唱片出道，1979年〈魅せられて〉獲日本唱片大賞（Japan Record Award）——依成名音樂圈判斷歸日本；售票頁「翁倩玉 陽光般的60週年演唱會-時間之歌」(年代)
+- canonical: TAIPEI:MIX
+  aliases: []
+  tags_origin_default: 本地  # 派對/多DJ音樂活動，比照既有規則直接登記品牌名。WebFetch 查證：售票頁 technobustw.kktix.cc「TAIPEI:MIX PRESENTS — RUN 2 RAVE」，主辦 TECHNO BUS TW，多位DJ陣容（SAM RITTER、JULIA等）
+- canonical: 我知道你不會來我的演唱會
+  aliases: []
+  tags_origin_default: 本地  # 標題本身沒有演出者名字（僅系列名稱「我知道你不會來我的演唱會#2」），比照系列名稱直接登記。WebFetch 查證：售票頁 yepfun.kktix.cc，主唱黃藝與夜蜂合唱團，全創作專場樂隊，2024年辦過首場同名演唱會
+- canonical: 阮丹青
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：台灣創作歌手/鋼琴家，與自然流動樂團合作；售票頁 billboardlivetaipei.tw「阮丹青& Friends - 自然流動樂團」
