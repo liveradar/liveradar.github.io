@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T04:01:31.709Z",
+  "generated_at": "2026-10-01T02:37:31.796Z",
   "events": [
     {
       "title_raw": "【高雄雄厲害】唱歌集《爬上頂樓看月亮》音樂劇",
@@ -683,8 +683,8 @@
       "is_festival": false,
       "venue": "臺中市葫蘆墩文化中心演奏廳",
       "city": "台中",
-      "date": "2026-10-31",
-      "time": "14:30",
+      "date": "2026-10-30",
+      "time": "14:00",
       "on_sale_at": null,
       "price_min": 200,
       "price_max": 800,
@@ -714,6 +714,11 @@
       ],
       "date_end": "2026-10-31",
       "sessions": [
+        {
+          "date": "2026-10-30",
+          "time": "14:00",
+          "status": "on_sale"
+        },
         {
           "date": "2026-10-31",
           "time": "14:30",
@@ -2249,64 +2254,6 @@
       ]
     },
     {
-      "title_raw": "娛人時代《班會別鬧！》",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "Comedy Plus 卡米地＋",
-      "city": "台北",
-      "date": "2026-09-30",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 600,
-      "price_max": 600,
-      "status": "on_sale",
-      "tags_type": [
-        "舞台劇"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2035978919460421633",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2035978919460421633",
-          "raw_id": "opentix:2035978919460421633:Comedy Plus 卡米地＋"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.047Z",
-      "updated_at": "2026-09-29T03:25:46.047Z",
-      "category": "舞台劇",
-      "run_key": "opentix:2035978919460421633:Comedy Plus 卡米地＋",
-      "id": "a4e7d9dc4c1806ca",
-      "merged_ids": [
-        "a4e7d9dc4c1806ca"
-      ],
-      "date_end": "2026-12-16",
-      "sessions": [
-        {
-          "date": "2026-09-30",
-          "time": "19:30",
-          "status": "on_sale"
-        },
-        {
-          "date": "2026-10-21",
-          "time": "19:30",
-          "status": "on_sale"
-        },
-        {
-          "date": "2026-11-18",
-          "time": "19:30",
-          "status": "on_sale"
-        },
-        {
-          "date": "2026-12-16",
-          "time": "19:30",
-          "status": "on_sale"
-        }
-      ]
-    },
-    {
       "title_raw": "2026同黨劇團《父親母親》",
       "headliners": [
         "同黨劇團"
@@ -2536,7 +2483,7 @@
         {
           "date": "2026-10-03",
           "time": "14:45",
-          "status": "on_sale"
+          "status": "sold_out"
         },
         {
           "date": "2026-10-03",
@@ -2556,7 +2503,7 @@
         {
           "date": "2026-10-04",
           "time": "14:45",
-          "status": "on_sale"
+          "status": "sold_out"
         }
       ]
     },
@@ -2610,7 +2557,7 @@
         {
           "date": "2026-10-03",
           "time": "14:30",
-          "status": "on_sale"
+          "status": "sold_out"
         },
         {
           "date": "2026-10-03",
@@ -2703,7 +2650,7 @@
         {
           "date": "2026-10-11",
           "time": "12:30",
-          "status": "on_sale"
+          "status": "sold_out"
         }
       ]
     },
@@ -4473,6 +4420,59 @@
         {
           "date": "2026-10-17",
           "time": "14:30",
+          "status": "on_sale"
+        }
+      ]
+    },
+    {
+      "title_raw": "娛人時代《班會別鬧！》",
+      "headliners": [],
+      "lineup": [],
+      "is_festival": false,
+      "venue": "Comedy Plus 卡米地＋",
+      "city": "台北",
+      "date": "2026-10-21",
+      "time": "19:30",
+      "on_sale_at": null,
+      "price_min": 600,
+      "price_max": 600,
+      "status": "on_sale",
+      "tags_type": [
+        "舞台劇"
+      ],
+      "tags_origin": [],
+      "is_lottery": false,
+      "ticket_url": "https://www.opentix.life/event/2035978919460421633",
+      "sources": [
+        {
+          "name": "OPENTIX",
+          "url": "https://www.opentix.life/event/2035978919460421633",
+          "raw_id": "opentix:2035978919460421633:Comedy Plus 卡米地＋"
+        }
+      ],
+      "first_seen_at": "2026-09-29T03:25:46.047Z",
+      "updated_at": "2026-09-29T03:25:46.047Z",
+      "category": "舞台劇",
+      "run_key": "opentix:2035978919460421633:Comedy Plus 卡米地＋",
+      "id": "a4e7d9dc4c1806ca",
+      "merged_ids": [
+        "a4e7d9dc4c1806ca"
+      ],
+      "date_end": "2026-12-16",
+      "sessions": [
+        {
+          "date": "2026-10-21",
+          "time": "19:30",
+          "status": "on_sale"
+        },
+        {
+          "date": "2026-11-18",
+          "time": "19:30",
+          "status": "on_sale"
+        },
+        {
+          "date": "2026-12-16",
+          "time": "19:30",
           "status": "on_sale"
         }
       ]
@@ -6447,8 +6447,18 @@
           "status": "on_sale"
         },
         {
+          "date": "2026-11-14",
+          "time": "19:30",
+          "status": "on_sale"
+        },
+        {
           "date": "2026-11-15",
           "time": "14:30",
+          "status": "on_sale"
+        },
+        {
+          "date": "2026-11-15",
+          "time": "19:30",
           "status": "on_sale"
         }
       ]
@@ -7295,9 +7305,11 @@
     {
       "title_raw": "2026 NTT遇見巨人—羅伯．勒帕吉╳柏林雷寧廣場劇院《信仰、金錢、戰爭與愛》",
       "headliners": [
+        "羅伯．勒帕吉",
         "柏林雷寧廣場劇院"
       ],
       "lineup": [
+        "羅伯．勒帕吉",
         "柏林雷寧廣場劇院"
       ],
       "is_festival": false,
@@ -9002,7 +9014,7 @@
       "time": "14:30",
       "on_sale_at": null,
       "price_min": 500,
-      "price_max": 2500,
+      "price_max": 3000,
       "status": "on_sale",
       "tags_type": [
         "舞台劇"
@@ -9018,7 +9030,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:18.102Z",
-      "updated_at": "2026-09-29T03:21:18.102Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "category": "舞台劇",
       "run_key": "年代:P1CXD96B:衛武營國家藝術文化中心歌劇院",
       "id": "dae3cd68b6b8c498",
@@ -9032,6 +9044,9 @@
           "time": "14:30",
           "status": "on_sale"
         }
+      ],
+      "updated_fields": [
+        "price_max"
       ]
     },
     {
@@ -9821,11 +9836,6 @@
           "name": "KKTIX",
           "url": "https://theflabbergast.kktix.cc/events/135e6dc7",
           "raw_id": "135e6dc7"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://theflabbergast.kktix.cc/events/e6e3122b",
-          "raw_id": "e6e3122b"
         }
       ],
       "id": "b8547085165f3566",
@@ -9982,11 +9992,6 @@
           "name": "KKTIX",
           "url": "https://spaceport.kktix.cc/events/jonyj-2",
           "raw_id": "jonyj-2"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://spaceport.kktix.cc/events/jonyj-1",
-          "raw_id": "jonyj-1"
         }
       ],
       "id": "e06d3ec7ad10b0c2",
@@ -11403,7 +11408,7 @@
       "on_sale_at": null,
       "price_min": 800,
       "price_max": 900,
-      "status": "on_sale",
+      "status": "announced",
       "tags_type": [
         "專場"
       ],
@@ -11413,7 +11418,7 @@
       "is_lottery": false,
       "ticket_url": "https://superhouseoffcial.kktix.cc/events/lidsre",
       "first_seen_at": "2026-09-22T16:23:50.205Z",
-      "updated_at": "2026-09-22T16:23:50.205Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "sources": [
         {
           "name": "KKTIX",
@@ -11424,6 +11429,9 @@
       "id": "0c9541d58dee1380",
       "merged_ids": [
         "0c9541d58dee1380"
+      ],
+      "updated_fields": [
+        "status"
       ]
     },
     {
@@ -11619,45 +11627,6 @@
       "id": "6678830e3eb5b0b1",
       "merged_ids": [
         "6678830e3eb5b0b1"
-      ]
-    },
-    {
-      "title_raw": "BEN NICKY — TAICHUNG FIELD OF DREAMS RAVE",
-      "headliners": [
-        "BEN NICKY"
-      ],
-      "lineup": [
-        "BEN NICKY"
-      ],
-      "is_festival": false,
-      "venue": "SUPERHOUSE",
-      "city": "台中",
-      "date": "2026-10-30",
-      "time": "22:00",
-      "on_sale_at": null,
-      "price_min": 400,
-      "price_max": 600,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "歐美"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://superhouseoffcial.kktix.cc/events/oe5dw9g",
-      "first_seen_at": "2026-09-22T16:23:50.207Z",
-      "updated_at": "2026-09-22T16:23:50.207Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://superhouseoffcial.kktix.cc/events/oe5dw9g",
-          "raw_id": "oe5dw9g"
-        }
-      ],
-      "id": "12cf2bcd6274470e",
-      "merged_ids": [
-        "12cf2bcd6274470e"
       ]
     },
     {
@@ -12563,45 +12532,6 @@
       ]
     },
     {
-      "title_raw": "巴雀室”重瘋：弦樂四重奏《日出．映像》",
-      "headliners": [
-        "巴雀室"
-      ],
-      "lineup": [
-        "巴雀室"
-      ],
-      "is_festival": false,
-      "venue": "陽明交大演藝廳",
-      "city": "新竹",
-      "date": "2026-09-30",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://nycuartscenter.kktix.cc/events/20260930",
-      "first_seen_at": "2026-09-23T04:03:12.493Z",
-      "updated_at": "2026-09-23T04:03:12.493Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://nycuartscenter.kktix.cc/events/20260930",
-          "raw_id": "20260930"
-        }
-      ],
-      "id": "319f441cd9f3a36c",
-      "merged_ids": [
-        "319f441cd9f3a36c"
-      ]
-    },
-    {
       "title_raw": "Regallily “Dawn”《TAIPEI》",
       "headliners": [
         "Regallily"
@@ -13062,11 +12992,6 @@
           "name": "KKTIX",
           "url": "https://ldh.kktix.cc/events/fantastics-live-2026-2",
           "raw_id": "fantastics-live-2026-2"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://ldh.kktix.cc/events/fantastics-live-2026-1",
-          "raw_id": "fantastics-live-2026-1"
         }
       ],
       "id": "f5980594fdd14fda",
@@ -13106,11 +13031,6 @@
           "name": "KKTIX",
           "url": "https://createwonderfullife.kktix.cc/events/5688d9b2",
           "raw_id": "5688d9b2"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://createwonderfullife.kktix.cc/events/339d88a-a01",
-          "raw_id": "339d88a-a01"
         }
       ],
       "id": "d389bbfeceee62b2",
@@ -13501,6 +13421,11 @@
           "name": "KKTIX",
           "url": "https://spaceport.kktix.cc/events/justhis-01",
           "raw_id": "justhis-01"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://spaceport.kktix.cc/events/justhis-02",
+          "raw_id": "justhis-02"
         }
       ],
       "id": "e704dc69f95bc176",
@@ -13779,6 +13704,11 @@
           "name": "KKTIX",
           "url": "https://asiamedia-2.kktix.cc/events/vretar01",
           "raw_id": "vretar01"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://asiamedia-2.kktix.cc/events/vretar02",
+          "raw_id": "vretar02"
         }
       ],
       "id": "b30b322a77873cc4",
@@ -13857,6 +13787,11 @@
           "name": "KKTIX",
           "url": "https://spaceport.kktix.cc/events/kyrazilver2026-a001",
           "raw_id": "kyrazilver2026-a001"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://spaceport.kktix.cc/events/kyrazilver2026-a002",
+          "raw_id": "kyrazilver2026-a002"
         }
       ],
       "id": "ea04e58d5e5d913f",
@@ -13896,6 +13831,11 @@
           "name": "KKTIX",
           "url": "https://weekendplanent.kktix.cc/events/0cf6fd23",
           "raw_id": "0cf6fd23"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://weekendplanent.kktix.cc/events/16e8e156",
+          "raw_id": "16e8e156"
         }
       ],
       "id": "740d7ac1ebec4d9f-day",
@@ -13935,6 +13875,11 @@
           "name": "KKTIX",
           "url": "https://weekendplanent.kktix.cc/events/6791ca87",
           "raw_id": "6791ca87"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://weekendplanent.kktix.cc/events/c755d949",
+          "raw_id": "c755d949"
         }
       ],
       "id": "740d7ac1ebec4d9f-evening",
@@ -14013,6 +13958,11 @@
           "name": "KKTIX",
           "url": "https://spaceport.kktix.cc/events/ddg2026-2",
           "raw_id": "ddg2026-2"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://spaceport.kktix.cc/events/ddg2026-1",
+          "raw_id": "ddg2026-1"
         }
       ],
       "id": "168a73ae90fe120d",
@@ -14138,45 +14088,6 @@
       ]
     },
     {
-      "title_raw": "2026 鄭宜農 Enno Cheng 《缺與圓之後 Inter-Phases》高雄演唱會",
-      "headliners": [
-        "鄭宜農"
-      ],
-      "lineup": [
-        "鄭宜農"
-      ],
-      "is_festival": false,
-      "venue": "LIVE WAREHOUSE 大庫",
-      "city": "高雄",
-      "date": "2026-12-27",
-      "time": "18:00",
-      "on_sale_at": "2026-09-29T12:00:00+08:00",
-      "price_min": 990,
-      "price_max": 1980,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://walkingmusic.kktix.cc/events/9be3aedc",
-      "first_seen_at": "2026-09-23T10:42:10.289Z",
-      "updated_at": "2026-09-23T10:42:10.289Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://walkingmusic.kktix.cc/events/9be3aedc",
-          "raw_id": "9be3aedc"
-        }
-      ],
-      "id": "e399b7bb933ad2fc",
-      "merged_ids": [
-        "e399b7bb933ad2fc"
-      ]
-    },
-    {
       "title_raw": "巫啟賢“ ALL THE BEST ”40周年金曲世界巡迴演唱會",
       "headliners": [
         "巫啟賢"
@@ -14280,7 +14191,7 @@
       "is_lottery": false,
       "ticket_url": "https://globalmusic.kktix.cc/events/a4aae91d",
       "first_seen_at": "2026-09-23T10:42:10.290Z",
-      "updated_at": "2026-09-30T04:01:31.708Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "sources": [
         {
           "name": "KKTIX",
@@ -15035,11 +14946,6 @@
           "name": "KKTIX",
           "url": "https://unitystar.kktix.cc/events/b8147722",
           "raw_id": "b8147722"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://unitystar.kktix.cc/events/a27a3fa",
-          "raw_id": "a27a3fa"
         }
       ],
       "id": "bb09a480d4af11a0",
@@ -15118,11 +15024,6 @@
           "name": "KKTIX",
           "url": "https://freeplanetml.kktix.cc/events/takasetoya202611-1",
           "raw_id": "takasetoya202611-1"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://freeplanetml.kktix.cc/events/takasetoya202611-2",
-          "raw_id": "takasetoya202611-2"
         }
       ],
       "id": "cf67ebe225e14aed",
@@ -15240,6 +15141,11 @@
           "name": "KKTIX",
           "url": "https://chuanyeah.kktix.cc/events/jsdrgh01",
           "raw_id": "jsdrgh01"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://chuanyeah.kktix.cc/events/jsdrgh02",
+          "raw_id": "jsdrgh02"
         }
       ],
       "id": "41d6c0af652f4818",
@@ -15282,8 +15188,8 @@
         },
         {
           "name": "KKTIX",
-          "url": "https://kaoinc.kktix.cc/events/fkiejr05",
-          "raw_id": "fkiejr05"
+          "url": "https://kaoinc.kktix.cc/events/fkiejr07",
+          "raw_id": "fkiejr07"
         }
       ],
       "id": "6c48193f4281ad32",
@@ -15557,6 +15463,11 @@
           "name": "KKTIX",
           "url": "https://chuanyeah.kktix.cc/events/080cefdf",
           "raw_id": "080cefdf"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://chuanyeah.kktix.cc/events/f2c3f8ed",
+          "raw_id": "f2c3f8ed"
         }
       ],
       "id": "0c720d345f5e6ba4",
@@ -15635,6 +15546,16 @@
           "name": "KKTIX",
           "url": "https://kaoinc.kktix.cc/events/eihja03",
           "raw_id": "eihja03"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://kaoinc.kktix.cc/events/eihja01",
+          "raw_id": "eihja01"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://kaoinc.kktix.cc/events/eihja02",
+          "raw_id": "eihja02"
         }
       ],
       "id": "977eee51544909f4",
@@ -15674,6 +15595,11 @@
           "name": "KKTIX",
           "url": "https://binliveco.kktix.cc/events/sbgr02",
           "raw_id": "sbgr02"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://binliveco.kktix.cc/events/sbgr01",
+          "raw_id": "sbgr01"
         }
       ],
       "id": "53ae1d35733f55da",
@@ -15869,11 +15795,6 @@
           "name": "KKTIX",
           "url": "https://weekendplanent.kktix.cc/events/d23c8c16",
           "raw_id": "d23c8c16"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://weekendplanent.kktix.cc/events/7345d6b9",
-          "raw_id": "7345d6b9"
         }
       ],
       "id": "31573b8a000d6048",
@@ -16070,11 +15991,6 @@
           "name": "KKTIX",
           "url": "https://yanrong.kktix.cc/events/a5d5bde2",
           "raw_id": "a5d5bde2"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://yanrong.kktix.cc/events/b79ff8c9",
-          "raw_id": "b79ff8c9"
         }
       ],
       "id": "edd9ace02381439a",
@@ -16586,6 +16502,11 @@
           "name": "KKTIX",
           "url": "https://livenationelectronicasia.kktix.cc/events/spookyhalloween2026",
           "raw_id": "spookyhalloween2026"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://livenationelectronicasia.kktix.cc/events/spookyhalloween2026-all-access",
+          "raw_id": "spookyhalloween2026-all-access"
         }
       ],
       "id": "c44c5c8959312cd2",
@@ -16630,123 +16551,6 @@
       "id": "f67dfdb87fa64d49",
       "merged_ids": [
         "f67dfdb87fa64d49"
-      ]
-    },
-    {
-      "title_raw": "【10/24】霹靂熱血樂章 2026 PILI CONCERT",
-      "headliners": [
-        "霹靂熱血樂章"
-      ],
-      "lineup": [
-        "霹靂熱血樂章"
-      ],
-      "is_festival": false,
-      "venue": "誠品生活新店 3F黑盒子",
-      "city": "新北",
-      "date": "2026-10-24",
-      "time": "15:30",
-      "on_sale_at": "2026-09-29T12:00:00+08:00",
-      "price_min": 250,
-      "price_max": 2800,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://pili.kktix.cc/events/a7460c73",
-      "first_seen_at": "2026-09-29T03:33:10.636Z",
-      "updated_at": "2026-09-30T03:35:19.749Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://pili.kktix.cc/events/a7460c73",
-          "raw_id": "a7460c73"
-        }
-      ],
-      "id": "d3090842d3db7ecc",
-      "merged_ids": [
-        "d3090842d3db7ecc"
-      ]
-    },
-    {
-      "title_raw": "【10/25】霹靂熱血樂章 2026 PILI CONCERT",
-      "headliners": [
-        "霹靂熱血樂章"
-      ],
-      "lineup": [
-        "霹靂熱血樂章"
-      ],
-      "is_festival": false,
-      "venue": "誠品生活新店 3F黑盒子",
-      "city": "新北",
-      "date": "2026-10-25",
-      "time": "13:00",
-      "on_sale_at": "2026-09-29T12:00:00+08:00",
-      "price_min": 900,
-      "price_max": 2800,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://pili.kktix.cc/events/b0844a5c",
-      "first_seen_at": "2026-09-29T03:33:10.636Z",
-      "updated_at": "2026-09-29T06:23:50.490Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://pili.kktix.cc/events/b0844a5c",
-          "raw_id": "b0844a5c"
-        }
-      ],
-      "id": "4f10d89bfe80aafc",
-      "merged_ids": [
-        "4f10d89bfe80aafc"
-      ]
-    },
-    {
-      "title_raw": "【售票頁】HOKUTO LIVE&FAN MEETING 2026 \"JUKE BOX LAND\" IN TAIPEI",
-      "headliners": [
-        "HOKUTO"
-      ],
-      "lineup": [
-        "HOKUTO"
-      ],
-      "is_festival": false,
-      "venue": "Legacy Taipei",
-      "city": "台北",
-      "date": "2026-11-20",
-      "time": "18:30",
-      "on_sale_at": "2026-09-30T18:00:00+08:00",
-      "price_min": 1640,
-      "price_max": 3280,
-      "status": "announced",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ldh.kktix.cc/events/hokuto2026-01",
-      "first_seen_at": "2026-09-29T03:33:10.636Z",
-      "updated_at": "2026-09-29T06:23:50.491Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://ldh.kktix.cc/events/hokuto2026-01",
-          "raw_id": "hokuto2026-01"
-        }
-      ],
-      "id": "d2a23fed493f0138",
-      "merged_ids": [
-        "d2a23fed493f0138"
       ]
     },
     {
@@ -17417,45 +17221,6 @@
       ]
     },
     {
-      "title_raw": "🇹🇼 10.10 TEMPLE TAIPEI PRESENTS: JOKESONYOU 🇦🇺",
-      "headliners": [
-        "JOKESONYOU"
-      ],
-      "lineup": [
-        "JOKESONYOU"
-      ],
-      "is_festival": false,
-      "venue": "La Fin Taipei",
-      "city": "台北",
-      "date": "2026-10-10",
-      "time": "23:00",
-      "on_sale_at": "2026-10-01T00:00:00+08:00",
-      "price_min": 700,
-      "price_max": 1000,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "歐美"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://lafin.kktix.cc/events/446c3ffe",
-      "first_seen_at": "2026-09-30T03:35:19.729Z",
-      "updated_at": "2026-09-30T03:43:59.549Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://lafin.kktix.cc/events/446c3ffe",
-          "raw_id": "446c3ffe"
-        }
-      ],
-      "id": "c610aa377a90e899",
-      "merged_ids": [
-        "c610aa377a90e899"
-      ]
-    },
-    {
       "title_raw": "TAIPEI:MIX PRESENTS — RUN 2 RAVE: RUN TO THE BUS 🏃‍♂️🔊",
       "headliners": [
         "TAIPEI:MIX"
@@ -17573,9 +17338,298 @@
       ]
     },
     {
+      "title_raw": "我知道你不會來我的演唱會#2",
+      "headliners": [
+        "我知道你不會來我的演唱會"
+      ],
+      "lineup": [
+        "我知道你不會來我的演唱會"
+      ],
+      "is_festival": false,
+      "venue": "西門｜河岸留言",
+      "city": "台北",
+      "date": "2026-10-03",
+      "time": "19:00",
+      "on_sale_at": null,
+      "price_min": 600,
+      "price_max": 700,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://yepfun.kktix.cc/events/yepfun261003",
+      "first_seen_at": "2026-09-30T03:35:19.739Z",
+      "updated_at": "2026-09-30T04:14:54.453Z",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://yepfun.kktix.cc/events/yepfun261003",
+          "raw_id": "yepfun261003"
+        }
+      ],
+      "id": "40c7767c6133f3ea",
+      "merged_ids": [
+        "40c7767c6133f3ea"
+      ]
+    },
+    {
+      "title_raw": "造音現場｜LOUDER STAGE #01－負能株式會社 × 派拉瑞 Badlarry × Renny Yo 尤時雨",
+      "headliners": [
+        "負能株式會社"
+      ],
+      "lineup": [
+        "負能株式會社"
+      ],
+      "is_festival": false,
+      "venue": "凝聚力展演空間",
+      "city": "台北",
+      "date": "2026-11-11",
+      "time": "19:00",
+      "on_sale_at": null,
+      "price_min": 450,
+      "price_max": 450,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://cohesionmusic.kktix.cc/events/louderstage01",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://cohesionmusic.kktix.cc/events/louderstage01",
+          "raw_id": "louderstage01"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:37:31.777Z",
+      "updated_at": "2026-10-01T02:37:31.777Z",
+      "id": "87ab618134068629",
+      "merged_ids": [
+        "87ab618134068629"
+      ]
+    },
+    {
+      "title_raw": "KIM OKI LIVE IN TAIPEI 2026",
+      "headliners": [
+        "Kim Oki"
+      ],
+      "lineup": [
+        "Kim Oki"
+      ],
+      "is_festival": false,
+      "venue": "The Wall Live House",
+      "city": "台北",
+      "date": "2026-12-04",
+      "time": "19:30",
+      "on_sale_at": "2026-10-02T12:00:00+08:00",
+      "price_min": 900,
+      "price_max": 1690,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "韓國"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://offtimemusic.kktix.cc/events/kimoki2026",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://offtimemusic.kktix.cc/events/kimoki2026",
+          "raw_id": "kimoki2026"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:37:31.778Z",
+      "updated_at": "2026-10-01T02:55:21.572Z",
+      "id": "eb95036cd3378b5e",
+      "merged_ids": [
+        "eb95036cd3378b5e"
+      ]
+    },
+    {
+      "title_raw": "【GA站票、坐票】藍井艾露 EIR AOI LIVE TOUR 2026-2027〈UNBOUND〉台北",
+      "headliners": [
+        "EIR AOI"
+      ],
+      "lineup": [
+        "EIR AOI"
+      ],
+      "is_festival": false,
+      "venue": "Zepp New Taipei",
+      "city": "新北",
+      "date": "2027-02-13",
+      "time": "18:00",
+      "on_sale_at": "2026-11-13T12:00:00+08:00",
+      "price_min": 1640,
+      "price_max": 3281,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "日本"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://jmgroup.kktix.cc/events/e9e854aa",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://jmgroup.kktix.cc/events/e9e854aa",
+          "raw_id": "e9e854aa"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://jmgroup.kktix.cc/events/6a89b1ab",
+          "raw_id": "6a89b1ab"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:37:31.778Z",
+      "updated_at": "2026-10-01T02:37:31.778Z",
+      "id": "c1d9b6d6cc2a5af4",
+      "merged_ids": [
+        "c1d9b6d6cc2a5af4"
+      ]
+    },
+    {
+      "title_raw": "2026 鄭宜農 Enno Cheng 《缺與圓之後 Inter-Phases》高雄演唱會",
+      "headliners": [
+        "鄭宜農"
+      ],
+      "lineup": [
+        "鄭宜農"
+      ],
+      "is_festival": false,
+      "venue": "LIVE WAREHOUSE 大庫",
+      "city": "高雄",
+      "date": "2026-12-27",
+      "time": "18:00",
+      "on_sale_at": null,
+      "price_min": 990,
+      "price_max": 1980,
+      "status": "sold_out",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://walkingmusic.kktix.cc/events/9be3aedc",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://walkingmusic.kktix.cc/events/9be3aedc",
+          "raw_id": "9be3aedc"
+        }
+      ],
+      "first_seen_at": "2026-09-23T10:42:10.289Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
+      "id": "e399b7bb933ad2fc",
+      "merged_ids": [
+        "e399b7bb933ad2fc"
+      ],
+      "updated_fields": [
+        "status",
+        "on_sale_at"
+      ]
+    },
+    {
+      "title_raw": "BEN NICKY — TAICHUNG FIELD OF DREAMS RAVE",
+      "headliners": [
+        "BEN NICKY"
+      ],
+      "lineup": [
+        "BEN NICKY"
+      ],
+      "is_festival": false,
+      "venue": "SUPERHOUSE",
+      "city": "台中",
+      "date": "2026-10-30",
+      "time": "22:00",
+      "on_sale_at": null,
+      "price_min": 400,
+      "price_max": 600,
+      "status": "sold_out",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "歐美"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://superhouseoffcial.kktix.cc/events/oe5dw9g",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://superhouseoffcial.kktix.cc/events/oe5dw9g",
+          "raw_id": "oe5dw9g"
+        }
+      ],
+      "first_seen_at": "2026-09-22T16:23:50.207Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
+      "id": "12cf2bcd6274470e",
+      "merged_ids": [
+        "12cf2bcd6274470e"
+      ],
+      "updated_fields": [
+        "status"
+      ]
+    },
+    {
+      "title_raw": "Daniela Andrade Live in Taipei 2026",
+      "headliners": [
+        "Daniela Andrade"
+      ],
+      "lineup": [
+        "Daniela Andrade"
+      ],
+      "is_festival": false,
+      "venue": "MOONDOG",
+      "city": "台北",
+      "date": "2026-11-25",
+      "time": "19:00",
+      "on_sale_at": "2026-10-07T12:00:00+08:00",
+      "price_min": 1500,
+      "price_max": 1500,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "歐美"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://slowgush.kktix.cc/events/daniela2026",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://slowgush.kktix.cc/events/daniela2026",
+          "raw_id": "daniela2026"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:37:31.781Z",
+      "updated_at": "2026-10-01T02:55:21.576Z",
+      "id": "1787c846948447d3",
+      "merged_ids": [
+        "1787c846948447d3"
+      ]
+    },
+    {
       "title_raw": "僑光科技大學 浪潮盛典 62週年校慶演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "浪潮盛典"
+      ],
+      "lineup": [
+        "浪潮盛典"
+      ],
       "is_festival": false,
       "venue": "僑光科技大學 積中堂2F禮堂",
       "city": "台中",
@@ -17588,7 +17642,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ocusa22.kktix.cc/events/621020",
       "sources": [
@@ -17599,10 +17655,344 @@
         }
       ],
       "first_seen_at": "2026-09-30T03:35:19.726Z",
-      "updated_at": "2026-09-30T03:35:19.726Z",
+      "updated_at": "2026-10-01T02:55:21.576Z",
       "id": "d793680cc2770d00",
       "merged_ids": [
         "d793680cc2770d00"
+      ]
+    },
+    {
+      "title_raw": "【10/24】霹靂熱血樂章 2026 PILI CONCERT",
+      "headliners": [
+        "霹靂熱血樂章"
+      ],
+      "lineup": [
+        "霹靂熱血樂章"
+      ],
+      "is_festival": false,
+      "venue": "誠品生活新店 3F黑盒子",
+      "city": "新北",
+      "date": "2026-10-24",
+      "time": "15:30",
+      "on_sale_at": null,
+      "price_min": 250,
+      "price_max": 2800,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://pili.kktix.cc/events/a7460c73",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://pili.kktix.cc/events/a7460c73",
+          "raw_id": "a7460c73"
+        },
+        {
+          "name": "KKTIX",
+          "url": "https://pili.kktix.cc/events/c0ed7a4d",
+          "raw_id": "c0ed7a4d"
+        }
+      ],
+      "first_seen_at": "2026-09-29T03:33:10.636Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
+      "id": "d3090842d3db7ecc",
+      "merged_ids": [
+        "d3090842d3db7ecc"
+      ],
+      "updated_fields": [
+        "status",
+        "on_sale_at"
+      ]
+    },
+    {
+      "title_raw": "【10/25】霹靂熱血樂章 2026 PILI CONCERT",
+      "headliners": [
+        "霹靂熱血樂章"
+      ],
+      "lineup": [
+        "霹靂熱血樂章"
+      ],
+      "is_festival": false,
+      "venue": "誠品生活新店 3F黑盒子",
+      "city": "新北",
+      "date": "2026-10-25",
+      "time": "13:00",
+      "on_sale_at": null,
+      "price_min": 1400,
+      "price_max": 2800,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://pili.kktix.cc/events/b0844a5c",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://pili.kktix.cc/events/b0844a5c",
+          "raw_id": "b0844a5c"
+        }
+      ],
+      "first_seen_at": "2026-09-29T03:33:10.636Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
+      "id": "4f10d89bfe80aafc",
+      "merged_ids": [
+        "4f10d89bfe80aafc"
+      ],
+      "updated_fields": [
+        "status",
+        "price_min",
+        "on_sale_at"
+      ]
+    },
+    {
+      "title_raw": "【售票頁】HOKUTO LIVE&FAN MEETING 2026 \"JUKE BOX LAND\" IN TAIPEI",
+      "headliners": [
+        "HOKUTO"
+      ],
+      "lineup": [
+        "HOKUTO"
+      ],
+      "is_festival": false,
+      "venue": "Legacy Taipei",
+      "city": "台北",
+      "date": "2026-11-20",
+      "time": "18:30",
+      "on_sale_at": null,
+      "price_min": 1640,
+      "price_max": 3280,
+      "status": "on_sale",
+      "tags_type": [
+        "見面會"
+      ],
+      "tags_origin": [
+        "日本"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://ldh.kktix.cc/events/hokuto2026-01",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://ldh.kktix.cc/events/hokuto2026-01",
+          "raw_id": "hokuto2026-01"
+        }
+      ],
+      "first_seen_at": "2026-09-29T03:33:10.636Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
+      "id": "d2a23fed493f0138",
+      "merged_ids": [
+        "d2a23fed493f0138"
+      ],
+      "updated_fields": [
+        "status",
+        "on_sale_at"
+      ]
+    },
+    {
+      "title_raw": "【午場 VVIP區，限網站購票】THE EDGE OF HORIZON 1st FAN MEETING IN TAIWAN",
+      "headliners": [
+        "THE EDGE OF HORIZON"
+      ],
+      "lineup": [
+        "THE EDGE OF HORIZON"
+      ],
+      "is_festival": false,
+      "venue": "WESTAR",
+      "city": "台北",
+      "date": "2026-11-29",
+      "time": "12:00",
+      "on_sale_at": "2026-10-06T12:00:00+08:00",
+      "price_min": 8800,
+      "price_max": 8800,
+      "status": "announced",
+      "tags_type": [
+        "見面會"
+      ],
+      "tags_origin": [
+        "亞洲其他"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://porticomedia.kktix.cc/events/0174a073",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://porticomedia.kktix.cc/events/0174a073",
+          "raw_id": "0174a073"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:37:31.785Z",
+      "updated_at": "2026-10-01T02:55:21.576Z",
+      "id": "3cccca028fd9c9a7",
+      "merged_ids": [
+        "3cccca028fd9c9a7"
+      ]
+    },
+    {
+      "title_raw": "【午場 非VVIP區】THE EDGE OF HORIZON 1st FAN MEETING IN TAIWAN",
+      "headliners": [
+        "THE EDGE OF HORIZON"
+      ],
+      "lineup": [
+        "THE EDGE OF HORIZON"
+      ],
+      "is_festival": false,
+      "venue": "WESTAR",
+      "city": "台北",
+      "date": "2026-11-29",
+      "time": "12:00",
+      "on_sale_at": "2026-10-06T12:00:00+08:00",
+      "price_min": 1950,
+      "price_max": 7500,
+      "status": "announced",
+      "tags_type": [
+        "見面會"
+      ],
+      "tags_origin": [
+        "亞洲其他"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://porticomedia.kktix.cc/events/21b96c56",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://porticomedia.kktix.cc/events/21b96c56",
+          "raw_id": "21b96c56"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:37:31.785Z",
+      "updated_at": "2026-10-01T02:55:21.577Z",
+      "id": "74c719e3b4fa8a66",
+      "merged_ids": [
+        "74c719e3b4fa8a66"
+      ]
+    },
+    {
+      "title_raw": "【晚場 VVIP區，限網站購票】THE EDGE OF HORIZON 1st FAN MEETING IN TAIWAN",
+      "headliners": [
+        "THE EDGE OF HORIZON"
+      ],
+      "lineup": [
+        "THE EDGE OF HORIZON"
+      ],
+      "is_festival": false,
+      "venue": "WESTAR",
+      "city": "台北",
+      "date": "2026-11-29",
+      "time": "18:00",
+      "on_sale_at": "2026-10-06T12:00:00+08:00",
+      "price_min": 8800,
+      "price_max": 8800,
+      "status": "announced",
+      "tags_type": [
+        "見面會"
+      ],
+      "tags_origin": [
+        "亞洲其他"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://porticomedia.kktix.cc/events/a7d7dad7",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://porticomedia.kktix.cc/events/a7d7dad7",
+          "raw_id": "a7d7dad7"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:37:31.785Z",
+      "updated_at": "2026-10-01T02:55:21.577Z",
+      "id": "4cb0a4e3de09bc60",
+      "merged_ids": [
+        "4cb0a4e3de09bc60"
+      ]
+    },
+    {
+      "title_raw": "【晚場 非VVIP區】THE EDGE OF HORIZON 1st FAN MEETING IN TAIWAN",
+      "headliners": [
+        "THE EDGE OF HORIZON"
+      ],
+      "lineup": [
+        "THE EDGE OF HORIZON"
+      ],
+      "is_festival": false,
+      "venue": "WESTAR",
+      "city": "台北",
+      "date": "2026-11-29",
+      "time": "18:00",
+      "on_sale_at": "2026-10-06T12:00:00+08:00",
+      "price_min": 1950,
+      "price_max": 7500,
+      "status": "announced",
+      "tags_type": [
+        "見面會"
+      ],
+      "tags_origin": [
+        "亞洲其他"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://porticomedia.kktix.cc/events/f8e618be",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://porticomedia.kktix.cc/events/f8e618be",
+          "raw_id": "f8e618be"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:37:31.785Z",
+      "updated_at": "2026-10-01T02:55:21.577Z",
+      "id": "dc20f179f78e3ea7",
+      "merged_ids": [
+        "dc20f179f78e3ea7"
+      ]
+    },
+    {
+      "title_raw": "🇹🇼 10.10 TEMPLE TAIPEI PRESENTS: JOKESONYOU 🇦🇺",
+      "headliners": [
+        "JOKESONYOU"
+      ],
+      "lineup": [
+        "JOKESONYOU"
+      ],
+      "is_festival": false,
+      "venue": "La Fin Taipei",
+      "city": "台北",
+      "date": "2026-10-10",
+      "time": "23:00",
+      "on_sale_at": null,
+      "price_min": 700,
+      "price_max": 1000,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "歐美"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://lafin.kktix.cc/events/446c3ffe",
+      "sources": [
+        {
+          "name": "KKTIX",
+          "url": "https://lafin.kktix.cc/events/446c3ffe",
+          "raw_id": "446c3ffe"
+        }
+      ],
+      "first_seen_at": "2026-09-30T03:35:19.729Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
+      "id": "c610aa377a90e899",
+      "merged_ids": [
+        "c610aa377a90e899"
+      ],
+      "updated_fields": [
+        "status",
+        "on_sale_at"
       ]
     },
     {
@@ -17738,45 +18128,6 @@
       ]
     },
     {
-      "title_raw": "我知道你不會來我的演唱會#2",
-      "headliners": [
-        "我知道你不會來我的演唱會"
-      ],
-      "lineup": [
-        "我知道你不會來我的演唱會"
-      ],
-      "is_festival": false,
-      "venue": "西門｜河岸留言",
-      "city": "台北",
-      "date": "2026-10-03",
-      "time": "19:00",
-      "on_sale_at": null,
-      "price_min": 600,
-      "price_max": 700,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://yepfun.kktix.cc/events/yepfun261003",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://yepfun.kktix.cc/events/yepfun261003",
-          "raw_id": "yepfun261003"
-        }
-      ],
-      "first_seen_at": "2026-09-30T03:35:19.739Z",
-      "updated_at": "2026-09-30T04:14:54.453Z",
-      "id": "40c7767c6133f3ea",
-      "merged_ids": [
-        "40c7767c6133f3ea"
-      ]
-    },
-    {
       "title_raw": "離家出走到哪裡？從行為創作、行動主義到研究型創作",
       "headliners": [],
       "lineup": [],
@@ -17811,8 +18162,12 @@
     },
     {
       "title_raw": "中華民國各界慶祝115年國慶晚會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "中華民國各界慶祝115年國慶晚會"
+      ],
+      "lineup": [
+        "中華民國各界慶祝115年國慶晚會"
+      ],
       "is_festival": false,
       "venue": "板橋第一運動場",
       "city": "新北",
@@ -17825,7 +18180,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://rocbirthday.kktix.cc/events/2bd341df",
       "sources": [
@@ -17836,7 +18193,7 @@
         }
       ],
       "first_seen_at": "2026-09-30T03:35:19.740Z",
-      "updated_at": "2026-09-30T03:35:19.740Z",
+      "updated_at": "2026-10-01T02:55:21.578Z",
       "id": "a04030372ac2bb3f",
       "merged_ids": [
         "a04030372ac2bb3f"
@@ -17996,45 +18353,6 @@
       "id": "68450ba9999de032",
       "merged_ids": [
         "68450ba9999de032"
-      ]
-    },
-    {
-      "title_raw": "BOYNEXTDOOR TOUR ‘KNOCK ON Vol.2’ IN TAIPEI",
-      "headliners": [
-        "BOYNEXTDOOR"
-      ],
-      "lineup": [
-        "BOYNEXTDOOR"
-      ],
-      "is_festival": false,
-      "venue": "國立體育大學綜合體育館",
-      "city": "桃園",
-      "date": "2027-01-08",
-      "time": null,
-      "on_sale_at": null,
-      "price_min": 6980,
-      "price_max": 6980,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "韓國"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://tixcraft.com/activity/detail/27_bnd",
-      "first_seen_at": "2026-09-22T06:20:34.477Z",
-      "updated_at": "2026-09-23T02:25:20.119Z",
-      "sources": [
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/27_bnd",
-          "raw_id": "27_bnd"
-        }
-      ],
-      "id": "d453cdb6cc53e4e9",
-      "merged_ids": [
-        "d453cdb6cc53e4e9"
       ]
     },
     {
@@ -18459,11 +18777,6 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_joji_c",
           "raw_id": "26_joji_c"
-        },
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_joji",
-          "raw_id": "26_joji"
         }
       ],
       "id": "d6d6df06cec0348f",
@@ -18503,11 +18816,6 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_5sos",
           "raw_id": "26_5sos"
-        },
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_5sos_v",
-          "raw_id": "26_5sos_v"
         }
       ],
       "id": "fa77bc12d592c9b8",
@@ -18547,11 +18855,6 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_wte_v",
           "raw_id": "26_wte_v"
-        },
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_wte",
-          "raw_id": "26_wte"
         }
       ],
       "id": "fa004027fb7565ae",
@@ -18669,11 +18972,6 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_bini_v",
           "raw_id": "26_bini_v"
-        },
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_bini",
-          "raw_id": "26_bini"
         }
       ],
       "id": "7bdb29cc34c278be",
@@ -18947,11 +19245,6 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_vashhsu",
           "raw_id": "26_vashhsu"
-        },
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_vashhsu_v",
-          "raw_id": "26_vashhsu_v"
         }
       ],
       "id": "afa14a26670acd07",
@@ -19619,16 +19912,6 @@
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_lany",
           "raw_id": "26_lany"
-        },
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_lany_c",
-          "raw_id": "26_lany_c"
-        },
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_lany_v",
-          "raw_id": "26_lany_v"
         }
       ],
       "id": "4347b7fe0e4855b3",
@@ -19688,10 +19971,10 @@
       "city": "新北",
       "date": "2027-02-22",
       "time": "20:00",
-      "on_sale_at": null,
+      "on_sale_at": "2026-10-01T12:00:00+08:00",
       "price_min": 2720,
       "price_max": 5280,
-      "status": "on_sale",
+      "status": "announced",
       "tags_type": [
         "專場"
       ],
@@ -19701,22 +19984,21 @@
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/27_freyaskye",
       "first_seen_at": "2026-09-23T03:41:16.642Z",
-      "updated_at": "2026-09-29T03:33:10.647Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "sources": [
         {
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/27_freyaskye",
           "raw_id": "27_freyaskye"
-        },
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/27_freyaskye_v",
-          "raw_id": "27_freyaskye_v"
         }
       ],
       "id": "ce7f8ee906daf936",
       "merged_ids": [
         "ce7f8ee906daf936"
+      ],
+      "updated_fields": [
+        "status",
+        "on_sale_at"
       ]
     },
     {
@@ -19732,10 +20014,10 @@
       "city": "台北",
       "date": "2026-11-27",
       "time": null,
-      "on_sale_at": null,
+      "on_sale_at": "2026-10-04T00:00:00+08:00",
       "price_min": 4680,
       "price_max": 5880,
-      "status": "on_sale",
+      "status": "announced",
       "tags_type": [
         "見面會"
       ],
@@ -19745,7 +20027,7 @@
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_minhyun",
       "first_seen_at": "2026-09-23T08:55:20.865Z",
-      "updated_at": "2026-09-23T08:55:20.865Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "sources": [
         {
           "name": "拓元",
@@ -19756,6 +20038,10 @@
       "id": "bc006ab82f6375e9",
       "merged_ids": [
         "bc006ab82f6375e9"
+      ],
+      "updated_fields": [
+        "status",
+        "on_sale_at"
       ]
     },
     {
@@ -19849,10 +20135,10 @@
       "city": "台北",
       "date": "2026-11-13",
       "time": null,
-      "on_sale_at": null,
+      "on_sale_at": "2026-10-07T11:00:00+08:00",
       "price_min": 1680,
       "price_max": 1680,
-      "status": "on_sale",
+      "status": "announced",
       "tags_type": [
         "專場"
       ],
@@ -19862,7 +20148,7 @@
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_cw",
       "first_seen_at": "2026-09-30T03:23:57.903Z",
-      "updated_at": "2026-09-30T03:43:59.556Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "sources": [
         {
           "name": "拓元",
@@ -19873,6 +20159,10 @@
       "id": "e59ff7e1feea1d57",
       "merged_ids": [
         "e59ff7e1feea1d57"
+      ],
+      "updated_fields": [
+        "status",
+        "on_sale_at"
       ]
     },
     {
@@ -22346,8 +22636,12 @@
     },
     {
       "title_raw": "10.10（Sat.) 水源引流計劃 Bring the water in：場次1",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "水源引流計劃"
+      ],
+      "lineup": [
+        "水源引流計劃"
+      ],
       "is_festival": false,
       "venue": "迴響音樂展演空間SOUND Live House",
       "city": "台中",
@@ -22360,7 +22654,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv0423654",
       "sources": [
@@ -22371,7 +22667,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:22:21.197Z",
-      "updated_at": "2026-09-29T03:22:21.197Z",
+      "updated_at": "2026-10-01T02:59:14.128Z",
       "id": "75dbb5f193be6843",
       "merged_ids": [
         "75dbb5f193be6843"
@@ -22432,7 +22728,7 @@
       "on_sale_at": null,
       "price_min": 500,
       "price_max": 900,
-      "status": "on_sale",
+      "status": "sold_out",
       "tags_type": [
         "專場"
       ],
@@ -22442,7 +22738,7 @@
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/950003",
       "first_seen_at": "2026-09-22T06:14:51.718Z",
-      "updated_at": "2026-09-22T06:14:51.718Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "sources": [
         {
           "name": "FANSI GO",
@@ -22453,6 +22749,9 @@
       "id": "dfd68f99d3b89605",
       "merged_ids": [
         "dfd68f99d3b89605"
+      ],
+      "updated_fields": [
+        "status"
       ]
     },
     {
@@ -23243,8 +23542,12 @@
     },
     {
       "title_raw": "BACK TO LIFE!《回來找你是真的》首映會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "回來找你是真的"
+      ],
+      "lineup": [
+        "回來找你是真的"
+      ],
       "is_festival": false,
       "venue": "三立電視文創劇場",
       "city": "台北",
@@ -23257,7 +23560,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/940001",
       "sources": [
@@ -23268,7 +23573,7 @@
         }
       ],
       "first_seen_at": "2026-09-30T03:19:59.508Z",
-      "updated_at": "2026-09-30T03:19:59.508Z",
+      "updated_at": "2026-10-01T02:55:21.578Z",
       "id": "b24f8900093c9027",
       "merged_ids": [
         "b24f8900093c9027"
@@ -23276,8 +23581,12 @@
     },
     {
       "title_raw": "《Deep Inside My Brain》 Leyi D’s Night • Taipei 001",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Leyi D"
+      ],
+      "lineup": [
+        "Leyi D"
+      ],
       "is_festival": false,
       "venue": "野地方 Wild Lab",
       "city": "台北",
@@ -23290,7 +23599,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/440034",
       "sources": [
@@ -23301,7 +23612,7 @@
         }
       ],
       "first_seen_at": "2026-09-30T03:19:59.509Z",
-      "updated_at": "2026-09-30T03:19:59.509Z",
+      "updated_at": "2026-10-01T02:55:21.579Z",
       "id": "d62a61a1e0abce1c",
       "merged_ids": [
         "d62a61a1e0abce1c"
@@ -23912,7 +24223,7 @@
       "on_sale_at": null,
       "price_min": 500,
       "price_max": 550,
-      "status": "on_sale",
+      "status": "sold_out",
       "tags_type": [
         "專場"
       ],
@@ -23922,7 +24233,7 @@
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/fa7262e19dadc7086b189855de566758",
       "first_seen_at": "2026-09-22T06:16:44.965Z",
-      "updated_at": "2026-09-22T06:16:44.965Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "sources": [
         {
           "name": "Ticket Plus",
@@ -23933,6 +24244,9 @@
       "id": "9c0f16320682ee77",
       "merged_ids": [
         "9c0f16320682ee77"
+      ],
+      "updated_fields": [
+        "status"
       ]
     },
     {
@@ -24143,10 +24457,10 @@
       "city": "台北",
       "date": "2026-10-31",
       "time": "19:30",
-      "on_sale_at": "2026-09-30T12:00:00+08:00",
+      "on_sale_at": null,
       "price_min": 4900,
       "price_max": 4900,
-      "status": "announced",
+      "status": "sold_out",
       "tags_type": [
         "專場"
       ],
@@ -24156,12 +24470,17 @@
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/846be04c45b56d5f4f155fb2d9a8f9c3",
       "first_seen_at": "2026-09-22T06:16:44.969Z",
-      "updated_at": "2026-09-30T04:01:31.708Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/846be04c45b56d5f4f155fb2d9a8f9c3",
           "raw_id": "846be04c45b56d5f4f155fb2d9a8f9c3_329a0d32673ee5e9a59114d718674fe0"
+        },
+        {
+          "name": "Ticket Plus",
+          "url": "https://ticketplus.com.tw/activity/de6f72b0d273639acfae66cf38cbd165",
+          "raw_id": "de6f72b0d273639acfae66cf38cbd165_17971213023492626c4ed7301931de03"
         }
       ],
       "id": "e79712b0a934152d",
@@ -24441,11 +24760,6 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/017266f1d31197001346497774e29b64",
           "raw_id": "017266f1d31197001346497774e29b64_4cd3875aba2365f8e95036b93f8e9306"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/c3dc337da337c035c92bb65268f10986",
-          "raw_id": "c3dc337da337c035c92bb65268f10986_65958c4579118ea187082e582e1b63f6"
         }
       ],
       "id": "a2edf56861473df0",
@@ -24485,11 +24799,6 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/017266f1d31197001346497774e29b64",
           "raw_id": "017266f1d31197001346497774e29b64_6bee681a8d035ccde5696995580aba9f"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/c3dc337da337c035c92bb65268f10986",
-          "raw_id": "c3dc337da337c035c92bb65268f10986_663e87046a34e1cf19cd483a71ebee7c"
         }
       ],
       "id": "e28587fe94ba0355",
@@ -25469,21 +25778,6 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/4b47b5360d42451f65704664c40b1c72",
           "raw_id": "4b47b5360d42451f65704664c40b1c72_8bd271d31324af3a6f908f839b062da4"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/e96255fb45cb9e0611d3f0d87443edd4",
-          "raw_id": "e96255fb45cb9e0611d3f0d87443edd4_c68b6fd5113b6528b2093663b54f12f9"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/da00f569c53db3161de3e89fe125a6c0",
-          "raw_id": "da00f569c53db3161de3e89fe125a6c0_de31512c0ea7f9e87a0cdff373352c06"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/391162b411b775da381cb2635dc7b821",
-          "raw_id": "391162b411b775da381cb2635dc7b821_39f865bf9dfa7e2b89d9a910f043d2c3"
         }
       ],
       "id": "49a758928db5869b",
@@ -25523,11 +25817,6 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/7acedf4b414903ac17104384cb416849",
           "raw_id": "7acedf4b414903ac17104384cb416849_c88be5c1c01bf684e9a56b6defcd6e8d"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/133e449ef09df003e3031b684b9e220b",
-          "raw_id": "133e449ef09df003e3031b684b9e220b_f96793c6efd6f85ea3d80ff9925eb16a"
         }
       ],
       "id": "138a1d334220c645",
@@ -25567,11 +25856,6 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/7acedf4b414903ac17104384cb416849",
           "raw_id": "7acedf4b414903ac17104384cb416849_2606691b5fcc73c52940bfb047a3d622"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/133e449ef09df003e3031b684b9e220b",
-          "raw_id": "133e449ef09df003e3031b684b9e220b_1bea30873d920876da52c2e759e2993b"
         }
       ],
       "id": "c2134db2f773a83c",
@@ -25767,11 +26051,6 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/a56fce0af2da4d41e26b2dfa34b7babc",
           "raw_id": "a56fce0af2da4d41e26b2dfa34b7babc_08395a17e23d5664ce65fa61aaaba059"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/6c3d8c24e0f00c9c84777615c001bebe",
-          "raw_id": "6c3d8c24e0f00c9c84777615c001bebe_b1e4fa413da5717718d2fbbdf29b4a0e"
         }
       ],
       "id": "cb9ccdeee8db8d07",
@@ -25811,11 +26090,6 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/a56fce0af2da4d41e26b2dfa34b7babc",
           "raw_id": "a56fce0af2da4d41e26b2dfa34b7babc_debf14611c86559f4c28d8005b063ccf"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/6c3d8c24e0f00c9c84777615c001bebe",
-          "raw_id": "6c3d8c24e0f00c9c84777615c001bebe_96335ac02144ba5591d7d1c1bb57a1f5"
         }
       ],
       "id": "a737c58b8ddd14d0",
@@ -25855,11 +26129,6 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/2d71c25c10caa0f43c02bd61e1840655",
           "raw_id": "2d71c25c10caa0f43c02bd61e1840655_f188efe6d32bbf9abaffef2ac96508a0"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/94cb4c96a0237447b068117608ae96c8",
-          "raw_id": "94cb4c96a0237447b068117608ae96c8_bd94347f0966ebc1310bd519354d1113"
         }
       ],
       "id": "f06377d4777555c4",
@@ -25899,16 +26168,6 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/2f6431aac30afb722f615b9b95aabb0e",
           "raw_id": "2f6431aac30afb722f615b9b95aabb0e_13e6b5882dde571ca565921867223617"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/69bc76ae2f280748cd8cd8f7d7444008",
-          "raw_id": "69bc76ae2f280748cd8cd8f7d7444008_53c44e15c26f6c54552dfa9918fa5ae7"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/a22262dab0ab7f83a1f8e9a918bd9eb6",
-          "raw_id": "a22262dab0ab7f83a1f8e9a918bd9eb6_d5cce01fdf654bd24c702eace4d1b024"
         }
       ],
       "id": "01ce898cee66cbc1",
@@ -25948,16 +26207,6 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/2f6431aac30afb722f615b9b95aabb0e",
           "raw_id": "2f6431aac30afb722f615b9b95aabb0e_2b20b3f078a21b7d5206f4ee9d32d5da"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/69bc76ae2f280748cd8cd8f7d7444008",
-          "raw_id": "69bc76ae2f280748cd8cd8f7d7444008_8922d4bb11f3a3f81ce7b2281e6da83f"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/a22262dab0ab7f83a1f8e9a918bd9eb6",
-          "raw_id": "a22262dab0ab7f83a1f8e9a918bd9eb6_9f2ad37da5bd95116e3072515f6c0229"
         }
       ],
       "id": "e7b5a9d9af17bab4",
@@ -26472,20 +26721,11 @@
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/e16a6bfc324d0e1c0283b88679f9b5c3",
           "raw_id": "e16a6bfc324d0e1c0283b88679f9b5c3_fa14ee76e2a832cd4b29fac087e15aa5"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/e16a6bfc324d0e1c0283b88679f9b5c3",
-          "raw_id": "e16a6bfc324d0e1c0283b88679f9b5c3_e4189f20bc856babea8bad3a235ae533"
         }
       ],
       "id": "6ae2a0debfa7d460",
       "merged_ids": [
         "6ae2a0debfa7d460"
-      ],
-      "updated_fields": [
-        "status",
-        "on_sale_at"
       ]
     },
     {
@@ -26525,10 +26765,6 @@
       "id": "8e45f86c794ce834",
       "merged_ids": [
         "8e45f86c794ce834"
-      ],
-      "updated_fields": [
-        "status",
-        "on_sale_at"
       ]
     },
     {
@@ -26556,25 +26792,15 @@
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/9c037e47b58a0963794885ae3a3aa67c",
+      "first_seen_at": "2026-09-22T06:16:44.987Z",
+      "updated_at": "2026-09-22T06:16:44.987Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/9c037e47b58a0963794885ae3a3aa67c",
           "raw_id": "9c037e47b58a0963794885ae3a3aa67c_1decfcf37b777b6761658425ae70f65e"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/9c037e47b58a0963794885ae3a3aa67c",
-          "raw_id": "9c037e47b58a0963794885ae3a3aa67c_978fc9137a3abc0e5da9e93d9e406aa2"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/997ad769741638217f322a1d16744bbc",
-          "raw_id": "997ad769741638217f322a1d16744bbc_9a300457a246928e65eb03f74cdc7576"
         }
       ],
-      "first_seen_at": "2026-09-22T06:16:44.987Z",
-      "updated_at": "2026-09-22T06:16:44.987Z",
       "id": "048be206f0d7b8b4",
       "merged_ids": [
         "048be206f0d7b8b4"
@@ -26605,20 +26831,15 @@
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
+      "first_seen_at": "2026-09-22T06:16:45.002Z",
+      "updated_at": "2026-09-29T03:33:10.647Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
           "raw_id": "c534363deb6aec26e431aba4676ca20c_621b8971b4be8f563d706e8cc11b0774"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
-          "raw_id": "c534363deb6aec26e431aba4676ca20c_21fa35cb39a2c68bde419dcb18835d9f"
         }
       ],
-      "first_seen_at": "2026-09-22T06:16:45.002Z",
-      "updated_at": "2026-09-29T03:33:10.647Z",
       "id": "2954a1988afcde82",
       "merged_ids": [
         "2954a1988afcde82"
@@ -26649,6 +26870,8 @@
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/c534363deb6aec26e431aba4676ca20c",
+      "first_seen_at": "2026-09-22T06:16:45.002Z",
+      "updated_at": "2026-09-29T03:33:10.647Z",
       "sources": [
         {
           "name": "Ticket Plus",
@@ -26656,8 +26879,6 @@
           "raw_id": "c534363deb6aec26e431aba4676ca20c_a91d7c400807437210fa4f8eb9f1db38"
         }
       ],
-      "first_seen_at": "2026-09-22T06:16:45.002Z",
-      "updated_at": "2026-09-29T03:33:10.647Z",
       "id": "202f263d79a982ee",
       "merged_ids": [
         "202f263d79a982ee"
@@ -26688,20 +26909,15 @@
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
+      "first_seen_at": "2026-09-22T06:16:45.006Z",
+      "updated_at": "2026-09-22T06:16:45.006Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
           "raw_id": "39e011c895a371c40416497f696652bd_1db09484a02062eb8098bae389cc045d"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
-          "raw_id": "39e011c895a371c40416497f696652bd_6daa1c48b92b635ccd5eb3a621950580"
         }
       ],
-      "first_seen_at": "2026-09-22T06:16:45.006Z",
-      "updated_at": "2026-09-22T06:16:45.006Z",
       "id": "8da662efe0bb8444",
       "merged_ids": [
         "8da662efe0bb8444"
@@ -26732,20 +26948,15 @@
       ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
+      "first_seen_at": "2026-09-22T06:16:45.006Z",
+      "updated_at": "2026-09-22T06:16:45.006Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
           "raw_id": "39e011c895a371c40416497f696652bd_f86c73b679db462dd652afba6e9ea8a6"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/39e011c895a371c40416497f696652bd",
-          "raw_id": "39e011c895a371c40416497f696652bd_c2df611c68f3b496657015098b393b33"
         }
       ],
-      "first_seen_at": "2026-09-22T06:16:45.006Z",
-      "updated_at": "2026-09-22T06:16:45.006Z",
       "id": "b65795c666bc065e",
       "merged_ids": [
         "b65795c666bc065e"
@@ -26778,20 +26989,15 @@
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
+      "first_seen_at": "2026-09-22T06:16:45.007Z",
+      "updated_at": "2026-09-22T06:16:45.007Z",
       "sources": [
         {
           "name": "Ticket Plus",
           "url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
           "raw_id": "dd245f0210985ec16a62e87212366b38_71ba0272be8d9458e2a129b7288f6fb7"
-        },
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
-          "raw_id": "dd245f0210985ec16a62e87212366b38_de0f7649827548168e53e1c9e0416204"
         }
       ],
-      "first_seen_at": "2026-09-22T06:16:45.007Z",
-      "updated_at": "2026-09-22T06:16:45.007Z",
       "id": "5af121af4ca5f089",
       "merged_ids": [
         "5af121af4ca5f089"
@@ -26824,6 +27030,8 @@
       ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/dd245f0210985ec16a62e87212366b38",
+      "first_seen_at": "2026-09-22T06:16:45.008Z",
+      "updated_at": "2026-09-22T06:16:45.008Z",
       "sources": [
         {
           "name": "Ticket Plus",
@@ -26831,167 +27039,9 @@
           "raw_id": "dd245f0210985ec16a62e87212366b38_bac5ef491c23b0d41f818f743adfdf9c"
         }
       ],
-      "first_seen_at": "2026-09-22T06:16:45.008Z",
-      "updated_at": "2026-09-22T06:16:45.008Z",
       "id": "ac29eda2fedd4557",
       "merged_ids": [
         "ac29eda2fedd4557"
-      ]
-    },
-    {
-      "title_raw": "TETSUYA Acoustic Live Tour 2026 at Billboard Live TAIPEI",
-      "headliners": [
-        "TETSUYA"
-      ],
-      "lineup": [
-        "TETSUYA"
-      ],
-      "is_festival": false,
-      "venue": "Billboard Live TAIPEI",
-      "city": "台北",
-      "date": "2026-09-12",
-      "time": "17:00",
-      "on_sale_at": null,
-      "price_min": 2950,
-      "price_max": 3550,
-      "status": "ended",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/tetsuya2026",
-      "sources": [
-        {
-          "name": "Billboard Live",
-          "url": "https://www.billboardlivetaipei.tw/tw/events/tetsuya2026",
-          "raw_id": "aqz2366txswr2mat72ehdmup"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:21:15.774Z",
-      "updated_at": "2026-09-29T06:23:50.494Z",
-      "id": "fd3eb9a66d68d19e-17:00",
-      "merged_ids": [
-        "fd3eb9a66d68d19e-17:00"
-      ]
-    },
-    {
-      "title_raw": "TETSUYA Acoustic Live Tour 2026 at Billboard Live TAIPEI",
-      "headliners": [
-        "TETSUYA"
-      ],
-      "lineup": [
-        "TETSUYA"
-      ],
-      "is_festival": false,
-      "venue": "Billboard Live TAIPEI",
-      "city": "台北",
-      "date": "2026-09-12",
-      "time": "20:00",
-      "on_sale_at": null,
-      "price_min": 2950,
-      "price_max": 3550,
-      "status": "ended",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/tetsuya2026",
-      "sources": [
-        {
-          "name": "Billboard Live",
-          "url": "https://www.billboardlivetaipei.tw/tw/events/tetsuya2026",
-          "raw_id": "g4koo3zzcuevrd7t4947nuwy"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:21:15.775Z",
-      "updated_at": "2026-09-29T06:23:50.494Z",
-      "id": "fd3eb9a66d68d19e-20:00",
-      "merged_ids": [
-        "fd3eb9a66d68d19e-20:00"
-      ]
-    },
-    {
-      "title_raw": "Furui Riho Billboard Live Tour 2026 -The Garden- ",
-      "headliners": [
-        "Furui Riho"
-      ],
-      "lineup": [
-        "Furui Riho"
-      ],
-      "is_festival": false,
-      "venue": "Billboard Live TAIPEI",
-      "city": "台北",
-      "date": "2026-09-26",
-      "time": "17:00",
-      "on_sale_at": null,
-      "price_min": 1600,
-      "price_max": 2200,
-      "status": "ended",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/furuiriho2026",
-      "sources": [
-        {
-          "name": "Billboard Live",
-          "url": "https://www.billboardlivetaipei.tw/tw/events/furuiriho2026",
-          "raw_id": "yq8t0tct11p88hr2zwj7l0om"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:21:15.775Z",
-      "updated_at": "2026-09-29T06:23:50.494Z",
-      "id": "83074e5ba9dd0e59-17:00",
-      "merged_ids": [
-        "83074e5ba9dd0e59-17:00"
-      ]
-    },
-    {
-      "title_raw": "Furui Riho Billboard Live Tour 2026 -The Garden- ",
-      "headliners": [
-        "Furui Riho"
-      ],
-      "lineup": [
-        "Furui Riho"
-      ],
-      "is_festival": false,
-      "venue": "Billboard Live TAIPEI",
-      "city": "台北",
-      "date": "2026-09-26",
-      "time": "20:00",
-      "on_sale_at": null,
-      "price_min": 1600,
-      "price_max": 2200,
-      "status": "ended",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/furuiriho2026",
-      "sources": [
-        {
-          "name": "Billboard Live",
-          "url": "https://www.billboardlivetaipei.tw/tw/events/furuiriho2026",
-          "raw_id": "mrwux7e0tx88k5udrp8el23h"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:21:15.775Z",
-      "updated_at": "2026-09-29T06:23:50.494Z",
-      "id": "83074e5ba9dd0e59-20:00",
-      "merged_ids": [
-        "83074e5ba9dd0e59-20:00"
       ]
     },
     {
@@ -27701,6 +27751,84 @@
       ]
     },
     {
+      "title_raw": "PSYCHIC FEVER DIFFERENT MEET＆GREET and FANSIGN in TAIPEI",
+      "headliners": [
+        "PSYCHIC FEVER"
+      ],
+      "lineup": [
+        "PSYCHIC FEVER"
+      ],
+      "is_festival": false,
+      "venue": "Live House D",
+      "city": "台北",
+      "date": "2026-10-26",
+      "time": "17:00",
+      "on_sale_at": "2026-10-02T12:00:00+08:00",
+      "price_min": 1800,
+      "price_max": 3000,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "日本"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39979",
+      "sources": [
+        {
+          "name": "ibon",
+          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39979",
+          "raw_id": "39979_202610261700"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:22:48.557Z",
+      "updated_at": "2026-10-01T03:00:10.746Z",
+      "id": "709cd33753bd64fd-17:00",
+      "merged_ids": [
+        "709cd33753bd64fd-17:00"
+      ]
+    },
+    {
+      "title_raw": "PSYCHIC FEVER DIFFERENT MEET＆GREET and FANSIGN in TAIPEI",
+      "headliners": [
+        "PSYCHIC FEVER"
+      ],
+      "lineup": [
+        "PSYCHIC FEVER"
+      ],
+      "is_festival": false,
+      "venue": "Live House D",
+      "city": "台北",
+      "date": "2026-10-26",
+      "time": "19:00",
+      "on_sale_at": "2026-10-02T12:00:00+08:00",
+      "price_min": 1800,
+      "price_max": 3000,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "日本"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39979",
+      "sources": [
+        {
+          "name": "ibon",
+          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39979",
+          "raw_id": "39979_202610261900"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:22:48.559Z",
+      "updated_at": "2026-10-01T03:00:10.749Z",
+      "id": "709cd33753bd64fd-19:00",
+      "merged_ids": [
+        "709cd33753bd64fd-19:00"
+      ]
+    },
+    {
       "title_raw": "2026－2027 DOH KYUNG SOO CONCERT TOUR 〔DAY OFF〕 IN KAOHSIUNG",
       "headliners": [
         "DOH KYUNG SOO"
@@ -27779,6 +27907,45 @@
       ]
     },
     {
+      "title_raw": "Charlotte Here With You Fan Meeting in Taipei",
+      "headliners": [
+        "Charlotte Austin"
+      ],
+      "lineup": [
+        "Charlotte Austin"
+      ],
+      "is_festival": false,
+      "venue": "新店圓頂劇場",
+      "city": "新北",
+      "date": "2026-11-14",
+      "time": "15:30",
+      "on_sale_at": "2026-10-04T14:00:00+08:00",
+      "price_min": 4200,
+      "price_max": 8000,
+      "status": "announced",
+      "tags_type": [
+        "見面會"
+      ],
+      "tags_origin": [
+        "亞洲其他"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39972",
+      "sources": [
+        {
+          "name": "ibon",
+          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39972",
+          "raw_id": "39972_202611141530"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:22:48.566Z",
+      "updated_at": "2026-10-01T02:55:21.579Z",
+      "id": "f14638e92cffe1ea",
+      "merged_ids": [
+        "f14638e92cffe1ea"
+      ]
+    },
+    {
       "title_raw": "2026 OPEN！ DREAM WORLD 夢想音樂節",
       "headliners": [
         "OPEN！DREAM WORLD 夢想音樂節"
@@ -27791,7 +27958,7 @@
       "city": "高雄",
       "date": "2026-12-04",
       "time": "18:30",
-      "on_sale_at": "2026-09-30T12:00:00+08:00",
+      "on_sale_at": "2026-10-01T12:00:00+08:00",
       "price_min": 2999,
       "price_max": 3999,
       "status": "announced",
@@ -27811,10 +27978,13 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.445Z",
-      "updated_at": "2026-09-29T06:26:17.822Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "id": "45923924972dae8f",
       "merged_ids": [
         "45923924972dae8f"
+      ],
+      "updated_fields": [
+        "on_sale_at"
       ]
     },
     {
@@ -27830,7 +28000,7 @@
       "city": "高雄",
       "date": "2026-12-05",
       "time": "18:30",
-      "on_sale_at": "2026-09-30T12:00:00+08:00",
+      "on_sale_at": "2026-10-01T12:00:00+08:00",
       "price_min": 2999,
       "price_max": 3999,
       "status": "announced",
@@ -27850,10 +28020,13 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.445Z",
-      "updated_at": "2026-09-29T06:26:17.827Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "id": "4b51009abef526b9",
       "merged_ids": [
         "4b51009abef526b9"
+      ],
+      "updated_fields": [
+        "on_sale_at"
       ]
     },
     {
@@ -28091,6 +28264,162 @@
       ]
     },
     {
+      "title_raw": "TPE48–RESET公演",
+      "headliners": [
+        "TPE48"
+      ],
+      "lineup": [
+        "TPE48"
+      ],
+      "is_festival": false,
+      "venue": "華山1914文化創意產業園區 烏梅劇院",
+      "city": "台北",
+      "date": "2026-10-16",
+      "time": "18:30",
+      "on_sale_at": "2026-10-02T12:00:00+08:00",
+      "price_min": 1000,
+      "price_max": 1000,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39909",
+      "sources": [
+        {
+          "name": "ibon",
+          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39909",
+          "raw_id": "39909_202610161830"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:22:48.571Z",
+      "updated_at": "2026-10-01T02:55:21.580Z",
+      "id": "62986a04fde0664b",
+      "merged_ids": [
+        "62986a04fde0664b"
+      ]
+    },
+    {
+      "title_raw": "TPE48–RESET公演",
+      "headliners": [
+        "TPE48"
+      ],
+      "lineup": [
+        "TPE48"
+      ],
+      "is_festival": false,
+      "venue": "華山1914文化創意產業園區 烏梅劇院",
+      "city": "台北",
+      "date": "2026-10-17",
+      "time": "14:30",
+      "on_sale_at": "2026-10-02T12:00:00+08:00",
+      "price_min": 1000,
+      "price_max": 1000,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39909",
+      "sources": [
+        {
+          "name": "ibon",
+          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39909",
+          "raw_id": "39909_202610171430"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:22:48.571Z",
+      "updated_at": "2026-10-01T02:55:21.580Z",
+      "id": "0ff955dbae980333",
+      "merged_ids": [
+        "0ff955dbae980333"
+      ]
+    },
+    {
+      "title_raw": "TPE48–RESET公演",
+      "headliners": [
+        "TPE48"
+      ],
+      "lineup": [
+        "TPE48"
+      ],
+      "is_festival": false,
+      "venue": "華山1914文化創意產業園區 烏梅劇院",
+      "city": "台北",
+      "date": "2026-10-18",
+      "time": "11:00",
+      "on_sale_at": "2026-10-02T12:00:00+08:00",
+      "price_min": 1000,
+      "price_max": 1000,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39909",
+      "sources": [
+        {
+          "name": "ibon",
+          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39909",
+          "raw_id": "39909_202610181100"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:22:48.571Z",
+      "updated_at": "2026-10-01T02:55:21.580Z",
+      "id": "a05075390705edd0-day",
+      "merged_ids": [
+        "a05075390705edd0-day"
+      ]
+    },
+    {
+      "title_raw": "TPE48–RESET公演",
+      "headliners": [
+        "TPE48"
+      ],
+      "lineup": [
+        "TPE48"
+      ],
+      "is_festival": false,
+      "venue": "華山1914文化創意產業園區 烏梅劇院",
+      "city": "台北",
+      "date": "2026-10-18",
+      "time": "17:00",
+      "on_sale_at": "2026-10-02T12:00:00+08:00",
+      "price_min": 1000,
+      "price_max": 1000,
+      "status": "announced",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39909",
+      "sources": [
+        {
+          "name": "ibon",
+          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39909",
+          "raw_id": "39909_202610181700"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:22:48.571Z",
+      "updated_at": "2026-10-01T02:55:21.580Z",
+      "id": "a05075390705edd0-evening",
+      "merged_ids": [
+        "a05075390705edd0-evening"
+      ]
+    },
+    {
       "title_raw": "藤本洸大粉絲見面會 in 臺北",
       "headliners": [
         "藤本洸大"
@@ -28209,8 +28538,12 @@
     },
     {
       "title_raw": "Melodies in the Thai Breeze 1st Music Concert in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Melodies in the Thai Breeze"
+      ],
+      "lineup": [
+        "Melodies in the Thai Breeze"
+      ],
       "is_festival": false,
       "venue": "西門WESTAR",
       "city": "台北",
@@ -28223,7 +28556,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39905",
       "sources": [
@@ -28234,7 +28569,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:24.450Z",
-      "updated_at": "2026-09-29T03:21:24.450Z",
+      "updated_at": "2026-10-01T02:55:21.580Z",
       "id": "fded92806f407cd3",
       "merged_ids": [
         "fded92806f407cd3"
@@ -29998,6 +30333,45 @@
       ]
     },
     {
+      "title_raw": "謝宇威音樂作品合唱音樂會《為你而歌》",
+      "headliners": [
+        "謝宇威"
+      ],
+      "lineup": [
+        "謝宇威"
+      ],
+      "is_festival": false,
+      "venue": "台北生技園區多功能廳",
+      "city": "台北",
+      "date": "2026-11-25",
+      "time": "19:30",
+      "on_sale_at": null,
+      "price_min": 500,
+      "price_max": 1000,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://www.opentix.life/event/2099703237643980800",
+      "sources": [
+        {
+          "name": "OPENTIX",
+          "url": "https://www.opentix.life/event/2099703237643980800",
+          "raw_id": "2099703237643980800_1795606200000"
+        }
+      ],
+      "first_seen_at": "2026-10-01T02:26:23.488Z",
+      "updated_at": "2026-10-01T02:55:21.580Z",
+      "id": "b23ada40209f0d32",
+      "merged_ids": [
+        "b23ada40209f0d32"
+      ]
+    },
+    {
       "title_raw": "《戀戀40─陳明章現場作品四十年》新年音樂會",
       "headliners": [
         "陳明章"
@@ -30739,45 +31113,6 @@
       ]
     },
     {
-      "title_raw": "爵聲拾光：爵士經典 X 台灣民歌",
-      "headliners": [
-        "爵聲拾光"
-      ],
-      "lineup": [
-        "爵聲拾光"
-      ],
-      "is_festival": false,
-      "venue": "高雄市音樂館",
-      "city": "高雄",
-      "date": "2026-12-05",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 600,
-      "price_max": 1200,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2099693491957506049",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2099693491957506049",
-          "raw_id": "2099693491957506049_1796470200000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.108Z",
-      "updated_at": "2026-09-29T06:59:06.086Z",
-      "id": "bedac50672ef51d2",
-      "merged_ids": [
-        "bedac50672ef51d2"
-      ]
-    },
-    {
       "title_raw": "力晶世紀美聲系列 次女高音喬伊斯・狄杜娜朵冬日音樂會",
       "headliners": [
         "喬伊斯・狄杜娜朵"
@@ -30814,6 +31149,45 @@
       "id": "e7bcf0a10a744f44",
       "merged_ids": [
         "e7bcf0a10a744f44"
+      ]
+    },
+    {
+      "title_raw": "爵聲拾光：爵士經典 X 台灣民歌",
+      "headliners": [
+        "爵聲拾光"
+      ],
+      "lineup": [
+        "爵聲拾光"
+      ],
+      "is_festival": false,
+      "venue": "高雄市音樂館",
+      "city": "高雄",
+      "date": "2026-12-05",
+      "time": "19:30",
+      "on_sale_at": null,
+      "price_min": 600,
+      "price_max": 1200,
+      "status": "on_sale",
+      "tags_type": [
+        "專場"
+      ],
+      "tags_origin": [
+        "本地"
+      ],
+      "is_lottery": false,
+      "ticket_url": "https://www.opentix.life/event/2099693491957506049",
+      "sources": [
+        {
+          "name": "OPENTIX",
+          "url": "https://www.opentix.life/event/2099693491957506049",
+          "raw_id": "2099693491957506049_1796470200000"
+        }
+      ],
+      "first_seen_at": "2026-09-29T03:25:46.108Z",
+      "updated_at": "2026-09-29T06:59:06.086Z",
+      "id": "bedac50672ef51d2",
+      "merged_ids": [
+        "bedac50672ef51d2"
       ]
     },
     {
@@ -32127,7 +32501,7 @@
       "time": "19:30",
       "on_sale_at": null,
       "price_min": 3480,
-      "price_max": 4680,
+      "price_max": 4280,
       "status": "on_sale",
       "tags_type": [
         "專場"
@@ -32145,10 +32519,13 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.007Z",
-      "updated_at": "2026-09-29T06:23:50.508Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "id": "4f0af49629b3e2ed",
       "merged_ids": [
         "4f0af49629b3e2ed"
+      ],
+      "updated_fields": [
+        "price_max"
       ]
     },
     {
@@ -32322,7 +32699,7 @@
       "time": "18:00",
       "on_sale_at": null,
       "price_min": 3980,
-      "price_max": 5680,
+      "price_max": 5980,
       "status": "on_sale",
       "tags_type": [
         "專場"
@@ -32340,10 +32717,13 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:21:19.008Z",
-      "updated_at": "2026-09-29T06:59:06.090Z",
+      "updated_at": "2026-10-01T02:37:31.795Z",
       "id": "84fb3506df953f0d",
       "merged_ids": [
         "84fb3506df953f0d"
+      ],
+      "updated_fields": [
+        "price_max"
       ]
     },
     {

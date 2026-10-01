@@ -1971,3 +1971,44 @@
 - canonical: 阿納卡西斯・拉莫斯
   aliases: []
   tags_origin_default: 歐美  # WebSearch 查證信心較低（搜尋結果資訊有限，姓氏像西語裔）：臺南藝術節邀演藝術家 Anacasis Ramos《我的母親與金錢》
+
+# 2026-10-01：每日抓取查證並補齊的 needs-review 項目
+- canonical: Kim Oki
+  aliases: []
+  tags_origin_default: 韓國  # WebSearch 查證：南韓薩克斯風手，2020年韓國音樂大賞最佳音樂人；標題「KIM OKI LIVE IN TAIPEI 2026」
+- canonical: Daniela Andrade
+  aliases: []
+  tags_origin_default: 歐美  # WebSearch 查證：宏都拉斯裔加拿大籍歌手，出生於加拿大蒙特婁；標題「Daniela Andrade Live in Taipei 2026」
+- canonical: 浪潮盛典
+  aliases: []
+  tags_origin_default: 本地  # 僑光科技大學62週年校慶演唱會品牌名，活動頁（ocusa22.kktix.cc/events/621020）未列出具體表演者，比照「企劃/系列名稱」規則登記
+- canonical: THE EDGE OF HORIZON
+  aliases: []
+  tags_origin_default: 亞洲其他  # WebSearch 查證：2026年泰國BL劇《THE EDGE OF HORIZON》粉絲見面會，主演 Ongsa Tthuchh Khummuang 與 Inn Jakkrasin Atsavatanachai 均為泰國籍演員，比照非音樂人見面會規則收錄
+- canonical: PSYCHIC FEVER
+  aliases: []
+  tags_origin_default: 日本  # WebSearch 查證（ldh.co.jp 官方介紹）：日本 LDH/EXILE TRIBE 旗下七人男團，2022年出道
+- canonical: Charlotte Austin
+  aliases: ["Charlotte Here With You"]  # 標題只用藝名「Charlotte」搭配巡演名「Here With You」，用較長片語比對避免跟其他同名「Charlotte」藝人撞名
+  tags_origin_default: 亞洲其他  # WebSearch 查證（MyDramaList、GMA Network 報導）：泰國女星，泰國小姐普吉亞軍，泰劇圈成名
+- canonical: TPE48
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證（Wikipedia「TPE48」）：AKB48台北姊妹團（前身 AKB48 Team TP，2026年1月改回原名），成員均為台灣籍
+- canonical: Melodies in the Thai Breeze
+  aliases: []
+  tags_origin_default: 亞洲其他  # ibon 活動頁（ticket.ibon.com.tw/ActivityInfo/Details/39905）內文列出演出者為泰國歌手 Sarah Salola、Khaopoad Natthan，標題本身沒有演出者名字，比照「企劃/系列名稱」規則登記
+- canonical: 謝宇威
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證（維基百科「謝宇威」）：台灣客語流行音樂歌手，2004年金曲獎最佳客語演唱人
+- canonical: Leyi D
+  aliases: []
+  tags_origin_default: 本地  # 查證（streetvoice.com/bellebearrrrrr/）：新北市音樂人，歌曲使用台語歌詞（例如《Bô-siann》）
+- canonical: 回來找你是真的
+  aliases: ["BACK TO LIFE"]
+  tags_origin_default: 本地  # FANSI GO 活動頁（go.fansi.me/events/940001）：台灣網路劇首映會，演員全為台灣籍（製作人葛兆恩、夏和熙、吳承洋、羅章恩等），比照非音樂人見面會規則收錄
+- canonical: 中華民國各界慶祝115年國慶晚會
+  aliases: []
+  tags_origin_default: 本地  # 中華民國國慶晚會，官方主辦、多位台灣表演者參與，比照拼盤/音樂祭「多位音樂人一律本地」規則登記品牌名
+- canonical: 水源引流計劃
+  aliases: []
+  tags_origin_default: 本地  # iNDIEVOX 活動頁查證：拼盤 lineup 為台灣樂團白日夢廚房 Daydream Kitchen（台中）、雨國 Kingdom of Rain（台北）、過敏症候群 The Allergics，比照拼盤「多位音樂人一律本地」規則登記品牌名

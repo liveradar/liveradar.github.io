@@ -128,3 +128,6 @@
   city: 台北  # WebSearch 查證：台北市松山區復興南路一段39號9樓（微風廣場9F）
 - match: "台大綜合體育館"
   city: 台北  # WebSearch 查證：台北市大安區羅斯福路四段一號
+# 2026-10-01，查 city:未知 清單查證補上：
+- match: "Live House D"
+  city: 台北  # WebSearch 查證：臺北流行音樂中心 Live House D，台北市南港區市民大道八段99號

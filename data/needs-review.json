@@ -1,14 +1,6 @@
 {
   "items": [
     {
-      "raw_id": "621020",
-      "title_raw": "僑光科技大學 浪潮盛典 62週年校慶演唱會",
-      "url": "https://ocusa22.kktix.cc/events/621020",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "c70a852b-copy-1",
       "title_raw": "EMQQQ",
       "url": "https://emqqq.kktix.cc/events/c70a852b-copy-1",
@@ -49,52 +41,12 @@
       "detail": null
     },
     {
-      "raw_id": "2bd341df",
-      "title_raw": "中華民國各界慶祝115年國慶晚會",
-      "url": "https://rocbirthday.kktix.cc/events/2bd341df",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "26_iv0423654",
-      "title_raw": "10.10（Sat.) 水源引流計劃 Bring the water in：場次1",
-      "url": "https://www.indievox.com/activity/detail/26_iv0423654",
-      "source": "iNDIEVOX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "26_iv0421171",
       "title_raw": "國語作業簿 🎄台北歡樂耶誕城 2026",
       "url": "https://www.indievox.com/activity/detail/26_iv0421171",
       "source": "iNDIEVOX",
       "reason": "date_unparseable",
       "detail": "12/25（週五）🎧 國語作業簿 DJ 大賽 2026 總決賽 #免費入場 / 12/26（週六）🎄 台北歡樂耶誕城 / 正篇 DAY 1 / 12/27（週日）🎅 台北歡樂耶誕城 / 正篇 DAY 2 / 🗺️ 碰面地點： / 欸啊那就直接先約了喔！ / 2026 年的最後，我們 #台北大佳河濱公園 現場碰面再說 🎄 14:30"
-    },
-    {
-      "raw_id": "940001",
-      "title_raw": "BACK TO LIFE!《回來找你是真的》首映會",
-      "url": "https://go.fansi.me/events/940001",
-      "source": "FANSI GO",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "440034",
-      "title_raw": "《Deep Inside My Brain》 Leyi D’s Night • Taipei 001",
-      "url": "https://go.fansi.me/events/440034",
-      "source": "FANSI GO",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "39905_202611081530",
-      "title_raw": "Melodies in the Thai Breeze 1st Music Concert in Taipei",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39905",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
     }
   ]
 }
