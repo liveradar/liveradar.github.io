@@ -645,9 +645,13 @@ async function initNewArrivals(container) {
     return;
   }
 
+  // Same chips and same saved filters as the timeline (one localStorage
+  // key) — picking 雙北 there should also narrow 新上架 to 雙北.
+  let viewFilters = loadViewFilters();
+
   function render() {
     const prefs = loadPrefs();
-    const { visible } = partitionEvents(events, prefs, {});
+    const { visible } = partitionEvents(events, prefs, viewFilters);
 
     const withAge = visible
       .map((item) => ({ ...item, ageDays: daysSince(item.event.first_seen_at) }))
@@ -662,7 +666,11 @@ async function initNewArrivals(container) {
 
     container.innerHTML =
       withAge.length === 0
-        ? renderEmptyList("最近 7 天沒有新場次公布。")
+        ? renderEmptyList(
+            Object.values(viewFilters).some((v) => (Array.isArray(v) ? v.length > 0 : v))
+              ? "最近 7 天沒有符合篩選條件的新場次。"
+              : "最近 7 天沒有新場次公布。",
+          )
         : renderNewArrivalsList(today, pastWeek);
 
     wireTicketButtons(container);
@@ -670,6 +678,16 @@ async function initNewArrivals(container) {
     wireFavoriteToggle(container, render);
     wireExcludeMenu(container, events, render);
   }
+
+  wireViewFilterChips(
+    events,
+    () => viewFilters,
+    (next) => {
+      viewFilters = next;
+      saveViewFilters(viewFilters);
+      render();
+    },
+  );
 
   render();
 }
