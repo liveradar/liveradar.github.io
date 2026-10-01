@@ -48,7 +48,7 @@ test("resolveStoredCity: resolves 未知 from the stored venue via venues.yml", 
   assert.equal(resolveStoredCity({ venue: "", title_raw: "巡迴 高雄場" }, venuesYml), "高雄");
 });
 
-test("applyArtistMatch: fills headliners/tags for an unrecognized event, leaves recognized and theater events alone", () => {
+test("applyArtistMatch: fills headliners/tags for an unrecognized event, leaves recognized events alone", () => {
   const artists = [{ canonical: "MIERE", aliases: [], tags_origin_default: "韓國" }];
   const e = { title_raw: "MIERE TAIPEI 1st Special LIVE", headliners: [], lineup: [] };
   assert.equal(applyArtistMatch(e, artists), true);
@@ -58,9 +58,15 @@ test("applyArtistMatch: fills headliners/tags for an unrecognized event, leaves 
   const known = { title_raw: "MIERE LIVE", headliners: ["別人"], tags_origin: ["本地"] };
   assert.equal(applyArtistMatch(known, artists), false);
   assert.deepEqual(known.tags_origin, ["本地"]);
+});
 
-  const theater = { title_raw: "MIERE 音樂劇", headliners: [], category: "音樂劇" };
-  assert.equal(applyArtistMatch(theater, artists), false);
+test("applyArtistMatch: a theater event (category set) still gets headliners/tags_origin from a matched troupe name, but keeps its source category as tags_type instead of guessTagsType()'s generic guess", () => {
+  const artists = [{ canonical: "MIERE", aliases: [], tags_origin_default: "韓國" }];
+  const theater = { title_raw: "MIERE 音樂劇", headliners: [], category: "音樂劇", tags_type: ["音樂劇"] };
+  assert.equal(applyArtistMatch(theater, artists), true);
+  assert.deepEqual(theater.headliners, ["MIERE"]);
+  assert.deepEqual(theater.tags_origin, ["韓國"]);
+  assert.deepEqual(theater.tags_type, ["音樂劇"], "tags_type stays the source category, not guessTagsType()'s 專場/拼盤 guess");
 });
 
 test("exclusion cache: only noise/outside-Taiwan are cached; test placeholders are never skipped", () => {

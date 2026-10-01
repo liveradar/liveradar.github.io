@@ -1010,14 +1010,25 @@ export function exclusionReason(rawEvent) {
  * Re-matches an already-normalized event that has no headliner against the
  * current artists.yml, in place. Returns true if it now has one. Shared by
  * renormalize.mjs and fetch.mjs's reuse path so both classify identically.
+ *
+ * 2026-10-01: used to skip any event with `category` set (OPENTIX/寬宏/年代
+ * theater events) entirely, so a matched troupe name never got headliners/
+ * tags_origin either — the guard was really only needed to stop
+ * guessTagsType() from clobbering the source-provided category with a
+ * generic 專場/拼盤 guess. Narrowed to just that: headliners/tags_origin
+ * still get filled in for theater events now that artists.yml has troupe
+ * names in it (see data/artists.yml's 2026-10-01 batch), tags_type alone
+ * stays untouched when category is present.
  */
 export function applyArtistMatch(event, artistsYml) {
-  if (event.headliners?.length || event.category) return false;
+  if (event.headliners?.length) return false;
   const headliners = matchArtists(event.title_raw, artistsYml);
   if (headliners.length === 0) return false;
   event.headliners = headliners;
   event.lineup = headliners;
-  event.tags_type = guessTagsType(event.title_raw, headliners.length);
+  if (!event.category) {
+    event.tags_type = guessTagsType(event.title_raw, headliners.length);
+  }
   event.tags_origin = [
     ...new Set(headliners.map((h) => artistsYml.find((a) => a.canonical === h)?.tags_origin_default).filter(Boolean)),
   ];
