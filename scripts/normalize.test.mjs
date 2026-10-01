@@ -561,8 +561,15 @@ test("findNameIndex/matchArtists: an ASCII canonical matches case-insensitively 
   assert.deepEqual(matchArtists("9.27(日)PUNK STRIKE ： NEXT GENERATION", yml), ["Punk Strike"]);
 });
 
-test("guessTagsType: keyword matching is also case-insensitive (real bug: 'TOUR' in an all-caps title didn't match the ['Tour', '巡迴'] entry)", () => {
-  assert.deepEqual(guessTagsType("PERSONA LIVE TOUR 2026 - Resonance - 台北公演", 1), ["巡迴"]);
+test("guessTagsType: keyword matching is also case-insensitive", () => {
+  assert.deepEqual(guessTagsType("Itsuki Fan Meeting 2026 台北場", 1), ["見面會"]);
+});
+
+test("guessTagsType (2026-10-01): a tour title is no longer its own 巡迴 type — it falls back to 專場/拼盤 by headliner count, and FAN MEETING tours are 見面會", () => {
+  assert.deepEqual(guessTagsType("PERSONA LIVE TOUR 2026 - Resonance - 台北公演", 1), ["專場"]);
+  assert.deepEqual(guessTagsType("玉置成實 2026亞洲巡迴演唱會 台北場", 1), ["專場"]);
+  assert.deepEqual(guessTagsType("A x B Asia Tour 2026 Taipei", 2), ["拼盤"]);
+  assert.deepEqual(guessTagsType("【第一場】伊波杏樹 ASIA FAN MEETING TOUR 台北站", 1), ["見面會"]);
 });
 
 test("normalize(): non-music noise (sports tickets, courses, exhibitions, comedy, podcasts) is excluded outright, not sent to needs-review", () => {

@@ -191,11 +191,8 @@
   aliases: []
   tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「國立體育大學綜合體育館」、標題「BOYNEXTDOOR TOUR ‘KNOCK ON Vol.2’ IN TAIPEI」
 - canonical: 鼓鼓
-  aliases: []
-  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北流行音樂中心表演廳」、標題「鼓鼓 呂思緯《我現在又在想你了》巡迴演唱會 GBOYSWAG《Missing You All Ove」、同場演出者 ['GBOYSWAG']
-- canonical: GBOYSWAG
-  aliases: []
-  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北流行音樂中心表演廳」、標題「鼓鼓 呂思緯《我現在又在想你了》巡迴演唱會 GBOYSWAG《Missing You All Ove」、同場演出者 ['鼓鼓']
+  aliases: [GBOYSWAG, 呂思緯]  # 2026-10-01: GBOYSWAG 是鼓鼓（呂思緯）的英文藝名，同一人，原本誤拆成兩個 canonical 造成被判成拼盤
+  tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「台北流行音樂中心表演廳」、標題「鼓鼓 呂思緯《我現在又在想你了》巡迴演唱會 GBOYSWAG《Missing You All Ove」
 - canonical: Stray Kids
   aliases: []
   tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「臺北大巨蛋」、標題「Stray Kids World Tour ＜RUN IT TAIPEI＞」
@@ -217,12 +214,9 @@
 - canonical: AAA 2026
   aliases: []
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）
-- canonical: DOMi
-  aliases: []
-  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Clapper Studio」、標題「DOMi ＆ JD BECK - WHO ASKED? Tour」、同場演出者 ['JD BECK']
-- canonical: JD BECK
-  aliases: []
-  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Clapper Studio」、標題「DOMi ＆ JD BECK - WHO ASKED? Tour」、同場演出者 ['DOMi']
+- canonical: DOMi & JD BECK
+  aliases: [DOMi ＆ JD BECK, DOMi and JD BECK]  # 2026-10-01: 雙人組合，原本誤拆成 DOMi / JD BECK 兩個 canonical 造成被判成拼盤
+  tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Clapper Studio」、標題「DOMi ＆ JD BECK - WHO ASKED? Tour」
 - canonical: Young K
   aliases: []
   tags_origin_default: 韓國  # 2026-09-23 日韓拆分：查證為韓國（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「台北國際會議中心TICC」、標題「Young K Solo Tour ＜YOUNGEST＞ in TAIPEI」

@@ -152,7 +152,7 @@ const CITY_DISPLAY_ORDER = [
 const PRICE_PRESETS = [500, 1000, 2000, 3000];
 // Fixed display order, same spirit as CITY_DISPLAY_ORDER above — not every
 // value necessarily exists in the current data, filtered down per-call.
-const TYPE_DISPLAY_ORDER = ["專場", "拼盤", "音樂祭", "見面會", "簽唱會", "音樂劇", "舞台劇", "巡迴", "古典"];
+const TYPE_DISPLAY_ORDER = ["專場", "拼盤", "音樂祭", "見面會", "簽唱會", "音樂劇", "舞台劇", "古典"];
 // 2026-09-23 (Max: "日韓分類可以分開成日本韓國兩個類別"): split what used
 // to be one combined "日韓" bucket into separate 日本/韓國 filter chips —
 // every artists.yml entry that was tagged 日韓 got individually
@@ -235,6 +235,13 @@ function wireViewFilterChips(events, getFilters, onChange) {
   const originChip = document.querySelector('[data-filter="origin"]');
   const priceChip = document.querySelector('[data-filter="price"]');
   if (!cityChip || !monthChip || !priceChip) return;
+
+  // 2026-10-01: 巡迴 stopped being a type. A saved type filter still holding
+  // it would match nothing, and the sheet no longer lists it to untick.
+  const saved = getFilters();
+  const savedTypes = Array.isArray(saved.type) ? saved.type : saved.type != null ? [saved.type] : [];
+  const keptTypes = savedTypes.filter((t) => TYPE_DISPLAY_ORDER.includes(t));
+  if (keptTypes.length !== savedTypes.length) onChange({ ...saved, type: keptTypes });
 
   function refreshLabels() {
     const f = getFilters();

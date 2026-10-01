@@ -66,10 +66,16 @@ const TYPE_KEYWORDS = [
   ["FRIENDS MEETING", "音樂祭"], // self-describes as "一場音樂節" in its own copy but the title itself never spells out 音樂祭/音樂節
   ["見面會", "見面會"],
   ["FANDAY", "見面會"], // English equivalent (GMMTV FANDAY)
+  ["FAN MEETING", "見面會"], // real case: 伊波杏樹 ASIA FAN MEETING TOUR used to land on 巡迴
+  ["FANMEETING", "見面會"],
+  ["FANMEET", "見面會"],
   ["簽唱會", "簽唱會"],
   ["音樂劇", "音樂劇"],
-  ["巡迴", "巡迴"],
-  ["Tour", "巡迴"],
+  // 2026-10-01 (Max chose option A): 巡迴/Tour no longer map to a type of
+  // their own. A tour stop is still one artist's show (or a shared bill), so
+  // a "巡迴" type pulled those events OUT of 專場 — picking the 專場 filter
+  // to see solo shows silently missed every title that said "Tour". Tour
+  // titles now fall through to the headliner-count 專場/拼盤 guess below.
   ["拼盤", "拼盤"],
   ["電音派對", "拼盤"], // general synonym: an "electronic music party" title implies multiple acts/DJs, same shape as 拼盤
   ["重型宇宙派對", "拼盤"],
@@ -354,8 +360,8 @@ export function parseTicketPlusDate(dateRaw) {
 
 export function guessTagsType(titleRaw, headlinerCount) {
   // Case-insensitive for the same reason as findNameIndex above — an
-  // all-caps "PERSONA LIVE TOUR" title otherwise silently misses the
-  // ["Tour", "巡迴"] entry that a titlecased "...Tour..." would hit.
+  // all-caps "ASIA FAN MEETING" title must still hit the same entry as a
+  // differently-cased one.
   const lowerTitle = titleRaw.toLowerCase();
   for (const [kw, tag] of TYPE_KEYWORDS) {
     if (lowerTitle.includes(kw.toLowerCase())) return [tag];
@@ -1235,7 +1241,7 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
       // 2026-09-26 (PLAN-1-theater-runs.md): a source that already classified
       // this listing as 音樂劇/舞台劇 (OPENTIX's own category, 寬宏/年代's own
       // category id, ...) wins outright — guessTagsType()'s keyword guessing
-      // (e.g. a title containing "巡演" landing on 巡迴) is a fallback for
+      // (e.g. a musical's title happening to contain "拼盤" or "音樂祭") is a fallback for
       // sources with no real category of their own, not something that
       // should second-guess a source's explicit classification.
       tags_type: rawEvent.category ? [rawEvent.category] : guessTagsType(rawEvent.title_raw, headliners.length),

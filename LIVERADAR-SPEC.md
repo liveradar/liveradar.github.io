@@ -109,7 +109,7 @@ type Event = {
   price_min: number | null;
   price_max: number | null;
   status: "announced" | "on_sale" | "sold_out" | "postponed" | "cancelled" | "ended";
-  tags_type: string[];     // 專場/巡迴/拼盤/音樂祭/見面會/簽唱會/音樂劇/舞台劇/古典（可複選，通常 1 個）
+  tags_type: string[];     // 專場/拼盤/音樂祭/見面會/簽唱會/音樂劇/舞台劇/古典（可複選，通常 1 個）
   tags_origin: string[];   // 本地/亞洲其他/日韓/歐美（2026-09-21 前叫「海外」，見 §3.2 附註）
   ticket_url: string;      // 優先序最高來源的連結
   sources: {               // 保留全部原始來源連結（AC-12 要求）
