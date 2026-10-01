@@ -312,7 +312,7 @@
   aliases: []
   tags_origin_default: 歐美  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 tixcraft、場地「Legacy Taipei」、標題「Henry Moodie： Mood Swings World Tour in Taipei」、共 2 場（台北/高雄）
 - canonical: BE：FIRST
-  aliases: []
+  aliases: ["BE:FIRST"]  # 2026-10-01 補：全形「：」經 matchArtists() 的 NFKC 正規化會變半形，canonical 對不上，比照 LISANI！/OPEN！DREAM WORLD 的做法補半形 alias
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 tixcraft、場地「Legacy TERA」、標題「BE：FIRST WORLD SHOWCASE 2026」
 - canonical: LANY
   aliases: []
