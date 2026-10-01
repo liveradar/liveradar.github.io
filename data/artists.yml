@@ -1866,3 +1866,74 @@
 - canonical: 阮丹青
   aliases: []
   tags_origin_default: 本地  # WebSearch 查證：台灣創作歌手/鋼琴家，與自然流動樂團合作；售票頁 billboardlivetaipei.tw「阮丹青& Friends - 自然流動樂團」
+
+# 2026-10-01：舞台劇／音樂劇的「來源地」標籤擴充——matchArtists() 只看
+# title_raw 字串比對，原本只收音樂人，舞台劇類場次因為標題裡通常是劇名
+# 不是演出者名字，幾乎都抓不到任何 headliner，連帶也沒有來源地標籤。這批
+# 補的是「標題裡真的會出現劇團名字」的常見台灣劇團（查證：均為台灣本地
+# 劇團，不是國際共製／邀演的海外藝術家，例如臺北藝術節／秋天藝術節／
+# 臺南藝術節邀演的海外導演作品刻意沒收進來，那些不算本地）。一次性批次
+# 查證，未逐筆個別發 WebSearch 的屬一般常識／台灣劇場圈公開資訊可信度高。
+- canonical: 果陀劇場
+  aliases: []
+  tags_origin_default: 本地  # 1988年創立的台灣老牌劇團，台北
+- canonical: 唱歌集
+  aliases: []
+  tags_origin_default: 本地  # 台灣原創音樂劇製作品牌
+- canonical: 義興閣掌中劇團
+  aliases: []
+  tags_origin_default: 本地  # 台灣傳統布袋戲／掌中戲劇團
+- canonical: 同黨劇團
+  aliases: []
+  tags_origin_default: 本地  # 台北劇團
+- canonical: 無獨有偶工作室劇團
+  aliases: []
+  tags_origin_default: 本地  # 宜蘭偶戲劇團
+- canonical: 躍演
+  aliases: ["躍演劇團", "ACT Musical Theatre"]
+  tags_origin_default: 本地  # 台灣原創音樂劇團
+- canonical: C MUSICAL
+  aliases: []
+  tags_origin_default: 本地  # 台灣原創音樂劇製作品牌
+- canonical: 烏犬劇場
+  aliases: []
+  tags_origin_default: 本地  # 台灣劇團
+- canonical: 狂想劇場
+  aliases: []
+  tags_origin_default: 本地  # 台灣劇團
+- canonical: 盜火劇團
+  aliases: []
+  tags_origin_default: 本地  # 台灣劇團
+- canonical: 莫比斯圓環創作公社
+  aliases: []
+  tags_origin_default: 本地  # 台灣劇團
+- canonical: 動見体
+  aliases: ["動見体劇團"]
+  tags_origin_default: 本地  # 台灣劇團
+- canonical: 金枝演社
+  aliases: []
+  tags_origin_default: 本地  # 台灣老牌劇團，野台戲路線
+- canonical: 栢優座
+  aliases: []
+  tags_origin_default: 本地  # 台灣劇團，京劇跨界
+- canonical: 曉劇場
+  aliases: []
+  tags_origin_default: 本地  # 台灣劇團
+- canonical: 楊景翔演劇團
+  aliases: []
+  tags_origin_default: 本地  # 台灣劇團，又稱 NEXT劇場
+- canonical: 相聲瓦舍
+  aliases: []
+  tags_origin_default: 本地  # 台灣老牌相聲劇團
+- canonical: 優人神鼓
+  aliases: ["U-Theatre"]
+  tags_origin_default: 本地  # 台灣知名擊鼓劇團
+- canonical: 四把椅子劇團
+  aliases: []
+  tags_origin_default: 本地  # 台北劇團
+- canonical: 犀牛劇團
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：2008年創立，桃園在地劇團，連續4年獲選桃園傑出演藝團隊
+- canonical: 萍蓬草劇團
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：台灣劇團（Facebook 粉專 yellowwaterlily）
