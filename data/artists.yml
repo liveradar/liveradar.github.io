@@ -1937,3 +1937,43 @@
 - canonical: 萍蓬草劇團
   aliases: []
   tags_origin_default: 本地  # WebSearch 查證：台灣劇團（Facebook 粉專 yellowwaterlily）
+
+# 2026-10-01：同一批擴充的另一半——國際共製/邀演的海外劇團與藝術家，
+# 讓這些場次標對的來源地（不是本地），而不是像現在這樣完全沒標籤。
+# 這批名字裡的「．」是全形句點（U+FF0E），matchArtists() 先對 title_raw
+# 做 NFKC 正規化才比對，NFKC 會把全形句點轉成半形「.」，canonical 裡的全形
+# 版本因此永遠對不上——每個都補一個半形句點的 alias 讓比對抓得到，
+# canonical 本身維持全形，UI 顯示不受影響。
+- canonical: 瓦吉．穆阿瓦
+  aliases: ["瓦吉.穆阿瓦"]
+  tags_origin_default: 歐美  # WebSearch 查證：Wajdi Mouawad，黎巴嫩裔法語劇作家/導演，長年於法國劇場圈活動；臺北藝術節邀演
+- canonical: 丹．科利
+  aliases: ["丹.科利"]
+  tags_origin_default: 歐美  # 售票頁標題寫明「愛爾蘭鬼才編導丹．科利」；NTT遇見巨人系列邀演
+- canonical: 里米尼紀錄劇團
+  aliases: ["Rimini Protokoll"]
+  tags_origin_default: 歐美  # WebSearch 查證：德國實驗劇團 Rimini Protokoll；國家兩廳院╳瑞士洛桑維蒂劇院共製邀演
+- canonical: 卡羅琳．居拉．阮
+  aliases: ["卡羅琳.居拉.阮"]
+  tags_origin_default: 歐美  # WebSearch 查證：Caroline Guiela Nguyen，法國劇場導演；秋天藝術節邀演
+- canonical: 柏林雷寧廣場劇院
+  aliases: ["Schaubühne"]
+  tags_origin_default: 歐美  # WebSearch 查證：Schaubühne Berlin，德國柏林知名劇院
+- canonical: 羅伯．勒帕吉
+  aliases: ["羅伯.勒帕吉"]
+  tags_origin_default: 歐美  # WebSearch 查證：Robert Lepage，加拿大魁北克知名劇場導演
+- canonical: 鐵仕製作
+  aliases: []
+  tags_origin_default: 亞洲其他  # 售票頁標題自己標註「鐵仕製作（香港）」
+- canonical: 剛左小組
+  aliases: []
+  tags_origin_default: 日本  # 售票頁標題自己標註「剛左小組（大阪）」
+- canonical: 馬里喬．瓦卡．瓦倫蘇埃拉
+  aliases: ["馬里喬.瓦卡.瓦倫蘇埃拉"]
+  tags_origin_default: 歐美  # WebSearch 查證信心較低（搜尋結果資訊有限，姓氏像拉美裔）：秋天藝術節邀演藝術家 Maricio Vaca Valenzuela《追憶之徑》
+- canonical: 菲利普．肯恩
+  aliases: ["菲利普.肯恩"]
+  tags_origin_default: 歐美  # WebSearch 查證信心較低（搜尋結果資訊有限）：秋天藝術節邀演藝術家 Philip Kern《人間樂園》
+- canonical: 阿納卡西斯・拉莫斯
+  aliases: []
+  tags_origin_default: 歐美  # WebSearch 查證信心較低（搜尋結果資訊有限，姓氏像西語裔）：臺南藝術節邀演藝術家 Anacasis Ramos《我的母親與金錢》

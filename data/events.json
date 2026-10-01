@@ -2430,8 +2430,12 @@
     },
     {
       "title_raw": "2026臺北藝術節：瓦吉．穆阿瓦《海之邊》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "瓦吉．穆阿瓦"
+      ],
+      "lineup": [
+        "瓦吉．穆阿瓦"
+      ],
       "is_festival": false,
       "venue": "臺北表演藝術中心 大劇院",
       "city": "台北",
@@ -2444,7 +2448,9 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2054501227552067584",
       "sources": [
@@ -2455,7 +2461,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.050Z",
-      "updated_at": "2026-09-29T03:25:46.050Z",
+      "updated_at": "2026-10-01T01:33:15.826Z",
       "category": "舞台劇",
       "run_key": "opentix:2054501227552067584:臺北表演藝術中心 大劇院",
       "id": "b172aab10639ec65",
@@ -2953,8 +2959,12 @@
     },
     {
       "title_raw": "2026臺北藝術節：瓦吉．穆阿瓦《孤身》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "瓦吉．穆阿瓦"
+      ],
+      "lineup": [
+        "瓦吉．穆阿瓦"
+      ],
       "is_festival": false,
       "venue": "臺北表演藝術中心 球劇場",
       "city": "台北",
@@ -2967,7 +2977,9 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2054501513015713792",
       "sources": [
@@ -2978,7 +2990,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.059Z",
-      "updated_at": "2026-09-29T03:25:46.059Z",
+      "updated_at": "2026-10-01T01:33:15.831Z",
       "category": "舞台劇",
       "run_key": "opentix:2054501513015713792:臺北表演藝術中心 球劇場",
       "id": "106ed2202c25af48",
@@ -3833,8 +3845,12 @@
     },
     {
       "title_raw": "2026 NTT遇見巨人—愛爾蘭鬼才編導丹．科利《迷失的李爾》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "丹．科利"
+      ],
+      "lineup": [
+        "丹．科利"
+      ],
       "is_festival": false,
       "venue": "臺中國家歌劇院中劇院",
       "city": "台中",
@@ -3847,7 +3863,9 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2071498427878363137",
       "sources": [
@@ -3858,7 +3876,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.066Z",
-      "updated_at": "2026-09-29T03:25:46.066Z",
+      "updated_at": "2026-10-01T01:33:15.834Z",
       "category": "舞台劇",
       "run_key": "opentix:2071498427878363137:臺中國家歌劇院中劇院",
       "id": "4f9bffa93caebfc3",
@@ -4305,8 +4323,12 @@
     },
     {
       "title_raw": "國家兩廳院 ✕ 瑞士洛桑維蒂劇院——里米尼紀錄劇團《這不是個大使館》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "里米尼紀錄劇團"
+      ],
+      "lineup": [
+        "里米尼紀錄劇團"
+      ],
       "is_festival": false,
       "venue": "國家戲劇院",
       "city": "台北",
@@ -4319,7 +4341,9 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2059888347628990465",
       "sources": [
@@ -4330,7 +4354,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.071Z",
-      "updated_at": "2026-09-29T03:25:46.071Z",
+      "updated_at": "2026-10-01T01:32:10.398Z",
       "category": "舞台劇",
       "run_key": "opentix:2059888347628990465:國家戲劇院",
       "id": "f5d06e2a96c607ff",
@@ -5335,8 +5359,12 @@
     },
     {
       "title_raw": "2026秋天藝術節 卡羅琳．居拉．阮 《眼淚》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "卡羅琳．居拉．阮"
+      ],
+      "lineup": [
+        "卡羅琳．居拉．阮"
+      ],
       "is_festival": false,
       "venue": "國家戲劇院",
       "city": "台北",
@@ -5349,7 +5377,9 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2070445180942770176",
       "sources": [
@@ -5360,7 +5390,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.078Z",
-      "updated_at": "2026-09-29T03:25:46.078Z",
+      "updated_at": "2026-10-01T01:33:15.837Z",
       "category": "舞台劇",
       "run_key": "opentix:2070445180942770176:國家戲劇院",
       "id": "a08012a1b297c8c8",
@@ -5494,8 +5524,12 @@
     },
     {
       "title_raw": "2026秋天藝術節 馬里喬．瓦卡．瓦倫蘇埃拉《追憶之徑》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "馬里喬．瓦卡．瓦倫蘇埃拉"
+      ],
+      "lineup": [
+        "馬里喬．瓦卡．瓦倫蘇埃拉"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院實驗劇場",
       "city": "台北",
@@ -5508,7 +5542,9 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2068957182809317377",
       "sources": [
@@ -5519,7 +5555,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.079Z",
-      "updated_at": "2026-09-29T03:25:46.079Z",
+      "updated_at": "2026-10-01T01:33:15.838Z",
       "category": "舞台劇",
       "run_key": "opentix:2068957182809317377:國家兩廳院實驗劇場",
       "id": "9b28c777e8a0d1c5",
@@ -5638,8 +5674,12 @@
     },
     {
       "title_raw": "2026秋天藝術節 菲利普．肯恩《人間樂園》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "菲利普．肯恩"
+      ],
+      "lineup": [
+        "菲利普．肯恩"
+      ],
       "is_festival": false,
       "venue": "國家戲劇院",
       "city": "台北",
@@ -5652,7 +5692,9 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2070116012517888001",
       "sources": [
@@ -5663,7 +5705,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.080Z",
-      "updated_at": "2026-09-29T03:25:46.080Z",
+      "updated_at": "2026-10-01T01:33:15.838Z",
       "category": "舞台劇",
       "run_key": "opentix:2070116012517888001:國家戲劇院",
       "id": "9e6ecc6727f46389",
@@ -6234,8 +6276,14 @@
     },
     {
       "title_raw": "2026臺南藝術節：鐵仕製作（香港）x  剛左小組（大阪）《搭橋》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "鐵仕製作",
+        "剛左小組"
+      ],
+      "lineup": [
+        "鐵仕製作",
+        "剛左小組"
+      ],
       "is_festival": false,
       "venue": "臺南文化中心演藝廳",
       "city": "台南",
@@ -6248,7 +6296,10 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他",
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2059817032922460161",
       "sources": [
@@ -6259,7 +6310,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.083Z",
-      "updated_at": "2026-09-29T03:25:46.083Z",
+      "updated_at": "2026-10-01T01:32:10.405Z",
       "category": "舞台劇",
       "run_key": "opentix:2059817032922460161:臺南文化中心演藝廳",
       "id": "2f5e86912887bda3",
@@ -6507,8 +6558,12 @@
     },
     {
       "title_raw": "2026臺南藝術節：阿納卡西斯・拉莫斯《我的母親與金錢》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "阿納卡西斯・拉莫斯"
+      ],
+      "lineup": [
+        "阿納卡西斯・拉莫斯"
+      ],
       "is_festival": false,
       "venue": "臺南文化中心演藝廳",
       "city": "台南",
@@ -6521,7 +6576,9 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2059825607998676993",
       "sources": [
@@ -6532,7 +6589,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.085Z",
-      "updated_at": "2026-09-29T03:25:46.085Z",
+      "updated_at": "2026-10-01T01:32:10.405Z",
       "category": "舞台劇",
       "run_key": "opentix:2059825607998676993:臺南文化中心演藝廳",
       "id": "7924238c02d89e55",
@@ -6807,8 +6864,12 @@
     },
     {
       "title_raw": "柏林雷寧廣場劇院《夢想清單》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "柏林雷寧廣場劇院"
+      ],
+      "lineup": [
+        "柏林雷寧廣場劇院"
+      ],
       "is_festival": false,
       "venue": "衛武營國家藝術文化中心戲劇院",
       "city": "高雄",
@@ -6821,7 +6882,9 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2051266879060606977",
       "sources": [
@@ -6832,7 +6895,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.087Z",
-      "updated_at": "2026-09-29T03:25:46.087Z",
+      "updated_at": "2026-10-01T01:32:10.406Z",
       "category": "舞台劇",
       "run_key": "opentix:2051266879060606977:衛武營國家藝術文化中心戲劇院",
       "id": "a0d066d50d92fb23",
@@ -7231,8 +7294,12 @@
     },
     {
       "title_raw": "2026 NTT遇見巨人—羅伯．勒帕吉╳柏林雷寧廣場劇院《信仰、金錢、戰爭與愛》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "柏林雷寧廣場劇院"
+      ],
+      "lineup": [
+        "柏林雷寧廣場劇院"
+      ],
       "is_festival": false,
       "venue": "臺中國家歌劇院中劇院",
       "city": "台中",
@@ -7245,7 +7312,9 @@
       "tags_type": [
         "舞台劇"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2076923186045493249",
       "sources": [
@@ -7256,7 +7325,7 @@
         }
       ],
       "first_seen_at": "2026-09-29T03:25:46.089Z",
-      "updated_at": "2026-09-29T03:25:46.089Z",
+      "updated_at": "2026-10-01T01:32:10.407Z",
       "category": "舞台劇",
       "run_key": "opentix:2076923186045493249:臺中國家歌劇院中劇院",
       "id": "6ea13e6c81a14f36",
