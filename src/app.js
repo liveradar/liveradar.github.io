@@ -36,7 +36,7 @@
 import { partitionEvents, isPast, cityBucket } from "./filter.js";
 import {
   loadPrefs,
-  savePrefs,
+  isFavorited,
   toggleFavorite,
   excludeEvent,
   unexcludeEvent,
@@ -52,8 +52,8 @@ import {
   loadReviewDismissed,
   dismissReviewItem,
   reconcileSupabaseSync,
-  exportPrefsAsJson,
-  importPrefsFromJson,
+  flushPending,
+  clearPersonalCache,
   loadViewFilters,
   saveViewFilters,
   loadFavView,
@@ -357,9 +357,51 @@ function wireRemindButtons(container) {
   });
 }
 
+// SRS v1.1 D2: favorites / exclusions need a Google login. A logged-out click
+// asks to sign in, parks the action in sessionStorage across the OAuth
+// redirect, and syncAndResume() replays it once the page is back and synced.
+const PENDING_KEY = "liveradar:pending_action";
+const RESUME_ACTIONS = {
+  favorite: (id) => {
+    if (!isFavorited(loadPrefs(), id)) toggleFavorite(id);
+  },
+  excludeEvent,
+  excludeArtist,
+  excludeType,
+};
+
+async function requireLogin(action, arg) {
+  if (await getSession()) return true;
+  if (!confirm("收藏與排除設定需要先登入 Google 帳號，登入後會自動完成這個動作。現在登入嗎？")) return false;
+  try {
+    sessionStorage.setItem(PENDING_KEY, JSON.stringify({ action, arg }));
+    await signInWithGoogle(window.location.href);
+  } catch (err) {
+    console.error("Google sign-in failed:", err);
+    alert("Google 登入失敗，請稍後再試。");
+  }
+  return false;
+}
+
+/** Page-load sync (cloud wins), then replay the action a login interrupted. */
+async function syncAndResume() {
+  const result = await reconcileSupabaseSync();
+  if (result.status === "error") return result;
+  let pending = null;
+  try {
+    pending = JSON.parse(sessionStorage.getItem(PENDING_KEY));
+    sessionStorage.removeItem(PENDING_KEY);
+  } catch {
+    // no pending action
+  }
+  if (result.status === "ok" && pending) RESUME_ACTIONS[pending.action]?.(pending.arg);
+  return result;
+}
+
 function wireFavoriteToggle(container, render) {
   container.querySelectorAll("[data-favorite-toggle]").forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", async () => {
+      if (!(await requireLogin("favorite", btn.dataset.favoriteToggle))) return;
       toggleFavorite(btn.dataset.favoriteToggle);
       render();
     });
@@ -381,7 +423,8 @@ function openMenuFor(event, events, render) {
   const type = event.tags_type[0];
 
   openExcludeMenu(event, {
-    onHideEvent() {
+    async onHideEvent() {
+      if (!(await requireLogin("excludeEvent", event.id))) return;
       excludeEvent(event.id);
       render();
       showUndoToast(`已排除「${headliner}」`, () => {
@@ -389,7 +432,8 @@ function openMenuFor(event, events, render) {
         render();
       });
     },
-    onBlockArtist() {
+    async onBlockArtist() {
+      if (!(await requireLogin("excludeArtist", headliner))) return;
       const doBlock = () => {
         excludeArtist(headliner);
         render();
@@ -406,8 +450,8 @@ function openMenuFor(event, events, render) {
         doBlock();
       }
     },
-    onBlockType() {
-      if (!type) return;
+    async onBlockType() {
+      if (!type || !(await requireLogin("excludeType", type))) return;
       excludeType(type);
       render();
       showUndoToast(`已封鎖類型「${type}」`, () => {
@@ -550,7 +594,7 @@ async function initTimeline(container) {
     // Sequential, not Promise.all: loadEvents() reads manual events from
     // localStorage, and reconcileSupabaseSync() may just have overwritten them —
     // running them concurrently risks loadEvents() reading the stale copy.
-    await reconcileSupabaseSync();
+    await syncAndResume();
     events = await loadEvents();
   } catch (err) {
     console.error("Failed to load events.json:", err);
@@ -603,7 +647,7 @@ async function initSearch(container) {
   const input = document.getElementById("search-input");
   let events;
   try {
-    await reconcileSupabaseSync();
+    await syncAndResume();
     events = await loadEvents();
   } catch (err) {
     console.error("Failed to load events.json:", err);
@@ -644,7 +688,7 @@ async function initSearch(container) {
 async function initNewArrivals(container) {
   let events;
   try {
-    await reconcileSupabaseSync();
+    await syncAndResume();
     events = await loadEvents();
   } catch (err) {
     console.error("Failed to load events.json:", err);
@@ -771,7 +815,7 @@ async function initFavorites(container) {
   const calendarEl = document.getElementById("fav-calendar");
   let events;
   try {
-    await reconcileSupabaseSync();
+    await syncAndResume();
     events = await loadEvents();
   } catch (err) {
     console.error("Failed to load events.json:", err);
@@ -889,7 +933,7 @@ async function initFavorites(container) {
 async function initHiddenManagement(container) {
   let events;
   try {
-    await reconcileSupabaseSync();
+    await syncAndResume();
     events = await loadEvents();
   } catch (err) {
     console.error("Failed to load events.json:", err);
@@ -1053,20 +1097,13 @@ function formatDateTime(iso) {
   return `${d.getFullYear()}/${pad(d.getMonth() + 1)}/${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 
-/** Account/Supabase sync (2026-09-20, replaces M9's Gist sync), FR-63/64 backup export/import. settings.html has no single container — this wires individual elements by id instead. */
+/** Account/Supabase login (2026-09-20, replaces M9's Gist sync); backup export/import and exclude-settings were removed in SRS v1.1. settings.html has no single container — this wires individual elements by id instead. */
 function initSettings() {
-  const backupLast = document.getElementById("backup-last");
   const accountLoggedOut = document.getElementById("account-logged-out");
   const accountLoggedIn = document.getElementById("account-logged-in");
   const accountEmail = document.getElementById("account-email");
   const googleSigninBtn = document.getElementById("google-signin-btn");
   const signoutBtn = document.getElementById("signout-btn");
-  const exportBtn = document.getElementById("export-btn");
-  const importBtn = document.getElementById("import-btn");
-  const importFileInput = document.getElementById("import-file-input");
-  const strictModeToggle = document.getElementById("strict-mode");
-  const muteKeywordsContainer = document.getElementById("mute-keywords");
-  const muteKeywordInput = document.getElementById("mute-keyword-input");
   const refetchBtn = document.getElementById("refetch-btn");
   const refetchStatus = document.getElementById("refetch-status");
   const reviewQueueLink = document.getElementById("review-queue-link");
@@ -1088,61 +1125,14 @@ function initSettings() {
 
   // 2026-09-20: was "renderSyncStatus" and also drove a separate "跨裝置同步"
   // status badge — dropped (Max: redundant once the 帳號 card already shows
-  // logged in/out, that fact alone implies whether sync is active). Kept the
-  // account-card and backup-date rendering under one function since both
-  // still depend on the same loadPrefs()/getSession() round trip.
-  async function renderAccountAndBackup() {
-    const prefs = loadPrefs();
+  // logged in/out, that fact alone implies whether sync is active). 
+  async function renderAccount() {
     const session = await getSession();
     const loggedIn = !!session;
-    backupLast.textContent = `上次備份日期：${formatDateTime(prefs.last_backup_at) ?? "無"}`;
     accountLoggedOut.hidden = loggedIn;
     accountLoggedIn.hidden = !loggedIn;
     if (loggedIn) accountEmail.textContent = session.user.email ?? "";
   }
-
-  function renderMuteKeywords() {
-    const prefs = loadPrefs();
-    muteKeywordsContainer.innerHTML = prefs.mute_keywords
-      .map(
-        (kw) => `
-      <span class="tag-perf" style="display:inline-flex;align-items:center;gap:5px;">
-        ${escapeHtml(kw)}
-        <button type="button" data-remove-keyword="${escapeHtml(kw)}" style="border:none;background:transparent;color:inherit;cursor:pointer;font-size:11px;line-height:1;padding:0;">✕</button>
-      </span>
-    `
-      )
-      .join("");
-    muteKeywordsContainer.querySelectorAll("[data-remove-keyword]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const prefs = loadPrefs();
-        prefs.mute_keywords = prefs.mute_keywords.filter((kw) => kw !== btn.dataset.removeKeyword);
-        savePrefs(prefs);
-        renderMuteKeywords();
-      });
-    });
-  }
-
-  strictModeToggle.checked = loadPrefs().strict_mode;
-  strictModeToggle.addEventListener("change", () => {
-    const prefs = loadPrefs();
-    prefs.strict_mode = strictModeToggle.checked;
-    savePrefs(prefs);
-  });
-
-  muteKeywordInput.addEventListener("keydown", (ev) => {
-    if (ev.key !== "Enter") return;
-    ev.preventDefault();
-    const kw = muteKeywordInput.value.trim();
-    if (!kw) return;
-    const prefs = loadPrefs();
-    if (!prefs.mute_keywords.includes(kw)) {
-      prefs.mute_keywords = [...prefs.mute_keywords, kw];
-      savePrefs(prefs);
-    }
-    muteKeywordInput.value = "";
-    renderMuteKeywords();
-  });
 
   googleSigninBtn.addEventListener("click", async () => {
     googleSigninBtn.disabled = true;
@@ -1160,38 +1150,10 @@ function initSettings() {
   });
 
   signoutBtn.addEventListener("click", async () => {
+    await flushPending(); // don't drop a change still on its way to the cloud
     await signOut();
-    await renderAccountAndBackup();
-  });
-
-  exportBtn.addEventListener("click", () => {
-    const updated = savePrefs({ ...loadPrefs(), last_backup_at: new Date().toISOString() });
-    const blob = new Blob([exportPrefsAsJson(updated)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `liveradar-backup-${new Date().toISOString().slice(0, 10)}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    renderAccountAndBackup();
-  });
-
-  importBtn.addEventListener("click", () => importFileInput.click());
-  importFileInput.addEventListener("change", async () => {
-    const file = importFileInput.files[0];
-    if (!file) return;
-    try {
-      importPrefsFromJson(await file.text());
-      renderAccountAndBackup();
-      renderMuteKeywords();
-      strictModeToggle.checked = loadPrefs().strict_mode;
-      alert("匯入成功。");
-    } catch (err) {
-      console.error("Failed to import prefs:", err);
-      alert("匯入失敗，請確認檔案格式是否正確。");
-    } finally {
-      importFileInput.value = "";
-    }
+    clearPersonalCache();
+    await renderAccount();
   });
 
   // S5 (2026-09-17): only works when this page is served by scripts/dev-server.mjs
@@ -1249,8 +1211,7 @@ function initSettings() {
   });
 
   renderThemeButtons();
-  renderAccountAndBackup();
-  renderMuteKeywords();
+  renderAccount();
   renderSourceStatus();
 }
 
@@ -1305,7 +1266,12 @@ function selectedChips(group) {
   return Array.from(group.querySelectorAll('.chip-selectable[aria-pressed="true"]')).map((c) => c.textContent.trim());
 }
 
-function initManualAdd(form) {
+async function initManualAdd(form) {
+  if (!(await getSession())) {
+    if (confirm("新增場次需要先登入 Google 帳號。現在登入嗎？")) await signInWithGoogle(window.location.href);
+    else window.location.href = "./index.html";
+    return;
+  }
   document.querySelectorAll("[data-chip-group]").forEach(wireChipGroup);
 
   const headlinerField = document.getElementById("f-headliner");
@@ -1406,6 +1372,14 @@ if (reviewContainer) {
   initReview(reviewContainer);
 }
 
-if (document.getElementById("backup-last")) {
+if (document.getElementById("account-logged-out")) {
   initSettings();
 }
+
+// Another device may have changed things while this tab sat in the background:
+// when it comes back, re-read the cloud and reload only if something differs.
+document.addEventListener("visibilitychange", async () => {
+  if (document.visibilityState !== "visible") return;
+  const { changed } = await reconcileSupabaseSync();
+  if (changed) window.location.reload();
+});

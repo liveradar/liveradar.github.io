@@ -42,17 +42,12 @@ export function resolveVisibility(event, prefs, viewFilters = {}) {
     return { bucket: "hidden", reason: "event" };
   }
 
-  const artistsToCheck = prefs.strict_mode ? event.lineup : event.headliners;
-  if (artistsToCheck.some((a) => prefs.excluded_artists.includes(a))) {
+  if (event.headliners.some((a) => prefs.excluded_artists.includes(a))) {
     return { bucket: "hidden", reason: "artist" };
   }
 
   if (event.tags_type.some((t) => prefs.excluded_types.includes(t))) {
     return { bucket: "hidden", reason: "type" };
-  }
-
-  if (prefs.mute_keywords.some((kw) => event.title_raw.includes(kw))) {
-    return { bucket: "hidden", reason: "keyword" };
   }
 
   if (!passesViewFilters(event, viewFilters)) {

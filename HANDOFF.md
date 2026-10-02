@@ -879,3 +879,12 @@ Max 排定的順序，第 1 項已完成（上面兩節），剩下：
 **驗證**：用 Playwright 一次性腳本（跑完未進 git）對 5 個真實頁面跑新邏輯——`26_cp` 開賣日 4/23 → 取消、`26_cp_c` 跟著移除、`26_todd` 開賣日 10/3、`26_topkh` 開賣日 10/4 → 都保留、`26_cptp` 正常。新增 `scripts/tixcraft.test.mjs`（4 個）＋ `normalize.test.mjs` 3 個 `parseOnSaleAt` 回歸測試，`npm test` 366 個全過。當天完整抓取已經跑過，沒有重跑；直接手動改 `data/events.json` 兩筆（移除桃園場卡片 `22a822cb1593b3a3`，`26_todd` 改成 announced），結果跟新程式下次排程會產生的一樣。**還沒經過真實排程跑過**：下次排程後看 log 裡有沒有 `no sessions listed` 的記錄，確認判斷結果合理。
 
 **《班會別鬧！》已完售（OPENTIX）**：不是 bug。OPENTIX JSON-LD 只有 9/30 那一場 `SoldOut`，其餘三場 `InStock`；當天 11:45 抓取時應該還有票，回報是 14:46 送出的。用當下頁面跑過 `parseEventAvailability`／`findAvailability`，判斷正確，下次排程會自動更新。
+
+## SRS v1.1：登入後收藏／排除跨裝置同步改成「雲端為準」（2026-10-02）
+
+沿用既有 Supabase（沒換 Firebase）。改動：
+- `src/state.js`：localStorage 只當雲端那一列的快取。每次收藏／排除先改本機（render 仍同步），同時背景把「這一筆」套到最新的雲端資料再 upsert（序列化，不再 2 秒 debounce、不再整包比 updated_at 互蓋）。開頁與分頁切回前景都重新讀雲端（`reconcileSupabaseSync`，`changed` 才 reload）。刪掉 `decideSyncAction`。
+- 未登入點收藏／排除／手動新增會先要求 Google 登入；動作暫存 sessionStorage，登入回來由 `syncAndResume()` 自動補做。
+- 登出：`flushPending()` → `signOut()` → `clearPersonalCache()` 清掉本機收藏、排除、手動場次。
+- 設定頁移除「備份（匯出／匯入 JSON）」與「排除設定（嚴格模式、靜音關鍵字）」；`filter.js` 同步拿掉這兩條規則（一律只看主秀）。
+- **Supabase 後台待辦**：Authentication → URL Configuration → Redirect URLs 要加 index/favorites/new/search/hidden/add.html（原本只有 settings.html），否則從這些頁面登入會被擋。

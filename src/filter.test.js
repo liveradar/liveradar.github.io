@@ -22,8 +22,6 @@ function defaultPrefs(overrides = {}) {
     excluded_events: [],
     excluded_artists: [],
     excluded_types: [],
-    mute_keywords: [],
-    strict_mode: false,
     ...overrides,
   };
 }
@@ -119,7 +117,6 @@ test("partitionEvents: a favorited event still bypasses every exclude rule regar
     favorites: ["f"],
     excluded_artists: ["Blocked Artist"],
     excluded_types: ["音樂祭"],
-    mute_keywords: ["Test"],
   });
 
   const { visible } = partitionEvents([favorited], prefs, { city: "新北" });

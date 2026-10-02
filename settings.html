@@ -37,7 +37,7 @@
       <div class="card">
         <div id="account-logged-out" style="display:flex;flex-direction:column;gap:8px;">
           <div style="font-size:13px;font-weight:700;">尚未登入</div>
-          <div style="font-size:11px;color:var(--muted);">登入後可跨裝置同步收藏與排除設定，不登入也能完整使用 LiveRadar。</div>
+          <div style="font-size:11px;color:var(--muted);">可瀏覽全部演出；收藏與排除需要登入，登入後在所有裝置同步。</div>
           <button class="btn-dark" style="padding:9px;font-size:12px;" id="google-signin-btn">使用 Google 登入</button>
         </div>
         <div id="account-logged-in" class="row" hidden>
@@ -45,40 +45,6 @@
           <button class="btn-ghost" style="padding:6px 14px;font-size:12px;flex:0 0 auto;" id="signout-btn">登出</button>
         </div>
         <a href="./privacy.html" style="font-size:11px;color:var(--muted);text-decoration:underline;">隱私權政策</a>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">備份</div>
-      <div class="card">
-        <div style="font-size:12px;color:var(--muted);" id="backup-last">上次備份日期：無</div>
-        <div style="display:flex;gap:8px;">
-          <button class="btn-ghost" style="flex:1;padding:9px;font-size:12px;" id="export-btn">匯出 JSON</button>
-          <button class="btn-ghost" style="flex:1;padding:9px;font-size:12px;" id="import-btn">匯入 JSON</button>
-        </div>
-        <input type="file" id="import-file-input" accept="application/json" hidden />
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="section-title">排除設定</div>
-      <div class="card">
-        <div class="row">
-          <div style="display:flex;flex-direction:column;gap:2px;">
-            <div style="font-size:13px;font-weight:700;">嚴格模式</div>
-            <div style="font-size:11px;color:var(--muted);">拼盤／音樂祭任一藝人命中即隱藏整場</div>
-          </div>
-          <label style="position:relative;display:inline-block;width:42px;height:24px;flex:0 0 auto;">
-            <input type="checkbox" id="strict-mode" style="opacity:0;width:0;height:0;" />
-            <span style="position:absolute;inset:0;background:var(--surface-2);border-radius:999px;"></span>
-            <span style="position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.2);pointer-events:none;"></span>
-          </label>
-        </div>
-        <div style="border-top:1px solid var(--border);padding-top:10px;display:flex;flex-direction:column;gap:8px;">
-          <div style="font-size:13px;font-weight:700;">靜音關鍵字</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;" id="mute-keywords"></div>
-          <input class="field-input" type="text" id="mute-keyword-input" placeholder="新增關鍵字…" style="height:38px;" />
-        </div>
       </div>
     </div>
 

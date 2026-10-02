@@ -1,8 +1,10 @@
 /**
  * UserPrefs persistence (SPEC §3.3, §8).
- * M1: localStorage read/write only. Supabase sync (2026-09-20, replaces the
- * original Gist/PAT mechanism from M9) plugs into pushToSupabase/
- * reconcileSupabaseSync below.
+ * localStorage is only a cache of the logged-in user's cloud row (Supabase
+ * `user_prefs`) — the cloud is the source of truth (SRS v1.1, 2026-10-02).
+ * Every change is applied locally right away (so render() stays synchronous)
+ * and then re-applied on top of the freshest cloud copy, one item at a time,
+ * so two devices editing at once can't overwrite each other's changes.
  */
 
 import { computeEventId, computePossibleEventIds } from "./id.js";
@@ -18,9 +20,6 @@ export function defaultPrefs() {
     excluded_artists: [],
     excluded_types: [],
     excluded_venues: [],
-    mute_keywords: [],
-    strict_mode: false,
-    last_backup_at: null,
     updated_at: new Date().toISOString(),
   };
 }
@@ -60,9 +59,13 @@ function persistPrefs(next) {
   return next;
 }
 
-export function savePrefs(prefs) {
-  const next = persistPrefs({ ...prefs, updated_at: new Date().toISOString() });
-  scheduleSupabaseSync(next);
+/**
+ * @param {(prefs: object) => object} fn - pure, idempotent edit of one item;
+ *   applied to the local cache now and again to the cloud copy in the background.
+ */
+function changePrefs(fn) {
+  const next = persistPrefs({ ...fn(loadPrefs()), updated_at: new Date().toISOString() });
+  queuePush({ prefsFn: fn });
   return next;
 }
 
@@ -73,11 +76,8 @@ export function isFavorited(prefs, eventId) {
 }
 
 export function toggleFavorite(eventId) {
-  const prefs = loadPrefs();
-  const idx = prefs.favorites.indexOf(eventId);
-  if (idx === -1) prefs.favorites.push(eventId);
-  else prefs.favorites.splice(idx, 1);
-  return savePrefs(prefs);
+  const adding = !loadPrefs().favorites.includes(eventId);
+  return changePrefs((p) => ({ ...p, favorites: adding ? addUnique(p.favorites, eventId) : removeValue(p.favorites, eventId) }));
 }
 
 // --- Exclude rules (US-09/10/11, FR-41~44) ------------------------------
@@ -94,38 +94,15 @@ function removeValue(list, value) {
   return list.filter((v) => v !== value);
 }
 
-export function excludeEvent(eventId) {
-  const prefs = loadPrefs();
-  prefs.excluded_events = addUnique(prefs.excluded_events, eventId);
-  return savePrefs(prefs);
-}
-export function unexcludeEvent(eventId) {
-  const prefs = loadPrefs();
-  prefs.excluded_events = removeValue(prefs.excluded_events, eventId);
-  return savePrefs(prefs);
-}
+const ruleAdder = (key) => (value) => changePrefs((p) => ({ ...p, [key]: addUnique(p[key], value) }));
+const ruleRemover = (key) => (value) => changePrefs((p) => ({ ...p, [key]: removeValue(p[key], value) }));
 
-export function excludeArtist(name) {
-  const prefs = loadPrefs();
-  prefs.excluded_artists = addUnique(prefs.excluded_artists, name);
-  return savePrefs(prefs);
-}
-export function unexcludeArtist(name) {
-  const prefs = loadPrefs();
-  prefs.excluded_artists = removeValue(prefs.excluded_artists, name);
-  return savePrefs(prefs);
-}
-
-export function excludeType(tag) {
-  const prefs = loadPrefs();
-  prefs.excluded_types = addUnique(prefs.excluded_types, tag);
-  return savePrefs(prefs);
-}
-export function unexcludeType(tag) {
-  const prefs = loadPrefs();
-  prefs.excluded_types = removeValue(prefs.excluded_types, tag);
-  return savePrefs(prefs);
-}
+export const excludeEvent = ruleAdder("excluded_events");
+export const unexcludeEvent = ruleRemover("excluded_events");
+export const excludeArtist = ruleAdder("excluded_artists");
+export const unexcludeArtist = ruleRemover("excluded_artists");
+export const excludeType = ruleAdder("excluded_types");
+export const unexcludeType = ruleRemover("excluded_types");
 
 /** FR-48: how many of the user's already-favorited events would this artist-block affect? */
 export function countFavoritedByArtist(artistName, events, prefs) {
@@ -140,7 +117,7 @@ export function countHiddenByArtist(artistName, events, prefs) {
     (e) =>
       !isPast(e.date) &&
       !prefs.favorites.includes(e.id) &&
-      (prefs.strict_mode ? e.lineup.includes(artistName) : e.headliners.includes(artistName))
+      e.headliners.includes(artistName)
   ).length;
 }
 export function countHiddenByType(tag, events, prefs) {
@@ -168,13 +145,10 @@ function persistManualEvents(list) {
   localStorage.setItem(MANUAL_EVENTS_KEY, JSON.stringify(list));
 }
 
-function saveManualEventsList(list) {
-  persistManualEvents(list);
-  // Manual events aren't part of UserPrefs, but they ride along in the same
-  // user_prefs row (pushToSupabase below) — bumping prefs.updated_at here is
-  // what makes another device's reconcileSupabaseSync() notice this change
-  // and pull it.
-  savePrefs(loadPrefs());
+// Manual events ride along in the same user_prefs row as the prefs.
+function changeManualEvents(fn) {
+  persistManualEvents(fn(loadManualEvents()));
+  queuePush({ manualFn: fn });
 }
 
 /**
@@ -216,14 +190,12 @@ export async function addManualEvent(fields) {
     note: fields.note || "",
   };
 
-  const list = loadManualEvents();
-  list.push(event);
-  saveManualEventsList(list);
+  changeManualEvents((list) => [...list.filter((e) => e.id !== id), event]);
   return event;
 }
 
 export function removeManualEvent(id) {
-  saveManualEventsList(loadManualEvents().filter((e) => e.id !== id));
+  changeManualEvents((list) => list.filter((e) => e.id !== id));
 }
 
 // --- 待整理 dismissals (US-16, FR-16/61, SPEC M8) ------------------------
@@ -319,113 +291,91 @@ export function saveTheme(theme) {
   }
 }
 
-// --- Supabase sync (replaces Gist/PAT sync, 2026-09-20) -----------------
-// One row per authenticated user in the `user_prefs` table (user_id, prefs,
-// manual_events, updated_at), RLS-scoped so a user can only ever read/write
-// their own row (see HANDOFF.md for the SQL). Sync is last-write-wins on
-// UserPrefs.updated_at, same shape as the Gist mechanism it replaces:
-// whichever side has the newer timestamp overwrites the other, no
-// field-level merge. Manual events (US-17) aren't part of UserPrefs but ride
-// along in the same row so they sync too (see saveManualEventsList).
-// Login is additive, not required — every function here is a no-op (or
-// returns a "not_authenticated" status) when there's no session, so the app
-// keeps working fully offline/local exactly as it did before this existed.
+// --- Cloud sync (Supabase `user_prefs`, one RLS-scoped row per user) -----
 
-async function pushToSupabase(prefs) {
+let pushChain = Promise.resolve();
+
+/** Pushes run one after another so a later change never races an earlier one. */
+function queuePush(change) {
+  pushChain = pushChain.then(() => pushChange(change)).catch((err) => {
+    console.error("Supabase push failed:", err);
+    globalThis.alert?.("同步失敗：這次修改不會出現在其他裝置，請確認網路後重試。");
+  });
+  return pushChain;
+}
+
+/** Resolves once every queued change has reached the cloud (call before navigating away / signing out). */
+export function flushPending() {
+  return pushChain;
+}
+
+async function fetchRemote(userId) {
+  const { data, error } = await supabase
+    .from("user_prefs")
+    .select("prefs, manual_events")
+    .eq("user_id", userId)
+    .maybeSingle();
+  if (error) throw error;
+  return data;
+}
+
+// Not logged in -> no-op. Logged in -> re-apply just this change onto the
+// freshest cloud copy (not the whole local copy), so edits from other
+// devices survive. No cloud row yet -> seed it from the local cache.
+async function pushChange({ prefsFn, manualFn }) {
   const session = await getSession();
   if (!session) return;
+  const remote = await fetchRemote(session.user.id);
+  const prefs = { ...defaultPrefs(), ...(remote?.prefs ?? loadPrefs()) };
+  const manual = remote?.manual_events ?? loadManualEvents();
+  const nextPrefs = { ...(prefsFn ? prefsFn(prefs) : prefs), updated_at: new Date().toISOString() };
   const { error } = await supabase.from("user_prefs").upsert({
     user_id: session.user.id,
-    prefs,
-    manual_events: loadManualEvents(),
-    updated_at: prefs.updated_at,
+    prefs: nextPrefs,
+    manual_events: manualFn ? manualFn(manual) : manual,
+    updated_at: nextPrefs.updated_at,
   });
   if (error) throw error;
 }
 
-let syncTimer = null;
+const contentOf = (prefs, manual) => JSON.stringify([{ ...prefs, updated_at: null }, manual]);
 
-function scheduleSupabaseSync(prefs) {
-  clearTimeout(syncTimer);
-  syncTimer = setTimeout(() => {
-    pushToSupabase(prefs).catch((err) => console.error("Supabase push failed:", err));
-  }, 2000);
+/** Logout: this device must not keep the account's favorites/exclusions around. */
+export function clearPersonalCache() {
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(MANUAL_EVENTS_KEY);
 }
 
 /**
- * Pure decision function for reconcileSupabaseSync — no localStorage/network
- * I/O, so it's directly unit-testable without mocking either (state.test.js).
- * @param {{ localIsFresh: boolean, local: object, remote: {prefs: object, manual_events: object[]}|null }} args
- * @returns {"seed"|"pull"|"push"|"none"}
- */
-export function decideSyncAction({ localIsFresh, local, remote }) {
-  if (!remote) return "seed"; // nothing in the cloud yet — genuinely nothing to lose, seed it from local (empty or not)
-
-  // 2026-09-25 real bug (Max: "我指的是收藏的資料被清空喔"): a device with no
-  // saved prefs at all must NEVER be allowed to win the timestamp race below
-  // — defaultPrefs() stamps updated_at as "right now" even for a state that
-  // was never actually edited, so it'll almost always look "newer" than a
-  // real remote save from the past and silently overwrite it. Always pull
-  // in this case, never push.
-  if (localIsFresh) return "pull";
-
-  const remoteTime = new Date(remote.prefs.updated_at).getTime();
-  const localTime = new Date(local.updated_at).getTime();
-  if (remoteTime > localTime) return "pull";
-  if (localTime > remoteTime) return "push";
-  return "none";
-}
-
-/**
- * Call once per page load. Not authenticated → no-op (matches the old Gist
- * "not_connected" early return, never makes a network request). First login
- * ever (no remote row yet) → seed the remote row from local data instead of
- * requiring a separate "migrate" step. Otherwise pulls the remote bundle and
- * keeps whichever side is newer; pushes back if local won so the two sides
- * converge. Never throws — any network failure just means "stay on local",
- * same spirit as AC-65's negative test for the old mechanism.
+ * Cloud wins: pull the user's row into the local cache (call on page load and
+ * when a hidden tab becomes visible again). Never throws — a network failure
+ * just means "stay on the cached copy".
  * @returns {{status: "not_authenticated"|"error"|"ok", changed: boolean}}
+ *   changed = the cloud copy differs from what this page was rendered with.
  */
 export async function reconcileSupabaseSync() {
   const session = await getSession();
   if (!session) return { status: "not_authenticated", changed: false };
 
-  const localIsFresh = !hasStoredPrefs(); // nothing saved on this device yet — see decideSyncAction's comment
-  const local = loadPrefs();
+  await flushPending(); // our own unsent changes must reach the cloud before we read it back
   let remote;
   try {
-    const { data, error } = await supabase
-      .from("user_prefs")
-      .select("prefs, manual_events")
-      .eq("user_id", session.user.id)
-      .maybeSingle();
-    if (error) throw error;
-    remote = data;
+    remote = await fetchRemote(session.user.id);
   } catch (err) {
-    console.error("Supabase sync failed, staying on local data:", err);
+    console.error("Supabase sync failed, staying on cached data:", err);
     return { status: "error", changed: false };
   }
 
-  const action = decideSyncAction({ localIsFresh, local, remote });
-  if (action === "seed" || action === "push") {
-    await pushToSupabase(local).catch((err) => console.error("Supabase push failed:", err));
+  if (!remote) {
+    // First login ever: seed the cloud from whatever this device already has.
+    if (hasStoredPrefs()) await queuePush({});
     return { status: "ok", changed: false };
   }
-  if (action === "pull") {
-    persistManualEvents(remote.manual_events ?? []);
-    persistPrefs(remote.prefs);
-    return { status: "ok", changed: true };
-  }
-  return { status: "ok", changed: false };
-}
 
-// --- Backup export/import (FR-63/64) -----------------------------------
-
-export function exportPrefsAsJson(prefs) {
-  return JSON.stringify(prefs, null, 2);
-}
-
-export function importPrefsFromJson(json) {
-  const parsed = JSON.parse(json);
-  return savePrefs({ ...defaultPrefs(), ...parsed, last_backup_at: new Date().toISOString() });
+  const prefs = { ...defaultPrefs(), ...remote.prefs };
+  const manual = remote.manual_events ?? [];
+  const changed = contentOf(loadPrefs(), loadManualEvents()) !== contentOf(prefs, manual);
+  persistPrefs(prefs);
+  persistManualEvents(manual);
+  return { status: "ok", changed };
 }
