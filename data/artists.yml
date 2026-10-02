@@ -2012,3 +2012,19 @@
 - canonical: 水源引流計劃
   aliases: []
   tags_origin_default: 本地  # iNDIEVOX 活動頁查證：拼盤 lineup 為台灣樂團白日夢廚房 Daydream Kitchen（台中）、雨國 Kingdom of Rain（台北）、過敏症候群 The Allergics，比照拼盤「多位音樂人一律本地」規則登記品牌名
+# 2026-10-02：每日抓取查證並補齊的 needs-review 項目
+- canonical: FORD TRIO
+  aliases: []
+  tags_origin_default: 亞洲其他  # iNDIEVOX 活動頁查證（indievox.com/activity/detail/26_iv0423884）：泰國樂團，2017年成立，融合Funk/爵士/泰國東北Molam傳統音樂，自稱「Neo Thai Funk」
+- canonical: 晚風 Night Winds
+  aliases: []
+  tags_origin_default: 本地  # iNDIEVOX 活動頁查證（indievox.com/activity/detail/26_iv04239c2）：台中迴響音樂展演空間拼盤演出，lineup 為邱悊、閒置村民 IdlE、沈む光、鱷魚戰隊Crocodile Squad，查無海外線索，標題本身無單一演出者名稱，比照「企劃/系列名稱」規則登記
+- canonical: 客家音樂局
+  aliases: []
+  tags_origin_default: 本地  # iNDIEVOX 活動頁查證（indievox.com/activity/detail/26_iv0423766）：客語音樂拼盤系列品牌，Vol.1 lineup 為陳瑋儒、江晟榮、NGAI客家女團、賈斯汀，均為台灣客語音樂人，比照「企劃/系列名稱」規則登記
+- canonical: 超級邊Super Band
+  aliases: []
+  tags_origin_default: 本地  # iNDIEVOX 活動頁查證（indievox.com/activity/detail/26_iv0422821）：拼盤演唱會品牌名，lineup 為壞蛋王・老五、草包小姐、拿照片出來、獵星計畫，均為台灣獨立音樂人，比照「企劃/系列名稱」規則登記
+- canonical: 關渡藝術節
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 活動頁查證（opentix.life/event/2102675383824199681）：國立臺北藝術大學主辦的年度藝術節，本場演出者為該校傳音系師生，比照「企劃/系列名稱」規則登記品牌名
