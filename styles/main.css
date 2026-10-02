@@ -349,15 +349,6 @@ button {
   padding: 2px 8px;
 }
 
-.badge-updated {
-  font-size: 10px;
-  font-weight: 700;
-  background: var(--yellow);
-  color: var(--yellow-ink);
-  border-radius: var(--radius-pill);
-  padding: 2px 8px;
-}
-
 .badge-pinned {
   font-size: 10px;
   font-weight: 700;

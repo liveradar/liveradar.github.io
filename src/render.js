@@ -129,8 +129,6 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
   const daysUntilLine =
     mode === "favorites" ? `<div style="font-size:12px;font-weight:700;color:var(--coral-ink);">距今 ${daysUntil(event.date)} 天</div>` : "";
   const newBadge = showNewBadge ? `<span class="badge-new">新</span>` : "";
-  const updatedBadge =
-    mode === "favorites" && event.updated_fields?.length ? `<span class="badge-updated">已更新</span>` : "";
 
   // 2026-09-23 (Max, 岡崎體育場次真的是因為取消才沒在賣票，不是單純賣光):
   // `status === "sold_out"` covers both "actually sold out" and "sales
@@ -173,7 +171,6 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
           <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
             ${newBadge}
             <div class="event-title">${escapeHtml(displayTitle(event))}</div>
-            ${updatedBadge}
           </div>
           <div style="display:flex;gap:2px;flex:0 0 auto;">
             ${actionButtons}
@@ -182,11 +179,6 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
         ${daysUntilLine}
         ${tags ? `<div class="tag-row">${tags}</div>` : ""}
         ${pinnedBadge}
-        ${
-          mode === "favorites" && event.updated_fields?.length
-            ? `<a href="#" style="font-size:12px;font-weight:700;" data-updated-fields="${escapeHtml(event.updated_fields.join("、"))}">查看變更內容 →</a>`
-            : ""
-        }
         ${sessionsLine ? `<div class="event-meta">${sessionsLine}</div>` : ""}
         <div class="event-meta">${metaText}</div>
         ${onSaleBadge}

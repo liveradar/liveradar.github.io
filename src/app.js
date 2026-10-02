@@ -9,8 +9,7 @@
  * M6: 新上架 (new.html) reads first_seen_at (via diff.mjs's reconciliation in
  *   events.json) instead of a separate digest fetch — digest.json exists for
  *   the pipeline's own bookkeeping, but the frontend only needs what's
- *   already on each event. Also wires FR-34's "已更新" badge on favorites,
- *   now that diff.mjs actually sets updated_fields.
+ *   already on each event. (FR-34's "已更新" badge was removed 2026-10-02).
  * M7: 手動新增場次 (add.html) actually saves to localStorage and shows up
  *   everywhere else — loadEvents() merges in state.js's manual events,
  *   dropping any whose id a real scrape has since produced (AC-17).
@@ -908,13 +907,6 @@ async function initFavorites(container) {
     wireTicketButtons(container);
     wireRemindButtons(container);
     wireFavoriteToggle(container, render);
-
-    container.querySelectorAll("[data-updated-fields]").forEach((link) => {
-      link.addEventListener("click", (ev) => {
-        ev.preventDefault();
-        alert(`更新內容：${link.dataset.updatedFields}`);
-      });
-    });
   }
 
   document.querySelectorAll("[data-fav-view]").forEach((btn) => {
