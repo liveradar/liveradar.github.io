@@ -1,6 +1,6 @@
 # LiveRadar
 
-個人用的獨立/地下音樂演出雷達。詳細需求見 [`LIVERADAR-SRS.md`](./LIVERADAR-SRS.md)，技術架構見 [`LIVERADAR-SPEC.md`](./LIVERADAR-SPEC.md)。
+個人用的演出雷達：以獨立/地下音樂為主，也收音樂劇、舞台劇、喜劇（2026-10-02 起）。詳細需求見 [`LIVERADAR-SRS.md`](./LIVERADAR-SRS.md)，技術架構見 [`LIVERADAR-SPEC.md`](./LIVERADAR-SPEC.md)。
 
 ## 目前進度
 

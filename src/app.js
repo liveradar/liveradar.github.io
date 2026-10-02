@@ -254,7 +254,7 @@ function wireViewFilterChips(events, getFilters, onChange) {
       typeChip.setAttribute("aria-pressed", String(!!f.type?.length));
     }
     if (originChip) {
-      originChip.textContent = chipLabel(f.origin, originFilterOptions(events), "音樂人地區");
+      originChip.textContent = chipLabel(f.origin, originFilterOptions(events), "演出者地區");
       originChip.setAttribute("aria-pressed", String(!!f.origin?.length));
     }
     priceChip.textContent = chipLabel(f.priceMax, priceFilterOptions(), "價格");
@@ -280,7 +280,7 @@ function wireViewFilterChips(events, getFilters, onChange) {
     });
   });
   originChip?.addEventListener("click", () => {
-    openFilterSheet("篩選音樂人地區", originFilterOptions(events), getFilters().origin ?? [], (values) => {
+    openFilterSheet("篩選演出者地區", originFilterOptions(events), getFilters().origin ?? [], (values) => {
       onChange({ ...getFilters(), origin: values });
       refreshLabels();
     });
