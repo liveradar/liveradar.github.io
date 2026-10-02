@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseTixcraftDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, parseOnSaleAt, isGeneralTicketLottery, guessTagsType, findNameIndex } from "./normalize.mjs";
+import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseTixcraftDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, parseOnSaleAt, isGeneralTicketLottery, guessTagsType, findNameIndex, exclusionReason } from "./normalize.mjs";
 
 const artistsYml = [{ canonical: "深海系樂團", aliases: [], tags_origin_default: "本地" }];
 
@@ -572,6 +572,15 @@ test("guessTagsType (2026-10-01): a tour title is no longer its own 巡迴 type 
   assert.deepEqual(guessTagsType("【第一場】伊波杏樹 ASIA FAN MEETING TOUR 台北站", 1), ["見面會"]);
 });
 
+test("guessTagsType (2026-10-02 real cases from KKTIX comedyclub): comedy titles are 喜劇, not noise and not 拼盤", () => {
+  assert.equal(exclusionReason({ title_raw: "漫才歐噴麥" }), null);
+  assert.deepEqual(guessTagsType("漫才歐噴麥", 0), ["喜劇"]);
+  assert.deepEqual(guessTagsType("笑話一番炸 單口喜劇拼盤秀 Vol.7", 0), ["喜劇"]);
+  assert.deepEqual(guessTagsType("CHANGHUA COMEDY LIVE", 0), ["喜劇"]);
+  assert.deepEqual(guessTagsType("康康SHOW-色·可餐", 1), ["喜劇"]);
+  assert.deepEqual(guessTagsType("Des Bishop Live in Taipei", 1), ["喜劇"]);
+});
+
 test("normalize(): non-music noise (sports tickets, courses, exhibitions, comedy, podcasts) is excluded outright, not sent to needs-review", () => {
   const yml = [];
   const cases = [
@@ -580,7 +589,6 @@ test("normalize(): non-music noise (sports tickets, courses, exhibitions, comedy
     "2026 摔角兄弟會-高雄場 Wrestling Brotherhood",
     "Feedback Fascial Tools 筋膜刀專業技術課程(台北7/4-7/5)",
     "CHIIKAWA DAYS 台北特展（一般全票）",
-    "Des Bishop Live in Taipei",
     "2026 法白 13 週年 LIVE PODCAST SHOW｜建國派對",
     // 2026-09-22, KKTIX's sitewide category-browse batch:
     "1500 SOUND ACADEMY 聲量音創學院 歌唱體驗課",
@@ -596,8 +604,6 @@ test("normalize(): non-music noise (sports tickets, courses, exhibitions, comedy
     "2026【雲耀星聲】歌唱選秀大賞",
     "115年度中彰投地區校園音樂藝術交流晚會【1F劃位座釋票】",
     "《洛基恐怖秀》Tim Curry致敬之夜 Rocky Horror Picture Show：a tribute to Tim Curry",
-    "【10/13】百靈果《給約嗎》全亞洲最真實的矇眼約會",
-    "康康SHOW-色·可餐",
     // 2026-09-25, KKTIX Strategy 4 (untagged/其他 listing) turned up SEO/
     // content-marketing spam accounts, real examples confirmed live:
     "Affordable SEO Services for Small Businesses: A Complete Guide to Growing Locally and Online",

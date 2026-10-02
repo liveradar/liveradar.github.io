@@ -74,7 +74,7 @@ async function checkOne(url, browser) {
     return;
   }
   const fresh = result.event;
-  if (fresh.headliners.length === 0) console.log("  → 會進待整理：artist_unrecognized（場次本身仍會上架）");
+  if (fresh.headliners.length === 0 && !fresh.category) console.log("  → 會進待整理：artist_unrecognized（場次本身仍會上架）");
 
   const stored = storedEvents.find((e) =>
     e.sources.some((s) => s.name === raw.source_name && s.raw_id === raw.raw_id),

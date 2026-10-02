@@ -44,6 +44,11 @@ export function isKidsProgram(categories) {
   return Array.isArray(categories) && categories.some((c) => c.startsWith("親子-"));
 }
 
+// 2026-10-02 (Max: 舞台劇 had 漫才 in it, wants comedy as its own 喜劇 type):
+// comedy programs are also tagged 戲劇-現代戲劇, but OPENTIX gives them a
+// second category too, so 喜劇 is checked first.
+const COMEDY_CATEGORIES = ["戲劇-漫才/脫口秀", "戲劇-曲藝/相聲"];
+
 /**
  * 音樂劇 wins outright over 舞台劇 when a program is dual-tagged (e.g.
  * "寶塚OG夢幻舞台" carries both 戲劇-音樂劇 and 音樂-流行音樂) — a simple,
@@ -53,6 +58,7 @@ export function isKidsProgram(categories) {
  */
 export function classifyCategory(categories) {
   if (!Array.isArray(categories)) return undefined;
+  if (categories.some((c) => COMEDY_CATEGORIES.includes(c))) return "喜劇";
   if (categories.includes("戲劇-音樂劇")) return "音樂劇";
   if (categories.includes("戲劇-現代戲劇")) return "舞台劇";
   return undefined;

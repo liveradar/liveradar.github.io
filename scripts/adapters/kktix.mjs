@@ -98,7 +98,15 @@ const ORG_PAGE_VENUES = [
   "baodaorecords",
   "originalive-wwr",
   "jmgroup",
+  "comedyclub",
 ];
+
+// 2026-10-02 (Max: OPENTIX comedy comes in, so KKTIX comedy should too):
+// Comedy Plus 卡米地's org (comedyclub) is all comedy, but many titles never
+// say so ("《菜冠雙Talk》", "THE CUT"), so its events are tagged by org host
+// rather than by title keyword. Being a `category` also keeps these
+// unrecognized-performer events out of needs-review, same as theater.
+const COMEDY_ORG_RE = /^https?:\/\/comedyclub\.kktix\.cc\//i;
 
 // 2026-09-17: kktix.com/events?search=... returns a genuine Cloudflare JS
 // challenge (403, <title>Just a moment...</title>) to plain HTTP clients —
@@ -331,7 +339,10 @@ async function fetchOrgListing(org) {
   // every org page checked, AND doesn't match the "曾舉辦的活動" (past events)
   // section, which uses different markup — no [href*="/events/"] filter needed
   // beyond that, but kept for clarity against unrelated links elsewhere on the page.
-  $("li.clearfix h2 a[href*='/events/']").each((_, el) => {
+  // 2026-10-02: comedyclub uses KKTIX's newer org template, where upcoming
+  // events are .ktx-events-recent .events-list-item (past ones sit in
+  // .ktx-events-history, so that section is left out).
+  $("li.clearfix h2 a[href*='/events/'], .ktx-events-recent .events-list-item h2 a[href*='/events/']").each((_, el) => {
     const href = $(el).attr("href");
     // Strip query strings like the search path already does (line ~86) — an
     // unstripped tracking param here pollutes raw_id, since fetchEventDetail
@@ -763,7 +774,10 @@ export async function fetchEventDetail(url, browser, knownRegisterStatus) {
   // (isRedundantGroupHub) once it's known whether those children really did
   // turn up as their own results this run.
   const _childIds = findChildEventIds($, url);
-  return { raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, register_status, source_name: name, _childIds };
+  return {
+    raw_id, url, title_raw, date_raw, venue_raw, tickets_raw, register_status, source_name: name, _childIds,
+    ...(COMEDY_ORG_RE.test(url) ? { category: "喜劇" } : {}),
+  };
 }
 
 /**

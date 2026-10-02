@@ -64,6 +64,16 @@ const TYPE_KEYWORDS = [
   ["火球祭", "音樂祭"],
   ["秋夜爵醒祭", "音樂祭"],
   ["FRIENDS MEETING", "音樂祭"], // self-describes as "一場音樂節" in its own copy but the title itself never spells out 音樂祭/音樂節
+  // 2026-10-02 (Max): comedy is its own 喜劇 type now, not noise (des bishop
+  // / 康康SHOW used to be excluded). Ahead of 拼盤 so "單口喜劇拼盤秀" is 喜劇.
+  ["漫才", "喜劇"],
+  ["脫口秀", "喜劇"],
+  ["相聲", "喜劇"],
+  ["單口喜劇", "喜劇"],
+  ["stand-up", "喜劇"],
+  ["comedy", "喜劇"],
+  ["des bishop", "喜劇"],
+  ["康康SHOW", "喜劇"],
   ["見面會", "見面會"],
   ["FANDAY", "見面會"], // English equivalent (GMMTV FANDAY)
   ["FAN MEETING", "見面會"], // real case: 伊波杏樹 ASIA FAN MEETING TOUR used to land on 巡迴
@@ -763,7 +773,6 @@ const NOISE_KEYWORDS = [
   "蛋黃酥", // a pastry pre-order
   "筋膜刀", "專業技術課程", "詞曲創作教室", // paid courses/workshops, not performances
   "chiikawa", // character-brand exhibition
-  "des bishop", // stand-up comedy, not music
   "podcast", // podcast anniversary live shows — spoken word, not music
   "紙博", // "紙博 in 台北" — Japanese paper-goods/stationery fair, not a concert (2026-09-22, verified via ticketplus.com.tw event page)
   // 2026-09-22, KKTIX's sitewide category-browse turned up a batch of these —
@@ -780,8 +789,7 @@ const NOISE_KEYWORDS = [
   "歌唱選秀大賞", // a singing-competition/talent-contest show, not a specific artist's gig
   "校園音樂藝術交流晚會", // a student-association campus variety night (anti-drug/anti-bullying awareness programming, unnamed performers) — not a touring artist's show. NOISE_KEYWORDS is a plain substring match (see isNonMusicNoise below), not a regex — this must be the literal phrase, not a wildcard pattern
   "洛基恐怖秀", // Rocky Horror Picture Show fan-run screenings with live shadowcast actors — a movie-screening/cosplay event, not a music concert, despite the source material being a "rock musical"
-  "百靈果", // 百靈果 News is a podcast brand; this is a live podcast blind-dating show, spoken word not music (same category as the existing "podcast" keyword, kept separate because this title doesn't contain the English word)
-  "康康SHOW", // 康康's stand-up comedy show, same category as "des bishop" above
+  "實體課程", // 2026-10-02: comedyclub's "迷走大學 實體課程" course listings
   // 2026-09-24 batch (手動補跑排程當天發現，見 HANDOFF）：
   "投資心法", // a financial-professor investment seminar (FANSI GO), not a performance
   "尾牙同樂會", // a corporate year-end banquet listing (Ticket Plus), not a public concert

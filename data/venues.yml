@@ -13,6 +13,8 @@
 # traditional-character entry is redundant and was removed once that
 # normalization landed (2026-09-17 review).
 
+- match: "Comedy Plus 卡米地"  # 2026-10-02: Comedy Plus 卡米地＋ (台北市中山區復興北路480號); some comedyclub listings give the venue name with no address
+  city: 台北
 - match: "基隆表演藝術中心"
   city: 基隆  # 2026-09-29 排程查 city:未知 清單發現：OPENTIX 3 場都在這個場館，場館名稱本身就含城市名「基隆」，之前沒收錄過
 - match: "高雄國家體育場"

@@ -42,6 +42,12 @@ test("isKidsProgram: a program with no 親子-* category at all is not a kids pr
   assert.equal(isKidsProgram(undefined), false);
 });
 
+test("classifyCategory real cases (真・春雨漫才專場, 今夜無法說相聲之大師來了): 漫才/脫口秀 or 曲藝/相聲 wins over 現代戲劇 -> 喜劇", () => {
+  assert.equal(classifyCategory(["戲劇-現代戲劇", "戲劇-漫才/脫口秀"]), "喜劇");
+  assert.equal(classifyCategory(["戲劇-戲曲", "戲劇-曲藝/相聲", "戲劇-現代戲劇"]), "喜劇");
+  assert.equal(classifyCategory(["戲劇-現代戲劇"]), "舞台劇");
+});
+
 test("classifyCategory real case (寶塚OG夢幻舞台, dual-tagged 戲劇-音樂劇 + 音樂-流行音樂): 音樂劇 wins outright", () => {
   assert.equal(classifyCategory(["戲劇-音樂劇", "音樂-流行音樂"]), "音樂劇");
 });

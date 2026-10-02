@@ -152,7 +152,7 @@ const CITY_DISPLAY_ORDER = [
 const PRICE_PRESETS = [500, 1000, 2000, 3000];
 // Fixed display order, same spirit as CITY_DISPLAY_ORDER above — not every
 // value necessarily exists in the current data, filtered down per-call.
-const TYPE_DISPLAY_ORDER = ["專場", "拼盤", "音樂祭", "見面會", "簽唱會", "音樂劇", "舞台劇", "古典"];
+const TYPE_DISPLAY_ORDER = ["專場", "拼盤", "音樂祭", "見面會", "簽唱會", "音樂劇", "舞台劇", "喜劇", "古典"];
 // 2026-09-23 (Max: "日韓分類可以分開成日本韓國兩個類別"): split what used
 // to be one combined "日韓" bucket into separate 日本/韓國 filter chips —
 // every artists.yml entry that was tagged 日韓 got individually
