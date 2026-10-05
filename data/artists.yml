@@ -2028,3 +2028,46 @@
 - canonical: 關渡藝術節
   aliases: []
   tags_origin_default: 本地  # OPENTIX 活動頁查證（opentix.life/event/2102675383824199681）：國立臺北藝術大學主辦的年度藝術節，本場演出者為該校傳音系師生，比照「企劃/系列名稱」規則登記品牌名
+# 2026-10-05：每日抓取查證並補齊的 needs-review 項目
+- canonical: LAWA
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：新竹五峰出身泰雅族創作歌手，首張專輯《活著的副作用》，VERSE／StreetVoice 介紹頁確認在台灣原創音樂圈成名；售票頁 thewalllivehouse.kktix.cc/events/lawa2026
+- canonical: Riria.
+  aliases: ["riria"]
+  tags_origin_default: 日本  # WebSearch 查證：日本女性創作歌手りりあ。，2019年起以素顏創作走紅，Wikipedia「Riria Kojima」條目及日本 TuneCore 頁面確認；售票頁 offtimemusic.kktix.cc/events/riria2027《Riria. Live in Taipei 2027》
+- canonical: 康康
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：台灣知名主持人／歌手（本名康晉榮）；售票頁 billboardlivetp.kktix.cc/events/46ce60a8 確認為該場 Billboard Live Taipei 演出者
+- canonical: LUCK LIFE
+  aliases: []
+  tags_origin_default: 日本  # WebSearch 查證：日本搖滾樂團，2016年以動畫片尾曲出道，長年為多部動畫獻唱；售票頁 welcome-music.kktix.cc/events/549224af《LUCK LIFE TOUR 2026 "Hanashi no Tsuzuki" in TAIWAN》確認為該團台灣巡演場次
+- canonical: Blue 25th Anniversary Tour
+  # 不用裸詞「Blue」當 canonical：撞到既有的「can't be blue」「BLU-SWING」別名
+  # 「Across the Blue」（matchArtists 子字串碰撞防護測試會抓到），改用完整巡演
+  # 名稱，一樣會出現在標題文字裡。
+  aliases: []
+  tags_origin_default: 歐美  # WebSearch 查證：英國男子組合 Blue（成員 Simon Webbe／Duncan James／Antony Costa／Lee Ryan）25週年巡演，同巡演另有香港／曼谷／馬尼拉站；售票頁 tixcraft.com/activity/detail/27_bluekh《Blue 25th Anniversary Tour in Kaohsiung》
+- canonical: 虎山音樂祭
+  aliases: ["Tiger Mountain Ramble"]
+  tags_origin_default: 本地  # WebSearch 查證：微遠基金會主辦的台北獨立音樂祭，陣容混合日本／英國／捷克等多國樂團與DJ，比照「火球祭」做法以音樂節品牌名登記為本地
+- canonical: SHADOWS
+  aliases: []
+  tags_origin_default: 日本  # WebSearch／售票頁查證（indievox.com/activity/detail/26_iv04243d9）：日本 Loud Rock 樂團，由日本 Loud Rock 先驅 FACT 成員重組而成，《SHADOWS x ENTH Presents. -EAZY- WINTER 2026》首度來台巡演
+- canonical: ENTH
+  aliases: []
+  tags_origin_default: 日本  # WebSearch／售票頁查證（indievox.com/activity/detail/26_iv04243d9）：日本名古屋 Melodic Punk／Hardcore 樂團，曾登上 FUJI ROCK、DEAD POP FESTiVAL，與上方 SHADOWS 同場巡演
+- canonical: 等阮返來
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：台中在地台語搖滾樂團，2021臺中原創音樂大賽銀獎；售票頁 indievox.com/activity/detail/27_iv042268f
+- canonical: WAKER
+  aliases: []
+  tags_origin_default: 韓國  # WebSearch 查證：韓國男團，Howling Entertainment，2024年以《Mission of School》出道；售票頁 ticketplus.com.tw/activity/dd5b73a03eb162a3e38420b2b2a0b34b《WAKER FANCON IN TAIPEI》確認
+- canonical: TOP女神台北感謝祭
+  aliases: []
+  tags_origin_default: 日本  # WebSearch 查證：台日合辦（Ours HD Taiwan × 日本 Pierrot）、集結多位日本AV女優的見面會企劃系列，比照 LISANI 例外（外國品牌、演出者同一國籍）歸類日本；注意：本次 ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24 的「粉絲互動卡預購 (11/7)」「(11/8)」標題本身未出現企劃名，matchArtists 比對不到，仍會留在 needs-review
+- canonical: 田馥甄
+  aliases: []
+  tags_origin_default: 本地  # 台灣歌手（前 S.H.E 成員），《要去什麼地方》2026台北小巨蛋演唱會；售票頁 ticketplus.com.tw/activity/afaf206f48c75998345655952851c853，標題本身即含藝人全名
+- canonical: MieAyaMyyuChanya
+  aliases: []
+  tags_origin_default: 亞洲其他  # WebSearch 查證：證據薄弱，僅查到 X（推特）與泰國媒體 Kom Chad Luek 的提及，顯示 Mie／Aya／Myyu／Chanya 四人為泰國偶像／女團成員，查無官方團名或正式出道資訊，信心中等，列入報告需確認段落

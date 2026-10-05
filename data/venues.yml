@@ -133,3 +133,12 @@
 # 2026-10-01，查 city:未知 清單查證補上：
 - match: "Live House D"
   city: 台北  # WebSearch 查證：臺北流行音樂中心 Live House D，台北市南港區市民大道八段99號
+# 2026-10-05，查 city:未知 清單查證補上：
+- match: "灣仔海濱活動空間"
+  city: 香港  # 場館原文地名「灣仔」即香港灣仔區，海外場次
+- match: "二三喜劇"
+  city: 台北  # WebSearch 查證：台北市中山區林森北路286號B1（Two Three Comedy Club）
+- match: "微遠虎山"
+  city: 台北  # WebFetch 活動頁查證：頁面標註「台北微遠虎山」，為虎山音樂祭場地
+- match: "晚風 Night Winds"
+  city: 台中  # 標題本身無場館欄位文字，WebFetch 活動頁查到場館為「迴響音樂展演空間」（已有條目對應台中），改用系列品牌名比對（同 X-Formosa 做法）
