@@ -2064,10 +2064,10 @@
   tags_origin_default: 韓國  # WebSearch 查證：韓國男團，Howling Entertainment，2024年以《Mission of School》出道；售票頁 ticketplus.com.tw/activity/dd5b73a03eb162a3e38420b2b2a0b34b《WAKER FANCON IN TAIPEI》確認
 - canonical: TOP女神台北感謝祭
   aliases: []
-  tags_origin_default: 日本  # WebSearch 查證：台日合辦（Ours HD Taiwan × 日本 Pierrot）、集結多位日本AV女優的見面會企劃系列，比照 LISANI 例外（外國品牌、演出者同一國籍）歸類日本；注意：本次 ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24 的「粉絲互動卡預購 (11/7)」「(11/8)」標題本身未出現企劃名，matchArtists 比對不到，仍會留在 needs-review
+  tags_origin_default: 日本  # WebSearch 查證：台日合辦（Ours HD Taiwan × 日本 Pierrot）成人展見面會企劃系列，集結多位日本AV女優，Max 確認性質為成人展見面會；比照 LISANI 例外（外國品牌、演出者同一國籍）歸類日本；注意：本次 ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24 的「粉絲互動卡預購 (11/7)」「(11/8)」標題本身未出現企劃名，matchArtists 比對不到，仍會留在 needs-review
 - canonical: 田馥甄
   aliases: []
   tags_origin_default: 本地  # 台灣歌手（前 S.H.E 成員），《要去什麼地方》2026台北小巨蛋演唱會；售票頁 ticketplus.com.tw/activity/afaf206f48c75998345655952851c853，標題本身即含藝人全名
 - canonical: MieAyaMyyuChanya
   aliases: []
-  tags_origin_default: 亞洲其他  # WebSearch 查證：證據薄弱，僅查到 X（推特）與泰國媒體 Kom Chad Luek 的提及，顯示 Mie／Aya／Myyu／Chanya 四人為泰國偶像／女團成員，查無官方團名或正式出道資訊，信心中等，列入報告需確認段落
+  tags_origin_default: 亞洲其他  # WebSearch 查證（X／泰國媒體 Kom Chad Luek）＋ Max 確認：泰國偶像／女團成員（Mie／Aya／Myyu／Chanya 四人），查無官方團名或正式出道資訊

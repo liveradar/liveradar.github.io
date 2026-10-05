@@ -18,6 +18,15 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-05T02:21:33.672Z"
     },
+    "FANSI GO|920001": {
+      "source": "FANSI GO",
+      "raw_id": "920001",
+      "title_raw": "MOB PARTY 26",
+      "url": "https://go.fansi.me/events/920001",
+      "venue_raw": "Red CNX",
+      "reason": "outside_taiwan",
+      "checked_at": "2026-10-05T03:07:50.273Z"
+    },
     "ibon|39869_202610031030": {
       "source": "ibon",
       "raw_id": "39869_202610031030",

@@ -25798,45 +25798,6 @@
       ]
     },
     {
-      "title_raw": "MOB PARTY 26",
-      "headliners": [
-        "MOB PARTY"
-      ],
-      "lineup": [
-        "MOB PARTY"
-      ],
-      "is_festival": false,
-      "venue": "Red CNX",
-      "city": "未知",
-      "date": "2026-11-28",
-      "time": "18:00",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://go.fansi.me/events/920001",
-      "first_seen_at": "2026-09-22T06:14:51.742Z",
-      "updated_at": "2026-09-22T06:14:51.742Z",
-      "sources": [
-        {
-          "name": "FANSI GO",
-          "url": "https://go.fansi.me/events/920001",
-          "raw_id": "920001"
-        }
-      ],
-      "id": "735126600cf37be5",
-      "merged_ids": [
-        "735126600cf37be5"
-      ]
-    },
-    {
       "title_raw": "Blood As Ink - 以血為墨",
       "headliners": [
         "Blood As Ink"

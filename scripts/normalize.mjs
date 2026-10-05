@@ -878,8 +878,13 @@ function isNonMusicNoise(titleRaw) {
 // comment block's own history notes above, never actually added to the
 // regex itself — Yuki Kajiura's and YUURI's Hong Kong shows were genuinely
 // live on the production site with city:未知, not caught by anything.
+// 2026-10-05（Max 回報）：FANSI GO「MOB PARTY 26」場地欄位是「Red CNX」——
+// 查證後是泰國清邁的夜店（12 Huay Kaew Rd, Chiang Mai），之前曾被誤判成本地
+// 派對品牌（見 artists.yml「MOB PARTY」條目 2026-09-25 的註解，當時沒注意
+// 場地在國外）。跟麥花臣/AsiaWorld-Expo 一樣是沒有國家關鍵字可用的具體場館
+// 名稱，直接列場館名；順便補泰國的國家/城市關鍵字，之後同系列海外場次能一併擋到。
 const OUTSIDE_TAIWAN_VENUE_RE =
-  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland|麥花臣|MacPherson ?Stadium|亞洲國際博覽館|AsiaWorld[- ]?Expo|日本|東京|Tokyo|大阪|Osaka|名古屋|Nagoya|Japan|首爾|Seoul|KDB ?生命/i; // 首爾/KDB 生命塔 added 2026-09-24: 黃致列簽名會 was sold in TWD to Taiwan fans but held in Seoul
+  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland|麥花臣|MacPherson ?Stadium|亞洲國際博覽館|AsiaWorld[- ]?Expo|日本|東京|Tokyo|大阪|Osaka|名古屋|Nagoya|Japan|首爾|Seoul|KDB ?生命|泰國|Thailand|清邁|Chiang ?Mai|曼谷|Bangkok|Red ?CNX/i; // 首爾/KDB 生命塔 added 2026-09-24: 黃致列簽名會 was sold in TWD to Taiwan fans but held in Seoul
 
 function isOutsideTaiwanVenue(venueRaw) {
   return OUTSIDE_TAIWAN_VENUE_RE.test(venueRaw ?? "");
