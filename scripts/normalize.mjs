@@ -65,7 +65,7 @@ const TYPE_KEYWORDS = [
   ["秋夜爵醒祭", "音樂祭"],
   ["FRIENDS MEETING", "音樂祭"], // self-describes as "一場音樂節" in its own copy but the title itself never spells out 音樂祭/音樂節
   // 2026-10-02 (Max): comedy is its own 喜劇 type now, not noise (des bishop
-  // / 康康SHOW used to be excluded). Ahead of 拼盤 so "單口喜劇拼盤秀" is 喜劇.
+  // used to be excluded). Ahead of 拼盤 so "單口喜劇拼盤秀" is 喜劇.
   ["漫才", "喜劇"],
   ["脫口秀", "喜劇"],
   ["相聲", "喜劇"],
@@ -73,7 +73,6 @@ const TYPE_KEYWORDS = [
   ["stand-up", "喜劇"],
   ["comedy", "喜劇"],
   ["des bishop", "喜劇"],
-  ["康康SHOW", "喜劇"],
   ["見面會", "見面會"],
   ["FANDAY", "見面會"], // English equivalent (GMMTV FANDAY)
   ["FAN MEETING", "見面會"], // real case: 伊波杏樹 ASIA FAN MEETING TOUR used to land on 巡迴

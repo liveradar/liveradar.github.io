@@ -577,8 +577,14 @@ test("guessTagsType (2026-10-02 real cases from KKTIX comedyclub): comedy titles
   assert.deepEqual(guessTagsType("漫才歐噴麥", 0), ["喜劇"]);
   assert.deepEqual(guessTagsType("笑話一番炸 單口喜劇拼盤秀 Vol.7", 0), ["喜劇"]);
   assert.deepEqual(guessTagsType("CHANGHUA COMEDY LIVE", 0), ["喜劇"]);
-  assert.deepEqual(guessTagsType("康康SHOW-色·可餐", 1), ["喜劇"]);
   assert.deepEqual(guessTagsType("Des Bishop Live in Taipei", 1), ["喜劇"]);
+});
+
+// 2026-10-05 (Max): two different 康康 exist (the veteran singer/host vs. 達康.com's
+// comedian), so the title alone can't say comedy — 康康SHOW-色·可餐 at Billboard
+// Live is a concert + dinner show by the singer, a 專場.
+test("guessTagsType: 康康SHOW-色·可餐 is a solo show, not 喜劇", () => {
+  assert.deepEqual(guessTagsType("康康SHOW-色·可餐", 1), ["專場"]);
 });
 
 test("normalize(): non-music noise (sports tickets, courses, exhibitions, comedy, podcasts) is excluded outright, not sent to needs-review", () => {
