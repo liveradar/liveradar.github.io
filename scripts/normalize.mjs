@@ -1064,6 +1064,20 @@ export function resolveStoredCity(event, venuesYml) {
   return cityFromAddress(event.title_raw ?? "") ?? parseTixcraftVenue(event.title_raw ?? "", venuesYml).city ?? null;
 }
 
+// Hand-picked date for one specific listing, keyed "source|raw_id" — NOT a
+// general parser rule. 2026-10-06 (iNDIEVOX 26_iv0421171, 國語作業簿 台北歡樂
+// 耶誕城 2026): this one page bundles 3 sub-dates (12/25 DJ 大賽 warm-up,
+// 12/26 正篇 DAY 1, 12/27 正篇 DAY 2) with no year attached to any of them —
+// every date_raw regex correctly refuses to guess which one is "the" event.
+// Max's call: 12/26 (正篇 DAY 1, matches the title). A generic "first bare
+// MM/DD wins" fallback was tried and rejected — it would've picked 12/25,
+// the warm-up contest, not the headline show. This table is for exactly
+// that kind of per-listing judgment call; it is NOT where a recurring
+// parsing gap belongs (fix the parser itself for those).
+const DATE_OVERRIDES = {
+  "iNDIEVOX|26_iv0421171": { date: "2026-12-26", time: null },
+};
+
 export function normalize(rawEvent, artistsYml, venuesYml = []) {
   const excludedReason = exclusionReason(rawEvent);
   if (excludedReason) {
@@ -1072,7 +1086,8 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
 
   const parseDate = DATE_PARSERS[rawEvent.source_name] ?? parseKktixDate;
   const parseVenue = VENUE_PARSERS[rawEvent.source_name] ?? parseKktixVenue;
-  const dateParsed = parseDate(rawEvent.date_raw);
+  const dateParsed =
+    DATE_OVERRIDES[`${rawEvent.source_name}|${rawEvent.raw_id}`] ?? parseDate(rawEvent.date_raw);
   if (!dateParsed) {
     return {
       needsReview: {

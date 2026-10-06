@@ -150,6 +150,17 @@ test("normalize(): a non-KKTIX source with NO register_status at all (the other 
   assert.equal(event.status, "on_sale");
 });
 
+test("normalize() (2026-10-06, Max's call on iNDIEVOX 26_iv0421171 國語作業簿 台北歡樂耶誕城 2026): the DATE_OVERRIDES table wins over the regular date parser for this one raw_id — the listing bundles 3 undated sub-dates and the parser alone can't tell which is 'the' event", () => {
+  const raw = makeRaw({
+    source_name: "iNDIEVOX",
+    raw_id: "26_iv0421171",
+    date_raw: "12/25（週五）🎧 國語作業簿 DJ 大賽 2026 總決賽 #免費入場 / 12/26（週六）🎄 台北歡樂耶誕城 / 正篇 DAY 1",
+  });
+  const { event } = normalize(raw, artistsYml);
+  assert.equal(event.date, "2026-12-26");
+  assert.equal(event.time, null);
+});
+
 test("normalize() (ibon): register_status SOLD_OUT with no ticket table still reports sold_out, not announced — the COMING_SOON-specific branch must not swallow the other signals", () => {
   const raw = makeRaw({ source_name: "ibon", date_raw: "2026-11-15 18:00", tickets_raw: [], register_status: "SOLD_OUT" });
   const { event } = normalize(raw, artistsYml);
