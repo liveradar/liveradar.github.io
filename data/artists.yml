@@ -2071,3 +2071,34 @@
 - canonical: MieAyaMyyuChanya
   aliases: []
   tags_origin_default: 亞洲其他  # WebSearch 查證（X／泰國媒體 Kom Chad Luek）＋ Max 確認：泰國偶像／女團成員（Mie／Aya／Myyu／Chanya 四人），查無官方團名或正式出道資訊
+# 2026-10-06：每日抓取查證並補齊的 needs-review 項目
+- canonical: SWIPIN
+  aliases: []
+  tags_origin_default: 本地  # KKTIX 活動頁查證（swipin.kktix.cc/events/1024halloweenparty）：台北 Flare Taipei 場地電音派對，主辦 SWIPIN、Flare Taipei，DJ名單未公布，比照「派對一律本地」規則登記品牌名
+- canonical: kurayamisaka
+  aliases: []
+  tags_origin_default: 日本  # WebSearch 查證：2022年於東京大井町成軍的五人搖滾樂團，2025年入選NME「THE NME 100」；售票頁 indievox.com/activity/detail/27_iv04240db《Through the Mess：kurayamisaka Live in Taipei》
+- canonical: 動保失敗
+  aliases: []
+  tags_origin_default: 本地  # FANSI GO 活動頁查證（go.fansi.me/events/500062）：高雄百樂門酒館演出，演出者輻射魚市＋黑狼均為台灣樂團，標題本身無單一演出者名稱，比照「企劃/系列名稱」規則登記
+- canonical: IDO-LIVE
+  aliases: []
+  tags_origin_default: 日本  # WebSearch 查證：日本地下偶像演唱會品牌「アイドライブ」；售票頁 go.fansi.me/events/690009《IDO-LIVE!! Day trip to taipei》演出陣容含 THE ORCHESTRA TOKYO 等多組日本偶像團體
+- canonical: Hernia
+  aliases: []
+  tags_origin_default: 本地  # FANSI GO 活動頁查證（go.fansi.me/events/440037）：主辦單位 Ghost Mode Ent. ／ 滾石唱片，台灣簽約藝人《喜神》問世場
+- canonical: Catnap Motel
+  aliases: []
+  tags_origin_default: 本地  # FANSI GO 活動頁查證（go.fansi.me/events/440021）：台北野地方 Wild Lab 演出，演出者施勁瑋／寸Chune／ana 均為台灣獨立音樂人，標題本身無單一演出者名稱，比照「企劃/系列名稱」規則登記
+- canonical: 腳下有歌
+  aliases: []
+  tags_origin_default: 本地  # FANSI GO 活動頁查證（go.fansi.me/events/440040）：蕭紫菡舞蹈劇場製作，編舞蕭紫菡與排灣族歌者桑梅絹均為台灣本地藝術家，吉他手孟思齊雖生於巴塞隆納但2014年移居台灣發展，比照整體製作歸本地
+- canonical: NieR
+  aliases: []
+  tags_origin_default: 日本  # ibon 活動頁查證（ticket.ibon.com.tw/ActivityInfo/Details/39974）：日本 Square Enix／Yoko Taro 製作之電子遊戲系列管弦音樂會巡演，作曲家岡部啟一（Keiichi Okabe）、導演橫尾太郎（Yoko Taro）皆出席，內容IP歸日本（實際演出交響樂團為台北愛樂）
+- canonical: 視障藝術季
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 活動頁查證（opentix.life/event/2102235541513379840）：台灣視障藝術季，台灣本地藝術節品牌
+- canonical: 探戈熠章
+  aliases: []
+  tags_origin_default: 本地  # OPENTIX 活動頁查證（opentix.life/event/2101979205227089920）：主辦單位 Tanvolution探戈樂團（台灣在地探戈樂團），演出陣容以台灣音樂人為主（李昀潔、王一心、葉賀璞、鄭小妍、吳詠隆），邀請日本探戈小提琴家会田桃子跨刀聯演；標題為「Momoko Aida x TANVOLUTION」雙掛名，是否算台日聯合製作待 Max 確認，暫依主辦單位與多數演出者歸本地
