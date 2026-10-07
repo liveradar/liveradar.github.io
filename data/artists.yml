@@ -2102,3 +2102,21 @@
 - canonical: 探戈熠章
   aliases: []
   tags_origin_default: 本地  # OPENTIX 活動頁查證（opentix.life/event/2101979205227089920）：主辦單位 Tanvolution探戈樂團（台灣在地探戈樂團），演出陣容以台灣音樂人為主（李昀潔、王一心、葉賀璞、鄭小妍、吳詠隆），邀請日本探戈小提琴家会田桃子跨刀聯演；標題為「Momoko Aida x TANVOLUTION」雙掛名，是否算台日聯合製作待 Max 確認，暫依主辦單位與多數演出者歸本地
+- canonical: PASOCOM MUSIC CLUB
+  aliases: []
+  tags_origin_default: 日本  # WebSearch 查證：日本大阪電子音樂雙人組（パソコン音樂クラブ）；售票頁 romanticoffice.kktix.cc/events/pasocom 標題含團名，與寺田創一（Soichi Terada）同場
+- canonical: "Limited Express (has gone?)"
+  aliases: []
+  tags_origin_default: 日本  # WebSearch／售票頁查證（deaftouch.kktix.cc/events/limitedexpresshasgone）：1998年京都成軍的日本 alternative punk 樂團，標題即為團名
+- canonical: JANNABI
+  aliases: []
+  tags_origin_default: 韓國  # WebSearch 查證：韓國首爾（盆唐）成軍的獨立搖滾樂團（재너비）；售票頁 farglorycreative.kktix.cc/events/8182134c《JANNABI 2026 ASIA TOUR FINAL》確認
+- canonical: bacho
+  aliases: []
+  tags_origin_default: 日本  # WebSearch／售票頁查證（indievox.com/activity/detail/27_iv0424473）：2002年日本兵庫姬路成軍的 Emo/Punk/Alternative Rock 樂團，與 KOTORI 同場「FLY＆DIVE」巡演
+- canonical: KOTORI
+  aliases: []
+  tags_origin_default: 日本  # WebSearch／售票頁查證（indievox.com/activity/detail/27_iv0424473）：2014年日本埼玉越谷成軍的「歌唱搖滾」樂團，與 bacho 同場「FLY＆DIVE」巡演
+- canonical: VICTON
+  aliases: []
+  tags_origin_default: 韓國  # WebSearch／售票頁查證（ticketplus.com.tw/activity/8c547569ec0844087f59d05b38e802bc）：韓國男團，Play M Entertainment（主辦單位 RED SLIPPERS），《2026 VICTON CONCERT [10:NOW] IN TAIPEI》十週年巡演，標題含團名
