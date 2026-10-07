@@ -27016,8 +27016,12 @@
     },
     {
       "title_raw": "我覺得，愛是…",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "漁光倒"
+      ],
+      "lineup": [
+        "漁光倒"
+      ],
       "is_festival": false,
       "venue": "PIPE Live Music派譜音樂空間",
       "city": "台北",
@@ -27030,7 +27034,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/100132",
       "sources": [
@@ -27041,7 +27047,7 @@
         }
       ],
       "first_seen_at": "2026-10-07T02:14:25.405Z",
-      "updated_at": "2026-10-07T02:14:25.405Z",
+      "updated_at": "2026-10-07T02:48:06.268Z",
       "id": "656032646fd22e3c",
       "merged_ids": [
         "656032646fd22e3c"

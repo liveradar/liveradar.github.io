@@ -2120,3 +2120,6 @@
 - canonical: VICTON
   aliases: []
   tags_origin_default: 韓國  # WebSearch／售票頁查證（ticketplus.com.tw/activity/8c547569ec0844087f59d05b38e802bc）：韓國男團，Play M Entertainment（主辦單位 RED SLIPPERS），《2026 VICTON CONCERT [10:NOW] IN TAIPEI》十週年巡演，標題含團名
+- canonical: 漁光倒
+  aliases: ["YuguangFall", "我覺得,愛是"]
+  tags_origin_default: 本地  # Max 確認：台灣獨立樂團，2026/7/30 於台北 Revolver 舉辦出道以來首場個人專場《桃花園》，2026/11/14「我覺得，愛是…」為籌備中的首場巡迴；售票頁 go.fansi.me/events/100132；標題本身無團名，比照「企劃/系列名稱」規則以演出標題文字作為 alias
