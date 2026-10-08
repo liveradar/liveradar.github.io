@@ -7,7 +7,7 @@
       "url": "https://go.fansi.me/events/110009",
       "venue_raw": "線上課程 / 線上觀看",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:25.406Z"
+      "checked_at": "2026-10-08T02:14:59.119Z"
     },
     "FANSI GO|800004": {
       "source": "FANSI GO",
@@ -16,7 +16,7 @@
       "url": "https://go.fansi.me/events/800004",
       "venue_raw": "新竹國賓大飯店 10F 國際廳A / 300 台灣新竹市中華路二段188號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:25.405Z"
+      "checked_at": "2026-10-08T02:14:59.119Z"
     },
     "FANSI GO|920001": {
       "source": "FANSI GO",
@@ -25,7 +25,7 @@
       "url": "https://go.fansi.me/events/920001",
       "venue_raw": "Red CNX / Fl 3, 12 Huay Kaew Rd, Tambon Chang Phueak, Mueang Chiang Mai District, Chiang Mai",
       "reason": "outside_taiwan",
-      "checked_at": "2026-10-07T02:14:25.406Z"
+      "checked_at": "2026-10-08T02:14:59.119Z"
     },
     "ibon|39869_202610031030": {
       "source": "ibon",
@@ -43,7 +43,7 @@
       "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39891",
       "venue_raw": "華山園區東二館、中二館、中四AB館 / 華山1914文化創意產業園區",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:13:19.868Z"
+      "checked_at": "2026-10-08T02:13:37.578Z"
     },
     "ibon|39895_202610081000": {
       "source": "ibon",
@@ -52,7 +52,7 @@
       "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39895",
       "venue_raw": "華山園區東二館、中二館、中四AB館 / 華山1914文化創意產業園區",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:13:19.868Z"
+      "checked_at": "2026-10-08T02:13:37.578Z"
     },
     "ibon|39911_202610311030": {
       "source": "ibon",
@@ -61,7 +61,7 @@
       "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39911",
       "venue_raw": "臺北大巨蛋 / 臺北大巨蛋（臺北市信義區忠孝東路五段 1 號，捷運國父紀念館站 5 號出口）",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:13:19.865Z"
+      "checked_at": "2026-10-08T02:13:37.574Z"
     },
     "ibon|39948_202610091100": {
       "source": "ibon",
@@ -70,7 +70,7 @@
       "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39948",
       "venue_raw": "大巨蛋秀泰影城 / 大巨蛋秀泰影城",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:13:19.864Z"
+      "checked_at": "2026-10-08T02:13:37.573Z"
     },
     "ibon|39948_202610091315": {
       "source": "ibon",
@@ -79,7 +79,7 @@
       "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39948",
       "venue_raw": "大巨蛋秀泰影城 / 大巨蛋秀泰影城",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:13:19.864Z"
+      "checked_at": "2026-10-08T02:13:37.573Z"
     },
     "ibon|39948_202610091530": {
       "source": "ibon",
@@ -88,7 +88,7 @@
       "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39948",
       "venue_raw": "大巨蛋秀泰影城 / 大巨蛋秀泰影城",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:13:19.863Z"
+      "checked_at": "2026-10-08T02:13:37.573Z"
     },
     "ibon|39948_202610091745": {
       "source": "ibon",
@@ -97,7 +97,7 @@
       "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39948",
       "venue_raw": "大巨蛋秀泰影城 / 大巨蛋秀泰影城",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:13:19.864Z"
+      "checked_at": "2026-10-08T02:13:37.573Z"
     },
     "iNDIEVOX|26_iv03987ad": {
       "source": "iNDIEVOX",
@@ -106,7 +106,7 @@
       "url": "https://www.indievox.com/activity/detail/26_iv03987ad",
       "venue_raw": "Legacy Taipei 音樂展演空間（台北市八德路一段1號 台北華山創意園區 中五館）",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:20.643Z"
+      "checked_at": "2026-10-08T02:14:37.402Z"
     },
     "iNDIEVOX|26_iv04063d8": {
       "source": "iNDIEVOX",
@@ -115,7 +115,7 @@
       "url": "https://www.indievox.com/activity/detail/26_iv04063d8",
       "venue_raw": "Legacy TERA（台北市南港區市民大道八段99號）",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:20.643Z"
+      "checked_at": "2026-10-08T02:14:37.402Z"
     },
     "iNDIEVOX|26_iv04188e3": {
       "source": "iNDIEVOX",
@@ -124,25 +124,7 @@
       "url": "https://www.indievox.com/activity/detail/26_iv04188e3",
       "venue_raw": "Legacy Taichung 音樂展演空間（台中市西屯區安和路117號）",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:20.644Z"
-    },
-    "KKTIX|0528": {
-      "source": "KKTIX",
-      "raw_id": "0528",
-      "title_raw": "測試用請勿下單",
-      "url": "https://capsule111.kktix.cc/events/0528",
-      "venue_raw": "OU-EN CAFE",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|0f02a5ac": {
-      "source": "KKTIX",
-      "raw_id": "0f02a5ac",
-      "title_raw": "畢製形象照(請一定要穿白衣服!!!)",
-      "url": "https://hssbaby.kktix.cc/events/0f02a5ac",
-      "venue_raw": "客院攝影棚HK241",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
+      "checked_at": "2026-10-08T02:14:37.402Z"
     },
     "KKTIX|1002jazz": {
       "source": "KKTIX",
@@ -170,15 +152,6 @@
       "venue_raw": "Basilica 爵士藝文咖啡 / 台北市大同區迪化街一段280巷6號",
       "reason": "non_music_noise",
       "checked_at": "2026-10-06T02:28:00.185Z"
-    },
-    "KKTIX|1acb4e6e": {
-      "source": "KKTIX",
-      "raw_id": "1acb4e6e",
-      "title_raw": "付費課程【線上 online】就業服務乙級技術士考照輔導專班-線上課程",
-      "url": "https://cpea1111.kktix.cc/events/1acb4e6e",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
     },
     "KKTIX|2026-autumnwinter-online": {
       "source": "KKTIX",
@@ -234,33 +207,6 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.781Z"
     },
-    "KKTIX|27e358b1-copy-2": {
-      "source": "KKTIX",
-      "raw_id": "27e358b1-copy-2",
-      "title_raw": "《定格微光》線上攝影展",
-      "url": "https://waker.kktix.cc/events/27e358b1-copy-2",
-      "venue_raw": "",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|2eb30d29": {
-      "source": "KKTIX",
-      "raw_id": "2eb30d29",
-      "title_raw": "Distinction Between AR 15 Uppers and Lower Receivers",
-      "url": "https://ghostrifles01.kktix.cc/events/2eb30d29",
-      "venue_raw": "fd usa",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|352177f7": {
-      "source": "KKTIX",
-      "raw_id": "352177f7",
-      "title_raw": "【高雄】9/2~11/4「電子焊接與基礎電路應用班 」，政府補助80~100%課程費用(補助課程)",
-      "url": "https://teemacustoms.kktix.cc/events/352177f7",
-      "venue_raw": "大榮中學",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|3acdb81c": {
       "source": "KKTIX",
       "raw_id": "3acdb81c",
@@ -269,15 +215,6 @@
       "venue_raw": "delhi / south delhi",
       "reason": "non_music_noise",
       "checked_at": "2026-10-01T02:37:31.786Z"
-    },
-    "KKTIX|5e036edc": {
-      "source": "KKTIX",
-      "raw_id": "5e036edc",
-      "title_raw": "咖啡豆品嘗",
-      "url": "https://cofe.kktix.cc/events/5e036edc",
-      "venue_raw": "",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
     },
     "KKTIX|5sos-hk-2026": {
       "source": "KKTIX",
@@ -297,15 +234,6 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.784Z"
     },
-    "KKTIX|75044ad7-copy-1": {
-      "source": "KKTIX",
-      "raw_id": "75044ad7-copy-1",
-      "title_raw": "台灣數位學伴計畫 115學年第一學期志工熱烈招募中!!",
-      "url": "https://waker.kktix.cc/events/75044ad7-copy-1",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|7768ce8d": {
       "source": "KKTIX",
       "raw_id": "7768ce8d",
@@ -314,24 +242,6 @@
       "venue_raw": "雲林表演廳 / 雲林縣斗六市大學路三段310號",
       "reason": "non_music_noise",
       "checked_at": "2026-10-01T02:37:31.782Z"
-    },
-    "KKTIX|7c0632e5": {
-      "source": "KKTIX",
-      "raw_id": "7c0632e5",
-      "title_raw": "【免費講座 - 必修】 AI 免費課程參與",
-      "url": "https://ailearn.kktix.cc/events/7c0632e5",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|7d1a23eb": {
-      "source": "KKTIX",
-      "raw_id": "7d1a23eb",
-      "title_raw": "Why Buying an Apartment in Arjan is a Smart Investment",
-      "url": "https://real-estate.kktix.cc/events/7d1a23eb",
-      "venue_raw": "",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
     },
     "KKTIX|81cec3f7-copy-1": {
       "source": "KKTIX",
@@ -351,15 +261,6 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-07T02:28:37.546Z"
     },
-    "KKTIX|8f6ddbe6": {
-      "source": "KKTIX",
-      "raw_id": "8f6ddbe6",
-      "title_raw": "水果批發",
-      "url": "https://appleapple.kktix.cc/events/8f6ddbe6",
-      "venue_raw": "",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|93e47256": {
       "source": "KKTIX",
       "raw_id": "93e47256",
@@ -369,15 +270,6 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-01T02:37:31.786Z"
     },
-    "KKTIX|9e155867": {
-      "source": "KKTIX",
-      "raw_id": "9e155867",
-      "title_raw": "癒健9週年第2波活動【公益講座】",
-      "url": "https://empowerptclinic.kktix.cc/events/9e155867",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|aboveandbeyondhongkong": {
       "source": "KKTIX",
       "raw_id": "aboveandbeyondhongkong",
@@ -386,33 +278,6 @@
       "venue_raw": "TIDES / Site 6, The Whampoa, 1 Tak On Street",
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.781Z"
-    },
-    "KKTIX|agileawards2026": {
-      "source": "KKTIX",
-      "raw_id": "agileawards2026",
-      "title_raw": "2026 台灣敏捷大賞，看見 AI 時代的團隊新力量",
-      "url": "https://actclubtw.kktix.cc/events/agileawards2026",
-      "venue_raw": "科技服務大樓",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|agileawards2026event": {
-      "source": "KKTIX",
-      "raw_id": "agileawards2026event",
-      "title_raw": "ACT台灣敏捷大賞 2026：會眾票 快閃售票中!",
-      "url": "https://actclubtw.kktix.cc/events/agileawards2026event",
-      "venue_raw": "科技服務大樓",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|agilebasic202610": {
-      "source": "KKTIX",
-      "raw_id": "agilebasic202610",
-      "title_raw": "ACT敏捷思維入門：3小時啟發團隊合作新模式的體驗工作坊【梯次：2026-10th】",
-      "url": "https://actclubtw.kktix.cc/events/agilebasic202610",
-      "venue_raw": "114台北市內湖區瑞湖街58號3樓",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
     },
     "KKTIX|aimi-star-rising-2026-hk": {
       "source": "KKTIX",
@@ -432,15 +297,6 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-01T02:37:31.779Z"
     },
-    "KKTIX|autorepairdubai": {
-      "source": "KKTIX",
-      "raw_id": "autorepairdubai",
-      "title_raw": "What to Do Immediately After a Car Accident in UAE (2025): A Step-by-Step Guide",
-      "url": "https://carmaintenancedubai.kktix.cc/events/autorepairdubai",
-      "venue_raw": "Dubai",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|bangyonggukhk2026": {
       "source": "KKTIX",
       "raw_id": "bangyonggukhk2026",
@@ -449,24 +305,6 @@
       "venue_raw": "TIDES / Site 6, The Whampoa, 1 Tak On Street",
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.779Z"
-    },
-    "KKTIX|best-affordable-astrologer-online-acharya-devraj-ji": {
-      "source": "KKTIX",
-      "raw_id": "best-affordable-astrologer-online-acharya-devraj-ji",
-      "title_raw": "Best Affordable Astrologer Online – Acharya Devraj Ji",
-      "url": "https://astrology-expert.kktix.cc/events/best-affordable-astrologer-online-acharya-devraj-ji",
-      "venue_raw": "delhi",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|best-astrologer-in-india-with-fees-acharya-devraj-ji-consultation-charges": {
-      "source": "KKTIX",
-      "raw_id": "best-astrologer-in-india-with-fees-acharya-devraj-ji-consultation-charges",
-      "title_raw": "Best Astrologer in India with Fees – Acharya Devraj Ji Consultation Charges",
-      "url": "https://astrology-expert.kktix.cc/events/best-astrologer-in-india-with-fees-acharya-devraj-ji-consultation-charges",
-      "venue_raw": "delhi",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
     },
     "KKTIX|best-numerologist-in-delhi-ncr": {
       "source": "KKTIX",
@@ -486,95 +324,14 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.780Z"
     },
-    "KKTIX|c5bdf80c-copy-1": {
-      "source": "KKTIX",
-      "raw_id": "c5bdf80c-copy-1",
-      "title_raw": "皮膚病理資料庫帳號設定費(限本會會員、準會員)",
-      "url": "https://tda.kktix.cc/events/c5bdf80c-copy-1",
-      "venue_raw": "臺灣皮膚科醫學會",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|cargarageuae": {
-      "source": "KKTIX",
-      "raw_id": "cargarageuae",
-      "title_raw": "Understanding the Importance of Wheel Alignment in UAE",
-      "url": "https://cardetailinguae.kktix.cc/events/cargarageuae",
-      "venue_raw": "Dubai",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|carprepurchaseinspectionuae": {
-      "source": "KKTIX",
-      "raw_id": "carprepurchaseinspectionuae",
-      "title_raw": "The Complete Guide to Car Pre-Purchase Inspection in the UAE",
-      "url": "https://automotivedubai.kktix.cc/events/carprepurchaseinspectionuae",
-      "venue_raw": "Dubai",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|carrepairabudhabi": {
-      "source": "KKTIX",
-      "raw_id": "carrepairabudhabi",
-      "title_raw": "How Sand and Dust Impact Your Car’s Performance in the UAE",
-      "url": "https://automotivedubai.kktix.cc/events/carrepairabudhabi",
-      "venue_raw": "Dubai",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|cartyrereplacementuae": {
-      "source": "KKTIX",
-      "raw_id": "cartyrereplacementuae",
-      "title_raw": "The Ultimate Guide to Car Tyre Repair and Replacement in the UAE",
-      "url": "https://automotivedubai.kktix.cc/events/cartyrereplacementuae",
-      "venue_raw": "Dubai",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|carworkshopabudhabi": {
-      "source": "KKTIX",
-      "raw_id": "carworkshopabudhabi",
-      "title_raw": "Find the Best Car Workshop in Abu Dhabi: A 2025 Guide",
-      "url": "https://automotivedubai.kktix.cc/events/carworkshopabudhabi",
-      "venue_raw": "Dubai",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|carworkshopdubai": {
-      "source": "KKTIX",
-      "raw_id": "carworkshopdubai",
-      "title_raw": "The Ultimate Guide to Better Fuel Economy in Dubai & Abu Dhabi",
-      "url": "https://carmaintenancedubai.kktix.cc/events/carworkshopdubai",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|carworkshopindubai": {
-      "source": "KKTIX",
-      "raw_id": "carworkshopindubai",
-      "title_raw": "Is It Safe to Service Your Car Outside the Dealership in Dubai?",
-      "url": "https://bmwrepairdubai.kktix.cc/events/carworkshopindubai",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|cheap-cipd-assignment-help": {
-      "source": "KKTIX",
-      "raw_id": "cheap-cipd-assignment-help",
-      "title_raw": "Cheap CIPD Assignment Help",
-      "url": "https://cipd-assessment-uk.kktix.cc/events/cheap-cipd-assignment-help",
-      "venue_raw": "45 All Saints Rd, London W11 1HE, UK",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|chuenchuenkungcollege-2026": {
       "source": "KKTIX",
       "raw_id": "chuenchuenkungcollege-2026",
       "title_raw": "Still HK all-stars 呈獻：串串貢學院辯論比賽",
       "url": "https://cordestar.kktix.cc/events/chuenchuenkungcollege-2026",
-      "venue_raw": "孔聖堂禮仁書院孔聖講堂",
+      "venue_raw": "孔聖堂禮仁書院孔聖講堂 / Academy of Innovation (Confucius Hall)",
       "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.970Z"
+      "checked_at": "2026-10-08T02:28:35.297Z"
     },
     "KKTIX|coshunie-2026-hk": {
       "source": "KKTIX",
@@ -590,18 +347,9 @@
       "raw_id": "culturalfestival2027",
       "title_raw": "2027亞洲身心靈文化祭",
       "url": "https://iszn.kktix.cc/events/culturalfestival2027",
-      "venue_raw": "臺北流行音樂中心 南基地戶外空間",
+      "venue_raw": "臺北流行音樂中心 南基地戶外空間 / 115臺北市南港區東明里市民大道八段99號",
       "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.967Z"
-    },
-    "KKTIX|d77568c9": {
-      "source": "KKTIX",
-      "raw_id": "d77568c9",
-      "title_raw": "【 KUA GLOBAL跨越 啟示性祝福禱告 】代禱預約 – 2026",
-      "url": "https://ctctaiwan.kktix.cc/events/d77568c9",
-      "venue_raw": "",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
+      "checked_at": "2026-10-08T02:28:35.296Z"
     },
     "KKTIX|diorhk2026": {
       "source": "KKTIX",
@@ -657,15 +405,6 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.780Z"
     },
-    "KKTIX|ed6aa1bf": {
-      "source": "KKTIX",
-      "raw_id": "ed6aa1bf",
-      "title_raw": "付費課程【線上 online】銷售專業人才認證班-線上課程",
-      "url": "https://cpea1111.kktix.cc/events/ed6aa1bf",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|fmijtaichung": {
       "source": "KKTIX",
       "raw_id": "fmijtaichung",
@@ -720,24 +459,6 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.780Z"
     },
-    "KKTIX|intern20260930": {
-      "source": "KKTIX",
-      "raw_id": "intern20260930",
-      "title_raw": "神達數位企業說明會  9/30 (週三) 12:10 @R1401A",
-      "url": "https://cse-yzu.kktix.cc/events/intern20260930",
-      "venue_raw": "元智一館 R1401A教室",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|intern20261007": {
-      "source": "KKTIX",
-      "raw_id": "intern20261007",
-      "title_raw": "精誠資訊企業說明會  10/07 (週三) 12:10 @R1401A",
-      "url": "https://cse-yzu.kktix.cc/events/intern20261007",
-      "venue_raw": "元智一館 R1401A教室",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|ito-miku-39rpm-hk": {
       "source": "KKTIX",
       "raw_id": "ito-miku-39rpm-hk",
@@ -774,15 +495,6 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.779Z"
     },
-    "KKTIX|luxurycarcare": {
-      "source": "KKTIX",
-      "raw_id": "luxurycarcare",
-      "title_raw": "The Ultimate Guide to Protecting Your Luxury Car Resale Value in UAE",
-      "url": "https://carmaintenancedubai.kktix.cc/events/luxurycarcare",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|meisouniv20261010": {
       "source": "KKTIX",
       "raw_id": "meisouniv20261010",
@@ -791,15 +503,6 @@
       "venue_raw": "Comedy Plus 卡米地＋ / 北市中山區復興北路480號",
       "reason": "non_music_noise",
       "checked_at": "2026-10-05T02:35:26.393Z"
-    },
-    "KKTIX|mindmap2026": {
-      "source": "KKTIX",
-      "raw_id": "mindmap2026",
-      "title_raw": "快速上手「心智圖」-解決問題 事半功倍｜每日即時開課、可無限重複觀看！",
-      "url": "https://taischool.kktix.cc/events/mindmap2026",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
     },
     "KKTIX|mixcheck-2026": {
       "source": "KKTIX",
@@ -954,24 +657,6 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.782Z"
     },
-    "KKTIX|summercarcare": {
-      "source": "KKTIX",
-      "raw_id": "summercarcare",
-      "title_raw": "The Ultimate Summer Car Care Checklist for the UAE: Surviving the Scorching Heat",
-      "url": "https://automotivedubai.kktix.cc/events/summercarcare",
-      "venue_raw": "Dubai",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
-    "KKTIX|sunday-worship": {
-      "source": "KKTIX",
-      "raw_id": "sunday-worship",
-      "title_raw": "後勁教會主日崇拜",
-      "url": "https://kcl.kktix.cc/events/sunday-worship",
-      "venue_raw": "禮拜堂",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|teca2026": {
       "source": "KKTIX",
       "raw_id": "teca2026",
@@ -1080,15 +765,6 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.781Z"
     },
-    "KKTIX|why-rank-delivers-the-best-local-seo-new-york": {
-      "source": "KKTIX",
-      "raw_id": "why-rank-delivers-the-best-local-seo-new-york",
-      "title_raw": "Why RANK Delivers the Best Local SEO in New York: E.E.A.T Verified Strategies for Fast Google Rankings",
-      "url": "https://seoservices.kktix.cc/events/why-rank-delivers-the-best-local-seo-new-york",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
-    },
     "KKTIX|win-fm-hk-2026": {
       "source": "KKTIX",
       "raw_id": "win-fm-hk-2026",
@@ -1097,15 +773,6 @@
       "venue_raw": "AXA安盛創夢館 / AXA Dreamland",
       "reason": "outside_taiwan",
       "checked_at": "2026-10-01T02:37:31.784Z"
-    },
-    "KKTIX|writeanypapers": {
-      "source": "KKTIX",
-      "raw_id": "writeanypapers",
-      "title_raw": "Top 10 Essay Writing Tips Every Freshman Should Know",
-      "url": "https://essaywriting.kktix.cc/events/writeanypapers",
-      "venue_raw": "線上活動",
-      "reason": "non_music_noise",
-      "checked_at": "2026-09-30T04:26:07.971Z"
     },
     "KKTIX|yuki-kajiura-hk-2026": {
       "source": "KKTIX",
@@ -1141,7 +808,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台北 / 台北市大同區長安西路29號7樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.493Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_38756c42e19fb8d457eebdbdc5985907": {
       "source": "Ticket Plus",
@@ -1150,7 +817,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台南 / 台南市永康區中華路144-1號B1",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.494Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_79f767ab15ec1309dbcd532939df57f7": {
       "source": "Ticket Plus",
@@ -1159,7 +826,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "新竹 / 新竹市東區光復路一段270號B1(KGYM 2.0)",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.493Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_7ae03188c369a75d8c948f50975f0bf7": {
       "source": "Ticket Plus",
@@ -1168,7 +835,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台北 / 台北市大同區長安西路29號7樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.494Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_9f82ed093a52bf7fb467552e18f0e2a8": {
       "source": "Ticket Plus",
@@ -1177,7 +844,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台南 / 台南市永康區中華路144-1號B1",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.494Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_a038e250121f05d441726a2fb38331f4": {
       "source": "Ticket Plus",
@@ -1186,7 +853,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "新竹 / 新竹市東區光復路一段270號B1(KGYM 2.0)",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.493Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_a3ec5646dae1792cf5cab451a34f95ec": {
       "source": "Ticket Plus",
@@ -1195,7 +862,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台中 / 台中市北屯區文心路四段936號2樓或3樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.493Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_a9e7e2edce28bce6334c78d372690b29": {
       "source": "Ticket Plus",
@@ -1204,7 +871,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台南 / 台南市永康區中華路144-1號B1",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.494Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_aafea9fe1483296ded8b2ce6228523a1": {
       "source": "Ticket Plus",
@@ -1213,7 +880,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台中 / 台中市北屯區文心路四段936號2樓或3樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.494Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_ab4cbe2713d4d1d8060c852c3a9a9b09": {
       "source": "Ticket Plus",
@@ -1222,7 +889,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台中 / 台中市北屯區文心路四段936號2樓或3樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.494Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_d056e1cc74f1be3188f5efb07a809586": {
       "source": "Ticket Plus",
@@ -1231,7 +898,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "新竹 / 新竹市東區光復路一段270號B1(KGYM 2.0)",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.494Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_efbf4f80c35d9b2a58e3744bb4e1f30a": {
       "source": "Ticket Plus",
@@ -1240,7 +907,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台北 / 台北市大同區長安西路29號7樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.494Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_f63e04144b43647a52fae2b14eb36ff8": {
       "source": "Ticket Plus",
@@ -1249,7 +916,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台南 / 台南市永康區中華路144-1號B1",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.493Z"
     },
     "Ticket Plus|a10378c64dbbc2c6a9a4bf86c499f819_cdf3a76f85762e9333e7e9fb73a3f2d6": {
       "source": "Ticket Plus",
@@ -1258,7 +925,7 @@
       "url": "https://ticketplus.com.tw/activity/a10378c64dbbc2c6a9a4bf86c499f819",
       "venue_raw": "台中世貿二館 / 台中市西屯區天保街60號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.489Z"
     },
     "Ticket Plus|b56ed831d1337d59c4467fce8400085b_13816052e46fafaee1bba23183ca711f": {
       "source": "Ticket Plus",
@@ -1267,7 +934,7 @@
       "url": "https://ticketplus.com.tw/activity/b56ed831d1337d59c4467fce8400085b",
       "venue_raw": "華山1914文化創意業園區西一館 / 台北市中正區八德路一段一號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.485Z"
     },
     "Ticket Plus|b56ed831d1337d59c4467fce8400085b_628ed6f6aec1f2a36bb130f2480cf7fa": {
       "source": "Ticket Plus",
@@ -1276,7 +943,7 @@
       "url": "https://ticketplus.com.tw/activity/b56ed831d1337d59c4467fce8400085b",
       "venue_raw": "華山1914文化創意業園區西一館 / 台北市中正區八德路一段一號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.485Z"
     },
     "Ticket Plus|e4cd0cf639ebe6488c75528d97694602_1342bcceedf821474fbe97a9de676b8d": {
       "source": "Ticket Plus",
@@ -1285,7 +952,7 @@
       "url": "https://ticketplus.com.tw/activity/e4cd0cf639ebe6488c75528d97694602",
       "venue_raw": "空軍三重一村新北市眷村文化園區 / 241新北市三重區光輝里正義南路86巷9號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:14:46.264Z"
+      "checked_at": "2026-10-08T02:15:46.485Z"
     },
     "年代|P1E9S2B6_202610241900": {
       "source": "年代",
@@ -1294,7 +961,7 @@
       "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1E9S2B6",
       "venue_raw": "台南市安平區漁光島 / 臺南市安平區漁光路118號台南市安平區漁光島",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:13:09.152Z"
+      "checked_at": "2026-10-08T02:13:29.822Z"
     },
     "年代|P1E9S2B6_202610251900": {
       "source": "年代",
@@ -1303,7 +970,7 @@
       "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1E9S2B6",
       "venue_raw": "台南市安平區漁光島 / 臺南市安平區漁光路118號台南市安平區漁光島",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:13:09.152Z"
+      "checked_at": "2026-10-08T02:13:29.822Z"
     },
     "年代|P1E9S2B6_202610261900": {
       "source": "年代",
@@ -1312,7 +979,7 @@
       "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1E9S2B6",
       "venue_raw": "台南市安平區漁光島 / 臺南市安平區漁光路118號台南市安平區漁光島",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:13:09.152Z"
+      "checked_at": "2026-10-08T02:13:29.822Z"
     },
     "拓元|26_btskhbus": {
       "source": "拓元",
@@ -1321,7 +988,7 @@
       "url": "https://tixcraft.com/activity/detail/26_btskhbus",
       "venue_raw": "【返鄉專車】指定搭車點",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:18:05.183Z"
+      "checked_at": "2026-10-08T02:19:44.709Z"
     },
     "拓元|26_busaaakh": {
       "source": "拓元",
@@ -1330,7 +997,7 @@
       "url": "https://tixcraft.com/activity/detail/26_busaaakh",
       "venue_raw": "【返鄉專車】指定搭車點",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:18:05.183Z"
+      "checked_at": "2026-10-08T02:19:44.707Z"
     },
     "拓元|26_busbbdome": {
       "source": "拓元",
@@ -1339,7 +1006,7 @@
       "url": "https://tixcraft.com/activity/detail/26_busbbdome",
       "venue_raw": "【返鄉專車】指定搭車點",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:18:05.183Z"
+      "checked_at": "2026-10-08T02:19:44.709Z"
     },
     "拓元|26_busffdome": {
       "source": "拓元",
@@ -1348,7 +1015,7 @@
       "url": "https://tixcraft.com/activity/detail/26_busffdome",
       "venue_raw": "【返鄉專車】指定搭車點",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:18:05.183Z"
+      "checked_at": "2026-10-08T02:19:44.707Z"
     },
     "拓元|26_busskztp": {
       "source": "拓元",
@@ -1357,7 +1024,7 @@
       "url": "https://tixcraft.com/activity/detail/26_busskztp",
       "venue_raw": "【返鄉專車】指定搭車點",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:18:05.183Z"
+      "checked_at": "2026-10-08T02:19:44.707Z"
     },
     "拓元|26_lioneers": {
       "source": "拓元",
@@ -1366,7 +1033,7 @@
       "url": "https://tixcraft.com/activity/detail/26_lioneers",
       "venue_raw": "新竹縣體育館",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:18:05.183Z"
+      "checked_at": "2026-10-08T02:19:44.709Z"
     },
     "拓元|26_sbhcs": {
       "source": "拓元",
@@ -1375,7 +1042,7 @@
       "url": "https://tixcraft.com/activity/detail/26_sbhcs",
       "venue_raw": "MIZUHO PayPay Dome FUKUOKA",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-07T02:18:05.183Z"
+      "checked_at": "2026-10-08T02:19:44.709Z"
     },
     "拓元|26_softbankh": {
       "source": "拓元",

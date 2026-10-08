@@ -2123,3 +2123,40 @@
 - canonical: 漁光倒
   aliases: ["YuguangFall", "我覺得,愛是"]
   tags_origin_default: 本地  # Max 確認：台灣獨立樂團，2026/7/30 於台北 Revolver 舉辦出道以來首場個人專場《桃花園》，2026/11/14「我覺得，愛是…」為籌備中的首場巡迴；售票頁 go.fansi.me/events/100132；標題本身無團名，比照「企劃/系列名稱」規則以演出標題文字作為 alias
+# 2026-10-08：每日抓取查證並補齊的 needs-review 項目
+- canonical: LOUDER STAGE
+  aliases: []
+  tags_origin_default: 本地  # KKTIX 活動頁查證（cohesionmusic.kktix.cc/events/louderstage02、louderstage03）：造音現場×凝聚力音樂娛樂主辦之台北在地獨立音樂展演系列，每場三組獨立樂團/音樂人，其中離岸潮汐 off‧Shore Tidal 明確為台南樂團，標題本身無單一演出者名稱，比照「企劃/系列名稱」規則登記品牌名
+- canonical: BURN THE RAINBOW
+  aliases: []
+  tags_origin_default: 本地  # KKTIX 活動頁查證（lafin.kktix.cc/events/93110d98）：Techno 突擊電音派對，DJ陣容未標明出身，比照「夜店派對一律本地」規則登記品牌名
+- canonical: SøRÄERE BRøCKEN
+  aliases: []
+  tags_origin_default: 韓國  # KKTIX 活動頁查證（lafin.kktix.cc/events/acd1e1b3）：頁面說明為首爾（Seoul）地下 Techno 場景藝人，STECXHNO 廠牌創辦人之一，標題本身含旗標🇰🇷
+- canonical: 管罄
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：台灣女歌手，地下樂團 THE FEVER CATS 主唱，1987/11/01生（與售票頁「第五次生日音樂會」辦在2026/11/01吻合）；售票頁 indievox.com/activity/detail/26_iv042499a
+- canonical: 鄒序
+  aliases: ["Hogan T."]
+  tags_origin_default: 本地  # WebSearch 查證：鄒序即 Hogan T.，台北木柵出身的創作歌手，入圍第37屆金曲獎（與 Quaranteen 樂團合作曲目），曾與葛萊美獎歌手 Kimbra 合作；售票頁 ticketplus.com.tw/activity/25820e1cdfdd84ef2345b210391fc2aa 場地為台北 PIPE Live Music、主辦放飛音樂有限公司
+- canonical: 以捷
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（ticketplus.com.tw/activity/9691a381c6e2309ffda3310f740ca0a1）：台北女巫店演出，該場地為台灣本地創作歌手固定展演場地
+- canonical: 佳美
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（ticketplus.com.tw/activity/9691a381c6e2309ffda3310f740ca0a1）：台北女巫店演出，與以捷同場，該場地為台灣本地創作歌手固定展演場地
+- canonical: 品怡 Pink
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（ticketplus.com.tw/activity/d67f82ea671d8ce0f201cb75804d8ece）：頁面明確寫「來自台灣的創作歌手」，曾參與《大學聲》選秀，台北女巫店演出
+- canonical: 芙里安 Valiant
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（ticketplus.com.tw/activity/d67f82ea671d8ce0f201cb75804d8ece）：頁面明確寫「台灣創作女聲」，曾參與《大學聲》，台北女巫店演出
+- canonical: CClaire 馬愷伶
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（ticketplus.com.tw/activity/d67f82ea671d8ce0f201cb75804d8ece）：台大畢業歌〈台大的垃圾〉創作者，2026 Spotify RADAR 新勢力入選音樂人，台北女巫店演出
+- canonical: beabadoobee
+  aliases: []
+  tags_origin_default: 歐美  # WebSearch 查證：菲律賓裔英國歌手，倫敦發展、簽約英國廠牌 Dirty Hit（The 1975、Wolf Alice 同廠牌），於英國獨立搖滾圈成名；售票頁 tixcraft.com/activity/detail/27_bbdb《The Powerlines Tour》標題含藝人名
+- canonical: BABYMONSTER
+  aliases: []
+  tags_origin_default: 韓國  # WebSearch 查證：韓國 YG Entertainment 女團，《CHOOM》世界巡迴；售票頁 ticketplus.com.tw/activity/75a694bf61cb28f0e24835916cfae36e 標題含團名
