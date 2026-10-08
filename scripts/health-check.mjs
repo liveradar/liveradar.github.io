@@ -89,6 +89,10 @@ function report(title, items, formatter = formatEvent) {
   for (const item of items) console.log(formatter(item));
 }
 
+function formatNeedsReviewItem(item) {
+  return `  - [${item.source}] ${item.title_raw}${item.detail ? ` (${item.detail})` : ""} — ${item.reason}\n    ${item.url}`;
+}
+
 function main() {
   const eventsFile = JSON.parse(readFileSync(path.join(DATA_DIR, "events.json"), "utf-8"));
   const allEvents = eventsFile.events ?? eventsFile;
@@ -104,6 +108,9 @@ function main() {
   report("疑似重複（同日期＋時間＋場館，但 id 不同）", findLikelyDuplicates(upcoming), (group) =>
     group.map(formatEvent).join("\n") + "\n",
   );
+
+  const needsReview = JSON.parse(readFileSync(path.join(DATA_DIR, "needs-review.json"), "utf-8"));
+  report("待查證清單（needs-review.json）", needsReview.items ?? [], formatNeedsReviewItem);
 }
 
 main();
