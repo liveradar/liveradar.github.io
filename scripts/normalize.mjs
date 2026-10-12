@@ -913,6 +913,20 @@ function isPlatformOwnDemoEvent(url) {
   return KKTIX_OWN_DEMO_ORG_RE.test(url ?? "");
 }
 
+// Specific activity URLs Max decided to drop entirely, not fixable by a
+// title-keyword or venue rule. 2026-10-08: Ticket Plus activity
+// b2a640cc29134724b515f3f007fa5c24 ("第4回TOP女神台北感謝祭 - 粉絲互動卡預購"
+// 11/7, 11/8) — a Japanese AV-actress meet-and-greet; Max wants it off the
+// site, not just left unrecognized in needs-review. Keyed by the activity
+// URL (shared by every session/date under it) rather than title text, since
+// these listings' titles are generic ("粉絲互動卡預購 (11/7)") and a
+// NOISE_KEYWORDS match on that phrase would also catch unrelated artists'
+// legitimate fan-card presales.
+const MANUALLY_EXCLUDED_URLS = new Set(["https://ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24"]);
+function isManuallyExcludedUrl(url) {
+  return MANUALLY_EXCLUDED_URLS.has(url ?? "");
+}
+
 /**
  * @param {object} rawEvent - shape returned by an adapter's fetch()
  * @param {object[]} artistsYml - loadArtists() result
@@ -1020,6 +1034,7 @@ export function exclusionReason(rawEvent) {
   if (isJunkTitle(rawEvent.title_raw ?? "")) return "junk_title";
   if (isNonMusicNoise(rawEvent.title_raw ?? "")) return "non_music_noise";
   if (isPlatformOwnDemoEvent(rawEvent.url)) return "platform_demo_content";
+  if (isManuallyExcludedUrl(rawEvent.url)) return "manual_exclude";
   if (isOutsideTaiwanVenue(rawEvent.venue_raw)) return "outside_taiwan";
   return null;
 }

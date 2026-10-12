@@ -27608,8 +27608,12 @@
     },
     {
       "title_raw": "BIG DREAM PARADISE 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "BIG DREAM PARADISE 2026"
+      ],
+      "lineup": [
+        "BIG DREAM PARADISE 2026"
+      ],
       "is_festival": false,
       "venue": "THE WALL LIVE HOUSE",
       "city": "台北",
@@ -27622,7 +27626,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/760005",
       "sources": [
@@ -27633,7 +27639,7 @@
         }
       ],
       "first_seen_at": "2026-10-08T02:14:59.119Z",
-      "updated_at": "2026-10-08T02:14:59.119Z",
+      "updated_at": "2026-10-08T02:54:40.479Z",
       "id": "e9ad42a1455ef0d5",
       "merged_ids": [
         "e9ad42a1455ef0d5"
@@ -31217,72 +31223,6 @@
       "id": "8e45f86c794ce834",
       "merged_ids": [
         "8e45f86c794ce834"
-      ]
-    },
-    {
-      "title_raw": "粉絲互動卡預購 (11/7)",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "三創生活園區12F 多元廳",
-      "city": "台北",
-      "date": "2026-11-07",
-      "time": "10:00",
-      "on_sale_at": null,
-      "price_min": 2800,
-      "price_max": 4800,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24",
-          "raw_id": "b2a640cc29134724b515f3f007fa5c24_087a5c251f3b964a5c727dcf353f40b9"
-        }
-      ],
-      "first_seen_at": "2026-10-05T02:21:43.873Z",
-      "updated_at": "2026-10-05T02:21:43.873Z",
-      "id": "6bc7de8e3272aeb9",
-      "merged_ids": [
-        "6bc7de8e3272aeb9"
-      ]
-    },
-    {
-      "title_raw": "粉絲互動卡預購 (11/8)",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "三創生活園區12F 多元廳",
-      "city": "台北",
-      "date": "2026-11-08",
-      "time": "10:00",
-      "on_sale_at": null,
-      "price_min": 2800,
-      "price_max": 4800,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24",
-          "raw_id": "b2a640cc29134724b515f3f007fa5c24_343fd420af95169ab1d4286f49eb54b7"
-        }
-      ],
-      "first_seen_at": "2026-10-05T02:21:43.873Z",
-      "updated_at": "2026-10-05T02:21:43.873Z",
-      "id": "e460cf61b7e8e182",
-      "merged_ids": [
-        "e460cf61b7e8e182"
       ]
     },
     {
