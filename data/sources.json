@@ -2,90 +2,90 @@
   "sources": [
     {
       "name": "KKTIX",
-      "last_success": "2026-10-08T02:28:35.215Z",
+      "last_success": "2026-10-12T02:35:01.251Z",
       "last_error": null,
-      "last_count": 379,
+      "last_count": 484,
       "status": "ok",
       "stats": {
         "register_info": {
-          "jsonld_resolved": 368,
-          "children_resolved": 13,
-          "table_resolved": 2,
-          "checked": 3,
-          "ok_first_try": 1,
+          "jsonld_resolved": 471,
+          "children_resolved": 14,
+          "table_resolved": 0,
+          "checked": 13,
+          "ok_first_try": 5,
           "ok_on_retry": 0,
-          "failed": 2,
-          "blocked_403": 4,
-          "skipped_known": 66
+          "failed": 8,
+          "blocked_403": 14,
+          "skipped_known": 58
         }
       }
     },
     {
       "name": "拓元",
-      "last_success": "2026-10-08T02:19:44.703Z",
+      "last_success": "2026-10-12T02:17:56.751Z",
       "last_error": null,
-      "last_count": 60,
+      "last_count": 57,
       "status": "ok"
     },
     {
       "name": "iNDIEVOX",
-      "last_success": "2026-10-08T02:14:37.396Z",
+      "last_success": "2026-10-12T02:14:01.540Z",
       "last_error": null,
-      "last_count": 67,
+      "last_count": 66,
       "status": "ok"
     },
     {
       "name": "FANSI GO",
-      "last_success": "2026-10-08T02:14:59.112Z",
+      "last_success": "2026-10-12T02:14:42.975Z",
       "last_error": null,
-      "last_count": 38,
+      "last_count": 41,
       "status": "ok"
     },
     {
       "name": "Ticket Plus",
-      "last_success": "2026-10-08T02:15:46.478Z",
+      "last_success": "2026-10-12T02:14:25.725Z",
       "last_error": null,
-      "last_count": 140,
+      "last_count": 120,
       "status": "ok"
     },
     {
       "name": "Billboard Live",
-      "last_success": "2026-10-08T02:13:29.968Z",
+      "last_success": "2026-10-12T02:12:51.741Z",
       "last_error": null,
       "last_count": 18,
       "status": "ok"
     },
     {
       "name": "ibon",
-      "last_success": "2026-10-08T02:13:37.568Z",
+      "last_success": "2026-10-12T02:12:58.595Z",
       "last_error": null,
-      "last_count": 45,
+      "last_count": 38,
       "status": "ok"
     },
     {
       "name": "OPENTIX",
-      "last_success": "2026-10-08T02:17:25.428Z",
+      "last_success": "2026-10-12T02:16:23.756Z",
       "last_error": null,
-      "last_count": 631,
+      "last_count": 619,
       "status": "ok"
     },
     {
       "name": "寬宏",
-      "last_success": "2026-10-08T02:13:29.481Z",
+      "last_success": "2026-10-12T02:12:53.681Z",
       "last_error": null,
       "last_count": 27,
       "status": "ok"
     },
     {
       "name": "年代",
-      "last_success": "2026-10-08T02:13:29.776Z",
+      "last_success": "2026-10-12T02:12:53.423Z",
       "last_error": null,
-      "last_count": 23,
+      "last_count": 22,
       "status": "ok"
     },
     {
       "name": "manual",
-      "last_success": "2026-10-08T02:13:13.606Z",
+      "last_success": "2026-10-12T02:12:41.401Z",
       "last_error": null,
       "last_count": 0,
       "status": "ok"

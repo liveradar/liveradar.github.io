@@ -2163,3 +2163,44 @@
 - canonical: BIG DREAM PARADISE 2026
   aliases: []
   tags_origin_default: 本地  # Max 貼出售票頁內容：陣容 SLANT(KR)、SIBAFÜ(JP)、SOCIAL PORKS(JP)、MINI MYTH(JP)、CLEAN SLATE(PH)、FIGURE OUT(PH) 加上多組未標國籍的本地開場團，韓日菲混合無法用單一國家代表，比照「多位音樂人無法用單一藝人判斷」規則歸本地；售票頁 go.fansi.me/events/760005，標題本身無單一演出者名稱，以品牌名登記
+
+# 2026-10-12 daily fetch：needs-review.json artist_unrecognized 清單查證
+- canonical: E'sekai
+  aliases: ["異世界"]
+  tags_origin_default: 日本  # WebSearch 查證：沖繩アクターズスクール出身四人女子樂團，2026 首張單曲〈異世界〉；售票頁 fmlltd.kktix.cc/events/e41c6be8 本身亦標示為「沖繩」出身，標題「"GIRLS!" E'sekai × DIZLIKE × SmileDash」含藝人名
+- canonical: DIZLIKE
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（fmlltd.kktix.cc/events/e41c6be8）：頁面明確寫「台灣全女子搖滾樂團」，2018年成立
+- canonical: SmileDash
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（fmlltd.kktix.cc/events/e41c6be8）：頁面明確寫「台灣女子搖滾樂團」，四位來自不同領域的女孩組成
+- canonical: Cö shu Nie
+  aliases: []
+  tags_origin_default: 日本  # WebSearch 查證：日本大阪搖滾樂團，2011年組成，2018年透過《東京喰種:re》片頭曲〈asphyxia〉以 Sony Music 名義主流出道；售票頁標題「Cö shu Nie LIVE IN KAOHSIUNG 2026 SATURATED（in monochrome）」含樂團名
+- canonical: SHE'S
+  aliases: []
+  tags_origin_default: 日本  # WebSearch 查證：日本大阪鋼琴搖滾四人樂團，2011年組成，2016年主流出道單曲〈Morning Glow〉；售票頁標題「SHE'S 15th Anniversary Tour "Who am I?" Extra -Live In Taipei 2026-」含樂團名
+- canonical: RIKI
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（lorfeg.kktix.cc/events/f01725b9）：頁面明確寫「RIKI 從 2020 年在基隆成軍至今第 6 年」，自稱「正宗臺式迪斯可樂團」
+- canonical: Neil Zaza
+  aliases: []
+  tags_origin_default: 歐美  # WebSearch 查證：美國俄亥俄州 Akron 出身吉他手，器樂搖滾/新古典金屬風格，1992年起發行多張個人專輯；售票頁標題「Cort x Neil Zaza Asia Tour 2026 電吉他講習會」含藝人名
+- canonical: Lucid Express
+  aliases: []
+  tags_origin_default: 亞洲其他  # WebSearch 查證：香港 shoegaze 樂團，透過美國廠牌 Kanine Records 發行專輯《Instant Comfort》，於香港舉辦專輯發片場；售票頁標題「Lucid Express-Instant Comfort 2026 Fall Asia Tour: Live in Taipei/Kaohsiung」含樂團名
+- canonical: Our First Show
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（indievox.com/activity/detail/26_iv042523d）：演出者暮雨閣、微溫冰塊、夢遊珊妮均為台中本地樂團，標題本身無法單獨比對到個別藝人名，以系列品牌名「Our First Show」登記（比照「火球祭」規則）
+- canonical: GIMA
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（indievox.com/activity/detail/26_iv042425b）：文化部影視及流行音樂產業局主辦「金音創作獎最佳現場演出獎」決戰舞台，入圍者多組台灣音樂人（Gummy B X 陳嫺靜、C.Holly、Mong Tong、Flowstrong、聲子蟲、That's My Shhh 等）加一組韓國嘉賓 Kangziwon，多組音樂人無法用單一藝人判斷，比照音樂節/頒獎典禮規則歸本地；標題「2026 GIMA LIVE」含獎項縮寫
+- canonical: 壞兒來福
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（indievox.com/activity/detail/26_iv0425078）：「Fire Live 壞兒來福」系列第4場，演出者一生好命、來者何人 whoou！、應聲倒地均為台灣場地（全區搖滾站席）常見的本地地下樂團組合，標題本身無法單獨比對到個別藝人名，以系列品牌名登記；標題「2026 Fire Live 壞兒來福 Vol.4」含品牌名
+- canonical: 孿生姐妹之夜
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（ticketplus.com.tw/activity/0233a891800ffaa343bf8bff73d390e8）：標題「之夜」為夜店派對類型，無具體演出者/DJ名稱，比照夜店派對品牌名歸本地規則；標題「2026孿生姐妹之夜之鬼迷心竅」含品牌名
+- canonical: 跳跳唱唱派對
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（ticketplus.com.tw/activity/2c50382df8ffe142e2ce48139b4126b6）：隨機舞蹈 x 空耳卡拉OK 互動派對活動，無具體演出者名稱，比照夜店派對品牌名歸本地規則；標題「跳跳唱唱派對 - 隨機舞蹈 x 空耳卡拉OK」含品牌名
