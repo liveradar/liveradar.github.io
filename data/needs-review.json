@@ -1,22 +1,6 @@
 {
   "items": [
     {
-      "raw_id": "hp2026-2addon",
-      "title_raw": "【福利加購 Add-On】HEARTPOP WORLD TOUR TAIPEI Queens of Hearts — HALLOWEEN NIGHT",
-      "url": "https://bstudio.kktix.cc/events/hp2026-2addon",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "hp2026-1fm",
-      "title_raw": "【見面會 Fan Meeting】HEARTPOP WORLD TOUR TAIPEI Queens of Hearts — HALLOWEEN NIGHT",
-      "url": "https://bstudio.kktix.cc/events/hp2026-1fm",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "forum2026",
       "title_raw": "2026 福音更新論壇",
       "url": "https://ctctaiwan.kktix.cc/events/forum2026",
@@ -113,6 +97,38 @@
       "detail": null
     },
     {
+      "raw_id": "20261018",
+      "title_raw": "2026新竹長照專業訓練線上同步(直播)課程",
+      "url": "https://longterm-care.kktix.cc/events/20261018",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "1d5efdd3-copy-2",
+      "title_raw": "10/18(日)陽明交大校友客船／單車(選項)水岸遊河趣",
+      "url": "https://haloha123.kktix.cc/events/1d5efdd3-copy-2",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "1d5efdd3-copy-3",
+      "title_raw": "10/18(日)游榮富親友基隆河水岸考察旅遊行程",
+      "url": "https://haloha123.kktix.cc/events/1d5efdd3-copy-3",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "1d5efdd3-copy-4",
+      "title_raw": "10/18(日)彩虹網球社友基隆河水岸關渡至美堤碼頭搭船旅遊",
+      "url": "https://haloha123.kktix.cc/events/1d5efdd3-copy-4",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
       "raw_id": "26_ksmasters",
       "title_raw": "2026高雄羽球大師賽",
       "url": "https://tixcraft.com/activity/detail/26_ksmasters",
@@ -129,42 +145,10 @@
       "detail": null
     },
     {
-      "raw_id": "870004",
-      "title_raw": "Lambda Shift 台北專場",
-      "url": "https://go.fansi.me/events/870004",
-      "source": "FANSI GO",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "100133",
       "title_raw": "一生、オタクしてくれる？",
       "url": "https://go.fansi.me/events/100133",
       "source": "FANSI GO",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "900003",
-      "title_raw": "MPMG MUSIC VISION TAIPEI",
-      "url": "https://go.fansi.me/events/900003",
-      "source": "FANSI GO",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "992fec3ca0f45ac8e1c2c530496e1769_1fe8f259f1bb43f34ea4dec362d7609b",
-      "title_raw": "《桑心男孩俱樂部 SONNIE BOYZ CLUB》2026 發片專場（台北場）",
-      "url": "https://ticketplus.com.tw/activity/992fec3ca0f45ac8e1c2c530496e1769",
-      "source": "Ticket Plus",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "992fec3ca0f45ac8e1c2c530496e1769_2688be5aaa253785dd1cb10d98a45786",
-      "title_raw": "《桑心男孩俱樂部 SONNIE BOYZ CLUB》2026 發片專場（高雄場）",
-      "url": "https://ticketplus.com.tw/activity/992fec3ca0f45ac8e1c2c530496e1769",
-      "source": "Ticket Plus",
       "reason": "artist_unrecognized",
       "detail": null
     }

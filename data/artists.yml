@@ -2266,3 +2266,15 @@
 - canonical: 擊伍
   aliases: []
   tags_origin_default: 本地  # 售票頁查證（opentix.life/event/2107295258362527745）：擊伍打擊樂團（Jouer Percussion Ensemble），節目以打擊樂重新詮釋西洋流行金曲；頁面未直接寫明國籍，依OPENTIX（台灣官方售票平台）上架及台灣打擊樂團命名慣例判斷歸本地（信心中等，見報告「需 Max 確認」）
+- canonical: HEARTPOP
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-10-14 WebSearch 查證：「HEARTPOP」為泰國 HeartPop Studio（泰劇製作公司），見面會主角為泰國女演員 IZEZA（《พักหัวใจที่ยัยแอนตี้แฟน》/Falling for My Hater）與 ICE AMENA（《PLAYER ไม่อาจห้ามรัก》）；售票頁含泰文自介文字確認來源地；比照非音樂人見面會規則收錄為泰國（亞洲其他）
+- canonical: Lambda Shift
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-14 WebSearch 查證：售票頁（FANSI GO/北流）自介為 2024 年於日本關西組成的爵士樂團，原名「Santa Ishiwaki Quartet」，奪得 Park Jazz Live Contest 2025 後改名，經 2026 台中爵士音樂節邀演來台
+- canonical: MPMG MUSIC VISION
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-14 WebSearch 查證：MPMG MUSIC 為韓國廠牌，台北場卡司為韓國搖滾樂團 CONFINED WHITE、LACUNA、SORAN、TOUCHED，自介提及 Mnet「偉大的首爾入侵」、Pentaport Rock Festival 等韓國音樂節/節目經歷
+- canonical: 桑心男孩俱樂部
+  aliases: ["SONNIE BOYZ CLUB"]
+  tags_origin_default: 本地  # 2026-10-14 WebSearch 查證：售票頁（Ticket Plus，主辦躁音製造所 MKSN）為全中文「發片專場」，台北場地 CLAPPER STUDIO、高雄場地 LIVE WAREHOUSE 小庫，判斷為台灣本地樂團/企劃
