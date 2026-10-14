@@ -827,6 +827,18 @@ const NOISE_KEYWORDS = [
   "請勿下單", "帳號設定費", "代禱", "心智圖", "免費課程", "付費課程", "補助課程",
   "企業說明會", "志工熱烈招募", "形象照", "主日崇拜", "攝影展", "敏捷思維", "敏捷大賞",
   "公益講座", "身心靈", "辯論比賽", "水果批發", "咖啡豆品嘗",
+  // 2026-10-12: Max confirmed "PRD Taipei Regional" is a trading-card-game
+  // tournament, not a performance (KKTIX untagged listing).
+  "prd taipei regional",
+  // 2026-10-12: Max confirmed "PLAKORO TAIWAN Meetup" is a night-market
+  // event, not a performance (KKTIX untagged listing).
+  "plakoro",
+  // 2026-10-12: Max confirmed this is an economic-policy forum/lecture
+  // ("世界經貿新格局及台灣的機會與挑戰 - 兼論台歐合作展望"), not a performance.
+  "世界經貿新格局",
+  // 2026-10-12: Max confirmed "【Open MUJI】" listings are MUJI store events
+  // (cooking demos, QB House collabs at outlet stores), not performances.
+  "open muji",
 ];
 
 function isNonMusicNoise(titleRaw) {

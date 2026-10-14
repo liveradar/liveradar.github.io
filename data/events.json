@@ -22380,39 +22380,6 @@
       ]
     },
     {
-      "title_raw": "PRD Taipei Regional",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "新北矽谷國際會議中心 B2",
-      "city": "新北",
-      "date": "2026-10-17",
-      "time": "08:30",
-      "on_sale_at": null,
-      "price_min": 1000,
-      "price_max": 1000,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://fayble.kktix.cc/events/prdtaipeiregional",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://fayble.kktix.cc/events/prdtaipeiregional",
-          "raw_id": "prdtaipeiregional"
-        }
-      ],
-      "first_seen_at": "2026-10-12T02:35:01.380Z",
-      "updated_at": "2026-10-12T02:35:01.380Z",
-      "id": "1c4c303e6e7d9742",
-      "merged_ids": [
-        "1c4c303e6e7d9742"
-      ]
-    },
-    {
       "title_raw": "好孕安心接棒：嬰幼兒與孕產婦急救攻略(第2梯次)",
       "headliners": [],
       "lineup": [],
@@ -22443,105 +22410,6 @@
       "id": "260381aa7a88bb42",
       "merged_ids": [
         "260381aa7a88bb42"
-      ]
-    },
-    {
-      "title_raw": "PLAKORO TAIWAN  Meetup #2",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "香衫",
-      "city": "台北",
-      "date": "2026-10-17",
-      "time": "13:00",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://plakoro-taiwan.kktix.cc/events/plakoro-taiwan-meetup-2",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://plakoro-taiwan.kktix.cc/events/plakoro-taiwan-meetup-2",
-          "raw_id": "plakoro-taiwan-meetup-2"
-        }
-      ],
-      "first_seen_at": "2026-10-12T02:35:01.383Z",
-      "updated_at": "2026-10-12T02:35:01.383Z",
-      "id": "fb8a85b0cdffbf9c",
-      "merged_ids": [
-        "fb8a85b0cdffbf9c"
-      ]
-    },
-    {
-      "title_raw": "世界經貿新格局及台灣的機會與挑戰 - 兼論台歐合作展望",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "集思台大會議中心 洛克廳（捷運公館站步行 2 分鐘）",
-      "city": "台北",
-      "date": "2026-10-17",
-      "time": "14:30",
-      "on_sale_at": null,
-      "price_min": 300,
-      "price_max": 300,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://umaat.kktix.cc/events/drroychunlee",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://umaat.kktix.cc/events/drroychunlee",
-          "raw_id": "drroychunlee"
-        }
-      ],
-      "first_seen_at": "2026-10-12T02:35:01.386Z",
-      "updated_at": "2026-10-12T02:35:01.386Z",
-      "id": "70e8bd63417cb1f2",
-      "merged_ids": [
-        "70e8bd63417cb1f2"
-      ]
-    },
-    {
-      "title_raw": "【Open MUJI】湯底料理分享會_MITSUI OUTLET PARK林口門市",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "無印良品MITSUI OUTLET PARK林口門市",
-      "city": "新北",
-      "date": "2026-10-17",
-      "time": "15:00",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://mujitaiwan.kktix.cc/events/cffb0552-copy-1",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://mujitaiwan.kktix.cc/events/cffb0552-copy-1",
-          "raw_id": "cffb0552-copy-1"
-        }
-      ],
-      "first_seen_at": "2026-10-12T02:35:01.387Z",
-      "updated_at": "2026-10-12T02:35:01.387Z",
-      "id": "5599e56d1a20b7ef",
-      "merged_ids": [
-        "5599e56d1a20b7ef"
       ]
     },
     {
@@ -22818,39 +22686,6 @@
       "id": "657c0741d7002a68",
       "merged_ids": [
         "657c0741d7002a68"
-      ]
-    },
-    {
-      "title_raw": "【Open MUJI】無印良品 × QB HOUSE​ 聯合體驗活動_MITSUI OUTLET PARK林口門市",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "無印良品MITSUI OUTLET PARK林口門市",
-      "city": "新北",
-      "date": "2026-10-24",
-      "time": "15:00",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://mujitaiwan.kktix.cc/events/cffb0552",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://mujitaiwan.kktix.cc/events/cffb0552",
-          "raw_id": "cffb0552"
-        }
-      ],
-      "first_seen_at": "2026-10-12T02:35:01.392Z",
-      "updated_at": "2026-10-12T02:35:01.392Z",
-      "id": "0c1766d7b9b076fd",
-      "merged_ids": [
-        "0c1766d7b9b076fd"
       ]
     },
     {

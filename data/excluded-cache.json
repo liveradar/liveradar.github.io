@@ -468,6 +468,24 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-12T02:35:01.356Z"
     },
+    "KKTIX|cffb0552": {
+      "source": "KKTIX",
+      "raw_id": "cffb0552",
+      "title_raw": "【Open MUJI】無印良品 × QB HOUSE​ 聯合體驗活動_MITSUI OUTLET PARK林口門市",
+      "url": "https://mujitaiwan.kktix.cc/events/cffb0552",
+      "venue_raw": "無印良品MITSUI OUTLET PARK林口門市",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-12T03:52:35.617Z"
+    },
+    "KKTIX|cffb0552-copy-1": {
+      "source": "KKTIX",
+      "raw_id": "cffb0552-copy-1",
+      "title_raw": "【Open MUJI】湯底料理分享會_MITSUI OUTLET PARK林口門市",
+      "url": "https://mujitaiwan.kktix.cc/events/cffb0552-copy-1",
+      "venue_raw": "無印良品MITSUI OUTLET PARK林口門市",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-12T03:52:35.616Z"
+    },
     "KKTIX|cheap-cipd-assignment-help": {
       "source": "KKTIX",
       "raw_id": "cheap-cipd-assignment-help",
@@ -539,6 +557,15 @@
       "venue_raw": "TIDES / Site 6, The Whampoa, 1 Tak On Street",
       "reason": "outside_taiwan",
       "checked_at": "2026-10-12T02:35:01.321Z"
+    },
+    "KKTIX|drroychunlee": {
+      "source": "KKTIX",
+      "raw_id": "drroychunlee",
+      "title_raw": "世界經貿新格局及台灣的機會與挑戰 - 兼論台歐合作展望",
+      "url": "https://umaat.kktix.cc/events/drroychunlee",
+      "venue_raw": "集思台大會議中心 洛克廳（捷運公館站步行 2 分鐘）",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-12T03:52:20.102Z"
     },
     "KKTIX|east-of-eden-hk-2026": {
       "source": "KKTIX",
@@ -720,6 +747,15 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-12T02:35:01.319Z"
     },
+    "KKTIX|plakoro-taiwan-meetup-2": {
+      "source": "KKTIX",
+      "raw_id": "plakoro-taiwan-meetup-2",
+      "title_raw": "PLAKORO TAIWAN  Meetup #2",
+      "url": "https://plakoro-taiwan.kktix.cc/events/plakoro-taiwan-meetup-2",
+      "venue_raw": "香衫",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-12T03:51:38.403Z"
+    },
     "KKTIX|poppoppo2024": {
       "source": "KKTIX",
       "raw_id": "poppoppo2024",
@@ -728,6 +764,15 @@
       "venue_raw": "高雄流行音樂中心｜音浪塔｜高音塔4-6樓 / 高雄市鹽埕區真愛路1號",
       "reason": "non_music_noise",
       "checked_at": "2026-10-12T02:35:01.317Z"
+    },
+    "KKTIX|prdtaipeiregional": {
+      "source": "KKTIX",
+      "raw_id": "prdtaipeiregional",
+      "title_raw": "PRD Taipei Regional",
+      "url": "https://fayble.kktix.cc/events/prdtaipeiregional",
+      "venue_raw": "新北矽谷國際會議中心 B2",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-12T03:51:25.527Z"
     },
     "KKTIX|qwer-hk-2027": {
       "source": "KKTIX",
