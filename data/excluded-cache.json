@@ -7,7 +7,7 @@
       "url": "https://go.fansi.me/events/110009",
       "venue_raw": "線上課程 / 線上觀看",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:42.978Z"
+      "checked_at": "2026-10-14T01:39:06.740Z"
     },
     "FANSI GO|800004": {
       "source": "FANSI GO",
@@ -16,7 +16,7 @@
       "url": "https://go.fansi.me/events/800004",
       "venue_raw": "新竹國賓大飯店 10F 國際廳A / 300 台灣新竹市中華路二段188號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:42.977Z"
+      "checked_at": "2026-10-14T01:39:06.737Z"
     },
     "FANSI GO|920001": {
       "source": "FANSI GO",
@@ -25,7 +25,7 @@
       "url": "https://go.fansi.me/events/920001",
       "venue_raw": "Red CNX / Fl 3, 12 Huay Kaew Rd, Tambon Chang Phueak, Mueang Chiang Mai District, Chiang Mai",
       "reason": "outside_taiwan",
-      "checked_at": "2026-10-12T02:14:42.978Z"
+      "checked_at": "2026-10-14T01:39:06.737Z"
     },
     "ibon|39891_202610081000": {
       "source": "ibon",
@@ -52,7 +52,7 @@
       "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39911",
       "venue_raw": "臺北大巨蛋 / 臺北大巨蛋（臺北市信義區忠孝東路五段 1 號，捷運國父紀念館站 5 號出口）",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:12:58.600Z"
+      "checked_at": "2026-10-14T01:37:07.348Z"
     },
     "ibon|39948_202610091100": {
       "source": "ibon",
@@ -115,7 +115,7 @@
       "url": "https://www.indievox.com/activity/detail/26_iv04188e3",
       "venue_raw": "Legacy Taichung 音樂展演空間（台中市西屯區安和路117號）",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:01.544Z"
+      "checked_at": "2026-10-14T01:38:04.377Z"
     },
     "KKTIX|0528": {
       "source": "KKTIX",
@@ -126,14 +126,32 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-12T02:35:01.355Z"
     },
-    "KKTIX|1009jazz": {
+    "KKTIX|1016jazz": {
       "source": "KKTIX",
-      "raw_id": "1009jazz",
+      "raw_id": "1016jazz",
       "title_raw": "【音樂解密沙龍】週五限定：一杯咖啡聽懂爵士樂！BOSSANOVA 的解析（充滿陽光沙灘的音樂）",
-      "url": "https://basilica.kktix.cc/events/1009jazz",
+      "url": "https://basilica.kktix.cc/events/1016jazz",
       "venue_raw": "Basilica 爵士藝文咖啡 / 台北市大同區迪化街一段280巷6號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-06T02:28:00.185Z"
+      "checked_at": "2026-10-14T01:54:20.710Z"
+    },
+    "KKTIX|1017jazz": {
+      "source": "KKTIX",
+      "raw_id": "1017jazz",
+      "title_raw": "【一杯咖啡聽我彈爵士吉他】搖擺年代的中板爵士樂：經典爵士樂浪漫之聲（含現場 Jam Session）",
+      "url": "https://basilica.kktix.cc/events/1017jazz",
+      "venue_raw": "Basilica 爵士藝文咖啡 / 台北市大同區迪化街一段280巷6號",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-14T01:54:20.710Z"
+    },
+    "KKTIX|1018jazz": {
+      "source": "KKTIX",
+      "raw_id": "1018jazz",
+      "title_raw": "【一杯咖啡聽我彈爵士吉他】秋季特典：海風、Bossa、拉丁（含現場 Jam Session）",
+      "url": "https://basilica.kktix.cc/events/1018jazz",
+      "venue_raw": "Basilica 爵士藝文咖啡 / 台北市大同區迪化街一段280巷6號",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-14T01:54:20.710Z"
     },
     "KKTIX|1acb4e6e": {
       "source": "KKTIX",
@@ -594,6 +612,42 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-12T02:35:01.365Z"
     },
+    "KKTIX|ethan0102-1": {
+      "source": "KKTIX",
+      "raw_id": "ethan0102-1",
+      "title_raw": "【01/02 15:30場】《負能6週記Live Podcast》 六週年實體活動",
+      "url": "https://comedyclub.kktix.cc/events/ethan0102-1",
+      "venue_raw": "Comedy Plus 卡米地＋ / 台北市中山區復興北路480號",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-14T01:54:20.709Z"
+    },
+    "KKTIX|ethan0102-2": {
+      "source": "KKTIX",
+      "raw_id": "ethan0102-2",
+      "title_raw": "【01/02 19:00場】《負能6週記Live Podcast》 六週年實體活動",
+      "url": "https://comedyclub.kktix.cc/events/ethan0102-2",
+      "venue_raw": "Comedy Plus 卡米地＋ / 台北市中山區復興北路480號",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-14T01:54:20.710Z"
+    },
+    "KKTIX|ethan0103-1": {
+      "source": "KKTIX",
+      "raw_id": "ethan0103-1",
+      "title_raw": "【01/03 15:30場】《負能6週記Live Podcast》 六週年實體活動",
+      "url": "https://comedyclub.kktix.cc/events/ethan0103-1",
+      "venue_raw": "Comedy Plus 卡米地＋ / 台北市中山區復興北路480號",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-14T01:54:20.710Z"
+    },
+    "KKTIX|ethan0103-2": {
+      "source": "KKTIX",
+      "raw_id": "ethan0103-2",
+      "title_raw": "【01/03 19:00場】《負能6週記Live Podcast》 六週年實體活動",
+      "url": "https://comedyclub.kktix.cc/events/ethan0103-2",
+      "venue_raw": "Comedy Plus 卡米地＋ / 台北市中山區復興北路480號",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-14T01:54:20.710Z"
+    },
     "KKTIX|fmijtaichung": {
       "source": "KKTIX",
       "raw_id": "fmijtaichung",
@@ -611,6 +665,33 @@
       "venue_raw": "FMI JAPAN / 台北市松山區敦化北路168號3樓E1",
       "reason": "non_music_noise",
       "checked_at": "2026-10-12T02:35:01.321Z"
+    },
+    "KKTIX|gk20261128": {
+      "source": "KKTIX",
+      "raw_id": "gk20261128",
+      "title_raw": "2026 台北喜劇節 | 【11/28台北】GK爸爸原創故事繪本 Live Podcast 六週年同樂會",
+      "url": "https://comedyclub.kktix.cc/events/gk20261128",
+      "venue_raw": "Comedy Plus 卡米地＋ / 北市中山區復興北路480號",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-14T01:54:20.697Z"
+    },
+    "KKTIX|gk20261226": {
+      "source": "KKTIX",
+      "raw_id": "gk20261226",
+      "title_raw": "【12/26 高雄場】GK爸爸原創故事繪本 Live Podcast 六週年同樂會",
+      "url": "https://comedyclub.kktix.cc/events/gk20261226",
+      "venue_raw": "Loi了咖啡 音樂展演空間 / 高雄市新興區民主路26號",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-14T01:54:20.709Z"
+    },
+    "KKTIX|gk20261227": {
+      "source": "KKTIX",
+      "raw_id": "gk20261227",
+      "title_raw": "【12/27 台中場】GK爸爸原創故事繪本 Live Podcast 六週年同樂會",
+      "url": "https://comedyclub.kktix.cc/events/gk20261227",
+      "venue_raw": "群島藝術園區 Islands Art Park / 臺中市西屯區西平里西安街277巷2號",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-14T01:54:20.709Z"
     },
     "KKTIX|hwangminhyun-macau-2026": {
       "source": "KKTIX",
@@ -819,6 +900,15 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-12T02:35:01.318Z"
     },
+    "KKTIX|sf9-2026": {
+      "source": "KKTIX",
+      "raw_id": "sf9-2026",
+      "title_raw": "2026 SF9 LIVE FANTASY #6 IN HONG KONG",
+      "url": "https://tix-get-go.kktix.cc/events/sf9-2026",
+      "venue_raw": "AXA安盛創夢館 / AXA Dreamland",
+      "reason": "outside_taiwan",
+      "checked_at": "2026-10-14T01:54:20.711Z"
+    },
     "KKTIX|simpleplan-hk-2026": {
       "source": "KKTIX",
       "raw_id": "simpleplan-hk-2026",
@@ -997,7 +1087,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台北 / 台北市大同區長安西路29號7樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_38756c42e19fb8d457eebdbdc5985907": {
       "source": "Ticket Plus",
@@ -1006,7 +1096,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台南 / 台南市永康區中華路144-1號B1",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_79f767ab15ec1309dbcd532939df57f7": {
       "source": "Ticket Plus",
@@ -1015,7 +1105,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "新竹 / 新竹市東區光復路一段270號B1(KGYM 2.0)",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_7ae03188c369a75d8c948f50975f0bf7": {
       "source": "Ticket Plus",
@@ -1024,7 +1114,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台北 / 台北市大同區長安西路29號7樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_9f82ed093a52bf7fb467552e18f0e2a8": {
       "source": "Ticket Plus",
@@ -1033,7 +1123,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台南 / 台南市永康區中華路144-1號B1",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_a038e250121f05d441726a2fb38331f4": {
       "source": "Ticket Plus",
@@ -1042,7 +1132,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "新竹 / 新竹市東區光復路一段270號B1(KGYM 2.0)",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_a3ec5646dae1792cf5cab451a34f95ec": {
       "source": "Ticket Plus",
@@ -1051,7 +1141,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台中 / 台中市北屯區文心路四段936號2樓或3樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_a9e7e2edce28bce6334c78d372690b29": {
       "source": "Ticket Plus",
@@ -1060,7 +1150,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台南 / 台南市永康區中華路144-1號B1",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_aafea9fe1483296ded8b2ce6228523a1": {
       "source": "Ticket Plus",
@@ -1069,7 +1159,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台中 / 台中市北屯區文心路四段936號2樓或3樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_ab4cbe2713d4d1d8060c852c3a9a9b09": {
       "source": "Ticket Plus",
@@ -1078,7 +1168,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台中 / 台中市北屯區文心路四段936號2樓或3樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_d056e1cc74f1be3188f5efb07a809586": {
       "source": "Ticket Plus",
@@ -1087,7 +1177,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "新竹 / 新竹市東區光復路一段270號B1(KGYM 2.0)",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_efbf4f80c35d9b2a58e3744bb4e1f30a": {
       "source": "Ticket Plus",
@@ -1096,7 +1186,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台北 / 台北市大同區長安西路29號7樓",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|289cca77e9b6c78c14d295bce9a6221b_f63e04144b43647a52fae2b14eb36ff8": {
       "source": "Ticket Plus",
@@ -1105,7 +1195,7 @@
       "url": "https://ticketplus.com.tw/activity/289cca77e9b6c78c14d295bce9a6221b",
       "venue_raw": "台南 / 台南市永康區中華路144-1號B1",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.730Z"
+      "checked_at": "2026-10-14T01:38:55.516Z"
     },
     "Ticket Plus|a10378c64dbbc2c6a9a4bf86c499f819_cdf3a76f85762e9333e7e9fb73a3f2d6": {
       "source": "Ticket Plus",
@@ -1114,7 +1204,7 @@
       "url": "https://ticketplus.com.tw/activity/a10378c64dbbc2c6a9a4bf86c499f819",
       "venue_raw": "台中世貿二館 / 台中市西屯區天保街60號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.729Z"
+      "checked_at": "2026-10-14T01:38:55.512Z"
     },
     "Ticket Plus|b56ed831d1337d59c4467fce8400085b_13816052e46fafaee1bba23183ca711f": {
       "source": "Ticket Plus",
@@ -1123,7 +1213,7 @@
       "url": "https://ticketplus.com.tw/activity/b56ed831d1337d59c4467fce8400085b",
       "venue_raw": "華山1914文化創意業園區西一館 / 台北市中正區八德路一段一號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.729Z"
+      "checked_at": "2026-10-14T01:38:55.510Z"
     },
     "Ticket Plus|b56ed831d1337d59c4467fce8400085b_628ed6f6aec1f2a36bb130f2480cf7fa": {
       "source": "Ticket Plus",
@@ -1132,7 +1222,7 @@
       "url": "https://ticketplus.com.tw/activity/b56ed831d1337d59c4467fce8400085b",
       "venue_raw": "華山1914文化創意業園區西一館 / 台北市中正區八德路一段一號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.729Z"
+      "checked_at": "2026-10-14T01:38:55.510Z"
     },
     "Ticket Plus|e4cd0cf639ebe6488c75528d97694602_1342bcceedf821474fbe97a9de676b8d": {
       "source": "Ticket Plus",
@@ -1141,7 +1231,7 @@
       "url": "https://ticketplus.com.tw/activity/e4cd0cf639ebe6488c75528d97694602",
       "venue_raw": "空軍三重一村新北市眷村文化園區 / 241新北市三重區光輝里正義南路86巷9號",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:14:25.729Z"
+      "checked_at": "2026-10-14T01:38:55.510Z"
     },
     "年代|P1E9S2B6_202610241900": {
       "source": "年代",
@@ -1150,7 +1240,7 @@
       "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1E9S2B6",
       "venue_raw": "台南市安平區漁光島 / 臺南市安平區漁光路118號台南市安平區漁光島",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:12:53.430Z"
+      "checked_at": "2026-10-14T01:37:01.621Z"
     },
     "年代|P1E9S2B6_202610251900": {
       "source": "年代",
@@ -1159,7 +1249,7 @@
       "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1E9S2B6",
       "venue_raw": "台南市安平區漁光島 / 臺南市安平區漁光路118號台南市安平區漁光島",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:12:53.430Z"
+      "checked_at": "2026-10-14T01:37:01.621Z"
     },
     "年代|P1E9S2B6_202610261900": {
       "source": "年代",
@@ -1168,7 +1258,7 @@
       "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1E9S2B6",
       "venue_raw": "台南市安平區漁光島 / 臺南市安平區漁光路118號台南市安平區漁光島",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:12:53.430Z"
+      "checked_at": "2026-10-14T01:37:01.622Z"
     },
     "拓元|26_btskhbus": {
       "source": "拓元",
@@ -1177,7 +1267,7 @@
       "url": "https://tixcraft.com/activity/detail/26_btskhbus",
       "venue_raw": "【返鄉專車】指定搭車點",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:17:56.752Z"
+      "checked_at": "2026-10-14T01:44:05.619Z"
     },
     "拓元|26_busaaakh": {
       "source": "拓元",
@@ -1186,7 +1276,7 @@
       "url": "https://tixcraft.com/activity/detail/26_busaaakh",
       "venue_raw": "【返鄉專車】指定搭車點",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:17:56.752Z"
+      "checked_at": "2026-10-14T01:44:05.617Z"
     },
     "拓元|26_busbbdome": {
       "source": "拓元",
@@ -1204,7 +1294,7 @@
       "url": "https://tixcraft.com/activity/detail/26_busffdome",
       "venue_raw": "【返鄉專車】指定搭車點",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:17:56.752Z"
+      "checked_at": "2026-10-14T01:44:05.617Z"
     },
     "拓元|26_busskztp": {
       "source": "拓元",
@@ -1213,7 +1303,16 @@
       "url": "https://tixcraft.com/activity/detail/26_busskztp",
       "venue_raw": "【返鄉專車】指定搭車點",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:17:56.751Z"
+      "checked_at": "2026-10-14T01:44:05.617Z"
+    },
+    "拓元|26_futuro": {
+      "source": "拓元",
+      "raw_id": "26_futuro",
+      "title_raw": "2026台灣企業甲級足球聯賽 台中FUTURO主場賽事",
+      "url": "https://tixcraft.com/activity/detail/26_futuro",
+      "venue_raw": "台中市太原足球場",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-14T01:44:05.621Z"
     },
     "拓元|26_lioneers": {
       "source": "拓元",
@@ -1222,7 +1321,7 @@
       "url": "https://tixcraft.com/activity/detail/26_lioneers",
       "venue_raw": "新竹縣體育館",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:17:56.752Z"
+      "checked_at": "2026-10-14T01:44:05.621Z"
     },
     "拓元|26_sbhcs": {
       "source": "拓元",
@@ -1231,7 +1330,7 @@
       "url": "https://tixcraft.com/activity/detail/26_sbhcs",
       "venue_raw": "MIZUHO PayPay Dome FUKUOKA",
       "reason": "non_music_noise",
-      "checked_at": "2026-10-12T02:17:56.752Z"
+      "checked_at": "2026-10-14T01:44:05.621Z"
     }
   }
 }

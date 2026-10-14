@@ -2204,3 +2204,65 @@
 - canonical: 跳跳唱唱派對
   aliases: []
   tags_origin_default: 本地  # 售票頁查證（ticketplus.com.tw/activity/2c50382df8ffe142e2ce48139b4126b6）：隨機舞蹈 x 空耳卡拉OK 互動派對活動，無具體演出者名稱，比照夜店派對品牌名歸本地規則；標題「跳跳唱唱派對 - 隨機舞蹈 x 空耳卡拉OK」含品牌名
+
+# 2026-10-14 daily fetch：needs-review.json artist_unrecognized 清單查證
+- canonical: Car, the garden
+  aliases: []
+  tags_origin_default: 韓國  # WebSearch 查證：韓國獨立歌手카더가든，本名차정원，英譯即藝名「Car, the garden」，2013年於韓國獨立樂壇出道，與 Beenzino、Code Kunst、白예린 等合作過；售票頁標題「Car, the garden Live in Taipei 2026」含藝名
+- canonical: 猫は液体
+  aliases: []
+  tags_origin_default: 日本  # WebSearch 查證：京都組成的日本四人吉他搖滾樂團（2024年結成），台北公演主辦為「浪漫的工作室 Moon Romantic Office」，與售票頁主辦方 romanticoffice.kktix.cc 一致；售票頁標題「猫は液体 1st Album ''nekowaekitai'' Release Live Tour」含團名
+- canonical: nhomme
+  aliases: []
+  tags_origin_default: 日本  # 售票頁查證（deaftouch.kktix.cc/events/nhommetw26）：頁面標題標示「nhomme (JP)」，介紹為「東京 math rock／screamo 樂團」；售票頁標題「nhomme - 1st Taiwan Tour」含團名
+- canonical: JX
+  aliases: []
+  tags_origin_default: 韓國  # WebSearch 查證：韓國歌手金在中（J-JUN）與金俊秀（XIA）組成的雙人團體，前 JYJ／東方神起成員，巡迴含11/21台北站，日期與售票頁一致；售票頁標題「JX 2026 TOUR CONCERT <CORE> IN TAIPEI」含團名
+- canonical: JOONGDUNK
+  aliases: []
+  tags_origin_default: 亞洲其他  # WebSearch 查證：泰國BL男星 Joong（Archen Aydin）與 Dunk（Natachai Boonprasert）組成的「JoongDunk」配對，GMMTV經紀，於泰國演藝圈成名，見面會性質比照非音樂人見面會收錄規則；售票頁標題「JOONGDUNK FANMEETING in HONGKONG with Jaidee」含組合名
+- canonical: KOREA SPOTLIGHT
+  aliases: []
+  tags_origin_default: 韓國  # WebSearch 查證：韓國文化產業振興院（KOCCA）主辦的旗艦級韓流拼盤展演「Korea Spotlight」，2026台北場卡司含 SUHO(EXO)、SAY MY NAME、NELL、Milena 全為韓國藝人，屬「國外品牌音樂節、演出者全是同一國藝人」例外規則；售票頁標題「KOREA SPOTLIGHT X MUSE ON in TAIPEI」含品牌名
+- canonical: Bridge Dog
+  aliases: []
+  tags_origin_default: 歐美  # WebSearch 查證：澳洲雪梨（Sydney）shoegaze樂團，Bandcamp／Last.fm均標示為雪梨樂團；售票頁標題「南半球的夢幻女聲 Bridge Dog 台北演唱會」含團名
+- canonical: 谷川晃熙
+  aliases: []
+  tags_origin_default: 日本  # 售票頁查證（thewalllivehouse.kktix.cc/events/ee548352）：頁面介紹為「來自日本千葉縣銚子市的創作歌手」，返鄉後於當地經營 tokiyori.cafe；售票頁標題含「谷川晃熙 teruki」
+- canonical: Thee Marloes
+  aliases: []
+  tags_origin_default: 亞洲其他  # WebSearch 查證：印尼泗水（Surabaya）三人組，成員 Natassya Sianturi、Sinatrya Dharaka、Tommy Satwick，簽約美國廠牌 Big Crown Records；售票頁標題「Romantic Theater invites "Thee Marloes"」含團名
+- canonical: Ofelia 歐菲
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：Bandcamp個人簡介明確寫「來自台灣的 Ofelia Yang」；售票頁標題「高雄場｜Ofelia 歐菲《明年我要出專輯啦！》」「台北場｜Ofelia 歐菲《明年我要出專輯啦！》」含藝名
+- canonical: 有待商榷
+  aliases: []
+  tags_origin_default: 本地  # WebSearch 查證：台灣樂團，首支單曲〈傷心大哥 Aniki〉由劉道文製作，錄音於台灣 Lights Up Studio／強力錄音室，團員為美國 Berklee 音樂學院校友（today.line.me 報導）；售票頁標題「有待商榷《一起交白卷》」含團名
+- canonical: Mr.Children
+  aliases: []
+  tags_origin_default: 日本  # 日本國民樂團，1992年出道，廣為人知無需額外查證；售票頁標題「Mr.Children Tour 2026 "Saturday in the park"」含團名
+- canonical: 黃彥斌
+  aliases: []
+  tags_origin_default: 本地  # 台灣爵士小提琴家（中文全名、台北北流演出），比照同類台灣器樂創作者案例歸本地；售票頁標題「黃彥斌 《緣》爵士小提琴專輯巡迴」含藝人名
+- canonical: 張仲麟
+  aliases: []
+  tags_origin_default: 本地  # 台灣創作歌手（中文全名、台北北流專場演出）；售票頁標題「共乘｜張仲麟 2026北流專場」含藝人名
+- canonical: 變裝皇后 Yolanda
+  aliases: []
+  tags_origin_default: 本地  # 台灣在地變裝皇后十週年大秀，比照夜店演出/變裝秀本地規則；售票頁標題「【 囍宴 】- 變裝皇后 Yolanda 10 週年大秀」含藝名
+- canonical: 安眠巫師 WiFi
+  aliases: []
+  tags_origin_default: 本地  # 派對品牌名，無具體演出者/DJ名稱，比照夜店派對品牌名歸本地規則；售票頁標題「安眠巫師 WiFi｜沒有星期幾的人，年末連線派對」含品牌名
+- canonical: Wah SUB
+  aliases: []
+  tags_origin_default: 本地  # 南港在地演出系列「感謝祭」，多組台灣樂手組成卡司，比照音樂節/品牌名歸本地規則；售票頁標題「Wah SUB！016 感謝祭。南港嗨兩天」含品牌名
+- canonical: 第一超棒臺南脫口秀
+  aliases: ["Tainan Comedy Live"]
+  tags_origin_default: 本地  # 台南在地脫口秀開放麥系列（主辦 onthebeach.kktix.cc），中英文版本為同一系列品牌，比照系列名稱歸本地規則；售票頁標題「第一超棒臺南脫口秀」「Tainan Comedy Live」含品牌名
+- canonical: BELISH
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（kafka.kktix.cc/events/belishkafka）：頁面自稱「千禧年治癒系創作新聲」，列出演出紀錄含台灣祭、大稻埕夏日節等本地音樂節，專輯《想起你的時刻》全中文創作；頁面未直接寫明國籍，依演出紀錄判斷歸本地（信心中等，見報告「需 Max 確認」）
+- canonical: 擊伍
+  aliases: []
+  tags_origin_default: 本地  # 售票頁查證（opentix.life/event/2107295258362527745）：擊伍打擊樂團（Jouer Percussion Ensemble），節目以打擊樂重新詮釋西洋流行金曲；頁面未直接寫明國籍，依OPENTIX（台灣官方售票平台）上架及台灣打擊樂團命名慣例判斷歸本地（信心中等，見報告「需 Max 確認」）
