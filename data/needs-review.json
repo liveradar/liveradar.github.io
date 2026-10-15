@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "raw_id": "2026csbc",
+      "title_raw": "2026稻香暖暖演唱會",
+      "url": "https://csbcyln.kktix.cc/events/2026csbc",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
       "raw_id": "forum2026",
       "title_raw": "2026 福音更新論壇",
       "url": "https://ctctaiwan.kktix.cc/events/forum2026",
@@ -73,14 +81,6 @@
       "detail": null
     },
     {
-      "raw_id": "couplefinance",
-      "title_raw": "兩個人的財富藍圖：兩個人一起賺錢，為什麼還是很難一起變有錢？",
-      "url": "https://moneymap.kktix.cc/events/couplefinance",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "20261017",
       "title_raw": "好孕安心接棒：嬰幼兒與孕產婦急救攻略(第2梯次)",
       "url": "https://longterm-care.kktix.cc/events/20261017",
@@ -121,9 +121,25 @@
       "detail": null
     },
     {
+      "raw_id": "92f447cb-copy-2",
+      "title_raw": "10/18(日)  購票資格TSMCNUM001  竹科團購 特定人士資料庫  基隆河水岸考察旅遊行程",
+      "url": "https://haloha123.kktix.cc/events/92f447cb-copy-2",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
       "raw_id": "1d5efdd3-copy-4",
       "title_raw": "10/18(日)彩虹網球社友基隆河水岸關渡至美堤碼頭搭船旅遊",
       "url": "https://haloha123.kktix.cc/events/1d5efdd3-copy-4",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "f0ad7bf9karwq",
+      "title_raw": "2026/10/22 體能與團隊探索：馬拉松長跑與引導 (線上)",
+      "url": "https://icatw.kktix.cc/events/f0ad7bf9karwq",
       "source": "KKTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -133,6 +149,14 @@
       "title_raw": "2026高雄羽球大師賽",
       "url": "https://tixcraft.com/activity/detail/26_ksmasters",
       "source": "拓元",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "26_iv0420868",
+      "title_raw": "❮  D.N.Δ  ❯ SPIN-UP：HEARTBEAT_THEΔRAREz 1st ALBUM WORLD TOUR",
+      "url": "https://www.indievox.com/activity/detail/26_iv0420868",
+      "source": "iNDIEVOX",
       "reason": "artist_unrecognized",
       "detail": null
     },
@@ -149,6 +173,22 @@
       "title_raw": "一生、オタクしてくれる？",
       "url": "https://go.fansi.me/events/100133",
       "source": "FANSI GO",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "440032",
+      "title_raw": "書帆 ShuShu 2026《長出自己的樣子》專場",
+      "url": "https://go.fansi.me/events/440032",
+      "source": "FANSI GO",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2100846261949403137_1798716600000",
+      "title_raw": "2026 NTT歲末音樂會《那麼派—動靜皆宜樂舞派對》",
+      "url": "https://www.opentix.life/event/2100846261949403137",
+      "source": "OPENTIX",
       "reason": "artist_unrecognized",
       "detail": null
     }

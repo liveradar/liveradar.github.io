@@ -2278,3 +2278,21 @@
 - canonical: 桑心男孩俱樂部
   aliases: ["SONNIE BOYZ CLUB"]
   tags_origin_default: 本地  # 2026-10-14 WebSearch 查證：售票頁（Ticket Plus，主辦躁音製造所 MKSN）為全中文「發片專場」，台北場地 CLAPPER STUDIO、高雄場地 LIVE WAREHOUSE 小庫，判斷為台灣本地樂團/企劃
+- canonical: Key Live
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-15 WebSearch 查證：售票頁（goldendeerjr.kktix.cc）將《Kanon》《AIR》《CLANNAD》《Little Busters!》《Angel Beats!》等日本視覺小說/動畫 IP 的音樂品牌「Key」冠名巡演，演出陣容為日本歌手 Lia、多田葵、Rita、riya、茶太；主辦方雖為香港「小金鹿」，但音樂品牌與演出者皆源自日本
+- canonical: ROY KIM
+  aliases: ["Roy Kim", "로이킴"]
+  tags_origin_default: 韓國  # 2026-10-15 WebSearch 查證：韓國媒體（sports.khan.co.kr、starnewskorea）確認此為 Roy Kim 世界巡演，首站首爾 KSPO DOME、韓國粉絲專屬預售，台北為亞洲站之一；Roy Kim 為韓國歌唱選秀節目 Superstar K4 出身的韓國創作歌手
+- canonical: 沈默紳士
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-15 WebSearch 查證：售票頁（ticketplus.com.tw）自介「2019年成團」，台灣樂團
+- canonical: 核果人NUTS
+  aliases: ["核果人"]
+  tags_origin_default: 本地  # 2026-10-15 WebSearch 查證：售票頁（ticketplus.com.tw）自介「2020年成立於台北」，並獲文化部流行音樂製作補助
+- canonical: TEEN TOP
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-15 WebSearch 查證：韓國男團，台北場由 RNR SQUARE TAIWAN 主辦、Zepp New Taipei 演出，TOP Media（韓國）出道團體
+- canonical: Lazy Habits
+  aliases: ["慵懶成性"]
+  tags_origin_default: 本地  # 2026-10-15 WebSearch 查證（信心中等，見報告「需 Max 確認」）：台灣媒體（The News Lens）指團體源自英國倫敦、主唱 James Collins 旅台約10年；但本場由台灣嘻哈廠牌 THAT'S MY SHHH 主辦、發片品牌為台灣製作，且長年與拷秋勤、大支等台灣嘻哈樂手合作，依「成名的音樂圈」判斷歸本地；另一可能判法為歐美（樂團源起地）
