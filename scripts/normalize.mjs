@@ -839,6 +839,11 @@ const NOISE_KEYWORDS = [
   // 2026-10-12: Max confirmed "【Open MUJI】" listings are MUJI store events
   // (cooking demos, QB House collabs at outlet stores), not performances.
   "open muji",
+  // 2026-10-15: badminton tournament (tixcraft) and a city government's
+  // National Games opening ceremony (KKTIX, tycg.kktix.cc) — not blocking
+  // tycg's whole account since a city-government org can legitimately host
+  // real public concerts too, unlike the junk-only accounts above.
+  "羽球大師賽", "全民運動會",
 ];
 
 function isNonMusicNoise(titleRaw) {
@@ -937,6 +942,26 @@ function isPlatformOwnDemoEvent(url) {
 const MANUALLY_EXCLUDED_URLS = new Set(["https://ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24"]);
 function isManuallyExcludedUrl(url) {
   return MANUALLY_EXCLUDED_URLS.has(url ?? "");
+}
+
+// 2026-10-15: whole KKTIX organizer accounts whose every listing so far has
+// been non-music junk, blocked by subdomain rather than title keywords —
+// each of these accounts has already reworded its junk under a new title
+// at least once, so a title-keyword match would need re-adding every time:
+// haloha123 (private river/boat tourism trips, not ticketed performances),
+// ctctaiwan (church-planting/missionary training courses), longterm-care
+// (healthcare professional training), icatw (coaching/facilitation training
+// courses), basketballzero (word-game/puzzle-app content-marketing pages,
+// same shape as the SEO-spam batch above), emqqq (an ETF ticker, not an
+// event), evilcorp (a test/placeholder account — "驗證der"), myfitness (a
+// wellness-MLM pyramid-scheme pitch, "動脈團隊"). Unlike MANUALLY_EXCLUDED_URLS
+// above (one specific activity, kept as a real performer's content the org
+// hosts elsewhere), none of these accounts has ever posted a real
+// performance, so the whole account is the right granularity.
+const EXCLUDED_KKTIX_ACCOUNTS_RE =
+  /^https?:\/\/(haloha123|ctctaiwan|longterm-care|icatw|basketballzero|emqqq|evilcorp|myfitness)\.kktix\.cc\//i;
+function isExcludedAccount(url) {
+  return EXCLUDED_KKTIX_ACCOUNTS_RE.test(url ?? "");
 }
 
 /**
@@ -1046,6 +1071,7 @@ export function exclusionReason(rawEvent) {
   if (isJunkTitle(rawEvent.title_raw ?? "")) return "junk_title";
   if (isNonMusicNoise(rawEvent.title_raw ?? "")) return "non_music_noise";
   if (isPlatformOwnDemoEvent(rawEvent.url)) return "platform_demo_content";
+  if (isExcludedAccount(rawEvent.url)) return "excluded_account";
   if (isManuallyExcludedUrl(rawEvent.url)) return "manual_exclude";
   if (isOutsideTaiwanVenue(rawEvent.venue_raw)) return "outside_taiwan";
   return null;

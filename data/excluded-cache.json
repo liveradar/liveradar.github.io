@@ -45,6 +45,15 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-15T02:18:23.875Z"
     },
+    "KKTIX|03faa84b": {
+      "source": "KKTIX",
+      "raw_id": "03faa84b",
+      "title_raw": "115年全民運動會－開幕典禮暨選手之夜",
+      "url": "https://tycg.kktix.cc/events/03faa84b",
+      "venue_raw": "桃園市立綜合體育館（桃園巨蛋）",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-15T03:01:10.285Z"
+    },
     "KKTIX|0528": {
       "source": "KKTIX",
       "raw_id": "0528",
@@ -1205,6 +1214,15 @@
       "venue_raw": "台中市太原足球場",
       "reason": "non_music_noise",
       "checked_at": "2026-10-15T02:23:00.530Z"
+    },
+    "拓元|26_ksmasters": {
+      "source": "拓元",
+      "raw_id": "26_ksmasters",
+      "title_raw": "2026高雄羽球大師賽",
+      "url": "https://tixcraft.com/activity/detail/26_ksmasters",
+      "venue_raw": "高雄巨蛋",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-15T03:01:10.287Z"
     },
     "拓元|26_lioneers": {
       "source": "拓元",
