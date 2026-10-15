@@ -98,10 +98,41 @@ const VENUE_ALIASES = {
   "westartaipei": "westar",
   "台北westar": "westar",
   "西門westar": "westar",
+  // 2026-10-15: same-place spellings found by scanning events.json for keys
+  // that are a prefix of another. Separate halls of one building (LIVE
+  // WAREHOUSE 大庫/小庫, 西門紅樓二樓劇場, 台北國際會議中心大會堂, 群島藝術園區
+  // 大劇院…) are deliberately NOT folded — they're different rooms.
+  "高雄livewarehouse": "livewarehouse",
+  "高雄livewarehouse小庫": "livewarehouse小庫",
+  "clapperstudio展演廳(三創生活)": "clapperstudio",
+  "迴響音樂展演空間soundlivehouse": "迴響音樂展演空間",
+  "百樂門": "百樂門酒館",
+  "sub": "sublive",
+  "台北國際會議中心ticc": "台北國際會議中心",
+  "台北國際會議中心(ticc)": "台北國際會議中心",
+  "ticc台北國際會議中心": "台北國際會議中心",
+  "台北國際會議中心大會堂(ticc)": "台北國際會議中心大會堂",
+  "ticc台北國際會議中心大會堂": "台北國際會議中心大會堂",
+  "高雄國家體育場(世運主場館)": "高雄國家體育場",
+  "cornerhouse角落文創展演空間": "cornerhouse",
+  "pipelivemusic派譜音樂空間": "pipelivemusic",
+  "杰克音樂jackstudio": "杰克音樂",
+  "cornermax大角落多功能展演館": "cornermax",
+  "國立體育大學綜合體育館(林口體育館)": "國立體育大學綜合體育館",
+  "nuzone展演空間": "nuzone",
+  "典空間codespace": "典空間",
+  "西門紅樓theredhouse二樓劇場": "西門紅樓二樓劇場",
+  // "三創生活園區 Clapper Studio": the trailing-English rule strips it to just "三創生活園區".
+  "三創生活園區": "clapperstudio",
+  "台北三創生活園區": "clapperstudio",
+  "三創clapperstudio": "clapperstudio",
+  "高雄百樂門酒館": "百樂門酒館",
+  "twothreecomedyclub23喜劇俱樂部": "二三喜劇",
 };
 
 export function venueKey(venue) {
-  const v = (venue ?? "").replace(/臺/g, "台").toLowerCase().trim();
+  // NFKC: full-width ＋／Ａ／（ → + / A / ( ("Comedy Plus 卡米地＋" vs "COMEDY PLUS 卡米地+").
+  const v = (venue ?? "").normalize("NFKC").replace(/臺/g, "台").toLowerCase().trim();
   const cjkThenLatin = v.match(/^(.*[\u4e00-\u9fff])\s+[a-z0-9 .'&-]+$/);
   const key = (cjkThenLatin ? cjkThenLatin[1] : v).replace(/\s+/g, "");
   return VENUE_ALIASES[key] ?? key;

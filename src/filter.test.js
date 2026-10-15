@@ -192,6 +192,13 @@ test("venueKey: spelling variants of one venue fold together, different venues s
   assert.notEqual(venueKey("台北小巨蛋"), venueKey("臺北大巨蛋"));
   assert.notEqual(venueKey("高雄巨蛋"), venueKey("桃園巨蛋"));
   assert.equal(venueKey(""), "");
+  // 2026-10-15: full-width characters, and verified same-place aliases
+  assert.equal(venueKey("Comedy Plus 卡米地＋"), venueKey("COMEDY PLUS 卡米地+"));
+  assert.equal(venueKey("台北國際會議中心（TICC）"), venueKey("TICC台北國際會議中心"));
+  assert.equal(venueKey("三創生活園區 Clapper Studio"), venueKey("CLAPPER STUDIO"));
+  // separate halls of one building stay apart
+  assert.notEqual(venueKey("LIVE WAREHOUSE 小庫"), venueKey("LIVE WAREHOUSE 大庫"));
+  assert.notEqual(venueKey("台北國際會議中心 大會堂"), venueKey("台北國際會議中心"));
 });
 
 test("partitionEvents: venue filter keeps only the picked venues (any spelling), ORs within the filter", () => {
