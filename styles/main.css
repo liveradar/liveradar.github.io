@@ -197,9 +197,9 @@ button {
 
 /* 2026-10-15 redesign (mockup A, 海報牆): every card is a poster — cover
    image on top with the date and favorite/exclude buttons overlaid, text
-   below. Cards sit in a grid at every width (two columns on a phone), and
-   the very first card on the timeline spans the full row as a "NEXT UP"
-   hero. A day's label spans the grid as a full-width heading. */
+   below. Cards sit in a grid at every width (two columns on a phone), all
+   the same size — no "NEXT UP" hero (Max: the first show isn't special,
+   it was just earliest). A day's label spans the grid as a full-width heading. */
 .day-group {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
@@ -301,25 +301,6 @@ button {
   color: var(--ink);
 }
 .event-actions .icon-circle[aria-pressed="true"] {
-  color: var(--coral);
-}
-
-/* Hero: first card of the timeline. */
-.event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card {
-  grid-column: 1 / -1;
-}
-.event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card .event-cover {
-  aspect-ratio: 16 / 10;
-}
-.event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card .event-title {
-  font-size: 20px;
-}
-.event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card .event-body::before {
-  content: "NEXT UP";
-  font-family: var(--font-label);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
   color: var(--coral);
 }
 
@@ -1001,18 +982,6 @@ textarea.field-input {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 24px 16px;
   }
-  /* Full-width 16:10 hero gets huge past phone width — lay it out side by
-     side instead: cover left, text right. */
-  .event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-    gap: 24px;
-    align-items: center;
-  }
-  .event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card .event-title {
-    font-size: 26px;
-  }
-
   .bottom-nav,
   .sheet {
     max-width: 820px;

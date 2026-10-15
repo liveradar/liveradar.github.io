@@ -32,7 +32,7 @@
  *   登入是加分項不是門檻，沒登入時完全 no-op，跟以前沒連 Gist 時一樣。
  */
 
-import { partitionEvents, isPast, cityBucket, venueKey } from "./filter.js";
+import { partitionEvents, isPast, cityBucket, venueKey, passesViewFilters } from "./filter.js";
 import {
   loadPrefs,
   isFavorited,
@@ -214,10 +214,15 @@ function monthFilterOptions(events) {
   ];
 }
 
-function priceFilterOptions() {
+// With `events`, only brackets some upcoming priced show fits under (an
+// unpriced show passes every price filter in filter.js, so it can't make a
+// bracket meaningful on its own). Without, every bracket — used for labels.
+function priceFilterOptions(events = null) {
+  const priced = events?.filter((e) => !isPast(e.date) && e.price_min != null);
+  const presets = priced ? PRICE_PRESETS.filter((p) => priced.some((e) => e.price_min <= p)) : PRICE_PRESETS;
   return [
     { label: "不限價格", value: null },
-    ...PRICE_PRESETS.map((p) => ({ label: `NT$${p.toLocaleString()} 以下`, value: p })),
+    ...presets.map((p) => ({ label: `NT$${p.toLocaleString()} 以下`, value: p })),
   ];
 }
 
@@ -253,6 +258,20 @@ function chipLabel(values, options, placeholder) {
     return options.find((o) => o.value === values[0])?.label ?? String(values[0]);
   }
   return `${placeholder} · ${values.length} 項`;
+}
+
+// 2026-10-15 (Max: "篩選雙北後，場館只能篩雙北的場館"): faceted options — each
+// sheet lists only what still has shows under every OTHER active filter
+// (its own key cleared, so you can still pick a second city etc.).
+// Already-picked values stay listed even if they now match nothing, so they
+// can always be unticked instead of silently filtering everything out.
+function facetPool(events, filters, key) {
+  return events.filter((e) => passesViewFilters(e, { ...filters, [key]: [] }));
+}
+
+function keepSelected(options, selected) {
+  const missing = (selected ?? []).filter((v) => !options.some((o) => o.value === v));
+  return [...options, ...missing.map((v) => ({ label: String(v), value: v }))];
 }
 
 function wireViewFilterChips(events, getFilters, onChange) {
@@ -301,21 +320,28 @@ function wireViewFilterChips(events, getFilters, onChange) {
   }
 
   cityChip.addEventListener("click", () => {
-    openFilterSheet("篩選城市", cityFilterOptions(events), getFilters().city ?? [], (values) => {
+    const f = getFilters();
+    openFilterSheet("篩選城市", keepSelected(cityFilterOptions(facetPool(events, f, "city")), f.city), f.city ?? [], (values) => {
       onChange({ ...getFilters(), city: values });
       refreshLabels();
     });
   });
   venueChip?.addEventListener("click", () => {
-    const venues = venueFilterOptions(events);
+    const f = getFilters();
+    const venues = venueFilterOptions(facetPool(events, f, "venue"));
+    // A picked venue that no longer matches shows under its real name, not its key.
+    const allNames = new Map(venueFilterOptions(events).map((o) => [o.key, o.name]));
     const options = [
       { label: "全部場館", value: null },
       ...venues.map((o) => ({ label: `${o.name}（${o.count}）`, value: o.key })),
+      ...(f.venue ?? [])
+        .filter((k) => !venues.some((o) => o.key === k))
+        .map((k) => ({ label: `${allNames.get(k) ?? k}（0）`, value: k })),
     ];
     openFilterSheet(
       "篩選場館",
       options,
-      getFilters().venue ?? [],
+      f.venue ?? [],
       (values) => {
         onChange({ ...getFilters(), venue: values });
         refreshLabels();
@@ -324,25 +350,33 @@ function wireViewFilterChips(events, getFilters, onChange) {
     );
   });
   monthChip.addEventListener("click", () => {
-    openFilterSheet("篩選月份", monthFilterOptions(events), getFilters().month ?? [], (values) => {
+    const f = getFilters();
+    openFilterSheet("篩選月份", keepSelected(monthFilterOptions(facetPool(events, f, "month")), f.month), f.month ?? [], (values) => {
       onChange({ ...getFilters(), month: values });
       refreshLabels();
     });
   });
   typeChip?.addEventListener("click", () => {
-    openFilterSheet("篩選類型", typeFilterOptions(events), getFilters().type ?? [], (values) => {
+    const f = getFilters();
+    openFilterSheet("篩選類型", keepSelected(typeFilterOptions(facetPool(events, f, "type")), f.type), f.type ?? [], (values) => {
       onChange({ ...getFilters(), type: values });
       refreshLabels();
     });
   });
   originChip?.addEventListener("click", () => {
-    openFilterSheet("篩選演出者地區", originFilterOptions(events), getFilters().origin ?? [], (values) => {
+    const f = getFilters();
+    openFilterSheet("篩選演出者地區", keepSelected(originFilterOptions(facetPool(events, f, "origin")), f.origin), f.origin ?? [], (values) => {
       onChange({ ...getFilters(), origin: values });
       refreshLabels();
     });
   });
   priceChip.addEventListener("click", () => {
-    openFilterSheet("篩選價格", priceFilterOptions(), getFilters().priceMax ?? [], (values) => {
+    const f = getFilters();
+    const all = priceFilterOptions();
+    const options = priceFilterOptions(facetPool(events, f, "priceMax"));
+    // A picked bracket that no longer fits keeps its proper label so it can be unticked.
+    for (const v of f.priceMax ?? []) if (!options.some((o) => o.value === v)) options.push(all.find((o) => o.value === v) ?? { label: String(v), value: v });
+    openFilterSheet("篩選價格", options, f.priceMax ?? [], (values) => {
       onChange({ ...getFilters(), priceMax: values });
       refreshLabels();
     });

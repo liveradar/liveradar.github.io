@@ -122,7 +122,7 @@ function toValues(v) {
   return Array.isArray(v) ? v : [v];
 }
 
-function passesViewFilters(event, viewFilters) {
+export function passesViewFilters(event, viewFilters) {
   const cities = toValues(viewFilters.city);
   if (cities.length > 0 && !cities.some((c) => cityMatches(event.city, c))) return false;
   // A theater run (PLAN-1-theater-runs.md) spans several months of sessions —
