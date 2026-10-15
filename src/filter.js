@@ -80,6 +80,33 @@ export function cityBucket(city) {
   return DOUBLE_BEI_CITIES.has(city) ? "雙北" : city;
 }
 
+// 2026-10-15 (Max: 想用場館篩選，如大巨蛋、小巨蛋): the same venue is scraped
+// under several spellings ("台北小巨蛋" / "臺北小巨蛋" / "台北小巨蛋 Taipei
+// Arena", "The Wall Live House" / "THE WALL LIVE HOUSE"). venueKey() folds the
+// harmless differences (台/臺, case, spaces, a trailing English name after a
+// Chinese one) so the venue filter shows each place once; event.venue itself
+// is left as scraped.
+// Same-venue spellings the generic folding below can't catch (a Chinese
+// suffix, a city prefix). Only add pairs that are certainly one place.
+const VENUE_ALIASES = {
+  "legacytaipei傳音樂展演空": "legacytaipei",
+  "legacytaipei音樂展演空間": "legacytaipei",
+  "legacytaichung傳音樂展演空間": "legacytaichung",
+  "legacytaichung音樂展演空間": "legacytaichung",
+  "legacytera音樂展演空間": "legacytera",
+  "moondogtaipei": "moondog",
+  "westartaipei": "westar",
+  "台北westar": "westar",
+  "西門westar": "westar",
+};
+
+export function venueKey(venue) {
+  const v = (venue ?? "").replace(/臺/g, "台").toLowerCase().trim();
+  const cjkThenLatin = v.match(/^(.*[\u4e00-\u9fff])\s+[a-z0-9 .'&-]+$/);
+  const key = (cjkThenLatin ? cjkThenLatin[1] : v).replace(/\s+/g, "");
+  return VENUE_ALIASES[key] ?? key;
+}
+
 function cityMatches(eventCity, filterValue) {
   return filterValue === "雙北" ? DOUBLE_BEI_CITIES.has(eventCity) : eventCity === filterValue;
 }
@@ -104,6 +131,8 @@ function passesViewFilters(event, viewFilters) {
   // date too. eventDates() is just [event.date] for a non-run event.
   const months = toValues(viewFilters.month);
   if (months.length > 0 && !months.some((m) => eventDates(event).some((d) => d.startsWith(m)))) return false;
+  const venues = toValues(viewFilters.venue);
+  if (venues.length > 0 && !venues.includes(venueKey(event.venue))) return false;
   const types = toValues(viewFilters.type);
   if (types.length > 0 && !types.some((t) => event.tags_type.includes(t))) return false;
   const origins = toValues(viewFilters.origin);

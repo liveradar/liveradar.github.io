@@ -32,7 +32,7 @@
  *   登入是加分項不是門檻，沒登入時完全 no-op，跟以前沒連 Gist 時一樣。
  */
 
-import { partitionEvents, isPast, cityBucket } from "./filter.js";
+import { partitionEvents, isPast, cityBucket, venueKey } from "./filter.js";
 import {
   loadPrefs,
   isFavorited,
@@ -174,6 +174,27 @@ function cityFilterOptions(events) {
   return [{ label: "全部城市", value: null }, ...ordered.map((c) => ({ label: c, value: c }))];
 }
 
+// One option per venue (venueKey merges spelling variants), most upcoming
+// shows first so 小巨蛋/Zepp-sized venues sit at the top; the sheet's search
+// box handles the long tail. The label shows the most common spelling.
+function venueFilterOptions(events) {
+  const groups = new Map();
+  for (const e of events) {
+    if (isPast(e.date) || !e.venue) continue;
+    const key = venueKey(e.venue);
+    const g = groups.get(key) ?? { names: new Map(), count: 0 };
+    g.count += 1;
+    g.names.set(e.venue, (g.names.get(e.venue) ?? 0) + 1);
+    groups.set(key, g);
+  }
+  const options = [...groups].map(([key, g]) => {
+    const name = [...g.names].sort((a, b) => b[1] - a[1] || a[0].length - b[0].length)[0][0];
+    return { name, key, count: g.count };
+  });
+  options.sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  return options;
+}
+
 function monthFilterOptions(events) {
   const upcoming = events.filter((e) => !isPast(e.date));
   // eventDates(), not e.date alone: a theater run spanning several months
@@ -229,6 +250,7 @@ function chipLabel(values, options, placeholder) {
 
 function wireViewFilterChips(events, getFilters, onChange) {
   const cityChip = document.querySelector('[data-filter="city"]');
+  const venueChip = document.querySelector('[data-filter="venue"]');
   const monthChip = document.querySelector('[data-filter="month"]');
   const typeChip = document.querySelector('[data-filter="type"]');
   const originChip = document.querySelector('[data-filter="origin"]');
@@ -246,6 +268,17 @@ function wireViewFilterChips(events, getFilters, onChange) {
     const f = getFilters();
     cityChip.textContent = chipLabel(f.city, cityFilterOptions(events), "城市");
     cityChip.setAttribute("aria-pressed", String(!!f.city?.length));
+    if (venueChip) {
+      const picked = Array.isArray(f.venue) ? f.venue : [];
+      const names = venueFilterOptions(events);
+      venueChip.textContent =
+        picked.length === 0
+          ? "場館"
+          : picked.length === 1
+            ? (names.find((o) => o.key === picked[0])?.name ?? "場館")
+            : `場館 · ${picked.length} 項`;
+      venueChip.setAttribute("aria-pressed", String(picked.length > 0));
+    }
     monthChip.textContent = chipLabel(f.month, monthFilterOptions(events), "月份");
     monthChip.setAttribute("aria-pressed", String(!!f.month?.length));
     if (typeChip) {
@@ -265,6 +298,23 @@ function wireViewFilterChips(events, getFilters, onChange) {
       onChange({ ...getFilters(), city: values });
       refreshLabels();
     });
+  });
+  venueChip?.addEventListener("click", () => {
+    const venues = venueFilterOptions(events);
+    const options = [
+      { label: "全部場館", value: null },
+      ...venues.map((o) => ({ label: `${o.name}（${o.count}）`, value: o.key })),
+    ];
+    openFilterSheet(
+      "篩選場館",
+      options,
+      getFilters().venue ?? [],
+      (values) => {
+        onChange({ ...getFilters(), venue: values });
+        refreshLabels();
+      },
+      { searchable: true },
+    );
   });
   monthChip.addEventListener("click", () => {
     openFilterSheet("篩選月份", monthFilterOptions(events), getFilters().month ?? [], (values) => {

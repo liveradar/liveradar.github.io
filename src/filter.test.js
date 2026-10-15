@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { isPast, partitionEvents, cityBucket } from "./filter.js";
+import { isPast, partitionEvents, cityBucket, venueKey } from "./filter.js";
 
 function makeEvent(overrides = {}) {
   return {
@@ -181,4 +181,28 @@ test("partitionEvents: an empty filter array behaves like no filter at all (city
   const { visible } = partitionEvents([taipei, kaohsiung], defaultPrefs(), { city: [] });
 
   assert.deepEqual(visible.map((v) => v.event.id).sort(), ["k", "t"]);
+});
+
+// 2026-10-15 (Max: 場館篩選，如大巨蛋、小巨蛋)
+test("venueKey: spelling variants of one venue fold together, different venues stay apart", () => {
+  const one = ["台北小巨蛋", "臺北小巨蛋", "台北小巨蛋 Taipei Arena", "臺北小巨蛋 Taipei Arena"].map(venueKey);
+  assert.equal(new Set(one).size, 1);
+  assert.equal(venueKey("The Wall Live House"), venueKey("THE WALL LIVE HOUSE"));
+  assert.equal(venueKey("Legacy Taipei"), venueKey("Legacy Taipei 音樂展演空間"));
+  assert.notEqual(venueKey("台北小巨蛋"), venueKey("臺北大巨蛋"));
+  assert.notEqual(venueKey("高雄巨蛋"), venueKey("桃園巨蛋"));
+  assert.equal(venueKey(""), "");
+});
+
+test("partitionEvents: venue filter keeps only the picked venues (any spelling), ORs within the filter", () => {
+  const events = [
+    makeEvent({ id: "a", venue: "臺北小巨蛋" }),
+    makeEvent({ id: "b", venue: "台北小巨蛋 Taipei Arena" }),
+    makeEvent({ id: "c", venue: "臺北大巨蛋" }),
+    makeEvent({ id: "d", venue: "Zepp New Taipei" }),
+  ];
+  const ids = (venue) => partitionEvents(events, defaultPrefs(), { venue }).visible.map((v) => v.event.id);
+  assert.deepEqual(ids([venueKey("台北小巨蛋")]), ["a", "b"]);
+  assert.deepEqual(ids([venueKey("台北小巨蛋"), venueKey("臺北大巨蛋")]), ["a", "b", "c"]);
+  assert.deepEqual(ids([]), ["a", "b", "c", "d"]);
 });
