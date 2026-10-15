@@ -59,6 +59,32 @@ function runSessionsLine(event) {
   return `🎭 檔期 ${shortDate(first)}–${shortDate(last)}・共 ${upcoming.length} 場`;
 }
 
+// Stable per-event hue for the no-cover fallback gradient. Manual events'
+// ids aren't hex, so hash the string rather than parseInt it.
+function hueFor(id) {
+  let h = 0;
+  for (const c of String(id)) h = (h * 31 + c.charCodeAt(0)) % 360;
+  return h;
+}
+
+/**
+ * Cover image (event.image, attached from data/images.json by app.js's
+ * loadEvents) or, when there isn't one, a gradient tile with the title.
+ * A cover that fails to load hides itself and un-hides the sibling fallback
+ * div rendered right after it.
+ * no-referrer: some ticketing CDNs refuse hotlinks that carry a foreign Referer.
+ */
+function renderCover(event) {
+  const title = escapeHtml(displayTitle(event).slice(0, 40));
+  const fallback = `<div class="event-cover__fallback" style="--h:${hueFor(event.id)}">${title}</div>`;
+  if (!event.image || !isSafeImage(event.image)) return fallback;
+  return `<img src="${escapeHtml(event.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false">${fallback.replace("<div ", "<div hidden ")}`;
+}
+
+function isSafeImage(url) {
+  return /^https:\/\//i.test(url);
+}
+
 /**
  * Renders one event card as an HTML string, matching the markup in styles/main.css.
  * `pinned` doubles as "is favorited" — filter.js only sets it true for events
@@ -156,25 +182,26 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
 
   const actionButtons =
     mode === "favorites"
-      ? `<button class="icon-circle" style="width:28px;height:28px;background:var(--coral-bg);color:var(--coral);" aria-label="取消收藏" data-favorite-toggle="${escapeHtml(event.id)}">${STAR_FILLED}</button>`
-      : `<button class="icon-circle" style="width:26px;height:26px;background:transparent;color:${pinned ? "var(--coral)" : "var(--border-strong)"};" aria-label="收藏" data-favorite-toggle="${escapeHtml(event.id)}">${pinned ? STAR_FILLED : STAR_OUTLINE}</button>
-         <button class="icon-circle" style="width:26px;height:26px;background:transparent;color:var(--border-strong);" aria-label="排除選單" data-exclude-menu="${escapeHtml(event.id)}">${X_ICON}</button>`;
+      ? `<button class="icon-circle" aria-pressed="true" aria-label="取消收藏" data-favorite-toggle="${escapeHtml(event.id)}">${STAR_FILLED}</button>`
+      : `<button class="icon-circle" aria-pressed="${pinned}" aria-label="收藏" data-favorite-toggle="${escapeHtml(event.id)}">${pinned ? STAR_FILLED : STAR_OUTLINE}</button>
+         <button class="icon-circle" aria-label="排除選單" data-exclude-menu="${escapeHtml(event.id)}">${X_ICON}</button>`;
 
   return `
     <div class="event-card${event.status === "sold_out" ? " event-card--muted" : ""}" data-event-id="${escapeHtml(event.id)}">
-      <div class="event-date">
-        <div class="event-date__day">${month}/${day}</div>
-        <div class="event-date__weekday">${weekday}</div>
+      <div class="event-cover">
+        ${renderCover(event)}
+        <div class="event-date">
+          <div class="event-date__day">${month}/${Number(day)}</div>
+          <div class="event-date__weekday">${weekday}</div>
+        </div>
+        <div class="event-actions">
+          ${actionButtons}
+        </div>
       </div>
       <div class="event-body">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-            ${newBadge}
-            <div class="event-title">${escapeHtml(displayTitle(event))}</div>
-          </div>
-          <div style="display:flex;gap:2px;flex:0 0 auto;">
-            ${actionButtons}
-          </div>
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+          ${newBadge}
+          <div class="event-title">${escapeHtml(displayTitle(event))}</div>
         </div>
         ${daysUntilLine}
         ${tags ? `<div class="tag-row">${tags}</div>` : ""}
@@ -184,9 +211,11 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
         ${onSaleBadge}
         ${remindButton}
         ${lotteryBadge}
-        ${priceLine}
+        <div class="event-foot">
+          ${priceLine}
+          ${ctaButton}
+        </div>
       </div>
-      ${ctaButton}
     </div>
   `;
 }

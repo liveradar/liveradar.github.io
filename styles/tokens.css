@@ -1,5 +1,5 @@
 /*
-  LiveRadar design tokens — Direction D ("街頭活力").
+  LiveRadar design tokens — Direction A ("海報牆", 2026-10-15 redesign; was D "街頭活力").
   Source of truth: design-comp ComponentSpec artboard (Phase 3).
   Every color in the app must reference one of these variables — never a literal
   hex/oklch value in component CSS — so dark mode (FR-27) stays automatic.
@@ -20,93 +20,79 @@
   theme for a moment on every load.
 */
 
+/*
+  2026-10-15 (Max picked mockup A, dark poster wall): dark is now the
+  default regardless of OS — the old "跟隨系統" tier is gone. Light stays
+  available as an explicit choice in settings.html (data-theme="light"),
+  since Max asked for exactly that escape hatch when dark strained his eyes.
+  Token NAMES are unchanged (--coral is the accent, etc.) so every page's
+  existing var() references keep working.
+*/
+
 :root {
-  --bg: oklch(96% 0.006 90);
-  --surface: oklch(99% 0.002 90);
-  --surface-2: oklch(94% 0.01 90);
-  --border: oklch(91% 0.004 90);
-  --border-strong: oklch(80% 0.006 90);
+  --bg: #0d0d10;
+  --surface: #17171c;
+  --surface-2: #222229;
+  --border: #2b2b33;
+  --border-strong: #4a4a54;
 
-  --ink: oklch(15% 0.005 90);
-  --text: oklch(18% 0.005 90);
-  --muted: oklch(52% 0.01 90);
+  --ink: #f3f1ec;
+  --text: #ece9e3;
+  --muted: #a29e96;
 
-  --coral: oklch(58% 0.19 18);
-  --coral-ink: oklch(46% 0.17 16);
-  --coral-bg: oklch(93% 0.05 18);
+  --coral: #ff3d5a;
+  --coral-ink: #ff6b81;
+  --coral-bg: #3a1620;
 
-  --yellow: oklch(84% 0.15 95);
-  --yellow-ink: oklch(32% 0.07 80);
+  --yellow: #ffd23d;
+  --yellow-ink: #1a1503;
 
-  --lime: oklch(87% 0.15 130);
-  --lime-ink: oklch(30% 0.08 130);
+  --lime: #c6f24e;
+  --lime-ink: #182103;
 
-  --warn: oklch(50% 0.2 40);
-  --warn-bg: oklch(93% 0.05 40);
+  --warn: #ff9b5c;
+  --warn-bg: #3a2010;
 
-  --font-display: "Plus Jakarta Sans", sans-serif;
-  --font-body: "Noto Sans TC", "Plus Jakarta Sans", system-ui, sans-serif;
+  --scrim: rgba(13, 13, 16, 0.78);
 
-  --radius-card: 20px;
+  --font-display: "Archivo Black", "Noto Sans TC", sans-serif;
+  --font-label: "Space Grotesk", "Noto Sans TC", sans-serif;
+  --font-body: "Noto Sans TC", system-ui, sans-serif;
+
+  --radius-card: 14px;
   --radius-pill: 999px;
-  --shadow-card: 0 2px 12px rgba(20, 10, 5, 0.07);
-  --shadow-nav: 0 -2px 12px rgba(0, 0, 0, 0.05);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: oklch(17% 0.014 55);
-    --surface: oklch(23% 0.016 55);
-    --surface-2: oklch(28% 0.018 55);
-    --border: oklch(33% 0.02 55);
-    --border-strong: oklch(42% 0.02 55);
-
-    --ink: oklch(95% 0.01 60);
-    --text: oklch(95% 0.01 60);
-    --muted: oklch(66% 0.02 60);
-
-    --coral: oklch(70% 0.18 25);
-    --coral-ink: oklch(78% 0.15 30);
-    --coral-bg: oklch(32% 0.08 20);
-
-    --yellow: oklch(80% 0.14 90);
-    --yellow-ink: oklch(28% 0.06 80);
-
-    --lime: oklch(78% 0.14 130);
-    --lime-ink: oklch(26% 0.07 130);
-
-    --warn: oklch(72% 0.16 35);
-    --warn-bg: oklch(30% 0.07 35);
-
-    --shadow-card: none;
-    --shadow-nav: none;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg: oklch(17% 0.014 55);
-  --surface: oklch(23% 0.016 55);
-  --surface-2: oklch(28% 0.018 55);
-  --border: oklch(33% 0.02 55);
-  --border-strong: oklch(42% 0.02 55);
-
-  --ink: oklch(95% 0.01 60);
-  --text: oklch(95% 0.01 60);
-  --muted: oklch(66% 0.02 60);
-
-  --coral: oklch(70% 0.18 25);
-  --coral-ink: oklch(78% 0.15 30);
-  --coral-bg: oklch(32% 0.08 20);
-
-  --yellow: oklch(80% 0.14 90);
-  --yellow-ink: oklch(28% 0.06 80);
-
-  --lime: oklch(78% 0.14 130);
-  --lime-ink: oklch(26% 0.07 130);
-
-  --warn: oklch(72% 0.16 35);
-  --warn-bg: oklch(30% 0.07 35);
-
   --shadow-card: none;
   --shadow-nav: none;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #f4f2ee;
+  --surface: #ffffff;
+  --surface-2: #ebe8e2;
+  --border: #e0ddd6;
+  --border-strong: #b9b5ad;
+
+  --ink: #111114;
+  --text: #17171b;
+  --muted: #625e57;
+
+  --coral: #e5193a;
+  --coral-ink: #b8102c;
+  --coral-bg: #fde3e7;
+
+  --yellow: #ffd23d;
+  --yellow-ink: #1a1503;
+
+  --lime: #c6f24e;
+  --lime-ink: #182103;
+
+  --warn: #b84a0c;
+  --warn-bg: #fde9da;
+
+  --scrim: rgba(255, 255, 255, 0.85);
+
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.07);
+  --shadow-nav: 0 -2px 12px rgba(0, 0, 0, 0.05);
+  color-scheme: light;
 }

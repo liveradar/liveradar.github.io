@@ -145,3 +145,15 @@ test("renderEventCard: a theater run down to its LAST upcoming session looks lik
   assert.doesNotMatch(html, /下一場/);
   assert.match(html, /🕐 14:30/);
 });
+
+test("renderEventCard: cover image when event.image is https, gradient title tile otherwise (never a broken <img>)", () => {
+  const withImg = renderEventCard(makeEvent({ image: "https://cdn.example.com/a.jpg" }));
+  assert.match(withImg, /<img src="https:\/\/cdn\.example\.com\/a\.jpg"/);
+  assert.match(withImg, /<div hidden class="event-cover__fallback"/);
+
+  for (const image of [null, undefined, "javascript:alert(1)", "http://insecure.example/a.jpg"]) {
+    const html = renderEventCard(makeEvent({ image }));
+    assert.doesNotMatch(html, /<img /);
+    assert.match(html, /<div class="event-cover__fallback" style="--h:\d+">深海系樂團 Live<\/div>/);
+  }
+});

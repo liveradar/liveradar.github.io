@@ -19,7 +19,7 @@
 
   <div class="sticky-header">
     <div class="topbar">
-      <div class="wordmark">LiveRadar</div>
+      <div class="wordmark">Live<b>Radar</b></div>
       <div style="display:flex;gap:4px;">
         <button type="button" class="icon-btn" id="intro-info-btn" aria-label="關於 LiveRadar">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v6" stroke-linecap="round"/><circle cx="12" cy="7.5" r="0.9" fill="currentColor" stroke="none"/></svg>
@@ -58,36 +58,26 @@
 
   <!-- Populated by src/app.js from data/events.json (M4). Initial skeleton is replaced wholesale once loadEvents() resolves. -->
   <div class="event-list" id="event-list" data-page="timeline">
-    <div class="event-card skeleton-card" aria-hidden="true">
-      <div class="event-date">
-        <div class="skeleton-block" style="width:30px;height:22px;border-radius:6px;"></div>
-        <div class="skeleton-block" style="width:22px;height:11px;border-radius:4px;margin-top:6px;"></div>
+    <div class="day-group">
+      <div class="event-card skeleton-card" aria-hidden="true">
+        <div class="event-cover skeleton-block"></div>
+        <div class="skeleton-block" style="width:85%;height:13px;border-radius:5px;"></div>
+        <div class="skeleton-block" style="width:55%;height:11px;border-radius:5px;"></div>
       </div>
-      <div style="flex:1;display:flex;flex-direction:column;gap:9px;padding-top:3px;">
-        <div class="skeleton-block" style="width:82%;height:14px;border-radius:5px;"></div>
-        <div class="skeleton-block" style="width:55%;height:12px;border-radius:5px;"></div>
-        <div class="skeleton-block" style="width:40%;height:12px;border-radius:5px;"></div>
+      <div class="event-card skeleton-card" aria-hidden="true">
+        <div class="event-cover skeleton-block"></div>
+        <div class="skeleton-block" style="width:85%;height:13px;border-radius:5px;"></div>
+        <div class="skeleton-block" style="width:55%;height:11px;border-radius:5px;"></div>
       </div>
-    </div>
-    <div class="event-card skeleton-card" aria-hidden="true">
-      <div class="event-date">
-        <div class="skeleton-block" style="width:30px;height:22px;border-radius:6px;"></div>
-        <div class="skeleton-block" style="width:22px;height:11px;border-radius:4px;margin-top:6px;"></div>
+      <div class="event-card skeleton-card" aria-hidden="true">
+        <div class="event-cover skeleton-block"></div>
+        <div class="skeleton-block" style="width:85%;height:13px;border-radius:5px;"></div>
+        <div class="skeleton-block" style="width:55%;height:11px;border-radius:5px;"></div>
       </div>
-      <div style="flex:1;display:flex;flex-direction:column;gap:9px;padding-top:3px;">
-        <div class="skeleton-block" style="width:65%;height:14px;border-radius:5px;"></div>
-        <div class="skeleton-block" style="width:48%;height:12px;border-radius:5px;"></div>
-        <div class="skeleton-block" style="width:42%;height:12px;border-radius:5px;"></div>
-      </div>
-    </div>
-    <div class="event-card skeleton-card" aria-hidden="true" style="opacity:.6;">
-      <div class="event-date">
-        <div class="skeleton-block" style="width:30px;height:22px;border-radius:6px;"></div>
-        <div class="skeleton-block" style="width:22px;height:11px;border-radius:4px;margin-top:6px;"></div>
-      </div>
-      <div style="flex:1;display:flex;flex-direction:column;gap:9px;padding-top:3px;">
-        <div class="skeleton-block" style="width:75%;height:14px;border-radius:5px;"></div>
-        <div class="skeleton-block" style="width:50%;height:12px;border-radius:5px;"></div>
+      <div class="event-card skeleton-card" aria-hidden="true">
+        <div class="event-cover skeleton-block"></div>
+        <div class="skeleton-block" style="width:85%;height:13px;border-radius:5px;"></div>
+        <div class="skeleton-block" style="width:55%;height:11px;border-radius:5px;"></div>
       </div>
     </div>
   </div>

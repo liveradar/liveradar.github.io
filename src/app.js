@@ -92,10 +92,17 @@ async function loadEvents() {
   // within the same session — can keep serving a stale cached copy (caught
   // during M7 testing: a newly-scraped event didn't replace its manual
   // stand-in until this was added).
-  const res = await fetch("./data/events.json", { cache: "no-store" });
+  // images.json (scripts/backfill-images.mjs) is cosmetic: if it's missing
+  // or broken the cards just fall back to gradient tiles, never an error.
+  const [res, images] = await Promise.all([
+    fetch("./data/events.json", { cache: "no-store" }),
+    fetch("./data/images.json", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : {}))
+      .catch(() => ({})),
+  ]);
   if (!res.ok) throw new Error(`GET data/events.json -> ${res.status}`);
   const data = await res.json();
-  const realEvents = data.events ?? [];
+  const realEvents = (data.events ?? []).map((e) => ({ ...e, image: images[e.id] ?? null }));
   const realIds = new Set(realEvents.map((e) => e.id));
   // AC-17: once a real scrape produces a matching id, the manual copy is
   // dropped. Check every id a future scrape of this show could produce
@@ -1239,7 +1246,8 @@ function initSettings() {
   });
 
   function renderThemeButtons() {
-    const current = loadTheme();
+    // Dark is the default since the 2026-10-15 redesign (no "system" option any more).
+    const current = loadTheme() === "light" ? "light" : "dark";
     themeButtons.forEach((btn) => {
       btn.setAttribute("aria-pressed", String(btn.dataset.themeValue === current));
     });

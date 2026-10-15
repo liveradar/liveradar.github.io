@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap");
 @import url("./tokens.css");
 
 * {
@@ -67,6 +67,7 @@ button {
   top: 0;
   z-index: 20;
   background: var(--bg);
+  padding-bottom: 6px;
   transition: transform 0.25s ease;
 }
 .sticky-header--hidden {
@@ -84,26 +85,21 @@ button {
 
 .wordmark {
   font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
 }
-.wordmark::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--coral);
-  display: inline-block;
+.wordmark b {
+  color: var(--coral);
+  font-weight: inherit;
 }
 
 .icon-btn {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--surface);
+  background: var(--surface-2);
   box-shadow: var(--shadow-card);
   border: none;
   display: flex;
@@ -117,8 +113,9 @@ button {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--surface);
+  background: var(--surface-2);
   box-shadow: var(--shadow-card);
+  color: var(--text);
   border: none;
   display: flex;
   align-items: center;
@@ -150,29 +147,36 @@ button {
   font-weight: 900;
 }
 
+/* One horizontally-scrolling line instead of wrapping onto a second row —
+   keeps the sticky header short so more posters fit above the fold. */
 .filter-row {
   display: flex;
-  gap: 8px;
-  margin-top: 10px;
-  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2px -18px 0;
+  padding: 0 18px 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filter-row::-webkit-scrollbar {
+  display: none;
 }
 
 .chip {
+  flex: 0 0 auto;
   font-family: inherit;
-  font-size: 11px;
-  font-weight: 700;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--surface-2);
+  border: none;
   border-radius: var(--radius-pill);
-  padding: 5px 12px;
-  color: var(--muted);
+  padding: 7px 14px;
+  color: var(--text);
   cursor: pointer;
 }
 .chip[aria-pressed="true"] {
-  color: var(--coral-ink);
-  background: var(--coral-bg);
-  border-color: transparent;
-  font-weight: 800;
+  color: var(--bg);
+  background: var(--ink);
+  font-weight: 700;
 }
 
 /* ---------- Slide-down inline search (index.html) ---------- */
@@ -191,37 +195,139 @@ button {
 
 /* ---------- Cards / list ---------- */
 
+/* 2026-10-15 redesign (mockup A, 海報牆): every card is a poster — cover
+   image on top with the date and favorite/exclude buttons overlaid, text
+   below. Cards sit in a grid at every width (two columns on a phone), and
+   the very first card on the timeline spans the full row as a "NEXT UP"
+   hero. A day's label spans the grid as a full-width heading. */
 .day-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+  gap: 18px 12px;
+  align-items: start;
 }
 
 .day-label {
+  grid-column: 1 / -1;
+  font-family: var(--font-label);
   font-size: 13px;
   font-weight: 700;
+  letter-spacing: 0.08em;
   color: var(--muted);
+  padding-top: 4px;
 }
 
 .event-list {
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  padding: 16px 18px 18px;
+  gap: 26px;
+  padding: 8px 16px 18px;
+}
+/* favorites/calendar lists hold cards directly, no day groups */
+.event-list:has(> .event-card),
+.cal-day-events {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+  gap: 18px 12px;
+  align-items: start;
 }
 
 .event-card {
-  background: var(--surface);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  padding: 14px;
+  position: relative;
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
 }
 
-.event-card--muted {
-  opacity: 0.6;
+.event-cover {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.event-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* No cover (寬宏/年代, organizer never uploaded one, or the image 404s):
+   a per-event gradient with the title set big, never a broken-image icon. */
+.event-cover__fallback {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 1.2;
+  color: #fff;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  background: linear-gradient(135deg, hsl(var(--h) 70% 45%), hsl(calc(var(--h) + 60) 70% 28%));
+}
+
+.event-date {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--scrim);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 9px;
+  padding: 5px 8px 4px;
+  text-align: center;
+  font-family: var(--font-label);
+  line-height: 1.05;
+}
+
+.event-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+}
+.event-actions .icon-circle {
+  width: 30px;
+  height: 30px;
+  background: var(--scrim);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--ink);
+}
+.event-actions .icon-circle[aria-pressed="true"] {
+  color: var(--coral);
+}
+
+/* Hero: first card of the timeline. */
+.event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card {
+  grid-column: 1 / -1;
+}
+.event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card .event-cover {
+  aspect-ratio: 16 / 10;
+}
+.event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card .event-title {
+  font-size: 20px;
+}
+.event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card .event-body::before {
+  content: "NEXT UP";
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--coral);
+}
+
+.event-card--muted .event-cover {
+  opacity: 0.45;
+}
+.event-card--muted .event-title {
+  color: var(--muted);
 }
 
 /* Skeleton loading state (index.html's initial event-list markup, replaced once loadEvents() resolves). */
@@ -234,27 +340,19 @@ button {
   50% { background: var(--surface-2); }
 }
 
-.event-date {
-  flex: 0 0 auto;
-  text-align: center;
-  padding-top: 2px;
-  font-family: var(--font-display);
-}
 .event-date__day {
-  font-size: 26px;
-  font-weight: 800;
-  line-height: 1;
+  font-size: 13px;
+  font-weight: 700;
   color: var(--ink);
 }
 .event-date__weekday {
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 700;
   color: var(--coral);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
 }
 
 .event-body {
-  flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -262,8 +360,11 @@ button {
 }
 
 .event-title {
-  font-size: 16px;
-  font-weight: 900;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+  overflow-wrap: anywhere;
 }
 
 .tag-row {
@@ -308,8 +409,8 @@ button {
   color: var(--yellow-ink);
   font-size: 11px;
   font-weight: 700;
-  padding: 3px 9px;
-  border-radius: var(--radius-pill);
+  padding: 3px 8px;
+  border-radius: 6px;
 }
 
 .badge-lottery {
@@ -360,8 +461,17 @@ button {
 }
 
 .event-meta {
-  font-size: 12px;
+  font-size: 11.5px;
+  line-height: 1.45;
   color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.event-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   margin-top: 2px;
 }
 
@@ -369,6 +479,7 @@ button {
   font-size: 12px;
   color: var(--text);
   font-weight: 700;
+  min-width: 0;
 }
 .event-price .muted {
   color: var(--muted);
@@ -376,19 +487,18 @@ button {
 }
 
 .pill-arrow {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: var(--ink);
+  background: var(--coral);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  margin-top: 2px;
 }
 .pill-arrow svg {
-  stroke: var(--bg);
+  stroke: #fff;
 }
 
 .icon-circle {
@@ -438,10 +548,14 @@ button {
   max-width: 480px;
   margin: 0 auto;
   height: 74px;
-  background: var(--surface);
+  background: var(--scrim);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
   box-shadow: var(--shadow-nav);
   display: flex;
   align-items: center;
+  z-index: 30;
 }
 
 .nav-item {
@@ -456,10 +570,11 @@ button {
 }
 
 .nav-item--active {
-  color: var(--coral-ink);
+  color: var(--ink);
+  font-weight: 700;
 }
 .nav-item--active .nav-item__pill {
-  background: var(--coral-bg);
+  background: var(--surface-2);
   border-radius: 14px;
   padding: 6px 16px;
   display: flex;
@@ -482,7 +597,7 @@ button {
   border-radius: 50%;
   background: var(--coral);
   border: 3px solid var(--bg);
-  box-shadow: 0 3px 10px rgba(210, 60, 40, 0.35);
+  box-shadow: 0 4px 16px rgba(255, 61, 90, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -860,9 +975,6 @@ textarea.field-input {
 }
 
 .cal-day-events {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   margin-top: 18px;
 }
 
@@ -883,31 +995,22 @@ textarea.field-input {
     max-width: 820px;
   }
 
+  .day-group,
   .event-list:has(> .event-card),
-  .day-group {
+  .cal-day-events {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px 16px;
+  }
+  /* Full-width 16:10 hero gets huge past phone width — lay it out side by
+     side instead: cover left, text right. */
+  .event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    align-items: stretch;
-    gap: 16px 14px;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
   }
-  /* Grid only stretches the .event-card box itself — without this, a card
-     with a shorter title/no badges would stay its own natural (shorter)
-     height while sitting in a row next to a taller one, which is exactly
-     the uneven-row look stretch is meant to fix. */
-  .event-card {
-    height: 100%;
-  }
-  /* .day-group's own label needs to sit above the grid as a full-width
-     heading, not become just another grid cell next to the first card. */
-  .day-group > .day-label {
-    grid-column: 1 / -1;
-  }
-  /* index.html's own grouped structure means .event-list holds .day-group
-     children, not cards directly — it stays a plain stacked column so each
-     day's grid sits below the previous day's, not interleaved with it. */
-  .event-list:has(> .day-group) {
-    display: flex;
-    flex-direction: column;
+  .event-list[data-page="timeline"] > .day-group:first-child > .day-label + .event-card .event-title {
+    font-size: 26px;
   }
 
   .bottom-nav,
@@ -975,10 +1078,7 @@ textarea.field-input {
     font-size: 34px;
   }
   .event-title {
-    font-size: 17px;
-  }
-  .event-date__day {
-    font-size: 29px;
+    font-size: 15px;
   }
 }
 
@@ -989,12 +1089,11 @@ textarea.field-input {
    Applies at every width, not just the desktop breakpoint above — a mouse
    plugged into a small window still benefits from it. */
 @media (hover: hover) and (pointer: fine) {
-  .event-card {
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  .event-cover img {
+    transition: transform 0.3s ease;
   }
-  .event-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(20, 10, 5, 0.12);
+  .event-card:hover .event-cover img {
+    transform: scale(1.04);
   }
 
   .icon-btn:hover,

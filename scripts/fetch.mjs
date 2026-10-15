@@ -1,4 +1,5 @@
 import { writeFileSync, readFileSync } from "node:fs";
+import { backfillImages } from "./backfill-images.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -337,6 +338,14 @@ async function main() {
   console.log(
     `LiveRadar fetch complete: ${events.length} recognized event(s) (${digest.added_ids.length} new, ${digest.updated.length} updated), ${dedupedNeedsReview.length} needing review.`
   );
+
+  // Covers for newly added events (data/images.json). Cosmetic — runs after
+  // every real data file is already written, and never fails the fetch.
+  try {
+    await backfillImages();
+  } catch (err) {
+    console.warn(`cover-image backfill failed (events.json unaffected): ${err.message}`);
+  }
 }
 
 main();
