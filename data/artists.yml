@@ -2295,4 +2295,7 @@
   tags_origin_default: 韓國  # 2026-10-15 WebSearch 查證：韓國男團，台北場由 RNR SQUARE TAIWAN 主辦、Zepp New Taipei 演出，TOP Media（韓國）出道團體
 - canonical: Lazy Habits
   aliases: ["慵懶成性"]
-  tags_origin_default: 本地  # 2026-10-15 WebSearch 查證（信心中等，見報告「需 Max 確認」）：台灣媒體（The News Lens）指團體源自英國倫敦、主唱 James Collins 旅台約10年；但本場由台灣嘻哈廠牌 THAT'S MY SHHH 主辦、發片品牌為台灣製作，且長年與拷秋勤、大支等台灣嘻哈樂手合作，依「成名的音樂圈」判斷歸本地；另一可能判法為歐美（樂團源起地）
+  tags_origin_default: 歐美  # 2026-10-15 WebSearch 查證（Max 補充確認）：2005年成立於英國倫敦，最早為主唱 James Collins 個人企劃，後擴編為含鼓手/Bass手/銅管樂手的完整編制，英國媒體《太陽報》曾形容其音樂；主唱雖長期旅台、與台灣樂手（熊仔等）合作，但樂團本身源起並成名於英國，歸歐美
+- canonical: 書帆 ShuShu
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-15 WebSearch 查證（Max 補充確認）：台灣獨立創作歌手，生日4/25，音樂風格溫暖細膩

@@ -28059,7 +28059,7 @@
         "專場"
       ],
       "tags_origin": [
-        "本地"
+        "歐美"
       ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv0425817",
@@ -29793,8 +29793,12 @@
     },
     {
       "title_raw": "書帆 ShuShu 2026《長出自己的樣子》專場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "書帆 ShuShu"
+      ],
+      "lineup": [
+        "書帆 ShuShu"
+      ],
       "is_festival": false,
       "venue": "野地方 Wild Lab",
       "city": "台北",
@@ -29807,7 +29811,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/440032",
       "sources": [
@@ -29818,7 +29824,7 @@
         }
       ],
       "first_seen_at": "2026-10-15T02:19:05.347Z",
-      "updated_at": "2026-10-15T02:19:05.347Z",
+      "updated_at": "2026-10-15T02:51:28.860Z",
       "id": "6b70a5775c608bb3",
       "merged_ids": [
         "6b70a5775c608bb3"
