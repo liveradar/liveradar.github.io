@@ -1,9 +1,9 @@
 {
   "items": [
     {
-      "raw_id": "2026csbc",
-      "title_raw": "2026稻香暖暖演唱會",
-      "url": "https://csbcyln.kktix.cc/events/2026csbc",
+      "raw_id": "d60fe160",
+      "title_raw": "ALL PIECES, ONE PERSES",
+      "url": "https://quantumcallstudio.kktix.cc/events/d60fe160",
       "source": "KKTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -12,6 +12,14 @@
       "raw_id": "26_iv0420868",
       "title_raw": "❮  D.N.Δ  ❯ SPIN-UP：HEARTBEAT_THEΔRAREz 1st ALBUM WORLD TOUR",
       "url": "https://www.indievox.com/activity/detail/26_iv0420868",
+      "source": "iNDIEVOX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "26_iv04256e8",
+      "title_raw": "菌網 MYCELIUM",
+      "url": "https://www.indievox.com/activity/detail/26_iv04256e8",
       "source": "iNDIEVOX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -33,10 +41,34 @@
       "detail": null
     },
     {
-      "raw_id": "2100846261949403137_1798716600000",
-      "title_raw": "2026 NTT歲末音樂會《那麼派—動靜皆宜樂舞派對》",
-      "url": "https://www.opentix.life/event/2100846261949403137",
-      "source": "OPENTIX",
+      "raw_id": "220010",
+      "title_raw": "PUN'S FIRST DAY ONE IN TAIWAN",
+      "url": "https://go.fansi.me/events/220010",
+      "source": "FANSI GO",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "524b687dccea5032cae258f54a241239_507e7a3920623b368fbb914696627cf5",
+      "title_raw": "2026 Roving Nation Festival 漂遊者森林音樂祭（三日票）",
+      "url": "https://ticketplus.com.tw/activity/524b687dccea5032cae258f54a241239",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "7f9c57d1f3e5c15d97c51408f26ca085_e62c67b361cf7a3fae77c0d1f3bd434d",
+      "title_raw": "LOOKMHEE SONYA “EVERAFTER: ALWAYS” IN TAIPEI CITY",
+      "url": "https://ticketplus.com.tw/activity/7f9c57d1f3e5c15d97c51408f26ca085",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "50f84817af2eff68ab3adaf30072a842_2a7412d3e768938dfab6a4760ef41935",
+      "title_raw": "《朵莉 Dory｜我是可笑的人啊》Full Band Live",
+      "url": "https://ticketplus.com.tw/activity/50f84817af2eff68ab3adaf30072a842",
+      "source": "Ticket Plus",
       "reason": "artist_unrecognized",
       "detail": null
     }

@@ -66,8 +66,8 @@
   aliases: []
   tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 captain.kktix.cc、場地「高雄 LIVE WAREHOUSE 小庫」、標題「【高雄場】普通隊長pre. “100秒的紅燈ENDLESS TRIP TOUR”」、共 3 場（台中/台北/高雄）
 - canonical: 羊文学
-  aliases: []
-  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 baodaorecords.kktix.cc、場地「LIVE WAREHOUSE 大庫」、標題「【10/25加場】羊文学 Hitsujibungaku TOUR 2026 "SU———HA———"」、共 2 場（高雄）
+  aliases: ["HITSUJIBUNGAKU"]
+  tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 baodaorecords.kktix.cc、場地「LIVE WAREHOUSE 大庫」、標題「【10/25加場】羊文学 Hitsujibungaku TOUR 2026 "SU———HA———"」、共 2 場（高雄）；2026-10-16 補 alias「HITSUJIBUNGAKU」：新場次標題「HITSUJIBUNGAKU SPECIAL POPUP TOUR 2026」沒有漢字團名，只有羅馬拼音，原 canonical 比對不到
 - canonical: Schizophragm
   aliases: []
   tags_origin_default: 日本  # 2026-09-23 日韓拆分：查證為日本（WebSearch）；2026-09-25 補依據（本地資料交叉比對）：售票頁 deaftouch.kktix.cc、場地「Paramount Bar [百樂門酒館] & Revolver Taipei [左輪酒吧]」、標題「Schizophragm - 2026 臺灣巡迴」
@@ -2299,3 +2299,27 @@
 - canonical: 書帆 ShuShu
   aliases: []
   tags_origin_default: 本地  # 2026-10-15 WebSearch 查證（Max 補充確認）：台灣獨立創作歌手，生日4/25，音樂風格溫暖細膩
+- canonical: Khaki
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-16 WebFetch 查證（售票頁 romanticoffice.kktix.cc/events/khakisosad）：Khaki 為 2018 年成立、以東京為活動據點的五人樂團，與下方「傷心欲絕」同場台日巡演
+- canonical: 傷心欲絕
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-16 WebFetch 查證（售票頁 romanticoffice.kktix.cc/events/khakisosad）：以台北起家的樂團，早期受龐克／另類搖滾影響，與同時期地下樂團並稱「師大公園四天王」
+- canonical: 話梅鹿 Prune Deer
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-10-16 WebSearch 查證（hk01.com 專訪、uniteasia.org、localiiz.com「best hong kong bands」、prunedeer.bandcamp.com）：2013年成立的香港器樂搖滾樂團，常受邀參加台灣音樂節（Wake Up Festival、BeastieRock），歸亞洲其他
+- canonical: KUA WORSHIP
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-16 WebFetch 查證（售票頁 iwillshare.kktix.cc/events/2026freedomnow-12）：台灣多個教會（台灣全福會、GMI大溪榮美教會、i61為光教會、台北101教會、心欣城市教會等）聯合主辦的敬拜之夜，演出卡司尚未公布，比照無具體藝人名稱的企劃／系列名稱登記為本地
+- canonical: KUA MUSIC
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-16 同上（KUA WORSHIP）判斷依據：同一活動頁面「自由療癒福音音樂會」場次
+- canonical: 稻香暖暖演唱會
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-16 WebFetch 查證（售票頁 csbcyln.kktix.cc/events/2026csbc）：雲林正聲廣播公司雲林台主辦的免費社區演唱會，頁面未列出個別演出藝人姓名，比照無具體藝人名稱的企劃／系列名稱登記為本地
+- canonical: 那麼派
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-16 WebFetch 查證（售票頁 opentix.life/event/2100846261949403137）：臺中國家歌劇院自製節目，演出者以台灣原住民藝人／團體為主（阿爆、R.fu、寶蓮、布拉瑞揚舞團、原民嬌娃等），唯一非台灣籍的 Musa明馬丁出身阿根廷但現以台灣為工作基地，整體歸本地
+- canonical: 太平洋的光
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-16 WebFetch 查證（售票頁 opentix.life/event/2108107139636789249）：禾禾文化空間主辦的德國／台灣四重奏融合演出，4位樂手中2位台灣（劉士瑜、鍾於叡）、2位德國（凱爾胡伯、韓家柏），無法歸單一來源地，依本地主辦場地判定為本地——此判斷不確定性較高，詳見報告「需 Max 確認」

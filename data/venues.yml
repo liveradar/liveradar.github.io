@@ -150,3 +150,6 @@
   city: 重慶  # WebFetch 活動頁查證：地址「重慶，兩江新區，天宮殿街道天禧支路1號」，為中國重慶市，海外場次
 - match: "荃灣西如心酒店"
   city: 香港  # 場館原文地名「荃灣」即香港荃灣區，海外場次（同灣仔海濱活動空間案例）
+# 2026-10-16，查 city:未知 清單查證補上：
+- match: "Revolver 左輪手槍"
+  city: 台北  # WebSearch 查證：英文介紹頁地址「No.1-2, Sec. 1, Roosevelt Rd, Jhongjheng Dist, Taipei City」，即台北市中正區羅斯福路一段
