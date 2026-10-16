@@ -9,7 +9,7 @@ function makeRaw(overrides = {}) {
     raw_id: "a",
     title_raw: "深海系樂團 Live",
     url: "https://example.com/a",
-    date_raw: "2026/10/15(周四) 19:30(+0800)",
+    date_raw: "2099/10/15(周四) 19:30(+0800)", // far future: a near date rots into "past" and flips status/visibility tests
     venue_raw: "Legacy Taipei / 台北市中正區",
     tickets_raw: [],
     source_name: "KKTIX",
@@ -134,7 +134,7 @@ test("normalize(): Billboard Live's venue_raw (KKTIX-shaped 'venue / address') r
 test("normalize() (2026-09-26, ibon adapter): a source with NO ticket table but a structured COMING_SOON signal + on_sale_at keeps 'announced' with that real date, instead of being defaulted to on_sale for 'no evidence'", () => {
   const raw = makeRaw({
     source_name: "ibon",
-    date_raw: "2026-11-15 18:00",
+    date_raw: "2099-11-15 18:00",
     tickets_raw: [],
     register_status: "COMING_SOON",
     on_sale_at: "2026-10-04T13:00:00+08:00",
@@ -162,7 +162,7 @@ test("normalize() (2026-10-06, Max's call on iNDIEVOX 26_iv0421171 國語作業�
 });
 
 test("normalize() (ibon): register_status SOLD_OUT with no ticket table still reports sold_out, not announced — the COMING_SOON-specific branch must not swallow the other signals", () => {
-  const raw = makeRaw({ source_name: "ibon", date_raw: "2026-11-15 18:00", tickets_raw: [], register_status: "SOLD_OUT" });
+  const raw = makeRaw({ source_name: "ibon", date_raw: "2099-11-15 18:00", tickets_raw: [], register_status: "SOLD_OUT" });
   const { event } = normalize(raw, artistsYml);
   assert.equal(event.status, "sold_out");
 });
@@ -821,7 +821,7 @@ test("normalize(): multiple 'waiting' KKTIX tiers with different sale-start time
 test("normalize() real bug (Max, YOASOBI: \"YOASOBI兩場都寫銷售一空，為什麼沒標注到已售完\"): a Ticket Plus session whose page shows '銷售一空' is reported sold_out, not defaulted to on_sale", () => {
   const raw = makeRaw({
     source_name: "Ticket Plus",
-    date_raw: "2027-01-09 ~ 2027-01-09 18:00 ~ 18:00",
+    date_raw: "2099-01-09 ~ 2099-01-09 18:00 ~ 18:00",
     tickets_raw: [],
     sale_status_text: "銷售一空",
   });
@@ -832,7 +832,7 @@ test("normalize() real bug (Max, YOASOBI: \"YOASOBI兩場都寫銷售一空，�
 test("normalize(): a Ticket Plus session showing '登記截止' (this listing's lottery-signup window closed) is also treated as sold_out/ended, not left announced or defaulted to on_sale", () => {
   const raw = makeRaw({
     source_name: "Ticket Plus",
-    date_raw: "2027-01-09 ~ 2027-01-09 18:00 ~ 18:00",
+    date_raw: "2099-01-09 ~ 2099-01-09 18:00 ~ 18:00",
     tickets_raw: [],
     sale_status_text: "登記截止",
   });
@@ -843,7 +843,7 @@ test("normalize(): a Ticket Plus session showing '登記截止' (this listing's 
 test("normalize(): a Ticket Plus session with NO sale_status_text still falls through to the existing default-to-on_sale behavior", () => {
   const raw = makeRaw({
     source_name: "Ticket Plus",
-    date_raw: "2027-01-09 ~ 2027-01-09 18:00 ~ 18:00",
+    date_raw: "2099-01-09 ~ 2099-01-09 18:00 ~ 18:00",
     tickets_raw: [],
     sale_status_text: "",
   });
@@ -854,7 +854,7 @@ test("normalize(): a Ticket Plus session with NO sale_status_text still falls th
 test("normalize() real bug (Max, 岡崎體育: show was cancelled, Ticket Plus page said '銷售截止', but events.json still showed on_sale): a THIRD distinct status string, not in the original exact-phrase list", () => {
   const raw = makeRaw({
     source_name: "Ticket Plus",
-    date_raw: "2027-01-09 ~ 2027-01-09 18:00 ~ 18:00",
+    date_raw: "2099-01-09 ~ 2099-01-09 18:00 ~ 18:00",
     tickets_raw: [],
     sale_status_text: "銷售截止",
   });
@@ -865,7 +865,7 @@ test("normalize() real bug (Max, 岡崎體育: show was cancelled, Ticket Plus p
 test("normalize() (Max pushback after the 銷售截止 fix: \"不要因為沒把...列進已知的六種同義詞就忽略，你可以自己判斷詞彙意思吧\"): SOLD_OUT_TEXT_RE is a verb+ending STRUCTURAL pattern now, not an exact-phrase whitelist — a never-seen-before combination like '販售結束' (販售 + 結束, neither logged verbatim anywhere in this codebase) is still recognized without needing its own new case added", () => {
   const raw = makeRaw({
     source_name: "Ticket Plus",
-    date_raw: "2027-01-09 ~ 2027-01-09 18:00 ~ 18:00",
+    date_raw: "2099-01-09 ~ 2099-01-09 18:00 ~ 18:00",
     tickets_raw: [],
     sale_status_text: "販售結束",
   });

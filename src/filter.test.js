@@ -7,7 +7,7 @@ function makeEvent(overrides = {}) {
     id: "a",
     headliners: ["Test Artist"],
     lineup: ["Test Artist"],
-    date: "2026-10-15",
+    date: "2099-10-15", // far future so isPast() never rots this fixture
     time: "19:30",
     tags_type: [],
     tags_origin: [],
