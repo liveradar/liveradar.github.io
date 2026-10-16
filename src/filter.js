@@ -58,6 +58,23 @@ export function resolveVisibility(event, prefs, viewFilters = {}) {
 }
 
 /** Exported so state.js's hidden-rule counters can apply the same "future only" rule. */
+// 2026-10-16 (Max: 音樂表演和舞台劇分開成不同頁面): every event belongs to
+// exactly one top-level tab. 喜劇 wins over 劇場 so a comedy show that also
+// got tagged 舞台劇 lands where comedy fans look; everything not stage or
+// comedy (專場/拼盤/音樂祭/見面會/古典/untagged) is music.
+export const SECTIONS = [
+  { id: "music", label: "音樂" },
+  { id: "theater", label: "劇場" },
+  { id: "comedy", label: "喜劇" },
+];
+
+export function sectionOf(event) {
+  const types = event.tags_type ?? [];
+  if (types.includes("喜劇")) return "comedy";
+  if (types.includes("舞台劇") || types.includes("音樂劇")) return "theater";
+  return "music";
+}
+
 export function isPast(dateStr) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);

@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { isPast, partitionEvents, cityBucket, venueKey } from "./filter.js";
+import { isPast, partitionEvents, cityBucket, venueKey, sectionOf } from "./filter.js";
 
 function makeEvent(overrides = {}) {
   return {
@@ -212,4 +212,14 @@ test("partitionEvents: venue filter keeps only the picked venues (any spelling),
   assert.deepEqual(ids([venueKey("台北小巨蛋")]), ["a", "b"]);
   assert.deepEqual(ids([venueKey("台北小巨蛋"), venueKey("臺北大巨蛋")]), ["a", "b", "c"]);
   assert.deepEqual(ids([]), ["a", "b", "c", "d"]);
+});
+
+test("sectionOf: 喜劇 -> comedy, 舞台劇/音樂劇 -> theater, everything else (incl. untagged) -> music", () => {
+  const s = (tags_type) => sectionOf({ tags_type });
+  assert.equal(s(["喜劇"]), "comedy");
+  assert.equal(s(["舞台劇", "喜劇"]), "comedy");
+  assert.equal(s(["舞台劇"]), "theater");
+  assert.equal(s(["音樂劇"]), "theater");
+  for (const t of [["專場"], ["拼盤"], ["音樂祭"], ["見面會", "專場"], ["古典"], []]) assert.equal(s(t), "music");
+  assert.equal(sectionOf({}), "music");
 });

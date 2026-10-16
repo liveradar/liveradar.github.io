@@ -32,7 +32,7 @@
  *   登入是加分項不是門檻，沒登入時完全 no-op，跟以前沒連 Gist 時一樣。
  */
 
-import { partitionEvents, isPast, cityBucket, venueKey, passesViewFilters } from "./filter.js";
+import { partitionEvents, isPast, cityBucket, venueKey, passesViewFilters, sectionOf, SECTIONS } from "./filter.js";
 import {
   loadPrefs,
   isFavorited,
@@ -55,6 +55,8 @@ import {
   clearPersonalCache,
   loadViewFilters,
   saveViewFilters,
+  loadSection,
+  saveSection,
   loadFavView,
   saveFavView,
   loadTheme,
@@ -265,6 +267,49 @@ function chipLabel(values, options, placeholder) {
 // (its own key cleared, so you can still pick a second city etc.).
 // Already-picked values stay listed even if they now match nothing, so they
 // can always be unticked instead of silently filtering everything out.
+// 2026-10-16 (Max: 音樂表演和舞台劇分開成不同頁面): 音樂／劇場／喜劇 tabs at
+// the top of timeline/新上架/收藏. Rendered here (not in each HTML file) so
+// the three pages can't drift apart; the choice is remembered across pages.
+function wireSectionTabs(getSection, onPick) {
+  const bar = document.querySelector("[data-section-tabs]");
+  if (!bar) return;
+  bar.innerHTML = SECTIONS.map(
+    (s) => `<button type="button" role="tab" class="section-tab" data-section="${s.id}">${s.label}</button>`,
+  ).join("");
+  const paint = () =>
+    bar.querySelectorAll("[data-section]").forEach((btn) => btn.setAttribute("aria-selected", String(btn.dataset.section === getSection())));
+  bar.querySelectorAll("[data-section]").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      if (btn.dataset.section === getSection()) return;
+      saveSection(btn.dataset.section);
+      onPick(btn.dataset.section);
+      paint();
+      window.scrollTo(0, 0);
+    }),
+  );
+  paint();
+}
+
+// On a tab switch, drop picked values the new tab doesn't have at all
+// (Comedy Plus picked under 喜劇, then 音樂) — kept, they'd silently empty
+// the list behind a chip that can't even name them. Values that do exist
+// there (雙北, a month) carry over. Price brackets are always kept.
+function pruneFilters(filters, pool) {
+  const present = {
+    city: cityFilterOptions(pool).map((o) => o.value),
+    venue: venueFilterOptions(pool).map((o) => o.key),
+    month: monthFilterOptions(pool).map((o) => o.value),
+    type: typeFilterOptions(pool).map((o) => o.value),
+    origin: originFilterOptions(pool).map((o) => o.value),
+  };
+  const next = { ...filters };
+  for (const [key, values] of Object.entries(present)) {
+    const picked = Array.isArray(filters[key]) ? filters[key] : filters[key] == null ? [] : [filters[key]];
+    next[key] = picked.filter((v) => values.includes(v));
+  }
+  return next;
+}
+
 function facetPool(events, filters, key) {
   return events.filter((e) => passesViewFilters(e, { ...filters, [key]: [] }));
 }
@@ -274,7 +319,7 @@ function keepSelected(options, selected) {
   return [...options, ...missing.map((v) => ({ label: String(v), value: v }))];
 }
 
-function wireViewFilterChips(events, getFilters, onChange) {
+function wireViewFilterChips(getEvents, getFilters, onChange) {
   const cityChip = document.querySelector('[data-filter="city"]');
   const venueChip = document.querySelector('[data-filter="venue"]');
   const monthChip = document.querySelector('[data-filter="month"]');
@@ -292,11 +337,11 @@ function wireViewFilterChips(events, getFilters, onChange) {
 
   function refreshLabels() {
     const f = getFilters();
-    cityChip.textContent = chipLabel(f.city, cityFilterOptions(events), "城市");
+    cityChip.textContent = chipLabel(f.city, cityFilterOptions(getEvents()), "城市");
     cityChip.setAttribute("aria-pressed", String(!!f.city?.length));
     if (venueChip) {
       const picked = Array.isArray(f.venue) ? f.venue : [];
-      const names = venueFilterOptions(events);
+      const names = venueFilterOptions(getEvents());
       venueChip.textContent =
         picked.length === 0
           ? "場館"
@@ -305,14 +350,14 @@ function wireViewFilterChips(events, getFilters, onChange) {
             : `場館 · ${picked.length} 項`;
       venueChip.setAttribute("aria-pressed", String(picked.length > 0));
     }
-    monthChip.textContent = chipLabel(f.month, monthFilterOptions(events), "月份");
+    monthChip.textContent = chipLabel(f.month, monthFilterOptions(getEvents()), "月份");
     monthChip.setAttribute("aria-pressed", String(!!f.month?.length));
     if (typeChip) {
-      typeChip.textContent = chipLabel(f.type, typeFilterOptions(events), "類型");
+      typeChip.textContent = chipLabel(f.type, typeFilterOptions(getEvents()), "類型");
       typeChip.setAttribute("aria-pressed", String(!!f.type?.length));
     }
     if (originChip) {
-      originChip.textContent = chipLabel(f.origin, originFilterOptions(events), "演出者地區");
+      originChip.textContent = chipLabel(f.origin, originFilterOptions(getEvents()), "演出者地區");
       originChip.setAttribute("aria-pressed", String(!!f.origin?.length));
     }
     priceChip.textContent = chipLabel(f.priceMax, priceFilterOptions(), "價格");
@@ -321,16 +366,16 @@ function wireViewFilterChips(events, getFilters, onChange) {
 
   cityChip.addEventListener("click", () => {
     const f = getFilters();
-    openFilterSheet("篩選城市", keepSelected(cityFilterOptions(facetPool(events, f, "city")), f.city), f.city ?? [], (values) => {
+    openFilterSheet("篩選城市", keepSelected(cityFilterOptions(facetPool(getEvents(), f, "city")), f.city), f.city ?? [], (values) => {
       onChange({ ...getFilters(), city: values });
       refreshLabels();
     });
   });
   venueChip?.addEventListener("click", () => {
     const f = getFilters();
-    const venues = venueFilterOptions(facetPool(events, f, "venue"));
+    const venues = venueFilterOptions(facetPool(getEvents(), f, "venue"));
     // A picked venue that no longer matches shows under its real name, not its key.
-    const allNames = new Map(venueFilterOptions(events).map((o) => [o.key, o.name]));
+    const allNames = new Map(venueFilterOptions(getEvents()).map((o) => [o.key, o.name]));
     const options = [
       { label: "全部場館", value: null },
       ...venues.map((o) => ({ label: `${o.name}（${o.count}）`, value: o.key })),
@@ -351,21 +396,21 @@ function wireViewFilterChips(events, getFilters, onChange) {
   });
   monthChip.addEventListener("click", () => {
     const f = getFilters();
-    openFilterSheet("篩選月份", keepSelected(monthFilterOptions(facetPool(events, f, "month")), f.month), f.month ?? [], (values) => {
+    openFilterSheet("篩選月份", keepSelected(monthFilterOptions(facetPool(getEvents(), f, "month")), f.month), f.month ?? [], (values) => {
       onChange({ ...getFilters(), month: values });
       refreshLabels();
     });
   });
   typeChip?.addEventListener("click", () => {
     const f = getFilters();
-    openFilterSheet("篩選類型", keepSelected(typeFilterOptions(facetPool(events, f, "type")), f.type), f.type ?? [], (values) => {
+    openFilterSheet("篩選類型", keepSelected(typeFilterOptions(facetPool(getEvents(), f, "type")), f.type), f.type ?? [], (values) => {
       onChange({ ...getFilters(), type: values });
       refreshLabels();
     });
   });
   originChip?.addEventListener("click", () => {
     const f = getFilters();
-    openFilterSheet("篩選演出者地區", keepSelected(originFilterOptions(facetPool(events, f, "origin")), f.origin), f.origin ?? [], (values) => {
+    openFilterSheet("篩選演出者地區", keepSelected(originFilterOptions(facetPool(getEvents(), f, "origin")), f.origin), f.origin ?? [], (values) => {
       onChange({ ...getFilters(), origin: values });
       refreshLabels();
     });
@@ -373,7 +418,7 @@ function wireViewFilterChips(events, getFilters, onChange) {
   priceChip.addEventListener("click", () => {
     const f = getFilters();
     const all = priceFilterOptions();
-    const options = priceFilterOptions(facetPool(events, f, "priceMax"));
+    const options = priceFilterOptions(facetPool(getEvents(), f, "priceMax"));
     // A picked bracket that no longer fits keeps its proper label so it can be unticked.
     for (const v of f.priceMax ?? []) if (!options.some((o) => o.value === v)) options.push(all.find((o) => o.value === v) ?? { label: String(v), value: v });
     openFilterSheet("篩選價格", options, f.priceMax ?? [], (values) => {
@@ -383,6 +428,7 @@ function wireViewFilterChips(events, getFilters, onChange) {
   });
 
   refreshLabels();
+  return refreshLabels;
 }
 
 /** 2026-09-22: replaces the old dismiss-forever intro card — a persistent ⓘ icon reachable any time (see openIntroDialog's doc comment). */
@@ -695,11 +741,14 @@ async function initTimeline(container) {
   wireIntroInfoButton();
   checkSourceWarning();
 
-  let viewFilters = loadViewFilters();
+  let section = loadSection();
+  const inSection = () => events.filter((e) => sectionOf(e) === section);
+  // Saved filters may predate the tabs (類型=喜劇 while on 音樂) — same cleanup as a tab switch.
+  let viewFilters = pruneFilters(loadViewFilters(), inSection());
 
   function render() {
     const prefs = loadPrefs();
-    const { visible, hiddenByRules } = partitionEvents(events, prefs, viewFilters);
+    const { visible, hiddenByRules } = partitionEvents(inSection(), prefs, viewFilters);
 
     visible.sort((a, b) => {
       if (a.event.date !== b.event.date) return a.event.date < b.event.date ? -1 : 1;
@@ -718,12 +767,22 @@ async function initTimeline(container) {
     updateHiddenBar(hiddenByRules);
   }
 
-  wireViewFilterChips(
-    events,
+  const refreshChips = wireViewFilterChips(
+    inSection,
     () => viewFilters,
     (next) => {
       viewFilters = next;
       saveViewFilters(viewFilters);
+      render();
+    },
+  );
+  wireSectionTabs(
+    () => section,
+    (next) => {
+      section = next;
+      viewFilters = pruneFilters(viewFilters, inSection());
+      saveViewFilters(viewFilters);
+      refreshChips?.();
       render();
     },
   );
@@ -788,11 +847,14 @@ async function initNewArrivals(container) {
 
   // Same chips and same saved filters as the timeline (one localStorage
   // key) — picking 雙北 there should also narrow 新上架 to 雙北.
-  let viewFilters = loadViewFilters();
+  let section = loadSection();
+  const inSection = () => events.filter((e) => sectionOf(e) === section);
+  // Saved filters may predate the tabs (類型=喜劇 while on 音樂) — same cleanup as a tab switch.
+  let viewFilters = pruneFilters(loadViewFilters(), inSection());
 
   function render() {
     const prefs = loadPrefs();
-    const { visible } = partitionEvents(events, prefs, viewFilters);
+    const { visible } = partitionEvents(inSection(), prefs, viewFilters);
 
     const withAge = visible
       .map((item) => ({ ...item, ageDays: daysSince(item.event.first_seen_at) }))
@@ -820,12 +882,22 @@ async function initNewArrivals(container) {
     wireExcludeMenu(container, events, render);
   }
 
-  wireViewFilterChips(
-    events,
+  const refreshChips = wireViewFilterChips(
+    inSection,
     () => viewFilters,
     (next) => {
       viewFilters = next;
       saveViewFilters(viewFilters);
+      render();
+    },
+  );
+  wireSectionTabs(
+    () => section,
+    (next) => {
+      section = next;
+      viewFilters = pruneFilters(viewFilters, inSection());
+      saveViewFilters(viewFilters);
+      refreshChips?.();
       render();
     },
   );
@@ -920,6 +992,7 @@ async function initFavorites(container) {
   // get yanked back to the "soonest show" month mid-browse.
   let calendarView = null;
   let favorited = [];
+  let section = loadSection();
 
   // Re-renders just the calendar widget from the current calendarView state
   // (month nav, day selection) without re-reading prefs/events — those only
@@ -959,7 +1032,11 @@ async function initFavorites(container) {
 
   function render() {
     const prefs = loadPrefs();
-    const { visible } = partitionEvents(events, prefs, {});
+    const { visible } = partitionEvents(
+      events.filter((e) => sectionOf(e) === section),
+      prefs,
+      {},
+    );
     favorited = visible.filter((item) => item.pinned).map((item) => item.event);
     favorited.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
 
@@ -992,7 +1069,7 @@ async function initFavorites(container) {
 
     container.innerHTML =
       favorited.length === 0
-        ? renderEmptyList("還沒有收藏任何場次，去時間表逛逛吧。")
+        ? renderEmptyList(`「${SECTIONS.find((s) => s.id === section)?.label ?? ""}」還沒有收藏的場次，去時間表逛逛吧。`)
         : renderFavoritesList(favorited);
 
     wireTicketButtons(container);
@@ -1009,6 +1086,15 @@ async function initFavorites(container) {
       render();
     });
   });
+
+  wireSectionTabs(
+    () => section,
+    (next) => {
+      section = next;
+      calendarView = null; // re-jump to this tab's soonest favorite
+      render();
+    },
+  );
 
   render();
 }

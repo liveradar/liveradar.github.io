@@ -244,6 +244,27 @@ export function saveViewFilters(filters) {
   localStorage.setItem(VIEW_FILTERS_KEY, JSON.stringify(filters));
 }
 
+// --- Section tab (音樂／劇場／喜劇, 2026-10-16) ----------------------------
+// Same local "what am I looking at" state; shared by timeline/新上架/收藏 so
+// switching to 劇場 on one page stays on 劇場 on the others.
+
+const SECTION_KEY = "liveradar:section";
+
+export function loadSection() {
+  try {
+    const v = localStorage.getItem(SECTION_KEY);
+    return v === "theater" || v === "comedy" ? v : "music";
+  } catch {
+    return "music";
+  }
+}
+
+export function saveSection(section) {
+  try {
+    localStorage.setItem(SECTION_KEY, section);
+  } catch {}
+}
+
 // --- Favorites page view mode (list vs. calendar, 2026-09-18) -----------
 // Same "screen state, not a rule" spirit as the view filters above — which
 // view you last had open isn't something that needs to sync across devices.

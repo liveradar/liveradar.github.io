@@ -161,6 +161,38 @@ button {
   display: none;
 }
 
+/* 音樂／劇場／喜劇 (wireSectionTabs in src/app.js) — big text tabs, the
+   page's primary split, so they sit above the smaller filter chips. */
+.section-tabs {
+  display: flex;
+  gap: 22px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--border);
+}
+.section-tab {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 6px 0 10px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.section-tab[aria-selected="true"] {
+  color: var(--ink);
+}
+.section-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--coral);
+}
+
 .chip {
   flex: 0 0 auto;
   font-family: inherit;
