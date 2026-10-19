@@ -777,6 +777,35 @@ textarea.field-input {
 .sheet-header {
   padding: 0 22px 14px;
 }
+/* Filter sheet: handle + title + 完成 + search stay pinned while the list scrolls. */
+.sheet-top {
+  position: sticky;
+  top: -10px; /* cancels .sheet's own padding-top so nothing peeks above it */
+  z-index: 1;
+  background: var(--bg);
+  margin-top: -10px;
+  padding-top: 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.sheet-header--bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sheet-done {
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--coral);
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 18px;
+  flex: 0 0 auto;
+}
+
 .sheet-header__title {
   font-size: 14px;
   font-weight: 900;

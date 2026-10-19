@@ -178,14 +178,18 @@ export function openFilterSheet(title, options, currentValues, onChange, { searc
   const root = overlayRoot();
   root.innerHTML = `
       <div class="overlay-scrim" data-close></div>
-      <div class="sheet" role="dialog" aria-modal="true">
-        <div class="sheet-handle"></div>
-        <div class="sheet-header">
-          <div class="sheet-header__title">${escapeHtml(title)}</div>
+      <div class="sheet" role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}">
+        <!-- 2026-10-19 (Max: 手機版要滑到最下面才能按完成): 完成 lives in a
+             header that stays pinned while the option list scrolls. -->
+        <div class="sheet-top">
+          <div class="sheet-handle"></div>
+          <div class="sheet-header sheet-header--bar">
+            <div class="sheet-header__title">${escapeHtml(title)}</div>
+            <button type="button" class="sheet-done" data-close>完成</button>
+          </div>
+          ${searchable ? `<div style="padding:0 22px 10px;"><input class="field-input" type="search" data-sheet-search placeholder="搜尋…" style="height:38px;" /></div>` : ""}
         </div>
-        ${searchable ? `<div style="padding:0 22px 8px;"><input class="field-input" type="search" data-sheet-search placeholder="搜尋…" style="height:38px;" /></div>` : ""}
         <div data-sheet-list></div>
-        <button class="btn-primary" data-close style="margin:14px 22px 0;width:calc(100% - 44px);">完成</button>
       </div>
     `;
   root.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", clearOverlay));
