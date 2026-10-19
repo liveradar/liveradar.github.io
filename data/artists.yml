@@ -2323,3 +2323,40 @@
 - canonical: 太平洋的光
   aliases: []
   tags_origin_default: 本地  # 2026-10-16 WebFetch 查證（售票頁 opentix.life/event/2108107139636789249）：禾禾文化空間主辦的德國／台灣四重奏融合演出，4位樂手中2位台灣（劉士瑜、鍾於叡）、2位德國（凱爾胡伯、韓家柏），無法歸單一來源地，依本地主辦場地判定為本地——此判斷不確定性較高，詳見報告「需 Max 確認」
+
+- canonical: PERSES
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-10-19 WebSearch 查證（tpop.fandom.com/wiki/PERSES、cha-pop.com）：泰國 GNEST（GMM Grammy）旗下五人男團，粉絲名「PIECES」，標題「ALL PIECES, ONE PERSES」對應首次世界巡迴台北站，歸亞洲其他
+- canonical: 金音創作獎
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-19：台灣文化部主辦之原創音樂獎項頒獎典禮，比照無具體單一藝人的企劃／系列名稱登記為本地
+- canonical: 菌網 MYCELIUM
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-19 WebFetch 查證（售票頁 indievox.com/activity/detail/26_iv04256e8）：Revolver左輪手槍（台北）地下電子/搖滾/HIPHOP拼盤展演，演出者K.KILLER／氓犬INU VICIOUS／KIVΛMKII／轟轟皆為本地團體，比照多位音樂人拼盤活動登記為本地
+- canonical: 揺れるは幽霊
+  aliases: ["yureruwayurei"]
+  tags_origin_default: 日本  # 2026-10-19 WebSearch 查證（PIA article）：2024年組成、岡山發的四人團，以後搖滾/shoegaze為基調，2026年加入日本獨立廠牌Oaiko，歸日本
+- canonical: 一生、オタクしてくれる?
+  aliases: ["一生、オタクしてくれる？"]
+  tags_origin_default: 本地  # 2026-10-19 WebFetch 查證（售票頁 go.fansi.me/events/100133）：PIPE Live Music（台北）ヲタ芸/DJ主題派對，演出者Pâti☆Quar／DJ JOJOn²／EvolutioN，比照夜店/御宅派對多人活動登記為本地
+- canonical: K represent IX
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-19：台北嘻哈Freestyle rap battle派對品牌，比照多位音樂人拼盤活動登記為本地
+- canonical: PUN
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-10-19 WebFetch 查證（售票頁 go.fansi.me/events/220010）：泰國歌手，經紀公司Universal Music Thailand（頁面標示@universalmusicth、#universalMusicTH），歸亞洲其他
+- canonical: 漂遊者森林音樂祭
+  aliases: ["Roving Nation Festival"]
+  tags_origin_default: 本地  # 2026-10-19 WebFetch 查證（售票頁 ticketplus.com.tw）：主辦單位「漂遊者製造有限公司」（台灣公司），台中后里場地，比照本地音樂祭登記為本地
+- canonical: LOOKMHEE SONYA
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-10-19 WebSearch 查證：泰國GL演員組合（Lookmhee Punyapat、Sonya Saranphat），主演泰劇《Hometown Romance》《Love Trick》，見面會歸亞洲其他
+- canonical: 哥查Kerchak
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-19 WebFetch 查證（售票頁 ticketplus.com.tw，場地女巫店）：台灣獨立創作歌手，中文歌詞個人創作演出，歸本地
+- canonical: 朵莉 Dory
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-19 WebFetch 查證（售票頁 ticketplus.com.tw，場地女巫店）：台灣樂手編制（黃柏堅/鄭郁潔/賴彥瑞皆台灣姓名），中文歌詞個人創作演出，歸本地
+- canonical: KPOP PLANET
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-19：品牌名稱明示為K-pop主題多藝人演出（林口體育館），比照「國外品牌音樂節、演出者同一國籍」例外規則歸韓國——未逐一查證卡司，詳見報告「需 Max 確認」
