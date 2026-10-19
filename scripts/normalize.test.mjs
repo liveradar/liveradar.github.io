@@ -625,6 +625,9 @@ test("normalize(): non-music noise (sports tickets, courses, exhibitions, comedy
     // content-marketing spam accounts, real examples confirmed live:
     "Affordable SEO Services for Small Businesses: A Complete Guide to Growing Locally and Online",
     "Invisalign Parramatta",
+    // 2026-10-19: same event as the URL-excluded 粉絲互動卡預購 page, new activity URL
+    "【舞台卡】第4回TOP女神台北感謝祭 - 舞台晚會活動（11/7）",
+    "【女神星光晚會】第4回TOP女神台北感謝祭 - 舞台晚會活動（11/7）",
   ];
   for (const title_raw of cases) {
     const result = normalize(makeRaw({ title_raw }), yml, []);

@@ -767,6 +767,7 @@ const NOISE_KEYWORDS = [
   // spectator sports (tixcraft/Ticket Plus sell season/single-game tickets)
   "例行賽", "季後", "錦標賽", "主場賽事", "季票",
   "摔角", // wrestling
+  "TOP女神", // 第4回TOP女神台北感謝祭 (2026-10-19): 日本成人展見面會企劃，Max 10/8 已要求排除；當時只擋了「粉絲互動卡預購」那個售票頁網址，同活動換了新售票頁（舞台卡／女神星光晚會）又跑回來，所以改用活動名稱擋，不再逐頁網址追
   "紋身藝術節", // tattoo art festival, not music
   "返鄉專車", // unofficial fan shuttle-bus service riding on a real concert's name
   "蛋黃酥", // a pastry pre-order
