@@ -2,6 +2,11 @@ import { needsStatusCheck, saleStatusFromOffers } from "../sale-signal.mjs";
 import { withBrowser, newPage } from "../browser.mjs";
 import { logProgress } from "../progress-log.mjs";
 
+/** Today in Taiwan as "YYYY/MM/DD" (the format the event pages use). */
+function todayTW() {
+  return new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10).replace(/-/g, "/");
+}
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -81,6 +86,41 @@ async function fetchCards(page) {
       })
       .filter(Boolean)
   );
+}
+
+/**
+ * 2026-10-19 real bug (Max asked for a list review): an event page can list
+ * SEVERAL sessions (a tour: different dates AND venues under one event id,
+ * e.g. 一點生《蓬萊異象》 9/6 Revolver + 11/1 百樂門), but this adapter only ever
+ * read the first one, so every later stop was silently missing. Each session
+ * block is `div.w-5/6` holding the session name, a `time[datetime=
+ * "YYYY/MM/DD HH:MM"]` and a venue/address pair (confirmed on the live page).
+ */
+export async function readSessions(page) {
+  await page.waitForFunction(() => document.querySelector("time[datetime]"), null, { timeout: PRICE_NAV_TIMEOUT_MS });
+  return page.$$eval("time[datetime]", (els) =>
+    els
+      .map((t) => {
+        const block = t.closest('[class~="w-5/6"]') ?? t.parentElement?.parentElement;
+        const ps = block ? [...block.querySelectorAll("div.w-full.mt-2.mb-6 p")].map((p) => p.textContent.trim()) : [];
+        return { datetime: t.getAttribute("datetime") ?? "", venue: ps[0] ?? "", address: ps[1] ?? "" };
+      })
+      .filter((x) => /^\d{4}\/\d{2}\/\d{2} \d{1,2}:\d{2}$/.test(x.datetime)),
+  );
+}
+
+/** Pure: the extra (2nd, 3rd, …) upcoming sessions of an event page as raw_id/date/venue, skipping the first session (the event's own raw_id) and past dates. Duplicate datetime+venue rows are collapsed. */
+export function extraSessions(eventId, sessions, todayTW) {
+  const seen = new Set();
+  const out = [];
+  sessions.forEach((s, i) => {
+    const key = `${s.datetime}|${s.venue}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    if (i === 0 || s.datetime.slice(0, 10) < todayTW) return;
+    out.push({ raw_id: `${eventId}_${s.datetime.replace(/\D/g, "")}`, date_raw: s.datetime, venue_raw: `${s.venue} / ${s.address}` });
+  });
+  return out;
 }
 
 const PRICE_REQUEST_DELAY_MS = 800; // see tixcraft.mjs's identical constant — same rationale
@@ -168,6 +208,7 @@ export async function fetch(knownRawIds = new Set()) {
         event.sale_signal = await fetchShowSaleSignal(event.raw_id);
       }
 
+      const sessionsById = new Map(); // raw_id -> { sessions, priceText } — see readSessions()
       let priceFailures = 0;
       let venueFailures = 0;
       for (const event of toFetch) {
@@ -217,6 +258,11 @@ export async function fetch(knownRawIds = new Set()) {
         } catch (err) {
           logProgress(`FANSI GO time fetch failed for ${event.url}: ${err.message}`);
         }
+        try {
+          sessionsById.set(event.raw_id, { sessions: await readSessions(page), priceText: event.price_text_raw });
+        } catch (err) {
+          logProgress(`FANSI GO sessions read failed for ${event.url}: ${err.message}`);
+        }
         // 2026-09-22 (Max: "如果拿到的不是熱賣中的文字是其他的文字，你可以看
         // 那個文字判斷吧"): the actual ticket-selection page (a separate
         // /tickets/show/{sessionId} URL linked from THIS page, not the same
@@ -250,6 +296,58 @@ export async function fetch(knownRawIds = new Set()) {
           await page.close();
         }
       }
+      // 2026-10-19: a known event can still have gained a later session (a
+      // tour adding a stop), and the incremental skip above never looks —
+      // one cheap page read per known event finds them. Only a session whose
+      // own raw_id is new becomes a fresh event; known ones are reused.
+      for (const event of events) {
+        if (!event.reuse_previous) continue;
+        await sleep(PRICE_REQUEST_DELAY_MS);
+        const page = await newPage(browser);
+        try {
+          await page.goto(event.url, { waitUntil: "domcontentloaded", timeout: PRICE_NAV_TIMEOUT_MS });
+          const sessions = await readSessions(page);
+          let priceText = "";
+          if (extraSessions(event.raw_id, sessions, todayTW()).some((x) => !knownRawIds.has(x.raw_id))) {
+            await page.waitForSelector(".prose", { timeout: PRICE_NAV_TIMEOUT_MS });
+            priceText = await page.$eval(".prose", (el) => el.innerHTML);
+          }
+          sessionsById.set(event.raw_id, { sessions, priceText });
+        } catch (err) {
+          logProgress(`FANSI GO sessions read failed for ${event.url}: ${err.message}`);
+        } finally {
+          await page.close();
+        }
+      }
+
+      // Each event's extra sessions become their own raw events.
+      const extras = [];
+      for (const event of events) {
+        const found = sessionsById.get(event.raw_id);
+        if (!found) continue;
+        for (const x of extraSessions(event.raw_id, found.sessions, todayTW())) {
+          if (knownRawIds.has(x.raw_id)) {
+            const stub = { raw_id: x.raw_id, source_name: name, reuse_previous: true };
+            if (event.sale_signal !== undefined) stub.sale_signal = event.sale_signal;
+            extras.push(stub);
+          } else {
+            extras.push({
+              raw_id: x.raw_id,
+              url: event.url,
+              title_raw: event.title_raw,
+              date_raw: x.date_raw,
+              venue_raw: x.venue_raw,
+              tickets_raw: [],
+              price_text_raw: found.priceText,
+              sale_status_text: event.sale_status_text,
+              source_name: name,
+            });
+          }
+        }
+      }
+      if (extras.length > 0) logProgress(`FANSI GO: ${extras.length} extra session(s) found on multi-session events`);
+      events.push(...extras);
+
       if (venueFailures > 0) {
         logProgress(`FANSI GO: venue detail fetch failed for ${venueFailures}/${toFetch.length} event(s), falling back to organizer field`);
       }

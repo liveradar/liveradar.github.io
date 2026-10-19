@@ -93,7 +93,6 @@ const TYPE_KEYWORDS = [
   ["西部地區懸賞公告", "拼盤"], // themed multi-band bill brand, title never spells out band names or 拼盤
   ["河馬玖狂", "拼盤"], // same shape: "四團共演" bill, brand name only in the title
   ["交個朋友吧", "拼盤"],
-  ["古典", "古典"],
 ];
 
 export function loadArtists() {
@@ -854,6 +853,23 @@ const NOISE_KEYWORDS = [
   "羽球大師賽", "全民運動會",
 ];
 
+// 2026-10-19 (Max: 網站上的古典移除，之後都不收): 古典 is no longer a type —
+// title keywords for classical-style programs (solo/chamber/choral/國樂,
+// orchestra playing the classical canon) are excluded outright. Pop-style
+// orchestral concerts (動漫/遊戲/電影/百老匯) and 流行 choirs stay in.
+// Deliberately specific substrings: a bare "合唱" or "音樂會" would catch pop
+// shows (佳偶聲合唱團年度音樂會 is kept, by Max's call).
+const CLASSICAL_KEYWORDS = [
+  "古典", // 古典吉他、《古典・當代・跨界》… (title says it)
+  "獨奏", "鋼琴演奏會", "雙鋼琴", "室內樂", "室內合唱團", "絲竹", "胡琴", "口琴樂團", "管弦樂團", "管絃樂團", "次女高音", "美聲系列", "合唱音樂會", "木樓合唱團", "魯特琴",
+  "心動莎翁", // 台中室內合唱團的合唱音樂會（標題沒有合唱字樣）
+];
+function isClassical(titleRaw) {
+  return CLASSICAL_KEYWORDS.some((kw) => titleRaw.includes(kw)) && !CLASSICAL_CROSSOVER_RE.test(titleRaw);
+}
+// 《太平洋的光》德國與台灣四重奏：爵士×古典×東方 — says 古典 but is a jazz crossover; kept.
+const CLASSICAL_CROSSOVER_RE = /爵士×古典/;
+
 function isNonMusicNoise(titleRaw) {
   const lower = titleRaw.toLowerCase();
   return NOISE_KEYWORDS.some((kw) => lower.includes(kw.toLowerCase()));
@@ -1078,6 +1094,7 @@ export function isGeneralTicketLottery(titleRaw, priceTextRaw) {
 export function exclusionReason(rawEvent) {
   if (isJunkTitle(rawEvent.title_raw ?? "")) return "junk_title";
   if (isNonMusicNoise(rawEvent.title_raw ?? "")) return "non_music_noise";
+  if (isClassical(rawEvent.title_raw ?? "")) return "classical";
   if (isPlatformOwnDemoEvent(rawEvent.url)) return "platform_demo_content";
   if (isExcludedAccount(rawEvent.url)) return "excluded_account";
   if (isManuallyExcludedUrl(rawEvent.url)) return "manual_exclude";

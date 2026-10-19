@@ -18,7 +18,7 @@ const CACHE_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), "..",
 export const MAX_AGE_DAYS = 7;
 // junk_title ("test") is deliberately NOT cached: organizers often create a
 // placeholder listing first and rename it into the real show later.
-export const CACHEABLE_REASONS = new Set(["non_music_noise", "outside_taiwan"]);
+export const CACHEABLE_REASONS = new Set(["non_music_noise", "outside_taiwan", "classical"]);
 
 const key = (source, rawId) => `${source}|${rawId}`;
 

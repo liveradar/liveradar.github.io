@@ -109,7 +109,7 @@ type Event = {
   price_min: number | null;
   price_max: number | null;
   status: "announced" | "on_sale" | "sold_out" | "postponed" | "cancelled" | "ended";
-  tags_type: string[];     // 專場/拼盤/音樂祭/見面會/簽唱會/音樂劇/舞台劇/古典（可複選，通常 1 個）
+  tags_type: string[];     // 專場/拼盤/音樂祭/見面會/簽唱會/音樂劇/舞台劇/喜劇（可複選，通常 1 個；2026-10-19 起「古典」不再是類型）
   tags_origin: string[];   // 本地/亞洲其他/日韓/歐美（2026-09-21 前叫「海外」，見 §3.2 附註）
   ticket_url: string;      // 優先序最高來源的連結
   sources: {               // 保留全部原始來源連結（AC-12 要求）
@@ -730,3 +730,10 @@ jobs:
 | S6 | 跨裝置同步機制（2026-09-20，取代 S1/S2 原本的 Gist 方案） | **改用 Supabase（Postgres + Auth）+ Google 登入**，取代原本要求使用者自己貼 GitHub Personal Access Token 的 Gist 同步。原因：貼 PAT 對一般使用者太技術性，Max 想要一般網站常見的帳號登入體驗。一開始 email/密碼登入也做了，但 Supabase 免費方案的驗證信/重設密碼信用共用網域、內容無法客製（需要自訂 SMTP + 自己的網域才能改），容易被誤認成詐騙信，所以最後只留 Google 登入。同步邏輯本身（last-write-wins、2 秒 debounce push、離線不清空本機資料）沿用 Gist 機制原本的設計，只是資料來源換成 `supabase.from('user_prefs')`。完整實作細節見 §8。 |
 
 日後若要變更，請在此表加註變更日期與理由。
+
+
+### 2026-10-19 範圍更新（Max 決定）
+- **古典不收**：標題含「古典／獨奏／鋼琴演奏會／雙鋼琴／室內樂／絲竹／胡琴／口琴樂團／管弦樂團／次女高音／美聲系列／合唱音樂會／木樓合唱團／魯特琴／心動莎翁／室內合唱團」的活動以 `classical` 原因排除（`scripts/normalize.mjs` 的 `CLASSICAL_KEYWORDS`）。流行向的交響音樂會（動漫、遊戲、電影、百老匯）與「爵士×古典」跨界不受影響。這取代 9/25 文件裡只針對 OPENTIX／寬宏／年代的範圍說明。
+- **海外排除**補了灣仔／荃灣／重慶（不含台北重慶南北路）等地名。
+- **FANSI GO 多場次**：同一活動頁的第 2 個以後的場次現在各自成為一筆（raw_id `{活動id}_{YYYYMMDDHHMM}`），已知活動每次也會讀一次頁面找新場次。
+- **Ticket Plus 尚無場次的活動**（如米津玄師大巨蛋）以 event.json 的日期、時間、場地顯示為「尚未開賣」，場次出現後由真實場次取代。

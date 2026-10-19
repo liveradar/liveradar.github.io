@@ -458,92 +458,6 @@
       ]
     },
     {
-      "title_raw": "TCC 沙龍音樂會系列-閱讀音樂2《心動莎翁》",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "臺中國家歌劇院小劇場",
-      "city": "台中",
-      "date": "2026-10-26",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 800,
-      "status": "on_sale",
-      "tags_type": [
-        "音樂劇"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2105121072633548800",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2105121072633548800",
-          "raw_id": "opentix:2105121072633548800:臺中國家歌劇院小劇場"
-        }
-      ],
-      "first_seen_at": "2026-10-08T02:17:25.433Z",
-      "updated_at": "2026-10-08T02:17:25.433Z",
-      "category": "音樂劇",
-      "run_key": "opentix:2105121072633548800:臺中國家歌劇院小劇場",
-      "id": "a751ce2b66e50f28",
-      "merged_ids": [
-        "a751ce2b66e50f28"
-      ],
-      "date_end": "2026-10-26",
-      "sessions": [
-        {
-          "date": "2026-10-26",
-          "time": "19:30",
-          "status": "on_sale"
-        }
-      ]
-    },
-    {
-      "title_raw": "TCC 沙龍音樂會系列-閱讀音樂2《心動莎翁》",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "衛武營國家藝術文化中心表演廳",
-      "city": "高雄",
-      "date": "2026-11-22",
-      "time": "15:30",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 800,
-      "status": "on_sale",
-      "tags_type": [
-        "音樂劇"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2105121072633548800",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2105121072633548800",
-          "raw_id": "opentix:2105121072633548800:衛武營國家藝術文化中心表演廳"
-        }
-      ],
-      "first_seen_at": "2026-10-08T02:17:25.433Z",
-      "updated_at": "2026-10-08T02:17:25.433Z",
-      "category": "音樂劇",
-      "run_key": "opentix:2105121072633548800:衛武營國家藝術文化中心表演廳",
-      "id": "42d0efc1e0dd96d2",
-      "merged_ids": [
-        "42d0efc1e0dd96d2"
-      ],
-      "date_end": "2026-11-22",
-      "sessions": [
-        {
-          "date": "2026-11-22",
-          "time": "15:30",
-          "status": "on_sale"
-        }
-      ]
-    },
-    {
       "title_raw": "《那個女人是誰？》原創音樂劇",
       "headliners": [],
       "lineup": [],
@@ -11160,45 +11074,6 @@
       ]
     },
     {
-      "title_raw": "蔡宇歆鋼琴演奏會",
-      "headliners": [
-        "蔡宇歆"
-      ],
-      "lineup": [
-        "蔡宇歆"
-      ],
-      "is_festival": false,
-      "venue": "陽明交大演藝廳（光復校區）",
-      "city": "新竹",
-      "date": "2026-12-10",
-      "time": "19:30",
-      "on_sale_at": "2026-11-10T00:00:00+08:00",
-      "price_min": null,
-      "price_max": null,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://nycuarts.kktix.cc/events/20261210",
-      "first_seen_at": "2026-09-22T16:23:50.211Z",
-      "updated_at": "2026-09-22T16:23:50.211Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://nycuarts.kktix.cc/events/20261210",
-          "raw_id": "20261210"
-        }
-      ],
-      "id": "7343ea48b391b52c",
-      "merged_ids": [
-        "7343ea48b391b52c"
-      ]
-    },
-    {
       "title_raw": "Re:Dino 恐龍復活－〈龍吼哩聽〉首場阿卡貝拉演唱會",
       "headliners": [
         "Re:Dino"
@@ -11703,45 +11578,6 @@
       "id": "88fd1b558983fb80",
       "merged_ids": [
         "88fd1b558983fb80"
-      ]
-    },
-    {
-      "title_raw": "魯特琴與歌曲，紀念道蘭逝世400週年",
-      "headliners": [
-        "魯特琴與歌曲"
-      ],
-      "lineup": [
-        "魯特琴與歌曲"
-      ],
-      "is_festival": false,
-      "venue": "陽明交大演藝廳（光復校區）",
-      "city": "新竹",
-      "date": "2026-12-02",
-      "time": "19:30",
-      "on_sale_at": "2026-11-02T00:00:00+08:00",
-      "price_min": null,
-      "price_max": null,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://nycuarts.kktix.cc/events/20261202",
-      "first_seen_at": "2026-09-23T04:03:12.499Z",
-      "updated_at": "2026-09-23T04:03:12.499Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://nycuarts.kktix.cc/events/20261202",
-          "raw_id": "20261202"
-        }
-      ],
-      "id": "f07e811f9d86d348",
-      "merged_ids": [
-        "f07e811f9d86d348"
       ]
     },
     {
@@ -34951,47 +34787,6 @@
       ]
     },
     {
-      "title_raw": "湯妮莉 ✕ 高韻堯 ——《節奏與狂喜》雙鋼琴音樂會",
-      "headliners": [
-        "湯妮莉",
-        "高韻堯"
-      ],
-      "lineup": [
-        "湯妮莉",
-        "高韻堯"
-      ],
-      "is_festival": false,
-      "venue": "衛武營國家藝術文化中心表演廳",
-      "city": "高雄",
-      "date": "2026-10-28",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 600,
-      "price_max": 1200,
-      "status": "on_sale",
-      "tags_type": [
-        "拼盤"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2082777244051320833",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2082777244051320833",
-          "raw_id": "2082777244051320833_1793187000000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T06:23:50.502Z",
-      "id": "a4b59d2943d9a2bb",
-      "merged_ids": [
-        "a4b59d2943d9a2bb"
-      ]
-    },
-    {
       "title_raw": "台灣第29屆視障藝術季  G世代四潮女",
       "headliners": [
         "視障藝術季"
@@ -35070,123 +34865,6 @@
       ]
     },
     {
-      "title_raw": "拾光－2026天狼星口琴樂團音樂會",
-      "headliners": [
-        "天狼星口琴樂團"
-      ],
-      "lineup": [
-        "天狼星口琴樂團"
-      ],
-      "is_festival": false,
-      "venue": "國家兩廳院演奏廳",
-      "city": "台北",
-      "date": "2026-11-28",
-      "time": "14:30",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 1600,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2084197567053049856",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2084197567053049856",
-          "raw_id": "2084197567053049856_1795847400000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T06:23:50.503Z",
-      "id": "c8d7958a80d53031-day",
-      "merged_ids": [
-        "c8d7958a80d53031-day"
-      ]
-    },
-    {
-      "title_raw": "拾光－2026天狼星口琴樂團音樂會",
-      "headliners": [
-        "天狼星口琴樂團"
-      ],
-      "lineup": [
-        "天狼星口琴樂團"
-      ],
-      "is_festival": false,
-      "venue": "國家兩廳院演奏廳",
-      "city": "台北",
-      "date": "2026-11-28",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 1600,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2084197567053049856",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2084197567053049856",
-          "raw_id": "2084197567053049856_1795865400000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T06:23:50.503Z",
-      "id": "c8d7958a80d53031-evening",
-      "merged_ids": [
-        "c8d7958a80d53031-evening"
-      ]
-    },
-    {
-      "title_raw": "拾光－2026天狼星口琴樂團音樂會",
-      "headliners": [
-        "天狼星口琴樂團"
-      ],
-      "lineup": [
-        "天狼星口琴樂團"
-      ],
-      "is_festival": false,
-      "venue": "衛武營國家藝術文化中心表演廳",
-      "city": "高雄",
-      "date": "2026-11-14",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 600,
-      "price_max": 1200,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2084197567053049856",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2084197567053049856",
-          "raw_id": "2084197567053049856_1794655800000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-09-29T06:23:50.503Z",
-      "id": "d6686ec79cb52a7a",
-      "merged_ids": [
-        "d6686ec79cb52a7a"
-      ]
-    },
-    {
       "title_raw": "《幸福微光‧愛的守護》公益募款音樂會",
       "headliners": [
         "幸福微光"
@@ -35223,84 +34901,6 @@
       "id": "1f652049e2c751d7",
       "merged_ids": [
         "1f652049e2c751d7"
-      ]
-    },
-    {
-      "title_raw": "日本Twinkle古典吉他五重奏音樂會(新北場取消)",
-      "headliners": [
-        "日本Twinkle古典吉他五重奏"
-      ],
-      "lineup": [
-        "日本Twinkle古典吉他五重奏"
-      ],
-      "is_festival": false,
-      "venue": "新光音樂廳",
-      "city": "新北",
-      "date": "2026-11-15",
-      "time": "15:00",
-      "on_sale_at": null,
-      "price_min": 1000,
-      "price_max": 1000,
-      "status": "sold_out",
-      "tags_type": [
-        "古典"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2070397407542661121",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2070397407542661121",
-          "raw_id": "2070397407542661121_1794726000000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.106Z",
-      "updated_at": "2026-10-12T02:35:01.445Z",
-      "id": "5881d337bc0cbf5d",
-      "merged_ids": [
-        "5881d337bc0cbf5d"
-      ]
-    },
-    {
-      "title_raw": "謝宇威音樂作品合唱音樂會《為你而歌》",
-      "headliners": [
-        "謝宇威"
-      ],
-      "lineup": [
-        "謝宇威"
-      ],
-      "is_festival": false,
-      "venue": "台北生技園區多功能廳",
-      "city": "台北",
-      "date": "2026-11-25",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 500,
-      "price_max": 1000,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2099703237643980800",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2099703237643980800",
-          "raw_id": "2099703237643980800_1795606200000"
-        }
-      ],
-      "first_seen_at": "2026-10-01T02:26:23.488Z",
-      "updated_at": "2026-10-01T02:55:21.580Z",
-      "id": "b23ada40209f0d32",
-      "merged_ids": [
-        "b23ada40209f0d32"
       ]
     },
     {
@@ -35870,7 +35470,7 @@
       "price_max": 1000,
       "status": "on_sale",
       "tags_type": [
-        "古典"
+        "專場"
       ],
       "tags_origin": [
         "本地"
@@ -35967,45 +35567,6 @@
       "id": "8d16b2a493892e26",
       "merged_ids": [
         "8d16b2a493892e26"
-      ]
-    },
-    {
-      "title_raw": "力晶世紀美聲系列 次女高音喬伊斯・狄杜娜朵冬日音樂會",
-      "headliners": [
-        "喬伊斯・狄杜娜朵"
-      ],
-      "lineup": [
-        "喬伊斯・狄杜娜朵"
-      ],
-      "is_festival": false,
-      "venue": "國家音樂廳",
-      "city": "台北",
-      "date": "2026-12-05",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 4800,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "歐美"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2082425418452361217",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2082425418452361217",
-          "raw_id": "2082425418452361217_1796470200000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.108Z",
-      "updated_at": "2026-09-29T06:23:50.504Z",
-      "id": "e7bcf0a10a744f44",
-      "merged_ids": [
-        "e7bcf0a10a744f44"
       ]
     },
     {
@@ -36165,45 +35726,6 @@
       ]
     },
     {
-      "title_raw": "《古典・當代・跨界》尤里·凱恩 與 新藝術管弦樂團",
-      "headliners": [
-        "新藝術管弦樂團"
-      ],
-      "lineup": [
-        "新藝術管弦樂團"
-      ],
-      "is_festival": false,
-      "venue": "誠品表演廳",
-      "city": "台北",
-      "date": "2026-12-13",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 2500,
-      "status": "on_sale",
-      "tags_type": [
-        "古典"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2099373541972262913",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2099373541972262913",
-          "raw_id": "2099373541972262913_1797161400000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T06:23:50.505Z",
-      "id": "d1b534b14fcbda84",
-      "merged_ids": [
-        "d1b534b14fcbda84"
-      ]
-    },
-    {
       "title_raw": "日本早稻田爵士大樂團訪臺巡迴音樂會",
       "headliners": [
         "早稻田爵士大樂團"
@@ -36323,45 +35845,6 @@
       ]
     },
     {
-      "title_raw": "小巨人絲竹樂團-青年演奏家系列【綻放XIX】",
-      "headliners": [
-        "小巨人絲竹樂團"
-      ],
-      "lineup": [
-        "小巨人絲竹樂團"
-      ],
-      "is_festival": false,
-      "venue": "國家兩廳院演奏廳",
-      "city": "台北",
-      "date": "2026-10-22",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 300,
-      "price_max": 300,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2077271823146872833",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2077271823146872833",
-          "raw_id": "2077271823146872833_1792668600000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T06:23:50.505Z",
-      "id": "ed72b0093910d3cd",
-      "merged_ids": [
-        "ed72b0093910d3cd"
-      ]
-    },
-    {
       "title_raw": "森聲",
       "headliners": [
         "森聲"
@@ -36437,84 +35920,6 @@
       "id": "15616caebeed8235",
       "merged_ids": [
         "15616caebeed8235"
-      ]
-    },
-    {
-      "title_raw": "漫步在寧靜森林—王薇胡琴獨奏會",
-      "headliners": [
-        "王薇"
-      ],
-      "lineup": [
-        "王薇"
-      ],
-      "is_festival": false,
-      "venue": "臺灣大學藝文中心雅頌坊",
-      "city": "台北",
-      "date": "2026-10-31",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 500,
-      "price_max": 500,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2080125442740609025",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2080125442740609025",
-          "raw_id": "2080125442740609025_1793446200000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-30T03:43:59.558Z",
-      "id": "d10d9388321b79e9",
-      "merged_ids": [
-        "d10d9388321b79e9"
-      ]
-    },
-    {
-      "title_raw": "鄭勳琦胡琴音樂會《民謠風》",
-      "headliners": [
-        "鄭勳琦"
-      ],
-      "lineup": [
-        "鄭勳琦"
-      ],
-      "is_festival": false,
-      "venue": "臺中市屯區藝文中心實驗劇場",
-      "city": "台中",
-      "date": "2026-11-01",
-      "time": "14:30",
-      "on_sale_at": null,
-      "price_min": 300,
-      "price_max": 300,
-      "status": "sold_out",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2089273711772602368",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2089273711772602368",
-          "raw_id": "2089273711772602368_1793514600000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.109Z",
-      "updated_at": "2026-09-29T06:23:50.506Z",
-      "id": "595a9126080f1e5c",
-      "merged_ids": [
-        "595a9126080f1e5c"
       ]
     },
     {
@@ -36596,123 +36001,6 @@
       ]
     },
     {
-      "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
-      "headliners": [
-        "木樓合唱團"
-      ],
-      "lineup": [
-        "木樓合唱團"
-      ],
-      "is_festival": false,
-      "venue": "國家音樂廳",
-      "city": "台北",
-      "date": "2026-12-16",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 500,
-      "price_max": 2000,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2100491251944562689",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2100491251944562689",
-          "raw_id": "2100491251944562689_1797420600000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.110Z",
-      "updated_at": "2026-09-29T06:23:50.506Z",
-      "id": "c54c54f6dbaae159",
-      "merged_ids": [
-        "c54c54f6dbaae159"
-      ]
-    },
-    {
-      "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
-      "headliners": [
-        "木樓合唱團"
-      ],
-      "lineup": [
-        "木樓合唱團"
-      ],
-      "is_festival": false,
-      "venue": "臺中國家歌劇院中劇院",
-      "city": "台中",
-      "date": "2026-11-14",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 400,
-      "price_max": 1200,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2100491251944562689",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2100491251944562689",
-          "raw_id": "2100491251944562689_1794655800000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.110Z",
-      "updated_at": "2026-09-29T06:23:50.506Z",
-      "id": "c621f107d13e30e9",
-      "merged_ids": [
-        "c621f107d13e30e9"
-      ]
-    },
-    {
-      "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
-      "headliners": [
-        "木樓合唱團"
-      ],
-      "lineup": [
-        "木樓合唱團"
-      ],
-      "is_festival": false,
-      "venue": "衛武營國家藝術文化中心音樂廳",
-      "city": "高雄",
-      "date": "2026-11-16",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 400,
-      "price_max": 1200,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2100491251944562689",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2100491251944562689",
-          "raw_id": "2100491251944562689_1794828600000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.110Z",
-      "updated_at": "2026-09-29T06:23:50.506Z",
-      "id": "df3326a88c1d2a7a",
-      "merged_ids": [
-        "df3326a88c1d2a7a"
-      ]
-    },
-    {
       "title_raw": "2026關渡藝術節：《閨閣・內外》——音樂留下了誰？",
       "headliners": [
         "關渡藝術節"
@@ -36749,45 +36037,6 @@
       "id": "eb0b285fd11dc1fa",
       "merged_ids": [
         "eb0b285fd11dc1fa"
-      ]
-    },
-    {
-      "title_raw": "小巨人絲竹室內樂系列【絲弦情 LXXIII】",
-      "headliners": [
-        "小巨人絲竹樂團"
-      ],
-      "lineup": [
-        "小巨人絲竹樂團"
-      ],
-      "is_festival": false,
-      "venue": "國家兩廳院演奏廳",
-      "city": "台北",
-      "date": "2026-12-09",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 300,
-      "price_max": 500,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2096198561125683201",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2096198561125683201",
-          "raw_id": "2096198561125683201_1796815800000"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:25:46.110Z",
-      "updated_at": "2026-09-29T06:25:22.483Z",
-      "id": "706f5f889eeaa91c",
-      "merged_ids": [
-        "706f5f889eeaa91c"
       ]
     },
     {

@@ -941,3 +941,17 @@ test("normalize(): CATEGORY_OVERRIDES — OPENTIX listing Max reclassified takes
   assert.deepEqual(play.event.tags_type, ["舞台劇"]);
   assert.equal(play.event.category, "舞台劇");
 });
+
+test("normalize(): 2026-10-19 — classical-style programs are excluded as 'classical'; pop-style concerts and the jazz×古典 crossover are kept", () => {
+  for (const title_raw of [
+    "日本Twinkle古典吉他五重奏音樂會", "《古典・當代・跨界》尤里·凱恩 與 新藝術管弦樂團", "蔡宇歆鋼琴演奏會", "湯妮莉 ✕ 高韻堯 ——《節奏與狂喜》雙鋼琴音樂會",
+    "拾光－2026天狼星口琴樂團音樂會", "漫步在寧靜森林—王薇胡琴獨奏會", "木樓合唱團《人聲旅歌》", "小巨人絲竹室內樂系列【絲弦情 LXXIII】", "謝宇威音樂作品合唱音樂會《為你而歌》", "魯特琴與歌曲，紀念道蘭逝世400週年", "TCC 沙龍音樂會系列-閱讀音樂2《心動莎翁》",
+  ]) {
+    assert.equal(normalize(makeRaw({ title_raw }), [], []).excluded?.reason, "classical", title_raw);
+  }
+  for (const title_raw of [
+    "巨風之鳴·當代心靈－2026佳偶聲合唱團年度音樂會", "《太平洋的光 》德國與台灣四重奏：爵士×古典×東方", "《暗喻幻想》Metaphor：ReFantazio 交響音樂會", "田馥甄 要去什麼地方 2026台北小巨蛋演唱會",
+  ]) {
+    assert.equal(normalize(makeRaw({ title_raw }), [], []).excluded, undefined, title_raw);
+  }
+});

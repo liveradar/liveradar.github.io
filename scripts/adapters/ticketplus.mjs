@@ -161,6 +161,43 @@ async function fetchJson(path) {
   }
 }
 
+/**
+ * Pure: raw events for a listed event that has no sessions yet — one per day
+ * of its listed date range (capped at 7 so a bogus year-long range can't
+ * flood the list), venue/time from event.json, flagged COMING_SOON so it
+ * shows as 尚未開賣. Nothing when the range already ended, it's hidden, or
+ * event.json has no real venue (e.g. a placeholder like "Tickets in Japan").
+ * @param {string} eventId
+ * @param {{title?: string, start_date?: string, end_date?: string, hidden?: boolean}|undefined} info mainEvents.json's per-event entry
+ * @param {{title?: string, time?: string, location?: string, address?: string}} eventData event.json
+ * @param {number} [nowMs]
+ */
+export function pendingEventRawEvents(eventId, info, eventData, nowMs = Date.now()) {
+  const location = (eventData?.location ?? "").trim();
+  if (!info || info.hidden || !info.start_date || !location) return [];
+  const todayTW = new Date(nowMs + 8 * 3600 * 1000).toISOString().slice(0, 10);
+  const end = info.end_date || info.start_date;
+  if (end < todayTW) return [];
+  const startTime = (eventData?.time ?? "").split("~")[0].trim();
+  const out = [];
+  for (let d = new Date(`${info.start_date}T00:00:00Z`), i = 0; d.toISOString().slice(0, 10) <= end && i < 7; d.setUTCDate(d.getUTCDate() + 1), i++) {
+    const day = d.toISOString().slice(0, 10);
+    if (day < todayTW) continue;
+    out.push({
+      raw_id: `${eventId}_pending_${day}`,
+      url: `https://ticketplus.com.tw/activity/${eventId}`,
+      title_raw: (eventData.title ?? info.title ?? "").trim(),
+      venue_raw: `${location} / ${(eventData.address ?? "").trim()}`,
+      date_raw: `${day} ${startTime}`.trim(),
+      tickets_raw: [],
+      price_text_raw: eventData.info ?? "",
+      register_status: "COMING_SOON",
+      source_name: name,
+    });
+  }
+  return out;
+}
+
 export async function fetch(knownRawIds = new Set()) {
   logProgress("fetching Ticket Plus main event list");
   const main = await fetchJson("main/mainEvents.json");
@@ -184,7 +221,20 @@ export async function fetch(knownRawIds = new Set()) {
       const sessions = (sessionsData.sessions ?? []).filter(
         (s) => !s.hidden && !s.name?.includes("周邊商品"), // withdrawn session / merch pre-order, same filters as before
       );
-      if (sessions.length === 0) continue;
+      if (sessions.length === 0) {
+        // 2026-10-19 real gap (Max's list review): a big show can be listed
+        // here (米津玄師 臺北大巨蛋 12/26-27) days before its sessions.json is
+        // filled in. Used to `continue` — the show was invisible until the
+        // sale opened. event.json already has date range, time and venue, so
+        // show it as 尚未開賣 now; the real sessions replace it once they exist.
+        try {
+          const eventData = await fetchJson(`event/${eventId}/event.json`);
+          results.push(...pendingEventRawEvents(eventId, main.allEventMainPageInfo?.[eventId], eventData));
+        } catch (err) {
+          logProgress(`ticketplus no-session event.json fetch failed for ${eventId}: ${err.message}`);
+        }
+        continue;
+      }
 
       // 2026-09-18, incremental fetch: sessions.json is still checked for
       // EVERY eventId, every run — it's the only way to notice a newly added

@@ -117,6 +117,24 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-14T01:54:20.710Z"
     },
+    "KKTIX|20261202": {
+      "source": "KKTIX",
+      "raw_id": "20261202",
+      "title_raw": "魯特琴與歌曲，紀念道蘭逝世400週年",
+      "url": "https://nycuarts.kktix.cc/events/20261202",
+      "venue_raw": "陽明交大演藝廳（光復校區）",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.794Z"
+    },
+    "KKTIX|20261210": {
+      "source": "KKTIX",
+      "raw_id": "20261210",
+      "title_raw": "蔡宇歆鋼琴演奏會",
+      "url": "https://nycuarts.kktix.cc/events/20261210",
+      "venue_raw": "陽明交大演藝廳（光復校區）",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.791Z"
+    },
     "KKTIX|7304bae6": {
       "source": "KKTIX",
       "raw_id": "7304bae6",
@@ -323,6 +341,159 @@
       "venue_raw": "AXA安盛創夢館 / AXA Dreamland",
       "reason": "outside_taiwan",
       "checked_at": "2026-10-16T02:30:02.095Z"
+    },
+    "OPENTIX|2070397407542661121_1794726000000": {
+      "source": "OPENTIX",
+      "raw_id": "2070397407542661121_1794726000000",
+      "title_raw": "日本Twinkle古典吉他五重奏音樂會(新北場取消)",
+      "url": "https://www.opentix.life/event/2070397407542661121",
+      "venue_raw": "新光音樂廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2077271823146872833_1792668600000": {
+      "source": "OPENTIX",
+      "raw_id": "2077271823146872833_1792668600000",
+      "title_raw": "小巨人絲竹樂團-青年演奏家系列【綻放XIX】",
+      "url": "https://www.opentix.life/event/2077271823146872833",
+      "venue_raw": "國家兩廳院演奏廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2080125442740609025_1793446200000": {
+      "source": "OPENTIX",
+      "raw_id": "2080125442740609025_1793446200000",
+      "title_raw": "漫步在寧靜森林—王薇胡琴獨奏會",
+      "url": "https://www.opentix.life/event/2080125442740609025",
+      "venue_raw": "臺灣大學藝文中心雅頌坊",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2082425418452361217_1796470200000": {
+      "source": "OPENTIX",
+      "raw_id": "2082425418452361217_1796470200000",
+      "title_raw": "力晶世紀美聲系列 次女高音喬伊斯・狄杜娜朵冬日音樂會",
+      "url": "https://www.opentix.life/event/2082425418452361217",
+      "venue_raw": "國家音樂廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2082777244051320833_1793187000000": {
+      "source": "OPENTIX",
+      "raw_id": "2082777244051320833_1793187000000",
+      "title_raw": "湯妮莉 ✕ 高韻堯 ——《節奏與狂喜》雙鋼琴音樂會",
+      "url": "https://www.opentix.life/event/2082777244051320833",
+      "venue_raw": "衛武營國家藝術文化中心表演廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2084197567053049856_1794655800000": {
+      "source": "OPENTIX",
+      "raw_id": "2084197567053049856_1794655800000",
+      "title_raw": "拾光－2026天狼星口琴樂團音樂會",
+      "url": "https://www.opentix.life/event/2084197567053049856",
+      "venue_raw": "衛武營國家藝術文化中心表演廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2084197567053049856_1795847400000": {
+      "source": "OPENTIX",
+      "raw_id": "2084197567053049856_1795847400000",
+      "title_raw": "拾光－2026天狼星口琴樂團音樂會",
+      "url": "https://www.opentix.life/event/2084197567053049856",
+      "venue_raw": "國家兩廳院演奏廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2084197567053049856_1795865400000": {
+      "source": "OPENTIX",
+      "raw_id": "2084197567053049856_1795865400000",
+      "title_raw": "拾光－2026天狼星口琴樂團音樂會",
+      "url": "https://www.opentix.life/event/2084197567053049856",
+      "venue_raw": "國家兩廳院演奏廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2089273711772602368_1793514600000": {
+      "source": "OPENTIX",
+      "raw_id": "2089273711772602368_1793514600000",
+      "title_raw": "鄭勳琦胡琴音樂會《民謠風》",
+      "url": "https://www.opentix.life/event/2089273711772602368",
+      "venue_raw": "臺中市屯區藝文中心實驗劇場",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2096198561125683201_1796815800000": {
+      "source": "OPENTIX",
+      "raw_id": "2096198561125683201_1796815800000",
+      "title_raw": "小巨人絲竹室內樂系列【絲弦情 LXXIII】",
+      "url": "https://www.opentix.life/event/2096198561125683201",
+      "venue_raw": "國家兩廳院演奏廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2099373541972262913_1797161400000": {
+      "source": "OPENTIX",
+      "raw_id": "2099373541972262913_1797161400000",
+      "title_raw": "《古典・當代・跨界》尤里·凱恩 與 新藝術管弦樂團",
+      "url": "https://www.opentix.life/event/2099373541972262913",
+      "venue_raw": "誠品表演廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2099703237643980800_1795606200000": {
+      "source": "OPENTIX",
+      "raw_id": "2099703237643980800_1795606200000",
+      "title_raw": "謝宇威音樂作品合唱音樂會《為你而歌》",
+      "url": "https://www.opentix.life/event/2099703237643980800",
+      "venue_raw": "台北生技園區多功能廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2100491251944562689_1794655800000": {
+      "source": "OPENTIX",
+      "raw_id": "2100491251944562689_1794655800000",
+      "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
+      "url": "https://www.opentix.life/event/2100491251944562689",
+      "venue_raw": "臺中國家歌劇院中劇院",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2100491251944562689_1794828600000": {
+      "source": "OPENTIX",
+      "raw_id": "2100491251944562689_1794828600000",
+      "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
+      "url": "https://www.opentix.life/event/2100491251944562689",
+      "venue_raw": "衛武營國家藝術文化中心音樂廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|2100491251944562689_1797420600000": {
+      "source": "OPENTIX",
+      "raw_id": "2100491251944562689_1797420600000",
+      "title_raw": "木樓合唱團《人聲旅歌：源自史詩、火焰與聲的歸宿》",
+      "url": "https://www.opentix.life/event/2100491251944562689",
+      "venue_raw": "國家音樂廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:11.798Z"
+    },
+    "OPENTIX|opentix:2105121072633548800:臺中國家歌劇院小劇場": {
+      "source": "OPENTIX",
+      "raw_id": "opentix:2105121072633548800:臺中國家歌劇院小劇場",
+      "title_raw": "TCC 沙龍音樂會系列-閱讀音樂2《心動莎翁》",
+      "url": "https://www.opentix.life/event/2105121072633548800",
+      "venue_raw": "臺中國家歌劇院小劇場",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:20.612Z"
+    },
+    "OPENTIX|opentix:2105121072633548800:衛武營國家藝術文化中心表演廳": {
+      "source": "OPENTIX",
+      "raw_id": "opentix:2105121072633548800:衛武營國家藝術文化中心表演廳",
+      "title_raw": "TCC 沙龍音樂會系列-閱讀音樂2《心動莎翁》",
+      "url": "https://www.opentix.life/event/2105121072633548800",
+      "venue_raw": "衛武營國家藝術文化中心表演廳",
+      "reason": "classical",
+      "checked_at": "2026-10-19T08:27:20.615Z"
     },
     "Ticket Plus|06091acf61391bb2070e71f24b8c7c2f_20a5cd9b89904aaa0a88f1e7566afd07": {
       "source": "Ticket Plus",
