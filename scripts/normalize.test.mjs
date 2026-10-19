@@ -628,6 +628,13 @@ test("normalize(): non-music noise (sports tickets, courses, exhibitions, comedy
     // 2026-10-19: same event as the URL-excluded 粉絲互動卡預購 page, new activity URL
     "【舞台卡】第4回TOP女神台北感謝祭 - 舞台晚會活動（11/7）",
     "【女神星光晚會】第4回TOP女神台北感謝祭 - 舞台晚會活動（11/7）",
+    // 2026-10-19 review, Max: 存疑的都移除
+    "2026 樂天桃猿 做伙Rakuten 感謝祭",
+    "Cort x Neil Zaza Asia Tour 2026 電吉他講習會",
+    "Funkdationn肆屆「全台最大鎖舞盛會」",
+    "BACK TO LIFE!《回來找你是真的》首映會",
+    "2027 羅暎錫製作人分享見面會 feat. 蛋來了",
+    "2026空中英語教室與天韻 聖誕晚會-高雄場",
   ];
   for (const title_raw of cases) {
     const result = normalize(makeRaw({ title_raw }), yml, []);
@@ -914,4 +921,23 @@ test("isGeneralTicketLottery: a bare 登記抽選 in the title itself (no VIP qu
 
 test("isGeneralTicketLottery: no 登記抽選 mention anywhere is false", () => {
   assert.equal(isGeneralTicketLottery("深海系樂團 Live", "票價：500 元"), false);
+});
+
+test("normalize(): 2026-10-19 — HK/Chongqing venues are excluded as outside_taiwan; 重慶南路 (a Taipei street) is not", () => {
+  for (const venue_raw of ["重慶曦越雅高鉑爾曼飯店1F宴會廳 / 重慶市", "灣仔海濱活動空間 / 香港", "荃灣西如心酒店 / 荃灣"]) {
+    const result = normalize(makeRaw({ venue_raw }), [], []);
+    assert.equal(result.excluded?.reason, "outside_taiwan", venue_raw);
+  }
+  assert.equal(normalize(makeRaw({ venue_raw: "某書店 / 台北市中正區重慶南路一段10號" }), [], []).excluded, undefined);
+});
+
+test("normalize(): CATEGORY_OVERRIDES — OPENTIX listing Max reclassified takes the override, ignoring the source's category", () => {
+  const base = { source_name: "OPENTIX", date_raw: "2099-11-07 19:30", category: "音樂劇", run_key: "opentix:1:v" };
+  const choir = normalize(makeRaw({ ...base, url: "https://www.opentix.life/event/2082659728235339777", title_raw: "佳偶聲合唱團年度音樂會" }), [], []);
+  assert.equal(choir.event.category, undefined);
+  assert.equal(choir.event.run_key, undefined);
+  assert.deepEqual(choir.event.tags_type.includes("音樂劇"), false);
+  const play = normalize(makeRaw({ ...base, category: "喜劇", url: "https://www.opentix.life/event/2097597536000466945", title_raw: "Gaga和他的朋友們" }), [], []);
+  assert.deepEqual(play.event.tags_type, ["舞台劇"]);
+  assert.equal(play.event.category, "舞台劇");
 });

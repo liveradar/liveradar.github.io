@@ -767,6 +767,13 @@ const NOISE_KEYWORDS = [
   // spectator sports (tixcraft/Ticket Plus sell season/single-game tickets)
   "例行賽", "季後", "錦標賽", "主場賽事", "季票",
   "摔角", // wrestling
+  // 2026-10-19 review (Max: 存疑的都可以移除) — each specific enough not to catch real shows:
+  "樂天桃猿", // 棒球隊球迷活動
+  "電吉他講習會", // Cort x Neil Zaza 琴廠講習，不是演出
+  "Funkdationn", // 鎖舞（街舞）比賽
+  "回來找你是真的", // BACK TO LIFE 電影首映會
+  "羅暎錫", // 韓國電視製作人的分享見面會
+  "空中英語教室與天韻", // 教會聖誕晚會系列
   "TOP女神", // 第4回TOP女神台北感謝祭 (2026-10-19): 日本成人展見面會企劃，Max 10/8 已要求排除；當時只擋了「粉絲互動卡預購」那個售票頁網址，同活動換了新售票頁（舞台卡／女神星光晚會）又跑回來，所以改用活動名稱擋，不再逐頁網址追
   "紋身藝術節", // tattoo art festival, not music
   "返鄉專車", // unofficial fan shuttle-bus service riding on a real concert's name
@@ -901,7 +908,7 @@ function isNonMusicNoise(titleRaw) {
 // 場地在國外）。跟麥花臣/AsiaWorld-Expo 一樣是沒有國家關鍵字可用的具體場館
 // 名稱，直接列場館名；順便補泰國的國家/城市關鍵字，之後同系列海外場次能一併擋到。
 const OUTSIDE_TAIWAN_VENUE_RE =
-  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland|麥花臣|MacPherson ?Stadium|亞洲國際博覽館|AsiaWorld[- ]?Expo|日本|東京|Tokyo|大阪|Osaka|名古屋|Nagoya|Japan|首爾|Seoul|KDB ?生命|泰國|Thailand|清邁|Chiang ?Mai|曼谷|Bangkok|Red ?CNX/i; // 首爾/KDB 生命塔 added 2026-09-24: 黃致列簽名會 was sold in TWD to Taiwan fans but held in Seoul
+  /香港|Hong ?Kong|九龍|西九|新界|澳門|Macau|深圳|Shenzhen|馬來西亞|Malaysia|檳城|Penang|Whampoa|MacPherson|West ?Kowloon|WestK|The Burrow|Choi Hung|AXA ?WONDERLAND|安盛創夢館|AXA ?Dreamland|麥花臣|MacPherson ?Stadium|亞洲國際博覽館|AsiaWorld[- ]?Expo|日本|東京|Tokyo|大阪|Osaka|名古屋|Nagoya|Japan|首爾|Seoul|KDB ?生命|泰國|Thailand|清邁|Chiang ?Mai|曼谷|Bangkok|Red ?CNX|灣仔|荃灣|尖沙咀|旺角|銅鑼灣|觀塘|九龍灣|將軍澳|沙田|重慶(?!南路|北路)|新加坡|Singapore|吉隆坡|Kuala ?Lumpur|雅加達|Jakarta|馬尼拉|Manila|胡志明|河內|Hanoi/i; // 2026-10-19: 重慶(黃致列簽名會)、灣仔(香港萬聖節音樂嘉年華)、荃灣(JOONGDUNK) 三場漏網；重慶南路/北路是台北的路名，排除 // 首爾/KDB 生命塔 added 2026-09-24: 黃致列簽名會 was sold in TWD to Taiwan fans but held in Seoul
 
 function isOutsideTaiwanVenue(venueRaw) {
   return OUTSIDE_TAIWAN_VENUE_RE.test(venueRaw ?? "");
@@ -1132,7 +1139,23 @@ const DATE_OVERRIDES = {
   "iNDIEVOX|26_iv0421171": { date: "2026-12-26", time: null },
 };
 
+// Per-listing classification fixes where the source's own category is wrong
+// for what the show actually is (Max 2026-10-19). Keyed by ticket URL.
+// "" = plain music listing (no category, no run grouping); otherwise the
+// category to use. Existing events.json rows are patched to match by hand
+// when added, since reuse_previous keeps stored data as-is.
+const CATEGORY_OVERRIDES = {
+  "https://www.opentix.life/event/2082659728235339777": "", // 佳偶聲合唱團年度音樂會：OPENTIX 標成音樂劇，其實是合唱音樂會
+  "https://www.opentix.life/event/2084126686540869633": "舞台劇", // 唸歌去天庭：OPENTIX 標成喜劇
+  "https://www.opentix.life/event/2097597536000466945": "舞台劇", // Gaga和他的朋友們：OPENTIX 標成喜劇
+  "https://www.opentix.life/event/2105556189127553025": "舞台劇", // 一個人快樂藝術節：OPENTIX 標成喜劇
+};
+
 export function normalize(rawEvent, artistsYml, venuesYml = []) {
+  if (rawEvent.url in CATEGORY_OVERRIDES) {
+    const category = CATEGORY_OVERRIDES[rawEvent.url];
+    rawEvent = { ...rawEvent, category: category || undefined, ...(category ? {} : { run_key: undefined }) };
+  }
   const excludedReason = exclusionReason(rawEvent);
   if (excludedReason) {
     return { excluded: { raw_id: rawEvent.raw_id, title_raw: rawEvent.title_raw, reason: excludedReason } };

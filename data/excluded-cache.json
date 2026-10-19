@@ -27,6 +27,15 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-17T02:14:15.574Z"
     },
+    "FANSI GO|940001": {
+      "source": "FANSI GO",
+      "raw_id": "940001",
+      "title_raw": "BACK TO LIFE!《回來找你是真的》首映會",
+      "url": "https://go.fansi.me/events/940001",
+      "venue_raw": "三立電視文創劇場",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-19T08:23:21.224Z"
+    },
     "ibon|39911_202610311030": {
       "source": "ibon",
       "raw_id": "39911_202610311030",
@@ -36,6 +45,15 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-17T02:12:44.319Z"
     },
+    "ibon|40010_202610241030": {
+      "source": "ibon",
+      "raw_id": "40010_202610241030",
+      "title_raw": "2026 樂天桃猿 做伙Rakuten 感謝祭",
+      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40010",
+      "venue_raw": "樂天桃園棒球場",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-19T08:23:21.225Z"
+    },
     "iNDIEVOX|26_iv04188e3": {
       "source": "iNDIEVOX",
       "raw_id": "26_iv04188e3",
@@ -44,6 +62,24 @@
       "venue_raw": "Legacy Taichung 音樂展演空間（台中市西屯區安和路117號）",
       "reason": "non_music_noise",
       "checked_at": "2026-10-17T02:13:48.497Z"
+    },
+    "iNDIEVOX|26_iv0422412": {
+      "source": "iNDIEVOX",
+      "raw_id": "26_iv0422412",
+      "title_raw": "Funkdationn肆屆「全台最大鎖舞盛會」",
+      "url": "https://www.indievox.com/activity/detail/26_iv0422412",
+      "venue_raw": "大稻埕戲苑",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-19T08:23:21.224Z"
+    },
+    "iNDIEVOX|26_iv0424895": {
+      "source": "iNDIEVOX",
+      "raw_id": "26_iv0424895",
+      "title_raw": "Cort x Neil Zaza Asia Tour 2026 電吉他講習會",
+      "url": "https://www.indievox.com/activity/detail/26_iv0424895",
+      "venue_raw": "杰克音樂 Jack's studio",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-19T08:23:21.224Z"
     },
     "KKTIX|03faa84b": {
       "source": "KKTIX",
@@ -80,6 +116,15 @@
       "venue_raw": "Basilica 爵士藝文咖啡 / 台北市大同區迪化街一段280巷6號",
       "reason": "non_music_noise",
       "checked_at": "2026-10-14T01:54:20.710Z"
+    },
+    "KKTIX|7304bae6": {
+      "source": "KKTIX",
+      "raw_id": "7304bae6",
+      "title_raw": "2026黃致列夏日專輯[I LOVE SUMMER]重慶簽名會",
+      "url": "https://asiamedia-2.kktix.cc/events/7304bae6",
+      "venue_raw": "重慶曦越雅高鉑爾曼飯店1F宴會廳",
+      "reason": "outside_taiwan",
+      "checked_at": "2026-10-19T08:23:21.222Z"
     },
     "KKTIX|81cec3f7-copy-2": {
       "source": "KKTIX",
@@ -180,6 +225,15 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-15T02:34:35.782Z"
     },
+    "KKTIX|joongdunk-fm-2026-hk": {
+      "source": "KKTIX",
+      "raw_id": "joongdunk-fm-2026-hk",
+      "title_raw": "JOONGDUNK FANMEETING in HONGKONG with Jaidee",
+      "url": "https://meetopiaculture.kktix.cc/events/joongdunk-fm-2026-hk",
+      "venue_raw": "荃灣西如心酒店",
+      "reason": "outside_taiwan",
+      "checked_at": "2026-10-19T08:23:21.222Z"
+    },
     "KKTIX|kimsowon-hk-2027-0116": {
       "source": "KKTIX",
       "raw_id": "kimsowon-hk-2027-0116",
@@ -198,6 +252,42 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-16T02:30:02.095Z"
     },
+    "KKTIX|scxmas2601": {
+      "source": "KKTIX",
+      "raw_id": "scxmas2601",
+      "title_raw": "2026空中英語教室與天韻 聖誕晚會-高雄場",
+      "url": "https://ortv.kktix.cc/events/scxmas2601",
+      "venue_raw": "高雄靈糧堂",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-19T08:23:21.217Z"
+    },
+    "KKTIX|scxmas2602": {
+      "source": "KKTIX",
+      "raw_id": "scxmas2602",
+      "title_raw": "2026空中英語教室與天韻 聖誕晚會-臺南場",
+      "url": "https://ortv.kktix.cc/events/scxmas2602",
+      "venue_raw": "台南虹韻文創中心",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-19T08:23:21.221Z"
+    },
+    "KKTIX|scxmas2603": {
+      "source": "KKTIX",
+      "raw_id": "scxmas2603",
+      "title_raw": "2026空中英語教室與天韻年度聖誕晚會-臺北週五晚場",
+      "url": "https://ortv.kktix.cc/events/scxmas2603",
+      "venue_raw": "台北國際會議中心",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-19T08:23:21.221Z"
+    },
+    "KKTIX|scxmas2604": {
+      "source": "KKTIX",
+      "raw_id": "scxmas2604",
+      "title_raw": "2026空中英語教室與天韻年度聖誕晚會-臺北週六午場",
+      "url": "https://ortv.kktix.cc/events/scxmas2604",
+      "venue_raw": "台北國際會議中心",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-19T08:23:21.221Z"
+    },
     "KKTIX|sf9-2026": {
       "source": "KKTIX",
       "raw_id": "sf9-2026",
@@ -206,6 +296,15 @@
       "venue_raw": "AXA安盛創夢館 / AXA Dreamland",
       "reason": "outside_taiwan",
       "checked_at": "2026-10-14T01:54:20.711Z"
+    },
+    "KKTIX|spookyhalloween2026": {
+      "source": "KKTIX",
+      "raw_id": "spookyhalloween2026",
+      "title_raw": "FWD富衛保險呈獻：Spooky Halloween 2026 香港萬聖節音樂嘉年華｜灣仔海濱活動空間",
+      "url": "https://livenationelectronicasia.kktix.cc/events/spookyhalloween2026",
+      "venue_raw": "灣仔海濱活動空間",
+      "reason": "outside_taiwan",
+      "checked_at": "2026-10-19T08:23:21.222Z"
     },
     "KKTIX|victon-hk-2026": {
       "source": "KKTIX",
@@ -377,6 +476,15 @@
       "venue_raw": "台中世貿二館 / 台中市西屯區天保街60號",
       "reason": "non_music_noise",
       "checked_at": "2026-10-17T02:14:36.649Z"
+    },
+    "Ticket Plus|aed80ffbe5435bbb1a98898fb288e6c8_89cc9e916a92b7e4af9673fd4b960fde": {
+      "source": "Ticket Plus",
+      "raw_id": "aed80ffbe5435bbb1a98898fb288e6c8_89cc9e916a92b7e4af9673fd4b960fde",
+      "title_raw": "2027 羅暎錫製作人分享見面會 feat. 蛋來了",
+      "url": "https://ticketplus.com.tw/activity/aed80ffbe5435bbb1a98898fb288e6c8",
+      "venue_raw": "台北科技大學 學生活動中心",
+      "reason": "non_music_noise",
+      "checked_at": "2026-10-19T08:23:21.225Z"
     },
     "Ticket Plus|b56ed831d1337d59c4467fce8400085b_13816052e46fafaee1bba23183ca711f": {
       "source": "Ticket Plus",

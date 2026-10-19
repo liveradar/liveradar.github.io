@@ -423,7 +423,7 @@
       "price_max": 1200,
       "status": "on_sale",
       "tags_type": [
-        "喜劇"
+        "舞台劇"
       ],
       "tags_origin": [],
       "is_lottery": false,
@@ -437,7 +437,7 @@
       ],
       "first_seen_at": "2026-09-29T03:25:46.026Z",
       "updated_at": "2026-09-29T03:25:46.026Z",
-      "category": "喜劇",
+      "category": "舞台劇",
       "run_key": "opentix:2084126686540869633:牯嶺街小劇場二樓藝文空間",
       "id": "8c26a9ab29c3a5c8",
       "merged_ids": [
@@ -987,7 +987,7 @@
       "price_max": 1000,
       "status": "on_sale",
       "tags_type": [
-        "音樂劇"
+        "專場"
       ],
       "tags_origin": [],
       "is_lottery": false,
@@ -1001,20 +1001,11 @@
       ],
       "first_seen_at": "2026-09-29T03:25:46.031Z",
       "updated_at": "2026-09-29T03:25:46.031Z",
-      "category": "音樂劇",
-      "run_key": "opentix:2082659728235339777:真理大學大禮拜堂",
       "id": "fafed574b212b56e",
       "merged_ids": [
         "fafed574b212b56e"
       ],
-      "date_end": "2026-11-07",
-      "sessions": [
-        {
-          "date": "2026-11-07",
-          "time": "14:30",
-          "status": "on_sale"
-        }
-      ]
+      "date_end": "2026-11-07"
     },
     {
       "title_raw": "果陀劇場《三個傻瓜》2026熱血回歸",
@@ -3463,7 +3454,7 @@
       "price_max": 1200,
       "status": "on_sale",
       "tags_type": [
-        "喜劇"
+        "舞台劇"
       ],
       "tags_origin": [],
       "is_lottery": false,
@@ -3477,7 +3468,7 @@
       ],
       "first_seen_at": "2026-09-29T03:25:46.072Z",
       "updated_at": "2026-09-29T03:25:46.072Z",
-      "category": "喜劇",
+      "category": "舞台劇",
       "run_key": "opentix:2097597536000466945:新竹東山排練場",
       "id": "c12707d5354aba67",
       "merged_ids": [
@@ -9142,7 +9133,7 @@
       "price_max": 500,
       "status": "on_sale",
       "tags_type": [
-        "喜劇"
+        "舞台劇"
       ],
       "tags_origin": [],
       "is_lottery": false,
@@ -9156,7 +9147,7 @@
       ],
       "first_seen_at": "2026-10-12T02:16:23.995Z",
       "updated_at": "2026-10-12T02:16:23.995Z",
-      "category": "喜劇",
+      "category": "舞台劇",
       "run_key": "opentix:2105556189127553025:牯嶺街小劇場二樓藝文空間",
       "id": "d57e44c18b3d6a47",
       "merged_ids": [
@@ -11091,45 +11082,6 @@
       ]
     },
     {
-      "title_raw": "2026空中英語教室與天韻 聖誕晚會-高雄場",
-      "headliners": [
-        "天韻"
-      ],
-      "lineup": [
-        "天韻"
-      ],
-      "is_festival": false,
-      "venue": "高雄靈糧堂",
-      "city": "高雄",
-      "date": "2026-12-04",
-      "time": "19:30",
-      "on_sale_at": "2026-11-01T00:00:00+08:00",
-      "price_min": null,
-      "price_max": null,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ortv.kktix.cc/events/scxmas2601",
-      "first_seen_at": "2026-09-22T16:23:50.210Z",
-      "updated_at": "2026-09-22T16:23:50.210Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://ortv.kktix.cc/events/scxmas2601",
-          "raw_id": "scxmas2601"
-        }
-      ],
-      "id": "2e9a35eaf38ec277",
-      "merged_ids": [
-        "2e9a35eaf38ec277"
-      ]
-    },
-    {
       "title_raw": "《BENI NINAGAWA 1st LIVE「RE:RE☆START」 in TAIPEI》下午場",
       "headliners": [
         "BENI NINAGAWA"
@@ -11208,45 +11160,6 @@
       ]
     },
     {
-      "title_raw": "2026空中英語教室與天韻 聖誕晚會-臺南場",
-      "headliners": [
-        "天韻"
-      ],
-      "lineup": [
-        "天韻"
-      ],
-      "is_festival": false,
-      "venue": "台南虹韻文創中心",
-      "city": "台南",
-      "date": "2026-12-05",
-      "time": "19:30",
-      "on_sale_at": "2026-11-01T00:00:00+08:00",
-      "price_min": null,
-      "price_max": null,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ortv.kktix.cc/events/scxmas2602",
-      "first_seen_at": "2026-09-22T16:23:50.211Z",
-      "updated_at": "2026-09-22T16:23:50.211Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://ortv.kktix.cc/events/scxmas2602",
-          "raw_id": "scxmas2602"
-        }
-      ],
-      "id": "6ac3835c3b597d00",
-      "merged_ids": [
-        "6ac3835c3b597d00"
-      ]
-    },
-    {
       "title_raw": "蔡宇歆鋼琴演奏會",
       "headliners": [
         "蔡宇歆"
@@ -11283,84 +11196,6 @@
       "id": "7343ea48b391b52c",
       "merged_ids": [
         "7343ea48b391b52c"
-      ]
-    },
-    {
-      "title_raw": "2026空中英語教室與天韻年度聖誕晚會-臺北週五晚場",
-      "headliners": [
-        "天韻"
-      ],
-      "lineup": [
-        "天韻"
-      ],
-      "is_festival": false,
-      "venue": "台北國際會議中心",
-      "city": "台北",
-      "date": "2026-12-11",
-      "time": "19:30",
-      "on_sale_at": "2026-11-01T00:00:00+08:00",
-      "price_min": null,
-      "price_max": null,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ortv.kktix.cc/events/scxmas2603",
-      "first_seen_at": "2026-09-22T16:23:50.211Z",
-      "updated_at": "2026-09-22T16:23:50.211Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://ortv.kktix.cc/events/scxmas2603",
-          "raw_id": "scxmas2603"
-        }
-      ],
-      "id": "469948c3db871063",
-      "merged_ids": [
-        "469948c3db871063"
-      ]
-    },
-    {
-      "title_raw": "2026空中英語教室與天韻年度聖誕晚會-臺北週六午場",
-      "headliners": [
-        "天韻"
-      ],
-      "lineup": [
-        "天韻"
-      ],
-      "is_festival": false,
-      "venue": "台北國際會議中心",
-      "city": "台北",
-      "date": "2026-12-12",
-      "time": "14:00",
-      "on_sale_at": "2026-11-01T00:00:00+08:00",
-      "price_min": null,
-      "price_max": null,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ortv.kktix.cc/events/scxmas2604",
-      "first_seen_at": "2026-09-22T16:23:50.211Z",
-      "updated_at": "2026-09-22T16:23:50.211Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://ortv.kktix.cc/events/scxmas2604",
-          "raw_id": "scxmas2604"
-        }
-      ],
-      "id": "4dfed610cf4055c3",
-      "merged_ids": [
-        "4dfed610cf4055c3"
       ]
     },
     {
@@ -14664,45 +14499,6 @@
       ]
     },
     {
-      "title_raw": "FWD富衛保險呈獻：Spooky Halloween 2026 香港萬聖節音樂嘉年華｜灣仔海濱活動空間",
-      "headliners": [
-        "香港萬聖節音樂嘉年華"
-      ],
-      "lineup": [
-        "香港萬聖節音樂嘉年華"
-      ],
-      "is_festival": false,
-      "venue": "灣仔海濱活動空間",
-      "city": "香港",
-      "date": "2026-10-30",
-      "time": "16:00",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "sold_out",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://livenationelectronicasia.kktix.cc/events/spookyhalloween2026",
-      "first_seen_at": "2026-09-29T03:33:10.634Z",
-      "updated_at": "2026-10-05T02:53:17.064Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://livenationelectronicasia.kktix.cc/events/spookyhalloween2026",
-          "raw_id": "spookyhalloween2026"
-        }
-      ],
-      "id": "c44c5c8959312cd2",
-      "merged_ids": [
-        "c44c5c8959312cd2"
-      ]
-    },
-    {
       "title_raw": "Taipei After Dark - Keril 韋喆個人專場",
       "headliners": [
         "Keril 韋喆"
@@ -16940,84 +16736,6 @@
       "id": "e5cdf80a0faeb3ad",
       "merged_ids": [
         "e5cdf80a0faeb3ad"
-      ]
-    },
-    {
-      "title_raw": "2026黃致列夏日專輯[I LOVE SUMMER]重慶簽名會",
-      "headliners": [
-        "黃致列"
-      ],
-      "lineup": [
-        "黃致列"
-      ],
-      "is_festival": false,
-      "venue": "重慶曦越雅高鉑爾曼飯店1F宴會廳",
-      "city": "重慶",
-      "date": "2026-11-07",
-      "time": "13:00",
-      "on_sale_at": null,
-      "price_min": 100,
-      "price_max": 650,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "韓國"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://asiamedia-2.kktix.cc/events/7304bae6",
-      "first_seen_at": "2026-10-14T01:54:20.713Z",
-      "updated_at": "2026-10-14T02:02:36.463Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://asiamedia-2.kktix.cc/events/7304bae6",
-          "raw_id": "7304bae6"
-        }
-      ],
-      "id": "c23ba50999d76a1a",
-      "merged_ids": [
-        "c23ba50999d76a1a"
-      ]
-    },
-    {
-      "title_raw": "JOONGDUNK FANMEETING in HONGKONG with Jaidee",
-      "headliners": [
-        "JOONGDUNK"
-      ],
-      "lineup": [
-        "JOONGDUNK"
-      ],
-      "is_festival": false,
-      "venue": "荃灣西如心酒店",
-      "city": "香港",
-      "date": "2026-12-05",
-      "time": "16:00",
-      "on_sale_at": null,
-      "price_min": 788,
-      "price_max": 1988,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://meetopiaculture.kktix.cc/events/joongdunk-fm-2026-hk",
-      "first_seen_at": "2026-10-14T01:54:20.713Z",
-      "updated_at": "2026-10-14T02:02:36.463Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://meetopiaculture.kktix.cc/events/joongdunk-fm-2026-hk",
-          "raw_id": "joongdunk-fm-2026-hk"
-        }
-      ],
-      "id": "0149f29e3c9d1b93",
-      "merged_ids": [
-        "0149f29e3c9d1b93"
       ]
     },
     {
@@ -25418,45 +25136,6 @@
       ]
     },
     {
-      "title_raw": "Funkdationn肆屆「全台最大鎖舞盛會」",
-      "headliners": [
-        "Funkdationn"
-      ],
-      "lineup": [
-        "Funkdationn"
-      ],
-      "is_festival": false,
-      "venue": "大稻埕戲苑",
-      "city": "台北",
-      "date": "2026-11-08",
-      "time": "17:00",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 2700,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.indievox.com/activity/detail/26_iv0422412",
-      "first_seen_at": "2026-09-22T06:15:33.980Z",
-      "updated_at": "2026-09-22T06:15:33.980Z",
-      "sources": [
-        {
-          "name": "iNDIEVOX",
-          "url": "https://www.indievox.com/activity/detail/26_iv0422412",
-          "raw_id": "26_iv0422412"
-        }
-      ],
-      "id": "c09d722d6e37c710",
-      "merged_ids": [
-        "c09d722d6e37c710"
-      ]
-    },
-    {
       "title_raw": "青虫aoi 2026 冬季小巡迴《Before Sunrise》高雄場",
       "headliners": [
         "青虫aoi"
@@ -26904,45 +26583,6 @@
       ]
     },
     {
-      "title_raw": "Cort x Neil Zaza Asia Tour 2026 電吉他講習會",
-      "headliners": [
-        "Neil Zaza"
-      ],
-      "lineup": [
-        "Neil Zaza"
-      ],
-      "is_festival": false,
-      "venue": "杰克音樂 Jack's studio",
-      "city": "台北",
-      "date": "2026-11-09",
-      "time": "18:30",
-      "on_sale_at": null,
-      "price_min": 250,
-      "price_max": 250,
-      "status": "sold_out",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "歐美"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.indievox.com/activity/detail/26_iv0424895",
-      "first_seen_at": "2026-10-12T02:14:01.546Z",
-      "updated_at": "2026-10-14T01:54:20.722Z",
-      "sources": [
-        {
-          "name": "iNDIEVOX",
-          "url": "https://www.indievox.com/activity/detail/26_iv0424895",
-          "raw_id": "26_iv0424895"
-        }
-      ],
-      "id": "4f7d9f59753eda1b",
-      "merged_ids": [
-        "4f7d9f59753eda1b"
-      ]
-    },
-    {
       "title_raw": "2026 Fire Live 壞兒來福 Vol.4",
       "headliners": [
         "壞兒來福"
@@ -28189,45 +27829,6 @@
       "id": "9b7650e866ecf09a",
       "merged_ids": [
         "9b7650e866ecf09a"
-      ]
-    },
-    {
-      "title_raw": "BACK TO LIFE!《回來找你是真的》首映會",
-      "headliners": [
-        "回來找你是真的"
-      ],
-      "lineup": [
-        "回來找你是真的"
-      ],
-      "is_festival": false,
-      "venue": "三立電視文創劇場",
-      "city": "台北",
-      "date": "2026-10-30",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 999,
-      "price_max": 1314,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://go.fansi.me/events/940001",
-      "first_seen_at": "2026-09-30T03:19:59.508Z",
-      "updated_at": "2026-10-01T02:55:21.578Z",
-      "sources": [
-        {
-          "name": "FANSI GO",
-          "url": "https://go.fansi.me/events/940001",
-          "raw_id": "940001"
-        }
-      ],
-      "id": "b24f8900093c9027",
-      "merged_ids": [
-        "b24f8900093c9027"
       ]
     },
     {
@@ -31306,45 +30907,6 @@
       ]
     },
     {
-      "title_raw": "2027 羅暎錫製作人分享見面會 feat. 蛋來了",
-      "headliners": [
-        "羅暎錫"
-      ],
-      "lineup": [
-        "羅暎錫"
-      ],
-      "is_festival": false,
-      "venue": "台北科技大學 學生活動中心",
-      "city": "台北",
-      "date": "2027-01-16",
-      "time": "14:00",
-      "on_sale_at": null,
-      "price_min": 4200,
-      "price_max": 4200,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "韓國"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/aed80ffbe5435bbb1a98898fb288e6c8",
-      "first_seen_at": "2026-09-24T02:48:29.210Z",
-      "updated_at": "2026-10-05T02:35:26.490Z",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/aed80ffbe5435bbb1a98898fb288e6c8",
-          "raw_id": "aed80ffbe5435bbb1a98898fb288e6c8_89cc9e916a92b7e4af9673fd4b960fde"
-        }
-      ],
-      "id": "c57ede7bb9ffbe31",
-      "merged_ids": [
-        "c57ede7bb9ffbe31"
-      ]
-    },
-    {
       "title_raw": "2026 ONEWE 6th Live Concert ‘O! NEW E!volution ⅤI’ IN TAIPEI",
       "headliners": [
         "ONEWE"
@@ -33622,39 +33184,6 @@
       "id": "8fc2fd0a3722a3b1-evening",
       "merged_ids": [
         "8fc2fd0a3722a3b1-evening"
-      ]
-    },
-    {
-      "title_raw": "2026 樂天桃猿 做伙Rakuten 感謝祭",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "樂天桃園棒球場",
-      "city": "桃園",
-      "date": "2026-10-24",
-      "time": "10:30",
-      "on_sale_at": "2026-10-19T10:00:00+08:00",
-      "price_min": 300,
-      "price_max": 300,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40010",
-      "sources": [
-        {
-          "name": "ibon",
-          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40010",
-          "raw_id": "40010_202610241030"
-        }
-      ],
-      "first_seen_at": "2026-10-17T02:12:44.312Z",
-      "updated_at": "2026-10-17T02:12:44.312Z",
-      "id": "2d180cf4792ac514",
-      "merged_ids": [
-        "2d180cf4792ac514"
       ]
     },
     {
