@@ -2360,3 +2360,73 @@
 - canonical: KPOP PLANET
   aliases: []
   tags_origin_default: 韓國  # 2026-10-19 WebSearch 查證（stars.udn.com、memeon-music.com、juksy.com、news.nextapple.com）：確認卡司為EXO燦烈（CHANYEOL）、(G)I-DLE小娟（SOYEON）、新生代女團MEOVV，全為韓籍藝人，比照「國外品牌音樂節、演出者同一國籍」例外規則歸韓國
+
+- canonical: Rhythm Rebels
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-10-20 WebFetch 查證（售票頁 thewalllivehouse.kktix.cc）：「來自印尼峇里島的雙人組合」，成員Reza Achman/Rizal Hadi，歸亞洲其他
+- canonical: 午夜乒乓
+  aliases: ["Midnight Ping Pong"]
+  tags_origin_default: 本地  # 2026-10-20 WebSearch 查證：台灣獨立樂團，主唱劉邦傑曾待過包子虎、傷心欲絕等台灣樂團，歸本地
+- canonical: 岡咲美保
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-20 WebSearch 查證：岡山出身的日本女性聲優/歌手，隸屬アイムエンタープライズ，歸日本
+- canonical: CLASSy
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-20 WebFetch 查證（售票頁 jackartzone.kktix.cc）：「透過MBC女團選秀節目《放學後的心動》選拔，於2022年出道的7人制K-POP女團」，歸韓國
+- canonical: maya ongaku
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-20 WebFetch 查證（售票頁 romanticoffice.kktix.cc）：「來自江之島，結成於2021年」的日本樂團，歸日本
+- canonical: Periphery
+  aliases: []
+  tags_origin_default: 歐美  # 2026-10-20 WebFetch 查證（售票頁 moshound.kktix.cc）：「來自美國的現代前衛金屬巨擘、Djent頂尖指標」，歸歐美
+- canonical: 內田彩
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-20 WebFetch 查證（售票頁 acgncc.kktix.cc）：標題明示「日本聲優見面會」，歸日本
+- canonical: 小原莉子
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-20 WebFetch 查證（售票頁 acgncc.kktix.cc）：標題明示「日本聲優見面會」，與內田彩同主辦acgncc，歸日本
+- canonical: 跟我一起玩吧
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-20 WebFetch 查證（售票頁 creativecenturytw.kktix.cc）：日本恐怖片映後座談，導演清水崇、演員鎮西壽壽歌/星乃安娜/大西利空皆日籍，歸日本
+- canonical: LA FIN
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 lafin.kktix.cc）：台北信義區夜店派對品牌「La Fin Taipei」，當場卡司含多國DJ（愛爾蘭籍Paul Denton等），比照夜店派對規則歸本地
+- canonical: 宇宙人
+  aliases: ["Cosmos People"]
+  tags_origin_default: 本地  # 2026-10-20 WebSearch 查證：2004年由台北建國高中學生組成的台灣搖滾樂團，歸本地
+- canonical: 魏品勻
+  aliases: ["David Wei"]
+  tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 indievox.com）：台灣創作歌手個人發片專場，中文歌詞個人創作，歸本地
+- canonical: 曾柏崴
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 ticketplus.com.tw「酒醒吧!新生代2.0」）：與李心凱、蝸牛蓋瑞同場的台灣藝人，中文姓名，歸本地
+- canonical: 李心凱
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 ticketplus.com.tw「酒醒吧!新生代2.0」）：與曾柏崴、蝸牛蓋瑞同場的台灣藝人，中文姓名，歸本地
+- canonical: 蝸牛蓋瑞
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 ticketplus.com.tw「酒醒吧!新生代2.0」）：與曾柏崴、李心凱同場的台灣藝人，中文姓名，歸本地
+- canonical: KENSHI YONEZU
+  aliases: ["米津玄師"]
+  tags_origin_default: 日本  # 2026-10-20：知名日本創作歌手「米津玄師」的英文拼音演出名，WORLD TOUR / GHOST巡演，歸日本
+- canonical: RUNIDRE
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-20 WebSearch 查證（realsound.jp、weverse.io）：2026年8月30日出道的日本男子團體「ランアイドリー」，1st ONE-MAN TOUR首站東京LINE CUBE SHIBUYA，歸日本
+- canonical: 陽帆
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-20 WebSearch 查證：台灣資深藝人/歌手，1980年代以專輯《揚帆》出道，2026大港開唱曾以歌手身分登台，歸本地
+- canonical: 佳偶聲合唱團
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 opentix.life）：淡水真理大學大禮拜堂詩班類合唱團演出，歸本地
+- canonical: 大南港開唱
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 91apppmc.kktix.cc）：主辦「91APP 音樂研究社」台灣企業下班搖滾派對品牌，無公開卡司，以系列名稱登記為本地
+- canonical: 秋之歌
+  aliases: ["Song of Autumn"]
+  tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 thepillars.kktix.cc）：台北/台中場卡司（深夜康佩尼/波羅密/午後幽靈；莎賓娜大樂隊/倒數計時等）皆為中文團名台灣獨立樂團，以系列名稱登記為本地
+- canonical: 吉姆hen醉音樂節
+  aliases: ["Jim Hen Drunk Beer Festival"]
+  tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 janddbrewing.kktix.cc）：宜蘭吉姆老爹啤酒工場舉辦的啤酒音樂節，卡司尚未公布，以系列名稱登記為本地
+- canonical: Missing My De(a)er in the Rain
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 indievox.com）：高雄Loi了咖啡拼盤演出，卡司艮鹿/雨城時刻/I Miss Who I Was皆中文樂團介紹文字，以演出名稱登記為本地

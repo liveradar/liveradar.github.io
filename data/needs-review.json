@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "raw_id": "intotheunknown1",
+      "title_raw": "TWO step to heaven : ONE step from hell",
+      "url": "https://thepillars.kktix.cc/events/intotheunknown1",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
       "raw_id": "26_iv0420868",
       "title_raw": "❮  D.N.Δ  ❯ SPIN-UP：HEARTBEAT_THEΔRAREz 1st ALBUM WORLD TOUR",
       "url": "https://www.indievox.com/activity/detail/26_iv0420868",
@@ -17,10 +25,26 @@
       "detail": null
     },
     {
+      "raw_id": "150012",
+      "title_raw": "Nuit-《impossible dream》Release Tour- Live in Taipei",
+      "url": "https://go.fansi.me/events/150012",
+      "source": "FANSI GO",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
       "raw_id": "1c278c733fef653ed767831d435a7625_d5c3b98fe2ee5f747536f019b4276f3d",
       "title_raw": "Double A Battery・aiko x ana 跨國共演",
       "url": "https://ticketplus.com.tw/activity/1c278c733fef653ed767831d435a7625",
       "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2107728569117466625_1795779000000",
+      "title_raw": "與世界連結——夢想啟程，跨越世代，共鳴未來",
+      "url": "https://www.opentix.life/event/2107728569117466625",
+      "source": "OPENTIX",
       "reason": "artist_unrecognized",
       "detail": null
     }

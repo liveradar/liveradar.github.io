@@ -153,3 +153,6 @@
 # 2026-10-16，查 city:未知 清單查證補上：
 - match: "Revolver 左輪手槍"
   city: 台北  # WebSearch 查證：英文介紹頁地址「No.1-2, Sec. 1, Roosevelt Rd, Jhongjheng Dist, Taipei City」，即台北市中正區羅斯福路一段
+# 2026-10-20，查 city:未知 清單查證補上：
+- match: "凝聚力展演空間"
+  city: 台北  # WebFetch 活動頁查證：地址「臺北市松山區吉仁里八德路三段106巷1號B1」
