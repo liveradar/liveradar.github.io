@@ -360,12 +360,14 @@ export function parseTicketPlusDate(dateRaw) {
   return { date: `${y}-${mo}-${d}`, time: timeMatch?.[1] ?? null };
 }
 
-// 2026-10-21 (Max): a "feat." credit (a secondary collaborator named in the
-// title) still counts as the main act's own 專場, not a shared-bill 拼盤 —
-// only an explicit multi-way join (e.g. "A x B Asia Tour") implies a shared
-// bill. headlinerCount alone can't tell those apart since matchArtists finds
-// both names either way, so the title text itself decides.
-const FEATURING_RE = /\bfeat\.?\b|\bft\.?\b/i;
+// 2026-10-21 (Max): a "feat."/"ft."/"with" credit (a secondary collaborator
+// named in the title) still counts as the main act's own 專場, not a
+// shared-bill 拼盤 — only an explicit multi-way join (e.g. "A x B Asia Tour")
+// implies a shared bill. headlinerCount alone can't tell those apart since
+// matchArtists finds both names either way, so the title text itself decides.
+// Real case confirmed by Max: "Moi dix Mois Live in Taipei 2026 with Kaya"
+// is Moi dix Mois's own show, not a co-headline bill with Kaya.
+const FEATURING_RE = /\bfeat\.?\b|\bft\.?\b|\bwith\b/i;
 
 export function guessTagsType(titleRaw, headlinerCount) {
   // Case-insensitive for the same reason as findNameIndex above — an

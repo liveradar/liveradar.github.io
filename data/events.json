@@ -30504,7 +30504,7 @@
       "price_max": 7500,
       "status": "sold_out",
       "tags_type": [
-        "拼盤"
+        "專場"
       ],
       "tags_origin": [
         "日本"
@@ -30550,7 +30550,7 @@
       "price_max": 7500,
       "status": "on_sale",
       "tags_type": [
-        "拼盤"
+        "專場"
       ],
       "tags_origin": [
         "日本"
@@ -33608,7 +33608,7 @@
       "price_max": 900,
       "status": "on_sale",
       "tags_type": [
-        "拼盤"
+        "專場"
       ],
       "tags_origin": [
         "本地"

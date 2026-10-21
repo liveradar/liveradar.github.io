@@ -582,9 +582,11 @@ test("guessTagsType (2026-10-01): a tour title is no longer its own 巡迴 type 
   assert.deepEqual(guessTagsType("A x B Asia Tour 2026 Taipei", 2), ["拼盤"]);
 });
 
-test("guessTagsType (2026-10-21, Max): a 'feat.'/'ft.' credit stays 專場 even with 2+ matched headliners — only an explicit multi-way join (e.g. 'A x B') implies a shared-bill 拼盤", () => {
+test("guessTagsType (2026-10-21, Max): a 'feat.'/'ft.'/'with' credit stays 專場 even with 2+ matched headliners — only an explicit multi-way join (e.g. 'A x B') implies a shared-bill 拼盤", () => {
   assert.deepEqual(guessTagsType("某歌手 Live in Taipei feat. 特別來賓", 2), ["專場"]);
   assert.deepEqual(guessTagsType("Some Artist ft. Guest - Live in Taipei", 2), ["專場"]);
+  // real case (Max): Moi dix Mois's own show, not a co-headline bill with Kaya
+  assert.deepEqual(guessTagsType("Moi dix Mois Live in Taipei 2026 with Kaya", 2), ["專場"]);
   assert.deepEqual(guessTagsType("A x B Asia Tour 2026 Taipei", 2), ["拼盤"]);
 });
 
