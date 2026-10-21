@@ -983,7 +983,8 @@ test("cleanVenueRaw: map links and pins are dropped; a venue that is just the ev
     cleanVenueRaw("話梅鹿 Prune Deer “角林” 台北發片專場 / 台北市文山區羅斯福路四段200號B1", "話梅鹿 Prune Deer “角林” 台北發片專場", "FANSI GO|1"),
     "THE WALL LIVE HOUSE / 台北市文山區羅斯福路四段200號B1",
   );
-  assert.equal(cleanVenueRaw("共乘｜張仲麟 2026北流專場 / 台北市南港區市民大道八段99號", "共乘｜張仲麟 2026北流專場", "FANSI GO|2"), "台北市南港區市民大道八段99號");
+  assert.equal(cleanVenueRaw("共乘｜張仲麟 2026北流專場 / 台北市南港區市民大道八段99號產業區4樓", "共乘｜張仲麟 2026北流專場", "FANSI GO|2"), "台北流行音樂中心 / 台北市南港區市民大道八段99號產業區4樓");
+  assert.equal(cleanVenueRaw("某書店 / 台北市中正區重慶南路一段10號", "某演唱會", "FANSI GO|3"), "某書店 / 台北市中正區重慶南路一段10號");
   assert.equal(cleanVenueRaw("欸啊那就直接先約了喔！ / 一大段宣傳", "國語作業簿", "iNDIEVOX|26_iv0421171"), "台北大佳河濱公園");
   assert.equal(cleanVenueRaw("Legacy Taipei / 台北市中正區", "某演唱會", "KKTIX|1"), "Legacy Taipei / 台北市中正區");
 });

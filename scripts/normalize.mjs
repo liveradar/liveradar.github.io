@@ -1192,7 +1192,10 @@ const CATEGORY_OVERRIDES = {
 //     else by the address itself, which at least says where;
 //  3. VENUE_OVERRIDES for a listing whose venue field is a whole promo blurb.
 // Only verified addresses go in ADDRESS_VENUES.
-const ADDRESS_VENUES = [[/羅斯福路四段200號/, "THE WALL LIVE HOUSE"]];
+const ADDRESS_VENUES = [
+  [/羅斯福路四段200號/, "THE WALL LIVE HOUSE"],
+  [/南港區市民大道八段99號/, "台北流行音樂中心"], // 北流的官方地址（售票頁寫的是產業區4樓，不是表演廳，所以不併入「表演廳」）
+];
 const VENUE_OVERRIDES = {
   "iNDIEVOX|26_iv0421171": "台北大佳河濱公園", // 國語作業簿 歡樂耶誕城：場地欄位整段是宣傳文字，地點在其中的 #台北大佳河濱公園
 };
