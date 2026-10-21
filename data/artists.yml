@@ -2430,3 +2430,33 @@
 - canonical: Missing My De(a)er in the Rain
   aliases: []
   tags_origin_default: 本地  # 2026-10-20 WebFetch 查證（售票頁 indievox.com）：高雄Loi了咖啡拼盤演出，卡司艮鹿/雨城時刻/I Miss Who I Was皆中文樂團介紹文字，以演出名稱登記為本地
+- canonical: Luci Gang
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-21 WebFetch 查證（售票頁 offtimemusic.kktix.cc）：頁面文案明確寫「韓國饒舌歌手 Luci Gang」，2027首度來台開唱，歸韓國
+- canonical: TWO step to heaven
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-21 WebFetch 查證（售票頁 thepillars.kktix.cc）：台中柱THE PILLARS多團Hardcore拼盤演出，以系列名稱登記為本地；需留意卡司之一Madcock經WebSearch查證為澳門樂團（見報告「需Max確認」）
+- canonical: KIIRAS
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-21 WebSearch 查證（sports.khan.co.kr 2026-10-14報導）：韓國女團KIIRAS出道後首次台北見面會，歸韓國
+- canonical: WHO'S COMING
+  aliases: ["WHO’S COMING"]
+  tags_origin_default: 本地  # 2026-10-21 WebFetch 查證（售票頁 higorgeous.kktix.cc）：ATT 4 FUN電音派對，卡司為DJ/舞者/Drag Queen，無單一主辦藝人，比照夜店派對本地規則登記
+- canonical: Bryan Adams
+  aliases: []
+  tags_origin_default: 歐美  # 2026-10-21：知名加拿大搖滾歌手，歸歐美
+- canonical: 鶴 The Crane
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-21 WebSearch 查證（marieclaire.com.tw）：台灣新生代R&B歌手，2022年發第一張個人專輯入圍金曲獎最佳新人，歸本地
+- canonical: BK
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-21 WebSearch 查證（indievox.com活動列表，Legacy Taipei/Legacy Taichung場次）：台灣饒舌歌手，多場個人專場於Legacy Taipei/Taichung、野地方Wild Lab舉行，歸本地
+- canonical: 莉莉周她說
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-21 WebSearch 查證（last.fm）：2016年台北成立的台灣電子搖滾樂團，歸本地
+- canonical: Nuit
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-21 WebSearch 查證（cdjournal.com）：東京シューゲイザー樂團Nuit，第二張專輯《impossible dream》巡演，標題與專輯名完全對應，歸日本
+- canonical: angela
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-21 WebSearch 查證（gnn.gamer.com.tw、nownews.com多篇報導）：日本動漫歌曲組合angela「All About StarChild?!」12/6 Zepp New Taipei場，歸日本
