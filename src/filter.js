@@ -138,6 +138,10 @@ const VENUE_ALIASES = {
   "國立體育大學綜合體育館(林口體育館)": "國立體育大學綜合體育館",
   "nuzone展演空間": "nuzone",
   "典空間codespace": "典空間",
+  "revolver左輪手槍": "revolver", // Revolver / REVOLVER / Revolver 左輪手槍
+  "左輪酒吧": "revolver", // "Revolver Taipei [左輪酒吧]" in a venue-crawl listing
+  "thewallnostage": "thewalllivehouse",
+  "thewallnostage,no_____": "thewalllivehouse", // "No Stage, No_____" is Rhythm Rebels' series name at The Wall, not a separate venue
   "西門紅樓theredhouse二樓劇場": "西門紅樓二樓劇場",
   // "三創生活園區 Clapper Studio": the trailing-English rule strips it to just "三創生活園區".
   "三創生活園區": "clapperstudio",
@@ -149,10 +153,36 @@ const VENUE_ALIASES = {
 
 export function venueKey(venue) {
   // NFKC: full-width ＋／Ａ／（ → + / A / ( ("Comedy Plus 卡米地＋" vs "COMEDY PLUS 卡米地+").
-  const v = (venue ?? "").normalize("NFKC").replace(/臺/g, "台").toLowerCase().trim();
+  const v = (venue ?? "").normalize("NFKC").replace(/[・·‧•]/g, "").replace(/臺/g, "台").toLowerCase().trim();
+  // A bare city prefix ("台北 The Wall Live House") is not the venue name — stripping the Latin part would leave just "台北".
   const cjkThenLatin = v.match(/^(.*[\u4e00-\u9fff])\s+[a-z0-9 .'&-]+$/);
+  if (cjkThenLatin && /^(台北|新北|桃園|新竹|台中|台南|高雄|基隆)$/.test(cjkThenLatin[1])) return venueKey(v.slice(cjkThenLatin[1].length));
   const key = (cjkThenLatin ? cjkThenLatin[1] : v).replace(/\s+/g, "");
   return VENUE_ALIASES[key] ?? key;
+}
+
+/**
+ * 2026-10-21 (Max: 場館篩選出現「THE WALL LIVE HOUSE、PIPE LIVE MUSIC」這種選項):
+ * one listing can name several venues in one field — a two-venue festival
+ * ("A、B") or a venue crawl ("A & B"). Treated as ONE venue it became its own
+ * filter option and matched neither real venue. Split on 、 / " & " / ＆ so the
+ * event is found under each venue it is actually at. "Name [中文名]" keys on
+ * the bracketed name (the one the other spellings use). A single-venue string
+ * returns just [venueKey(venue)].
+ */
+export function venueKeys(venue) {
+  const parts = String(venue ?? "").split(/\s*[、＆]\s*|\s+&\s+/).map((p) => p.trim()).filter(Boolean);
+  if (parts.length < 2) return [venueKey(venue)];
+  return [...new Set(parts.map((p) => venueKey(p.match(/\[([^\]]+)\]/)?.[1] ?? p)))];
+}
+
+/** Display names for venueKeys(): one name per key, in the same order (multi-venue strings give each part's own text). */
+export function venueNames(venue) {
+  const parts = String(venue ?? "").split(/\s*[、＆]\s*|\s+&\s+/).map((p) => p.trim()).filter(Boolean);
+  if (parts.length < 2) return [String(venue ?? "")];
+  const byKey = new Map();
+  for (const p of parts) byKey.set(venueKey(p.match(/\[([^\]]+)\]/)?.[1] ?? p), p);
+  return [...byKey.values()];
 }
 
 function cityMatches(eventCity, filterValue) {
@@ -180,7 +210,7 @@ export function passesViewFilters(event, viewFilters) {
   const months = toValues(viewFilters.month);
   if (months.length > 0 && !months.some((m) => eventDates(event).some((d) => d.startsWith(m)))) return false;
   const venues = toValues(viewFilters.venue);
-  if (venues.length > 0 && !venues.includes(venueKey(event.venue))) return false;
+  if (venues.length > 0 && !venueKeys(event.venue).some((k) => venues.includes(k))) return false;
   const types = toValues(viewFilters.type);
   if (types.length > 0 && !types.some((t) => event.tags_type.includes(t))) return false;
   const origins = toValues(viewFilters.origin);

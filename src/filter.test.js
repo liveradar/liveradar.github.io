@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { isPast, partitionEvents, cityBucket, venueKey, sectionOf } from "./filter.js";
+import { isPast, partitionEvents, cityBucket, venueKey, venueKeys, venueNames, sectionOf } from "./filter.js";
 
 function makeEvent(overrides = {}) {
   return {
@@ -222,4 +222,28 @@ test("sectionOf: 喜劇 -> comedy, 舞台劇/音樂劇 -> theater, everything el
   assert.equal(s(["音樂劇"]), "theater");
   for (const t of [["專場"], ["拼盤"], ["音樂祭"], ["見面會", "專場"], ["古典"], []]) assert.equal(s(t), "music");
   assert.equal(sectionOf({}), "music");
+});
+
+test("venueKeys: a multi-venue field is split so the event is found under each venue; a single venue is unchanged", () => {
+  assert.deepEqual(venueKeys("THE WALL LIVE HOUSE、PIPE LIVE MUSIC"), ["thewalllivehouse", "pipelivemusic"]);
+  assert.deepEqual(venueKeys("Paramount Bar [百樂門酒館] & Revolver Taipei [左輪酒吧]"), ["百樂門酒館", "revolver"]);
+  assert.deepEqual(venueNames("THE WALL LIVE HOUSE、PIPE LIVE MUSIC"), ["THE WALL LIVE HOUSE", "PIPE LIVE MUSIC"]);
+  assert.deepEqual(venueKeys("Legacy Taipei"), [venueKey("Legacy Taipei")]);
+  assert.deepEqual(venueKeys("Bar & Grill"), ["bar", "grill"]); // known tradeoff: " & " always splits (no real venue in the data has one)
+  assert.deepEqual(venueKeys(""), [""]);
+});
+
+test("venueKey: a bare city prefix is not the venue (台北 The Wall Live House must not collapse to 台北); Revolver spellings agree", () => {
+  assert.equal(venueKey("台北 The Wall Live House"), venueKey("The Wall Live House"));
+  assert.equal(venueKey("Revolver 左輪手槍"), venueKey("REVOLVER"));
+  assert.equal(venueKey("台北流行音樂中心・表演廳"), venueKey("台北流行音樂中心表演廳"));
+  assert.equal(venueKey("The Wall No Stage, No_____"), venueKey("THE WALL LIVE HOUSE"));
+});
+
+test("partitionEvents: the venue filter matches either venue of a two-venue listing", () => {
+  const e = makeEvent({ id: "m", venue: "THE WALL LIVE HOUSE、PIPE LIVE MUSIC" });
+  for (const v of ["thewalllivehouse", "pipelivemusic"]) {
+    assert.equal(partitionEvents([e], defaultPrefs(), { venue: [v] }).visible.length, 1, v);
+  }
+  assert.equal(partitionEvents([e], defaultPrefs(), { venue: ["legacytaipei"] }).visible.length, 0);
 });

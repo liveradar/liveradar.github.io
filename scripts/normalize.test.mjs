@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseTixcraftDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, parseOnSaleAt, isGeneralTicketLottery, guessTagsType, findNameIndex, exclusionReason } from "./normalize.mjs";
+import { normalize, parseIndievoxDate, parseIndievoxVenue, parseTicketPlusDate, parseTixcraftDate, parseKktixVenue, parseTixcraftVenue, loadArtists, matchArtists, parsePriceFromText, parseOnSaleAt, isGeneralTicketLottery, guessTagsType, findNameIndex, exclusionReason, cleanVenueRaw } from "./normalize.mjs";
 
 const artistsYml = [{ canonical: "深海系樂團", aliases: [], tags_origin_default: "本地" }];
 
@@ -975,4 +975,15 @@ test("normalize(): 2026-10-19 — classical-style programs are excluded as 'clas
   ]) {
     assert.equal(normalize(makeRaw({ title_raw }), [], []).excluded, undefined, title_raw);
   }
+});
+
+test("cleanVenueRaw: map links and pins are dropped; a venue that is just the event title becomes the known venue (or the address); a promo-blurb venue uses its override", () => {
+  assert.equal(cleanVenueRaw("微遠虎山/微遠基金會 📍https://maps.app.goo.gl/abc", "2026 虎山音樂祭", "iNDIEVOX|x"), "微遠虎山/微遠基金會");
+  assert.equal(
+    cleanVenueRaw("話梅鹿 Prune Deer “角林” 台北發片專場 / 台北市文山區羅斯福路四段200號B1", "話梅鹿 Prune Deer “角林” 台北發片專場", "FANSI GO|1"),
+    "THE WALL LIVE HOUSE / 台北市文山區羅斯福路四段200號B1",
+  );
+  assert.equal(cleanVenueRaw("共乘｜張仲麟 2026北流專場 / 台北市南港區市民大道八段99號", "共乘｜張仲麟 2026北流專場", "FANSI GO|2"), "台北市南港區市民大道八段99號");
+  assert.equal(cleanVenueRaw("欸啊那就直接先約了喔！ / 一大段宣傳", "國語作業簿", "iNDIEVOX|26_iv0421171"), "台北大佳河濱公園");
+  assert.equal(cleanVenueRaw("Legacy Taipei / 台北市中正區", "某演唱會", "KKTIX|1"), "Legacy Taipei / 台北市中正區");
 });

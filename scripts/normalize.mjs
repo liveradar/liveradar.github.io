@@ -1184,6 +1184,31 @@ const CATEGORY_OVERRIDES = {
   "https://www.opentix.life/event/2105556189127553025": "舞台劇", // 一個人快樂藝術節：OPENTIX 標成喜劇
 };
 
+// 2026-10-21 (Max: 場館篩選出現網址、宣傳文字、活動名稱當場館): organizers
+// type anything into a "venue" field. Three cleanups, applied to venue_raw:
+//  1. a map link / 📍 pin appended to the name is dropped;
+//  2. a "venue" that is really the event's own title (FANSI GO organizers do
+//     this — 共乘｜張仲麟, 話梅鹿) is replaced by a known address's venue name,
+//     else by the address itself, which at least says where;
+//  3. VENUE_OVERRIDES for a listing whose venue field is a whole promo blurb.
+// Only verified addresses go in ADDRESS_VENUES.
+const ADDRESS_VENUES = [[/羅斯福路四段200號/, "THE WALL LIVE HOUSE"]];
+const VENUE_OVERRIDES = {
+  "iNDIEVOX|26_iv0421171": "台北大佳河濱公園", // 國語作業簿 歡樂耶誕城：場地欄位整段是宣傳文字，地點在其中的 #台北大佳河濱公園
+};
+const squash = (t) => String(t ?? "").toLowerCase().replace(/[\s\p{P}\p{S}]/gu, "");
+export function cleanVenueRaw(venueRaw, titleRaw, key) {
+  if (key in VENUE_OVERRIDES) return VENUE_OVERRIDES[key];
+  let raw = (venueRaw ?? "").replace(/\s*📍?\s*https?:\/\/\S+/g, "").replace(/\s*📍\s*$/, "").trim();
+  const [name, ...rest] = raw.split("/").map((t) => t.trim());
+  if (name && squash(name) === squash(titleRaw)) {
+    const address = rest.join(" / ");
+    const known = ADDRESS_VENUES.find(([re]) => re.test(address))?.[1];
+    return known ? `${known} / ${address}` : address ? `${address}` : raw;
+  }
+  return raw;
+}
+
 export function normalize(rawEvent, artistsYml, venuesYml = []) {
   if (rawEvent.url in CATEGORY_OVERRIDES) {
     const category = CATEGORY_OVERRIDES[rawEvent.url];
@@ -1222,7 +1247,10 @@ export function normalize(rawEvent, artistsYml, venuesYml = []) {
   // backlog now, not a publish gate. See LIVERADAR-SPEC.md §3.2.
   const headliners = matchArtists(rawEvent.title_raw, artistsYml);
 
-  const parsedVenue = parseVenue(rawEvent.venue_raw ?? "", venuesYml);
+  const parsedVenue = parseVenue(
+    cleanVenueRaw(rawEvent.venue_raw, rawEvent.title_raw, `${rawEvent.source_name}|${rawEvent.raw_id}`),
+    venuesYml,
+  );
   const { venue } = parsedVenue;
   // 2026-09-21: last-resort fallback when there's no venue text to work with
   // at all (confirmed real cases: some iNDIEVOX organizers skip the venue

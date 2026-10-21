@@ -32,7 +32,7 @@
  *   登入是加分項不是門檻，沒登入時完全 no-op，跟以前沒連 Gist 時一樣。
  */
 
-import { partitionEvents, isPast, cityBucket, venueKey, passesViewFilters, sectionOf, SECTIONS } from "./filter.js";
+import { partitionEvents, isPast, cityBucket, venueKeys, venueNames, passesViewFilters, sectionOf, SECTIONS } from "./filter.js";
 import {
   loadPrefs,
   isFavorited,
@@ -190,11 +190,14 @@ function venueFilterOptions(events) {
   const groups = new Map();
   for (const e of events) {
     if (isPast(e.date) || !e.venue) continue;
-    const key = venueKey(e.venue);
-    const g = groups.get(key) ?? { names: new Map(), count: 0 };
-    g.count += 1;
-    g.names.set(e.venue, (g.names.get(e.venue) ?? 0) + 1);
-    groups.set(key, g);
+    const keys = venueKeys(e.venue);
+    const names = venueNames(e.venue);
+    keys.forEach((key, i) => {
+      const g = groups.get(key) ?? { names: new Map(), count: 0 };
+      g.count += 1;
+      g.names.set(names[i] ?? e.venue, (g.names.get(names[i] ?? e.venue) ?? 0) + 1);
+      groups.set(key, g);
+    });
   }
   const options = [...groups].map(([key, g]) => {
     const name = [...g.names].sort((a, b) => b[1] - a[1] || a[0].length - b[0].length)[0][0];
