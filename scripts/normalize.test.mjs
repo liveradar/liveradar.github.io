@@ -573,14 +573,33 @@ test("findNameIndex/matchArtists: an ASCII canonical matches case-insensitively 
 });
 
 test("guessTagsType: keyword matching is also case-insensitive", () => {
-  assert.deepEqual(guessTagsType("Itsuki Fan Meeting 2026 台北場", 1), ["見面會"]);
+  assert.deepEqual(guessTagsType("some music festival night", 1), ["音樂祭"]);
 });
 
-test("guessTagsType (2026-10-01): a tour title is no longer its own 巡迴 type — it falls back to 專場/拼盤 by headliner count, and FAN MEETING tours are 見面會", () => {
+test("guessTagsType (2026-10-01): a tour title is no longer its own 巡迴 type — it falls back to 專場/拼盤 by headliner count", () => {
   assert.deepEqual(guessTagsType("PERSONA LIVE TOUR 2026 - Resonance - 台北公演", 1), ["專場"]);
   assert.deepEqual(guessTagsType("玉置成實 2026亞洲巡迴演唱會 台北場", 1), ["專場"]);
   assert.deepEqual(guessTagsType("A x B Asia Tour 2026 Taipei", 2), ["拼盤"]);
-  assert.deepEqual(guessTagsType("【第一場】伊波杏樹 ASIA FAN MEETING TOUR 台北站", 1), ["見面會"]);
+});
+
+test("guessTagsType (2026-10-21, Max): a 'feat.'/'ft.' credit stays 專場 even with 2+ matched headliners — only an explicit multi-way join (e.g. 'A x B') implies a shared-bill 拼盤", () => {
+  assert.deepEqual(guessTagsType("某歌手 Live in Taipei feat. 特別來賓", 2), ["專場"]);
+  assert.deepEqual(guessTagsType("Some Artist ft. Guest - Live in Taipei", 2), ["專場"]);
+  assert.deepEqual(guessTagsType("A x B Asia Tour 2026 Taipei", 2), ["拼盤"]);
+});
+
+test("normalize(): 見面會/簽唱會 titles are excluded outright (Max 2026-10-21: no longer collected, musician or not)", () => {
+  const yml = [];
+  const cases = [
+    "Itsuki Fan Meeting 2026 台北場",
+    "【第一場】伊波杏樹 ASIA FAN MEETING TOUR 台北站",
+    "2026某藝人簽唱會",
+    "GMMTV 2026 FANDAY in Taipei",
+  ];
+  for (const title_raw of cases) {
+    const result = normalize(makeRaw({ title_raw }), yml, []);
+    assert.equal(result.excluded?.reason, "meet_and_greet", `expected "${title_raw}" to be excluded`);
+  }
 });
 
 test("guessTagsType (2026-10-02 real cases from KKTIX comedyclub): comedy titles are 喜劇, not noise and not 拼盤", () => {

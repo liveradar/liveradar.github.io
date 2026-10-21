@@ -8811,162 +8811,6 @@
       ]
     },
     {
-      "title_raw": "【第一場】伊波杏樹 ASIA FAN MEETING TOUR 台北站",
-      "headliners": [
-        "伊波杏樹"
-      ],
-      "lineup": [
-        "伊波杏樹"
-      ],
-      "is_festival": false,
-      "venue": "Clapper Studio",
-      "city": "台北",
-      "date": "2026-11-21",
-      "time": "14:00",
-      "on_sale_at": null,
-      "price_min": 2780,
-      "price_max": 2780,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://atc-twn.kktix.cc/events/427dbf2a",
-      "first_seen_at": "2026-09-22T06:17:14.692Z",
-      "updated_at": "2026-09-23T02:25:20.119Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://atc-twn.kktix.cc/events/427dbf2a",
-          "raw_id": "427dbf2a"
-        }
-      ],
-      "id": "1097cd8282efa3c0-day",
-      "merged_ids": [
-        "1097cd8282efa3c0-day"
-      ]
-    },
-    {
-      "title_raw": "【第二場】伊波杏樹 ASIA FAN MEETING TOUR 台北站",
-      "headliners": [
-        "伊波杏樹"
-      ],
-      "lineup": [
-        "伊波杏樹"
-      ],
-      "is_festival": false,
-      "venue": "Clapper Studio",
-      "city": "台北",
-      "date": "2026-11-21",
-      "time": "18:00",
-      "on_sale_at": null,
-      "price_min": 2780,
-      "price_max": 2780,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://atc-twn.kktix.cc/events/c09dd1b0",
-      "first_seen_at": "2026-09-22T15:42:02.221Z",
-      "updated_at": "2026-09-23T02:25:20.119Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://atc-twn.kktix.cc/events/c09dd1b0",
-          "raw_id": "c09dd1b0"
-        }
-      ],
-      "id": "1097cd8282efa3c0-evening",
-      "merged_ids": [
-        "1097cd8282efa3c0-evening"
-      ]
-    },
-    {
-      "title_raw": "【下午場】工藤晴香2026 台北粉絲見面會",
-      "headliners": [
-        "工藤晴香"
-      ],
-      "lineup": [
-        "工藤晴香"
-      ],
-      "is_festival": false,
-      "venue": "Clapper Studio",
-      "city": "台北",
-      "date": "2026-11-07",
-      "time": "18:00",
-      "on_sale_at": null,
-      "price_min": 1740,
-      "price_max": 2280,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://atc-twn.kktix.cc/events/jrsfeb02",
-      "first_seen_at": "2026-09-22T06:17:14.692Z",
-      "updated_at": "2026-09-23T02:25:20.119Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://atc-twn.kktix.cc/events/jrsfeb02",
-          "raw_id": "jrsfeb02"
-        }
-      ],
-      "id": "616834bfe09e1bd3-evening",
-      "merged_ids": [
-        "616834bfe09e1bd3-evening"
-      ]
-    },
-    {
-      "title_raw": "【上午場】工藤晴香2026 台北粉絲見面會",
-      "headliners": [
-        "工藤晴香"
-      ],
-      "lineup": [
-        "工藤晴香"
-      ],
-      "is_festival": false,
-      "venue": "Clapper Studio",
-      "city": "台北",
-      "date": "2026-11-07",
-      "time": "13:00",
-      "on_sale_at": null,
-      "price_min": 2280,
-      "price_max": 2280,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://atc-twn.kktix.cc/events/jrsfeb01",
-      "first_seen_at": "2026-09-22T15:42:02.221Z",
-      "updated_at": "2026-09-23T02:25:20.119Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://atc-twn.kktix.cc/events/jrsfeb01",
-          "raw_id": "jrsfeb01"
-        }
-      ],
-      "id": "616834bfe09e1bd3-day",
-      "merged_ids": [
-        "616834bfe09e1bd3-day"
-      ]
-    },
-    {
       "title_raw": "伊藤美來 出道十週年紀念演唱會「39rpm」台北場",
       "headliners": [
         "伊藤美來"
@@ -12435,90 +12279,6 @@
       ]
     },
     {
-      "title_raw": "【見面會】OrmFolk 1st Fan Meeting in Taipei",
-      "headliners": [
-        "OrmFolk"
-      ],
-      "lineup": [
-        "OrmFolk"
-      ],
-      "is_festival": false,
-      "venue": "花漾Hana展演空間",
-      "city": "台北",
-      "date": "2026-11-07",
-      "time": "14:00",
-      "on_sale_at": null,
-      "price_min": 2000,
-      "price_max": 8800,
-      "status": "sold_out",
-      "tags_type": [
-        "見面會",
-        "專場"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://yanrong.kktix.cc/events/a5d5bde2",
-      "first_seen_at": "2026-09-24T07:19:37.287Z",
-      "updated_at": "2026-09-29T03:33:10.647Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://yanrong.kktix.cc/events/a5d5bde2",
-          "raw_id": "a5d5bde2"
-        },
-        {
-          "name": "KKTIX",
-          "url": "https://yanrong.kktix.cc/events/b79ff8c9",
-          "raw_id": "b79ff8c9"
-        }
-      ],
-      "id": "edd9ace02381439a",
-      "merged_ids": [
-        "edd9ace02381439a"
-      ]
-    },
-    {
-      "title_raw": "2026 LUDA 10TH ANNIVERSARY FANMEETING ＜CAPTAIN LU : SECRET BASE＞ IN TAIPEI",
-      "headliners": [
-        "LUDA"
-      ],
-      "lineup": [
-        "LUDA"
-      ],
-      "is_festival": false,
-      "venue": "HANASPACE",
-      "city": "台北",
-      "date": "2026-11-15",
-      "time": "18:00",
-      "on_sale_at": null,
-      "price_min": 3200,
-      "price_max": 5280,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "韓國"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://weekendplanent.kktix.cc/events/21fde851",
-      "first_seen_at": "2026-09-24T07:19:37.288Z",
-      "updated_at": "2026-09-24T07:29:05.065Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://weekendplanent.kktix.cc/events/21fde851",
-          "raw_id": "21fde851"
-        }
-      ],
-      "id": "5b43b85a66e4aea0",
-      "merged_ids": [
-        "5b43b85a66e4aea0"
-      ]
-    },
-    {
       "title_raw": "The Horny Night - SLUTs 25hrs LOVE by #DAMUR",
       "headliners": [
         "SLUTs"
@@ -12991,45 +12751,6 @@
       ]
     },
     {
-      "title_raw": "李雅英 × 十鼓文創園區 特別見面會",
-      "headliners": [
-        "李雅英"
-      ],
-      "lineup": [
-        "李雅英"
-      ],
-      "is_festival": false,
-      "venue": "十鼓文創園區-草原廣場",
-      "city": "台南",
-      "date": "2027-01-23",
-      "time": "15:45",
-      "on_sale_at": null,
-      "price_min": 300,
-      "price_max": 600,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "韓國"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ten-drum.kktix.cc/events/5e9253ab",
-      "first_seen_at": "2026-09-29T03:33:10.639Z",
-      "updated_at": "2026-09-29T06:23:50.491Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://ten-drum.kktix.cc/events/5e9253ab",
-          "raw_id": "5e9253ab"
-        }
-      ],
-      "id": "c335dc7b03aa5852",
-      "merged_ids": [
-        "c335dc7b03aa5852"
-      ]
-    },
-    {
       "title_raw": "中村百合香 TOUR 2026 「4U GALAXY」",
       "headliners": [
         "中村百合香"
@@ -13420,45 +13141,6 @@
       ]
     },
     {
-      "title_raw": "【售票頁】HOKUTO LIVE&FAN MEETING 2026 \"JUKE BOX LAND\" IN TAIPEI",
-      "headliners": [
-        "HOKUTO"
-      ],
-      "lineup": [
-        "HOKUTO"
-      ],
-      "is_festival": false,
-      "venue": "Legacy Taipei",
-      "city": "台北",
-      "date": "2026-11-20",
-      "time": "18:30",
-      "on_sale_at": null,
-      "price_min": 1640,
-      "price_max": 3280,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ldh.kktix.cc/events/hokuto2026-01",
-      "first_seen_at": "2026-09-29T03:33:10.636Z",
-      "updated_at": "2026-10-01T02:37:31.795Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://ldh.kktix.cc/events/hokuto2026-01",
-          "raw_id": "hokuto2026-01"
-        }
-      ],
-      "id": "d2a23fed493f0138",
-      "merged_ids": [
-        "d2a23fed493f0138"
-      ]
-    },
-    {
       "title_raw": "蟬鳴迴響 - AYANE / ITO KANAKO / SHIMAMIYA EIKO Special Live in Taipei",
       "headliners": [
         "AYANE",
@@ -13541,45 +13223,6 @@
       ]
     },
     {
-      "title_raw": "2026.10.31 KIRIS、Solomoon見面會",
-      "headliners": [
-        "KIRIS"
-      ],
-      "lineup": [
-        "KIRIS"
-      ],
-      "is_festival": false,
-      "venue": "北車KIRABASE",
-      "city": "台北",
-      "date": "2026-10-31",
-      "time": "18:30",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://kiris.kktix.cc/events/47c0b5da",
-      "first_seen_at": "2026-10-05T02:35:26.470Z",
-      "updated_at": "2026-10-05T02:35:26.470Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://kiris.kktix.cc/events/47c0b5da",
-          "raw_id": "47c0b5da"
-        }
-      ],
-      "id": "72be00a442ff19e5",
-      "merged_ids": [
-        "72be00a442ff19e5"
-      ]
-    },
-    {
       "title_raw": "【11/22 加場】2026 SUPER JUNIOR-83z FANCON TOUR [1983] in TAIPEI",
       "headliners": [
         "SUPER JUNIOR"
@@ -13616,45 +13259,6 @@
       "id": "28e4d37e56576d7d",
       "merged_ids": [
         "28e4d37e56576d7d"
-      ]
-    },
-    {
-      "title_raw": "伊達小百合  Fan Meeting 2026 In Kaohsiung",
-      "headliners": [
-        "伊達小百合"
-      ],
-      "lineup": [
-        "伊達小百合"
-      ],
-      "is_festival": false,
-      "venue": "高雄駁二正港小劇場",
-      "city": "高雄",
-      "date": "2026-12-05",
-      "time": "18:30",
-      "on_sale_at": null,
-      "price_min": 700,
-      "price_max": 2800,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://resonance-works.kktix.cc/events/datesayurikh",
-      "first_seen_at": "2026-09-29T03:33:10.638Z",
-      "updated_at": "2026-10-05T02:35:26.490Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://resonance-works.kktix.cc/events/datesayurikh",
-          "raw_id": "datesayurikh"
-        }
-      ],
-      "id": "b9b316fb6e718b5d",
-      "merged_ids": [
-        "b9b316fb6e718b5d"
       ]
     },
     {
@@ -13931,84 +13535,6 @@
       ]
     },
     {
-      "title_raw": "【午場 VVIP區，限網站購票】THE EDGE OF HORIZON 1st FAN MEETING IN TAIWAN",
-      "headliners": [
-        "THE EDGE OF HORIZON"
-      ],
-      "lineup": [
-        "THE EDGE OF HORIZON"
-      ],
-      "is_festival": false,
-      "venue": "WESTAR",
-      "city": "台北",
-      "date": "2026-11-29",
-      "time": "12:00",
-      "on_sale_at": null,
-      "price_min": 1950,
-      "price_max": 8800,
-      "status": "sold_out",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://porticomedia.kktix.cc/events/0174a073",
-      "first_seen_at": "2026-10-01T02:37:31.785Z",
-      "updated_at": "2026-10-07T02:28:37.569Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://porticomedia.kktix.cc/events/0174a073",
-          "raw_id": "0174a073"
-        }
-      ],
-      "id": "3cccca028fd9c9a7",
-      "merged_ids": [
-        "3cccca028fd9c9a7"
-      ]
-    },
-    {
-      "title_raw": "【晚場 VVIP區，限網站購票】THE EDGE OF HORIZON 1st FAN MEETING IN TAIWAN",
-      "headliners": [
-        "THE EDGE OF HORIZON"
-      ],
-      "lineup": [
-        "THE EDGE OF HORIZON"
-      ],
-      "is_festival": false,
-      "venue": "WESTAR",
-      "city": "台北",
-      "date": "2026-11-29",
-      "time": "18:00",
-      "on_sale_at": null,
-      "price_min": 1950,
-      "price_max": 8800,
-      "status": "sold_out",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://porticomedia.kktix.cc/events/a7d7dad7",
-      "first_seen_at": "2026-10-01T02:37:31.785Z",
-      "updated_at": "2026-10-07T02:28:37.569Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://porticomedia.kktix.cc/events/a7d7dad7",
-          "raw_id": "a7d7dad7"
-        }
-      ],
-      "id": "4cb0a4e3de09bc60",
-      "merged_ids": [
-        "4cb0a4e3de09bc60"
-      ]
-    },
-    {
       "title_raw": "造音現場｜LOUDER STAGE #02－冒險家 Adventurer × 離岸潮汐 off‧Shore Tidal × Happyland",
       "headliners": [
         "LOUDER STAGE"
@@ -14162,45 +13688,6 @@
       "id": "1787c846948447d3",
       "merged_ids": [
         "1787c846948447d3"
-      ]
-    },
-    {
-      "title_raw": "2026 ONG SEONGWU FANMEETING  <Let’s go-ONG!> in Taipei",
-      "headliners": [
-        "ONG SEONGWU"
-      ],
-      "lineup": [
-        "ONG SEONGWU"
-      ],
-      "is_festival": false,
-      "venue": "WESTAR",
-      "city": "台北",
-      "date": "2026-10-25",
-      "time": "18:00",
-      "on_sale_at": null,
-      "price_min": 2340,
-      "price_max": 5280,
-      "status": "sold_out",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "韓國"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://oninn.kktix.cc/events/84eea69a",
-      "first_seen_at": "2026-09-24T07:19:37.286Z",
-      "updated_at": "2026-10-08T02:28:35.315Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://oninn.kktix.cc/events/84eea69a",
-          "raw_id": "84eea69a"
-        }
-      ],
-      "id": "8f320bad144a9733",
-      "merged_ids": [
-        "8f320bad144a9733"
       ]
     },
     {
@@ -15240,84 +14727,6 @@
       ]
     },
     {
-      "title_raw": "【下午場】岡咲美保2026 台北粉絲見面會",
-      "headliners": [
-        "岡咲美保"
-      ],
-      "lineup": [
-        "岡咲美保"
-      ],
-      "is_festival": false,
-      "venue": "RED SPACE SPACE C",
-      "city": "台北",
-      "date": "2026-12-05",
-      "time": "13:00",
-      "on_sale_at": "2026-10-24T12:00:00+08:00",
-      "price_min": 1300,
-      "price_max": 2780,
-      "status": "announced",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://atc-twn.kktix.cc/events/96445962",
-      "first_seen_at": "2026-10-20T02:32:37.489Z",
-      "updated_at": "2026-10-20T02:38:29.189Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://atc-twn.kktix.cc/events/96445962",
-          "raw_id": "96445962"
-        }
-      ],
-      "id": "cff369ec1b73024c",
-      "merged_ids": [
-        "cff369ec1b73024c"
-      ]
-    },
-    {
-      "title_raw": "【晚上場】岡咲美保2026 台北粉絲見面會",
-      "headliners": [
-        "岡咲美保"
-      ],
-      "lineup": [
-        "岡咲美保"
-      ],
-      "is_festival": false,
-      "venue": "RED SPACE SPACE C",
-      "city": "台北",
-      "date": "2026-12-05",
-      "time": "18:00",
-      "on_sale_at": "2026-10-24T12:00:00+08:00",
-      "price_min": 1300,
-      "price_max": 2780,
-      "status": "announced",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://atc-twn.kktix.cc/events/j4635c15",
-      "first_seen_at": "2026-10-20T02:32:37.489Z",
-      "updated_at": "2026-10-20T02:38:29.190Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://atc-twn.kktix.cc/events/j4635c15",
-          "raw_id": "j4635c15"
-        }
-      ],
-      "id": "ce35b16ee9e98100",
-      "merged_ids": [
-        "ce35b16ee9e98100"
-      ]
-    },
-    {
       "title_raw": "午夜乒乓 丘高氣爽 Chill & High 高雄專場",
       "headliners": [
         "午夜乒乓"
@@ -15669,45 +15078,6 @@
       ]
     },
     {
-      "title_raw": "內田彩 2026 Taipei Fan Meeting日本聲優見面會",
-      "headliners": [
-        "內田彩"
-      ],
-      "lineup": [
-        "內田彩"
-      ],
-      "is_festival": false,
-      "venue": "台北微風廣場 9F MOONDOG",
-      "city": "台北",
-      "date": "2026-10-24",
-      "time": "18:30",
-      "on_sale_at": null,
-      "price_min": 1000,
-      "price_max": 2000,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://acgncc.kktix.cc/events/612732b6",
-      "first_seen_at": "2026-10-20T02:32:37.520Z",
-      "updated_at": "2026-10-20T02:38:29.217Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://acgncc.kktix.cc/events/612732b6",
-          "raw_id": "612732b6"
-        }
-      ],
-      "id": "3bc28563de28ead6",
-      "merged_ids": [
-        "3bc28563de28ead6"
-      ]
-    },
-    {
       "title_raw": "【跟我一起玩吧？】影人見面場 大直美麗華影城",
       "headliners": [
         "跟我一起玩吧"
@@ -15744,45 +15114,6 @@
       "id": "4bde4bbd15833024",
       "merged_ids": [
         "4bde4bbd15833024"
-      ]
-    },
-    {
-      "title_raw": "小原莉子 2026 Taipei Fan Meeting日本聲優見面會",
-      "headliners": [
-        "小原莉子"
-      ],
-      "lineup": [
-        "小原莉子"
-      ],
-      "is_festival": false,
-      "venue": "台北微風廣場 9F MOONDOG",
-      "city": "台北",
-      "date": "2026-10-25",
-      "time": "18:30",
-      "on_sale_at": null,
-      "price_min": 1000,
-      "price_max": 2000,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://acgncc.kktix.cc/events/612732b7",
-      "first_seen_at": "2026-10-20T02:32:37.522Z",
-      "updated_at": "2026-10-20T02:38:29.217Z",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://acgncc.kktix.cc/events/612732b7",
-          "raw_id": "612732b7"
-        }
-      ],
-      "id": "f3bb914fcbcbed97",
-      "merged_ids": [
-        "f3bb914fcbcbed97"
       ]
     },
     {
@@ -21141,45 +20472,6 @@
       ]
     },
     {
-      "title_raw": "KIIRAS 1st TAIPEI FAN MEETING 2026",
-      "headliners": [
-        "KIIRAS"
-      ],
-      "lineup": [
-        "KIIRAS"
-      ],
-      "is_festival": false,
-      "venue": "NUZONE",
-      "city": "台北",
-      "date": "2026-12-13",
-      "time": "19:00",
-      "on_sale_at": "2026-10-23T12:00:00+08:00",
-      "price_min": 1839,
-      "price_max": 3680,
-      "status": "announced",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "韓國"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://quantumcallstudio.kktix.cc/events/0cd631f8",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://quantumcallstudio.kktix.cc/events/0cd631f8",
-          "raw_id": "0cd631f8"
-        }
-      ],
-      "first_seen_at": "2026-10-21T02:28:26.646Z",
-      "updated_at": "2026-10-21T02:35:16.877Z",
-      "id": "cec94243b9d6654d",
-      "merged_ids": [
-        "cec94243b9d6654d"
-      ]
-    },
-    {
       "title_raw": "WHO’S COMING VOL.3",
       "headliners": [
         "WHO'S COMING"
@@ -22175,45 +21467,6 @@
       ]
     },
     {
-      "title_raw": "2026 KIM JI WON FANMEETING ＜WONEDERLAND＞ in TAIPEI",
-      "headliners": [
-        "KIM JI WON"
-      ],
-      "lineup": [
-        "KIM JI WON"
-      ],
-      "is_festival": false,
-      "venue": "Legacy TERA",
-      "city": "台北",
-      "date": "2026-11-08",
-      "time": null,
-      "on_sale_at": null,
-      "price_min": 4980,
-      "price_max": 5800,
-      "status": "sold_out",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "韓國"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://tixcraft.com/activity/detail/26_kimjiwon",
-      "first_seen_at": "2026-09-22T06:20:34.484Z",
-      "updated_at": "2026-09-29T03:33:10.647Z",
-      "sources": [
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_kimjiwon",
-          "raw_id": "26_kimjiwon"
-        }
-      ],
-      "id": "c7384933e688f822",
-      "merged_ids": [
-        "c7384933e688f822"
-      ]
-    },
-    {
       "title_raw": "82MAJOR ＜82CLUB ： OUT OF CONTROL＞ in TAIPEI",
       "headliners": [
         "82MAJOR"
@@ -22294,45 +21547,6 @@
       "id": "afa14a26670acd07",
       "merged_ids": [
         "afa14a26670acd07"
-      ]
-    },
-    {
-      "title_raw": "2026 SO JI SUB ASIA FANMEETING TOUR [Soulmate The Timeless] IN TAIPEI",
-      "headliners": [
-        "SO JI SUB"
-      ],
-      "lineup": [
-        "SO JI SUB"
-      ],
-      "is_festival": false,
-      "venue": "台北國際會議中心TICC",
-      "city": "台北",
-      "date": "2026-11-07",
-      "time": null,
-      "on_sale_at": null,
-      "price_min": 7880,
-      "price_max": 7880,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "韓國"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://tixcraft.com/activity/detail/26_sojisub",
-      "first_seen_at": "2026-09-22T06:20:34.485Z",
-      "updated_at": "2026-09-23T02:25:20.119Z",
-      "sources": [
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_sojisub",
-          "raw_id": "26_sojisub"
-        }
-      ],
-      "id": "f89689d1941c1b42",
-      "merged_ids": [
-        "f89689d1941c1b42"
       ]
     },
     {
@@ -22576,45 +21790,6 @@
       "id": "ce7f8ee906daf936",
       "merged_ids": [
         "ce7f8ee906daf936"
-      ]
-    },
-    {
-      "title_raw": "2026 HWANG MIN HYUN FANMEETING [PEACH-BLOSSOM] - TAIPEI",
-      "headliners": [
-        "HWANG MIN HYUN"
-      ],
-      "lineup": [
-        "HWANG MIN HYUN"
-      ],
-      "is_festival": false,
-      "venue": "Legacy TERA",
-      "city": "台北",
-      "date": "2026-11-27",
-      "time": null,
-      "on_sale_at": null,
-      "price_min": 4680,
-      "price_max": 5880,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "韓國"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://tixcraft.com/activity/detail/26_minhyun",
-      "first_seen_at": "2026-09-23T08:55:20.865Z",
-      "updated_at": "2026-10-05T02:35:26.490Z",
-      "sources": [
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_minhyun",
-          "raw_id": "26_minhyun"
-        }
-      ],
-      "id": "bc006ab82f6375e9",
-      "merged_ids": [
-        "bc006ab82f6375e9"
       ]
     },
     {
@@ -28551,240 +27726,6 @@
       ]
     },
     {
-      "title_raw": "【JUST YOU & WIN 1ST SOLO FAN MEETING IN TAIPEI】SPECIAL BENEFITS",
-      "headliners": [
-        "JUST YOU & WIN"
-      ],
-      "lineup": [
-        "JUST YOU & WIN"
-      ],
-      "is_festival": false,
-      "venue": "Zepp New Taipei",
-      "city": "新北",
-      "date": "2026-11-01",
-      "time": "15:00",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/695ce01b63bf2a2d5f480785665c033f",
-      "first_seen_at": "2026-09-22T06:16:44.977Z",
-      "updated_at": "2026-10-12T02:35:01.445Z",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/695ce01b63bf2a2d5f480785665c033f",
-          "raw_id": "695ce01b63bf2a2d5f480785665c033f_0f6ac466d0ace4b6754c2fcf395e95fd"
-        }
-      ],
-      "id": "32bb58ad034f716f-day",
-      "merged_ids": [
-        "32bb58ad034f716f-day"
-      ]
-    },
-    {
-      "title_raw": "JUST YOU & WIN 1ST SOLO FAN MEETING IN TAIPEI",
-      "headliners": [
-        "JUST YOU & WIN"
-      ],
-      "lineup": [
-        "JUST YOU & WIN"
-      ],
-      "is_festival": false,
-      "venue": "Zepp New Taipei",
-      "city": "新北",
-      "date": "2026-11-01",
-      "time": "18:30",
-      "on_sale_at": null,
-      "price_min": 1500,
-      "price_max": 8500,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/993e73c01ab8d4c4380cc62bf1f203fe",
-      "first_seen_at": "2026-09-22T06:16:44.979Z",
-      "updated_at": "2026-09-23T02:25:20.119Z",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/993e73c01ab8d4c4380cc62bf1f203fe",
-          "raw_id": "993e73c01ab8d4c4380cc62bf1f203fe_7980d0ede20017bb12e53525cd383037"
-        }
-      ],
-      "id": "32bb58ad034f716f-evening",
-      "merged_ids": [
-        "32bb58ad034f716f-evening"
-      ]
-    },
-    {
-      "title_raw": "2026 GMMTV FANDAY 39 in TAIPEI [AlmondProgress] ",
-      "headliners": [
-        "GMMTV FANDAY"
-      ],
-      "lineup": [
-        "GMMTV FANDAY"
-      ],
-      "is_festival": false,
-      "venue": "Zepp New Taipei",
-      "city": "新北",
-      "date": "2026-10-31",
-      "time": "13:00",
-      "on_sale_at": null,
-      "price_min": 1500,
-      "price_max": 8500,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/a3cb941035a5a7e6898f4000f76bd25c",
-      "first_seen_at": "2026-09-22T06:16:44.980Z",
-      "updated_at": "2026-09-22T06:16:44.980Z",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/a3cb941035a5a7e6898f4000f76bd25c",
-          "raw_id": "a3cb941035a5a7e6898f4000f76bd25c_9205ba0b509d2088e7fcebe376bec4ac"
-        }
-      ],
-      "id": "d1ba33d7c170a804-day",
-      "merged_ids": [
-        "d1ba33d7c170a804-day"
-      ]
-    },
-    {
-      "title_raw": "【2026 GMMTV FANDAY 39 in TAIPEI】SPECIAL BENEFITS[AlmondProgress] ",
-      "headliners": [
-        "GMMTV FANDAY"
-      ],
-      "lineup": [
-        "GMMTV FANDAY"
-      ],
-      "is_festival": false,
-      "venue": "Zepp New Taipei",
-      "city": "新北",
-      "date": "2026-10-31",
-      "time": "09:30",
-      "on_sale_at": null,
-      "price_min": 59,
-      "price_max": 59,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/b445b583e50c97ebdee4cf3b0816c738",
-      "first_seen_at": "2026-10-06T02:15:31.948Z",
-      "updated_at": "2026-10-12T02:35:01.445Z",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/b445b583e50c97ebdee4cf3b0816c738",
-          "raw_id": "b445b583e50c97ebdee4cf3b0816c738_fffd624a3d86482d6508c355d5e07c6d"
-        }
-      ],
-      "id": "d1ba33d7c170a804-day-09:30",
-      "merged_ids": [
-        "d1ba33d7c170a804-day-09:30"
-      ]
-    },
-    {
-      "title_raw": "【2026 GMMTV FANDAY 39 in TAIPEI】SPECIAL BENEFITS[SkyNani] ",
-      "headliners": [
-        "GMMTV FANDAY"
-      ],
-      "lineup": [
-        "GMMTV FANDAY"
-      ],
-      "is_festival": false,
-      "venue": "Zepp New Taipei",
-      "city": "新北",
-      "date": "2026-10-31",
-      "time": "16:00",
-      "on_sale_at": null,
-      "price_min": 59,
-      "price_max": 59,
-      "status": "sold_out",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/b445b583e50c97ebdee4cf3b0816c738",
-      "first_seen_at": "2026-10-06T02:15:31.948Z",
-      "updated_at": "2026-10-12T02:35:01.445Z",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/b445b583e50c97ebdee4cf3b0816c738",
-          "raw_id": "b445b583e50c97ebdee4cf3b0816c738_02e025d09bb116b77ce572860f9313dc"
-        }
-      ],
-      "id": "d1ba33d7c170a804-day-16:00",
-      "merged_ids": [
-        "d1ba33d7c170a804-day-16:00"
-      ]
-    },
-    {
-      "title_raw": "2026 GMMTV FANDAY 39 in TAIPEI [SkyNani]",
-      "headliners": [
-        "GMMTV FANDAY"
-      ],
-      "lineup": [
-        "GMMTV FANDAY"
-      ],
-      "is_festival": false,
-      "venue": "Zepp New Taipei",
-      "city": "新北",
-      "date": "2026-10-31",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 1500,
-      "price_max": 8500,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/a3cb941035a5a7e6898f4000f76bd25c",
-      "first_seen_at": "2026-09-22T06:16:44.980Z",
-      "updated_at": "2026-09-22T06:16:44.980Z",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/a3cb941035a5a7e6898f4000f76bd25c",
-          "raw_id": "a3cb941035a5a7e6898f4000f76bd25c_702ba9c9a679f25b1e2e6e3293797967"
-        }
-      ],
-      "id": "d1ba33d7c170a804-evening",
-      "merged_ids": [
-        "d1ba33d7c170a804-evening"
-      ]
-    },
-    {
       "title_raw": "YOASOBI ASIA 10-CITY DOME & STADIUM TOUR 2026-2027 超惑星 “SUPER PLANET” IN TAIPEI（01/09場次）",
       "headliners": [
         "YOASOBI"
@@ -32614,45 +31555,6 @@
       ]
     },
     {
-      "title_raw": "Charlotte Here With You Fan Meeting in Taipei",
-      "headliners": [
-        "Charlotte Austin"
-      ],
-      "lineup": [
-        "Charlotte Austin"
-      ],
-      "is_festival": false,
-      "venue": "新店圓頂劇場",
-      "city": "新北",
-      "date": "2026-11-14",
-      "time": "15:30",
-      "on_sale_at": null,
-      "price_min": 4200,
-      "price_max": 8000,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39972",
-      "sources": [
-        {
-          "name": "ibon",
-          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39972",
-          "raw_id": "39972_202611141530"
-        }
-      ],
-      "first_seen_at": "2026-10-01T02:22:48.566Z",
-      "updated_at": "2026-10-05T02:35:26.490Z",
-      "id": "f14638e92cffe1ea",
-      "merged_ids": [
-        "f14638e92cffe1ea"
-      ]
-    },
-    {
       "title_raw": "2026 OPEN！ DREAM WORLD 夢想音樂節",
       "headliners": [
         "OPEN！DREAM WORLD 夢想音樂節"
@@ -32893,45 +31795,6 @@
       ]
     },
     {
-      "title_raw": "PAYBACK Fan Meeting in Taipei",
-      "headliners": [
-        "PAYBACK"
-      ],
-      "lineup": [
-        "PAYBACK"
-      ],
-      "is_festival": false,
-      "venue": "台大綜合體育館一樓",
-      "city": "台北",
-      "date": "2026-10-31",
-      "time": "16:00",
-      "on_sale_at": null,
-      "price_min": 3140,
-      "price_max": 8980,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39942",
-      "sources": [
-        {
-          "name": "ibon",
-          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39942",
-          "raw_id": "39942_202610311600"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:21:24.448Z",
-      "updated_at": "2026-09-29T06:23:50.497Z",
-      "id": "952db51bf01b7aa3",
-      "merged_ids": [
-        "952db51bf01b7aa3"
-      ]
-    },
-    {
       "title_raw": "《流光穿梭 十年傳說》傳說十週年演唱會",
       "headliners": [
         "流光穿梭"
@@ -32968,84 +31831,6 @@
       "id": "3807206fe1c10d54",
       "merged_ids": [
         "3807206fe1c10d54"
-      ]
-    },
-    {
-      "title_raw": "藤本洸大粉絲見面會 in 臺北",
-      "headliners": [
-        "藤本洸大"
-      ],
-      "lineup": [
-        "藤本洸大"
-      ],
-      "is_festival": false,
-      "venue": "花漾展演空間–HANASPACE",
-      "city": "台北",
-      "date": "2026-12-06",
-      "time": "12:00",
-      "on_sale_at": null,
-      "price_min": 5000,
-      "price_max": 5000,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39907",
-      "sources": [
-        {
-          "name": "ibon",
-          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39907",
-          "raw_id": "39907_202612061200"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:21:24.449Z",
-      "updated_at": "2026-09-29T06:23:50.498Z",
-      "id": "e926598c3b6685ee-day",
-      "merged_ids": [
-        "e926598c3b6685ee-day"
-      ]
-    },
-    {
-      "title_raw": "藤本洸大粉絲見面會 in 臺北",
-      "headliners": [
-        "藤本洸大"
-      ],
-      "lineup": [
-        "藤本洸大"
-      ],
-      "is_festival": false,
-      "venue": "花漾展演空間–HANASPACE",
-      "city": "台北",
-      "date": "2026-12-06",
-      "time": "17:00",
-      "on_sale_at": null,
-      "price_min": 5000,
-      "price_max": 5000,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39907",
-      "sources": [
-        {
-          "name": "ibon",
-          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39907",
-          "raw_id": "39907_202612061700"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:21:24.449Z",
-      "updated_at": "2026-09-29T06:23:50.498Z",
-      "id": "e926598c3b6685ee-evening",
-      "merged_ids": [
-        "e926598c3b6685ee-evening"
       ]
     },
     {
@@ -33127,84 +31912,6 @@
       ]
     },
     {
-      "title_raw": "Ayasa 首次臺北粉絲見面會",
-      "headliners": [
-        "Ayasa"
-      ],
-      "lineup": [
-        "Ayasa"
-      ],
-      "is_festival": false,
-      "venue": "MOONDOG",
-      "city": "台北",
-      "date": "2026-10-31",
-      "time": "13:00",
-      "on_sale_at": null,
-      "price_min": 3980,
-      "price_max": 3980,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39899",
-      "sources": [
-        {
-          "name": "ibon",
-          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39899",
-          "raw_id": "39899_202610311300"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:21:24.450Z",
-      "updated_at": "2026-09-29T06:23:50.498Z",
-      "id": "b57d52a2230f654d-day",
-      "merged_ids": [
-        "b57d52a2230f654d-day"
-      ]
-    },
-    {
-      "title_raw": "Ayasa 首次臺北粉絲見面會",
-      "headliners": [
-        "Ayasa"
-      ],
-      "lineup": [
-        "Ayasa"
-      ],
-      "is_festival": false,
-      "venue": "MOONDOG",
-      "city": "台北",
-      "date": "2026-10-31",
-      "time": "18:00",
-      "on_sale_at": null,
-      "price_min": 3980,
-      "price_max": 3980,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "日本"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39899",
-      "sources": [
-        {
-          "name": "ibon",
-          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39899",
-          "raw_id": "39899_202610311800"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:21:24.451Z",
-      "updated_at": "2026-09-29T06:23:50.498Z",
-      "id": "b57d52a2230f654d-evening",
-      "merged_ids": [
-        "b57d52a2230f654d-evening"
-      ]
-    },
-    {
       "title_raw": "魔獸世界 World of Warcraft：20 Years of Music",
       "headliners": [
         "魔獸世界"
@@ -33241,45 +31948,6 @@
       "id": "13e1b9438f660a8c",
       "merged_ids": [
         "13e1b9438f660a8c"
-      ]
-    },
-    {
-      "title_raw": "LenaMiu Love Meets You Fan Meeting in Taipei",
-      "headliners": [
-        "LenaMiu"
-      ],
-      "lineup": [
-        "LenaMiu"
-      ],
-      "is_festival": false,
-      "venue": "Legacy TERA",
-      "city": "台北",
-      "date": "2026-10-23",
-      "time": "16:30",
-      "on_sale_at": null,
-      "price_min": 5425,
-      "price_max": 8625,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39878",
-      "sources": [
-        {
-          "name": "ibon",
-          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/39878",
-          "raw_id": "39878_202610231630"
-        }
-      ],
-      "first_seen_at": "2026-09-29T03:21:24.451Z",
-      "updated_at": "2026-09-29T06:23:50.499Z",
-      "id": "e04dc165d12d0c6d",
-      "merged_ids": [
-        "e04dc165d12d0c6d"
       ]
     },
     {
@@ -36134,45 +34802,6 @@
       "id": "da2c76c498964c18",
       "merged_ids": [
         "da2c76c498964c18"
-      ]
-    },
-    {
-      "title_raw": "2026 MieAyaMyyuChanya 1st Fan Meeting in Taipei",
-      "headliners": [
-        "MieAyaMyyuChanya"
-      ],
-      "lineup": [
-        "MieAyaMyyuChanya"
-      ],
-      "is_festival": false,
-      "venue": "台北WESTAR",
-      "city": "台北",
-      "date": "2026-12-05",
-      "time": "17:00",
-      "on_sale_at": null,
-      "price_min": 3299,
-      "price_max": 6799,
-      "status": "on_sale",
-      "tags_type": [
-        "見面會"
-      ],
-      "tags_origin": [
-        "亞洲其他"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1G9ESVP",
-      "sources": [
-        {
-          "name": "年代",
-          "url": "https://ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1G9ESVP",
-          "raw_id": "P1G9ESVP_202612051700"
-        }
-      ],
-      "first_seen_at": "2026-10-05T02:20:13.884Z",
-      "updated_at": "2026-10-05T02:51:05.980Z",
-      "id": "3d10fa927a21b1ef",
-      "merged_ids": [
-        "3d10fa927a21b1ef"
       ]
     },
     {

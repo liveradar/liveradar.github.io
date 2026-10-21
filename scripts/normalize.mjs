@@ -73,12 +73,6 @@ const TYPE_KEYWORDS = [
   ["stand-up", "喜劇"],
   ["comedy", "喜劇"],
   ["des bishop", "喜劇"],
-  ["見面會", "見面會"],
-  ["FANDAY", "見面會"], // English equivalent (GMMTV FANDAY)
-  ["FAN MEETING", "見面會"], // real case: 伊波杏樹 ASIA FAN MEETING TOUR used to land on 巡迴
-  ["FANMEETING", "見面會"],
-  ["FANMEET", "見面會"],
-  ["簽唱會", "簽唱會"],
   ["音樂劇", "音樂劇"],
   // 2026-10-01 (Max chose option A): 巡迴/Tour no longer map to a type of
   // their own. A tour stop is still one artist's show (or a shared bill), so
@@ -366,15 +360,22 @@ export function parseTicketPlusDate(dateRaw) {
   return { date: `${y}-${mo}-${d}`, time: timeMatch?.[1] ?? null };
 }
 
+// 2026-10-21 (Max): a "feat." credit (a secondary collaborator named in the
+// title) still counts as the main act's own 專場, not a shared-bill 拼盤 —
+// only an explicit multi-way join (e.g. "A x B Asia Tour") implies a shared
+// bill. headlinerCount alone can't tell those apart since matchArtists finds
+// both names either way, so the title text itself decides.
+const FEATURING_RE = /\bfeat\.?\b|\bft\.?\b/i;
+
 export function guessTagsType(titleRaw, headlinerCount) {
   // Case-insensitive for the same reason as findNameIndex above — an
-  // all-caps "ASIA FAN MEETING" title must still hit the same entry as a
-  // differently-cased one.
+  // all-caps title must still hit the same entry as a differently-cased one.
   const lowerTitle = titleRaw.toLowerCase();
   for (const [kw, tag] of TYPE_KEYWORDS) {
     if (lowerTitle.includes(kw.toLowerCase())) return [tag];
   }
-  return headlinerCount > 1 ? ["拼盤"] : ["專場"];
+  if (headlinerCount > 1 && !FEATURING_RE.test(titleRaw)) return ["拼盤"];
+  return ["專場"];
 }
 
 function priceFromTickets(ticketsRaw) {
@@ -876,6 +877,17 @@ function isNonMusicNoise(titleRaw) {
   return NOISE_KEYWORDS.some((kw) => lower.includes(kw.toLowerCase()));
 }
 
+// 2026-10-21 (Max): 見面會/簽唱會 are no longer collected at all, musician or
+// not — previously their own tags_type, now excluded outright same shape as
+// isClassical above.
+const MEET_AND_GREET_KEYWORDS = [
+  "見面會", "FANDAY", "FAN MEETING", "FANMEETING", "FANMEET", "簽唱會",
+];
+function isMeetAndGreet(titleRaw) {
+  const lower = titleRaw.toLowerCase();
+  return MEET_AND_GREET_KEYWORDS.some((kw) => lower.includes(kw.toLowerCase()));
+}
+
 // 2026-09-22 (KKTIX's new sitewide category-browse strategy, see kktix.mjs's
 // Strategy 3): once discovery isn't scoped to a known-Taiwan org/venue list
 // anymore, a real fraction of what turns up is the SAME artist's Hong Kong/
@@ -1096,6 +1108,7 @@ export function exclusionReason(rawEvent) {
   if (isJunkTitle(rawEvent.title_raw ?? "")) return "junk_title";
   if (isNonMusicNoise(rawEvent.title_raw ?? "")) return "non_music_noise";
   if (isClassical(rawEvent.title_raw ?? "")) return "classical";
+  if (isMeetAndGreet(rawEvent.title_raw ?? "")) return "meet_and_greet";
   if (isPlatformOwnDemoEvent(rawEvent.url)) return "platform_demo_content";
   if (isExcludedAccount(rawEvent.url)) return "excluded_account";
   if (isManuallyExcludedUrl(rawEvent.url)) return "manual_exclude";

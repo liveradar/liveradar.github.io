@@ -648,15 +648,6 @@
       "reason": "non_music_noise",
       "checked_at": "2026-10-21T02:28:26.639Z"
     },
-    "KKTIX|hwangminhyun-macau-2026": {
-      "source": "KKTIX",
-      "raw_id": "hwangminhyun-macau-2026",
-      "title_raw": "2026 HWANG MIN HYUN FANMEETING [PEACH-BLOSSOM] - MACAU",
-      "url": "https://168production.kktix.cc/events/hwangminhyun-macau-2026",
-      "venue_raw": "澳門上葡京綜藝館 / The Grand Hall, Grand Lisboa Palace Resort Macau",
-      "reason": "outside_taiwan",
-      "checked_at": "2026-10-20T02:32:37.513Z"
-    },
     "KKTIX|ito-miku-39rpm-hk": {
       "source": "KKTIX",
       "raw_id": "ito-miku-39rpm-hk",
@@ -675,15 +666,6 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-10-15T02:34:35.782Z"
     },
-    "KKTIX|joongdunk-fm-2026-hk": {
-      "source": "KKTIX",
-      "raw_id": "joongdunk-fm-2026-hk",
-      "title_raw": "JOONGDUNK FANMEETING in HONGKONG with Jaidee",
-      "url": "https://meetopiaculture.kktix.cc/events/joongdunk-fm-2026-hk",
-      "venue_raw": "荃灣西如心酒店",
-      "reason": "outside_taiwan",
-      "checked_at": "2026-10-19T08:23:21.222Z"
-    },
     "KKTIX|joyce2026": {
       "source": "KKTIX",
       "raw_id": "joyce2026",
@@ -692,15 +674,6 @@
       "venue_raw": "PORTAL / 1/F, The Burrow, 212 Choi Hung Road",
       "reason": "outside_taiwan",
       "checked_at": "2026-10-20T02:32:37.513Z"
-    },
-    "KKTIX|kimsowon-hk-2027-0116": {
-      "source": "KKTIX",
-      "raw_id": "kimsowon-hk-2027-0116",
-      "title_raw": "2027 KIM SO WON FANMEETING [WISHMATE] IN HONGKONG",
-      "url": "https://legendent.kktix.cc/events/kimsowon-hk-2027-0116",
-      "venue_raw": "PORTAL / 1/F, The Burrow, 212 Choi Hung Road",
-      "reason": "outside_taiwan",
-      "checked_at": "2026-10-17T02:28:48.717Z"
     },
     "KKTIX|luxurycarcare": {
       "source": "KKTIX",
@@ -764,15 +737,6 @@
       "venue_raw": "AXA安盛創夢館 / AXA Dreamland",
       "reason": "outside_taiwan",
       "checked_at": "2026-10-16T02:30:02.095Z"
-    },
-    "KKTIX|ok-taecyeon-fm-mo-2026": {
-      "source": "KKTIX",
-      "raw_id": "ok-taecyeon-fm-mo-2026",
-      "title_raw": "2026 OK TAECYEON FANMEETING IN MACAU TodaY",
-      "url": "https://loomi.kktix.cc/events/ok-taecyeon-fm-mo-2026",
-      "venue_raw": "澳門上葡京綜藝館 / The Grand Hall, Grand Lisboa Palace Resort Macau",
-      "reason": "outside_taiwan",
-      "checked_at": "2026-10-20T02:32:37.523Z"
     },
     "KKTIX|paul-gilbert-woc-2026-sz": {
       "source": "KKTIX",
