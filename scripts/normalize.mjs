@@ -863,6 +863,7 @@ const CLASSICAL_KEYWORDS = [
   "古典", // 古典吉他、《古典・當代・跨界》… (title says it)
   "獨奏", "鋼琴演奏會", "雙鋼琴", "室內樂", "室內合唱團", "絲竹", "胡琴", "口琴樂團", "管弦樂團", "管絃樂團", "次女高音", "美聲系列", "合唱音樂會", "木樓合唱團", "魯特琴",
   "心動莎翁", // 台中室內合唱團的合唱音樂會（標題沒有合唱字樣）
+  "夢想啟程，跨越世代，共鳴未來", // 《與世界連結》：木樓合唱團/夢響樂藝術合唱團策劃的合唱音樂會，標題沒有合唱字樣或團名（Max 2026-10-21 貼出售票頁介紹文字查證）
 ];
 function isClassical(titleRaw) {
   return CLASSICAL_KEYWORDS.some((kw) => titleRaw.includes(kw)) && !CLASSICAL_CROSSOVER_RE.test(titleRaw);
