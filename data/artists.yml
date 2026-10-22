@@ -2484,3 +2484,12 @@
 - canonical: ana
   aliases: []
   tags_origin_default: 本地  # 2026-10-22 WebFetch 查證（同上活動頁）：頁面明載「ana 則現居女巫店附近」，現居台北，歸本地
+- canonical: THEΔRAREz
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-22 WebSearch 查證（Max 指出，重搜確認）：台灣地下創作型偶像團體，2024/7/6出道，歸本地
+- canonical: 蕉蕉Ruka Banana
+  aliases: ["Ruka Banana"]
+  tags_origin_default: 本地  # 2026-10-22 WebSearch 查證（Max 指出）：台灣地下偶像人氣歌手，歸本地
+- canonical: 存在証明NO FACE NO REaLiTY
+  aliases: ["存在証明 NO FACE NO REaLiTY", "存證", "NFNR"]
+  tags_origin_default: 本地  # 2026-10-22 WebSearch 查證（Max 指出）：來自台灣南部的日系搖滾/金屬風格女子偶像團體，歸本地

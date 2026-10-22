@@ -22456,39 +22456,6 @@
       ]
     },
     {
-      "title_raw": "2026新竹市立棒球場50週年交流賽《COMEBACK竹風再起》",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "新竹市立棒球場",
-      "city": "新竹",
-      "date": "2026-11-01",
-      "time": null,
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://tixcraft.com/activity/detail/26_comeback",
-      "sources": [
-        {
-          "name": "拓元",
-          "url": "https://tixcraft.com/activity/detail/26_comeback",
-          "raw_id": "26_comeback"
-        }
-      ],
-      "first_seen_at": "2026-10-22T02:17:46.473Z",
-      "updated_at": "2026-10-22T02:38:27.574Z",
-      "id": "10768efb699d8ba4",
-      "merged_ids": [
-        "10768efb699d8ba4"
-      ]
-    },
-    {
       "title_raw": "A_Root同根生十週年臺灣小巡演《神遊〉高雄場",
       "headliners": [
         "A_Root同根生"
@@ -25191,8 +25158,12 @@
     },
     {
       "title_raw": "❮  D.N.Δ  ❯ SPIN-UP：HEARTBEAT_THEΔRAREz 1st ALBUM WORLD TOUR",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "THEΔRAREz"
+      ],
+      "lineup": [
+        "THEΔRAREz"
+      ],
       "is_festival": false,
       "venue": "LIVE WAREHOUSE 小庫",
       "city": "高雄",
@@ -25205,7 +25176,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv0420868",
       "sources": [
@@ -25216,7 +25189,7 @@
         }
       ],
       "first_seen_at": "2026-10-15T02:18:23.876Z",
-      "updated_at": "2026-10-15T02:18:23.876Z",
+      "updated_at": "2026-10-22T02:57:23.789Z",
       "id": "56492bc357bd8d6a",
       "merged_ids": [
         "56492bc357bd8d6a"

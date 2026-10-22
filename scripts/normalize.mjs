@@ -978,7 +978,13 @@ function isPlatformOwnDemoEvent(url) {
 // these listings' titles are generic ("粉絲互動卡預購 (11/7)") and a
 // NOISE_KEYWORDS match on that phrase would also catch unrelated artists'
 // legitimate fan-card presales.
-const MANUALLY_EXCLUDED_URLS = new Set(["https://ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24"]);
+// 2026-10-22: 新竹市立棒球場50週年交流賽《COMEBACK竹風再起》 — 棒球交流賽
+// （邀日本栃木金色勇士、韓國尚武鳳凰等球隊），開幕日雖有謝金燕、少女時代
+// 孝淵演出，但主體是體育賽事不是演唱會，Max 確認不需要收錄。
+const MANUALLY_EXCLUDED_URLS = new Set([
+  "https://ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24",
+  "https://tixcraft.com/activity/detail/26_comeback",
+]);
 function isManuallyExcludedUrl(url) {
   return MANUALLY_EXCLUDED_URLS.has(url ?? "");
 }
