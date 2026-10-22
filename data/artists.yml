@@ -2460,3 +2460,27 @@
 - canonical: angela
   aliases: []
   tags_origin_default: 日本  # 2026-10-21 WebSearch 查證（gnn.gamer.com.tw、nownews.com多篇報導）：日本動漫歌曲組合angela「All About StarChild?!」12/6 Zepp New Taipei場，歸日本
+- canonical: 音契
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-22 WebFetch 查證（yinqi.kktix.cc）：主辦單位為「財團法人音契文化藝術基金會」，旗下音契合唱管絃樂團/室內合唱團/青少兒童合唱團，演出地點浸信會懷恩堂（台北），歸本地
+- canonical: JUNG DAE HYUN
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-22 WebSearch 查證（Wikipedia/generasia）：정대현，前B.A.P主唱，2019年起以個人名義發片，韓籍經紀公司（STX Lionheart/MA Entertainment），歸韓國
+- canonical: 聲聲不息
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-22 WebFetch 查證（indievox.com活動頁）：標題無個別演出者名，查到演出者為Morning Star（上班族組成翻唱樂團）與Monkey Banana（來自台中的民謠樂團），均為台灣團，比照系列企劃名規則登記品牌名「聲聲不息」，歸本地
+- canonical: 林麗謙
+  aliases: ["Eiva 林麗謙", "Eiva"]
+  tags_origin_default: 本地  # 2026-10-22 WebFetch 查證（ticketplus.com.tw活動頁）：台灣民謠創作歌手，於台北女巫店演出個人民謠音樂會，歸本地
+- canonical: 日京江羽人
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-22 WebFetch 查證（ticketplus.com.tw活動頁「TAIPEI & TOKYO 日京江羽人 X Mao Nakatsu」）：頁面明載「以台北為據點」，單人樂團型態演出者，歸本地
+- canonical: Mao Nakatsu
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-22 WebFetch 查證（同上活動頁）：頁面明載「出身於鹿兒島縣」的創作歌手，2022年發行首張專輯《room》，歸日本
+- canonical: aiko
+  aliases: []
+  tags_origin_default: 歐美  # 2026-10-22 WebFetch+WebSearch 查證（ticketplus.com.tw活動頁「Double A Battery・aiko x ana」+ Complex Canada 專訪）：此「aiko」為「aiko tomi／富愛子」，多倫多另類流行歌手，非日本知名歌手aiko同名撞名——此事件在台北女巫店小型售票（預售500元），與主流aiko巡演規模不符，已交叉比對頁面文字「aiko tomi（富愛子），是現居多倫多」確認非同一人，歸歐美
+- canonical: ana
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-22 WebFetch 查證（同上活動頁）：頁面明載「ana 則現居女巫店附近」，現居台北，歸本地
