@@ -1,35 +1,20 @@
 {
-  "generated_at": "2026-10-22T02:29:13.629Z",
+  "generated_at": "2026-10-23T04:04:33.547Z",
   "added_ids": [
-    "d37eff92a5c827ec",
-    "6cecee00755eedb2",
-    "3525fb87cb6028c0",
-    "7b24e5bb7e088920",
-    "4a2f51e8b5ecf2e7",
-    "82597791ff00239a",
-    "10768efb699d8ba4",
-    "dc02d982af8e3654",
-    "f18483abd4ce2d66"
+    "a02064a20cc7ccee",
+    "30d2e90747345db8",
+    "65bc4235f1ced468",
+    "c6e0d286a9168c0d",
+    "fbe34bcaad1ef6d7",
+    "be4ac0e698d6ff97",
+    "a64128d0924560ad",
+    "27784762823d5eb4",
+    "f3599f272506b001",
+    "6b88959a2c3a4901",
+    "c66e36b73f86670e",
+    "8172b422581b0815"
   ],
   "updated": [
-    {
-      "id": "112e8ac403bbfe12",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "2ba3fbae76cee231",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "a83da7631eb43340",
-      "fields": [
-        "price_max"
-      ]
-    },
     {
       "id": "fbd102b092c16616",
       "fields": [
@@ -38,9 +23,17 @@
       ]
     },
     {
-      "id": "0b37cab3da3987e4",
+      "id": "adbbf5cde39c2276",
       "fields": [
         "status"
+      ]
+    },
+    {
+      "id": "148261d65f8fab7a",
+      "fields": [
+        "status",
+        "price_min",
+        "price_max"
       ]
     },
     {
@@ -56,38 +49,60 @@
       ]
     },
     {
-      "id": "59dedf99574a77d6",
+      "id": "fd8b32ebc7e0b234",
+      "fields": [
+        "price_min"
+      ]
+    },
+    {
+      "id": "c840a186725805a0",
+      "fields": [
+        "date",
+        "status",
+        "price_min",
+        "price_max"
+      ]
+    },
+    {
+      "id": "4b2ea3ea27f3b03a",
+      "fields": [
+        "date",
+        "status",
+        "price_min",
+        "price_max"
+      ]
+    },
+    {
+      "id": "c4980bda1454a9c9",
       "fields": [
         "price_max"
       ]
     },
     {
-      "id": "95938682d5df3fb8",
+      "id": "bc149989f04256f5",
       "fields": [
+        "date",
+        "status",
+        "price_min",
         "price_max"
       ]
     },
     {
-      "id": "f5ae9d0e83e56344",
+      "id": "3381954e96a45138",
       "fields": [
         "status",
         "price_min"
       ]
     },
     {
-      "id": "fbbca5aba1de10b9",
+      "id": "6c5cb782252af3f6",
       "fields": [
-        "price_min"
+        "status",
+        "on_sale_at"
       ]
     },
     {
-      "id": "fd8b32ebc7e0b234",
-      "fields": [
-        "price_max"
-      ]
-    },
-    {
-      "id": "36291a3efcc24260",
+      "id": "471cf22f31aa447c",
       "fields": [
         "status",
         "price_min",
@@ -95,76 +110,40 @@
       ]
     },
     {
-      "id": "adbbf5cde39c2276",
+      "id": "2256a18a2251e7e7",
       "fields": [
         "status",
         "on_sale_at"
       ]
     },
     {
-      "id": "bb141e410ca4def4",
+      "id": "78653ad954ede005",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "dc02d982af8e3654",
       "fields": [
         "status",
         "on_sale_at"
       ]
     },
     {
-      "id": "d7aa3ca2a811711e",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "fa4a756342c3be6d",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "39c9802e4a957e6f",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "a0c6f1b0d05a3db9",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "b2572adc285c0aeb",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "599e88cf0128beeb-day",
-      "fields": [
-        "time"
-      ]
-    },
-    {
-      "id": "599e88cf0128beeb-evening",
-      "fields": [
-        "time"
-      ]
-    },
-    {
-      "id": "2e51623c598e5d97",
+      "id": "f18483abd4ce2d66",
       "fields": [
         "status",
         "on_sale_at"
       ]
     },
     {
-      "id": "7321d52af60813a3",
+      "id": "ac29eda2fedd4557",
       "fields": [
         "status"
       ]
     },
     {
-      "id": "d6221f7b8a042277",
+      "id": "0a8f5a6c00f1805c",
       "fields": [
         "status"
       ]

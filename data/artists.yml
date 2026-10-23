@@ -2493,3 +2493,18 @@
 - canonical: 存在証明NO FACE NO REaLiTY
   aliases: ["存在証明 NO FACE NO REaLiTY", "存證", "NFNR"]
   tags_origin_default: 本地  # 2026-10-22 WebSearch 查證（Max 指出）：來自台灣南部的日系搖滾/金屬風格女子偶像團體，歸本地
+- canonical: Taipei After Dark to Dawn
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-23 WebFetch 查證（kktix活動頁 chuan-liu66.kktix.cc/events/taipeiafterdarktodawn）：川流音樂娛樂主辦的多DJ/live深夜派對（BAR 24 Taipei），比照派對類一律本地規則，品牌名登記為canonical
+- canonical: 帕洛特
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-23 WebFetch 查證（kktix活動頁 parotobluedogoo.kktix.cc/events/cf90e692）：頁面明載「台灣知名毛毛歌手－藍色黃金獵犬帕洛特」，Vocaloid翻唱歌手，歸本地
+- canonical: 淺堤
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-23 WebSearch 查證：高雄發跡的台灣獨立搖滾樂團，成軍約十年，歸本地
+- canonical: GHETTO COMBO
+  aliases: ["GHETTO COMBO - 街頭連擊"]
+  tags_origin_default: 本地  # 2026-10-23 WebFetch 查證（fansi活動頁 go.fansi.me/events/100134）：PIPE Live Music多DJ派對，頁面自稱「our favorite LOCAL freaks」，比照派對類一律本地規則，品牌名登記為canonical
+- canonical: K-WONDER
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-23 WebSearch 查證：SHOW Office Entertainment主辦的韓流拼盤演唱會系列，本場（TRIANGLE IN KAOHSIUNG）演出者MISAMO、少女時代孝淵/秀英/潤娥（HRS）、VIVIZ前成員皆為韓國藝人，比照「國外品牌音樂節全員同國」例外歸韓國（此例是演唱會系列非音樂節，命名方式與既有案例不完全相同，列入需確認）
