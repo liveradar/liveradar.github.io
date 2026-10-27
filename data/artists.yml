@@ -2507,4 +2507,40 @@
   tags_origin_default: 本地  # 2026-10-23 WebFetch 查證（fansi活動頁 go.fansi.me/events/100134）：PIPE Live Music多DJ派對，頁面自稱「our favorite LOCAL freaks」，比照派對類一律本地規則，品牌名登記為canonical
 - canonical: K-WONDER
   aliases: []
-  tags_origin_default: 韓國  # 2026-10-23 WebSearch 查證：SHOW Office Entertainment主辦的韓流拼盤演唱會系列，本場（TRIANGLE IN KAOHSIUNG）演出者MISAMO、少女時代孝淵/秀英/潤娥（HRS）、VIVIZ前成員皆為韓國藝人，比照「國外品牌音樂節全員同國」例外歸韓國（此例是演唱會系列非音樂節，命名方式與既有案例不完全相同，列入需確認）
+  tags_origin_default: 韓國  # 2026-10-23 WebSearch 查證：SHOW Office Entertainment主辦的韓流拼盤演唱會系列，本場（TRIANGLE IN KAOHSIUNG）演出者MISAMO、少女時代孝淵/秀英/潤娥（HRS）、VIVIZ前成員皆為韓國藝人，比照「國外品牌音樂節全員同國」例外歸韓國；Max 2026-10-23 確認此例外規則也適用於拼盤演唱會系列（不限於字面上的「音樂節」），歸韓國
+- canonical: 吳志寧
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-27 WebSearch 查證：台灣獨立音樂人，民謠搖滾樂團929主唱，父親為詩人吳晟，歸本地
+- canonical: AcQUA
+  aliases: ["AcQUA源少年"]
+  tags_origin_default: 本地  # 2026-10-27 WebSearch 查證：台灣男子團體AcQUA源少年，透過《原子少年》選拔節目出道，粉絲名「海星」，歸本地
+- canonical: 草蜢
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-10-27 WebSearch 查證：香港粵語流行組合，40周年《THREE IN LOVE》巡演場次在香港紅館舉行，歸亞洲其他（港澳）
+- canonical: Wata Igarashi
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-27 WebSearch 查證（DJ Mag等多篇專訪）：日本Techno DJ/製作人，長年居東京（近期因巡演移居阿姆斯特丹），此場活動標題明載「with Wata Igarashi」為單一受邀主角，歸日本——與「派對一律本地」規則有衝突，見報告「需Max確認」
+- canonical: UAU
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-27 WebSearch 查證：韓國女團Dreamcatcher首個分隊，2025年出道（JiU、SuA、Yoohyeon），歸韓國
+- canonical: BEATASANA
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-27 WebFetch 查證（kktix活動頁 moondog.kktix.cc/events/beatasana02）：MOONDOG台北主辦的電音瑜伽派對系列（DJ Brianhaha、Daniel等多位DJ輪替），比照派對類一律本地規則，品牌名登記為canonical
+- canonical: Disturbed
+  aliases: []
+  tags_origin_default: 歐美  # 2026-10-27 WebSearch 查證：美國重金屬樂團，歸歐美
+- canonical: 鬼灯翠
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-27 WebFetch 查證（indievox活動頁 26_iv0426486）：生誕祭於高雄LIVE WAREHOUSE小庫舉行，同場演出者含琉璃花RURIKA（已查證為台灣日系地下偶像團，見本檔案該條目），同屬台灣日系地下偶像圈，歸本地
+- canonical: The Cheers Cheers
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-10-27 WebFetch 查證（indievox活動頁 26_iv042745c）：頁面明載「來自鎮江的The Cheers Cheers」，中國江蘇樂團，歸亞洲其他
+- canonical: 古Ali
+  aliases: ["Ali Ku"]
+  tags_origin_default: 本地  # 2026-10-27 WebFetch 查證（ticketplus活動頁）：台北女巫店個人創作演出，無跨國巡演或海外團隊線索，歸本地
+- canonical: 趣玩樂囉
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-27 WebFetch 查證（opentix活動頁）：桃園交響管樂團之音樂會，標題無具名藝人，比照「XX之夜」企劃名稱登記法，品牌名登記為canonical，歸本地
+- canonical: 聽瓊瑤的故事
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-27 WebSearch 查證：台北中山堂場次，查無具名演出者名單；比對2023年同主題瓊瑤作品演唱會（台北小巨蛋）陣容以台灣歌手（殷正洋、潘越雲、李翊君、動力火車）為主，無強烈海外線索，歸本地；標題無具名藝人，比照「XX之夜」企劃名稱登記法，品牌名登記為canonical
