@@ -837,6 +837,7 @@ const NOISE_KEYWORDS = [
   "請勿下單", "帳號設定費", "代禱", "心智圖", "免費課程", "付費課程", "補助課程",
   "企業說明會", "志工熱烈招募", "形象照", "主日崇拜", "攝影展", "敏捷思維", "敏捷大賞",
   "公益講座", "身心靈", "辯論比賽", "水果批發", "咖啡豆品嘗",
+  "攝影工作坊", // 2026-10-27: 陽明交大「心光顯影所」攝影工作坊 (not "工作坊" alone — 表演工作坊 is a theatre company)
   // 2026-10-12: Max confirmed "PRD Taipei Regional" is a trading-card-game
   // tournament, not a performance (KKTIX untagged listing).
   "prd taipei regional",
