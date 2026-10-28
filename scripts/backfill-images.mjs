@@ -9,19 +9,19 @@
  * Per-source strategy:
  * - tixcraft: listing page img (detail pages 401 without a browser)
  * - Ticket Plus: mainEvents.json picBigBanner (SPA, no og:image)
+ * - 寬宏/年代 (kham.com.tw/ticket.com.tw, same underlying utiki.com.tw
+ *   platform): see erakhamImage() below — real case.
  * - everything else: og:image on the ticket page (property= or name=)
- * ponytail: 寬宏/年代 have no image in plain HTML — they stay on the placeholder.
  */
 import { readFile, writeFile } from "node:fs/promises";
 
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36";
 const IMAGES_PATH = new URL("../data/images.json", import.meta.url);
 const EVENTS_PATH = new URL("../data/events.json", import.meta.url);
-const SKIP_HOSTS = /kham\.com\.tw|ticket\.com\.tw/;
 // Site-wide default og:images (organizer didn't upload one) — not a real cover.
 const GENERIC_IMAGE = /kktix-og-image/;
 
-async function get(url, referer) {
+async function getOnce(url, referer) {
   const res = await fetch(url, {
     headers: { "User-Agent": UA, "Accept-Language": "zh-TW,zh;q=0.9", ...(referer && { Referer: referer }) },
     signal: AbortSignal.timeout(20000),
@@ -30,10 +30,43 @@ async function get(url, referer) {
   return res;
 }
 
+// 2026-10-28 real bug (Max 回報, 2026 FREEDOM NOW 台灣場): a transient
+// fetch error (one bad request out of hundreds) got caught, logged, and then
+// silently recorded as `images[e.id] = null` same as a genuine "no cover
+// found" — and since null is never retried (see the comment at its
+// call site below), one network blip permanently hid a cover that was
+// there the whole time. One retry, same shape as kktix.mjs's fetchHtml(),
+// costs nothing on the common case and fixes the rare one.
+async function get(url, referer) {
+  try {
+    return await getOnce(url, referer);
+  } catch (err) {
+    console.warn(`backfill-images retry: ${url} - ${err.message}`);
+    return await getOnce(url, referer);
+  }
+}
+
 export function ogImage(html) {
   const tag = html.match(/<meta[^>]+(?:property|name)=["']og:image["'][^>]*>/i)?.[0];
   const url = tag?.match(/content=["']([^"']+)["']/i)?.[1];
   return url && !GENERIC_IMAGE.test(url) ? url : null;
+}
+
+// 2026-10-28 real bug (Max 回報, 年代《2026和風 頌 風華演唱會》跟一般寬宏
+// 場次): `UTK0201_00.aspx` — the URL every 寬宏/年代 event stores — is a
+// booking subpage with no cover image at all; the same PRODUCT_ID's main
+// info page, `UTK0201_.aspx` (one less "00"), is where the real cover
+// lives. On 年代 (ticket.com.tw) that page's own og:image tag has a real
+// filename and just works; on 寬宏 (kham.com.tw) the same tag is present
+// but broken — its content ends right at the image folder with no filename
+// at all ("…/UTK2401/?v=202610271136" instead of "…/UTK2401/P1F4200H_Large.
+// JPG?v=…") — so fall back to the page's own `<img id='bookingimg'
+// src='…PRODUCT_ID_Large.ext'>` tag, which is what the ticket page itself
+// actually renders as the cover.
+export function erakhamImage(html, productId) {
+  const og = ogImage(html);
+  if (og && !/\/UTK2401\/\?/.test(og)) return og;
+  return html.match(new RegExp(`src=['"]([^'"]*${productId}_Large\\.[A-Za-z]+[^'"]*)['"]`, "i"))?.[1] ?? null;
 }
 
 async function tixcraftMap() {
@@ -77,7 +110,11 @@ export async function backfillImages() {
       try {
         if (/tixcraft\.com\/activity\/detail\//.test(url)) img = (await tix())[url.split("/").pop()];
         else if (/ticketplus\.com\.tw\/activity\//.test(url)) img = (await tp())[url.split("/").pop()];
-        else if (!SKIP_HOSTS.test(url)) img = ogImage(await (await get(url)).text());
+        else if (/kham\.com\.tw|ticket\.com\.tw/.test(url)) {
+          const productId = new URL(url).searchParams.get("PRODUCT_ID");
+          const infoUrl = url.replace("UTK0201_00.aspx", "UTK0201_.aspx");
+          if (productId) img = erakhamImage(await (await get(infoUrl)).text(), productId);
+        } else img = ogImage(await (await get(url)).text());
       } catch (err) {
         console.warn(`  ${e.id} ${url}: ${err.message}`);
       }
