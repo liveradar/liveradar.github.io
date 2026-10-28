@@ -2544,3 +2544,33 @@
 - canonical: 聽瓊瑤的故事
   aliases: []
   tags_origin_default: 本地  # 2026-10-27 WebSearch 查證：台北中山堂場次，查無具名演出者名單；比對2023年同主題瓊瑤作品演唱會（台北小巨蛋）陣容以台灣歌手（殷正洋、潘越雲、李翊君、動力火車）為主，無強烈海外線索，歸本地；標題無具名藝人，比照「XX之夜」企劃名稱登記法，品牌名登記為canonical
+- canonical: 浮現祭
+  aliases: ["EMERGE FEST"]
+  tags_origin_default: 本地  # 2026-10-28 WebSearch 查證：台灣音樂節品牌（台中清水鰲峰山運動公園），過往陣容含台灣與日本樂團（PAPUN BAND、go!go!vanillas等）混合，比照音樂節多藝人一律本地規則，品牌名登記為canonical
+- canonical: U:NUS
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-28 WebSearch 查證：台灣男子團體，選秀節目《Atom Boyz》出道，成員高胥崴、高有翔、吳昱廷、蔡承祐皆台灣籍，歸本地
+- canonical: 63 ANGEL
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-28 WebSearch 查證：日本東京六本木秀場俱樂部，2024年由「東京六本木夜總會」更名，標題明載「日本『63 ANGEL』」，歸日本
+- canonical: 觀觀Guanguan樂隊
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-10-28 WebFetch 查證（indievox活動頁 26_iv04275ca）：頁面明載「來自美麗富饒海南島的觀觀Guanguan樂隊」，中國海南樂隊，前身為「悲劇藥方」，歸亞洲其他
+- canonical: 阿克沃
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-28 WebSearch 查證：台北另類搖滾樂團，2020年成立，成員晨昊、伯儒、念侲、羿璿皆台灣籍，歸本地（既有「阿克沃Awkward」條目為無空格全形寫法，本場標題「阿克沃 Awkward」中間有空格對不上，故另登記純「阿克沃」比對）
+- canonical: 小泉萌香
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-28 WebSearch 查證：日本女性聲優兼歌手，Amuse事務所所屬，歸日本
+- canonical: 粹基隆
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-28 WebSearch 查證：基隆市文化觀光局主辦秋冬系列音樂會品牌，「冬雨寄情」場邀周治平、梁文音、李翊君、荒山亮等台灣歌手登台，標題無單一具名藝人，比照「XX之夜」企劃名稱登記法，品牌名登記為canonical，歸本地
+- canonical: MAX CHANGMIN
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-28 WebSearch 查證：韓國男團東方神起（TVXQ）成員崔康珉個人巡演，歸韓國
+- canonical: Kep1er
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-28 WebSearch 查證：韓國女團，透過Mnet《Girls Planet 999》選拔出道，所屬WAKEONE，歸韓國
+- canonical: 美秀集團
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-28：台灣知名獨立樂團，2012年成立，歸本地

@@ -838,6 +838,11 @@ const NOISE_KEYWORDS = [
   "企業說明會", "志工熱烈招募", "形象照", "主日崇拜", "攝影展", "敏捷思維", "敏捷大賞",
   "公益講座", "身心靈", "辯論比賽", "水果批發", "咖啡豆品嘗",
   "攝影工作坊", // 2026-10-27: 陽明交大「心光顯影所」攝影工作坊 (not "工作坊" alone — 表演工作坊 is a theatre company)
+  // 2026-10-28 daily-run batch, each checked against data/events.json to confirm a single hit:
+  "寵物美容體驗", // 「2026南投露營嘉年華【寵物美容體驗】報名」— pet grooming signup, not a performance
+  "手作DIY線上報名", // 「2026南投露營嘉年華【手作DIY線上報名】」— craft workshop signup, not a performance
+  "世界公視大展精選", // 「2026世界公視大展精選丨台北場」— PTS documentary/film showcase, not music
+  "萬聖節桌遊派對", // 「東區萬聖節桌遊派對｜萬聖節桌遊｜嗨翻萬聖夜」— board-game social, no music/DJ on the ticket page
   // 2026-10-12: Max confirmed "PRD Taipei Regional" is a trading-card-game
   // tournament, not a performance (KKTIX untagged listing).
   "prd taipei regional",

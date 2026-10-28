@@ -1,80 +1,58 @@
 {
-  "generated_at": "2026-10-27T02:39:00.526Z",
+  "generated_at": "2026-10-28T02:33:24.373Z",
   "added_ids": [
-    "63dc6e55fdee5da2",
-    "f6f65c62beb3f8be",
-    "609b1c53beabe95d",
-    "38e65b09a9e22fe0",
-    "5543d971fe1abbcb",
-    "9bf39a9e8fc956c8",
-    "565c0543fb6775fb",
-    "247816168516c1ad",
-    "b0054d33ca6a4083",
-    "fe092875924163b4",
-    "bef4abab521802db",
-    "ccc3a34c047eeba1",
-    "5651a256c62ae4ff",
-    "6456e44ce26a1d68",
-    "cf908290579bad27",
-    "85762b2b823a5ee6-day",
-    "85762b2b823a5ee6-evening-17:30",
-    "85762b2b823a5ee6-evening-19:30",
-    "7a4bb3b797a418c6",
-    "0f2142f4a88cae83",
-    "682756d6c4fff0a4",
-    "7b13e5b40e5e84ae",
-    "5eac0ac4f9e9b870",
-    "d02f90d67cf265ee",
-    "2827a6ea2900c3df",
-    "7d060d33166bbff2",
-    "8f2e60146e13eb1b",
-    "6fbeab440c195ac3",
-    "cb94a1af8498fcdb",
-    "901c79d6a07d8b9e"
+    "264bc6f6fb9eda0e",
+    "4c5cf0e9d7a62478",
+    "0aa8794743878554",
+    "23b6e04b80e95c06",
+    "fbbca5aba1de10b9",
+    "0644e9ad26d0271f",
+    "043c36f3de99dd4a",
+    "fdc3b3faf83ad42b",
+    "c473d48bd6e84547",
+    "138421f71e881f9c",
+    "8be515095db5b794",
+    "154eab403fac129a",
+    "e5f3d4be111f7a7d",
+    "40fa513598ebe858",
+    "ac92105ec6f494ac",
+    "e9222f861152847a",
+    "b59af650bfd20710",
+    "efb415446040b3b4",
+    "b50277069a53772b",
+    "306c3ea34c1d2b56",
+    "55ec87503e8e3781",
+    "b07c4f51cb253c65",
+    "f1d27b0868006372",
+    "428e0a77af0c2162-day",
+    "428e0a77af0c2162-evening",
+    "1207dcedc38c3c20",
+    "fe7e802a02ad7fac",
+    "19022ec75e8dfc2e",
+    "4db87480890bd313",
+    "e3b47d764796fe39",
+    "a9155377f0881cc2",
+    "3d206afbb160caaf",
+    "d0524a05acdf3baf",
+    "33e67562e09ffd90",
+    "0ed2f0acacd6a669",
+    "cdedd73602db5456",
+    "4e431b4689ced0bb",
+    "0838723be61d6a14",
+    "72db978887025aa0",
+    "2fb4b60f67ee279d",
+    "b7a4b73bfd98da58",
+    "21d17ebb3a8207be",
+    "5ebfb2ee7a77bc3c",
+    "fe71c004347cd0d9",
+    "e61c08cbfe6e9b84"
   ],
   "updated": [
     {
-      "id": "94d9383413a6a426",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "d3090842d3db7ecc",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "4f10d89bfe80aafc",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "b30b322a77873cc4",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "3381954e96a45138",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "70c12501e61f8f59",
+      "id": "a0e262247566be7c",
       "fields": [
         "status",
-        "price_min",
-        "on_sale_at"
-      ]
-    },
-    {
-      "id": "be5f2f661b12d136",
-      "fields": [
-        "venue"
+        "price_max"
       ]
     },
     {
@@ -90,9 +68,9 @@
       ]
     },
     {
-      "id": "fcdd244d76241d68",
+      "id": "99a0824d02c524f8",
       "fields": [
-        "price_min"
+        "status"
       ]
     },
     {
@@ -104,230 +82,48 @@
     {
       "id": "11178ebf7e465eb8",
       "fields": [
-        "status",
-        "price_max"
-      ]
-    },
-    {
-      "id": "219e56aeafc7d4a0",
-      "fields": [
-        "price_min"
-      ]
-    },
-    {
-      "id": "2c65f62505884ff9",
-      "fields": [
-        "status",
-        "price_max"
-      ]
-    },
-    {
-      "id": "fd8b32ebc7e0b234",
-      "fields": [
-        "status",
-        "price_min",
-        "price_max"
+        "status"
       ]
     },
     {
       "id": "c840a186725805a0",
       "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "4b2ea3ea27f3b03a",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "9e672d01d19e8cc8",
-      "fields": [
-        "date",
+        "status",
         "price_min",
         "price_max"
       ]
     },
     {
-      "id": "adbbf5cde39c2276",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "8fabdcc566023141",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "69dc856482051884",
+      "id": "4b2ea3ea27f3b03a",
       "fields": [
         "status",
-        "on_sale_at"
+        "price_min",
+        "price_max"
       ]
     },
     {
-      "id": "6f030e016f7f60c5",
+      "id": "247816168516c1ad",
       "fields": [
         "status",
-        "on_sale_at"
+        "price_max"
       ]
     },
     {
-      "id": "8deab6346a193aa6",
-      "fields": [
-        "status",
-        "on_sale_at"
-      ]
-    },
-    {
-      "id": "2f30fe31cd279fae",
+      "id": "bef4abab521802db",
       "fields": [
         "status"
       ]
     },
     {
-      "id": "da799e12e5682f98",
-      "fields": [
-        "status",
-        "price_min"
-      ]
-    },
-    {
-      "id": "82597791ff00239a",
-      "fields": [
-        "status",
-        "on_sale_at"
-      ]
-    },
-    {
-      "id": "afa14a26670acd07",
+      "id": "cf908290579bad27",
       "fields": [
         "status"
       ]
     },
     {
-      "id": "5d7f1ebdabc7482e",
+      "id": "31a1252544caf15b",
       "fields": [
         "status"
-      ]
-    },
-    {
-      "id": "33b2a95422af205c",
-      "fields": [
-        "status",
-        "on_sale_at"
-      ]
-    },
-    {
-      "id": "04059a62c01f7f4c",
-      "fields": [
-        "status",
-        "on_sale_at"
-      ]
-    },
-    {
-      "id": "b336050a65d854c7",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "2256a18a2251e7e7",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "27784762823d5eb4",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "f3599f272506b001",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "39c9802e4a957e6f",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "fdc8bcf1544c4364",
-      "fields": [
-        "status",
-        "on_sale_at"
-      ]
-    },
-    {
-      "id": "4ffe0ccf1263f5c9",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "45c4836b04d25468",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "78653ad954ede005",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "733e87de8aff5eae",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "68e46cfcec9814cc",
-      "fields": [
-        "price_min"
-      ]
-    },
-    {
-      "id": "1c87e7909df17b37",
-      "fields": [
-        "status",
-        "on_sale_at"
-      ]
-    },
-    {
-      "id": "9509d77e679853c3",
-      "fields": [
-        "status",
-        "on_sale_at"
-      ]
-    },
-    {
-      "id": "dc02d982af8e3654",
-      "fields": [
-        "status",
-        "on_sale_at"
-      ]
-    },
-    {
-      "id": "f18483abd4ce2d66",
-      "fields": [
-        "status",
-        "on_sale_at"
-      ]
-    },
-    {
-      "id": "c66e36b73f86670e",
-      "fields": [
-        "status",
-        "on_sale_at"
       ]
     },
     {
@@ -343,33 +139,15 @@
       ]
     },
     {
-      "id": "599e88cf0128beeb-day",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "599e88cf0128beeb-evening",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "45923924972dae8f",
-      "fields": [
-        "price_max"
-      ]
-    },
-    {
-      "id": "4b51009abef526b9",
-      "fields": [
-        "price_max"
-      ]
-    },
-    {
       "id": "52ab194a8c85176d",
       "fields": [
         "price_max"
+      ]
+    },
+    {
+      "id": "8172b422581b0815",
+      "fields": [
+        "price_min"
       ]
     }
   ]
