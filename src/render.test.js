@@ -129,6 +129,24 @@ test("renderEventCard (PLAN-1-theater-runs.md): a theater run with multiple upco
   assert.match(html, /🕐 下一場 14:30/);
 });
 
+test("renderEventCard: a multi-city tour (different venue/city per session, unlike a theater run) shows a 🚌 巡演 stop list instead of a 🎭 檔期 date range", () => {
+  const tour = makeEvent({
+    title_raw: "宇宙人《Dear You》Live Tour",
+    date: "2099-12-17",
+    time: "20:00",
+    venue: "Legacy TERA",
+    city: "台北",
+    sessions: [
+      { date: "2099-12-17", time: "20:00", venue: "Legacy TERA", city: "台北", status: "on_sale" },
+      { date: "2100-01-01", time: "20:00", venue: "LIVE WAREHOUSE", city: "高雄", status: "sold_out" },
+    ],
+  });
+  const html = renderEventCard(tour);
+  assert.match(html, /🚌 巡演 台北 12\/17・高雄 1\/1（售完）/);
+  assert.doesNotMatch(html, /🎭 檔期/);
+  assert.match(html, /🕐 下一場 20:00/);
+});
+
 test("renderEventCard: a theater run down to its LAST upcoming session looks like an ordinary card — no 檔期 line, no '下一場' prefix", () => {
   const run = makeEvent({
     title_raw: "《神隱少女》舞台劇",

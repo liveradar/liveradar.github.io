@@ -22216,10 +22216,10 @@
         "宇宙人"
       ],
       "is_festival": false,
-      "venue": "多個表演場地",
-      "city": "未知",
+      "venue": "Legacy TERA",
+      "city": "台北",
       "date": "2026-12-17",
-      "time": null,
+      "time": "20:00",
       "on_sale_at": null,
       "price_min": 2100,
       "price_max": 2100,
@@ -22232,18 +22232,64 @@
       ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/26_cosmos",
-      "first_seen_at": "2026-10-20T02:17:57.319Z",
-      "updated_at": "2026-10-27T02:39:00.526Z",
       "sources": [
         {
           "name": "拓元",
           "url": "https://tixcraft.com/activity/detail/26_cosmos",
-          "raw_id": "26_cosmos"
+          "raw_id": "tixcraft:26_cosmos"
         }
       ],
-      "id": "04059a62c01f7f4c",
+      "first_seen_at": "2026-10-20T02:17:57.319Z",
+      "updated_at": "2026-10-28T03:35:18.189Z",
+      "run_key": "tixcraft:26_cosmos",
+      "id": "363e34e69680288f",
       "merged_ids": [
-        "04059a62c01f7f4c"
+        "363e34e69680288f"
+      ],
+      "date_end": "2027-02-14",
+      "sessions": [
+        {
+          "date": "2026-12-17",
+          "time": "20:00",
+          "venue": "Legacy TERA",
+          "city": "台北",
+          "status": "on_sale"
+        },
+        {
+          "date": "2026-12-18",
+          "time": "20:00",
+          "venue": "Legacy TERA",
+          "city": "台北",
+          "status": "sold_out"
+        },
+        {
+          "date": "2027-01-01",
+          "time": "20:00",
+          "venue": "LIVE WAREHOUSE",
+          "city": "高雄",
+          "status": "on_sale"
+        },
+        {
+          "date": "2027-01-02",
+          "time": "20:00",
+          "venue": "LIVE WAREHOUSE",
+          "city": "高雄",
+          "status": "on_sale"
+        },
+        {
+          "date": "2027-02-13",
+          "time": "20:00",
+          "venue": "Legacy Taichung",
+          "city": "台中",
+          "status": "sold_out"
+        },
+        {
+          "date": "2027-02-14",
+          "time": "20:00",
+          "venue": "Legacy Taichung",
+          "city": "台中",
+          "status": "sold_out"
+        }
       ]
     },
     {
@@ -25186,9 +25232,9 @@
         "觀觀Guanguan樂隊"
       ],
       "is_festival": false,
-      "venue": "12月17日 臺北Taipei 野地方Wild Lab / 12月19日 高雄 Kaohsiung 百樂門 Paramount Bar / &mdash;&mdash;&mdash;&mdash;&mdash;&mdash; / 清也觀，濁也觀，明也觀，暗也觀 / 觀，悲劇藥方 / 觀，東方分子",
+      "venue": "野地方 Wildlab",
       "city": "台北",
-      "date": "2026-10-17",
+      "date": "2026-12-17",
       "time": "20:00",
       "on_sale_at": null,
       "price_min": 800,
@@ -25210,10 +25256,10 @@
         }
       ],
       "first_seen_at": "2026-10-28T02:13:48.325Z",
-      "updated_at": "2026-10-28T02:37:59.811Z",
-      "id": "33e67562e09ffd90",
+      "updated_at": "2026-10-28T03:00:00.000Z",
+      "id": "e2083683db360a7b",
       "merged_ids": [
-        "33e67562e09ffd90"
+        "e2083683db360a7b"
       ]
     },
     {
@@ -25264,9 +25310,9 @@
         "觀觀Guanguan樂隊"
       ],
       "is_festival": false,
-      "venue": "12月17日 臺北Taipei 野地方Wild Lab / 12月19日 高雄 Kaohsiung 百樂門 Paramount Bar / and more &hellip; / &mdash;&mdash;&mdash;&mdash;&mdash;&mdash; / 清也觀，濁也觀，明也觀，暗也觀 / 觀，悲劇藥方",
-      "city": "台北",
-      "date": "2026-10-19",
+      "venue": "百樂門酒館 Paramount Bar",
+      "city": "高雄",
+      "date": "2026-12-19",
       "time": "20:00",
       "on_sale_at": null,
       "price_min": 800,
@@ -25288,10 +25334,10 @@
         }
       ],
       "first_seen_at": "2026-10-28T02:13:48.326Z",
-      "updated_at": "2026-10-28T02:37:59.812Z",
-      "id": "cdedd73602db5456",
+      "updated_at": "2026-10-28T03:00:00.000Z",
+      "id": "5c6d211ecf17e8db",
       "merged_ids": [
-        "cdedd73602db5456"
+        "5c6d211ecf17e8db"
       ]
     },
     {

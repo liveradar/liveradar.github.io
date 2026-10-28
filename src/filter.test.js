@@ -154,6 +154,21 @@ test("partitionEvents: an array of city values ORs together (multi-select)", () 
   assert.deepEqual(visible.map((v) => v.event.id).sort(), ["k", "t"]);
 });
 
+test("partitionEvents: a multi-city tour (tixcraft/iNDIEVOX run with per-session venue/city) matches a city filter on a LATER stop, not just whichever stop event.city happens to hold", () => {
+  const tour = makeEvent({
+    id: "tour",
+    city: "台北", // the "next" stop at fetch time — src/runs.js's materializeRun would set this
+    sessions: [
+      { date: "2099-10-15", time: "20:00", venue: "Legacy TERA", city: "台北", status: "on_sale" },
+      { date: "2099-11-01", time: "20:00", venue: "LIVE WAREHOUSE", city: "高雄", status: "on_sale" },
+    ],
+  });
+
+  const { visible } = partitionEvents([tour], defaultPrefs(), { city: "高雄" });
+
+  assert.deepEqual(visible.map((v) => v.event.id), ["tour"]);
+});
+
 test("partitionEvents: an array of type values ORs together (multi-select)", () => {
   const festival = makeEvent({ id: "f", tags_type: ["音樂祭"] });
   const meetgreet = makeEvent({ id: "m", tags_type: ["見面會"] });

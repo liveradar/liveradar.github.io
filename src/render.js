@@ -45,15 +45,28 @@ function shortDate(isoDate) {
 }
 
 /**
- * A theater/musical run's (PLAN-1-theater-runs.md) "🎭 檔期 …" line, or null
- * for a plain single-session event — including a run that's down to its
- * last upcoming performance, which should look exactly like an ordinary
- * card, not "檔期 10/25–10/25・共 1 場".
+ * A theater/musical run's (PLAN-1-theater-runs.md) "🎭 檔期 …" line, or a
+ * multi-city tour's (tixcraft/iNDIEVOX, see those adapters' real cases)
+ * "🚌 巡演 …" stop list, or null for a plain single-session event —
+ * including a run that's down to its last upcoming performance, which
+ * should look exactly like an ordinary card, not "檔期 10/25–10/25・共 1 場".
+ *
+ * 2026-10-28: a theater run's sessions are always one production at one
+ * venue (how OPENTIX/寬宏/年代 group them), so a short date-range summary is
+ * enough; a tour's sessions are genuinely at different venues/cities, so
+ * the date range alone ("12/17–2/14") would hide which stop is which — list
+ * every upcoming stop instead, same way the city filter chip now treats it
+ * (src/filter.js's eventCities).
  */
 function runSessionsLine(event) {
   if (!event.sessions) return null;
   const upcoming = upcomingSessions(event);
   if (upcoming.length <= 1) return null;
+  const cities = new Set(event.sessions.map((s) => s.city).filter(Boolean));
+  if (cities.size > 1) {
+    const stops = upcoming.map((s) => `${s.city ?? "?"} ${shortDate(s.date)}${s.status === "sold_out" ? "（售完）" : ""}`);
+    return `🚌 巡演 ${stops.join("・")}`;
+  }
   const first = upcoming[0].date;
   const last = upcoming[upcoming.length - 1].date;
   return `🎭 檔期 ${shortDate(first)}–${shortDate(last)}・共 ${upcoming.length} 場`;

@@ -62,7 +62,15 @@ export function groupRuns(events, todayStr = taiwanTodayDateStr()) {
       if (a.date !== b.date) return a.date < b.date ? -1 : 1;
       return (a.time ?? "").localeCompare(b.time ?? "");
     });
-    const sessions = sorted.map((e) => ({ date: e.date, time: e.time, status: e.status }));
+    // 2026-10-28: venue/city per session (previously omitted since the only
+    // runs this grouped — OPENTIX/寬宏/年代 theater runs — are always one
+    // production at one venue, so every session's venue/city was identical
+    // anyway). A multi-city tour (tixcraft/iNDIEVOX, see those adapters'
+    // real cases) groups under this SAME run_key mechanism but genuinely
+    // has a different venue/city per session — carrying them through lets
+    // the client show each stop and filter by region (src/runs.js,
+    // src/render.js, src/filter.js).
+    const sessions = sorted.map((e) => ({ date: e.date, time: e.time, venue: e.venue, city: e.city, status: e.status }));
 
     const upcoming = sorted.filter((e) => e.date >= todayStr);
     // Every session already passed: fall back to the full run so date/venue/

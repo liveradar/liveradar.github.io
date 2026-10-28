@@ -127,6 +127,21 @@ test("groupRuns: an event that already carries `sessions` (reused from a previou
   assert.equal(result, alreadyRun);
 });
 
+test("groupRuns: sessions carry their own venue/city, not just date/time/status — a multi-city tour's stops stay distinguishable", () => {
+  const sessions = [
+    makeSession({ date: "2026-12-17", venue: "Legacy TERA", city: "台北", run_key: "tixcraft:26_cosmos" }),
+    makeSession({ date: "2027-01-01", venue: "LIVE WAREHOUSE", city: "高雄", run_key: "tixcraft:26_cosmos" }),
+  ];
+  const [run] = groupRuns(sessions, TODAY);
+  assert.deepEqual(
+    run.sessions.map((s) => ({ date: s.date, venue: s.venue, city: s.city })),
+    [
+      { date: "2026-12-17", venue: "Legacy TERA", city: "台北" },
+      { date: "2027-01-01", venue: "LIVE WAREHOUSE", city: "高雄" },
+    ],
+  );
+});
+
 test("groupRuns: the same run_key at two different venues never merge — venue is part of run_key identity", () => {
   const sessions = [
     makeSession({ run_key: "opentix:123:臺北場", venue: "臺北場", date: "2026-10-24" }),

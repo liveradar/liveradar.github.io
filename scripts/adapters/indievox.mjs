@@ -166,7 +166,19 @@ export function parseVenueLine(html) {
   // "reject any Han characters after the keyword" rule — a legitimate case
   // ("票價資訊 Ticket Price：") also has more Han characters glued right
   // after its own keyword, so that general rule would break it.
-  return extractLabeledField(html, "(?:地點|場地(?!交通住宿)|場館)", 200);
+  //
+  // 2026-10-28 real bug (觀觀Guanguan樂隊2026港台巡演, 高雄站/台北站: venue
+  // 抓到整段多城市行程文字「12月17日 臺北...12月19日 高雄...」，連帶城市判斷
+  // 成台北): the page's own section header "站次&場地：" has no value right
+  // after its colon, so extractLabeledField's empty-value fallback scooped
+  // every following line (the itinerary block) as the "value", returning
+  // before ever reaching the real "地點｜百樂門酒館 Paramount Bar" line
+  // further down. "場地" preceded by "站次" anywhere earlier on the same
+  // line is that header, never a real field — same shape of fix as the
+  // 交通住宿 exclusion above, not a general anchor-to-line-start rule (that
+  // would break "活動地點｜..." from the 2026-09-21 fix right above, where
+  // the keyword isn't first on the line either).
+  return extractLabeledField(html, "(?:地點|(?<!站次[^｜:：]*)場地(?!交通住宿)|場館)", 200);
 }
 
 /**
@@ -239,14 +251,38 @@ function extractIntroHtml($) {
 // all — confirmed with a plain fetch, 200 OK, full table in the raw HTML —
 // so no Playwright needed here, just one more cheap GET.
 
-export async function fetchTicketStatusText(rawId) {
+// 2026-10-28 (Max: 巡演多城市場次列表 — 美秀集團《等無》巡迴 2026 real case,
+// same underlying platform/table as tixcraft's own real case): a MULTI-CITY
+// tour sells every stop through this ONE game page, one row per distinct
+// date+venue (高雄x2/台中x2/台北x2 for this real tour); a single show with
+// several ticket tiers would also produce several rows but share the SAME
+// date+venue — group by (date, venue) so only genuinely different STOPS
+// come back as separate sessions, not every ticket tier. `sessions` is
+// always populated (length 1 for an ordinary single-show event, same shape
+// fetchTicketStatusText already returned before this real case existed).
+async function fetchGamePageSessions(rawId) {
   const html = await fetchHtml(`https://www.indievox.com/activity/game/${rawId}`);
   const $ = cheerio.load(html);
-  const rowTexts = $("table tbody tr td:last-child")
-    .map((_, td) => $(td).text().trim())
+  const rows = $("table tbody tr")
+    .map((_, tr) => $(tr).find("td").map((_, td) => $(td).text().trim()).get())
     .get();
-  if (rowTexts.length === 0 || !rowTexts.every((t) => TICKET_TERMINAL_TEXT_RE.test(t))) return "";
-  return rowTexts[0];
+  const byKey = new Map();
+  for (const [dateText, , venueText, ...rest] of rows) {
+    if (!dateText || !venueText) continue; // the "沒有資料。" placeholder row has one <td colspan>, no venue
+    const key = `${dateText}|${venueText}`;
+    if (!byKey.has(key)) byKey.set(key, { dateText, venueText, statusTexts: [] });
+    byKey.get(key).statusTexts.push(rest[rest.length - 1] ?? "");
+  }
+  return [...byKey.values()].map(({ dateText, venueText, statusTexts }) => ({
+    dateText,
+    venueText,
+    terminalText: statusTexts.length > 0 && statusTexts.every((t) => TICKET_TERMINAL_TEXT_RE.test(t)) ? statusTexts[0] : "",
+  }));
+}
+
+export async function fetchTicketStatusText(rawId) {
+  const sessions = await fetchGamePageSessions(rawId);
+  return sessions[0]?.terminalText ?? "";
 }
 
 async function fetchEventDetail(item) {
@@ -261,13 +297,14 @@ async function fetchEventDetail(item) {
     if (timeOnly) date_raw = `${date_raw} ${timeOnly}`;
   }
   const raw_id = item.url.split("/").filter(Boolean).pop();
-  let sale_status_text = "";
+  let sessions = [];
   try {
-    sale_status_text = await fetchTicketStatusText(raw_id);
+    sessions = await fetchGamePageSessions(raw_id);
   } catch (err) {
     logProgress(`indievox ticket-status fetch failed for ${raw_id}: ${err.message}`);
   }
-  return {
+
+  const base = {
     raw_id,
     url: item.url,
     title_raw: item.title_raw,
@@ -275,9 +312,31 @@ async function fetchEventDetail(item) {
     venue_raw,
     tickets_raw: [],
     price_text_raw: extractIntroHtml($),
-    sale_status_text,
+    sale_status_text: sessions[0]?.terminalText ?? "",
     source_name: name,
   };
+
+  if (sessions.length <= 1) return [base];
+
+  // 2026-10-28: this ONE activity page sells several distinct stops — turn
+  // `base` into stop #0 and add one sibling RawEvent per remaining stop,
+  // all sharing `run_key` so groupRuns() (called right after normalize() in
+  // fetch.mjs) collapses them back into one card with a `sessions` list.
+  // ponytail: a suffixed raw_id (`#0`, `#1`, ...) never matches a future
+  // day's plain listing raw_id, so a multi-stop tour always pays the full
+  // detail+session fetch again rather than the cheap known-event recheck
+  // other iNDIEVOX events get — fine for the small handful of real tours
+  // this applies to (same tradeoff as tixcraft.mjs's identical real case).
+  logProgress(`indievox: ${raw_id} is a multi-stop tour (${sessions.length} stops), expanded into a run`);
+  const runKey = `indievox:${raw_id}`;
+  return sessions.map((s, i) => ({
+    ...base,
+    raw_id: `${raw_id}#${i}`,
+    date_raw: s.dateText,
+    venue_raw: s.venueText,
+    sale_status_text: s.terminalText,
+    run_key: runKey,
+  }));
 }
 
 export async function fetch(knownRawIds = new Set()) {
@@ -332,7 +391,7 @@ export async function fetch(knownRawIds = new Set()) {
 
       await sleep(REQUEST_DELAY_MS);
       try {
-        results.push(await fetchEventDetail(item));
+        results.push(...(await fetchEventDetail(item)));
       } catch (err) {
         logProgress(`indievox event detail failed for ${item.url}: ${err.message}`);
       }

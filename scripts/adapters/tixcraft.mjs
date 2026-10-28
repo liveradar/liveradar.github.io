@@ -88,14 +88,38 @@ function amPmTo24Hour(hour, meridiem) {
 // show whose sale simply hasn't opened yet renders the exact same
 // placeholder (checked the same day on 26_topkh and 26_todd) — see
 // withdrawnRawIds() for how the two are told apart.
+// 2026-10-28 (Max: 巡演多城市場次列表 — 宇宙人《Dear You》Live Tour real
+// case): each row is [日期時間, 場次名稱, 場地, 購買狀態]. A MULTI-CITY tour
+// sells every stop through this ONE game page, one row per distinct
+// date+venue; a single show with several ticket tiers (general admission +
+// a fan-zone add-on, the Stray Kids real case this function's doc comment
+// above already covers) ALSO produces several rows, but all sharing the
+// SAME date+venue — group by (date, venue) first so only genuinely
+// different STOPS come back as separate sessions, not every ticket tier.
+// `sessions` is always populated (length 1 for an ordinary single-show
+// event, unchanged from before this real-world case existed); the caller
+// decides whether more than one session means expanding into sibling
+// RawEvents.
 async function fetchTicketStatus(page, rawId) {
   await page.goto(`https://tixcraft.com/activity/game/${rawId}`, { waitUntil: "domcontentloaded", timeout: DETAIL_NAV_TIMEOUT_MS });
   await page.waitForSelector("table tbody tr", { timeout: DETAIL_NAV_TIMEOUT_MS });
   const noSessions = await page.$$eval("table tbody tr", (rows) => rows.length === 1 && !!rows[0].querySelector(".empty"));
-  if (noSessions) return { terminalText: "", noSessions: true };
-  const rowTexts = await page.$$eval("table tbody tr td:last-child", (cells) => cells.map((c) => c.textContent.trim()));
-  if (rowTexts.length === 0 || !rowTexts.every((t) => TICKET_TERMINAL_TEXT_RE.test(t))) return { terminalText: "", noSessions: false };
-  return { terminalText: rowTexts[0], noSessions: false };
+  if (noSessions) return { terminalText: "", noSessions: true, sessions: [] };
+  const rows = await page.$$eval("table tbody tr", (trs) =>
+    trs.map((tr) => Array.from(tr.querySelectorAll("td")).map((td) => td.textContent.trim())),
+  );
+  const byKey = new Map();
+  for (const [dateText, , venueText, ...rest] of rows) {
+    const key = `${dateText}|${venueText}`;
+    if (!byKey.has(key)) byKey.set(key, { dateText, venueText, statusTexts: [] });
+    byKey.get(key).statusTexts.push(rest[rest.length - 1] ?? "");
+  }
+  const sessions = [...byKey.values()].map(({ dateText, venueText, statusTexts }) => ({
+    dateText,
+    venueText,
+    terminalText: statusTexts.length > 0 && statusTexts.every((t) => TICKET_TERMINAL_TEXT_RE.test(t)) ? statusTexts[0] : "",
+  }));
+  return { terminalText: sessions[0]?.terminalText ?? "", noSessions: false, sessions };
 }
 
 /**
@@ -251,9 +275,43 @@ export async function fetch(knownRawIds = new Set()) {
       // can't tell us this (it never could).
       try {
         const status = await fetchTicketStatus(page, event.raw_id);
-        event.sale_status_text = status.terminalText;
         if (status.noSessions) {
+          event.sale_status_text = status.terminalText;
           noSessionChecks.push({ raw_id: event.raw_id, key: listingKeys.get(event.raw_id), noSessions: true, onSaleAt: parseOnSaleAt(event.price_text_raw) });
+        } else if (status.sessions.length > 1) {
+          // 2026-10-28 (Max: 巡演多城市場次列表 — 宇宙人《Dear You》Live Tour
+          // real case): this ONE game page sells several distinct stops —
+          // turn `event` into stop #0 and push one sibling RawEvent per
+          // remaining stop, all sharing `run_key` so groupRuns() (called
+          // right after normalize() in fetch.mjs) collapses them back into
+          // one card with a `sessions` list instead of only ever showing the
+          // first stop under a generic "多個表演場地"/未知-city venue.
+          // ponytail: the suffixed raw_id (`#0`, `#1`, ...) never matches a
+          // future day's plain listing raw_id, so a multi-stop tour always
+          // pays the full detail+session fetch again rather than the cheap
+          // known-event recheck other tixcraft events get — fine for the
+          // small handful of real tours this applies to; revisit only if
+          // that handful grows enough to matter.
+          const baseRawId = event.raw_id;
+          const runKey = `tixcraft:${baseRawId}`;
+          event.run_key = runKey;
+          event.raw_id = `${baseRawId}#0`;
+          event.date_raw = status.sessions[0].dateText;
+          event.venue_raw = status.sessions[0].venueText;
+          event.sale_status_text = status.sessions[0].terminalText;
+          for (let i = 1; i < status.sessions.length; i++) {
+            const s = status.sessions[i];
+            results.push({
+              ...event,
+              raw_id: `${baseRawId}#${i}`,
+              date_raw: s.dateText,
+              venue_raw: s.venueText,
+              sale_status_text: s.terminalText,
+            });
+          }
+          logProgress(`tixcraft: ${baseRawId} is a multi-stop tour (${status.sessions.length} stops), expanded into a run`);
+        } else {
+          event.sale_status_text = status.sessions[0]?.terminalText ?? "";
         }
       } catch (err) {
         logProgress(`tixcraft ticket-status fetch failed for ${event.url}: ${err.message}`);

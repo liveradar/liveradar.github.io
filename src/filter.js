@@ -1,4 +1,4 @@
-import { eventDates } from "./runs.js";
+import { eventDates, eventCities } from "./runs.js";
 
 /**
  * The single implementation of the visibility decision tree (SPEC §6 / SRS §6.3).
@@ -201,8 +201,13 @@ function toValues(v) {
 }
 
 export function passesViewFilters(event, viewFilters) {
+  // A multi-city tour (tixcraft/iNDIEVOX, see those adapters' real cases)
+  // plays several cities across its sessions — event.city alone is only the
+  // NEXT upcoming stop (src/runs.js's materializeRun), so a 高雄 filter must
+  // still surface a tour whose next stop is 台北 but plays 高雄 later.
+  // eventCities() is just [event.city] for a non-run event.
   const cities = toValues(viewFilters.city);
-  if (cities.length > 0 && !cities.some((c) => cityMatches(event.city, c))) return false;
+  if (cities.length > 0 && !cities.some((c) => eventCities(event).some((ec) => cityMatches(ec, c)))) return false;
   // A theater run (PLAN-1-theater-runs.md) spans several months of sessions —
   // event.date alone is only the NEXT upcoming one, so picking October must
   // still surface a run whose next show is in September but has an October
