@@ -466,10 +466,12 @@ function isSafeUrl(url) {
   return /^https?:\/\//i.test(url);
 }
 
+/** The whole card opens the ticket page; the star / ✕ / 🔔 buttons keep their own jobs (the ➜ button just bubbles up here). */
 function wireTicketButtons(container) {
-  container.querySelectorAll("[data-ticket-url]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const url = btn.dataset.ticketUrl;
+  container.querySelectorAll(".event-card[data-ticket-url]").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("button:not(.pill-arrow), a")) return;
+      const url = card.dataset.ticketUrl;
       if (isSafeUrl(url)) window.open(url, "_blank", "noopener");
     });
   });

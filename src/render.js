@@ -191,7 +191,7 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
   // primary sale is over; only the label changes to stop implying you can
   // still buy a ticket there.
   const ctaLabel = event.status === "on_sale" ? "購票" : event.status === "sold_out" ? "結束販售，查看頁面" : "查看頁面";
-  const ctaButton = `<button class="pill-arrow" aria-label="${ctaLabel}" data-ticket-url="${escapeHtml(event.ticket_url)}">${ARROW_ICON}</button>`;
+  const ctaButton = `<button class="pill-arrow" aria-label="${ctaLabel}">${ARROW_ICON}</button>`;
 
   const actionButtons =
     mode === "favorites"
@@ -200,7 +200,7 @@ export function renderEventCard(event, { pinned = false, mode = "timeline", show
          <button class="icon-circle" aria-label="排除選單" data-exclude-menu="${escapeHtml(event.id)}">${X_ICON}</button>`;
 
   return `
-    <div class="event-card${event.status === "sold_out" ? " event-card--muted" : ""}" data-event-id="${escapeHtml(event.id)}">
+    <div class="event-card${event.status === "sold_out" ? " event-card--muted" : ""}" data-event-id="${escapeHtml(event.id)}" data-ticket-url="${escapeHtml(event.ticket_url)}">
       <div class="event-cover">
         ${renderCover(event)}
         <div class="event-date">

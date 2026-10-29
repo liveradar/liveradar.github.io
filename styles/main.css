@@ -236,7 +236,7 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
   gap: 18px 12px;
-  align-items: start;
+  align-items: stretch; /* cards in a row share one height; .event-foot pins to the bottom */
 }
 
 .day-label {
@@ -261,9 +261,12 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
   gap: 18px 12px;
-  align-items: start;
+  align-items: stretch; /* cards in a row share one height; .event-foot pins to the bottom */
 }
 
+.event-card[data-ticket-url^="http"] {
+  cursor: pointer;
+}
 .event-card {
   position: relative;
   display: flex;
@@ -366,6 +369,7 @@ button {
 }
 
 .event-body {
+  flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -485,7 +489,8 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-top: 2px;
+  margin-top: auto;
+  padding-top: 2px;
 }
 
 .event-price {
