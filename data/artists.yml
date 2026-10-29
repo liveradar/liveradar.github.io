@@ -2574,3 +2574,24 @@
 - canonical: 美秀集團
   aliases: []
   tags_origin_default: 本地  # 2026-10-28：台灣知名獨立樂團，2012年成立，歸本地
+- canonical: DIGNITY
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-29 WebSearch 查證：韓國 PCS 娛樂旗下五人男團，2024/7/24 以迷你專輯《DIGMOTION》出道；售票頁標題「DIGNITY 1st LIVE IN TAIPEI」(jackartzone.kktix.cc)，歸韓國
+- canonical: 妖山祭
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-29 WebSearch 查證：山峸製作設計(Ridge Studio)主辦的獨立音樂×藝術創作跨域展演活動，多組演出者，比照音樂節品牌名登記；售票頁標題「2026 妖山祭・妖霧漫山 Mont. Monster Matsuri・Misty Mountain Mysteria」(ridgestudio.kktix.cc)
+- canonical: AK SPORTS
+  aliases: []
+  tags_origin_default: 歐美  # 2026-10-29 WebSearch 查證：澳洲出身、現居倫敦/洛杉磯的DJ/製作人，Rinse FM電台主持人；售票頁標題帶🇦🇺旗標「11.07 TEMPLE TAIPEI PRESENTS: AK SPORTS 🇦🇺」(lafin.kktix.cc)，比照同系列 JOKESONYOU 澳洲案例歸歐美
+- canonical: TIZZY BAC
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-29 WebSearch 查證：台灣知名獨立搖滾樂團（2000年成立於台北）；售票頁標題「TIZZY BAC《我想你會變成20這樣都是我害的》演唱會」(tixcraft.com)
+- canonical: ana
+  aliases: ["anaX"]  # 標題「anaＸ鄭亞弦」的全形Ｘ經NFKC正規化後會變半形X、與ana黏在一起，純"ana"因詞界檢查比對不到，故另加這個黏寫法
+  tags_origin_default: 本地  # 2026-10-29 WebSearch 查證：台灣創作歌手，桃園楊梅出身、國立台南藝術大學應用音樂系畢業，曾任樂團Thursday Off主唱；售票頁標題「【週三野孩】anaＸ鄭亞弦」(go.fansi.me)，同場的鄭亞弦查無資料留待整理
+- canonical: CHOSEN FESTIVAL
+  aliases: ["CHOSEN邱聲"]
+  tags_origin_default: 本地  # 2026-10-29 WebSearch 查證：氪米厘娛樂主辦的多組樂團音樂發掘企劃/音樂節系列（北流等場地），比照音樂節品牌名登記；售票頁標題「2027 CHOSEN FESTIVAL 邱聲」(ticketplus.com.tw)
+- canonical: AKINO
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-29 WebSearch 查證：日本歌手，以動畫《翼祈Aquarion》主題曲《Genesis of Aquarion》出道（AKINO with bless4）；售票頁標題「AKINO GENESIS 台北個人演唱會 "新時代開啟."」(ticket.com.tw/年代) 的GENESIS對應她代表曲
