@@ -1,10 +1,58 @@
 {
   "items": [
     {
+      "raw_id": "26_iv04286c9#0",
+      "title_raw": "11.14(六) 烙聲派對 VOL.3｜ FUCK’N BEFORE THE FREEZE",
+      "url": "https://www.indievox.com/activity/detail/26_iv04286c9",
+      "source": "iNDIEVOX",
+      "reason": "date_unparseable",
+      "detail": "2"
+    },
+    {
+      "raw_id": "26_iv04286c9#1",
+      "title_raw": "11.14(六) 烙聲派對 VOL.3｜ FUCK’N BEFORE THE FREEZE",
+      "url": "https://www.indievox.com/activity/detail/26_iv04286c9",
+      "source": "iNDIEVOX",
+      "reason": "date_unparseable",
+      "detail": "1"
+    },
+    {
+      "raw_id": "26_iv04286c9#2",
+      "title_raw": "11.14(六) 烙聲派對 VOL.3｜ FUCK’N BEFORE THE FREEZE",
+      "url": "https://www.indievox.com/activity/detail/26_iv04286c9",
+      "source": "iNDIEVOX",
+      "reason": "date_unparseable",
+      "detail": "迴"
+    },
+    {
+      "raw_id": "26_iv04286c9#3",
+      "title_raw": "11.14(六) 烙聲派對 VOL.3｜ FUCK’N BEFORE THE FREEZE",
+      "url": "https://www.indievox.com/activity/detail/26_iv04286c9",
+      "source": "iNDIEVOX",
+      "reason": "date_unparseable",
+      "detail": "立"
+    },
+    {
       "raw_id": "100135",
       "title_raw": "色彩協定",
       "url": "https://go.fansi.me/events/100135",
       "source": "FANSI GO",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "100136",
+      "title_raw": "白日夢遊",
+      "url": "https://go.fansi.me/events/100136",
+      "source": "FANSI GO",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "964ee6764fdfd86e2e1b13f0866c8ee3_0fe84bafc28b83952fafedb97aebbd23",
+      "title_raw": "2026 Saturnday 三周年 FAN-CON",
+      "url": "https://ticketplus.com.tw/activity/964ee6764fdfd86e2e1b13f0866c8ee3",
+      "source": "Ticket Plus",
       "reason": "artist_unrecognized",
       "detail": null
     }

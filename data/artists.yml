@@ -2595,3 +2595,9 @@
 - canonical: AKINO
   aliases: []
   tags_origin_default: 日本  # 2026-10-29 WebSearch 查證：日本歌手，以動畫《翼祈Aquarion》主題曲《Genesis of Aquarion》出道（AKINO with bless4）；售票頁標題「AKINO GENESIS 台北個人演唱會 "新時代開啟."」(ticket.com.tw/年代) 的GENESIS對應她代表曲
+- canonical: PARK JINYOUNG
+  aliases: []
+  tags_origin_default: 韓國  # 2026-10-30 WebSearch 查證：GOT7成員朴珍榮（JYP Entertainment）首次個人巡演「CODE#」，韓媒（sports.khan.co.kr）報導台北站為12/26；售票頁標題「PARK JINYOUNG 1ST CONCERT TOUR [CODE#] in TAIPEI」(ticketplus.com.tw) 巡演名稱吻合
+- canonical: BOL4
+  aliases: ["臉紅的思春期"]
+  tags_origin_default: 韓國  # 2026-10-30 WebSearch 查證：韓國組合臉紅的思春期（볼빨간사춘기）十週年個人演唱會「Red Square」巡演，韓媒（sports.khan.co.kr）及港媒報導台北為巡演城市之一；售票頁標題「2026－2027 臉紅的思春期 BOL4 CONCERT TOUR〔Red Square〕in TAIPEI」(ticket.ibon.com.tw) 巡演名稱吻合
