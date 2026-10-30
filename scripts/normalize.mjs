@@ -1048,6 +1048,9 @@ const DATE_PARSERS = {
   // 寬宏/年代 (utk.mjs) build date_raw as "YYYY-MM-DD HH:MM", same shape.
   "寬宏": parseTicketPlusDate,
   "年代": parseTicketPlusDate,
+  // 高流 (kpmc.mjs) builds date_raw as "YYYY-MM-DD HH:MM" too.
+  "高雄流行音樂中心": parseTicketPlusDate,
+  "Blue Note Taipei": parseTicketPlusDate, // bluenote.mjs: same shape via toTaiwanDateTimeDash
 };
 // 2026-09-21: FANSI GO used to map here too (bare venue name, no address —
 // same shape as tixcraft's untracked venues). That assumption was wrong: its

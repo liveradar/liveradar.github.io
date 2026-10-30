@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { ogImage, erakhamImage } from "./backfill-images.mjs";
+import { ogImage, erakhamImage, wixSized } from "./backfill-images.mjs";
 
 test("ogImage reads property= and name= variants, any attribute order", () => {
   assert.equal(ogImage(`<meta property="og:image" content="https://a/x.jpg">`), "https://a/x.jpg");
@@ -28,4 +28,12 @@ test("erakhamImage: 寬宏's own og:image is broken (no filename before the quer
 test("erakhamImage: neither a usable og:image nor the PRODUCT_ID's own <img> tag is null, not a broken URL", () => {
   const html = `<meta property='og:image' content='https://imgs2.utiki.com.tw/Data/KHAM/Images/UTK2401/?v=202610271136' />`;
   assert.equal(erakhamImage(html, "P1F4200H"), null);
+});
+
+test("wixSized shrinks a Blue Note (Wix) cover from 4267px to 600px and leaves other URLs alone", () => {
+  assert.equal(
+    wixSized("https://static.wixstatic.com/media/973c52_4ad54c55b9f0440e8085daf59b301ce3~mv2.png/v1/fill/w_4267,h_4267,al_c/973c52_4ad54c55b9f0440e8085daf59b301ce3~mv2.png"),
+    "https://static.wixstatic.com/media/973c52_4ad54c55b9f0440e8085daf59b301ce3~mv2.png/v1/fill/w_600,h_600,al_c/973c52_4ad54c55b9f0440e8085daf59b301ce3~mv2.png",
+  );
+  assert.equal(wixSized("https://example.com/a.jpg"), "https://example.com/a.jpg");
 });

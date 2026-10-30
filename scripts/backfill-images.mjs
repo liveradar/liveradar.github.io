@@ -14,6 +14,7 @@
  * - everything else: og:image on the ticket page (property= or name=)
  */
 import { readFile, writeFile } from "node:fs/promises";
+import { extractItems } from "./adapters/kpmc.mjs";
 
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36";
 const IMAGES_PATH = new URL("../data/images.json", import.meta.url);
@@ -69,6 +70,23 @@ export function erakhamImage(html, productId) {
   return html.match(new RegExp(`src=['"]([^'"]*${productId}_Large\\.[A-Za-z]+[^'"]*)['"]`, "i"))?.[1] ?? null;
 }
 
+// Blue Note (Wix) serves og:image at the upload's full size ("w_4267,h_4267");
+// the cards need a few hundred px, so ask Wix's own resizer for 600.
+export function wixSized(url) {
+  return url.replace(/(static\.wixstatic\.com\/.*\/fill\/)w_\d+,h_\d+/, "$1w_600,h_600");
+}
+
+// 高流 (kpmc.com.tw): a show page has no og:image at all, but the list page's
+// embedded `var items` gives every show its own `background` image.
+async function kpmcMap() {
+  const items = extractItems(await (await get("https://kpmc.com.tw/program/")).text());
+  const map = {};
+  for (const month of Object.values(items ?? {})) {
+    for (const item of month ?? []) if (item.link && item.background) map[item.link] = item.background;
+  }
+  return map;
+}
+
 async function tixcraftMap() {
   const html = await (await get("https://tixcraft.com/activity", "https://tixcraft.com/")).text();
   const map = {};
@@ -100,6 +118,7 @@ export async function backfillImages() {
 
   const tix = lazy(tixcraftMap);
   const tp = lazy(ticketPlusMap);
+  const kp = lazy(kpmcMap);
   const todo = list.filter((e) => !(e.id in images));
   console.log(`${todo.length} event(s) without a cover lookup`);
 
@@ -110,6 +129,8 @@ export async function backfillImages() {
       try {
         if (/tixcraft\.com\/activity\/detail\//.test(url)) img = (await tix())[url.split("/").pop()];
         else if (/ticketplus\.com\.tw\/activity\//.test(url)) img = (await tp())[url.split("/").pop()];
+        else if (/kpmc\.com\.tw\/program\//.test(url)) img = (await kp())[url];
+        else if (/bluenotetaipei\.com\//.test(url)) img = wixSized(ogImage(await (await get(url)).text()) ?? "") || null;
         else if (/kham\.com\.tw|ticket\.com\.tw/.test(url)) {
           const productId = new URL(url).searchParams.get("PRODUCT_ID");
           const infoUrl = url.replace("UTK0201_00.aspx", "UTK0201_.aspx");

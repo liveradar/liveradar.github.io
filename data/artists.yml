@@ -2607,3 +2607,96 @@
 - canonical: Saturnday
   aliases: []
   tags_origin_default: 本地  # 2026-10-30 Max 提供資料：台灣四人男團「Saturnday」(土星環後援會)三週年Fan-Con《BACK TO SATURDAY》，成員凱杰/小潘/立杰/新民，11/22 於台北 Corner House；報導 https://tw.news.yahoo.com/saturnday%E5%8D%87%E7%B4%9A2-0%E5%9B%9E%E6%AD%B8%E6%9B%9D-%E4%B8%8D%E5%AE%89%E8%88%87%E4%B8%8D%E6%8D%A8-%E6%8F%AD%E5%9B%9B%E4%BA%BA%E5%9C%98%E6%96%B0%E7%8F%BE%E6%B3%81-ep%E8%97%8F%E7%A5%9E%E7%A5%95%E8%B7%A8%E5%9C%98%E5%90%88%E4%BD%9C-033443727.html；售票頁 https://ticketplus.com.tw/activity/964ee6764fdfd86e2e1b13f0866c8ee3
+
+# 2026-10-30：新增音浪塔（高流）與 Blue Note Taipei 兩個來源後，逐一 WebSearch 查證當期 47 場的藝人；證據優先用主辦活動頁自己寫的團員／學歷／所在地，再用 WebSearch 交叉比對（規則 11、12）。
+# 查不到、刻意沒登記的（已各試 3 種查法：名字＋是誰、加台灣／爵士、英文寫法）：Balanced 爵士樂團（周泰明）、方鏡興吉他重奏團、唐寧x黃翊軒二重奏、小酒館裡的大樂團（ETO 爵士大樂團）、Motian in 3、周意紋。
+- canonical: "Dan Costa"
+  aliases: ["Dan Costa Quartet"]
+  tags_origin_default: 歐美  # 2026-10-30 WebSearch + 節目頁介紹：1989 年生於倫敦的巴西爵士鋼琴家／作曲家（Wikipedia https://en.wikipedia.org/wiki/Dan_Costa_(musician)），專輯《Beams》2024 Global Music Awards 金牌；2026 底首度巡演亞洲，音浪塔 10/30。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "Jun Iida"
+  aliases: ["飯田潤"]
+  tags_origin_default: 歐美  # 2026-10-30 節目頁介紹：出生於美國聖路易斯的日本移民家庭、現居紐約的爵士小號手，在紐約 Smalls、SFJAZZ 等場地活動，專輯《Evergreen》《Bellflower》；來源地依「在哪個圈成名」歸紐約爵士圈。音浪塔 10/31。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "麥克雞塊人"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：來自中山大學揚門樂社的學生六重奏（高雄），音浪塔 11/6。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "A Tempo 四重奏"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：樂手 YanNi／Emile 畢業於國立臺南藝術大學應用音樂系爵士組、林以軒為高雄在地聲樂家／薩克斯風手，常駐台灣爵士場地；音浪塔 11/7。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "Dafu”OJS48”Project"
+  aliases: ["根石大輔", "Dafu OJS48 Project"]
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：團長根石大輔為日本鼓手，2003 年來台，演出經歷為台灣的中正紀念堂、國家戲劇院、台北／台中爵士音樂節等，在台灣樂壇活動 20 年；依「成名地」歸本地（判斷題，Max 不同意可改日本）。音浪塔 11/8。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "Shun Kikuta"
+  aliases: ["菊田俊介"]
+  tags_origin_default: 歐美  # 2026-10-30 WebSearch：日本藍調吉他手，1990 年起住芝加哥，Koko Taylor 樂團吉他手約 9 年（https://blues.gr/profiles/blogs/japanese-preeminent-bluesman-shun-kikuta-talks-about-bb-king-koko；節目頁介紹同），在芝加哥藍調圈成名，依「成名地」歸歐美（判斷題）。音浪塔 11/8 與 Dafu OJS48 Project 同台。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "宋楚琳"
+  aliases: ["Apu hlauracana"]
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：拉阿魯哇族歌手，2015 年《星光大道》第二名、經紀約寰亞傳媒，現為獨立創作歌手兼甜點師；音浪塔 11/13（與周意紋同場，周查無資料未登記）。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "爵式人聲樂團"
+  aliases: ["Wijazz Singers"]
+  tags_origin_default: 本地  # 2026-10-30 同場／同系列節目頁介紹：Wijazz Singers 由 Dr. Gene 與謝志揚領軍，隸屬高雄爵式 WiJazz Records；音浪塔 11/15。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "吳詠隆"
+  aliases: ["班多鈕與人聲的交會"]
+  tags_origin_default: 本地  # 2026-10-30 WebSearch：台灣班多鈕演奏家，2012 克林根塔爾、2014 蘭恰諾手風琴大賽首獎，2020 專輯《TANVOLUTION》，吳詠隆探戈六重奏（newtalk https://newtalk.tw/news/view/2012-05-15/25165）；音浪塔 11/20。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "江玉芳"
+  aliases: ["艾瑪探戈樂團", "Alma Tango"]
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：Alma Tango 艾瑪探戈樂團主唱，樂團 2025/2026 於臺中國家歌劇院演出《舞夜阿根廷》《探戈小酒館》；音浪塔 11/20（登記藝人名）。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "KEEP ROLLING. KEEP PLAYING!"
+  aliases: ["轉吧! 金曲黑膠之夜"]
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：艾比路唱片行（台灣唱片行）James 主持的黑膠音樂夜（台灣搖滾／西洋金曲），系列活動比照品牌名規則歸本地；音浪塔 11/21。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "迷幻電風琴之夜"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：音浪塔「迷幻電風琴之夜」系列第六彈，樂手宋易修、許子薇、涂宸華、李祈均均為台灣爵士圈（高雄市國樂團團員等），系列名比照品牌名規則歸本地；音浪塔 11/21。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "宋易修"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：比利時布魯塞爾音樂院學爵士鋼琴、2024 年底回國後活躍於台灣爵士圈（爵式人聲樂團、黃彥斌四重奏等），是 Voyager Collective 共同領導者；音浪塔 11/21、11/27。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "yannialwaysblue TR!O"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：鋼琴三重奏，劉大任（桃園、東華大學）、王劭威（台南藝術大學）；YanNi 為台南藝術大學爵士組畢業，音浪塔 11/22。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "The Oldies but Goodies"
+  aliases: ["午後西洋金曲時光"]
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：音浪塔週五午後固定系列音樂會，樂手王威凱（雲林西螺）、董杰安（高雄董吉他工作室）、蘇珊 Susan 皆為台灣在地，系列名歸本地；音浪塔 11/27。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "Voyager Collective"
+  aliases: ["旅者集合"]
+  tags_origin_default: 本地  # 2026-10-30 節目頁介紹：由台灣鋼琴家宋易修與小號手林佳穎（東華大學畢、荷蘭阿姆斯特丹音樂院、野巢團員）共同領導；音浪塔 11/27。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "Pablo Liebhaber"
+  aliases: []
+  tags_origin_default: 歐美  # 2026-10-30 節目頁介紹：Voyager Collective 本場特邀的德國鼓手；音浪塔 11/27。音浪塔（高流）節目頁 https://kpmc.com.tw/program/
+- canonical: "烏野薰"
+  aliases: ["Kaoru Uno", "烏野薰四重奏"]
+  tags_origin_default: 本地  # 2026-10-30 Blue Note 活動頁介紹：旅居台灣數十年的日本鋼琴名家，帶領週六固定駐場（烏野薰四重奏 KUQ），台大圖書館館藏有其 2005 年爵士鋼琴三重奏專輯；WebSearch 3 種查法（烏野薰 鋼琴／Kaoru Uno／加台灣）都查不到日本時期的成名紀錄，依其在台灣樂壇活動數十年歸本地（判斷題，Max 不同意可改日本）。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "麥可王"
+  aliases: ["王于維", "麥可王原創四重奏", "麥可王經典重奏團"]
+  tags_origin_default: 本地  # 2026-10-30 Blue Note 活動頁介紹：長號名家王于維 Michael Wang（活動頁把「麥可王」與「王于維 Michael Wang」並列）；WebSearch 新聞鏡報 https://www.thenewslens.com/article/202443：父母為台灣人、疫情期間留在台灣、近年活躍於台灣爵士樂壇（之前為紐約新興樂手），依目前活動圈歸本地（判斷題）。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "林煒盛"
+  aliases: ["Lin WeiSheng"]
+  tags_origin_default: 本地  # 2026-10-30 WebSearch：台南出生、台大哲學系畢業的爵士貝斯／吉他手，2014 年自紐約返台，著有《爵士吉他心法》（https://guitartogo-music.com/speeches-information/jazz-guitar-playing-tips/）；Blue Note 週一駐場。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "爵士女朋友"
+  aliases: ["Girlfriend Quartet"]
+  tags_origin_default: 本地  # 2026-10-30 Blue Note 活動頁介紹：「台灣優秀的女性音樂人非常多，爵士女朋友重奏團…」，成員蔡子琪／翁家怡／王群婷／林冠良；Blue Note 11/4。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "變形蟲爵士樂團"
+  aliases: ["Jazz Meta Band"]
+  tags_origin_default: 本地  # 2026-10-30 WebSearch（uptogo https://uptogo.com.tw/娛樂/彭郁雯/）：彭郁雯 1997 年學成返台後組成的台灣爵士團，與 Blue Note 活動頁「成立多年、20 年以上、多次參與國際音樂節」相符；Blue Note 週五駐場。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "Daniel Chen Group"
+  aliases: ["陳子彰"]
+  tags_origin_default: 本地  # 2026-10-30 Blue Note 活動頁把「爵士吉他手陳子彰」與「Daniel Chen Group」並列；WebSearch Berklee 頁面（https://college.berklee.edu/node/2404541）介紹台灣吉他手 Daniel Chen（中文名未在該頁出現，同一人為合理推定）；Blue Note 11/8「爵士吉他版聚」。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "Denis Chang"
+  aliases: []
+  tags_origin_default: 歐美  # 2026-10-30 WebSearch（https://denischang.com/?p=6、jazz.com）：生於蒙特婁的加拿大台裔吉普賽爵士吉他手，在蒙特婁圈成名；Blue Note 11/8 特邀。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "Aly Inoue"
+  aliases: []
+  tags_origin_default: 日本  # 2026-10-30 Blue Note 活動頁介紹「旅居日本福岡的爵士女歌手」；WebSearch（https://www.tunecore.co.jp/artists/Alyinoue-jazz?lang=en）日本福岡出身、日本發行；Blue Note 11/9。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "許聰義"
+  aliases: ["Guras Batu"]
+  tags_origin_default: 本地  # 2026-10-30 WebSearch：2024 衛武營爵士週《爵代豐華》黃瑞豐爵士五重奏鋼琴手許聰義（衛武營節目單），搭檔劉騰文、藤井俊充、林加恩；Blue Note 每月第二個週四駐場。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "大山日出男"
+  aliases: ["Hideo Oyama", "Oyama Hideo"]
+  tags_origin_default: 日本  # 2026-10-30 WebSearch（Funabashi 演出簡介、Columbia Japan）：1956 年生於福岡、東京藝大，日本 Sharps & Flats 大樂團首席中音薩克斯風，帶領自己的 Hideo Oyama Quartet；Blue Note 11/17「東京爵士之聲」。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "葉祖安"
+  aliases: ["Andrew Page"]
+  tags_origin_default: 歐美  # 2026-10-30 Blue Note 活動頁寫「葉祖安（Andrew Page, USA）」；WebSearch：紐約鋼琴家，2014 年起在台北演出。查不到他在哪個圈成名（頁面稱曾獲金曲獎提名但沒查到），依規則退回國籍歸歐美（判斷題）。Blue Note 11/19。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "厝邊計畫"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-30 Blue Note 活動頁介紹：由紐約移居花蓮的郝東東發起，「開啟在台灣島尋找音樂社群的厝邊計畫」，系列名歸本地；Blue Note 11/8。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+- canonical: "BLUE NOTE OPEN JAM SESSION"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-30 Blue Note 活動頁介紹：台北藍調每月一次的 Jam Session，主持人霍班 Ben Holt、Denis Chang，邀請台灣爵士樂好手；活動品牌名歸本地；Blue Note 11/22。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
