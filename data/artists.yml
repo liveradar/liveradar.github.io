@@ -2678,7 +2678,7 @@
   tags_origin_default: 本地  # 2026-10-30 WebSearch（uptogo https://uptogo.com.tw/娛樂/彭郁雯/）：彭郁雯 1997 年學成返台後組成的台灣爵士團，與 Blue Note 活動頁「成立多年、20 年以上、多次參與國際音樂節」相符；Blue Note 週五駐場。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
 - canonical: "Daniel Chen Group"
   aliases: ["陳子彰"]
-  tags_origin_default: 本地  # 2026-10-30 Blue Note 活動頁把「爵士吉他手陳子彰」與「Daniel Chen Group」並列；WebSearch Berklee 頁面（https://college.berklee.edu/node/2404541）介紹台灣吉他手 Daniel Chen（中文名未在該頁出現，同一人為合理推定）；Blue Note 11/8「爵士吉他版聚」。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+  tags_origin_default: 本地  # 2026-10-30 Blue Note 活動頁把「爵士吉他手陳子彰」與「Daniel Chen Group」並列；WebSearch Berklee 頁面（https://college.berklee.edu/node/2404541）介紹台灣吉他手 Daniel Chen；後續確認：Blue Note 過往場次頁 https://www.bluenotetaipei.com/events/tai-bei-lan-diao-di-er-zhou-ri-te-yan-chen-zi-zhang-zhong-zou-tuan-ft-xie-ming-yan-wu-yu-chen 寫「陳子彰 Daniel Chen」就讀台灣大學（臺大爵士樂社）、2016 年底赴 Berklee，同一人無誤；Blue Note 11/8「爵士吉他版聚」。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
 - canonical: "Denis Chang"
   aliases: []
   tags_origin_default: 歐美  # 2026-10-30 WebSearch（https://denischang.com/?p=6、jazz.com）：生於蒙特婁的加拿大台裔吉普賽爵士吉他手，在蒙特婁圈成名；Blue Note 11/8 特邀。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
@@ -2700,3 +2700,23 @@
 - canonical: "BLUE NOTE OPEN JAM SESSION"
   aliases: []
   tags_origin_default: 本地  # 2026-10-30 Blue Note 活動頁介紹：台北藍調每月一次的 Jam Session，主持人霍班 Ben Holt、Denis Chang，邀請台灣爵士樂好手；活動品牌名歸本地；Blue Note 11/22。Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/shows
+
+# 2026-10-30（第二輪）：上一輪查不到的 6 場，改讀主辦方 Blue Note 的完整活動頁與過往場次頁（artists.tw 這幾場只是抄 Blue Note，沒有演出者資料）後補登記。仍查無資料：唐寧、周意紋、陳穎達、林偉中。
+- canonical: "Balanced 爵士樂團"
+  aliases: ["周泰明", "Chou Timing"]
+  tags_origin_default: 本地  # 2026-10-30 Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-wu-te-yan-jue-shi-le-tuan 完整介紹：團長薩克斯風手周泰明，合作經歷有 TPO 台北職人大樂團、TJO 台北爵士大樂團，演出足跡包括台北國家音樂廳、台中／臺北爵士音樂節、台北世界音樂節、嘉義國際管樂節等，全是台灣。（上一輪 WebSearch 查不到他，這次讀主辦方完整頁面才找到。）
+- canonical: "方鏡興"
+  aliases: ["Mirror Fang", "Mirror Jazz Guitar Trio"]
+  tags_origin_default: 本地  # 2026-10-30 Blue Note Taipei 活動頁 過往場次頁 https://www.bluenotetaipei.com/events/tai-bei-lan-diao-te-yan-fang-jing-xing-ji-ta-yin-chang-tuan-mirror-friends-0509 本人履歷：2008 年退伍後活躍，演出 Blue Note／Sappho／女巫店／河岸留言，國家音樂廳、台中歌劇院、台北小巨蛋，常受邀長榮交響樂團客席，2014 年與山狗大後生樂團入圍金曲獎、2015 年皮克斯音樂會於國家音樂廳；樂手許巽舜、謝騏隆同為 Blue Note 台灣駐場樂手。
+- canonical: "黃翊軒"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-30 Blue Note Taipei 活動頁 過往場次頁 https://www.bluenotetaipei.com/events/tai-bei-lan-diao-te-yan-huang-yi-xuan-san-zhong-zou-stanley-huang-trio-0727 本人履歷：輔仁大學音樂系研究所主修爵士吉他、任教淡江大學與義芳國小社團，演出經歷為台北藍調、台北國際藝術村、台中爵士音樂節、政大星空音樂會等。刻意不登記英文名 Stanley Huang：會撞同名的歌手黃立行（Stanley Huang）。
+- canonical: "ETO爵士大樂團"
+  aliases: ["小酒館裡的大樂團", "Sing Sang Sung with ETO"]
+  tags_origin_default: 本地  # 2026-10-30 Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/events/tai-bei-lan-diao-shou-zhou-zhou-liu-te-yan-xiao-jiu-guan-li-de-da-le-tuan-sing-sang-sung-with-eto-every-1st-sat-12 介紹：「Directed by famous Japanese pianist Kaoru Uno, the big band…」，由烏野薰領軍（同系列 2021 年場次的團名是 TYJO 臺北青年爵士大樂團）；烏野薰已登記本地，依同一理由歸本地。
+- canonical: "謝明諺"
+  aliases: ["Minyen Hsieh"]
+  tags_origin_default: 本地  # 2026-10-30 Blue Note Taipei 活動頁 過往場次頁 https://www.bluenotetaipei.com/events/tai-bei-lan-diao-te-yan-xie-ming-yan-san-zhong-zou-the-minyen-hsieh-trio-plays-subconscious-lee 列為 Blue Note 駐場薩克斯風手；WebSearch 台灣爵士活動頁：2010 比利時皇家音樂院爵士薩克斯風碩士、2012 台中國際薩克斯風音樂大賽冠軍，2025 東華春藝季台灣巡演（https://artscenter.ndhu.edu.tw/p/16-1123-237393.php?Lang=zh-tw）。
+- canonical: "Motian in 3"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-30 Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-san-te-yan-18 三人組：謝明諺（吹管）、陳穎達（彈電）、林偉中（擊噪），2020 年起運作；謝明諺為台灣薩克斯風手（見謝明諺條目），陳穎達、林偉中查無資料，依團名歸本地。
