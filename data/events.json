@@ -22750,8 +22750,12 @@
     },
     {
       "title_raw": "色彩協定",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "色彩協定"
+      ],
+      "lineup": [
+        "色彩協定"
+      ],
       "is_festival": false,
       "venue": "PIPE Live Music派譜音樂空間",
       "city": "台北",
@@ -22764,7 +22768,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/100135",
       "sources": [
@@ -22775,7 +22781,7 @@
         }
       ],
       "first_seen_at": "2026-10-28T02:17:07.622Z",
-      "updated_at": "2026-10-28T02:17:07.622Z",
+      "updated_at": "2026-10-30T02:10:16.058Z",
       "id": "0838723be61d6a14",
       "merged_ids": [
         "0838723be61d6a14"
@@ -25971,8 +25977,12 @@
     },
     {
       "title_raw": "2026 Saturnday 三周年 FAN-CON",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Saturnday"
+      ],
+      "lineup": [
+        "Saturnday"
+      ],
       "is_festival": false,
       "venue": "Corner House",
       "city": "台北",
@@ -25985,7 +25995,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/964ee6764fdfd86e2e1b13f0866c8ee3",
       "sources": [
@@ -25996,7 +26008,7 @@
         }
       ],
       "first_seen_at": "2026-10-30T01:47:34.723Z",
-      "updated_at": "2026-10-30T01:47:34.723Z",
+      "updated_at": "2026-10-30T02:10:16.060Z",
       "id": "70bad44d08e16d29",
       "merged_ids": [
         "70bad44d08e16d29"
