@@ -2720,3 +2720,20 @@
 - canonical: "Motian in 3"
   aliases: []
   tags_origin_default: 本地  # 2026-10-30 Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-san-te-yan-18 三人組：謝明諺（吹管）、陳穎達（彈電）、林偉中（擊噪），2020 年起運作；謝明諺為台灣薩克斯風手（見謝明諺條目），陳穎達、林偉中查無資料，依團名歸本地。
+
+# 2026-10-31 daily fetch 補查
+- canonical: "雷擎"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-31 WebSearch（Hypebeast、Last.fm）：台灣創作歌手，鼓手出道，首張全創作專輯《Dive & Give》、《南洋探險隊 South Expedition》，2022 金曲獎入圍；本場於台灣本地展演空間「女巫店」專場演出。Ticket Plus 售票頁 https://ticketplus.com.tw/activity/c396233c5b4469b9ec7e611857e6cc1f
+- canonical: "黃奇斌"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-31 WebSearch：台語歌手，前「茄子蛋」主唱兼鍵盤手（2018 金曲獎最佳新人／最佳台語專輯），2025 單飛加盟環球音樂，單曲〈若無你我欲去佗位〉入圍第37屆金曲獎最佳作曲人，與本場標題同名。ibon 售票頁 https://ticket.ibon.com.tw/ActivityInfo/Details/40031
+- canonical: "FOREVER YOUNG"
+  aliases: []
+  tags_origin_default: 本地  # 2026-10-31 iNDIEVOX 活動頁 https://www.indievox.com/activity/detail/26_iv04279e7 標題本身沒有演出者名字，查頁面內文「奇哥和他的朋友們」拼盤演出，陣容：自然捲｜奇哥｜魏如萱｜十九兩樂團｜岑寧兒｜吳志寧｜柔米Zoomie｜馬念先｜草莓救星｜黃玠｜絲襪小小姐，全為台灣獨立音樂人，同「火球祭」模式註冊標題本身。
+- canonical: "雨山祭"
+  aliases: ["政大音樂節", "NCCU Music Festival"]
+  tags_origin_default: 本地  # 2026-10-31 WebSearch 確認：國立政治大學學生自主發起的音樂節，前身「政大音樂節」，於政大校園內舉辦，屬校園學生音樂節，歸本地。
+- canonical: "泡泡公主四重奏"
+  aliases: ["Princess Rosé Quartet"]
+  tags_origin_default: 本地  # 2026-10-31 Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-san-te-yan-pao-pao-gong-zhu-si-zhong-zou-e 團員：毛敏瑄 Michelle Mao（人聲/鋼琴）、黃翊軒 Stanley Huang（吉他）、陳信亨 Larry Chen（貝斯）、林加恩 Hans Lin（鼓）；吉他手黃翊軒已在本檔登記為本地台灣爵士吉他手，依此歸本地。
