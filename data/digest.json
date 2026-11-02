@@ -1,167 +1,85 @@
 {
-  "generated_at": "2026-10-31T02:33:45.514Z",
+  "generated_at": "2026-11-01T04:23:09.333Z",
   "added_ids": [
-    "065957ca6a987ad8",
-    "3bc4059bb7c23a3d",
-    "cf7776734984c5fa",
-    "f5a626485a279411",
-    "e6196aa40aa20a1e",
-    "ab9bac2f717ea876",
-    "dfccfd1c4ab694fd",
-    "5c7ae86a8b3455cd",
-    "f7f56c8392a11fca",
-    "caac90017975fc1b",
-    "eb4bad39f976f2dd",
-    "8d135a5e754b8f73",
-    "6d8de557d4dcd44b",
-    "6f2a051959e9d791",
-    "9a2a9d2a42cd6b65",
-    "5e1dd87d3b43ef63",
-    "b7db2918414b9152",
-    "21795bb50a683a66",
-    "484df6d2f58e54be",
-    "b8ea9c8315325edc",
-    "ce72129caae90833",
-    "85d84f795b69a103",
-    "8efaee1c6287803a",
-    "a4e84842e58602ad",
-    "b41e97f879236d48",
-    "f3ca7b8a6e994d19",
-    "342e8cdd07c651af",
-    "be3b2b5f8cacf27d",
-    "149e07c57fcfcd2b",
-    "dbaa80e7b2626e53",
-    "c88ceb57e23dde7a",
-    "b300486f9984a50b",
-    "0c5f30ef8841c220",
-    "17f5ff1cb01104f9",
-    "663ea1df1f1b1f3b",
-    "9b77b19d194bdf0e",
-    "b95c851ce4ef7bd8",
-    "8718720d5da36831",
-    "53eefbb0b78ab0c2",
-    "a0ed552403ca349d",
-    "5b0d032380ecb745",
-    "fb3e6d3baf975e3a",
-    "5827af256b4de103",
-    "ee4923eb7a8eca70",
-    "fc4a9b178f8f440e",
-    "a0c43c55897e3d9e",
-    "25d85488362b5104",
-    "8a052edda5835c64",
-    "ebec47abf5fe68ec",
-    "2d0cfed2f7c04560",
-    "53b60478c2322620",
-    "32f46f10a4dc5ce7",
-    "7c0d96871aca17f2"
+    "a47d54a6627df502",
+    "52e3d1f03d332672",
+    "1ef89af02ebdf599",
+    "0d7254816416b707",
+    "ccf6f5a45581866a",
+    "2b1edaa54a9fab8a"
   ],
   "updated": [
     {
-      "id": "110616c2fbd5dbcf",
+      "id": "1df8ca968583109d",
       "fields": [
         "status"
       ]
     },
     {
-      "id": "ae80daf7a1c35692",
+      "id": "ea7048c4e18404a5",
       "fields": [
-        "status"
+        "status",
+        "price_max"
+      ]
+    },
+    {
+      "id": "95e387aad994d94f",
+      "fields": [
+        "price_min"
       ]
     },
     {
       "id": "11178ebf7e465eb8",
       "fields": [
-        "price_max"
-      ]
-    },
-    {
-      "id": "0bef798e8bc3343d",
-      "fields": [
-        "price_max"
-      ]
-    },
-    {
-      "id": "c4f61cc64916254f",
-      "fields": [
-        "price_max"
-      ]
-    },
-    {
-      "id": "2c65f62505884ff9",
-      "fields": [
         "status",
+        "price_min",
         "price_max"
       ]
     },
     {
-      "id": "d7d6b273da973c9e",
+      "id": "558021b4722fbf7e",
       "fields": [
-        "status",
-        "price_max"
+        "price_min"
       ]
     },
     {
-      "id": "861eff69bef9d409",
+      "id": "49068dbdd4fa4ef0",
       "fields": [
-        "price_max"
+        "price_min"
       ]
     },
     {
-      "id": "9698650334724018",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "41607e22106174ab",
+      "id": "d317bef746150a71",
       "fields": [
         "status"
       ]
     },
     {
-      "id": "aebbe1e794a7fd86",
+      "id": "32c615aa8500db8c",
       "fields": [
         "status"
       ]
     },
     {
-      "id": "0206ff1c19b2e8ef",
+      "id": "efcdac2fcc544828-day",
       "fields": [
         "status"
       ]
     },
     {
-      "id": "1e4693b92fdcd748",
+      "id": "efcdac2fcc544828-evening",
       "fields": [
         "status"
       ]
     },
     {
-      "id": "26c2ae62db7f2b0c",
+      "id": "cb9ccdeee8db8d07",
       "fields": [
         "status"
       ]
     },
     {
-      "id": "34f02fa7ced68f44",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "7d669648aaeb8388-day",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "7d669648aaeb8388-evening",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "3dac52a5d71cf2d1",
+      "id": "9509d77e679853c3",
       "fields": [
         "status"
       ]
@@ -174,21 +92,22 @@
       ]
     },
     {
-      "id": "3f696d5e46394032",
+      "id": "540726a8f6ce2c1c",
       "fields": [
-        "price_min"
-      ]
-    },
-    {
-      "id": "6fbeab440c195ac3",
-      "fields": [
-        "status"
+        "status",
+        "on_sale_at"
       ]
     },
     {
       "id": "52ab194a8c85176d",
       "fields": [
-        "price_max"
+        "status"
+      ]
+    },
+    {
+      "id": "b7ebb8bf682fe5fa",
+      "fields": [
+        "price_min"
       ]
     }
   ]
