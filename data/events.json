@@ -19141,7 +19141,7 @@
       ],
       "is_festival": false,
       "venue": "",
-      "city": "未知",
+      "city": "高雄",
       "date": "2026-12-05",
       "time": "19:00",
       "on_sale_at": null,
@@ -19157,7 +19157,7 @@
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv04280c7",
       "first_seen_at": "2026-10-28T02:13:48.324Z",
-      "updated_at": "2026-10-30T01:56:00.580Z",
+      "updated_at": "2026-11-03T03:13:40.341Z",
       "sources": [
         {
           "name": "iNDIEVOX",
@@ -27114,8 +27114,12 @@
     },
     {
       "title_raw": "2027 女高音蔣啟真獨唱會-《美聲的藝術》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "蔣啟真"
+      ],
+      "lineup": [
+        "蔣啟真"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院演奏廳",
       "city": "台北",
@@ -27128,7 +27132,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2110586520541667329",
       "sources": [
@@ -27139,7 +27145,7 @@
         }
       ],
       "first_seen_at": "2026-10-31T02:10:27.593Z",
-      "updated_at": "2026-10-31T02:10:27.593Z",
+      "updated_at": "2026-11-03T03:13:40.342Z",
       "id": "ab9bac2f717ea876",
       "merged_ids": [
         "ab9bac2f717ea876"

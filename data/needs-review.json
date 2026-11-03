@@ -63,14 +63,6 @@
       "source": "iNDIEVOX",
       "reason": "date_unparseable",
       "detail": "立"
-    },
-    {
-      "raw_id": "2110586520541667329_1801290600000",
-      "title_raw": "2027 女高音蔣啟真獨唱會-《美聲的藝術》",
-      "url": "https://www.opentix.life/event/2110586520541667329",
-      "source": "OPENTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
     }
   ]
 }
