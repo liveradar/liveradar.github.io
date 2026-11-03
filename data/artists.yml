@@ -2758,3 +2758,12 @@
 - canonical: "MINHO"
   aliases: []
   tags_origin_default: 韓國  # 2026-11-03 WebSearch 確認：南韓男團 SHINee 成員崔珉豪，首次個人巡演「MEAN: of my first」，標題「MINHO CONCERT <MEAN : of feral> in TAIPEI」。
+- canonical: "Hammond Organ Trio"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-03 Max 提供售票頁截圖＋WebSearch 確認：鋼琴手許郁瑛領軍（台灣爵士鋼琴家，單屆金曲獎三項大獎得主）、鼓手 Gabriel Hahn（法德籍，長年定居台灣，Vocal Asia 藝術總監），標題「A Different Voice of Hammond Organ Trio」，場地「our music stage北流」。
+- canonical: "林佩薇AGG"
+  aliases: ["林佩薇"]
+  tags_origin_default: 本地  # 2026-11-03 Max 提供售票頁截圖確認：活躍於華語流行音樂圈的製作人，曾任 Faye、羅大佑、蕭敬騰、丁噹等歌手現場樂手與製作統籌，15 年後重拾歌手身份發行個人專輯《扭誕Reborn》，標題「林佩薇AGG【扭誕Reborn】Mini Concert」。
+- canonical: "白日夢遊"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-03 Max 提供售票頁截圖：PIPE Live Music派譜音樂空間（台北公館）拼盤演出，陣容「銀河浣熊、!CON、WHY」，WebSearch 查無三組個別來源地資料，依小型台北展演空間拼盤慣例歸本地，標題本身無單一演出者名字，比照「火球祭」模式以企劃名稱本身登記，信心度中等，已列入報告待 Max 確認。

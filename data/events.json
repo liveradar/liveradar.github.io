@@ -21091,8 +21091,12 @@
     },
     {
       "title_raw": "A Different Voice of Hammond Organ Trio",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Hammond Organ Trio"
+      ],
+      "lineup": [
+        "Hammond Organ Trio"
+      ],
       "is_festival": false,
       "venue": "our music stage北流",
       "city": "台北",
@@ -21105,7 +21109,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/870007",
       "sources": [
@@ -21116,7 +21122,7 @@
         }
       ],
       "first_seen_at": "2026-11-02T01:51:02.282Z",
-      "updated_at": "2026-11-02T01:51:02.282Z",
+      "updated_at": "2026-11-03T03:05:16.046Z",
       "id": "38aa9e7355c10e59",
       "merged_ids": [
         "38aa9e7355c10e59"
@@ -21124,8 +21130,12 @@
     },
     {
       "title_raw": "林佩薇AGG【扭誕Reborn】Mini Concert",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "林佩薇AGG"
+      ],
+      "lineup": [
+        "林佩薇AGG"
+      ],
       "is_festival": false,
       "venue": "台北流行音樂中心",
       "city": "台北",
@@ -21138,7 +21148,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/870006",
       "sources": [
@@ -21149,7 +21161,7 @@
         }
       ],
       "first_seen_at": "2026-10-31T02:26:21.314Z",
-      "updated_at": "2026-10-31T02:26:21.314Z",
+      "updated_at": "2026-11-03T03:05:16.047Z",
       "id": "3bc4059bb7c23a3d",
       "merged_ids": [
         "3bc4059bb7c23a3d"
@@ -21157,8 +21169,12 @@
     },
     {
       "title_raw": "白日夢遊",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "白日夢遊"
+      ],
+      "lineup": [
+        "白日夢遊"
+      ],
       "is_festival": false,
       "venue": "PIPE Live Music派譜音樂空間",
       "city": "台北",
@@ -21171,7 +21187,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/100136",
       "sources": [
@@ -21182,7 +21200,7 @@
         }
       ],
       "first_seen_at": "2026-10-30T01:48:26.140Z",
-      "updated_at": "2026-10-30T01:48:26.140Z",
+      "updated_at": "2026-11-03T03:05:16.047Z",
       "id": "70093aecbee1bb6a",
       "merged_ids": [
         "70093aecbee1bb6a"
