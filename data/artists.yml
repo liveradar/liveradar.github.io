@@ -2744,3 +2744,17 @@
 - canonical: "泡泡公主四重奏"
   aliases: ["Princess Rosé Quartet"]
   tags_origin_default: 本地  # 2026-10-31 Blue Note Taipei 活動頁 https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-san-te-yan-pao-pao-gong-zhu-si-zhong-zou-e 團員：毛敏瑄 Michelle Mao（人聲/鋼琴）、黃翊軒 Stanley Huang（吉他）、陳信亨 Larry Chen（貝斯）、林加恩 Hans Lin（鼓）；吉他手黃翊軒已在本檔登記為本地台灣爵士吉他手，依此歸本地。
+
+# 2026-11-03 daily fetch 補查
+- canonical: "Chanpan"
+  aliases: []
+  tags_origin_default: 歐美  # 2026-11-03 WebFetch 售票頁 https://baodaorecords.kktix.cc/events/uil4eg：「紐約三人組 Chanpan」，2022 年起在紐約華埠街頭演出，主唱 Grace Dumdaw（緬甸出生、美國長大）與越南裔雙胞胎兄弟鼓手 Lance Tran、吉他手 Matthew Tran，標題「Chanpan autogratis World Tour in Taipei」。
+- canonical: "Beachside Talks"
+  aliases: []
+  tags_origin_default: 日本  # 2026-11-03 WebSearch 確認：東京三人組 shoegaze/dream pop 樂團，2017 年成立、主唱兼吉他手 Ayaka Shibusawa，標題「東京夢幻瞪鞋樂團 Beachside Talks 台北演唱會」已自述為東京樂團，對得上。
+- canonical: "甜約翰"
+  aliases: ["Sweet John"]
+  tags_origin_default: 本地  # 2026-11-03 WebSearch 確認：台南獨立樂團，成大校園樂團起家，第四張專輯《GOOD AFTERNIGHT》入圍第37屆金曲獎最佳樂團獎，標題「甜約翰 Sweet John 十週年演唱會」。
+- canonical: "MINHO"
+  aliases: []
+  tags_origin_default: 韓國  # 2026-11-03 WebSearch 確認：南韓男團 SHINee 成員崔珉豪，首次個人巡演「MEAN: of my first」，標題「MINHO CONCERT <MEAN : of feral> in TAIPEI」。

@@ -136,7 +136,6 @@
  "5394ab604a365c9b": "https://assets.kktix.io/upload_images/590210/8c54e68358eac26b_original.png",
  "58a451d456f710ad": "https://assets.kktix.io/upload_images/593911/79d5895da4541133_original.png",
  "a726acf556f6a3c2": "https://assets.kktix.io/upload_images/593049/067489e564875c8b_original.png",
- "d4d49e85d85d3a92": "https://assets.kktix.io/upload_images/594179/96247130fb6a8821_original.jpg",
  "c1d9b6d6cc2a5af4": "https://assets.kktix.io/upload_images/590824/901e88b81bcbe250_original.png",
  "c840a186725805a0": "https://assets.kktix.io/upload_images/551835/KKTIX_Cover_original.jpg",
  "bc149989f04256f5": "https://assets.kktix.io/upload_images/563405/get_%E5%A9%9A_%E6%A9%AB%E5%BC%8F__%E5%94%AE%E7%A5%A8___2__original.png",
@@ -455,7 +454,6 @@
  "13e1b9438f660a8c": "https://ticket.ibon.com.tw/image/ActivityImage/ActivityImage_Els5he00aFMhYcc3Zd4WGQOZiLYP0c.jpg",
  "dc96d8bd26a5d4b2": "https://ticket.ibon.com.tw/image/ActivityImage/ActivityImage_6pcXAeMXOLPQUMK76JZBvAhciv5lPF.jpg",
  "afd99092af05612b": "https://ticket.ibon.com.tw/image/ActivityImage/ActivityImage_cEqJXR0vkGfDRrPJL57fNHOHtKXuUX.jpg",
- "c313b5516cc7712d": "https://ticket.ibon.com.tw/image/ActivityImage/ActivityImage_52yo5DCPDfrqQlQ0WyYR5lcnUkjKQ8.jpg",
  "987b56f439e784bf": "https://ticket.ibon.com.tw/image/ActivityImage/ActivityImage_52yo5DCPDfrqQlQ0WyYR5lcnUkjKQ8.jpg",
  "9afec40d98b55cc2": "https://ticket.ibon.com.tw/image/ActivityImage/ActivityImage_jk4jV62oyljlriiWqQOjvNNQqI6qGm.jpg",
  "58995fe81fdb294d": "https://s3.resource.opentix.life/upload/program/17820112188191lQd0vaQga.jpeg",
@@ -636,7 +634,6 @@
  "21795bb50a683a66": "https://kpmc.com.tw/wp-content/uploads/2026/10/1127.jpg",
  "484df6d2f58e54be": "https://kpmc.com.tw/wp-content/uploads/2026/10/112702.jpg",
  "b8ea9c8315325edc": "https://kpmc.com.tw/wp-content/uploads/2026/10/1129.jpg",
- "8efaee1c6287803a": "https://static.wixstatic.com/media/973c52_5f0fe827f7454a61819b2c45094f324d~mv2.png/v1/fill/w_600,h_600,al_c/973c52_5f0fe827f7454a61819b2c45094f324d~mv2.png",
  "a4e84842e58602ad": "https://static.wixstatic.com/media/973c52_5d3846876f224fa38920184507bf8392~mv2.png/v1/fill/w_600,h_600,al_c/973c52_5d3846876f224fa38920184507bf8392~mv2.png",
  "b41e97f879236d48": "https://static.wixstatic.com/media/973c52_947954f35ccd44428e175f48932fe4f6~mv2.png/v1/fill/w_600,h_600,al_c/973c52_947954f35ccd44428e175f48932fe4f6~mv2.png",
  "f3ca7b8a6e994d19": "https://static.wixstatic.com/media/973c52_3459b97f8eab48bc957d0632f8612dc6~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90/973c52_3459b97f8eab48bc957d0632f8612dc6~mv2.jpg",
@@ -680,5 +677,11 @@
  "0216488c8c1ca190": "https://indievox.static.tixcraft.com/images/activity/27_iv04283e7_7d9453d306e6e3fbdc7f08264ceca0f5.jpg",
  "dfd36348f3f17bd7": "https://indievox.static.tixcraft.com/images/activity/27_iv0428421_ff195860e73db2be8201d342f44568e4.jpg",
  "38aa9e7355c10e59": "https://img.fansi.me/event/event-870007-20262eNov2e13281200x2dBANNER.webp",
- "f714cd6fc8ef7f8e": null
+ "f714cd6fc8ef7f8e": null,
+ "269ebab960ec241e": "https://s3.resource.opentix.life/upload/program/1793345643717QL4XHS48qj.png",
+ "fc1661da6a913069": "https://assets.kktix.io/upload_images/596884/de345ff316234e62_original.png",
+ "951b54a05689d7ae": "https://indievox.static.tixcraft.com/images/activity/26_iv04285e7_9d7e4b18336359bec9a52b3f5ff93eab.jpg",
+ "ed33077a123fbcb3": "https://indievox.static.tixcraft.com/images/activity/27_iv04287a9_a6fd487e01d9873dc56fde04722cac36.jpg",
+ "662a7b0e73ee9546": "https://static.ticketplus.com.tw/event/9d53a5c4a08674c0d9117bfe64ed78ca/picBigBanner_1793509757403.jpeg",
+ "4682b0a6f7257ee9": "https://static.ticketplus.com.tw/event/6176f2e7ff09269e51eb55044ce516e1/picBigBanner_1793357827339.jpeg"
 }
