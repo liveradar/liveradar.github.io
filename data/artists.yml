@@ -2781,3 +2781,6 @@
 - canonical: "hue"
   aliases: []
   tags_origin_default: 本地  # 2026-11-04 WebSearch 確認（Dcard 轉載報導）：台灣樂團，電視選秀節目《一起聽團吧》冠軍，團員知更，與「庸俗救星」合作單曲〈黑體 Sunspot〉，標題「hue《RGB》新專輯演唱會 SPLASH」。
+- canonical: "D＆W"
+  aliases: ["D&W"]
+  tags_origin_default: 亞洲其他  # 2026-11-04 Max 提供售票頁內容確認：張衞健 Dicky（香港演員/歌手，《西遊記》孫悟空一角成名）與蘇永康 William（香港粵語歌手，代表作「蘇式情歌」），兩位皆香港樂壇成名藝人，標題「D＆W 2026 健．康演唱會 IN KAOHSIUNG」。

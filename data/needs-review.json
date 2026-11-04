@@ -119,14 +119,6 @@
       "source": "iNDIEVOX",
       "reason": "date_unparseable",
       "detail": "立"
-    },
-    {
-      "raw_id": "40037_202612271700",
-      "title_raw": "D＆W 2026 健．康演唱會 IN KAOHSIUNG",
-      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40037",
-      "source": "ibon",
-      "reason": "artist_unrecognized",
-      "detail": null
     }
   ]
 }

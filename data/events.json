@@ -24820,8 +24820,12 @@
     },
     {
       "title_raw": "D＆W 2026 健．康演唱會 IN KAOHSIUNG",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "D＆W"
+      ],
+      "lineup": [
+        "D＆W"
+      ],
       "is_festival": false,
       "venue": "高雄流行音樂中心 海音館",
       "city": "高雄",
@@ -24834,7 +24838,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40037",
       "sources": [
@@ -24845,7 +24851,7 @@
         }
       ],
       "first_seen_at": "2026-11-04T01:44:55.700Z",
-      "updated_at": "2026-11-04T01:44:55.700Z",
+      "updated_at": "2026-11-04T02:04:08.154Z",
       "id": "5b32a3185d127fcd",
       "merged_ids": [
         "5b32a3185d127fcd"
