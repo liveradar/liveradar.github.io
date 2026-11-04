@@ -2770,3 +2770,14 @@
 - canonical: "蔣啟真"
   aliases: []
   tags_origin_default: 本地  # 2026-11-03 Max 確認：台灣知名女高音，現任國立臺北藝術大學助理教授、國立臺灣藝術大學音樂系兼任助理教授、財團法人台北歌劇暨藝術文化基金會董事，標題「2027 女高音蔣啟真獨唱會-《美聲的藝術》」。
+
+# 2026-11-04 daily fetch 補查
+- canonical: "修齊"
+  aliases: ["劉修齊"]
+  tags_origin_default: 本地  # 2026-11-04 WebFetch 售票頁 https://www.indievox.com/activity/detail/26_iv0429373 確認：台北 Legacy 首張個人專輯《朋友、戀人與最糟糕的事》發行專場，自述頁內 14 歲開始寫歌、十年創作經歷、曾成立並退出樂團，台灣本地獨立音樂人，標題「修齊首張個人專輯《朋友、戀人與最糟糕的事》發行專場」。
+- canonical: "Sweetnotes"
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-11-04 WebSearch 確認（Wikipedia、usa.inquirer.net）：菲律賓流行翻唱夫妻二人組，來自 General Santos，成員 Jeffrey Bactong Jr. 與 Charlotte Mae Bactong，2026 年「Biyaya」巡迴涵蓋美國、加拿大多城，標題「Sweetnotes Asia Tour Live in Kaohsiung」。
+- canonical: "hue"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-04 WebSearch 確認（Dcard 轉載報導）：台灣樂團，電視選秀節目《一起聽團吧》冠軍，團員知更，與「庸俗救星」合作單曲〈黑體 Sunspot〉，標題「hue《RGB》新專輯演唱會 SPLASH」。

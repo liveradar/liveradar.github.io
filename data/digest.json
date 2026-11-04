@@ -1,81 +1,37 @@
 {
-  "generated_at": "2026-11-03T02:52:26.747Z",
+  "generated_at": "2026-11-04T01:57:55.612Z",
   "added_ids": [
-    "269ebab960ec241e",
-    "fc1661da6a913069",
-    "951b54a05689d7ae",
-    "ed33077a123fbcb3",
-    "662a7b0e73ee9546",
-    "4682b0a6f7257ee9"
+    "cf74bf4fc3bf33dc",
+    "44c511b5ac2a0aa5",
+    "aab199fd28963da5",
+    "5b32a3185d127fcd"
   ],
   "updated": [
     {
-      "id": "112e8ac403bbfe12",
+      "id": "fc1661da6a913069",
       "fields": [
         "status"
       ]
     },
     {
-      "id": "533094867b83594d",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "e5c009e32f429150",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "110616c2fbd5dbcf",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "118996706c58c37e",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "94d9383413a6a426",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "ae80daf7a1c35692",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "be5f2f661b12d136",
+      "id": "295326f47c7927e0",
       "fields": [
         "status",
         "price_max"
+      ]
+    },
+    {
+      "id": "88e57d16d484cce4",
+      "fields": [
+        "status",
+        "price_min"
       ]
     },
     {
       "id": "f5ae9d0e83e56344",
       "fields": [
-        "status",
         "price_min",
         "price_max"
-      ]
-    },
-    {
-      "id": "0bef798e8bc3343d",
-      "fields": [
-        "price_max"
-      ]
-    },
-    {
-      "id": "e724398f4e462835",
-      "fields": [
-        "status"
       ]
     },
     {
@@ -85,15 +41,9 @@
       ]
     },
     {
-      "id": "89f9d8773f2b6eb9",
+      "id": "e04d64087c05573a",
       "fields": [
-        "price_min"
-      ]
-    },
-    {
-      "id": "2c65f62505884ff9",
-      "fields": [
-        "status",
+        "price_min",
         "price_max"
       ]
     },
@@ -101,6 +51,19 @@
       "id": "c4980bda1454a9c9",
       "fields": [
         "price_max"
+      ]
+    },
+    {
+      "id": "b03d12315b2eb4ab",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "4682b0a6f7257ee9",
+      "fields": [
+        "status",
+        "on_sale_at"
       ]
     },
     {
