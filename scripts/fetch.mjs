@@ -33,6 +33,11 @@ const DATA_DIR = path.join(__dirname, "..", "data");
 
 const adapters = [kktix, tixcraft, indievox, fansi, ticketplus, billboard, ibon, opentix, kham, era, kpmc, bluenote, manual];
 
+// Sources whose fetch is paused: no requests are sent; last run's events are
+// reused via the anomaly fallback. Remove an entry to resume. (2026-11-04: 拓元
+// blocked this machine's IP; see HANDOFF.md.)
+const PAUSED_SOURCES = new Set(["拓元"]);
+
 function loadPreviousEvents() {
   try {
     const raw = readFileSync(path.join(DATA_DIR, "events.json"), "utf-8");
@@ -108,14 +113,23 @@ async function runAdapter(adapter, context) {
   logProgress(`=== starting adapter: ${adapter.name} ===`);
   let rawEvents = [];
   let error = null;
-  try {
-    rawEvents = await adapter.fetch(
-      knownRawIdsBySource.get(adapter.name) ?? new Map(),
-      skipIdsForSource(exclusionCache, adapter.name),
-    );
-  } catch (err) {
-    error = err.message;
-    logProgress(`${adapter.name} fetch() threw: ${err.stack}`);
+  const paused = PAUSED_SOURCES.has(adapter.name);
+  if (paused) {
+    // Paused by hand (2026-11-04): this IP is blocked by tixcraft, so don't
+    // send it any requests. Treated as an error so the existing fallback
+    // reuses last run's events for this source instead of dropping them.
+    error = "已暫停抓取（手動）";
+    logProgress(`${adapter.name} paused — skipping fetch, reusing previous data`);
+  } else {
+    try {
+      rawEvents = await adapter.fetch(
+        knownRawIdsBySource.get(adapter.name) ?? new Map(),
+        skipIdsForSource(exclusionCache, adapter.name),
+      );
+    } catch (err) {
+      error = err.message;
+      logProgress(`${adapter.name} fetch() threw: ${err.stack}`);
+    }
   }
   logProgress(`=== finished adapter: ${adapter.name}, ${rawEvents.length} raw event(s) ===`);
 
@@ -146,7 +160,7 @@ async function runAdapter(adapter, context) {
     needsReview.push(...fallbackReview);
 
     try {
-      await notifySourceAnomaly({ name: adapter.name, ...anomaly });
+      if (!paused) await notifySourceAnomaly({ name: adapter.name, ...anomaly });
     } catch (err) {
       logProgress(`notifySourceAnomaly failed for ${adapter.name}: ${err.stack}`);
     }
