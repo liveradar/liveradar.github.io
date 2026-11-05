@@ -2784,3 +2784,32 @@
 - canonical: "D＆W"
   aliases: ["D&W"]
   tags_origin_default: 亞洲其他  # 2026-11-04 Max 提供售票頁內容確認：張衞健 Dicky（香港演員/歌手，《西遊記》孫悟空一角成名）與蘇永康 William（香港粵語歌手，代表作「蘇式情歌」），兩位皆香港樂壇成名藝人，標題「D＆W 2026 健．康演唱會 IN KAOHSIUNG」。
+
+# 2026-11-05 daily fetch 補查
+- canonical: "康士坦的變化球"
+  aliases: ["KST"]
+  tags_origin_default: 本地  # 2026-11-05 WebSearch 確認：台灣後搖滾獨立樂團，2013年成軍，專輯《更迭》入圍第32屆金曲獎最佳樂團獎，標題「康士坦的變化球 KST《犬的視線》2027 巡迴」。
+- canonical: "Sophie Powers"
+  aliases: []
+  tags_origin_default: 歐美  # 2026-11-05 node scripts/page-text.mjs 售票頁 https://baodaorecords.kktix.cc/events/i7srqs 確認：「來自加拿大多倫多、現居洛杉磯的 Sophie Powers」，加拿大創作歌手，標題「Sophie Powers 2026 DIRTY WHITE TEE ASIA TOUR – TAIPEI」。
+- canonical: "魚條"
+  aliases: ["Fish Stick"]
+  tags_origin_default: 本地  # 2026-11-05 node scripts/page-text.mjs 售票頁＋WebSearch 確認：台北華語龐克搖滾樂團，演出者標註「魚條 Fish Stick」，2011年組成，標題「魚條《變形》——台北/台中/高雄場」。
+- canonical: "VERA"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-05 WebSearch 確認：台灣選秀節目《原子少年》出道男團，2026年出道四周年，成員孟維、Nelson、蔡朕、學文、藍弟，標題「2026 VERA 四周年演唱會《NEXTERA》」。
+- canonical: "MYTH & ROID"
+  aliases: []
+  tags_origin_default: 日本  # 2026-11-05 node scripts/page-text.mjs 售票頁確認：「以獨特世界觀...風靡全球動漫迷的日本音樂組合 MYTH & ROID」，2015年東京成軍，標題「MYTH & ROID Tour 2026-2027 "I know your fire" 台北場」。
+- canonical: "Jeff Bernat"
+  aliases: []
+  tags_origin_default: 歐美  # 2026-11-05 node scripts/page-text.mjs 售票頁確認：「美國 R&B 歌手 Jeff Bernat」，2012年首張專輯《The Gentleman Approach》出道，標題「Jeff Bernat - Luv Language Tour - Taipei」。
+- canonical: "FLARE U"
+  aliases: []
+  tags_origin_default: 韓國  # 2026-11-05 node scripts/page-text.mjs 售票頁確認：「由臺灣成員崔立于、韓國成員姜玗進組成的雙人團體」，經韓國 Mnet選秀節目《Boys II Planet》出道、韓國經紀公司 O.N worldwide（오엔기획）主辦，依 K-pop 圈成名判斷為韓國，但一位成員為台灣籍，信心度中等，已列入報告待 Max 確認，標題「2026－27 FLARE U FANCON TOUR：Where U'RE in TAIPEI」。
+- canonical: "The Reunion Trio"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-05 node scripts/page-text.mjs Blue Note Taipei 活動頁確認：鋼琴家翁家怡、貝斯手許巽舜、鼓手馬仕函，台灣爵士樂手，台北藍調每月第三週三固定場次，標題「台北藍調 週三特演 The Reunion Trio」。
+- canonical: "Ben Holt & The Soul Imposters"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-05 node scripts/page-text.mjs Blue Note Taipei 活動頁確認：吉他手霍班 Ben Holt 原籍加拿大、2013年移居美國、2015年起定居台灣，現為多位台灣藝人（壞特、張涵雅等）專任吉他手，比照「Hammond Organ Trio」Gabriel Hahn 長年定居台灣慣例歸本地，信心度中等，已列入報告待 Max 確認，標題「台北藍調 週日特演 靈魂爵士夜 Ben Holt & The Soul Imposters」。

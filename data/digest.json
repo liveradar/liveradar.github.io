@@ -1,18 +1,24 @@
 {
-  "generated_at": "2026-11-04T01:57:55.612Z",
+  "generated_at": "2026-11-05T01:56:53.633Z",
   "added_ids": [
-    "cf74bf4fc3bf33dc",
-    "44c511b5ac2a0aa5",
-    "aab199fd28963da5",
-    "5b32a3185d127fcd"
+    "45689672b7bc35e9",
+    "333ba4d90f5ea20c",
+    "d2ac6f88044ba9aa",
+    "7416983996c003d3",
+    "fa2e622509089ef7",
+    "a2cbcaf1a8446ec8",
+    "86b36c0695e91ae0",
+    "89d44a74721197f5",
+    "f98dc35e1a96a121",
+    "bcbc1557b740683d",
+    "215b9829d46aaead",
+    "88d8f4c7eda25cd0",
+    "cd612ade5f103abf",
+    "257b747d36343a39",
+    "46391b8b4eb06450",
+    "9f8e7cf18d752883"
   ],
   "updated": [
-    {
-      "id": "fc1661da6a913069",
-      "fields": [
-        "status"
-      ]
-    },
     {
       "id": "295326f47c7927e0",
       "fields": [
@@ -21,17 +27,24 @@
       ]
     },
     {
-      "id": "88e57d16d484cce4",
+      "id": "3b2f24c79bd1e4e3",
+      "fields": [
+        "status",
+        "price_min",
+        "price_max"
+      ]
+    },
+    {
+      "id": "f5ae9d0e83e56344",
       "fields": [
         "status",
         "price_min"
       ]
     },
     {
-      "id": "f5ae9d0e83e56344",
+      "id": "e724398f4e462835",
       "fields": [
-        "price_min",
-        "price_max"
+        "status"
       ]
     },
     {
@@ -41,35 +54,48 @@
       ]
     },
     {
-      "id": "e04d64087c05573a",
-      "fields": [
-        "price_min",
-        "price_max"
-      ]
-    },
-    {
-      "id": "c4980bda1454a9c9",
+      "id": "2bb5a4b22108c27f",
       "fields": [
         "price_max"
       ]
     },
     {
-      "id": "b03d12315b2eb4ab",
-      "fields": [
-        "status"
-      ]
-    },
-    {
-      "id": "4682b0a6f7257ee9",
+      "id": "065957ca6a987ad8",
       "fields": [
         "status",
         "on_sale_at"
       ]
     },
     {
-      "id": "8172b422581b0815",
+      "id": "cf7776734984c5fa",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "74656b4069663945",
+      "fields": [
+        "status"
+      ]
+    },
+    {
+      "id": "1279c06a581a7538",
       "fields": [
         "price_min"
+      ]
+    },
+    {
+      "id": "662a7b0e73ee9546",
+      "fields": [
+        "status",
+        "on_sale_at"
+      ]
+    },
+    {
+      "id": "e6196aa40aa20a1e",
+      "fields": [
+        "status",
+        "on_sale_at"
       ]
     }
   ]
