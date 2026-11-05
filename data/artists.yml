@@ -2812,4 +2812,7 @@
   tags_origin_default: 本地  # 2026-11-05 node scripts/page-text.mjs Blue Note Taipei 活動頁確認：鋼琴家翁家怡、貝斯手許巽舜、鼓手馬仕函，台灣爵士樂手，台北藍調每月第三週三固定場次，標題「台北藍調 週三特演 The Reunion Trio」。
 - canonical: "Ben Holt & The Soul Imposters"
   aliases: []
-  tags_origin_default: 本地  # 2026-11-05 node scripts/page-text.mjs Blue Note Taipei 活動頁確認：吉他手霍班 Ben Holt 原籍加拿大、2013年移居美國、2015年起定居台灣，現為多位台灣藝人（壞特、張涵雅等）專任吉他手，比照「Hammond Organ Trio」Gabriel Hahn 長年定居台灣慣例歸本地，信心度中等，已列入報告待 Max 確認，標題「台北藍調 週日特演 靈魂爵士夜 Ben Holt & The Soul Imposters」。
+  tags_origin_default: 歐美  # 2026-11-05 Max 修正：吉他手霍班 Ben Holt 原籍加拿大、2013年移居美國德州並於當地取得爵士吉他碩士，雖近年受邀擔任多位台灣藝人的專任吉他手，但判斷依據應是「主要在哪邊活動」而非單純長住台灣，他的音樂訓練與主要職業身分仍紮根北美，歸歐美，標題「台北藍調 週日特演 靈魂爵士夜 Ben Holt & The Soul Imposters」。
+- canonical: "YoungLee"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-05 Max 確認：台灣饒舌歌手，選秀節目《大嘻哈時代》第一季年度總冠軍，標題「《漂亮，祝你美好。》_YoungLee Tour 2026_台中場」。

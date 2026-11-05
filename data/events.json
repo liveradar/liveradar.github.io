@@ -19724,8 +19724,12 @@
     },
     {
       "title_raw": "《漂亮，祝你美好。》_YoungLee Tour 2026_台中場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "YoungLee"
+      ],
+      "lineup": [
+        "YoungLee"
+      ],
       "is_festival": false,
       "venue": "Legacy Taichung 音樂展演空間",
       "city": "台中",
@@ -19738,7 +19742,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv042954d",
       "sources": [
@@ -19749,7 +19755,7 @@
         }
       ],
       "first_seen_at": "2026-11-05T01:44:44.912Z",
-      "updated_at": "2026-11-05T01:44:44.912Z",
+      "updated_at": "2026-11-05T02:08:49.698Z",
       "id": "89d44a74721197f5",
       "merged_ids": [
         "89d44a74721197f5"
@@ -29901,7 +29907,7 @@
         "專場"
       ],
       "tags_origin": [
-        "本地"
+        "歐美"
       ],
       "is_lottery": false,
       "ticket_url": "https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-ri-te-yan-ling-hun-jue-shi-ye-7",
