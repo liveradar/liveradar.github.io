@@ -2085,6 +2085,15 @@
 - canonical: kurayamisaka
   aliases: []
   tags_origin_default: 日本  # WebSearch 查證：2022年於東京大井町成軍的五人搖滾樂團，2025年入選NME「THE NME 100」；售票頁 indievox.com/activity/detail/27_iv04240db《Through the Mess：kurayamisaka Live in Taipei》
+- canonical: RAY
+  aliases: []
+  tags_origin_default: 日本  # 2026-11-06 排程查證：FANSI GO 活動頁（go.fansi.me/events/150013）寫明 RAY 為瞪鞋（shoegaze）偶像團體、本場為「首次海外演出」（「也從未在日本以外的國家發生」）；標題「RAY BAND SET」含 RAY
+- canonical: 陳怡婷
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-06 排程查證：cnyes 報導「療癒歌姬陳怡婷首次大型個唱 7/19-20台北登場」、ctee/n.yam 報導其為寶吉祥《歌之饗宴》系列常駐嘉賓（台灣華語流行歌手，在台灣成名）；售票頁 ticket.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1I1K8F9 標題含陳怡婷
+- canonical: 李承育
+  aliases: ["Chengyu Lee"]
+  tags_origin_default: 本地  # 2026-11-06 排程查證：Blue Note Taipei 活動頁（bluenotetaipei.com/events/tai-bei-lan-diao-zhou-si-te-yan-li-cheng-yu-si-zhong-zou）介紹「爵士薩克斯風演奏家李承育領銜」，台北 Blue Note 演出；WebSearch 查到台北爵士樂團（Taipei Jazz Orchestra）指揮、台灣音樂教育機構講師資料（tc.edu.tw）。來源地判斷為台灣本地爵士圈
 - canonical: 動保失敗
   aliases: []
   tags_origin_default: 本地  # FANSI GO 活動頁查證（go.fansi.me/events/500062）：高雄百樂門酒館演出，演出者輻射魚市＋黑狼均為台灣樂團，標題本身無單一演出者名稱，比照「企劃/系列名稱」規則登記
