@@ -1,14 +1,6 @@
 {
   "items": [
     {
-      "raw_id": "26_iv04296e0",
-      "title_raw": "11.15 (Sun.) 冬日的黑夜大於白天",
-      "url": "https://www.indievox.com/activity/detail/26_iv04296e0",
-      "source": "iNDIEVOX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "26_iv0426384#0",
       "title_raw": "2026愛無止盡慈善音樂會《時光旅人》",
       "url": "https://www.indievox.com/activity/detail/26_iv0426384",
@@ -39,14 +31,6 @@
       "source": "iNDIEVOX",
       "reason": "date_unparseable",
       "detail": "2026年12月18號 週五 19:00"
-    },
-    {
-      "raw_id": "f816bf63-91e7-4d10-b55c-c39ae5002a76_202611302100",
-      "title_raw": "台北藍調 週一特演〈 The World, Piece by Piece 〉爵士創作專輯發表音樂會",
-      "url": "https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-yi-te-yan-h-jue-shi-chuang-zuo-zhuan-ji-fa-biao-yin-le-hui",
-      "source": "Blue Note Taipei",
-      "reason": "artist_unrecognized",
-      "detail": null
     }
   ]
 }

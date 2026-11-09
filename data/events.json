@@ -24413,8 +24413,12 @@
     },
     {
       "title_raw": "11.15 (Sun.) 冬日的黑夜大於白天",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "冬日的黑夜大於白天"
+      ],
+      "lineup": [
+        "冬日的黑夜大於白天"
+      ],
       "is_festival": false,
       "venue": "迴響音樂展演空間SOUND Live House",
       "city": "台中",
@@ -24427,7 +24431,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv04296e0",
       "sources": [
@@ -24438,7 +24444,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:40:15.822Z",
-      "updated_at": "2026-11-09T02:40:15.822Z",
+      "updated_at": "2026-11-09T03:19:22.097Z",
       "id": "e5db6d8fa07e4c34",
       "merged_ids": [
         "e5db6d8fa07e4c34"
@@ -34038,8 +34044,12 @@
     },
     {
       "title_raw": "台北藍調 週一特演〈 The World, Piece by Piece 〉爵士創作專輯發表音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "黃浩瑄"
+      ],
+      "lineup": [
+        "黃浩瑄"
+      ],
       "is_festival": false,
       "venue": "Blue Note Taipei 台北藍調",
       "city": "台北",
@@ -34052,7 +34062,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-yi-te-yan-h-jue-shi-chuang-zuo-zhuan-ji-fa-biao-yin-le-hui",
       "sources": [
@@ -34063,7 +34075,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T01:45:34.502Z",
-      "updated_at": "2026-11-09T01:45:34.502Z",
+      "updated_at": "2026-11-09T03:19:22.099Z",
       "id": "ded6831f60742894",
       "merged_ids": [
         "ded6831f60742894"

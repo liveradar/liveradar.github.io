@@ -2922,6 +2922,12 @@
 - canonical: "JASON CHENY"
   aliases: ["Jason Cheny"]
   tags_origin_default: 歐美  # 2026-11-09 查證：台灣出身、在洛杉磯出道的 stand-up 喜劇演員（Forbes AAPI、官網 tourdates）；依「在哪裡成名」規則歸歐美，需 Max 確認；標題「LIVE IN ASIA JASON CHENY TAIPEI 2027」
+- canonical: "冬日的黑夜大於白天"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-09 Max 貼上的活動頁陣容：黑海樂團 DarkSea、破序 Poshift、平凡人 General，皆台灣樂團；多團活動依規則歸本地；標題「11.15 (Sun.) 冬日的黑夜大於白天」
+- canonical: "黃浩瑄"
+  aliases: ["The World, Piece by Piece"]
+  tags_origin_default: 本地  # 2026-11-09 Max 貼上的活動頁：新生代爵士鋼琴手兼作曲家黃浩瑄，專輯邀集臺灣前線爵士樂手演奏；標題「台北藍調 週一特演〈 The World, Piece by Piece 〉」
 - canonical: "SHIROSE"
   aliases: ["WHITE JAM"]
   tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」
