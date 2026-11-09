@@ -2862,6 +2862,15 @@
 - canonical: "KATSEYE"
   aliases: []
   tags_origin_default: 歐美  # 2026-11-09 Max 選擇歐美（美國組合，經 HYBE × Geffen 在美國組成）；標題「KATSEYE：THE WILDWORLD TOUR」
+- canonical: "阿爆"
+  aliases: ["ABAO", "Abao"]
+  tags_origin_default: 本地  # 2026-11-09 補查：台灣原住民饒舌歌手、那屋瓦廠牌創辦人（三立新聞網、Marie Claire、Wikipedia "Abao (musician)"）；票券標題「那狠會 ABAO 阿爆 ft. Team 那屋瓦」
+- canonical: "蕭閎仁"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-09 補查：台灣台語音樂人、入圍金曲新人獎（三立新聞網專題）；票券標題「2026 蕭閎仁【Weaken Blossom Freedom】」直接寫名字
+- canonical: "趙詠華"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-09 補查：台灣歌手，2026 年於 Legacy Taipei 開唱（TVBS 報導）；往事微風票券標題「Legacy Presents【往事微風】趙詠華＆于冠華」
 - canonical: "SHIROSE"
   aliases: ["WHITE JAM"]
   tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」

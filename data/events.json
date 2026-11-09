@@ -16093,8 +16093,12 @@
     },
     {
       "title_raw": "【門票】那狠會購票區_第二屆北流演唱會學院成果展演《那狠會》ABAO 阿爆 ft. Team 那屋瓦",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "阿爆"
+      ],
+      "lineup": [
+        "阿爆"
+      ],
       "is_festival": false,
       "venue": "Legacy TERA",
       "city": "台北",
@@ -16107,7 +16111,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://taipeimusiccenter.kktix.cc/events/0a6f85b3",
       "sources": [
@@ -16118,7 +16124,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.500Z",
-      "updated_at": "2026-11-09T02:08:10.500Z",
+      "updated_at": "2026-11-09T02:24:04.644Z",
       "id": "e2a53207b5ad122b",
       "merged_ids": [
         "e2a53207b5ad122b"
@@ -16126,8 +16132,12 @@
     },
     {
       "title_raw": "【限量】那狠香－香氛套票_第二屆北流演唱會學院成果展演《那狠會》ABAO 阿爆 ft. Team 那屋瓦",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "阿爆"
+      ],
+      "lineup": [
+        "阿爆"
+      ],
       "is_festival": false,
       "venue": "Legacy TERA",
       "city": "台北",
@@ -16140,7 +16150,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://taipeimusiccenter.kktix.cc/events/e4ed0db0",
       "sources": [
@@ -16151,7 +16163,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.501Z",
-      "updated_at": "2026-11-09T02:08:10.501Z",
+      "updated_at": "2026-11-09T02:24:04.646Z",
       "id": "c4bdb146d9cce81f",
       "merged_ids": [
         "c4bdb146d9cce81f"
@@ -18328,8 +18340,12 @@
     },
     {
       "title_raw": "2026 蕭閎仁【Weaken Blossom Freedom】Weaken Blossom Freedom 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "蕭閎仁"
+      ],
+      "lineup": [
+        "蕭閎仁"
+      ],
       "is_festival": false,
       "venue": "三創CLAPPER STUDIO",
       "city": "台北",
@@ -18342,7 +18358,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://mufsic.kktix.cc/events/fdfb1f9f",
       "sources": [
@@ -18353,7 +18371,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.551Z",
-      "updated_at": "2026-11-09T02:08:10.551Z",
+      "updated_at": "2026-11-09T02:24:04.647Z",
       "id": "0f303033fd3a62c4",
       "merged_ids": [
         "0f303033fd3a62c4"

@@ -260,12 +260,14 @@ function extractIntroHtml($) {
 // come back as separate sessions, not every ticket tier. `sessions` is
 // always populated (length 1 for an ordinary single-show event, same shape
 // fetchTicketStatusText already returned before this real case existed).
-async function fetchGamePageSessions(rawId) {
+export async function fetchGamePageSessions(rawId) {
   const html = await fetchHtml(`https://www.indievox.com/activity/game/${rawId}`);
   const $ = cheerio.load(html);
-  const rows = $("table tbody tr")
-    .map((_, tr) => $(tr).find("td").map((_, td) => $(td).text().trim()).get())
-    .get();
+  // cheerio's .map() flattens array return values, so the per-row arrays must
+  // be collected with toArray() instead — otherwise `rows` is one flat list of
+  // cell strings and the destructuring below iterates characters (real bug,
+  // 2026-11-09: date_raw came out as "2", "1", "迴", "立" → date_unparseable).
+  const rows = $("table tbody tr").toArray().map((tr) => $(tr).find("td").toArray().map((td) => $(td).text().trim()));
   const byKey = new Map();
   for (const [dateText, , venueText, ...rest] of rows) {
     if (!dateText || !venueText) continue; // the "沒有資料。" placeholder row has one <td colspan>, no venue
