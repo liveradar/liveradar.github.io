@@ -1,6 +1,174 @@
 {
   "items": [
     {
+      "raw_id": "guiba2026taipei",
+      "title_raw": "Guiba 1st EP 「新しい！」Release Taiwan Tour 發行巡迴台北場",
+      "url": "https://airheadrecords.kktix.cc/events/guiba2026taipei",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "easternmythos",
+      "title_raw": "東方神魔錄 Eastern Mythos",
+      "url": "https://moshound.kktix.cc/events/easternmythos",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "a0ba8449",
+      "title_raw": "《漂亮，祝你美好。》_台北場",
+      "url": "https://ballinglikejay.kktix.cc/events/a0ba8449",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "a8f98622",
+      "title_raw": "SIANGYOO TAKES OVER TAIPEI",
+      "url": "https://scentertainment.kktix.cc/events/a8f98622",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "0a6f85b3",
+      "title_raw": "【門票】那狠會購票區_第二屆北流演唱會學院成果展演《那狠會》ABAO 阿爆 ft. Team 那屋瓦",
+      "url": "https://taipeimusiccenter.kktix.cc/events/0a6f85b3",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "e4ed0db0",
+      "title_raw": "【限量】那狠香－香氛套票_第二屆北流演唱會學院成果展演《那狠會》ABAO 阿爆 ft. Team 那屋瓦",
+      "url": "https://taipeimusiccenter.kktix.cc/events/e4ed0db0",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2f9ca2d2",
+      "title_raw": "RE:MEMBER",
+      "url": "https://reasonentertainment.kktix.cc/events/2f9ca2d2",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "0c854294",
+      "title_raw": "《漂亮，祝你美好。》_台南場",
+      "url": "https://ballinglikejay.kktix.cc/events/0c854294",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "guiba2026taichung",
+      "title_raw": "Guiba 1st EP 「新しい！」Release Taiwan Tour 發行巡迴台中場",
+      "url": "https://airheadrecords.kktix.cc/events/guiba2026taichung",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "aif6k7a",
+      "title_raw": "【門票】F.F.O 2 週年聖誕夜",
+      "url": "https://kkboxtw.kktix.cc/events/aif6k7a",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "guiba2026tainan",
+      "title_raw": "Guiba 1st EP 「新しい！」Release Taiwan Tour 發行巡迴台南場",
+      "url": "https://airheadrecords.kktix.cc/events/guiba2026tainan",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "78547195",
+      "title_raw": "【門票】ARKis 2 週年聖誕派對",
+      "url": "https://kkboxtw.kktix.cc/events/78547195",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "5c5d9321",
+      "title_raw": "《新楓之谷》2026 楓潮派對",
+      "url": "https://jyufang.kktix.cc/events/5c5d9321",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "asiaallstat",
+      "title_raw": "《亂世巨星Vol.2》Asia All Star : 台北嘻哈派對",
+      "url": "https://pluggnextdoor0.kktix.cc/events/asiaallstat",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "fdfb1f9f",
+      "title_raw": "2026 蕭閎仁【Weaken Blossom Freedom】Weaken Blossom Freedom 2026",
+      "url": "https://mufsic.kktix.cc/events/fdfb1f9f",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "tgx2027-a01",
+      "title_raw": "【商務艙】TGX泰格西 特別專場台北站",
+      "url": "https://spaceport.kktix.cc/events/tgx2027-a01",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "tgx2027-a02",
+      "title_raw": "【經濟艙】TGX泰格西 特別專場台北站",
+      "url": "https://spaceport.kktix.cc/events/tgx2027-a02",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "hrt7hu",
+      "title_raw": "11.13 Evolov3 III: Twin Flame",
+      "url": "https://lafin.kktix.cc/events/hrt7hu",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "1120nebula",
+      "title_raw": "11/20 NEBULA 首度登陸台北 PIPE",
+      "url": "https://twnextstop.kktix.cc/events/1120nebula",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "grthyt",
+      "title_raw": "11.21  TEMPLE TAIPEI × PALACIO 🇨🇴 & XULÜ 🇨🇳",
+      "url": "https://lafin.kktix.cc/events/grthyt",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "27_katseye",
+      "title_raw": "KATSEYE：THE WILDWORLD TOUR",
+      "url": "https://tixcraft.com/activity/detail/27_katseye",
+      "source": "拓元",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
       "raw_id": "26_iv04286c9#0",
       "title_raw": "11.14(六) 烙聲派對 VOL.3｜ FUCK’N BEFORE THE FREEZE",
       "url": "https://www.indievox.com/activity/detail/26_iv04286c9",
@@ -124,6 +292,38 @@
       "raw_id": "26_iv043039f#3",
       "title_raw": "11.22(日) 龐克折返跑 2026 暖身派對最終場",
       "url": "https://www.indievox.com/activity/detail/26_iv043039f",
+      "source": "iNDIEVOX",
+      "reason": "date_unparseable",
+      "detail": "立"
+    },
+    {
+      "raw_id": "26_iv0426384#0",
+      "title_raw": "2026愛無止盡慈善音樂會《時光旅人》",
+      "url": "https://www.indievox.com/activity/detail/26_iv0426384",
+      "source": "iNDIEVOX",
+      "reason": "date_unparseable",
+      "detail": "2"
+    },
+    {
+      "raw_id": "26_iv0426384#1",
+      "title_raw": "2026愛無止盡慈善音樂會《時光旅人》",
+      "url": "https://www.indievox.com/activity/detail/26_iv0426384",
+      "source": "iNDIEVOX",
+      "reason": "date_unparseable",
+      "detail": "C"
+    },
+    {
+      "raw_id": "26_iv0426384#2",
+      "title_raw": "2026愛無止盡慈善音樂會《時光旅人》",
+      "url": "https://www.indievox.com/activity/detail/26_iv0426384",
+      "source": "iNDIEVOX",
+      "reason": "date_unparseable",
+      "detail": "已"
+    },
+    {
+      "raw_id": "26_iv0426384#3",
+      "title_raw": "2026愛無止盡慈善音樂會《時光旅人》",
+      "url": "https://www.indievox.com/activity/detail/26_iv0426384",
       "source": "iNDIEVOX",
       "reason": "date_unparseable",
       "detail": "立"
@@ -271,6 +471,54 @@
       "source": "iNDIEVOX",
       "reason": "date_unparseable",
       "detail": "立"
+    },
+    {
+      "raw_id": "760006",
+      "title_raw": "GAG LIVE IN TAIPEI 2026",
+      "url": "https://go.fansi.me/events/760006",
+      "source": "FANSI GO",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "e4617ca616bc0bd1179bcf87d5ab5c8b_8b9e526c1bc028a3f7a8b21fcb43fc19",
+      "title_raw": "眼下 Under Eyes x 軟床 gentlebadbad《朋友的房間 tomodachi no heya》",
+      "url": "https://ticketplus.com.tw/activity/e4617ca616bc0bd1179bcf87d5ab5c8b",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2115984324553142273_1798196400000",
+      "title_raw": "PiaCon: TwoFold — 鋼琴 & 小提琴重奏音樂會",
+      "url": "https://www.opentix.life/event/2115984324553142273",
+      "source": "OPENTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2116103638126772225_1799494200000",
+      "title_raw": "《探戈的六種凝望》｜ 四重奏之夜",
+      "url": "https://www.opentix.life/event/2116103638126772225",
+      "source": "OPENTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2116108060006703105_1799564400000",
+      "title_raw": "《探戈的午後述說》｜ 人聲與班多鈕",
+      "url": "https://www.opentix.life/event/2116108060006703105",
+      "source": "OPENTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "f816bf63-91e7-4d10-b55c-c39ae5002a76_202611302100",
+      "title_raw": "台北藍調 週一特演〈 The World, Piece by Piece 〉爵士創作專輯發表音樂會",
+      "url": "https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-yi-te-yan-h-jue-shi-chuang-zuo-zhuan-ji-fa-biao-yin-le-hui",
+      "source": "Blue Note Taipei",
+      "reason": "artist_unrecognized",
+      "detail": null
     }
   ]
 }

@@ -2825,3 +2825,28 @@
 - canonical: "YoungLee"
   aliases: []
   tags_origin_default: 本地  # 2026-11-05 Max 確認：台灣饒舌歌手，選秀節目《大嘻哈時代》第一季年度總冠軍，標題「《漂亮，祝你美好。》_YoungLee Tour 2026_台中場」。
+# 2026-11-09 排程查證（WebSearch）：以下各條依據寫在行尾註解
+- canonical: "芒果醬"
+  aliases: ["Mango Jump"]
+  tags_origin_default: 本地  # Marie Claire 樂評報導：台灣樂團，主唱佐治，入圍金曲獎最佳新人；標題「【A5和牛場 優先購】芒果醬 Mango Jump【再見小肉舖】」
+- canonical: "KARD"
+  aliases: []
+  tags_origin_default: 韓國  # 韓國音樂媒體（starnewskorea、Korea Daily 等）報導之韓國男團；標題「KARD 2027 WORLD TOUR 'NOW HERE' IN TAIPEI」
+- canonical: "Richard Durand"
+  aliases: []
+  tags_origin_default: 歐美  # Wikipedia / Qobuz 條目：荷蘭 trance DJ（生於阿姆斯特丹）；標題「TRANCE EUPHORIA｜RICHARD DURAND 🇳🇱」
+- canonical: "Novel Fergus"
+  aliases: ["Fergus"]
+  tags_origin_default: 亞洲其他  # 香港 HK01、Time Out HK 報導：香港說唱歌手（Yack Studio）；標題「Novel Fergus「你情我願」演唱會-台北站」
+- canonical: "陳嫺靜"
+  aliases: ["Hsien Ching"]
+  tags_origin_default: 本地  # 台灣嘻哈音樂人，第16屆金音獎入圍（nownews/SETN 報導）；標題「陳嫺靜 Hsien Ching：下次再見 —東地球巡迴 高雄 Kaohsiung Sky 空中場」
+- canonical: "陳昇"
+  aliases: []
+  tags_origin_default: 本地  # 台灣創作歌手，連續多年舉辦跨年演唱會（World Journal、TaiwanNews 報導）；標題「陳昇2027跨年演唱會《寂靜之喧嘩》」
+- canonical: "迷悠奈"
+  aliases: ["MIYUNA", "Miyuna"]
+  tags_origin_default: 日本  # Tokyo Weekender 報導：日本女歌手，Fuji Rock 出演、2025 Sing! Asia 冠軍；標題「迷悠奈MIYUNA First Live in Taipei 2027」
+- canonical: "SHIROSE"
+  aliases: ["WHITE JAM"]
+  tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」
