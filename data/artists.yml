@@ -2858,7 +2858,10 @@
   tags_origin_default: 本地  # 嘻哈派對系列（同上）；標題「《亂世巨星Vol.2》Asia All Star : 台北嘻哈派對」
 - canonical: "TEMPLE TAIPEI"
   aliases: []
-  tags_origin_default: 本地  # 派對品牌（同上），演出者多國籍，不適用單一國家例外；標題「11.21 TEMPLE TAIPEI × PALACIO 🇨🇴 & XULÜ 🇨🇳」
+  tags_origin_default: 歐美  # 2026-11-09 Max 選擇歐美（派對品牌，原規則為本地；演出者 PALACIO 哥倫比亞、XULÜ 中國，Max 裁定）；標題「11.21 TEMPLE TAIPEI × PALACIO 🇨🇴 & XULÜ 🇨🇳」
+- canonical: "KATSEYE"
+  aliases: []
+  tags_origin_default: 歐美  # 2026-11-09 Max 選擇歐美（美國組合，經 HYBE × Geffen 在美國組成）；標題「KATSEYE：THE WILDWORLD TOUR」
 - canonical: "SHIROSE"
   aliases: ["WHITE JAM"]
   tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」

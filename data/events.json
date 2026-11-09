@@ -17195,39 +17195,6 @@
       ]
     },
     {
-      "title_raw": "《新楓之谷》2026 楓潮派對",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "桃園會展中心",
-      "city": "桃園",
-      "date": "2026-11-21",
-      "time": "10:00",
-      "on_sale_at": null,
-      "price_min": 99,
-      "price_max": 200,
-      "status": "sold_out",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://jyufang.kktix.cc/events/5c5d9321",
-      "sources": [
-        {
-          "name": "KKTIX",
-          "url": "https://jyufang.kktix.cc/events/5c5d9321",
-          "raw_id": "5c5d9321"
-        }
-      ],
-      "first_seen_at": "2026-11-09T02:08:10.513Z",
-      "updated_at": "2026-11-09T02:08:10.513Z",
-      "id": "2724b26dd1651b12",
-      "merged_ids": [
-        "2724b26dd1651b12"
-      ]
-    },
-    {
       "title_raw": "【13:30場】AcQUA 4Ever：還4會",
       "headliners": [
         "AcQUA"
@@ -20013,7 +19980,7 @@
         "專場"
       ],
       "tags_origin": [
-        "本地"
+        "歐美"
       ],
       "is_lottery": false,
       "ticket_url": "https://lafin.kktix.cc/events/grthyt",
@@ -21641,8 +21608,12 @@
     },
     {
       "title_raw": "KATSEYE：THE WILDWORLD TOUR",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "KATSEYE"
+      ],
+      "lineup": [
+        "KATSEYE"
+      ],
       "is_festival": false,
       "venue": "桃園會展中心",
       "city": "桃園",
@@ -21655,7 +21626,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://tixcraft.com/activity/detail/27_katseye",
       "sources": [
@@ -21666,7 +21639,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T01:49:58.927Z",
-      "updated_at": "2026-11-09T02:10:55.878Z",
+      "updated_at": "2026-11-09T02:21:22.086Z",
       "id": "529b5f8f2a3262e7",
       "merged_ids": [
         "529b5f8f2a3262e7"
@@ -30838,39 +30811,6 @@
       ]
     },
     {
-      "title_raw": "PiaCon: TwoFold — 鋼琴 & 小提琴重奏音樂會",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "功學社音樂廳",
-      "city": "新北",
-      "date": "2026-12-25",
-      "time": "19:00",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 2400,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2115984324553142273",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2115984324553142273",
-          "raw_id": "2115984324553142273_1798196400000"
-        }
-      ],
-      "first_seen_at": "2026-11-09T01:47:50.453Z",
-      "updated_at": "2026-11-09T01:47:50.453Z",
-      "id": "bcb45221a130a498",
-      "merged_ids": [
-        "bcb45221a130a498"
-      ]
-    },
-    {
       "title_raw": "2026 NTT歲末音樂會《那麼派—動靜皆宜樂舞派對》",
       "headliners": [
         "那麼派"
@@ -31572,72 +31512,6 @@
       "id": "6fbeab440c195ac3",
       "merged_ids": [
         "6fbeab440c195ac3"
-      ]
-    },
-    {
-      "title_raw": "《探戈的六種凝望》｜ 四重奏之夜",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "禾禾文化空間",
-      "city": "台北",
-      "date": "2027-01-09",
-      "time": "19:30",
-      "on_sale_at": null,
-      "price_min": 900,
-      "price_max": 900,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2116103638126772225",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2116103638126772225",
-          "raw_id": "2116103638126772225_1799494200000"
-        }
-      ],
-      "first_seen_at": "2026-11-09T01:47:50.463Z",
-      "updated_at": "2026-11-09T01:47:50.463Z",
-      "id": "17b8dc121b719d84",
-      "merged_ids": [
-        "17b8dc121b719d84"
-      ]
-    },
-    {
-      "title_raw": "《探戈的午後述說》｜ 人聲與班多鈕",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "禾禾文化空間",
-      "city": "台北",
-      "date": "2027-01-10",
-      "time": "15:00",
-      "on_sale_at": null,
-      "price_min": 900,
-      "price_max": 900,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://www.opentix.life/event/2116108060006703105",
-      "sources": [
-        {
-          "name": "OPENTIX",
-          "url": "https://www.opentix.life/event/2116108060006703105",
-          "raw_id": "2116108060006703105_1799564400000"
-        }
-      ],
-      "first_seen_at": "2026-11-09T01:47:50.463Z",
-      "updated_at": "2026-11-09T01:47:50.463Z",
-      "id": "e7655d38a43d5307",
-      "merged_ids": [
-        "e7655d38a43d5307"
       ]
     },
     {

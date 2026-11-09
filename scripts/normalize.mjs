@@ -799,6 +799,11 @@ const NOISE_KEYWORDS = [
   "校園音樂藝術交流晚會", // a student-association campus variety night (anti-drug/anti-bullying awareness programming, unnamed performers) — not a touring artist's show. NOISE_KEYWORDS is a plain substring match (see isNonMusicNoise below), not a regex — this must be the literal phrase, not a wildcard pattern
   "洛基恐怖秀", // Rocky Horror Picture Show fan-run screenings with live shadowcast actors — a movie-screening/cosplay event, not a music concert, despite the source material being a "rock musical"
   "實體課程", // 2026-10-02: comedyclub's "迷走大學 實體課程" course listings
+  // 2026-11-09 Max 選擇排除：遊戲活動派對（非音樂演出）與古典音樂會（不在收錄範圍）
+  "楓潮派對", // KKTIX「《新楓之谷》2026 楓潮派對」— MapleStory game-event party
+  "探戈的六種凝望", // OPENTIX「《探戈的六種凝望》｜四重奏之夜」— classical tango quartet concert
+  "探戈的午後述說", // OPENTIX「《探戈的午後述說》｜人聲與班多鈕」— classical tango recital
+  "PiaCon: TwoFold", // OPENTIX「PiaCon: TwoFold — 鋼琴 & 小提琴重奏音樂會」— classical piano/violin duo recital
   // 2026-09-24 batch (手動補跑排程當天發現，見 HANDOFF）：
   "投資心法", // a financial-professor investment seminar (FANSI GO), not a performance
   "尾牙同樂會", // a corporate year-end banquet listing (Ticket Plus), not a public concert

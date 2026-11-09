@@ -198,6 +198,15 @@
       "reason": "non_music_noise",
       "checked_at": "2026-11-09T02:08:10.494Z"
     },
+    "KKTIX|5c5d9321": {
+      "source": "KKTIX",
+      "raw_id": "5c5d9321",
+      "title_raw": "《新楓之谷》2026 楓潮派對",
+      "url": "https://jyufang.kktix.cc/events/5c5d9321",
+      "venue_raw": "桃園會展中心",
+      "reason": "non_music_noise",
+      "checked_at": "2026-11-09T02:21:22.041Z"
+    },
     "KKTIX|5sos-hk-2026": {
       "source": "KKTIX",
       "raw_id": "5sos-hk-2026",
@@ -719,6 +728,33 @@
       "venue_raw": "台北生技園區多功能廳 / 臺北",
       "reason": "classical",
       "checked_at": "2026-11-09T01:47:50.465Z"
+    },
+    "OPENTIX|2115984324553142273_1798196400000": {
+      "source": "OPENTIX",
+      "raw_id": "2115984324553142273_1798196400000",
+      "title_raw": "PiaCon: TwoFold — 鋼琴 & 小提琴重奏音樂會",
+      "url": "https://www.opentix.life/event/2115984324553142273",
+      "venue_raw": "功學社音樂廳",
+      "reason": "non_music_noise",
+      "checked_at": "2026-11-09T02:21:22.047Z"
+    },
+    "OPENTIX|2116103638126772225_1799494200000": {
+      "source": "OPENTIX",
+      "raw_id": "2116103638126772225_1799494200000",
+      "title_raw": "《探戈的六種凝望》｜ 四重奏之夜",
+      "url": "https://www.opentix.life/event/2116103638126772225",
+      "venue_raw": "禾禾文化空間",
+      "reason": "non_music_noise",
+      "checked_at": "2026-11-09T02:21:22.048Z"
+    },
+    "OPENTIX|2116108060006703105_1799564400000": {
+      "source": "OPENTIX",
+      "raw_id": "2116108060006703105_1799564400000",
+      "title_raw": "《探戈的午後述說》｜ 人聲與班多鈕",
+      "url": "https://www.opentix.life/event/2116108060006703105",
+      "venue_raw": "禾禾文化空間",
+      "reason": "non_music_noise",
+      "checked_at": "2026-11-09T02:21:22.048Z"
     },
     "Ticket Plus|06091acf61391bb2070e71f24b8c7c2f_20a5cd9b89904aaa0a88f1e7566afd07": {
       "source": "Ticket Plus",
