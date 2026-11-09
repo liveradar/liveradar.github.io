@@ -16726,8 +16726,12 @@
     },
     {
       "title_raw": "【門票】F.F.O 2 週年聖誕夜",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "F.F.O"
+      ],
+      "lineup": [
+        "F.F.O"
+      ],
       "is_festival": false,
       "venue": "WESTAR",
       "city": "台北",
@@ -16740,7 +16744,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kkboxtw.kktix.cc/events/aif6k7a",
       "sources": [
@@ -16751,7 +16757,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.506Z",
-      "updated_at": "2026-11-09T02:08:10.506Z",
+      "updated_at": "2026-11-09T02:11:52.779Z",
       "id": "e4a88f385439f98f",
       "merged_ids": [
         "e4a88f385439f98f"
@@ -16792,8 +16798,12 @@
     },
     {
       "title_raw": "【門票】ARKis 2 週年聖誕派對",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "ARKis"
+      ],
+      "lineup": [
+        "ARKis"
+      ],
       "is_festival": false,
       "venue": "WESTAR",
       "city": "台北",
@@ -16806,7 +16816,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kkboxtw.kktix.cc/events/78547195",
       "sources": [
@@ -16817,7 +16829,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.507Z",
-      "updated_at": "2026-11-09T02:08:10.507Z",
+      "updated_at": "2026-11-09T02:11:52.781Z",
       "id": "7f049cb74574f796",
       "merged_ids": [
         "7f049cb74574f796"
@@ -18193,8 +18205,12 @@
     },
     {
       "title_raw": "《亂世巨星Vol.2》Asia All Star : 台北嘻哈派對",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "亂世巨星"
+      ],
+      "lineup": [
+        "亂世巨星"
+      ],
       "is_festival": false,
       "venue": "Zepp New Taipei",
       "city": "新北",
@@ -18207,7 +18223,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://pluggnextdoor0.kktix.cc/events/asiaallstat",
       "sources": [
@@ -18218,7 +18236,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.533Z",
-      "updated_at": "2026-11-09T02:08:10.533Z",
+      "updated_at": "2026-11-09T02:11:52.781Z",
       "id": "7e3a2d31e721120a",
       "merged_ids": [
         "7e3a2d31e721120a"
@@ -19976,8 +19994,12 @@
     },
     {
       "title_raw": "11.21  TEMPLE TAIPEI × PALACIO 🇨🇴 & XULÜ 🇨🇳",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "TEMPLE TAIPEI"
+      ],
+      "lineup": [
+        "TEMPLE TAIPEI"
+      ],
       "is_festival": false,
       "venue": "La Fin Taipei",
       "city": "台北",
@@ -19990,7 +20012,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://lafin.kktix.cc/events/grthyt",
       "sources": [
@@ -20001,7 +20025,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.574Z",
-      "updated_at": "2026-11-09T02:08:10.574Z",
+      "updated_at": "2026-11-09T02:11:52.783Z",
       "id": "cac77742b93f9a04",
       "merged_ids": [
         "cac77742b93f9a04"

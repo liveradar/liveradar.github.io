@@ -2847,6 +2847,18 @@
 - canonical: "迷悠奈"
   aliases: ["MIYUNA", "Miyuna"]
   tags_origin_default: 日本  # Tokyo Weekender 報導：日本女歌手，Fuji Rock 出演、2025 Sing! Asia 冠軍；標題「迷悠奈MIYUNA First Live in Taipei 2027」
+- canonical: "ARKis"
+  aliases: []
+  tags_origin_default: 本地  # 派對品牌（2026-09-24 Max 規則：派對一律本地）；標題「【門票】ARKis 2 週年聖誕派對」
+- canonical: "F.F.O"
+  aliases: []
+  tags_origin_default: 本地  # 派對品牌（同上）；標題「【門票】F.F.O 2 週年聖誕夜」
+- canonical: "亂世巨星"
+  aliases: []
+  tags_origin_default: 本地  # 嘻哈派對系列（同上）；標題「《亂世巨星Vol.2》Asia All Star : 台北嘻哈派對」
+- canonical: "TEMPLE TAIPEI"
+  aliases: []
+  tags_origin_default: 本地  # 派對品牌（同上），演出者多國籍，不適用單一國家例外；標題「11.21 TEMPLE TAIPEI × PALACIO 🇨🇴 & XULÜ 🇨🇳」
 - canonical: "SHIROSE"
   aliases: ["WHITE JAM"]
   tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」
