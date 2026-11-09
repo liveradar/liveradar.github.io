@@ -2907,6 +2907,21 @@
 - canonical: "SIANGYOO"
   aliases: ["Siangyoo", "Mark Sianghio"]
   tags_origin_default: 亞洲其他  # 2026-11-09 Max 選擇亞洲其他；Max 補充本名 Mark Sianghio、菲律賓出身的 DJ 與音樂製作人（Max 提供的搜尋結果，未另行核對）；票券標題「SIANGYOO TAKES OVER TAIPEI」（KKTIX，寒舍艾美大宴會廳）
+- canonical: "烙聲派對"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-09 派對品牌（派對一律本地）；標題「11.14(六) 烙聲派對 VOL.3｜FUCK'N BEFORE THE FREEZE」
+- canonical: "龐克折返跑 2026"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-09 派對品牌（派對一律本地）；標題「11.22(日) 龐克折返跑 2026 暖身派對最終場」。未用「龐克折返跑」單獨登記，因為會撞到「台灣龐克折返跑音樂節」（撞名防護測試擋下）
+- canonical: "愛無止盡慈善音樂會"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-09 多團慈善音樂會（多團一律本地）；標題「2026愛無止盡慈善音樂會《時光旅人》」
+- canonical: "Hammer Head Shark"
+  aliases: []
+  tags_origin_default: 日本  # 2026-11-09 查證：日本千葉縣組成的獨立樂團（TuneCore 藝人頁、日本音樂媒體報導）；標題「『air in hurt』 Hammer Head Shark 2nd EP “air” Release Tour in Taipei w/ SuU」
+- canonical: "JASON CHENY"
+  aliases: ["Jason Cheny"]
+  tags_origin_default: 歐美  # 2026-11-09 查證：台灣出身、在洛杉磯出道的 stand-up 喜劇演員（Forbes AAPI、官網 tourdates）；依「在哪裡成名」規則歸歐美，需 Max 確認；標題「LIVE IN ASIA JASON CHENY TAIPEI 2027」
 - canonical: "SHIROSE"
   aliases: ["WHITE JAM"]
   tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」

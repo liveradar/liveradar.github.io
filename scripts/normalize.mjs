@@ -302,7 +302,8 @@ export function parseIndievoxDate(dateRaw) {
   // real events. Try Chinese-unit form first since its digits aren't
   // separated by "." or "/" at all and won't match the other pattern.
   const m =
-    dateRaw.match(/(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日/) ??
+    // 2026-11-09 real case: "2026年12月18號 週五 19:00" (號 instead of 日, Hammer Head Shark iNDIEVOX page)
+    dateRaw.match(/(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*[日號]/) ??
     dateRaw.match(/(\d{4})\s*[./]\s*(\d{1,2})\s*[./]\s*(\d{1,2})/);
   if (!m) return null;
   const [, y, mo, d] = m;
