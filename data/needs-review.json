@@ -1,41 +1,9 @@
 {
   "items": [
     {
-      "raw_id": "easternmythos",
-      "title_raw": "東方神魔錄 Eastern Mythos",
-      "url": "https://moshound.kktix.cc/events/easternmythos",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "a8f98622",
       "title_raw": "SIANGYOO TAKES OVER TAIPEI",
       "url": "https://scentertainment.kktix.cc/events/a8f98622",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "2f9ca2d2",
-      "title_raw": "RE:MEMBER",
-      "url": "https://reasonentertainment.kktix.cc/events/2f9ca2d2",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "hrt7hu",
-      "title_raw": "11.13 Evolov3 III: Twin Flame",
-      "url": "https://lafin.kktix.cc/events/hrt7hu",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "1120nebula",
-      "title_raw": "11/20 NEBULA 首度登陸台北 PIPE",
-      "url": "https://twnextstop.kktix.cc/events/1120nebula",
       "source": "KKTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -343,14 +311,6 @@
       "source": "iNDIEVOX",
       "reason": "date_unparseable",
       "detail": "立"
-    },
-    {
-      "raw_id": "760006",
-      "title_raw": "GAG LIVE IN TAIPEI 2026",
-      "url": "https://go.fansi.me/events/760006",
-      "source": "FANSI GO",
-      "reason": "artist_unrecognized",
-      "detail": null
     },
     {
       "raw_id": "e4617ca616bc0bd1179bcf87d5ab5c8b_8b9e526c1bc028a3f7a8b21fcb43fc19",

@@ -15257,8 +15257,12 @@
     },
     {
       "title_raw": "東方神魔錄 Eastern Mythos",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "東方神魔錄"
+      ],
+      "lineup": [
+        "東方神魔錄"
+      ],
       "is_festival": false,
       "venue": "The Wall Live House",
       "city": "台北",
@@ -15271,7 +15275,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://moshound.kktix.cc/events/easternmythos",
       "sources": [
@@ -15282,7 +15288,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.491Z",
-      "updated_at": "2026-11-09T02:08:10.491Z",
+      "updated_at": "2026-11-09T02:33:26.606Z",
       "id": "40be707ac792f257",
       "merged_ids": [
         "40be707ac792f257"
@@ -16339,8 +16345,12 @@
     },
     {
       "title_raw": "RE:MEMBER",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "RE:MEMBER"
+      ],
+      "lineup": [
+        "RE:MEMBER"
+      ],
       "is_festival": false,
       "venue": "Legacy TERA",
       "city": "台北",
@@ -16353,7 +16363,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://reasonentertainment.kktix.cc/events/2f9ca2d2",
       "sources": [
@@ -16364,7 +16376,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.503Z",
-      "updated_at": "2026-11-09T02:08:10.503Z",
+      "updated_at": "2026-11-09T02:33:26.608Z",
       "id": "5f5bdc5e3fb60bdf",
       "merged_ids": [
         "5f5bdc5e3fb60bdf"
@@ -19760,8 +19772,12 @@
     },
     {
       "title_raw": "11.13 Evolov3 III: Twin Flame",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Evolov3"
+      ],
+      "lineup": [
+        "Evolov3"
+      ],
       "is_festival": false,
       "venue": "La Fin Taipei",
       "city": "台北",
@@ -19774,7 +19790,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://lafin.kktix.cc/events/hrt7hu",
       "sources": [
@@ -19785,7 +19803,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.572Z",
-      "updated_at": "2026-11-09T02:08:10.572Z",
+      "updated_at": "2026-11-09T02:33:26.608Z",
       "id": "749715cdded0fadb",
       "merged_ids": [
         "749715cdded0fadb"
@@ -19988,8 +20006,12 @@
     },
     {
       "title_raw": "11/20 NEBULA 首度登陸台北 PIPE",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "NEBULA"
+      ],
+      "lineup": [
+        "NEBULA"
+      ],
       "is_festival": false,
       "venue": "Pipe Live Music",
       "city": "台北",
@@ -20002,7 +20024,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://twnextstop.kktix.cc/events/1120nebula",
       "sources": [
@@ -20013,7 +20037,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.573Z",
-      "updated_at": "2026-11-09T02:08:10.573Z",
+      "updated_at": "2026-11-09T02:33:26.609Z",
       "id": "ddaf92f8b0c281b6",
       "merged_ids": [
         "ddaf92f8b0c281b6"
@@ -25984,8 +26008,12 @@
     },
     {
       "title_raw": "GAG LIVE IN TAIPEI 2026",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "GAG"
+      ],
+      "lineup": [
+        "GAG"
+      ],
       "is_festival": false,
       "venue": "PIPE LIVE MUSIC",
       "city": "台北",
@@ -25998,7 +26026,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/760006",
       "sources": [
@@ -26009,7 +26039,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T01:48:54.064Z",
-      "updated_at": "2026-11-09T01:48:54.064Z",
+      "updated_at": "2026-11-09T02:33:26.609Z",
       "id": "37e08123236cabc8",
       "merged_ids": [
         "37e08123236cabc8"

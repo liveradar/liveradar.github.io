@@ -2880,6 +2880,21 @@
 - canonical: "王中平"
   aliases: []
   tags_origin_default: 本地  # 2026-11-09 深搜補查：維基百科「王中平」台灣民歌歌手；標題「Legacy Presents【往事微風】王中平＆江念庭」
+- canonical: "NEBULA"
+  aliases: []
+  tags_origin_default: 日本  # 2026-11-09 Max 選擇日本；標題「11/20 NEBULA 首度登陸台北 PIPE」。注意：與美國 stoner rock 團 Nebula 撞名，Max 明確指定日本
+- canonical: "GAG"
+  aliases: []
+  tags_origin_default: 歐美  # 2026-11-09 Max 確認：美國西雅圖硬核龐克（Hardcore Punk）樂隊 GAG；標題「GAG LIVE IN TAIPEI 2026」
+- canonical: "RE:MEMBER"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-09 讀票券頁：主辦原音娛樂（REASON ENTERTAINMENT，台北），演出陣容邱鋒澤、艾薇Ivy、iF（吳霏FEI）皆為台灣音樂人；系列名登記（同火球祭做法）；標題「RE:MEMBER」
+- canonical: "Evolov3"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-09 派對品牌（2026-09-24 Max 規則：派對一律本地）；活動概念「EVOLUTION LOVE」世界觀派對，wekengo.tw 活動頁；標題「11.13 Evolov3 III: Twin Flame」
+- canonical: "東方神魔錄"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-09 多團音樂活動（音樂節規則：多團一律本地）；陣容：招魂 EVOCATION（香港）、達摩 DHARMA（台灣）、白華 EFFLORE（台灣）、SANTET（印尼），Max 貼上的活動頁陣容；標題「東方神魔錄 Eastern Mythos」
 - canonical: "SHIROSE"
   aliases: ["WHITE JAM"]
   tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」
