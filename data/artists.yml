@@ -2901,6 +2901,12 @@
 - canonical: "音速突擊"
   aliases: ["SONIC OFFENSIVE"]
   tags_origin_default: 本地  # 2026-11-09 多團活動規則（多團一律本地）：貼上的活動頁為台灣樂團 Punkhoo 與澳洲 The Cloverhearts 同台、音速突擊 2027 回歸；標題「音速突擊 SONIC OFFENSIVE」
+- canonical: "眼下"
+  aliases: ["Under Eyes", "軟床", "gentlebadbad"]
+  tags_origin_default: 本地  # 2026-11-09 Max 選擇本地；票券標題「眼下 Under Eyes x 軟床 gentlebadbad《朋友的房間 tomodachi no heya》」（Ticket Plus，女巫店）
+- canonical: "SIANGYOO"
+  aliases: ["Siangyoo"]
+  tags_origin_default: 亞洲其他  # 2026-11-09 Max 選擇亞洲其他；票券標題「SIANGYOO TAKES OVER TAIPEI」（KKTIX，寒舍艾美大宴會廳）
 - canonical: "SHIROSE"
   aliases: ["WHITE JAM"]
   tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」

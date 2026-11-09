@@ -15961,8 +15961,12 @@
     },
     {
       "title_raw": "SIANGYOO TAKES OVER TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "SIANGYOO"
+      ],
+      "lineup": [
+        "SIANGYOO"
+      ],
       "is_festival": false,
       "venue": "台北寒舍艾美酒店大宴會廳",
       "city": "台北",
@@ -15975,7 +15979,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://scentertainment.kktix.cc/events/a8f98622",
       "sources": [
@@ -15986,7 +15992,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.499Z",
-      "updated_at": "2026-11-09T02:08:10.499Z",
+      "updated_at": "2026-11-09T02:35:56.790Z",
       "id": "ce1b860d7d268b6b",
       "merged_ids": [
         "ce1b860d7d268b6b"
@@ -28757,8 +28763,12 @@
     },
     {
       "title_raw": "眼下 Under Eyes x 軟床 gentlebadbad《朋友的房間 tomodachi no heya》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "眼下"
+      ],
+      "lineup": [
+        "眼下"
+      ],
       "is_festival": false,
       "venue": "女巫店",
       "city": "台北",
@@ -28771,7 +28781,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/e4617ca616bc0bd1179bcf87d5ab5c8b",
       "sources": [
@@ -28782,7 +28794,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T01:47:07.927Z",
-      "updated_at": "2026-11-09T01:47:07.927Z",
+      "updated_at": "2026-11-09T02:35:56.791Z",
       "id": "1ea96fe24909737c",
       "merged_ids": [
         "1ea96fe24909737c"
