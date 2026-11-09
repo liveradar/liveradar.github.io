@@ -2905,8 +2905,8 @@
   aliases: ["Under Eyes", "軟床", "gentlebadbad"]
   tags_origin_default: 本地  # 2026-11-09 Max 選擇本地；票券標題「眼下 Under Eyes x 軟床 gentlebadbad《朋友的房間 tomodachi no heya》」（Ticket Plus，女巫店）
 - canonical: "SIANGYOO"
-  aliases: ["Siangyoo"]
-  tags_origin_default: 亞洲其他  # 2026-11-09 Max 選擇亞洲其他；票券標題「SIANGYOO TAKES OVER TAIPEI」（KKTIX，寒舍艾美大宴會廳）
+  aliases: ["Siangyoo", "Mark Sianghio"]
+  tags_origin_default: 亞洲其他  # 2026-11-09 Max 選擇亞洲其他；Max 補充本名 Mark Sianghio、菲律賓出身的 DJ 與音樂製作人（Max 提供的搜尋結果，未另行核對）；票券標題「SIANGYOO TAKES OVER TAIPEI」（KKTIX，寒舍艾美大宴會廳）
 - canonical: "SHIROSE"
   aliases: ["WHITE JAM"]
   tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」
