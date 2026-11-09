@@ -2823,7 +2823,7 @@
   aliases: []
   tags_origin_default: 歐美  # 2026-11-05 Max 修正：吉他手霍班 Ben Holt 原籍加拿大、2013年移居美國德州並於當地取得爵士吉他碩士，雖近年受邀擔任多位台灣藝人的專任吉他手，但判斷依據應是「主要在哪邊活動」而非單純長住台灣，他的音樂訓練與主要職業身分仍紮根北美，歸歐美，標題「台北藍調 週日特演 靈魂爵士夜 Ben Holt & The Soul Imposters」。
 - canonical: "YoungLee"
-  aliases: []
+  aliases: ["漂亮,祝你美好"]  # 2026-11-09 別名須用半形逗號：matchArtists 會把標題先 NFKC 正規化，全形「，」會變成「,」； 深搜補查：《漂亮，祝你美好。》為 YoungLee 首次個人專場巡迴（台南漂丿白鷺、台北 PIPE、台中 Legacy，多家媒體報導）；台北、台南場票券標題不含 YoungLee 名字，靠系列名對應
   tags_origin_default: 本地  # 2026-11-05 Max 確認：台灣饒舌歌手，選秀節目《大嘻哈時代》第一季年度總冠軍，標題「《漂亮，祝你美好。》_YoungLee Tour 2026_台中場」。
 # 2026-11-09 排程查證（WebSearch）：以下各條依據寫在行尾註解
 - canonical: "芒果醬"
@@ -2871,6 +2871,15 @@
 - canonical: "趙詠華"
   aliases: []
   tags_origin_default: 本地  # 2026-11-09 補查：台灣歌手，2026 年於 Legacy Taipei 開唱（TVBS 報導）；往事微風票券標題「Legacy Presents【往事微風】趙詠華＆于冠華」
+- canonical: "Guiba"
+  aliases: []
+  tags_origin_default: 日本  # 2026-11-09 深搜補查：日本樂團（OTOTOY、NiEW、indiegrab 報導）；1st EP《新しい！》與 2026 台灣巡迴，標題「Guiba 1st EP 「新しい！」Release Taiwan Tour」
+- canonical: "TGX泰格西"
+  aliases: ["TGX"]
+  tags_origin_default: 亞洲其他  # 2026-11-09 深搜補查：票券頁（KKTIX）寫為來自長沙 CSC 的新生代饒舌歌手（中國），標題「【商務艙】TGX泰格西 特別專場台北站」
+- canonical: "王中平"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-09 深搜補查：維基百科「王中平」台灣民歌歌手；標題「Legacy Presents【往事微風】王中平＆江念庭」
 - canonical: "SHIROSE"
   aliases: ["WHITE JAM"]
   tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」

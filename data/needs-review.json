@@ -1,25 +1,9 @@
 {
   "items": [
     {
-      "raw_id": "guiba2026taipei",
-      "title_raw": "Guiba 1st EP 「新しい！」Release Taiwan Tour 發行巡迴台北場",
-      "url": "https://airheadrecords.kktix.cc/events/guiba2026taipei",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "easternmythos",
       "title_raw": "東方神魔錄 Eastern Mythos",
       "url": "https://moshound.kktix.cc/events/easternmythos",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "a0ba8449",
-      "title_raw": "《漂亮，祝你美好。》_台北場",
-      "url": "https://ballinglikejay.kktix.cc/events/a0ba8449",
       "source": "KKTIX",
       "reason": "artist_unrecognized",
       "detail": null
@@ -36,46 +20,6 @@
       "raw_id": "2f9ca2d2",
       "title_raw": "RE:MEMBER",
       "url": "https://reasonentertainment.kktix.cc/events/2f9ca2d2",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "0c854294",
-      "title_raw": "《漂亮，祝你美好。》_台南場",
-      "url": "https://ballinglikejay.kktix.cc/events/0c854294",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "guiba2026taichung",
-      "title_raw": "Guiba 1st EP 「新しい！」Release Taiwan Tour 發行巡迴台中場",
-      "url": "https://airheadrecords.kktix.cc/events/guiba2026taichung",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "guiba2026tainan",
-      "title_raw": "Guiba 1st EP 「新しい！」Release Taiwan Tour 發行巡迴台南場",
-      "url": "https://airheadrecords.kktix.cc/events/guiba2026tainan",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "tgx2027-a01",
-      "title_raw": "【商務艙】TGX泰格西 特別專場台北站",
-      "url": "https://spaceport.kktix.cc/events/tgx2027-a01",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "tgx2027-a02",
-      "title_raw": "【經濟艙】TGX泰格西 特別專場台北站",
-      "url": "https://spaceport.kktix.cc/events/tgx2027-a02",
       "source": "KKTIX",
       "reason": "artist_unrecognized",
       "detail": null

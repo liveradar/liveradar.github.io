@@ -15101,8 +15101,12 @@
     },
     {
       "title_raw": "Guiba 1st EP 「新しい！」Release Taiwan Tour 發行巡迴台北場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Guiba"
+      ],
+      "lineup": [
+        "Guiba"
+      ],
       "is_festival": false,
       "venue": "The Wall Livehouse",
       "city": "台北",
@@ -15115,7 +15119,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://airheadrecords.kktix.cc/events/guiba2026taipei",
       "sources": [
@@ -15126,7 +15132,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.491Z",
-      "updated_at": "2026-11-09T02:08:10.491Z",
+      "updated_at": "2026-11-09T02:26:46.531Z",
       "id": "cbe9c2c6fbcc8b6b",
       "merged_ids": [
         "cbe9c2c6fbcc8b6b"
@@ -15325,8 +15331,12 @@
     },
     {
       "title_raw": "《漂亮，祝你美好。》_台北場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "YoungLee"
+      ],
+      "lineup": [
+        "YoungLee"
+      ],
       "is_festival": false,
       "venue": "PIPE Live Music",
       "city": "台北",
@@ -15339,7 +15349,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ballinglikejay.kktix.cc/events/a0ba8449",
       "sources": [
@@ -15350,7 +15362,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.493Z",
-      "updated_at": "2026-11-09T02:08:10.493Z",
+      "updated_at": "2026-11-09T02:27:13.674Z",
       "id": "f3bebcd87384af2d",
       "merged_ids": [
         "f3bebcd87384af2d"
@@ -16672,8 +16684,12 @@
     },
     {
       "title_raw": "《漂亮，祝你美好。》_台南場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "YoungLee"
+      ],
+      "lineup": [
+        "YoungLee"
+      ],
       "is_festival": false,
       "venue": "漂丿白鷺",
       "city": "台南",
@@ -16686,7 +16702,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ballinglikejay.kktix.cc/events/0c854294",
       "sources": [
@@ -16697,7 +16715,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.506Z",
-      "updated_at": "2026-11-09T02:08:10.506Z",
+      "updated_at": "2026-11-09T02:27:13.677Z",
       "id": "ded18a2aeb6f7207",
       "merged_ids": [
         "ded18a2aeb6f7207"
@@ -16705,8 +16723,12 @@
     },
     {
       "title_raw": "Guiba 1st EP 「新しい！」Release Taiwan Tour 發行巡迴台中場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Guiba"
+      ],
+      "lineup": [
+        "Guiba"
+      ],
       "is_festival": false,
       "venue": "The Pillars 柱",
       "city": "台中",
@@ -16719,7 +16741,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://airheadrecords.kktix.cc/events/guiba2026taichung",
       "sources": [
@@ -16730,7 +16754,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.506Z",
-      "updated_at": "2026-11-09T02:08:10.506Z",
+      "updated_at": "2026-11-09T02:26:46.535Z",
       "id": "ca0c3f4049e2b694",
       "merged_ids": [
         "ca0c3f4049e2b694"
@@ -16777,8 +16801,12 @@
     },
     {
       "title_raw": "Guiba 1st EP 「新しい！」Release Taiwan Tour 發行巡迴台南場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Guiba"
+      ],
+      "lineup": [
+        "Guiba"
+      ],
       "is_festival": false,
       "venue": "TCRC Livehose",
       "city": "台南",
@@ -16791,7 +16819,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://airheadrecords.kktix.cc/events/guiba2026tainan",
       "sources": [
@@ -16802,7 +16832,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.506Z",
-      "updated_at": "2026-11-09T02:08:10.506Z",
+      "updated_at": "2026-11-09T02:26:46.536Z",
       "id": "1e52fc08358ed4ae",
       "merged_ids": [
         "1e52fc08358ed4ae"
@@ -18457,8 +18487,12 @@
     },
     {
       "title_raw": "【商務艙】TGX泰格西 特別專場台北站",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "TGX泰格西"
+      ],
+      "lineup": [
+        "TGX泰格西"
+      ],
       "is_festival": false,
       "venue": "WESTAR",
       "city": "台北",
@@ -18471,7 +18505,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://spaceport.kktix.cc/events/tgx2027-a01",
       "sources": [
@@ -18482,7 +18518,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.561Z",
-      "updated_at": "2026-11-09T02:08:10.561Z",
+      "updated_at": "2026-11-09T02:26:46.536Z",
       "id": "62a4031bd4e8caac",
       "merged_ids": [
         "62a4031bd4e8caac"
@@ -18490,8 +18526,12 @@
     },
     {
       "title_raw": "【經濟艙】TGX泰格西 特別專場台北站",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "TGX泰格西"
+      ],
+      "lineup": [
+        "TGX泰格西"
+      ],
       "is_festival": false,
       "venue": "WESTAR",
       "city": "台北",
@@ -18504,7 +18544,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://spaceport.kktix.cc/events/tgx2027-a02",
       "sources": [
@@ -18515,7 +18557,7 @@
         }
       ],
       "first_seen_at": "2026-11-09T02:08:10.561Z",
-      "updated_at": "2026-11-09T02:08:10.561Z",
+      "updated_at": "2026-11-09T02:26:46.537Z",
       "id": "723a8adad6ad9dba",
       "merged_ids": [
         "723a8adad6ad9dba"
