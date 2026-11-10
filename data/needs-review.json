@@ -1,36 +1,36 @@
 {
   "items": [
     {
-      "raw_id": "26_iv0426384#0",
-      "title_raw": "2026愛無止盡慈善音樂會《時光旅人》",
-      "url": "https://www.indievox.com/activity/detail/26_iv0426384",
+      "raw_id": "superoldtour1",
+      "title_raw": "【老吾老以及人之老-高雄站】",
+      "url": "https://gomanzhimusic.kktix.cc/events/superoldtour1",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "superoldtour3",
+      "title_raw": "【老吾老以及人之老-聖誕老人趴】",
+      "url": "https://gomanzhimusic.kktix.cc/events/superoldtour3",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "26_iv04304c2",
+      "title_raw": "G蛋布丁《布丁的房間》演唱會",
+      "url": "https://www.indievox.com/activity/detail/26_iv04304c2",
       "source": "iNDIEVOX",
       "reason": "artist_unrecognized",
       "detail": null
     },
     {
-      "raw_id": "26_iv0426384#1",
-      "title_raw": "2026愛無止盡慈善音樂會《時光旅人》",
-      "url": "https://www.indievox.com/activity/detail/26_iv0426384",
-      "source": "iNDIEVOX",
+      "raw_id": "d745d9d95f3d50b581cbbffd677a90ec_2cb654b75a40993339f586b63d241f93",
+      "title_raw": "雪莉曾SHAriTseng｜花式狀態SAVOR：f（23）",
+      "url": "https://ticketplus.com.tw/activity/d745d9d95f3d50b581cbbffd677a90ec",
+      "source": "Ticket Plus",
       "reason": "artist_unrecognized",
       "detail": null
-    },
-    {
-      "raw_id": "26_iv0426384#2",
-      "title_raw": "2026愛無止盡慈善音樂會《時光旅人》",
-      "url": "https://www.indievox.com/activity/detail/26_iv0426384",
-      "source": "iNDIEVOX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "26_iv0428894",
-      "title_raw": "『air in hurt』 Hammer Head Shark 2nd EP “air” Release Tour in Taipei w/ SuU",
-      "url": "https://www.indievox.com/activity/detail/26_iv0428894",
-      "source": "iNDIEVOX",
-      "reason": "date_unparseable",
-      "detail": "2026年12月18號 週五 19:00"
     }
   ]
 }

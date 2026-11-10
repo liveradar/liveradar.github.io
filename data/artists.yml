@@ -2931,3 +2931,19 @@
 - canonical: "SHIROSE"
   aliases: ["WHITE JAM"]
   tags_origin_default: 日本  # l-tike 報導：WHITE JAM 主唱為 SHIROSE，日本團體，日本巡迴；標題「SHIROSE Live in Taipei 2027」「WHITE JAM Live in Taipei」
+# 2026-11-10 needs-review 查證（WebSearch）
+- canonical: "王謙"
+  aliases: ["Goatak", "Wang Qian"]
+  tags_origin_default: 本地  # 2026-11-10 查證：台灣創作歌手、製作人、DJ，滾石唱片藝人（KKBOX 專輯頁、uptogo 報導）；標題「王謙Goatak【memories】專輯演唱會」
+- canonical: "張震嶽"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-10 查證：台灣歌手，2026 金曲獎最佳華語男歌手（新聞報導）；標題「國泰世華銀行 張震嶽「跟著感覺走」2027台北演唱會」
+- canonical: "FTISLAND"
+  aliases: []
+  tags_origin_default: 韓國  # 2026-11-10 查證：韓國搖滾樂團（hk01、Mirror Media、Soompi 報導）；標題「2027 FTISLAND CONCERT 'FTSODE' IN TAIPEI」
+- canonical: "鶴蘭音樂祭"
+  aliases: ["BlooD&ArT"]
+  tags_origin_default: 本地  # 2026-11-10 音樂節規則：多位音樂人參與的活動一律本地（未逐一查證演出者）；標題「鶴蘭音樂祭 BlooD&ArT SP 台北篇」
+- canonical: "Psychedelic NYE"
+  aliases: ["奇幻跨年"]
+  tags_origin_default: 本地  # 2026-11-10 派對規則：多位音樂人參與的派對一律本地（未逐一查證）；標題「奇幻跨年 Psychedelic NYE 2026-27」
