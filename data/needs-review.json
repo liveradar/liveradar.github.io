@@ -1,6 +1,22 @@
 {
   "items": [
     {
+      "raw_id": "0dddd9dd",
+      "title_raw": "The Spice Cabinet 五香放克《派仔之遊》The Adventures of Pie Boy In Concert",
+      "url": "https://thewalllivehouse.kktix.cc/events/0dddd9dd",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "261218-0622-b-copy-1",
+      "title_raw": "【王大文 「別害羞」 演唱會】",
+      "url": "https://riversidelivehouse.kktix.cc/events/261218-0622-b-copy-1",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
       "raw_id": "superoldtour1",
       "title_raw": "【老吾老以及人之老-高雄站】",
       "url": "https://gomanzhimusic.kktix.cc/events/superoldtour1",
@@ -25,10 +41,42 @@
       "detail": null
     },
     {
+      "raw_id": "2f2ae5c039c77f430d3de0b4ac7b4701_13f84783b71b435a63a15e4d7218e26b",
+      "title_raw": "《聖誕》─ 王欣茹 X 吳思岑 X 林哲安 X 謝博安（12/24）",
+      "url": "https://ticketplus.com.tw/activity/2f2ae5c039c77f430d3de0b4ac7b4701",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2f2ae5c039c77f430d3de0b4ac7b4701_2636548b8d0d4207860e1a6768ed2776",
+      "title_raw": "《聖誕》─ 王欣茹 X 吳思岑 X 林哲安 X 謝博安（12/25）",
+      "url": "https://ticketplus.com.tw/activity/2f2ae5c039c77f430d3de0b4ac7b4701",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "93f0294bb30cb257a989740daa6be6b0_6da5e889b887e11f81d6ded76847cde8",
+      "title_raw": "上山 - 如夢石 發片專場",
+      "url": "https://ticketplus.com.tw/activity/93f0294bb30cb257a989740daa6be6b0",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
       "raw_id": "d745d9d95f3d50b581cbbffd677a90ec_2cb654b75a40993339f586b63d241f93",
       "title_raw": "雪莉曾SHAriTseng｜花式狀態SAVOR：f（23）",
       "url": "https://ticketplus.com.tw/activity/d745d9d95f3d50b581cbbffd677a90ec",
       "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "40053_202701231700",
+      "title_raw": "NCT WISH 2nd CONCERT TOUR ‘INTO THE WISH：Face Our WISH’ IN KAOHSIUNG",
+      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40053",
+      "source": "ibon",
       "reason": "artist_unrecognized",
       "detail": null
     }

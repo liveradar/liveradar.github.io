@@ -12,6 +12,33 @@
 # aliases: alternate spellings/romanizations seen in scraped titles.
 # tags_origin_default: pre-fills 來源地 tag when a new event by this artist is normalized.
 
+# 2026-11-11 排程查證：邱舒（金音獎客語歌手，台灣本地成名）；我夢見長頸鹿（台灣 shoegaze 樂團，對照 Records Like It 評論）；
+# Ring 誓約之聲（以台北為基地的動漫歌曲金屬樂團，對照樂團自述）；温金龍二胡樂團（台灣二胡家溫金龍，對照報導）；
+# Homecomings（日本獨立流行樂團，對照 setlist.fm 的台北 Jam Jam Asia 紀錄）；一青窈（父台灣母日本，出道與成名於日本，待 Max 確認）。
+- canonical: 邱舒
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 我夢見長頸鹿
+  aliases: ["The Giraffe Told Me in My Dream"]
+  tags_origin_default: 本地
+
+- canonical: Ring 誓約之聲
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 溫金龍二胡樂團
+  aliases: ["温金龍二胡樂團"]
+  tags_origin_default: 本地
+
+- canonical: Homecomings
+  aliases: []
+  tags_origin_default: 日本
+
+- canonical: 一青窈
+  aliases: ["Hitoto Yo"]
+  tags_origin_default: 日本
+
 - canonical: 深海系樂團
   aliases: ["深海系", "Deep Sea Band"]
   tags_origin_default: 本地
