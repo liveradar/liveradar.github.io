@@ -14818,8 +14818,12 @@
     },
     {
       "title_raw": "The Spice Cabinet 五香放克《派仔之遊》The Adventures of Pie Boy In Concert",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "The Spice Cabinet"
+      ],
+      "lineup": [
+        "The Spice Cabinet"
+      ],
       "is_festival": false,
       "venue": "THE WALL LIVE HOUSE",
       "city": "台北",
@@ -14832,7 +14836,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://thewalllivehouse.kktix.cc/events/0dddd9dd",
       "sources": [
@@ -14843,7 +14849,7 @@
         }
       ],
       "first_seen_at": "2026-11-11T02:00:26.851Z",
-      "updated_at": "2026-11-11T02:00:26.851Z",
+      "updated_at": "2026-11-11T02:10:01.644Z",
       "id": "0e77aed6bdd32b8c",
       "merged_ids": [
         "0e77aed6bdd32b8c"
@@ -20439,8 +20445,12 @@
     },
     {
       "title_raw": "【王大文 「別害羞」 演唱會】",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "王大文"
+      ],
+      "lineup": [
+        "王大文"
+      ],
       "is_festival": false,
       "venue": "河岸留言西門紅樓展演館",
       "city": "台北",
@@ -20453,7 +20463,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://riversidelivehouse.kktix.cc/events/261218-0622-b-copy-1",
       "sources": [
@@ -20464,7 +20476,7 @@
         }
       ],
       "first_seen_at": "2026-11-11T02:00:26.967Z",
-      "updated_at": "2026-11-11T02:00:26.967Z",
+      "updated_at": "2026-11-11T02:10:01.674Z",
       "id": "ae60e069b2c11741",
       "merged_ids": [
         "ae60e069b2c11741"
@@ -30137,8 +30149,18 @@
     },
     {
       "title_raw": "《聖誕》─ 王欣茹 X 吳思岑 X 林哲安 X 謝博安（12/24）",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "王欣茹",
+        "吳思岑",
+        "林哲安",
+        "謝博安"
+      ],
+      "lineup": [
+        "王欣茹",
+        "吳思岑",
+        "林哲安",
+        "謝博安"
+      ],
       "is_festival": false,
       "venue": "女巫店",
       "city": "台北",
@@ -30149,9 +30171,11 @@
       "price_max": 750,
       "status": "on_sale",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/2f2ae5c039c77f430d3de0b4ac7b4701",
       "sources": [
@@ -30162,7 +30186,7 @@
         }
       ],
       "first_seen_at": "2026-11-11T01:45:29.514Z",
-      "updated_at": "2026-11-11T01:45:29.514Z",
+      "updated_at": "2026-11-11T02:10:01.676Z",
       "id": "d5e4f7398270d6de",
       "merged_ids": [
         "d5e4f7398270d6de"
@@ -30170,8 +30194,18 @@
     },
     {
       "title_raw": "《聖誕》─ 王欣茹 X 吳思岑 X 林哲安 X 謝博安（12/25）",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "王欣茹",
+        "吳思岑",
+        "林哲安",
+        "謝博安"
+      ],
+      "lineup": [
+        "王欣茹",
+        "吳思岑",
+        "林哲安",
+        "謝博安"
+      ],
       "is_festival": false,
       "venue": "女巫店",
       "city": "台北",
@@ -30182,9 +30216,11 @@
       "price_max": 750,
       "status": "on_sale",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/2f2ae5c039c77f430d3de0b4ac7b4701",
       "sources": [
@@ -30195,7 +30231,7 @@
         }
       ],
       "first_seen_at": "2026-11-11T01:45:29.515Z",
-      "updated_at": "2026-11-11T01:45:29.515Z",
+      "updated_at": "2026-11-11T02:10:01.676Z",
       "id": "00c78f7ba579b06e",
       "merged_ids": [
         "00c78f7ba579b06e"
@@ -30815,8 +30851,12 @@
     },
     {
       "title_raw": "NCT WISH 2nd CONCERT TOUR ‘INTO THE WISH：Face Our WISH’ IN KAOHSIUNG",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "NCT WISH"
+      ],
+      "lineup": [
+        "NCT WISH"
+      ],
       "is_festival": false,
       "venue": "高雄巨蛋 KAOHSIUNG ARENA",
       "city": "高雄",
@@ -30829,7 +30869,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40053",
       "sources": [
@@ -30840,7 +30882,7 @@
         }
       ],
       "first_seen_at": "2026-11-11T01:43:40.241Z",
-      "updated_at": "2026-11-11T01:43:40.241Z",
+      "updated_at": "2026-11-11T02:10:01.678Z",
       "id": "0fd7e35c8b71a15c",
       "merged_ids": [
         "0fd7e35c8b71a15c"

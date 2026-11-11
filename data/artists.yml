@@ -39,6 +39,38 @@
   aliases: ["Hitoto Yo"]
   tags_origin_default: 日本
 
+# 2026-11-11 Max 確認／補充：一青窈 日本；NCT WISH 為 SM 與 Avex 製作的日本男子組合。
+# 王大文：美國出生長大，來台後才以國語專輯成名（商業週刊 2015 報導、金曲@LiveHouse 介紹頁）→ 本地。
+# The Spice Cabinet：Max 提供的粉專為 TheSpiceCabinetBeijing，依北京粉專判定 亞洲其他（僅粉專名稱為依據，待 Max 確認）。
+# 王欣茹／吳思岑／林哲安／謝博安：Max 提供的所屬樂團為台灣樂團（打倒三明治、波羅密、逃走鮑伯、COLD DEW、鹿洐人）→ 本地。
+- canonical: NCT WISH
+  aliases: []
+  tags_origin_default: 日本
+
+- canonical: 王大文
+  aliases: ["Dawen Wang", "Dawen"]
+  tags_origin_default: 本地
+
+- canonical: The Spice Cabinet
+  aliases: ["五香放克"]
+  tags_origin_default: 亞洲其他
+
+- canonical: 王欣茹
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 吳思岑
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 林哲安
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 謝博安
+  aliases: []
+  tags_origin_default: 本地
+
 - canonical: 深海系樂團
   aliases: ["深海系", "Deep Sea Band"]
   tags_origin_default: 本地
