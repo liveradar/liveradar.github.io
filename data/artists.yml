@@ -64,6 +64,11 @@
   aliases: []
   tags_origin_default: 本地
 
+# G蛋布丁：Max 依 IG（gdan_pudding）為繁體中文、活動地以台灣為主判定 本地（搜尋查無來源資料）。
+- canonical: G蛋布丁
+  aliases: []
+  tags_origin_default: 本地
+
 # 上山：Max 提供 IG ott_officials，自述為台灣新生代 Emo Punk 獨立樂團（Over The Top）→ 本地。
 - canonical: 上山
   aliases: ["Over The Top", "OTT"]

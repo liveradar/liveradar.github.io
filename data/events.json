@@ -25467,8 +25467,12 @@
     },
     {
       "title_raw": "G蛋布丁《布丁的房間》演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "G蛋布丁"
+      ],
+      "lineup": [
+        "G蛋布丁"
+      ],
       "is_festival": false,
       "venue": "Legacy mini @ amba",
       "city": "台北",
@@ -25481,7 +25485,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv04304c2",
       "sources": [
@@ -25492,7 +25498,7 @@
         }
       ],
       "first_seen_at": "2026-11-10T01:43:34.458Z",
-      "updated_at": "2026-11-10T01:43:34.458Z",
+      "updated_at": "2026-11-11T02:49:43.410Z",
       "id": "a5175da246d761f7",
       "merged_ids": [
         "a5175da246d761f7"
