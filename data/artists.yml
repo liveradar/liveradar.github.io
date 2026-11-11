@@ -41,7 +41,8 @@
 
 # 2026-11-11 Max 確認／補充：一青窈 日本；NCT WISH 為 SM 與 Avex 製作的日本男子組合。
 # 王大文：美國出生長大，來台後才以國語專輯成名（商業週刊 2015 報導、金曲@LiveHouse 介紹頁）→ 本地。
-# The Spice Cabinet：Max 提供的粉專為 TheSpiceCabinetBeijing，依北京粉專判定 亞洲其他（僅粉專名稱為依據，待 Max 確認）。
+# The Spice Cabinet：Max 確認為本地。
+# 雪莉曾、老吾老以及人之老：Max 確認為本地。
 # 王欣茹／吳思岑／林哲安／謝博安：Max 提供的所屬樂團為台灣樂團（打倒三明治、波羅密、逃走鮑伯、COLD DEW、鹿洐人）→ 本地。
 - canonical: NCT WISH
   aliases: []
@@ -53,7 +54,15 @@
 
 - canonical: The Spice Cabinet
   aliases: ["五香放克"]
-  tags_origin_default: 亞洲其他
+  tags_origin_default: 本地
+
+- canonical: 雪莉曾
+  aliases: ["SHAriTseng"]
+  tags_origin_default: 本地
+
+- canonical: 老吾老以及人之老
+  aliases: []
+  tags_origin_default: 本地
 
 # 上山：Max 提供 IG ott_officials，自述為台灣新生代 Emo Punk 獨立樂團（Over The Top）→ 本地。
 - canonical: 上山

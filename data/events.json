@@ -20484,8 +20484,12 @@
     },
     {
       "title_raw": "【老吾老以及人之老-高雄站】",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "老吾老以及人之老"
+      ],
+      "lineup": [
+        "老吾老以及人之老"
+      ],
       "is_festival": false,
       "venue": "高雄 新百樂門酒館",
       "city": "高雄",
@@ -20498,7 +20502,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://gomanzhimusic.kktix.cc/events/superoldtour1",
       "sources": [
@@ -20509,7 +20515,7 @@
         }
       ],
       "first_seen_at": "2026-11-10T02:00:15.357Z",
-      "updated_at": "2026-11-11T02:00:26.995Z",
+      "updated_at": "2026-11-11T02:48:37.438Z",
       "id": "4bd4fb9acf73c791",
       "merged_ids": [
         "4bd4fb9acf73c791"
@@ -20521,8 +20527,12 @@
     },
     {
       "title_raw": "【老吾老以及人之老-聖誕老人趴】",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "老吾老以及人之老"
+      ],
+      "lineup": [
+        "老吾老以及人之老"
+      ],
       "is_festival": false,
       "venue": "THE WALL LIVEHOUSE",
       "city": "台北",
@@ -20535,7 +20545,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://gomanzhimusic.kktix.cc/events/superoldtour3",
       "sources": [
@@ -20546,7 +20558,7 @@
         }
       ],
       "first_seen_at": "2026-11-10T02:00:15.357Z",
-      "updated_at": "2026-11-11T02:00:26.995Z",
+      "updated_at": "2026-11-11T02:48:37.440Z",
       "id": "632e6fa85704b2b9",
       "merged_ids": [
         "632e6fa85704b2b9"
@@ -30278,8 +30290,12 @@
     },
     {
       "title_raw": "雪莉曾SHAriTseng｜花式狀態SAVOR：f（23）",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "雪莉曾"
+      ],
+      "lineup": [
+        "雪莉曾"
+      ],
       "is_festival": false,
       "venue": "女巫店",
       "city": "台北",
@@ -30292,7 +30308,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/d745d9d95f3d50b581cbbffd677a90ec",
       "sources": [
@@ -30303,7 +30321,7 @@
         }
       ],
       "first_seen_at": "2026-11-10T01:44:52.203Z",
-      "updated_at": "2026-11-10T01:44:52.203Z",
+      "updated_at": "2026-11-11T02:48:37.441Z",
       "id": "538f04cd9255fc86",
       "merged_ids": [
         "538f04cd9255fc86"

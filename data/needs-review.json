@@ -1,34 +1,10 @@
 {
   "items": [
     {
-      "raw_id": "superoldtour1",
-      "title_raw": "【老吾老以及人之老-高雄站】",
-      "url": "https://gomanzhimusic.kktix.cc/events/superoldtour1",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "superoldtour3",
-      "title_raw": "【老吾老以及人之老-聖誕老人趴】",
-      "url": "https://gomanzhimusic.kktix.cc/events/superoldtour3",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "26_iv04304c2",
       "title_raw": "G蛋布丁《布丁的房間》演唱會",
       "url": "https://www.indievox.com/activity/detail/26_iv04304c2",
       "source": "iNDIEVOX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "d745d9d95f3d50b581cbbffd677a90ec_2cb654b75a40993339f586b63d241f93",
-      "title_raw": "雪莉曾SHAriTseng｜花式狀態SAVOR：f（23）",
-      "url": "https://ticketplus.com.tw/activity/d745d9d95f3d50b581cbbffd677a90ec",
-      "source": "Ticket Plus",
       "reason": "artist_unrecognized",
       "detail": null
     }
