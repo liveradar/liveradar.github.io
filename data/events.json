@@ -30239,8 +30239,12 @@
     },
     {
       "title_raw": "上山 - 如夢石 發片專場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "上山"
+      ],
+      "lineup": [
+        "上山"
+      ],
       "is_festival": false,
       "venue": "Legacy Taipei",
       "city": "台北",
@@ -30253,7 +30257,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/93f0294bb30cb257a989740daa6be6b0",
       "sources": [
@@ -30264,7 +30270,7 @@
         }
       ],
       "first_seen_at": "2026-11-11T01:45:29.516Z",
-      "updated_at": "2026-11-11T01:45:29.516Z",
+      "updated_at": "2026-11-11T02:46:02.032Z",
       "id": "195dbcef807ca937",
       "merged_ids": [
         "195dbcef807ca937"

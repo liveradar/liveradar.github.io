@@ -55,6 +55,11 @@
   aliases: ["五香放克"]
   tags_origin_default: 亞洲其他
 
+# 上山：Max 提供 IG ott_officials，自述為台灣新生代 Emo Punk 獨立樂團（Over The Top）→ 本地。
+- canonical: 上山
+  aliases: ["Over The Top", "OTT"]
+  tags_origin_default: 本地
+
 - canonical: 王欣茹
   aliases: []
   tags_origin_default: 本地
