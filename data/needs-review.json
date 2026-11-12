@@ -1,20 +1,3 @@
 {
-  "items": [
-    {
-      "raw_id": "11e03a06e7f3f59019f2c214123e4aaf_0c083fbe9c5b03bb55b1cd0e921a0ba9",
-      "title_raw": "找朋友一起卡",
-      "url": "https://ticketplus.com.tw/activity/11e03a06e7f3f59019f2c214123e4aaf",
-      "source": "Ticket Plus",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "00629fd861e0c70a6762db1c2a9b2858_7d9d9ef6c29abf488859d323863c05c2",
-      "title_raw": "古川麦 × 王雁盟《聆聽貝殼裡的宇宙 Listening to the Universe in a Shell》（Special Guest 橋本翼）",
-      "url": "https://ticketplus.com.tw/activity/00629fd861e0c70a6762db1c2a9b2858",
-      "source": "Ticket Plus",
-      "reason": "artist_unrecognized",
-      "detail": null
-    }
-  ]
+  "items": []
 }

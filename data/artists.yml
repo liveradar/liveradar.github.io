@@ -64,6 +64,16 @@
   aliases: ["Maxinechi", "小鈅"]
   tags_origin_default: 本地
 
+# 2026-11-12 Max 裁定：古川麦 × 王雁盟《聆聽貝殼裡的宇宙》→ 本地（以王雁盟為登記對象，台灣手風琴家）。
+# 2026-11-12 Max 裁定：找朋友一起卡 為活動名稱，陣容為多位參與者，依「多位音樂人參與一律本地」規則 → 本地。
+- canonical: 王雁盟
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 找朋友一起卡
+  aliases: []
+  tags_origin_default: 本地
+
 # 2026-11-11 Max 確認／補充：一青窈 日本；NCT WISH 為 SM 與 Avex 製作的日本男子組合。
 # 王大文：美國出生長大，來台後才以國語專輯成名（商業週刊 2015 報導、金曲@LiveHouse 介紹頁）→ 本地。
 # The Spice Cabinet：Max 確認為本地。

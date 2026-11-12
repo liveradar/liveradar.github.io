@@ -30500,8 +30500,12 @@
     },
     {
       "title_raw": "找朋友一起卡",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "找朋友一起卡"
+      ],
+      "lineup": [
+        "找朋友一起卡"
+      ],
       "is_festival": false,
       "venue": "女巫店",
       "city": "台北",
@@ -30514,7 +30518,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/11e03a06e7f3f59019f2c214123e4aaf",
       "sources": [
@@ -30525,7 +30531,7 @@
         }
       ],
       "first_seen_at": "2026-11-12T01:44:56.831Z",
-      "updated_at": "2026-11-12T01:44:56.831Z",
+      "updated_at": "2026-11-12T02:33:49.877Z",
       "id": "823e3b8fef7d0a77",
       "merged_ids": [
         "823e3b8fef7d0a77"
@@ -30533,8 +30539,12 @@
     },
     {
       "title_raw": "古川麦 × 王雁盟《聆聽貝殼裡的宇宙 Listening to the Universe in a Shell》（Special Guest 橋本翼）",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "王雁盟"
+      ],
+      "lineup": [
+        "王雁盟"
+      ],
       "is_festival": false,
       "venue": "女巫店",
       "city": "台北",
@@ -30547,7 +30557,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/00629fd861e0c70a6762db1c2a9b2858",
       "sources": [
@@ -30558,7 +30570,7 @@
         }
       ],
       "first_seen_at": "2026-11-12T01:44:56.832Z",
-      "updated_at": "2026-11-12T01:44:56.832Z",
+      "updated_at": "2026-11-12T02:33:49.879Z",
       "id": "87178531a869d72d",
       "merged_ids": [
         "87178531a869d72d"
