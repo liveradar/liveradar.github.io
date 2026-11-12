@@ -2,104 +2,104 @@
   "sources": [
     {
       "name": "KKTIX",
-      "last_success": "2026-11-11T02:00:26.824Z",
+      "last_success": "2026-11-12T01:59:49.506Z",
       "last_error": null,
-      "last_count": 410,
+      "last_count": 412,
       "status": "ok",
       "stats": {
         "register_info": {
-          "jsonld_resolved": 414,
+          "jsonld_resolved": 427,
           "children_resolved": 13,
           "table_resolved": 0,
           "checked": 7,
-          "ok_first_try": 5,
+          "ok_first_try": 4,
           "ok_on_retry": 2,
-          "failed": 0,
-          "blocked_403": 2,
-          "skipped_known": 58
+          "failed": 1,
+          "blocked_403": 4,
+          "skipped_known": 47
         }
       }
     },
     {
       "name": "拓元",
-      "last_success": "2026-11-11T01:47:50.477Z",
+      "last_success": "2026-11-12T01:46:59.201Z",
       "last_error": null,
       "last_count": 81,
       "status": "ok"
     },
     {
       "name": "iNDIEVOX",
-      "last_success": "2026-11-11T01:44:39.277Z",
+      "last_success": "2026-11-12T01:43:37.274Z",
       "last_error": null,
-      "last_count": 83,
+      "last_count": 84,
       "status": "ok"
     },
     {
       "name": "FANSI GO",
-      "last_success": "2026-11-11T01:47:31.244Z",
+      "last_success": "2026-11-12T01:46:28.771Z",
       "last_error": null,
       "last_count": 44,
       "status": "ok"
     },
     {
       "name": "Ticket Plus",
-      "last_success": "2026-11-11T01:45:29.511Z",
+      "last_success": "2026-11-12T01:44:56.828Z",
       "last_error": null,
-      "last_count": 158,
+      "last_count": 161,
       "status": "ok"
     },
     {
       "name": "Billboard Live",
-      "last_success": "2026-11-11T01:43:36.231Z",
+      "last_success": "2026-11-12T01:42:34.594Z",
       "last_error": null,
       "last_count": 14,
       "status": "ok"
     },
     {
       "name": "ibon",
-      "last_success": "2026-11-11T01:43:40.240Z",
+      "last_success": "2026-11-12T01:42:39.115Z",
       "last_error": null,
-      "last_count": 33,
+      "last_count": 36,
       "status": "ok"
     },
     {
       "name": "OPENTIX",
-      "last_success": "2026-11-11T01:46:16.202Z",
+      "last_success": "2026-11-12T01:45:16.602Z",
       "last_error": null,
-      "last_count": 485,
+      "last_count": 482,
       "status": "ok"
     },
     {
       "name": "寬宏",
-      "last_success": "2026-11-11T01:43:35.280Z",
+      "last_success": "2026-11-12T01:42:33.610Z",
       "last_error": null,
       "last_count": 23,
       "status": "ok"
     },
     {
       "name": "年代",
-      "last_success": "2026-11-11T01:43:36.536Z",
+      "last_success": "2026-11-12T01:42:34.009Z",
       "last_error": null,
       "last_count": 18,
       "status": "ok"
     },
     {
       "name": "高雄流行音樂中心",
-      "last_success": "2026-11-11T01:43:42.088Z",
+      "last_success": "2026-11-12T01:42:38.342Z",
       "last_error": null,
       "last_count": 9,
       "status": "ok"
     },
     {
       "name": "Blue Note Taipei",
-      "last_success": "2026-11-11T01:44:08.978Z",
+      "last_success": "2026-11-12T01:43:06.509Z",
       "last_error": null,
       "last_count": 28,
       "status": "ok"
     },
     {
       "name": "manual",
-      "last_success": "2026-11-11T01:43:25.358Z",
+      "last_success": "2026-11-12T01:42:18.407Z",
       "last_error": null,
       "last_count": 0,
       "status": "ok"

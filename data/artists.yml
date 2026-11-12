@@ -39,6 +39,21 @@
   aliases: ["Hitoto Yo"]
   tags_origin_default: 日本
 
+# 2026-11-12 排程查證：曽我部恵一（日本 Sunny Day Service 成員、日本獨立音樂人，對照 niewmedia / NTS 人物頁）；
+# deca joins（台北成軍的台灣獨立樂團，對照 Wikipedia 台灣樂團條目，票券標題即為此團名）；
+# PENTAGON（韓國男團，2016 出道，標題「10th Anniversary」與出道年份相符）。
+- canonical: 曽我部恵一
+  aliases: ["曽我部惠一", "Keiichi Sokabe"]
+  tags_origin_default: 日本
+
+- canonical: deca joins
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: PENTAGON
+  aliases: []
+  tags_origin_default: 韓國
+
 # 2026-11-11 Max 確認／補充：一青窈 日本；NCT WISH 為 SM 與 Avex 製作的日本男子組合。
 # 王大文：美國出生長大，來台後才以國語專輯成名（商業週刊 2015 報導、金曲@LiveHouse 介紹頁）→ 本地。
 # The Spice Cabinet：Max 確認為本地。
