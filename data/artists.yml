@@ -54,6 +54,16 @@
   aliases: []
   tags_origin_default: 韓國
 
+# 2026-11-12 Max 提供資料並查售票頁：無常樂（售票頁自述「來自新加坡的華語獨立搖滾樂團」，演出名稱與頁面一致，對照 thewalllivehouse.kktix.cc/events/c0c553b1）→ 亞洲其他（新加坡）；
+# 祈錦鈅（售票頁主辦為「祈錦鈅工作室」、標題與 Maxinechi 署名一致；搜尋到 2019 年 Mirror Media 報導，台灣模特兒出身、出道單曲〈比心小幸福〉，對照 maxine620.kktix.cc/events/2026xmas）→ 本地。
+- canonical: 無常樂
+  aliases: ["IMPERMANENCE"]
+  tags_origin_default: 亞洲其他
+
+- canonical: 祈錦鈅
+  aliases: ["Maxinechi", "小鈅"]
+  tags_origin_default: 本地
+
 # 2026-11-11 Max 確認／補充：一青窈 日本；NCT WISH 為 SM 與 Avex 製作的日本男子組合。
 # 王大文：美國出生長大，來台後才以國語專輯成名（商業週刊 2015 報導、金曲@LiveHouse 介紹頁）→ 本地。
 # The Spice Cabinet：Max 確認為本地。

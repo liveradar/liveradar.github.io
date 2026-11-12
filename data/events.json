@@ -15294,8 +15294,12 @@
     },
     {
       "title_raw": "無常樂 Taipei Residency《黎明與暮色之間》— DAWN 黎明",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "無常樂"
+      ],
+      "lineup": [
+        "無常樂"
+      ],
       "is_festival": false,
       "venue": "The Wall No Stage, No_____",
       "city": "台北",
@@ -15308,7 +15312,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://thewalllivehouse.kktix.cc/events/c0c553b1",
       "sources": [
@@ -15319,7 +15325,7 @@
         }
       ],
       "first_seen_at": "2026-11-12T01:59:49.512Z",
-      "updated_at": "2026-11-12T01:59:49.512Z",
+      "updated_at": "2026-11-12T02:32:15.458Z",
       "id": "c8649573be994d0f",
       "merged_ids": [
         "c8649573be994d0f"
@@ -20802,8 +20808,12 @@
     },
     {
       "title_raw": "2026祈錦鈅聖誕見面演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "祈錦鈅"
+      ],
+      "lineup": [
+        "祈錦鈅"
+      ],
       "is_festival": false,
       "venue": "Red space多元商務空間Space A",
       "city": "台北",
@@ -20816,7 +20826,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://maxine620.kktix.cc/events/2026xmas",
       "sources": [
@@ -20827,7 +20839,7 @@
         }
       ],
       "first_seen_at": "2026-11-12T01:59:49.570Z",
-      "updated_at": "2026-11-12T01:59:49.570Z",
+      "updated_at": "2026-11-12T02:32:15.483Z",
       "id": "f1d61452b433472f",
       "merged_ids": [
         "f1d61452b433472f"
