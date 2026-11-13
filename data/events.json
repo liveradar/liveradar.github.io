@@ -20833,8 +20833,12 @@
     },
     {
       "title_raw": "Billboard Live Taipei 一週年盛典",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Billboard Live TAIPEI 一週年盛典"
+      ],
+      "lineup": [
+        "Billboard Live TAIPEI 一週年盛典"
+      ],
       "is_festival": false,
       "venue": "Billboard Live Taipei",
       "city": "台北",
@@ -20847,7 +20851,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://billboardlivetp.kktix.cc/events/f621b400",
       "sources": [
@@ -20858,7 +20864,7 @@
         }
       ],
       "first_seen_at": "2026-11-13T02:00:06.922Z",
-      "updated_at": "2026-11-13T02:00:06.922Z",
+      "updated_at": "2026-11-13T02:06:09.197Z",
       "id": "1b9786fa59049ef8",
       "merged_ids": [
         "1b9786fa59049ef8"

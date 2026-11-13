@@ -12,6 +12,16 @@
 # aliases: alternate spellings/romanizations seen in scraped titles.
 # tags_origin_default: pre-fills 來源地 tag when a new event by this artist is normalized.
 
+# 2026-11-13 補查：好樂團（維基百科：2015 年於台灣出道，禾廣娛樂；LTN、TVBS 報導稱台灣樂團成軍十年）→ 本地。
+# Billboard Live TAIPEI 一週年盛典：官網活動頁「好樂團 x 163braces」與 KKTIX 售票頁同為 2026/11/25 19:30 Billboard Live Taipei，判定為同一場，系列名稱當 canonical（兩位演出者皆為台灣藝人）→ 本地。
+- canonical: 好樂團
+  aliases: ["GoodBand"]
+  tags_origin_default: 本地
+
+- canonical: Billboard Live TAIPEI 一週年盛典
+  aliases: ["Billboard Live Taipei 一週年盛典"]
+  tags_origin_default: 本地
+
 # 2026-11-13 排程查證（對照票券頁標題與演出者資料）：163braces（維基百科：台灣女歌手，高雄出身，本名吳朵芸，在台灣出道）→ 本地；
 # The Salitus（維基/官網 bio：台中成團的台灣龐克樂團，台灣祭冠軍，CNA 報導）→ 本地；
 # 庸俗救星（iNDIEVOX 售票頁、UDN/Yahoo 台灣媒體報導的台灣四人樂團）→ 本地；
