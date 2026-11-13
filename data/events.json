@@ -27689,8 +27689,12 @@
     },
     {
       "title_raw": "《FEARLESS 長夜有光》年終快車",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "青原Fida"
+      ],
+      "lineup": [
+        "青原Fida"
+      ],
       "is_festival": false,
       "venue": "Revolver",
       "city": "台北",
@@ -27703,7 +27707,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/1030001",
       "sources": [
@@ -27714,7 +27720,7 @@
         }
       ],
       "first_seen_at": "2026-11-13T01:46:56.109Z",
-      "updated_at": "2026-11-13T01:46:56.109Z",
+      "updated_at": "2026-11-13T02:04:46.753Z",
       "id": "b0beefe5378eeff2",
       "merged_ids": [
         "b0beefe5378eeff2"
