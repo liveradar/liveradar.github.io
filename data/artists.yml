@@ -12,25 +12,18 @@
 # aliases: alternate spellings/romanizations seen in scraped titles.
 # tags_origin_default: pre-fills 來源地 tag when a new event by this artist is normalized.
 
-# 2026-11-13 Max 提供：Soft Reboot（iNDIEVOX 27_iv043129f，SUB Live，2027/1/3）演出者為「南瓜妮歌迷俱樂部」。
+# 2026-11-13 Max 提供：Soft Reboot（iNDIEVOX 27_iv043129f，SUB Live，2027/1/3）是演出標題，演出者為「南瓜妮歌迷俱樂部」。
 # 南瓜妮歌迷俱樂部：維基百科／Apple Music／StreetVoice 等資料，2009 年於台灣政大金旋獎組團，台灣獨立搖滾樂團（主唱柯家洋）→ 本地。
-# 標題只有「Soft Reboot」，演出者名不在標題內，故以系列/活動名稱當 canonical（比照 Billboard Live 一週年盛典的做法）。
-- canonical: Soft Reboot
-  aliases: []
-  tags_origin_default: 本地
-
+# 標題不含演出者名，所以把演出標題「Soft Reboot」掛在演出者的 aliases 上（標題比對用），canonical 仍是演出者。
 - canonical: 南瓜妮歌迷俱樂部
-  aliases: ["南瓜妮", "Pumpkinney Fan Club"]
+  aliases: ["南瓜妮", "Pumpkinney Fan Club", "Soft Reboot"]
   tags_origin_default: 本地
 
 # 2026-11-13 補查：好樂團（維基百科：2015 年於台灣出道，禾廣娛樂；LTN、TVBS 報導稱台灣樂團成軍十年）→ 本地。
-# Billboard Live TAIPEI 一週年盛典：官網活動頁「好樂團 x 163braces」與 KKTIX 售票頁同為 2026/11/25 19:30 Billboard Live Taipei，判定為同一場，系列名稱當 canonical（兩位演出者皆為台灣藝人）→ 本地。
+# Billboard Live TAIPEI 一週年盛典：官網活動頁「好樂團 x 163braces」與 KKTIX 售票頁同為 2026/11/25 19:30 Billboard Live Taipei，判定為同一場。
+# 演出標題掛在兩位演出者的 aliases 上（兩位皆為台灣藝人）→ 本地。
 - canonical: 好樂團
-  aliases: ["GoodBand"]
-  tags_origin_default: 本地
-
-- canonical: Billboard Live TAIPEI 一週年盛典
-  aliases: ["Billboard Live Taipei 一週年盛典"]
+  aliases: ["GoodBand", "Billboard Live Taipei 一週年盛典"]
   tags_origin_default: 本地
 
 # 2026-11-13 排程查證（對照票券頁標題與演出者資料）：163braces（維基百科：台灣女歌手，高雄出身，本名吳朵芸，在台灣出道）→ 本地；
@@ -41,7 +34,7 @@
 # 吳驁／XMASwu（歌詞坊：1999 年生於安徽，主要在中文 R&B 圈以網路平台發行作品）→ 亞洲其他（中國；2026-11-13 Max 確認）；
 # Meenoi（英文維基：韓國歌手；票券時間以 KST 標示）→ 韓國（2026-11-13 Max 確認：朴民瑛，韓國 R&B／嘻哈創作歌手）。
 - canonical: 163braces
-  aliases: []
+  aliases: ["Billboard Live Taipei 一週年盛典"]
   tags_origin_default: 本地
 
 - canonical: The Salitus
