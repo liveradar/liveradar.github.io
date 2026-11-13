@@ -20834,10 +20834,11 @@
     {
       "title_raw": "Billboard Live Taipei 一週年盛典",
       "headliners": [
-        "Billboard Live TAIPEI 一週年盛典"
+        "好樂團"
       ],
       "lineup": [
-        "Billboard Live TAIPEI 一週年盛典"
+        "好樂團",
+        "163braces"
       ],
       "is_festival": false,
       "venue": "Billboard Live Taipei",
@@ -20849,7 +20850,8 @@
       "price_max": 1644,
       "status": "announced",
       "tags_type": [
-        "專場"
+        "專場",
+        "拼盤"
       ],
       "tags_origin": [
         "本地"
@@ -20861,13 +20863,18 @@
           "name": "KKTIX",
           "url": "https://billboardlivetp.kktix.cc/events/f621b400",
           "raw_id": "f621b400"
+        },
+        {
+          "name": "Billboard Live",
+          "url": "https://www.billboardlivetaipei.tw/tw/events/goodband163braces-2026",
+          "raw_id": "external-a8977902b3b6"
         }
       ],
       "first_seen_at": "2026-11-13T02:00:06.922Z",
-      "updated_at": "2026-11-13T02:06:09.197Z",
-      "id": "1b9786fa59049ef8",
+      "updated_at": "2026-11-13T02:54:42.565Z",
+      "id": "f0bd429bae42c753",
       "merged_ids": [
-        "1b9786fa59049ef8"
+        "f0bd429bae42c753"
       ]
     },
     {
@@ -31308,45 +31315,6 @@
       "id": "f07a7820aef9d9d6-evening",
       "merged_ids": [
         "f07a7820aef9d9d6-evening"
-      ]
-    },
-    {
-      "title_raw": " Billboard Live TAIPEI 一週年盛典 - 好樂團 x 163braces",
-      "headliners": [
-        "163braces"
-      ],
-      "lineup": [
-        "163braces"
-      ],
-      "is_festival": false,
-      "venue": "Billboard Live TAIPEI",
-      "city": "台北",
-      "date": "2026-11-25",
-      "time": "19:30",
-      "on_sale_at": "2026-11-13T11:00:00+08:00",
-      "price_min": null,
-      "price_max": null,
-      "status": "announced",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [
-        "本地"
-      ],
-      "is_lottery": false,
-      "ticket_url": "https://www.billboardlivetaipei.tw/tw/events/goodband163braces-2026",
-      "sources": [
-        {
-          "name": "Billboard Live",
-          "url": "https://www.billboardlivetaipei.tw/tw/events/goodband163braces-2026",
-          "raw_id": "external-a8977902b3b6"
-        }
-      ],
-      "first_seen_at": "2026-11-13T01:42:50.168Z",
-      "updated_at": "2026-11-13T02:01:38.574Z",
-      "id": "bb19d43161483884",
-      "merged_ids": [
-        "bb19d43161483884"
       ]
     },
     {
