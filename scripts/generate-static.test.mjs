@@ -36,3 +36,12 @@ test("schedule and sitemap list every event, deterministically", () => {
   assert.equal(sitemap(evs), sitemap([...evs].reverse()));
   assert.ok(sitemap(evs).includes("/e/abc.html") && sitemap(evs).includes("/e/zzz.html"));
 });
+
+test("subEvents carry the optional fields Google flags, with per-session availability", () => {
+  const e = { ...base, sessions: [{ date: "2026-12-17", time: "20:00", venue: "V", city: "台北", status: "sold_out" }, { date: "2026-12-18", time: "20:00", venue: "V", city: "台北", status: "on_sale" }] };
+  const [a, b] = eventJsonLd(e, "https://img/x.jpg").subEvent;
+  assert.equal(a.offers.availability, "https://schema.org/SoldOut");
+  assert.equal(b.offers.availability, "https://schema.org/InStock");
+  for (const s of [a, b]) assert.ok(s.description && s.eventStatus && s.performer && s.image);
+  assert.ok(eventJsonLd(e).description);
+});

@@ -42,11 +42,28 @@ const place = (venue, city) => ({
 const sessionsOf = (e) => (e.sessions?.length > 1 ? e.sessions : []);
 const price = (e) => (e.price_min != null ? `NT$${e.price_min.toLocaleString("en-US")} 起` : "票價未公布");
 
+const whereOf = (city, venue) => [city && city !== "未知" ? city : null, venue].filter(Boolean).join(" ");
+const descriptionOf = (e) =>
+  `${e.title_raw}｜${dateLabel(e.date, e.time)}${whereOf(e.city, e.venue) ? ` 於${whereOf(e.city, e.venue)}` : ""}，${price(e)}，${STATUS_LABEL[e.status] ?? ""}。資料來源：${[...new Set(e.sources.map((s) => s.name))].join("、")}。`;
+// Offers need a price; skip when unknown or the status has no sale state (ended).
+const offerOf = (e, status) =>
+  e.price_min != null && AVAILABILITY[status]
+    ? {
+        "@type": "Offer",
+        url: e.ticket_url,
+        price: e.price_min,
+        priceCurrency: "TWD",
+        availability: `https://schema.org/${AVAILABILITY[status]}`,
+        ...(status === "announced" && e.on_sale_at ? { validFrom: e.on_sale_at } : {}),
+      }
+    : null;
+
 export function eventJsonLd(e, image) {
   const o = {
     "@context": "https://schema.org",
     "@type": "Event",
     name: e.title_raw,
+    description: descriptionOf(e),
     url: `${SITE}/e/${e.id}.html`,
     startDate: isoStart(e.date, e.time),
     ...(e.date_end && e.date_end !== e.date ? { endDate: e.date_end } : {}),
@@ -58,23 +75,23 @@ export function eventJsonLd(e, image) {
   };
   const subs = sessionsOf(e);
   if (subs.length)
-    o.subEvent = subs.map((s) => ({
-      "@type": "Event",
-      name: e.title_raw,
-      startDate: isoStart(s.date, s.time),
-      location: place(s.venue, s.city),
-    }));
-  // Offers need a price; skip when unknown or the event is over rather than guess.
-  if (e.price_min != null && AVAILABILITY[e.status]) {
-    o.offers = {
-      "@type": "Offer",
-      url: e.ticket_url,
-      price: e.price_min,
-      priceCurrency: "TWD",
-      availability: `https://schema.org/${AVAILABILITY[e.status]}`,
-      ...(e.status === "announced" && e.on_sale_at ? { validFrom: e.on_sale_at } : {}),
-    };
-  }
+    o.subEvent = subs.map((s) => {
+      const offers = offerOf(e, s.status);
+      return {
+        "@type": "Event",
+        name: e.title_raw,
+        description: descriptionOf(e),
+        startDate: isoStart(s.date, s.time),
+        eventStatus: o.eventStatus,
+        eventAttendanceMode: o.eventAttendanceMode,
+        location: place(s.venue, s.city),
+        ...(o.performer ? { performer: o.performer } : {}),
+        ...(image ? { image } : {}),
+        ...(offers ? { offers } : {}),
+      };
+    });
+  const offers = offerOf(e, e.status);
+  if (offers) o.offers = offers;
   return o;
 }
 
@@ -85,7 +102,7 @@ export function eventPage(e, image) {
   const onSale = e.status === "announced" ? formatOnSaleDateTime(e.on_sale_at) : null;
   const sources = [...new Set(e.sources.map((s) => s.name))].join("、");
   const tags = [...(e.tags_type ?? []), ...(e.tags_origin ?? [])];
-  const desc = `${e.title_raw}｜${dateLabel(e.date, e.time)}${where ? ` 於${where}` : ""}，${price(e)}，${status}。資料來源：${sources}。`;
+  const desc = descriptionOf(e);
   const title = `${e.title_raw}｜${e.date}${e.venue ? ` ${e.venue}` : ""}｜LiveRadar`;
   const subs = sessionsOf(e);
   const rows = [
