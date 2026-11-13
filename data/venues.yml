@@ -104,6 +104,9 @@
   city: 台中
 - match: "迴響音樂展演空間"
   city: 台中
+# 2026-11-13 排程查證：iNDIEVOX 場地欄位寫「SOUND LIVE HOUSE」，即台中「迴響音樂展演空間」的英文招牌（Songkick 與地圖服務標示為台中市中區中山路108號）。
+- match: "SOUND LIVE HOUSE"
+  city: 台中
 
 # 2026-09-21：這筆不是場館名稱比對，是活動品牌名稱——iNDIEVOX 頁面完全沒寫
 # 場地也沒在標題提城市，查證官方網站（formosapride.com）才知道固定辦在

@@ -12,6 +12,45 @@
 # aliases: alternate spellings/romanizations seen in scraped titles.
 # tags_origin_default: pre-fills 來源地 tag when a new event by this artist is normalized.
 
+# 2026-11-13 排程查證（對照票券頁標題與演出者資料）：163braces（維基百科：台灣女歌手，高雄出身，本名吳朵芸，在台灣出道）→ 本地；
+# The Salitus（維基/官網 bio：台中成團的台灣龐克樂團，台灣祭冠軍，CNA 報導）→ 本地；
+# 庸俗救星（iNDIEVOX 售票頁、UDN/Yahoo 台灣媒體報導的台灣四人樂團）→ 本地；
+# 奧華子（維基百科：日本千葉出身的女創作歌手）→ 日本；AiNA THE END（TVBS/Mirror：前 BiSH 成員，日本歌手）→ 日本；
+# JEONGHAN X JOSHUA（SEVENTEEN 小組合，Korea Herald/Soompi 報導，韓國 K-pop）→ 韓國；
+# 吳驁／XMASwu（歌詞坊：1999 年生於安徽，主要在中文 R&B 圈以網路平台發行作品）→ 亞洲其他（中國；依據較弱，列入需 Max 確認）；
+# Meenoi（英文維基：韓國歌手；票券時間以 KST 標示）→ 韓國（依據較弱，列入需 Max 確認）。
+- canonical: 163braces
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: The Salitus
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 庸俗救星
+  aliases: ["VulgarSavior"]
+  tags_origin_default: 本地
+
+- canonical: 奧華子
+  aliases: []
+  tags_origin_default: 日本
+
+- canonical: AiNA THE END
+  aliases: []
+  tags_origin_default: 日本
+
+- canonical: JEONGHAN X JOSHUA
+  aliases: []
+  tags_origin_default: 韓國
+
+- canonical: 吳驁
+  aliases: ["XMASwu"]
+  tags_origin_default: 亞洲其他
+
+- canonical: Meenoi
+  aliases: []
+  tags_origin_default: 韓國
+
 # 2026-11-11 排程查證：邱舒（金音獎客語歌手，台灣本地成名）；我夢見長頸鹿（台灣 shoegaze 樂團，對照 Records Like It 評論）；
 # Ring 誓約之聲（以台北為基地的動漫歌曲金屬樂團，對照樂團自述）；温金龍二胡樂團（台灣二胡家溫金龍，對照報導）；
 # Homecomings（日本獨立流行樂團，對照 setlist.fm 的台北 Jam Jam Asia 紀錄）；一青窈（父台灣母日本，出道與成名於日本，待 Max 確認）。
