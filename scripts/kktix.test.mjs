@@ -9,6 +9,7 @@ import {
   ticketTableStatus,
   findChildEventIds,
   isRedundantGroupHub,
+  extractTemplate,
 } from "./adapters/kktix.mjs";
 
 const venueRule = (keyword) => SEARCH_VENUES.find((v) => v.keyword === keyword).match;
@@ -145,4 +146,14 @@ test("isRedundantGroupHub: no child links at all -> not a hub, kept regardless o
 test("isRedundantGroupHub: page has its own ticket tiers -> not a pure hub even if it also links other events, kept", () => {
   const raw = { raw_id: "x", tickets_raw: [{ price: 1000, closed: false }], _childIds: ["y"] };
   assert.equal(isRedundantGroupHub(raw, new Set(["x", "y"])), false);
+});
+
+test("extractTemplate real bug (Max: 卡片只寫尚未開賣但 KKTIX 有開賣日): a waiting ticket row whose .time has no .timezoneSuffix still yields on_sale_at_raw", () => {
+  const $ = cheerio.load(`<div class="event-info"><ul class="info"><li><span class="info-desc">x</span></li><li><span class="info-desc">v</span></li></ul></div>
+    <table><tbody><tr><td class="name">全票</td><td class="price"><span class="currency-value">840</span></td>
+    <td class="period"><span class="period-time"><span class="time">2026/11/15 12:00</span> ~ <span class="time">2027/01/08 19:00</span></span>
+    <span class="status waiting">尚未開賣</span></td></tr></tbody></table>`);
+  const t = extractTemplate($).templateFields.tickets_raw[0];
+  assert.equal(t.waiting, true);
+  assert.equal(t.on_sale_at_raw, "2026/11/15 12:00");
 });

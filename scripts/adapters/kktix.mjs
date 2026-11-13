@@ -483,7 +483,9 @@ function extractNewTemplateFields($) {
     // template, assuming it shares the old template's `.waiting` class name
     // since both are KKTIX's own ticket-status vocabulary, just re-skinned.
     const waiting = statusEl.hasClass("waiting");
-    const on_sale_at_raw = waiting ? $(li).find(".sell-time .timezoneSuffix").first().text().trim() : null;
+    const on_sale_at_raw = waiting
+      ? ($(li).find(".sell-time .timezoneSuffix").first().text().trim() || $(li).find(".sell-time").first().text().trim())
+      : null;
     if (name) tickets_raw.push({ name, price, closed, waiting, on_sale_at_raw });
   });
 
@@ -520,7 +522,12 @@ function extractOldTemplateFields($) {
     const closed = $(tr).find(".status.closed").length > 0;
     const waiting = $(tr).find(".status.waiting").length > 0;
     const on_sale_at_raw = waiting
-      ? $(tr).find(".period-time .time .timezoneSuffix").first().text().trim()
+      ? ($(tr).find(".period-time .time .timezoneSuffix").first().text().trim() ||
+         // 2026-11-13 (Max: 卡片寫「尚未開賣」但 KKTIX 頁面明明有開賣日): the
+         // server-rendered HTML has the bare `<span class="time">2026/11/15 12:00</span>`
+         // with NO .timezoneSuffix child (that class only exists on some pages),
+         // so the selector above came back empty and on_sale_at was lost.
+         $(tr).find(".period-time .time").first().text().trim())
       : null;
     if (name) tickets_raw.push({ name, price, closed, waiting, on_sale_at_raw });
   });
