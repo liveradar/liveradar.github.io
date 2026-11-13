@@ -14,6 +14,7 @@
  * Usage: node scripts/renormalize.mjs
  */
 import { readFileSync, writeFileSync } from "node:fs";
+import { generateStatic } from "./generate-static.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadArtists, loadVenues, applyArtistMatch, resolveStoredCity, exclusionReason } from "./normalize.mjs";
@@ -86,3 +87,4 @@ console.log(
   `${resolvedRawIds.size} source listing(s) resolved, ${cityFixed} city fix(es), ` +
     `${events.length - kept.length} event(s) excluded, ${remaining.length} needs-review item(s) remaining`,
 );
+generateStatic(); // keep e/*.html, schedule.html, sitemap.xml in step with events.json

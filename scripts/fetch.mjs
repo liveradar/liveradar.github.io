@@ -1,5 +1,6 @@
 import { writeFileSync, readFileSync } from "node:fs";
 import { backfillImages } from "./backfill-images.mjs";
+import { generateStatic } from "./generate-static.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -347,6 +348,15 @@ async function main() {
     await backfillImages();
   } catch (err) {
     console.warn(`cover-image backfill failed (events.json unaffected): ${err.message}`);
+  }
+
+  // SEO/GEO static pages (e/*.html, schedule.html, sitemap.xml). Derived
+  // output only — never fails the fetch.
+  try {
+    const r = generateStatic();
+    console.log(`static pages: ${r.total} events (${r.changed} written, ${r.removed} removed)`);
+  } catch (err) {
+    console.warn(`static page generation failed (events.json unaffected): ${err.message}`);
   }
 }
 
