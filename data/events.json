@@ -25979,8 +25979,12 @@
     },
     {
       "title_raw": "Soft Reboot",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Soft Reboot"
+      ],
+      "lineup": [
+        "Soft Reboot"
+      ],
       "is_festival": false,
       "venue": "SUB Live",
       "city": "台北",
@@ -25993,7 +25997,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/27_iv043129f",
       "sources": [
@@ -26004,7 +26010,7 @@
         }
       ],
       "first_seen_at": "2026-11-13T01:44:11.001Z",
-      "updated_at": "2026-11-13T01:44:11.001Z",
+      "updated_at": "2026-11-13T02:06:52.156Z",
       "id": "fb08fb8f7b412836",
       "merged_ids": [
         "fb08fb8f7b412836"

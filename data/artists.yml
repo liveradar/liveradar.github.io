@@ -12,6 +12,17 @@
 # aliases: alternate spellings/romanizations seen in scraped titles.
 # tags_origin_default: pre-fills 來源地 tag when a new event by this artist is normalized.
 
+# 2026-11-13 Max 提供：Soft Reboot（iNDIEVOX 27_iv043129f，SUB Live，2027/1/3）演出者為「南瓜妮歌迷俱樂部」。
+# 南瓜妮歌迷俱樂部：維基百科／Apple Music／StreetVoice 等資料，2009 年於台灣政大金旋獎組團，台灣獨立搖滾樂團（主唱柯家洋）→ 本地。
+# 標題只有「Soft Reboot」，演出者名不在標題內，故以系列/活動名稱當 canonical（比照 Billboard Live 一週年盛典的做法）。
+- canonical: Soft Reboot
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 南瓜妮歌迷俱樂部
+  aliases: ["南瓜妮", "Pumpkinney Fan Club"]
+  tags_origin_default: 本地
+
 # 2026-11-13 補查：好樂團（維基百科：2015 年於台灣出道，禾廣娛樂；LTN、TVBS 報導稱台灣樂團成軍十年）→ 本地。
 # Billboard Live TAIPEI 一週年盛典：官網活動頁「好樂團 x 163braces」與 KKTIX 售票頁同為 2026/11/25 19:30 Billboard Live Taipei，判定為同一場，系列名稱當 canonical（兩位演出者皆為台灣藝人）→ 本地。
 - canonical: 好樂團
