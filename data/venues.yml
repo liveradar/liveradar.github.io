@@ -166,6 +166,9 @@
 # 2026-10-21，查 city:未知 清單查證補上：
 - match: "聲聲不息"
   city: 台中  # 標題本身無場館欄位文字（iNDIEVOX列表頁未抓到venue），WebFetch活動頁查到場地為「Sound Live House 迴響音樂藝文展演空間」且共演樂團Monkey Banana自述「我們來自台中」，比照既有迴響系列場館（已對應台中）以系列標題文字比對
+# 2026-11-16，查 city:未知 清單查證補上：
+- match: "The Salitus 3rd Anniversary"
+  city: 台中  # 標題本身無場館欄位文字（iNDIEVOX 列表頁沒抓到 venue）。WebFetch 活動頁（page-text）查到場地「台中 迴響音樂展演空間」，比照「晚風 Night Winds」做法以系列標題文字比對
 # 2026-10-28，查 city:未知 清單查證補上：
 - match: "Brickyard紅磚地窖"
   city: 高雄  # WebFetch 活動頁查證：地址「B1, 507, Zhongshan 2Rd, Kaohsiung」

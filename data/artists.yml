@@ -12,6 +12,62 @@
 # aliases: alternate spellings/romanizations seen in scraped titles.
 # tags_origin_default: pre-fills 來源地 tag when a new event by this artist is normalized.
 
+# 2026-11-16 排程查證（對照票券頁與外部來源）：
+# ONE OR EIGHT（sunnysideup 售票頁：經紀 Avex Music Creative、協辦 Avex Taiwan，日本 Avex 旗下男團）→ 日本；
+# HVOB（FANSI 售票頁：維也納奧地利電子雙人組）→ 歐美；
+# Yellowbrenda（Ticket Plus 售票頁：瑞典馬爾默雙人組，活躍於瑞典／歐洲獨立圈；團員含台灣創作歌手）→ 歐美（需 Max 確認）；
+# 霓NEO(n)（4gamers：子午計畫 Meridian Project 旗下台灣 VTuber 三人團）→ 本地；
+# 段芸芸 Cloudie（LINE Today 專訪：苗栗出身台灣創作歌手，《麻雀雖小》為首張創作 EP）→ 本地；
+# Iming Lin（allaboutjazz／TVBS：台北出生薩克斯風手，Berklee 與費城求學，在台灣有演出紀錄）→ 本地（需 Max 確認：美國學歷與職涯）；
+# Roy Patterson（York University 學者頁、AllAboutJazz：加拿大爵士吉他手，蒙特婁 Prix de Jazz 得主，曾長期駐台演出）→ 歐美（需 Max 確認：在台灣的演出時間）；
+# 以下為多位演出者的活動／派對品牌，依規則登記品牌名為 canonical → 本地：
+# Smiling death on the stage（iNDIEVOX 售票頁：陣容皆台灣團體，如 我想一想我想想笑死、台上見俱樂部）；
+# AFTER IMAGE（iNDIEVOX 售票頁：五組演出者皆台灣團體）；Jam人派對（Riff Bar 售票頁：每月一次的 Jam 派對）；
+# Venus and Mars（Riff Bar 售票頁：台北四人樂團）。
+- canonical: ONE OR EIGHT
+  aliases: []
+  tags_origin_default: 日本
+
+- canonical: HVOB
+  aliases: []
+  tags_origin_default: 歐美
+
+- canonical: Yellowbrenda
+  aliases: []
+  tags_origin_default: 歐美
+
+- canonical: 霓NEO(n)
+  aliases: ["NEO(n)", "REFRACTIO(n)"]
+  tags_origin_default: 本地
+
+- canonical: 段芸芸
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: Iming Lin
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: Roy Patterson
+  aliases: []
+  tags_origin_default: 歐美
+
+- canonical: Smiling death on the stage
+  aliases: ["第七層 墮戀地獄"]
+  tags_origin_default: 本地
+
+- canonical: AFTER IMAGE
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: Jam人派對
+  aliases: ["Jam Party"]
+  tags_origin_default: 本地
+
+- canonical: Venus and Mars
+  aliases: []
+  tags_origin_default: 本地
+
 # 2026-11-13 Max 提供：Soft Reboot（iNDIEVOX 27_iv043129f，SUB Live，2027/1/3）是演出標題，演出者為「南瓜妮歌迷俱樂部」。
 # 南瓜妮歌迷俱樂部：維基百科／Apple Music／StreetVoice 等資料，2009 年於台灣政大金旋獎組團，台灣獨立搖滾樂團（主唱柯家洋）→ 本地。
 # 標題不含演出者名，所以把演出標題「Soft Reboot」掛在演出者的 aliases 上（標題比對用），canonical 仍是演出者。
