@@ -1,7 +1,18 @@
 import { chromium } from "playwright";
 
-const UA =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
+/**
+ * Headless Chromium's default UA says "HeadlessChrome", so it has to be
+ * overridden — but with the version the browser REALLY is. It used to be a
+ * hard-coded "Chrome/128" while Playwright had moved on to Chromium 153: the
+ * client-hint headers (sec-ch-ua) still told the site the true version, so
+ * every request carried a self-contradicting identity. Derived from
+ * browser.version() so it can never drift again on a Playwright upgrade.
+ * (Real Chrome reports only the major version: "Chrome/153.0.0.0".)
+ */
+export function userAgentFor(browserVersion) {
+  const major = String(browserVersion).split(".")[0];
+  return `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${major}.0.0.0 Safari/537.36`;
+}
 
 /**
  * Shared Playwright launch/close boilerplate for adapters that need a real
@@ -66,5 +77,5 @@ export async function withBrowser(fn) {
  * single test isn't itself the confound.
  */
 export async function newPage(browser) {
-  return browser.newPage({ userAgent: UA, locale: "zh-TW" });
+  return browser.newPage({ userAgent: userAgentFor(browser.version()), locale: "zh-TW" });
 }
