@@ -362,7 +362,7 @@ button {
   color: var(--ink);
 }
 .event-date__weekday {
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--coral);
   letter-spacing: 0.06em;
@@ -391,7 +391,7 @@ button {
 }
 
 .tag-perf {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   background: var(--coral-bg);
   color: var(--coral-ink);
@@ -400,7 +400,7 @@ button {
 }
 
 .tag-origin {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   background: var(--lime);
   color: var(--lime-ink);
@@ -409,7 +409,7 @@ button {
 }
 
 .tag-neutral {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   background: var(--surface-2);
   color: var(--muted);
@@ -459,7 +459,7 @@ button {
 }
 
 .badge-new {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
   background: var(--coral);
   color: #fff;
@@ -468,7 +468,7 @@ button {
 }
 
 .badge-pinned {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--muted);
   border: 1px solid var(--border-strong);
@@ -584,7 +584,7 @@ button {
   gap: 5px;
   color: var(--muted);
   text-decoration: none;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .nav-item--active {
