@@ -24141,8 +24141,12 @@
     },
     {
       "title_raw": "BUTTER RIOT presents：Right here， RIOT now Vol.2",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "BUTTER RIOT presents"
+      ],
+      "lineup": [
+        "BUTTER RIOT presents"
+      ],
       "is_festival": false,
       "venue": "LIVE WAREHOUSE",
       "city": "高雄",
@@ -24155,7 +24159,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv0431862",
       "sources": [
@@ -24166,7 +24172,7 @@
         }
       ],
       "first_seen_at": "2026-11-17T01:44:08.354Z",
-      "updated_at": "2026-11-17T01:44:08.354Z",
+      "updated_at": "2026-11-17T03:13:22.358Z",
       "id": "11ed77a86072a940",
       "merged_ids": [
         "11ed77a86072a940"
@@ -24174,8 +24180,14 @@
     },
     {
       "title_raw": "Legacy Presents【2026都市女聲】岑寧兒 ＆ 張貝芝 《between you and me…》小巡演 - 台北站",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "岑寧兒",
+        "張貝芝"
+      ],
+      "lineup": [
+        "岑寧兒",
+        "張貝芝"
+      ],
       "is_festival": false,
       "venue": "Legacy Taipei 音樂展演空間",
       "city": "台北",
@@ -24186,9 +24198,11 @@
       "price_max": 2500,
       "status": "announced",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/27_iv04316cf",
       "sources": [
@@ -24199,7 +24213,7 @@
         }
       ],
       "first_seen_at": "2026-11-17T01:44:08.355Z",
-      "updated_at": "2026-11-17T01:44:08.355Z",
+      "updated_at": "2026-11-17T03:13:22.360Z",
       "id": "9cc499874cb44fa5",
       "merged_ids": [
         "9cc499874cb44fa5"
@@ -24207,8 +24221,14 @@
     },
     {
       "title_raw": "Legacy Presents【2026都市女聲】岑寧兒 ＆ 張貝芝 《between you and me…》小巡演 - 台中站",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "岑寧兒",
+        "張貝芝"
+      ],
+      "lineup": [
+        "岑寧兒",
+        "張貝芝"
+      ],
       "is_festival": false,
       "venue": "Legacy Taichung 音樂展演空間",
       "city": "台中",
@@ -24219,9 +24239,11 @@
       "price_max": 2500,
       "status": "announced",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/27_iv04317bf",
       "sources": [
@@ -24232,7 +24254,7 @@
         }
       ],
       "first_seen_at": "2026-11-17T01:44:08.356Z",
-      "updated_at": "2026-11-17T01:44:08.356Z",
+      "updated_at": "2026-11-17T03:13:22.360Z",
       "id": "cba670ccbb495769",
       "merged_ids": [
         "cba670ccbb495769"

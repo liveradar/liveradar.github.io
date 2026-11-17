@@ -3177,7 +3177,7 @@
   tags_origin_default: 韓國  # 2026-11-17 WebSearch 查證：韓國獨立搖滾樂團（首爾弘大出身，2014 年成軍，2018 Golden Disk 最佳搖滾樂團）；標題「HYUKOH [33] TOUR TAIPEI」（sunsetmusic 售票頁）
 - canonical: "Tori Kelly"
   aliases: []
-  tags_origin_default: 歐美  # 2026-11-17 WebSearch 查證：Live Nation 歐洲巡演頁、God Must Really Love Me 專輯資料；搜尋結果未直接寫國籍，依美國出身歌手判斷（需 Max 抽查）；標題「Tori Kelly - God Must Really Love Me World Tour - Taipei」（Ticket Plus）
+  tags_origin_default: 歐美  # 2026-11-17 WebSearch 查證：Live Nation 歐洲巡演頁、God Must Really Love Me 專輯資料；搜尋結果未直接寫國籍，依美國出身歌手判斷（2026-11-17 Max 確認歐美）；標題「Tori Kelly - God Must Really Love Me World Tour - Taipei」（Ticket Plus）
 - canonical: "周蕙"
   aliases: []
   tags_origin_default: 本地  # 2026-11-17 WebSearch 查證：台灣資深女歌手，出道約 27 年，2026 台北小巨蛋《好想好好愛周蕙》（鏡週刊、TVBS、yam 報導）；標題「2027 好想好好愛周蕙 高雄巨蛋 演唱會」（寬宏售票頁）
@@ -3186,7 +3186,19 @@
   tags_origin_default: 本地  # 2026-11-17 音樂節規則：多位音樂人參與的活動一律本地（未逐一查證演出者）；標題「2027大港開唱X國泰世華銀行」（拓元，高雄駁二）
 - canonical: "在月光下漫步"
   aliases: []
-  tags_origin_default: 本地  # 2026-11-17 派對規則：Riff Bar 系列 jam／派對夜，多位音樂人參與，依規則登記系列名稱為本地（同 Jam人派對）；標題「在月光下漫步｜11/18 WED｜Riff Bar」
+  tags_origin_default: 本地  # 2026-11-17 派對規則：Riff Bar 系列 jam／派對夜，多位音樂人參與，依規則登記系列名稱為本地（同 Jam人派對）（2026-11-17 Max 確認本地）；標題「在月光下漫步｜11/18 WED｜Riff Bar」
 - canonical: "Sunday Jazz Night"
   aliases: []
-  tags_origin_default: 本地  # 2026-11-17 派對規則：Riff Bar 每週日 Jazz Jam Session，多位爵士樂手參與，依規則登記系列名稱為本地；標題「Sunday Jazz Night｜Jazz Jam Session｜11/22 SUN」
+  tags_origin_default: 本地  # 2026-11-17 派對規則：Riff Bar 每週日 Jazz Jam Session，多位爵士樂手參與，依規則登記系列名稱為本地（2026-11-17 Max 確認本地）；標題「Sunday Jazz Night｜Jazz Jam Session｜11/22 SUN」
+- canonical: "夕陽武士"
+  aliases: ["Sunset Samurai"]
+  tags_origin_default: 本地  # 2026-11-17 WebSearch 查證：高雄成軍的台語搖滾樂團（2014 年成軍，公視報導）；Right here, RIOT now Vol.2 拼盤陣容之一（使用者提供陣容）
+- canonical: "BUTTER RIOT presents"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-17 拼盤規則：多組演出者的活動一律登記品牌名為本地（同「奇哥和他的朋友們」）；陣容：夕陽武士、BUTTER RIOT、蘿拉 LOLLA（使用者提供）；標題「BUTTER RIOT presents：Right here， RIOT now Vol.2」（iNDIEVOX，12/27）；BUTTER RIOT 單組來源地與蘿拉 LOLLA 查無資料，不影響此拼盤判定
+- canonical: "岑寧兒"
+  aliases: ["Yoyo Sham"]
+  tags_origin_default: 亞洲其他  # 2026-11-17 使用者提供資料：香港唱作女歌手（1984 年生），以香港為成名地；台灣巡演頻繁，兩地都有名，需 Max 確認；標題「Legacy Presents【2026都市女聲】岑寧兒 ＆ 張貝芝」（iNDIEVOX）
+- canonical: "張貝芝"
+  aliases: ["Joyce Cheung"]
+  tags_origin_default: 亞洲其他  # 2026-11-17 使用者提供資料：香港鋼琴演奏家，香港音樂界新星；標題同上（iNDIEVOX）
