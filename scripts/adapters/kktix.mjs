@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
 import { logProgress } from "../progress-log.mjs";
 import { withBrowser, newPage } from "../browser.mjs";
-import { normalizeTraditionalChars } from "../normalize.mjs";
+import { normalizeTraditionalChars, exclusionReason } from "../normalize.mjs";
 import { needsStatusCheck, saleStatusFromOffers } from "../sale-signal.mjs";
 
 /**
@@ -638,7 +638,7 @@ function extractCampaignTemplateFields($) {
 // counters end up in sources.json via runStats().
 let registerStats = null;
 function resetRegisterStats() {
-  registerStats = { jsonld_resolved: 0, children_resolved: 0, table_resolved: 0, checked: 0, ok_first_try: 0, ok_on_retry: 0, failed: 0, blocked_403: 0, skipped_known: 0 };
+  registerStats = { jsonld_resolved: 0, children_resolved: 0, table_resolved: 0, checked: 0, ok_first_try: 0, ok_on_retry: 0, failed: 0, blocked_403: 0, skipped_known: 0, skipped_excluded: 0 };
 }
 resetRegisterStats();
 
@@ -764,13 +764,23 @@ export async function fetchEventDetail(url, browser, knownRegisterStatus) {
   const { tickets_raw } = templateFields;
 
   const raw_id = url.split("/").filter(Boolean).pop();
+  // 2026-11-17: normalize() drops this event on exactly this check (same
+  // function, same three fields), so its sale status is never used — don't
+  // spend child-page requests or a Cloudflare-prone register_info browser
+  // navigation finding it out. On the day this was added, 7 of the run's 9
+  // register_info checks were for overseas (Hong Kong) hub pages and KKTIX's
+  // own demo pages, all thrown away right after; those 9 produced 8 403s.
+  const droppedAnyway = knownRegisterStatus === undefined && exclusionReason({ title_raw, url, venue_raw }) !== null;
+  if (droppedAnyway) registerStats.skipped_excluded += 1;
   const register_status =
     knownRegisterStatus !== undefined
       ? knownRegisterStatus
-      : (resolveFromJsonLd(jsonLd) ??
-        (await resolveFromChildEvents($, url, jsonLd)) ??
-        ticketTableStatus(tickets_raw) ??
-        (await fetchRegisterStatus(browser, raw_id)));
+      : droppedAnyway
+        ? null
+        : (resolveFromJsonLd(jsonLd) ??
+          (await resolveFromChildEvents($, url, jsonLd)) ??
+          ticketTableStatus(tickets_raw) ??
+          (await fetchRegisterStatus(browser, raw_id)));
   // 2026-09-26 (花澤香菜 台北公演 real bug, Max: "是明明就今天演出...你標尚未
   // 開賣"): a group page (see resolveFromChildEvents above) is itself a real
   // page the org listing/search/category-browse strategies discover and

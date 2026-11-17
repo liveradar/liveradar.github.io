@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import * as cheerio from "cheerio";
 import {
   needsRegisterCheck,
+  fetchEventDetail,
   runStats,
   SEARCH_VENUES,
   saleStatusFromOffers,
@@ -58,6 +59,7 @@ test("runStats: exposes the register_info counters fetch.mjs writes into sources
     "jsonld_resolved",
     "ok_first_try",
     "ok_on_retry",
+    "skipped_excluded",
     "skipped_known",
     "table_resolved",
   ]);
@@ -156,4 +158,36 @@ test("extractTemplate real bug (Max: 卡片只寫尚未開賣但 KKTIX 有開賣
   const t = extractTemplate($).templateFields.tickets_raw[0];
   assert.equal(t.waiting, true);
   assert.equal(t.on_sale_at_raw, "2026/11/15 12:00");
+});
+
+test("fetchEventDetail: an event normalize() will drop anyway (overseas venue) never triggers the register_info browser check or child-page fetches", async () => {
+  // A Hong Kong hub page: no offers in its JSON-LD, links to a child event — the
+  // exact shape that used to fall through to the Cloudflare-prone browser check.
+  const page = (venue) => `<html><head><script type="application/ld+json">${JSON.stringify({
+    "@type": "Event", name: "Some Tour", startDate: "2027-01-10T20:00:00+08:00",
+    location: { name: venue, address: venue }, offers: [],
+  })}</script></head><body><a href="https://org.kktix.cc/events/child-1/registrations/new">buy</a></body></html>`;
+  const realFetch = globalThis.fetch;
+  const requested = [];
+  let browserUsed = 0;
+  const browser = { version: () => "153.0.0.0", newPage: async () => { browserUsed += 1; throw new Error("browser must not be used"); } };
+  const serve = (html) => { globalThis.fetch = async (url) => { requested.push(String(url)); return { ok: true, text: async () => html }; }; };
+  try {
+    serve(page("AsiaWorld-Expo, Hong Kong"));
+    const before = runStats().register_info.skipped_excluded;
+    const raw = await fetchEventDetail("https://org.kktix.cc/events/hk-hub", browser);
+    assert.equal(raw.register_status, null);
+    assert.equal(raw.venue_raw, "AsiaWorld-Expo, Hong Kong / AsiaWorld-Expo, Hong Kong");
+    assert.deepEqual(requested, ["https://org.kktix.cc/events/hk-hub"]); // no child pages fetched
+    assert.equal(browserUsed, 0);
+    assert.equal(runStats().register_info.skipped_excluded, before + 1);
+
+    // Control: the same page at a Taiwan venue still goes all the way to the browser fallback.
+    requested.length = 0;
+    serve(page("Legacy Taipei"));
+    await fetchEventDetail("https://org.kktix.cc/events/tw-hub", browser);
+    assert.ok(requested.length > 1 || browserUsed > 0, "a kept event must still have its status resolved");
+  } finally {
+    globalThis.fetch = realFetch;
+  }
 });
