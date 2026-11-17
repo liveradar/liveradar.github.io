@@ -8,7 +8,7 @@
 ## 處理狀態（2026-11-17 更新）
 
 - **已完成**：A1、A2、A3、B1（`report-stats.mjs`；`.claude/settings.json` 待 Max 決定）、B2、B3、B6（`engines`＋js-yaml 5.5.0；Playwright 未升級）、C1、C2、D1（前端 `maxlength`；資料庫 constraint 待 Max 在後台執行）、D2（程式已改，待部署）、E1、E4、F1、G1、G2（HANDOFF 187KB → 34KB，歷史搬到 `HANDOFF-HISTORY.md`）。
-- **刻意沒做**：A4（不建議為拆而拆）、A5（冒煙測試，非必要）、A6 與 Playwright 升級（會影響被擋機率，需用 fetch-one 逐一驗證）、B4／C3／C4（先觀察或先量測）、B5（會讓既有網址 404）、C5（動到該頁時再做）、E2（產品取捨）、E3（`artists.yml` 沒有個人／團體資訊）。
+- **刻意沒做**：A4（不建議為拆而拆）、A5（冒煙測試，非必要）、A6 與 Playwright 升級（會影響被擋機率，需用 fetch-one 逐一驗證）、B4／C3／C4（先觀察或先量測）、B5（會讓既有網址 404）、C5（動到該頁時再做）、E2（Max 2026-11-17 決定：場次下架後不保留頁面，維持現狀）、E3（`artists.yml` 沒有個人／團體資訊）。
 
 ---
 
