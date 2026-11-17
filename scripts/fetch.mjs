@@ -1,4 +1,4 @@
-import { writeFileSync, readFileSync } from "node:fs";
+import { writeFileSync } from "node:fs";
 import { backfillImages } from "./backfill-images.mjs";
 import { generateStatic } from "./generate-static.mjs";
 import path from "node:path";
@@ -24,7 +24,7 @@ import { diff } from "./diff.mjs";
 import { resetProgressLog, logProgress } from "./progress-log.mjs";
 import { notifySourceAnomaly } from "./notify.mjs";
 import { classifySourceRun } from "./source-status.mjs";
-import { fallbackEventsForSource, fallbackReviewItemsForSource } from "./source-fallback.mjs";
+import { fallbackEventsForSource, fallbackReviewItemsForSource, readPrevious as readPreviousFrom } from "./source-fallback.mjs";
 import { refreshedStatus, combineSaleSignals } from "./sale-signal.mjs";
 import { acquireRunLock } from "./run-lock.mjs";
 import { loadExclusionCache, recordExclusion, saveExclusionCache, skipIdsForSource } from "./exclusion-cache.mjs";
@@ -34,32 +34,11 @@ const DATA_DIR = path.join(__dirname, "..", "data");
 
 const adapters = [kktix, tixcraft, indievox, fansi, ticketplus, billboard, ibon, opentix, kham, era, kpmc, bluenote, manual];
 
-function loadPreviousEvents() {
-  try {
-    const raw = readFileSync(path.join(DATA_DIR, "events.json"), "utf-8");
-    return JSON.parse(raw).events ?? [];
-  } catch {
-    return []; // first run ever, or the file is missing/corrupt — treat everything as new.
-  }
-}
-
-function loadPreviousSources() {
-  try {
-    const raw = readFileSync(path.join(DATA_DIR, "sources.json"), "utf-8");
-    return JSON.parse(raw).sources ?? [];
-  } catch {
-    return [];
-  }
-}
-
-function loadPreviousNeedsReview() {
-  try {
-    const raw = readFileSync(path.join(DATA_DIR, "needs-review.json"), "utf-8");
-    return JSON.parse(raw).items ?? [];
-  } catch {
-    return [];
-  }
-}
+// Missing file -> [] (first run); unparseable file -> throws (see readPrevious).
+const readPrevious = (file, key) => readPreviousFrom(path.join(DATA_DIR, file), key);
+const loadPreviousEvents = () => readPrevious("events.json", "events");
+const loadPreviousSources = () => readPrevious("sources.json", "sources");
+const loadPreviousNeedsReview = () => readPrevious("needs-review.json", "items");
 
 /**
  * 2026-09-18, incremental fetch: {sourceName -> Set<raw_id>} for every event
@@ -255,12 +234,12 @@ async function runAdapter(adapter, context) {
 
 async function main() {
   acquireRunLock("npm run fetch");
-  resetProgressLog();
-  const artistsYml = loadArtists();
-  const venuesYml = loadVenues();
   const previousEvents = loadPreviousEvents();
   const previousSources = loadPreviousSources();
   const previousNeedsReview = loadPreviousNeedsReview();
+  resetProgressLog();
+  const artistsYml = loadArtists();
+  const venuesYml = loadVenues();
   const knownRawIdsBySource = buildKnownRawIdsBySource(previousEvents);
   const exclusionCache = loadExclusionCache();
   const context = {
@@ -360,4 +339,7 @@ async function main() {
   }
 }
 
-main();
+main().catch((err) => {
+  console.error(err.message);
+  process.exit(1);
+});

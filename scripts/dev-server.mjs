@@ -65,7 +65,7 @@ async function serveStatic(req, res) {
   const filePath = path.join(ROOT, relativePath);
 
   // Don't let "../../etc/passwd"-style paths escape the project root.
-  if (!filePath.startsWith(ROOT)) {
+  if (!filePath.startsWith(ROOT + path.sep)) {
     res.writeHead(403);
     res.end("Forbidden");
     return;
@@ -81,7 +81,7 @@ async function serveStatic(req, res) {
     const body = await readFile(filePath);
     const ext = path.extname(filePath);
     const headers = { "Content-Type": MIME_TYPES[ext] ?? "application/octet-stream" };
-    if (ext === ".json") headers["Cache-Control"] = "no-store"; // same reasoning as src/app.js's fetch(..., {cache: "no-store"})
+    if (ext === ".json") headers["Cache-Control"] = "no-store"; // never serve a stale data file (src/app.js revalidates with cache: "no-cache")
     res.writeHead(200, headers);
     res.end(body);
   } catch {
@@ -92,12 +92,21 @@ async function serveStatic(req, res) {
 
 const server = createServer((req, res) => {
   if (req.method === "POST" && req.url === "/api/fetch") {
+    // Only this server's own pages may trigger a scrape — without this, any
+    // website open in the browser could POST here (no preflight for a bare POST).
+    const origin = req.headers.origin;
+    if (origin && !["localhost", "127.0.0.1"].includes(new URL(origin).hostname)) {
+      res.writeHead(403);
+      res.end("Forbidden");
+      return;
+    }
     handleApiFetch(res);
     return;
   }
   serveStatic(req, res);
 });
 
-server.listen(PORT, () => {
+// Loopback only: this serves the whole project root (.git, .env) and can start a scrape.
+server.listen(PORT, "127.0.0.1", () => {
   console.log(`LiveRadar dev server: http://localhost:${PORT}`);
 });

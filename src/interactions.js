@@ -101,7 +101,7 @@ export function openReportDialog(event, onSubmit) {
       <div class="dialog-box__body">「${escapeHtml(title)}」・${escapeHtml(event.date)} ${escapeHtml(event.venue ?? "")}</div>
       <div class="field-group">
         <label class="field-label" for="report-description">哪裡不對？（例如：時間/票價/場館錯誤、場次已取消、重複顯示…）</label>
-        <textarea class="field-input" id="report-description" rows="4" placeholder="請描述問題"></textarea>
+        <textarea class="field-input" id="report-description" rows="4" maxlength="1000" placeholder="請描述問題"></textarea>
       </div>
       <div style="display:flex;gap:10px;">
         <button class="btn-ghost" data-close style="flex:1;">取消</button>

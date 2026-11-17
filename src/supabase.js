@@ -22,7 +22,6 @@
  * specifically a password — so the simplest fix was dropping password auth
  * outright rather than trying to make the confirmation email look legitimate.
  */
-import { createClient } from "../vendor/supabase-js.min.mjs";
 
 const SUPABASE_URL = "https://pfhxrbqburbehmotvtbc.supabase.co";
 // The anon/publishable key is designed to be public in frontend code — it's
@@ -31,22 +30,47 @@ const SUPABASE_URL = "https://pfhxrbqburbehmotvtbc.supabase.co";
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmaHhyYnFidXJiZWhtb3R2dGJjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk4Mjk0NDgsImV4cCI6MjEwNTQwNTQ0OH0.6V32WEjecDHMgQ1A_6uVKF_RsW79PpLHBqsGRTi2cpo";
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-  auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
-});
+// Loaded on first use, not at page load: the SDK is ~220KB (58KB gzipped) and
+// a visitor who has never signed in needs none of it (see mayHaveSession()).
+let clientPromise;
+export function getClient() {
+  return (clientPromise ??= import("../vendor/supabase-js.min.mjs").then(({ createClient }) =>
+    createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+      auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+    }),
+  ));
+}
+
+// supabase-js's own default storage key: sb-<project ref>-auth-token.
+const SESSION_STORAGE_KEY = `sb-${new URL(SUPABASE_URL).hostname.split(".")[0]}-auth-token`;
+
+/**
+ * False only when there is provably no session to find: nothing persisted
+ * and this isn't the redirect back from Google (tokens/code/error in the
+ * URL, which the SDK must be loaded to consume). Anything uncertain -> true.
+ */
+function mayHaveSession() {
+  try {
+    if (localStorage.getItem(SESSION_STORAGE_KEY)) return true;
+    return /[#?&](access_token|code|error)=/.test(location.hash + location.search);
+  } catch {
+    return true;
+  }
+}
 
 export async function getSession() {
-  const { data } = await supabase.auth.getSession();
+  if (!mayHaveSession()) return null;
+  const { data } = await (await getClient()).auth.getSession();
   return data.session;
 }
 
 export async function signInWithGoogle(redirectTo) {
-  const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo } });
+  const { error } = await (await getClient()).auth.signInWithOAuth({ provider: "google", options: { redirectTo } });
   if (error) throw error;
 }
 
 export async function signOut() {
-  await supabase.auth.signOut();
+  await (await getClient()).auth.signOut();
 }
 
 /**
@@ -62,7 +86,7 @@ export async function signOut() {
  */
 export async function reportIssue({ eventId, eventTitle, eventUrl, description }) {
   const session = await getSession();
-  const { error } = await supabase.from("event_reports").insert({
+  const { error } = await (await getClient()).from("event_reports").insert({
     event_id: eventId,
     event_title: eventTitle,
     event_url: eventUrl,

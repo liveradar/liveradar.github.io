@@ -9,7 +9,7 @@
 
 import { computeEventId, computePossibleEventIds } from "./id.js";
 import { isPast } from "./filter.js";
-import { supabase, getSession } from "./supabase.js";
+import { getClient, getSession } from "./supabase.js";
 
 const STORAGE_KEY = "liveradar:prefs";
 
@@ -331,7 +331,7 @@ export function flushPending() {
 }
 
 async function fetchRemote(userId) {
-  const { data, error } = await supabase
+  const { data, error } = await (await getClient())
     .from("user_prefs")
     .select("prefs, manual_events")
     .eq("user_id", userId)
@@ -350,7 +350,7 @@ async function pushChange({ prefsFn, manualFn }) {
   const prefs = { ...defaultPrefs(), ...(remote?.prefs ?? loadPrefs()) };
   const manual = remote?.manual_events ?? loadManualEvents();
   const nextPrefs = { ...(prefsFn ? prefsFn(prefs) : prefs), updated_at: new Date().toISOString() };
-  const { error } = await supabase.from("user_prefs").upsert({
+  const { error } = await (await getClient()).from("user_prefs").upsert({
     user_id: session.user.id,
     prefs: nextPrefs,
     manual_events: manualFn ? manualFn(manual) : manual,

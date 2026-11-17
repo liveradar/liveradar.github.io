@@ -4,3 +4,10 @@ node_modules/
 .env
 .fetch.lock
 supabase/.temp/
+
+# local design scratch / tool state — this repo is served publicly by GitHub Pages
+.impeccable/
+archive/
+gigradar-design-comp/
+mockups/
+/image-*.png

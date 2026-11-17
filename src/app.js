@@ -89,16 +89,15 @@ function escapeHtml(s) {
 }
 
 async function loadEvents() {
-  // no-store: events.json is overwritten daily by the Actions job (SPEC §4.2);
-  // without this, a browser tab left open — or even just repeat navigations
-  // within the same session — can keep serving a stale cached copy (caught
-  // during M7 testing: a newly-scraped event didn't replace its manual
-  // stand-in until this was added).
+  // no-cache (revalidate every time, 304 when unchanged): events.json is
+  // rewritten by the daily fetch, and a plain cached copy went stale across
+  // navigations (caught during M7 testing). Not no-store — that re-downloaded
+  // the whole file on every page switch.
   // images.json (scripts/backfill-images.mjs) is cosmetic: if it's missing
   // or broken the cards just fall back to gradient tiles, never an error.
   const [res, images] = await Promise.all([
-    fetch("./data/events.json", { cache: "no-store" }),
-    fetch("./data/images.json", { cache: "no-store" })
+    fetch("./data/events.json", { cache: "no-cache" }),
+    fetch("./data/images.json", { cache: "no-cache" })
       .then((r) => (r.ok ? r.json() : {}))
       .catch(() => ({})),
   ]);
@@ -445,7 +444,7 @@ async function checkSourceWarning() {
   const bar = document.getElementById("source-warning-bar");
   if (!bar) return;
   try {
-    const res = await fetch("./data/sources.json", { cache: "no-store" });
+    const res = await fetch("./data/sources.json", { cache: "no-cache" });
     if (!res.ok) throw new Error(`GET data/sources.json -> ${res.status}`);
     const data = await res.json();
     const anomalous = (data.sources ?? []).filter((s) => s.status !== "ok");
@@ -1203,7 +1202,7 @@ function yamlEntryFor({ canonical, aliases, tagsOrigin }) {
 async function initReview(container) {
   let items;
   try {
-    const res = await fetch("./data/needs-review.json", { cache: "no-store" });
+    const res = await fetch("./data/needs-review.json", { cache: "no-cache" });
     if (!res.ok) throw new Error(`GET data/needs-review.json -> ${res.status}`);
     const data = await res.json();
     items = data.items ?? [];
@@ -1395,7 +1394,7 @@ async function renderSourceStatus() {
   const container = document.getElementById("source-status");
   if (!container) return;
   try {
-    const res = await fetch("./data/sources.json", { cache: "no-store" });
+    const res = await fetch("./data/sources.json", { cache: "no-cache" });
     if (!res.ok) throw new Error(`GET data/sources.json -> ${res.status}`);
     const data = await res.json();
     // "manual" is the pseudo-source for user-added events (scripts/adapters/manual.mjs) —

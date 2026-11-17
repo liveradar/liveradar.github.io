@@ -119,3 +119,16 @@ test("fallbackReviewItemsForSource only returns items from that source", () => {
   assert.equal(result.length, 2);
   assert.ok(result.every((item) => item.source === "KKTIX"));
 });
+
+test("readPrevious: missing file is a first run ([]), an unparseable file aborts instead of looking like one", async () => {
+  const { readPrevious } = await import("./source-fallback.mjs");
+  const { mkdtempSync, writeFileSync } = await import("node:fs");
+  const { tmpdir } = await import("node:os");
+  const { join } = await import("node:path");
+  const dir = mkdtempSync(join(tmpdir(), "liveradar-"));
+  assert.deepEqual(readPrevious(join(dir, "nope.json"), "events"), []);
+  writeFileSync(join(dir, "ok.json"), '{"events":[{"id":"a"}]}');
+  assert.deepEqual(readPrevious(join(dir, "ok.json"), "events"), [{ id: "a" }]);
+  writeFileSync(join(dir, "bad.json"), "{");
+  assert.throws(() => readPrevious(join(dir, "bad.json"), "events"), /無法解析/);
+});

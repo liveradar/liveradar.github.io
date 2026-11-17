@@ -93,6 +93,20 @@ with check (auth.uid() = user_id);
 -- （沒有 grant select/update/delete 給任何角色——前端完全無法讀取或竄改
 --   既有回報，只能新增一筆新的。）
 
+-- 長度限制（2026-11-17 提出，**尚未在後台執行**——Max 跑完後把這行註記
+-- 改成執行日期）：policy 是 with check (true) 而且匿名可寫，沒有上限的話
+-- 任何人拿公開的 anon key 就能灌任意大小的資料，每一筆還會經 webhook 轉發
+-- 到 Discord。前端 textarea 已加 maxlength="1000"（src/interactions.js），
+-- 但那只擋得住正常使用者，真正的限制要在資料庫這邊：
+--
+-- alter table public.event_reports
+--   add constraint event_reports_description_len check (char_length(description) <= 1000),
+--   add constraint event_reports_title_len check (char_length(event_title) <= 300),
+--   add constraint event_reports_event_id_len check (char_length(event_id) <= 100),
+--   add constraint event_reports_urls_len check (
+--     char_length(coalesce(event_url, '')) <= 500 and char_length(coalesce(page_url, '')) <= 500
+--   );
+
 -- ============================================================
 -- Auth: Redirect URLs（Authentication → URL Configuration）
 -- ============================================================

@@ -41,3 +41,26 @@ export function fallbackEventsForSource(previousEvents, sourceName, rawIds = nul
 export function fallbackReviewItemsForSource(previousReviewItems, sourceName) {
   return previousReviewItems.filter((item) => item.source === sourceName);
 }
+
+import { readFileSync } from "node:fs";
+
+/**
+ * A missing file is a legitimate first run (-> fallback). A file that exists
+ * but won't parse is NOT: treating it as "no previous data" would stamp every
+ * event as newly added, re-fetch every detail page, and leave a broken source
+ * with nothing to fall back to — so stop and let a human restore it from git.
+ */
+export function readPrevious(filePath, key) {
+  let raw;
+  try {
+    raw = readFileSync(filePath, "utf-8");
+  } catch (err) {
+    if (err.code === "ENOENT") return [];
+    throw err;
+  }
+  try {
+    return JSON.parse(raw)[key] ?? [];
+  } catch (err) {
+    throw new Error(`${filePath} 無法解析（${err.message}）——先用 git 還原這個檔案再重跑，這次不抓取。`);
+  }
+}
