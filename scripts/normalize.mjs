@@ -6,6 +6,15 @@ import { load as loadYaml } from "js-yaml";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ARTISTS_PATH = path.join(__dirname, "..", "data", "artists.yml");
 const VENUES_PATH = path.join(__dirname, "..", "data", "venues.yml");
+// Exclusion keyword/URL/account lists live in data/noise.yml (data, not
+// logic) so adding a noise keyword never means editing this file. A missing
+// or misspelled key must fail loudly at startup, not silently exclude nothing.
+const RULES = loadYaml(readFileSync(path.join(__dirname, "..", "data", "noise.yml"), "utf-8"));
+for (const key of ["noise_keywords", "classical_keywords", "meet_and_greet_keywords", "excluded_urls", "excluded_kktix_accounts"]) {
+  if (!Array.isArray(RULES?.[key]) || RULES[key].length === 0 || RULES[key].some((v) => typeof v !== "string" || !v)) {
+    throw new Error(`data/noise.yml: "${key}" 必須是非空的字串清單`);
+  }
+}
 
 // 台北/台中/台南/台東 have an official traditional-character variant
 // (臺北/臺中/臺南/臺東) that real address/venue-name data actually uses —
@@ -766,107 +775,10 @@ function statusFromTickets(ticketsRaw, eventDate, registerStatus, rawOnSaleAt) {
 // even reaches those checks. Curated by hand off observed real titles, same
 // style as TYPE_KEYWORDS/CITY_NAMES — expand this list as new noise shapes
 // turn up, don't try to make it "smart".
-const NOISE_KEYWORDS = [
-  // spectator sports (tixcraft/Ticket Plus sell season/single-game tickets)
-  "例行賽", "季後", "錦標賽", "主場賽事", "季票",
-  "摔角", // wrestling
-  // 2026-10-19 review (Max: 存疑的都可以移除) — each specific enough not to catch real shows:
-  "樂天桃猿", // 棒球隊球迷活動
-  "電吉他講習會", // Cort x Neil Zaza 琴廠講習，不是演出
-  "Funkdationn", // 鎖舞（街舞）比賽
-  "回來找你是真的", // BACK TO LIFE 電影首映會
-  "羅暎錫", // 韓國電視製作人的分享見面會
-  "空中英語教室與天韻", // 教會聖誕晚會系列
-  "TOP女神", // 第4回TOP女神台北感謝祭 (2026-10-19): 日本成人展見面會企劃，Max 10/8 已要求排除；當時只擋了「粉絲互動卡預購」那個售票頁網址，同活動換了新售票頁（舞台卡／女神星光晚會）又跑回來，所以改用活動名稱擋，不再逐頁網址追
-  "紋身藝術節", // tattoo art festival, not music
-  "返鄉專車", // unofficial fan shuttle-bus service riding on a real concert's name
-  "蛋黃酥", // a pastry pre-order
-  "筋膜刀", "專業技術課程", "詞曲創作教室", // paid courses/workshops, not performances
-  "chiikawa", // character-brand exhibition
-  "podcast", // podcast anniversary live shows — spoken word, not music
-  "紙博", // "紙博 in 台北" — Japanese paper-goods/stationery fair, not a concert (2026-09-22, verified via ticketplus.com.tw event page)
-  // 2026-09-22, KKTIX's sitewide category-browse turned up a batch of these —
-  // one-on-one lessons/consultations and lecture-style "sit and learn about
-  // jazz" salons, not performances (all verified via their own KKTIX pages):
-  "音創學院", "歌唱體驗課", "音樂診療室", "音樂解密沙龍", "一杯咖啡聽我彈爵士吉他",
-  "秋冬系列講座", // a baroque-music lecture series, not a concert
-  "音響大展", // a hi-fi/audio-equipment trade show
-  "流行音樂互動展", // an exhibition/interactive display, not a live performance
-  // 2026-09-23, KKTIX category-browse expanded to 演唱會(1)/音樂會(6) tags
-  // turned up a new batch — verified each via its own KKTIX page:
-  "教育補助券", // a government subsidy-coupon giveaway page, not an event
-  "場地租借", // venue-rental listing ads (KKTIX doubles as a booking/CRM tool for meeting spaces), not performances
-  "歌唱選秀大賞", // a singing-competition/talent-contest show, not a specific artist's gig
-  "校園音樂藝術交流晚會", // a student-association campus variety night (anti-drug/anti-bullying awareness programming, unnamed performers) — not a touring artist's show. NOISE_KEYWORDS is a plain substring match (see isNonMusicNoise below), not a regex — this must be the literal phrase, not a wildcard pattern
-  "洛基恐怖秀", // Rocky Horror Picture Show fan-run screenings with live shadowcast actors — a movie-screening/cosplay event, not a music concert, despite the source material being a "rock musical"
-  "實體課程", // 2026-10-02: comedyclub's "迷走大學 實體課程" course listings
-  // 2026-11-09 Max 選擇排除：遊戲活動派對（非音樂演出）與古典音樂會（不在收錄範圍）
-  "楓潮派對", // KKTIX「《新楓之谷》2026 楓潮派對」— MapleStory game-event party
-  "探戈的六種凝望", // OPENTIX「《探戈的六種凝望》｜四重奏之夜」— classical tango quartet concert
-  "探戈的午後述說", // OPENTIX「《探戈的午後述說》｜人聲與班多鈕」— classical tango recital
-  "PiaCon: TwoFold", // OPENTIX「PiaCon: TwoFold — 鋼琴 & 小提琴重奏音樂會」— classical piano/violin duo recital
-  // 2026-09-24 batch (手動補跑排程當天發現，見 HANDOFF）：
-  "投資心法", // a financial-professor investment seminar (FANSI GO), not a performance
-  "尾牙同樂會", // a corporate year-end banquet listing (Ticket Plus), not a public concert
-  // 2026-09-25, KKTIX Strategy 4 (untagged/其他 sitewide listing, added to
-  // catch events like iri's own show that carry no category tag at all):
-  // the same untagged bucket also surfaces SEO/content-marketing spam
-  // accounts abusing KKTIX's free event-page creation for search indexing —
-  // confirmed real examples: "Affordable SEO Services for Small Businesses:
-  // A Complete Guide to Growing Locally and Online", "Invisalign Parramatta"
-  // (a dental clinic's own landing page, not an event). These aren't a
-  // curated, closed list the way the phrases above are — expect to keep
-  // adding to this as new ones turn up, same as every other NOISE_KEYWORDS
-  // batch. Kept lowercase since isNonMusicNoise() already lowercases both
-  // sides for the comparison.
-  "seo services", "seo company", "generative engine optimization", "invisalign",
-  "dental clinic", "car recovery", "auto repair", "numerologist",
-  // 2026-09-26, ibon's "娛樂" category (PLAN-2-ibon.md) — real non-music
-  // items confirmed from its own listing/event pages:
-  "玩具創作大展", "toy festival", // Taipei Toy Festival, an exhibition not a performance
-  "大銀幕", // 《危城兄弟》 movie premiere screenings
-  "總決賽", // GCS esports finals
-  "gr嘉年華", // TOYOTA GR Festival, a car show
-  // 2026-09-26, 年代's 戲劇 category (PLAN-4-kham-era.md) — WebSearch-verified
-  // real case: "2026火神祭搖滾區席位 - 星火計畫" is a 藝文贊助方案 (arts
-  // sponsorship tier) for a fire-dance art festival, not a ticket to a real
-  // performance — the same "贊助/donation product listed alongside real
-  // tickets" shape as other noise already excluded elsewhere.
-  "星火計畫",
-  // 2026-09-30 daily-run batch: KKTIX's untagged listing keeps surfacing
-  // spam/non-event pages that were landing on the live site with city:未知.
-  // Each phrase checked against every title in events.json/needs-review.json
-  // at the time to confirm it hits no real performance.
-  "the uae", "in uae", "in dubai", "abu dhabi", // Dubai car-repair content-marketing pages
-  "astrologer", "assignment help", "local seo", "essay writing", "lower receivers",
-  "buying an apartment", // real-estate spam
-  "請勿下單", "帳號設定費", "代禱", "心智圖", "免費課程", "付費課程", "補助課程",
-  "企業說明會", "志工熱烈招募", "形象照", "主日崇拜", "攝影展", "敏捷思維", "敏捷大賞",
-  "公益講座", "身心靈", "辯論比賽", "水果批發", "咖啡豆品嘗",
-  "攝影工作坊", // 2026-10-27: 陽明交大「心光顯影所」攝影工作坊 (not "工作坊" alone — 表演工作坊 is a theatre company)
-  // 2026-10-28 daily-run batch, each checked against data/events.json to confirm a single hit:
-  "寵物美容體驗", // 「2026南投露營嘉年華【寵物美容體驗】報名」— pet grooming signup, not a performance
-  "手作DIY線上報名", // 「2026南投露營嘉年華【手作DIY線上報名】」— craft workshop signup, not a performance
-  "世界公視大展精選", // 「2026世界公視大展精選丨台北場」— PTS documentary/film showcase, not music
-  "萬聖節桌遊派對", // 「東區萬聖節桌遊派對｜萬聖節桌遊｜嗨翻萬聖夜」— board-game social, no music/DJ on the ticket page
-  // 2026-10-12: Max confirmed "PRD Taipei Regional" is a trading-card-game
-  // tournament, not a performance (KKTIX untagged listing).
-  "prd taipei regional",
-  // 2026-10-12: Max confirmed "PLAKORO TAIWAN Meetup" is a night-market
-  // event, not a performance (KKTIX untagged listing).
-  "plakoro",
-  // 2026-10-12: Max confirmed this is an economic-policy forum/lecture
-  // ("世界經貿新格局及台灣的機會與挑戰 - 兼論台歐合作展望"), not a performance.
-  "世界經貿新格局",
-  // 2026-10-12: Max confirmed "【Open MUJI】" listings are MUJI store events
-  // (cooking demos, QB House collabs at outlet stores), not performances.
-  "open muji",
-  // 2026-10-15: badminton tournament (tixcraft) and a city government's
-  // National Games opening ceremony (KKTIX, tycg.kktix.cc) — not blocking
-  // tycg's whole account since a city-government org can legitimately host
-  // real public concerts too, unlike the junk-only accounts above.
-  "羽球大師賽", "全民運動會",
-];
+// 2026-11-17: the list itself now lives in data/noise.yml (`noise_keywords`) —
+// add new phrases THERE, not here. Same for the classical / meet-and-greet
+// keywords, manually excluded URLs and excluded KKTIX accounts below.
+const NOISE_KEYWORDS = RULES.noise_keywords;
 
 // 2026-10-19 (Max: 網站上的古典移除，之後都不收): 古典 is no longer a type —
 // title keywords for classical-style programs (solo/chamber/choral/國樂,
@@ -874,13 +786,7 @@ const NOISE_KEYWORDS = [
 // orchestral concerts (動漫/遊戲/電影/百老匯) and 流行 choirs stay in.
 // Deliberately specific substrings: a bare "合唱" or "音樂會" would catch pop
 // shows (佳偶聲合唱團年度音樂會 is kept, by Max's call).
-const CLASSICAL_KEYWORDS = [
-  "古典", // 古典吉他、《古典・當代・跨界》… (title says it)
-  "獨奏", "鋼琴演奏會", "雙鋼琴", "室內樂", "室內合唱團", "絲竹", "胡琴", "口琴樂團", "管弦樂團", "管絃樂團", "次女高音", "美聲系列", "合唱音樂會", "木樓合唱團", "魯特琴",
-  "心動莎翁", // 台中室內合唱團的合唱音樂會（標題沒有合唱字樣）
-  "夢想啟程，跨越世代，共鳴未來", // 《與世界連結》：木樓合唱團/夢響樂藝術合唱團策劃的合唱音樂會，標題沒有合唱字樣或團名（Max 2026-10-21 貼出售票頁介紹文字查證）
-  "音契", // 財團法人音契文化藝術基金會旗下室內合唱團/管絃樂團，學院派聖樂演出，標題沒有合唱/管絃字樣（Max 2026-10-22 確認比照同類排除）
-];
+const CLASSICAL_KEYWORDS = RULES.classical_keywords;
 function isClassical(titleRaw) {
   return CLASSICAL_KEYWORDS.some((kw) => titleRaw.includes(kw)) && !CLASSICAL_CROSSOVER_RE.test(titleRaw);
 }
@@ -895,9 +801,7 @@ function isNonMusicNoise(titleRaw) {
 // 2026-10-21 (Max): 見面會/簽唱會 are no longer collected at all, musician or
 // not — previously their own tags_type, now excluded outright same shape as
 // isClassical above.
-const MEET_AND_GREET_KEYWORDS = [
-  "見面會", "FANDAY", "FAN MEETING", "FANMEETING", "FANMEET", "簽唱會",
-];
+const MEET_AND_GREET_KEYWORDS = RULES.meet_and_greet_keywords;
 function isMeetAndGreet(titleRaw) {
   const lower = titleRaw.toLowerCase();
   return MEET_AND_GREET_KEYWORDS.some((kw) => lower.includes(kw.toLowerCase()));
@@ -994,10 +898,7 @@ function isPlatformOwnDemoEvent(url) {
 // 2026-10-22: 新竹市立棒球場50週年交流賽《COMEBACK竹風再起》 — 棒球交流賽
 // （邀日本栃木金色勇士、韓國尚武鳳凰等球隊），開幕日雖有謝金燕、少女時代
 // 孝淵演出，但主體是體育賽事不是演唱會，Max 確認不需要收錄。
-const MANUALLY_EXCLUDED_URLS = new Set([
-  "https://ticketplus.com.tw/activity/b2a640cc29134724b515f3f007fa5c24",
-  "https://tixcraft.com/activity/detail/26_comeback",
-]);
+const MANUALLY_EXCLUDED_URLS = new Set(RULES.excluded_urls);
 function isManuallyExcludedUrl(url) {
   return MANUALLY_EXCLUDED_URLS.has(url ?? "");
 }
@@ -1016,10 +917,10 @@ function isManuallyExcludedUrl(url) {
 // above (one specific activity, kept as a real performer's content the org
 // hosts elsewhere), none of these accounts has ever posted a real
 // performance, so the whole account is the right granularity.
-const EXCLUDED_KKTIX_ACCOUNTS_RE =
-  /^https?:\/\/(haloha123|ctctaiwan|longterm-care|icatw|basketballzero|emqqq|evilcorp|myfitness)\.kktix\.cc\//i;
+const EXCLUDED_KKTIX_ACCOUNTS = new Set(RULES.excluded_kktix_accounts.map((a) => a.toLowerCase()));
 function isExcludedAccount(url) {
-  return EXCLUDED_KKTIX_ACCOUNTS_RE.test(url ?? "");
+  const account = /^https?:\/\/([^./]+)\.kktix\.cc\//i.exec(url ?? "")?.[1];
+  return account !== undefined && EXCLUDED_KKTIX_ACCOUNTS.has(account.toLowerCase());
 }
 
 /**

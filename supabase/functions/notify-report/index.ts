@@ -28,17 +28,25 @@ Deno.serve(async (req) => {
   const payload = await req.json();
   const r = payload?.record ?? {};
 
+  // Discord rejects content over 2000 chars (-> 400 -> this report would
+  // never notify), so cap each user-supplied field; the full text is still
+  // in the table.
+  const clip = (s: unknown, max: number) => {
+    const t = String(s);
+    return t.length > max ? `${t.slice(0, max)}…` : t;
+  };
   const lines = [
-    `**新回報**：${r.event_title ?? "(未知場次)"}`,
-    r.description ? `> ${r.description}` : null,
-    r.event_url ?? null,
-    r.page_url ? `來自：${r.page_url}` : null,
+    `**新回報**：${clip(r.event_title ?? "(未知場次)", 200)}`,
+    r.description ? `> ${clip(r.description, 1200).replace(/\n/g, "\n> ")}` : null,
+    r.event_url ? clip(r.event_url, 250) : null,
+    r.page_url ? `來自：${clip(r.page_url, 250)}` : null,
   ].filter(Boolean);
 
   const res = await fetch(DISCORD_WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ content: lines.join("\n") }),
+    // allowed_mentions: a report containing "@everyone" must not ping the channel.
+    body: JSON.stringify({ content: lines.join("\n"), allowed_mentions: { parse: [] } }),
   });
 
   return new Response(res.ok ? "ok" : "discord post failed", { status: res.ok ? 200 : 502 });

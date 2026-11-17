@@ -2,6 +2,7 @@
   "name": "liveradar",
   "version": "0.1.0",
   "private": true,
+  "engines": { "node": ">=20" },
   "type": "module",
   "description": "Personal live-music event radar. Static frontend + manually-triggered Node scraper pipeline, no build step (SPEC D14).",
   "scripts": {
@@ -14,7 +15,7 @@
   },
   "dependencies": {
     "cheerio": "^1.2.0",
-    "js-yaml": "^5.4.2",
+    "js-yaml": "^5.5.0",
     "playwright": "^1.63.0"
   }
 }

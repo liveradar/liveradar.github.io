@@ -1174,3 +1174,11 @@ textarea.field-input {
     filter: brightness(0.97);
   }
 }
+
+/* Respect the OS "reduce motion" setting: skeleton shimmer, panel slides and hover transitions all stop. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

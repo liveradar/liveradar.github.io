@@ -41,7 +41,7 @@ python3 -m http.server 8000
 | `npm test` | 全部單元測試（約 1 秒，不連網） |
 | `npm run fetch` | 完整抓取所有來源並重寫 `data/`、`e/`、`schedule.html`、`sitemap.xml`（一天最多一次） |
 | `npm run fetch-one -- <網址>` | 只抓一個場次頁來驗證 adapter／normalize 的改動 |
-| `npm run renormalize` | 不連網，用現有資料重新套用 `data/artists.yml`／`venues.yml`／雜訊規則 |
+| `npm run renormalize` | 不連網，用現有資料重新套用 `data/artists.yml`／`venues.yml`／`noise.yml`（雜訊與排除規則） |
 | `npm run health-check` | 唯讀掃描 `data/events.json` 的可疑資料（城市未知、缺票價、疑似重複…） |
 
 ## 目錄結構

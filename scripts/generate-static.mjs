@@ -187,7 +187,8 @@ export function schedulePage(events) {
 <meta property="og:title" content="LiveRadar · 全部演出清單" />
 <meta property="og:description" content="${esc(desc)}" />
 <meta property="og:url" content="${SITE}/schedule.html" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="${SITE}/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
 <style>body{font:16px/1.7 system-ui,sans-serif;max-width:48rem;margin:0 auto;padding:1rem}</style>
 </head>
 <body>
