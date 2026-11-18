@@ -53,6 +53,13 @@ export function ogImage(html) {
   return url && !GENERIC_IMAGE.test(url) ? url : null;
 }
 
+// 2026-11-18 real bug (Max 回報): KKTIX events whose organizer set no og:image
+// get the site-wide default (filtered by GENERIC_IMAGE), yet the real poster
+// is the first uploaded image in the description body. Fall back to that.
+export function pageImage(html) {
+  return ogImage(html) ?? html.match(/<img[^>]+src=["'](https:\/\/assets\.kktix\.io\/organization_resource_files\/[^"']+)["']/i)?.[1] ?? null;
+}
+
 // 2026-10-28 real bug (Max 回報, 年代《2026和風 頌 風華演唱會》跟一般寬宏
 // 場次): `UTK0201_00.aspx` — the URL every 寬宏/年代 event stores — is a
 // booking subpage with no cover image at all; the same PRODUCT_ID's main
@@ -119,7 +126,9 @@ export async function backfillImages() {
   const tix = lazy(tixcraftMap);
   const tp = lazy(ticketPlusMap);
   const kp = lazy(kpmcMap);
-  const todo = list.filter((e) => !(e.id in images));
+  // null (earlier miss) is retried every run: covers get uploaded after the
+  // listing appears, and a lone transient failure must not hide one forever.
+  const todo = list.filter((e) => !images[e.id]);
   console.log(`${todo.length} event(s) without a cover lookup`);
 
   let found = 0;
@@ -135,13 +144,12 @@ export async function backfillImages() {
           const productId = new URL(url).searchParams.get("PRODUCT_ID");
           const infoUrl = url.replace("UTK0201_00.aspx", "UTK0201_.aspx");
           if (productId) img = erakhamImage(await (await get(infoUrl)).text(), productId);
-        } else img = ogImage(await (await get(url)).text());
+        } else img = pageImage(await (await get(url)).text());
       } catch (err) {
         console.warn(`  ${e.id} ${url}: ${err.message}`);
       }
       if (img) break;
     }
-    // null is recorded too so misses aren't retried daily; delete the key to retry.
     images[e.id] = img ? new URL(img, e.sources[0].url).href : null;
     if (img) found++;
     await new Promise((r) => setTimeout(r, 300));

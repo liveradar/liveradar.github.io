@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { ogImage, erakhamImage, wixSized } from "./backfill-images.mjs";
+import { ogImage, pageImage, erakhamImage, wixSized } from "./backfill-images.mjs";
 
 test("ogImage reads property= and name= variants, any attribute order", () => {
   assert.equal(ogImage(`<meta property="og:image" content="https://a/x.jpg">`), "https://a/x.jpg");
@@ -36,4 +36,12 @@ test("wixSized shrinks a Blue Note (Wix) cover from 4267px to 600px and leaves o
     "https://static.wixstatic.com/media/973c52_4ad54c55b9f0440e8085daf59b301ce3~mv2.png/v1/fill/w_600,h_600,al_c/973c52_4ad54c55b9f0440e8085daf59b301ce3~mv2.png",
   );
   assert.equal(wixSized("https://example.com/a.jpg"), "https://example.com/a.jpg");
+});
+
+// 2026-11-18 real case (Max 回報, BEATASANA 002): generic KKTIX og:image, real poster in the body.
+test("pageImage falls back to the first KKTIX body image when og:image is the generic default", () => {
+  const html = `<meta property="og:image" content="https://assets.kktix.io/assets/kktix-og-image-d905.png"><img src="https://assets.kktix.io/organization_resource_files/50176/81459/7501.jpg" width="1920">`;
+  assert.equal(pageImage(html), "https://assets.kktix.io/organization_resource_files/50176/81459/7501.jpg");
+  assert.equal(pageImage(`<meta property="og:image" content="https://a/x.jpg">`), "https://a/x.jpg");
+  assert.equal(pageImage(`<p>nothing</p>`), null);
 });
