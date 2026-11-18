@@ -3202,3 +3202,12 @@
 - canonical: "張貝芝"
   aliases: ["Joyce Cheung"]
   tags_origin_default: 亞洲其他  # 2026-11-17 使用者提供資料：香港鋼琴演奏家，香港音樂界新星；標題同上（iNDIEVOX）
+- canonical: "吳申梅"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-18 WebSearch 查證：台灣女歌手，出道約 10 年，新專輯《BE WiTH YOU》（滾石唱片，Apple Music、維基百科）；標題「2027 吳申梅「BE WiTH YOU」Legacy演唱會」（寬宏售票頁，2027-01-22 Legacy 華山）完全對照
+- canonical: "WOLFGRIEF"
+  aliases: []
+  tags_origin_default: 歐美  # 2026-11-18 WebSearch 查證：捷克布拉格樂團（headliner.cz 專訪提及 2026 年初首次台灣巡演；GoOut 樂團頁標示布拉格）；標題「WOLFGRIEF Taiwan Tour - 樂悠悠游擊隊」（FANSI GO 售票頁）
+- canonical: "恐龍的皮"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-18 WebSearch 查證：台灣獨立樂團（衛武營 2027 上半年節目公告稱「獨立樂團恐龍的皮」，發行於台灣唱片品牌 forgoodmusic）；標題「【2027衛武營小時光】恐龍的皮《恐龍木乃伊之復活の小時光》」（OPENTIX，衛武營表演廳）對照完全一致
