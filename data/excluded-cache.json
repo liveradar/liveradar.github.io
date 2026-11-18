@@ -36,6 +36,15 @@
       "reason": "outside_taiwan",
       "checked_at": "2026-11-18T01:46:15.432Z"
     },
+    "ibon|40083_202612311800": {
+      "source": "ibon",
+      "raw_id": "40083_202612311800",
+      "title_raw": "2026抽籤演唱會",
+      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40083",
+      "venue_raw": "高雄流行音樂中心 海音館",
+      "reason": "non_music_noise",
+      "checked_at": "2026-11-18T02:05:14.951Z"
+    },
     "iNDIEVOX|26_iv042892b#0": {
       "source": "iNDIEVOX",
       "raw_id": "26_iv042892b#0",

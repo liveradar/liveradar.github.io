@@ -3211,3 +3211,15 @@
 - canonical: "恐龍的皮"
   aliases: []
   tags_origin_default: 本地  # 2026-11-18 WebSearch 查證：台灣獨立樂團（衛武營 2027 上半年節目公告稱「獨立樂團恐龍的皮」，發行於台灣唱片品牌 forgoodmusic）；標題「【2027衛武營小時光】恐龍的皮《恐龍木乃伊之復活の小時光》」（OPENTIX，衛武營表演廳）對照完全一致
+- canonical: "Restricted"
+  aliases: []
+  tags_origin_default: 歐美  # 2026-11-18 Max 指定歐美（澳洲出身 hard techno／hardstyle DJ，Insomniac、Wikipedia 資料；澳洲不在五分類內，由 Max 裁定歸歐美）；標題「澳洲硬派鬼才空降！現象級巨星 Restricted」（KKTIX，SuperHouse 12/18）
+- canonical: "IRREVOCABLE"
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-11-18 Max 提供的聯合演出資訊（12/19 The Pillars 台中）：IRREVOCABLE 來自菲律賓；標題「Irrevocable x forests x 28 serious girlfriends」（FANSI GO 910004/910005）
+- canonical: "FORESTS"
+  aliases: []
+  tags_origin_default: 亞洲其他  # 2026-11-18 Max 提供的聯合演出資訊：FORESTS 來自新加坡；標題同上
+- canonical: "28 SERIOUS GIRLFRIENDS"
+  aliases: []
+  tags_origin_default: 日本  # 2026-11-18 Max 提供的聯合演出資訊：28 SERIOUS GIRLFRIENDS 來自日本；標題同上

@@ -19516,8 +19516,12 @@
     },
     {
       "title_raw": "澳洲硬派鬼才空降！現象級巨星 Restricted",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Restricted"
+      ],
+      "lineup": [
+        "Restricted"
+      ],
       "is_festival": false,
       "venue": "SuperHouse Nightclub",
       "city": "台中",
@@ -19530,7 +19534,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://superhouseoffcial.kktix.cc/events/596a0e31",
       "sources": [
@@ -19541,7 +19547,7 @@
         }
       ],
       "first_seen_at": "2026-11-18T01:59:42.162Z",
-      "updated_at": "2026-11-18T01:59:42.162Z",
+      "updated_at": "2026-11-18T02:05:14.989Z",
       "id": "2e84d3b0c23d7b18",
       "merged_ids": [
         "2e84d3b0c23d7b18"
@@ -25674,8 +25680,16 @@
     },
     {
       "title_raw": "Irrevocable x forests x 28 serious girlfriends live in taiwan - TAICHUNG",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "IRREVOCABLE",
+        "FORESTS",
+        "28 SERIOUS GIRLFRIENDS"
+      ],
+      "lineup": [
+        "IRREVOCABLE",
+        "FORESTS",
+        "28 SERIOUS GIRLFRIENDS"
+      ],
       "is_festival": false,
       "venue": "柱 The Pillars",
       "city": "台中",
@@ -25686,9 +25700,12 @@
       "price_max": null,
       "status": "on_sale",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他",
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/910004",
       "sources": [
@@ -25699,7 +25716,7 @@
         }
       ],
       "first_seen_at": "2026-11-18T01:46:15.434Z",
-      "updated_at": "2026-11-18T01:46:15.434Z",
+      "updated_at": "2026-11-18T02:05:14.990Z",
       "id": "40a68af2c94b6253",
       "merged_ids": [
         "40a68af2c94b6253"
@@ -25707,8 +25724,16 @@
     },
     {
       "title_raw": "Irrevocable x forests x 28 serious girlfriends live in taiwan - TAIPEI",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "IRREVOCABLE",
+        "FORESTS",
+        "28 SERIOUS GIRLFRIENDS"
+      ],
+      "lineup": [
+        "IRREVOCABLE",
+        "FORESTS",
+        "28 SERIOUS GIRLFRIENDS"
+      ],
       "is_festival": false,
       "venue": "延聲音樂 Continue Music",
       "city": "台北",
@@ -25719,9 +25744,12 @@
       "price_max": null,
       "status": "on_sale",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他",
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/910005",
       "sources": [
@@ -25732,7 +25760,7 @@
         }
       ],
       "first_seen_at": "2026-11-18T01:46:15.434Z",
-      "updated_at": "2026-11-18T01:46:15.434Z",
+      "updated_at": "2026-11-18T02:05:14.990Z",
       "id": "406c9987ecfcad21",
       "merged_ids": [
         "406c9987ecfcad21"
@@ -29629,39 +29657,6 @@
       "id": "574100c6476b9b4f-evening",
       "merged_ids": [
         "574100c6476b9b4f-evening"
-      ]
-    },
-    {
-      "title_raw": "2026抽籤演唱會",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "高雄流行音樂中心 海音館",
-      "city": "高雄",
-      "date": "2026-12-31",
-      "time": "18:00",
-      "on_sale_at": null,
-      "price_min": null,
-      "price_max": null,
-      "status": "sold_out",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40083",
-      "sources": [
-        {
-          "name": "ibon",
-          "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/40083",
-          "raw_id": "40083_202612311800"
-        }
-      ],
-      "first_seen_at": "2026-11-17T01:43:01.705Z",
-      "updated_at": "2026-11-17T01:43:01.705Z",
-      "id": "c8274400e98b7019",
-      "merged_ids": [
-        "c8274400e98b7019"
       ]
     },
     {
