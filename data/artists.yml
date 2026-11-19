@@ -3223,3 +3223,24 @@
 - canonical: "28 SERIOUS GIRLFRIENDS"
   aliases: []
   tags_origin_default: 日本  # 2026-11-18 Max 提供的聯合演出資訊：28 SERIOUS GIRLFRIENDS 來自日本；標題同上
+- canonical: "NCHIVE"
+  aliases: ["NCV", "E.aN", "HA.L", "Kang San", "Yu Chan", "Ju Young"]
+  tags_origin_default: 韓國  # 2026-11-19 查證：Ticket Plus 票券頁「2026 NCV Global Live Tour 『We've』」活動介紹寫明 NCHIVE（NCV）於韓國 AUBEMOON STUDIO 出道，成員 Kang san、E.aN；標題含「NCV」故登記 alias
+- canonical: "ARTMS"
+  aliases: []
+  tags_origin_default: 韓國  # 2026-11-19 查證：拓元票券頁「ART OF BLUE BLOOD @ ARTMS WORLD TOUR IN TAIPEI」主辦為韓韻娛樂；韓國媒體（sports.khan.co.kr）報導 Seoul Yes24 Live Hall 公演
+- canonical: "Jerry Huang Trio"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-19 查證：Riff Bar 票券頁寫明吉他手黃紘志（Jerry Huang）為台北樂手，近年在 Blue Note Taipei、Sappho Live Jazz 等台北爵士場地演出
+- canonical: "Jones Project"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-19 查證：Riff Bar 票券頁寫明為鼓手林加良（Jones Lin）主持的每週爵士專案，成員為台北大學/音樂系樂手、常駐台北藍調
+- canonical: "秀蘭瑪雅"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-19 查證：台灣台語歌手，金曲獎入圍紀錄（世界日報、中央社報導）；標題「南星鑽石國台語金曲之夜6-秀蘭瑪雅天后金曲演唱會」（年代售票頁）
+- canonical: "新竹市立青少年管樂團"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-19 依標題「新竹市立」市立樂團判定為本地；OPENTIX 票券頁逾時無法開啟、搜尋未找到其他資料，待 Max 抽查
+- canonical: "台日女聲之夜"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-19 系列活動（多位演出者）：陣容含日本歌手（市川由紀乃、veno、BELISH、山下學園、Lavi）與台灣陣容，依多演出者規則登記本地；標題「日本祭2026 台日女聲之夜」（KKTIX，Billboard Live TAIPEI）；需 Max 確認
