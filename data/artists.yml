@@ -1203,7 +1203,7 @@
   aliases: []
   tags_origin_default: 本地  # 音樂祭品牌名，非個別樂團（同 重型宇宙派對／Kaohsiung Park Music Festival 的收法）
 - canonical: 八十八顆芭樂籽
-  aliases: ["88balaz"]
+  aliases: ["88balaz", "八十八顆"]
   tags_origin_default: 本地  # 2026-09-25 補依據（本地資料交叉比對，未另發 WebSearch）：售票頁 ticketplus、場地「女巫店」、標題「八十八顆芭樂籽 88balaz 30th Anniversary 感恩酬賓不插電巡迴！」
 - canonical: Funkdationn
   aliases: []
@@ -3244,3 +3244,18 @@
 - canonical: "台日女聲之夜"
   aliases: []
   tags_origin_default: 本地  # 2026-11-19 系列活動（多位演出者）：陣容含日本歌手（市川由紀乃、veno、BELISH、山下學園、Lavi）與台灣陣容，依多演出者規則登記本地；標題「日本祭2026 台日女聲之夜」（KKTIX，Billboard Live TAIPEI）；需 Max 確認
+- canonical: "OGRE YOU ASSHOLE"
+  aliases: []
+  tags_origin_default: 日本  # 2026-11-20 查證：日本長野縣出身的後龐克／獨立搖滾樂團（Wikipedia、Japan Times 報導）；KKTIX 票券頁標題「OGRE YOU ASSHOLE live in Taipei 2027」（The Wall Live House）對上團名與巡演
+- canonical: "EVNNE"
+  aliases: []
+  tags_origin_default: 韓國  # 2026-11-20 查證：韓國男團，Jellyfish Entertainment 2023 年出道（Wikipedia、kpop.fandom）；Ticket Plus 票券頁「EVNNE FAN-CONCERT [ONE TAKE] IN TAIPEI」對上團名
+- canonical: "Golden Hour 黃金時刻"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-20 Riff Bar 每週夜場品牌（同 Jam人派對 的收法，派對品牌名登記本地）；KKTIX 票券頁 riffbartaipei；需 Max 確認
+- canonical: "Last Train 末班車"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-20 Riff Bar 每週夜場品牌（同 Jam人派對 的收法，派對品牌名登記本地）；KKTIX 票券頁 riffbartaipei；需 Max 確認
+- canonical: "Pano24 跨年高空派對"
+  aliases: []
+  tags_origin_default: 本地  # 2026-11-20 派對活動（依派對規則登記品牌名為本地）；KKTIX 票券頁 pano24
