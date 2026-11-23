@@ -3259,3 +3259,52 @@
 - canonical: "Pano24 跨年高空派對"
   aliases: []
   tags_origin_default: 本地  # 2026-11-20 派對活動（依派對規則登記品牌名為本地）；KKTIX 票券頁 pano24
+# 2026-11-23 排程查證：
+# 謝和弦（2021 年 Nownews 報導：台灣歌手，墾丁派對記者會；票券網域 rchordlab 對上團名）→ 本地；
+# IAN ASHER（LPR、iFlyer 等公開資料：美國加州 Orange County 電音 DJ／製作人）→ 歐美；
+# MASSANO（EDMTunes、Set79：英國利物浦 melodic techno DJ；票券頁「電音」類型對上；「美鐵」中文名無法對照，需 Max 確認）→ 歐美；
+# WEZAG（KpopSingers：韓國五人男團 Atunes Corp，2026 年 2 月預出道；票券頁名稱完全相同；需 Max 確認）→ 韓國；
+# 有村竜太朗（e+、Ticket Japan 日本售票頁：日本歌手，巡演名「デも/demo」對上票券）→ 日本；
+# 昆蟲白（報導者：1976 年生台北獨立音樂人，甜梅號吉他手；票券頁「昆蟲白—小白＆包子 insecteens」）→ 本地；
+# 蔡依林 JOLIN（凱基銀行 PLEASURE 巡迴票券頁，本人）→ 本地；
+# FIFTY FIFTY（Korea Herald 等韓媒：韓國女團，台北粉絲見面會 2027-01-31）→ 韓國；
+# NAM WOO HYUN（韓媒 Khan：韓國歌手，Infinite 成員，10 週年演唱會 Arbor Day VI）→ 韓國；
+# VERIVERY（Soompi、Khan：韓國男團，Jellyfish Entertainment，台北場 2027-01-10）→ 韓國；
+# Hi-Fi Un!corn（ticket.co.jp、Weverse：日本樂團，THE IDOL BAND 選秀出道，Japan LIVE HOUSE TOUR 票券頁）→ 日本；
+# Sunday Jazz Jam（Riff Bar 每週爵士即興 Jam 派對，依派對規則登記品牌名為本地，同 Jam人派對）→ 本地；
+- canonical: "謝和弦"
+  aliases: ["R-chord"]
+  tags_origin_default: 本地
+- canonical: "IAN ASHER"
+  aliases: []
+  tags_origin_default: 歐美
+- canonical: "MASSANO"
+  aliases: []
+  tags_origin_default: 歐美
+- canonical: "WEZAG"
+  aliases: []
+  tags_origin_default: 韓國
+- canonical: "有村竜太朗"
+  aliases: ["Ryutaro Arimura"]
+  tags_origin_default: 日本
+- canonical: "昆蟲白"
+  aliases: ["insecteens"]
+  tags_origin_default: 本地
+- canonical: "蔡依林"
+  aliases: ["JOLIN"]
+  tags_origin_default: 本地
+- canonical: "FIFTY FIFTY"
+  aliases: []
+  tags_origin_default: 韓國
+- canonical: "NAM WOO HYUN"
+  aliases: []
+  tags_origin_default: 韓國
+- canonical: "VERIVERY"
+  aliases: []
+  tags_origin_default: 韓國
+- canonical: "Hi-Fi Un!corn"
+  aliases: []
+  tags_origin_default: 日本
+- canonical: "Sunday Jazz Jam"
+  aliases: []
+  tags_origin_default: 本地

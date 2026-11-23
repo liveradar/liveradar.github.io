@@ -1,22 +1,6 @@
 {
   "items": [
     {
-      "raw_id": "aixmassano",
-      "title_raw": "【Ai-X Nightclub】美鐵新世代王者MASSANO",
-      "url": "https://aixnightclub.kktix.cc/events/aixmassano",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
-      "raw_id": "ianasheraix",
-      "title_raw": "【Ai-X Nightclub】電音鬼才 IAN ASHER",
-      "url": "https://aixnightclub.kktix.cc/events/ianasheraix",
-      "source": "KKTIX",
-      "reason": "artist_unrecognized",
-      "detail": null
-    },
-    {
       "raw_id": "bobbynopeace01",
       "title_raw": "【商務艙】「我們這一代的天王 」巡演 台北站",
       "url": "https://spaceport.kktix.cc/events/bobbynopeace01",
@@ -33,10 +17,50 @@
       "detail": null
     },
     {
+      "raw_id": "thu12xmas",
+      "title_raw": "今耶不想睡",
+      "url": "https://thuhissa.kktix.cc/events/thu12xmas",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "9391e060",
+      "title_raw": "theLOOP presents: Alignment",
+      "url": "https://altanightclub.kktix.cc/events/9391e060",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
       "raw_id": "26_iv043223d",
       "title_raw": "11.29 (Sun.) Foie de Pato",
       "url": "https://www.indievox.com/activity/detail/26_iv043223d",
       "source": "iNDIEVOX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "26_iv04319a6",
+      "title_raw": "爵犬 Joe Trane《WHO SAYS?》LIVE AT SUB 專場派對",
+      "url": "https://www.indievox.com/activity/detail/26_iv04319a6",
+      "source": "iNDIEVOX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "27_iv04323a1",
+      "title_raw": "荒山亮《人生藍調》高雄特別版  演唱會",
+      "url": "https://www.indievox.com/activity/detail/27_iv04323a1",
+      "source": "iNDIEVOX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "a802e4786cc6ee9485689fc63cf6601a_152ac58493abbceb1787af7ab6901922",
+      "title_raw": "體熊專科十週年股東大會—體熊人物誌 MEN…in Body Bear",
+      "url": "https://ticketplus.com.tw/activity/a802e4786cc6ee9485689fc63cf6601a",
+      "source": "Ticket Plus",
       "reason": "artist_unrecognized",
       "detail": null
     },
@@ -69,6 +93,22 @@
       "title_raw": "1：1 10秒影像（N）",
       "url": "https://ticketplus.com.tw/activity/e1e5e65dada0087b861874b5bbdfa292",
       "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2117507836754620416_1810380600000",
+      "title_raw": "【TCO】決定之後？傳統器樂與 DJ 的創作衝撞Ⅱ",
+      "url": "https://www.opentix.life/event/2117507836754620416",
+      "source": "OPENTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2118523906312118272_1797748200000",
+      "title_raw": "歌，正在綻放",
+      "url": "https://www.opentix.life/event/2118523906312118272",
+      "source": "OPENTIX",
       "reason": "artist_unrecognized",
       "detail": null
     },
