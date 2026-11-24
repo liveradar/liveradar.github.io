@@ -117,6 +117,33 @@
   aliases: ["XMASwu", "吴骜"]
   tags_origin_default: 亞洲其他
 
+# 2026-11-24 排程查證（對照票券頁與外部來源）：
+# 阿信（五月天主唱；Threads／中時等報導：2026/12/06 小巨蛋《ASHIN A：LIVE 阿信・創作現場》個人演出）→ 本地；
+# 鯊魚娃娃機 ToyShark（公視新聞網、CDNS：高雄在地三人龐克樂團，歌詞全臺語）→ 本地；
+# 爵犬 Joe Trane（Melting Part 團體頁、iNDIEVOX：台北爵士團體，《WHO SAYS?》為 SUB 專場派對）→ 本地；
+# 荒山亮 Ric Jan（Apple Music、KISS Radio 藝人頁：台灣台語藍調歌手，《人生藍調》為其生日趴活動名）→ 本地；
+# NCHIVE（星報／自由娛樂：韓國六人男團，12/26 花漾展演空間 1對1合照、Ticket Plus 售票）→ 韓國。
+# 注意：不用「阿信」當比對字串，會誤中《蔡阿信的生命之歌》等標題（2026-11-24 renormalize 發現）。
+- canonical: ASHIN A
+  aliases: ["ASHIN"]
+  tags_origin_default: 本地
+
+- canonical: 鯊魚娃娃機
+  aliases: ["ToyShark"]
+  tags_origin_default: 本地
+
+- canonical: 爵犬
+  aliases: ["Joe Trane"]
+  tags_origin_default: 本地
+
+- canonical: 荒山亮
+  aliases: ["Ric Jan"]
+  tags_origin_default: 本地
+
+- canonical: NCHIVE
+  aliases: ["NCV"]
+  tags_origin_default: 韓國
+
 - canonical: Meenoi
   aliases: []
   tags_origin_default: 韓國

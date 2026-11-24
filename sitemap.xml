@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://liveradar.github.io/</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://liveradar.github.io/schedule.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://liveradar.github.io/</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://liveradar.github.io/schedule.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/privacy.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://liveradar.github.io/e/00c78f7ba579b06e.html</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://liveradar.github.io/e/00e5f1d1eee74ab0.html</loc><lastmod>2026-11-09</lastmod></url>
@@ -66,7 +66,6 @@
   <url><loc>https://liveradar.github.io/e/1279c06a581a7538.html</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/127be4fc1ca69884.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/138421f71e881f9c.html</loc><lastmod>2026-10-28</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/13d3d37bb1cbf051.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://liveradar.github.io/e/13e1b9438f660a8c.html</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://liveradar.github.io/e/146d8ace8011133a.html</loc><lastmod>2026-09-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/14bbd45c1d34f749.html</loc><lastmod>2026-11-23</lastmod></url>
@@ -88,6 +87,8 @@
   <url><loc>https://liveradar.github.io/e/1b12a06070a6f32c.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://liveradar.github.io/e/1c0369bc2c419aad.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://liveradar.github.io/e/1c87e7909df17b37.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/1da8db8dec6b86d5.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/1e448dc5e11e37cf.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/1e52fc08358ed4ae.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/1ea96fe24909737c.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/1ecb6e1280ea8755.html</loc><lastmod>2026-11-23</lastmod></url>
@@ -96,7 +97,7 @@
   <url><loc>https://liveradar.github.io/e/20024c6a97c70676.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/204d7aa3bf2bb022-day.html</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://liveradar.github.io/e/204d7aa3bf2bb022-evening.html</loc><lastmod>2026-09-29</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/207581de80f8f970.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/207581de80f8f970.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/20c080fc2342ef48.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/20d8536f5626ce67.html</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://liveradar.github.io/e/20e10da188df5ac3.html</loc><lastmod>2026-11-23</lastmod></url>
@@ -124,26 +125,23 @@
   <url><loc>https://liveradar.github.io/e/271f0656abdebd7b.html</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://liveradar.github.io/e/27784762823d5eb4.html</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2827a6ea2900c3df.html</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/287675f8d6b01477.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/28c524b5099b7c63.html</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://liveradar.github.io/e/296f023a82481acd.html</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2977522e4844eb09.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2bb5a4b22108c27f.html</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2c280a299de83a48.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2c65f62505884ff9.html</loc><lastmod>2026-11-09</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/2c72f14a607fe1b5.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/2c72f14a607fe1b5.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2cafb44dc7e1057e.html</loc><lastmod>2026-11-09</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/2cf4f8a93e4339d1.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2d0cfed2f7c04560.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2e51623c598e5d97.html</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2e5a7ff9083bd55a.html</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2e7205ad257808a4.html</loc><lastmod>2026-11-20</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/2e84d3b0c23d7b18.html</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/2e84d3b0c23d7b18.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2eb2c0b1bd4255a8.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2f3c6a031b6385dc.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/2fb4b60f67ee279d.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/30d2e90747345db8.html</loc><lastmod>2026-11-18</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/320828971d606cd1.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/3227eaa8c247ef4c-17:00.html</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://liveradar.github.io/e/3227eaa8c247ef4c-20:00.html</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://liveradar.github.io/e/3267105fcb4789b6.html</loc><lastmod>2026-11-11</lastmod></url>
@@ -176,7 +174,6 @@
   <url><loc>https://liveradar.github.io/e/3bb32adf53f4b365.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/3bc4059bb7c23a3d.html</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://liveradar.github.io/e/3c22c567e9ff50fc.html</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/3d3ba6bdb05048fb.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/3d7a3d0972845d6e.html</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://liveradar.github.io/e/3da8ce0320abd5fa.html</loc><lastmod>2026-10-08</lastmod></url>
   <url><loc>https://liveradar.github.io/e/3e126517d53a7c38.html</loc><lastmod>2026-11-19</lastmod></url>
@@ -210,7 +207,7 @@
   <url><loc>https://liveradar.github.io/e/4720b403190333e2.html</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://liveradar.github.io/e/47501cbc3812d46d.html</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://liveradar.github.io/e/48085f55534e1a52.html</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/483ac59421401c2a.html</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/483ac59421401c2a.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/484df6d2f58e54be.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://liveradar.github.io/e/49068dbdd4fa4ef0.html</loc><lastmod>2026-11-01</lastmod></url>
   <url><loc>https://liveradar.github.io/e/49179d2cd0892aad.html</loc><lastmod>2026-09-22</lastmod></url>
@@ -277,18 +274,17 @@
   <url><loc>https://liveradar.github.io/e/5bb751ff87a2cc77.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5bfad46f7ac34574.html</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5c304b7044de74c2.html</loc><lastmod>2026-10-20</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/5c49d708ff0d8cbb.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/5c49d708ff0d8cbb.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5c57d766686bff5b.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5c6d211ecf17e8db.html</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5cf42ed50f8a3ef1.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5d64b89966b2a30d.html</loc><lastmod>2026-11-17</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5d7f1ebdabc7482e.html</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/5e11d5eac3e2b2ff.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5e21114a520ce717.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5e314c78e88a648b.html</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5e7766c81196023a.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5e8c0cec87049cbd.html</loc><lastmod>2026-09-29</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/5e9e1f9d5a9c2f15.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/5e9e1f9d5a9c2f15.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5ea63dd133f8446a.html</loc><lastmod>2026-09-22</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5eac0ac4f9e9b870.html</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://liveradar.github.io/e/5edfc6486a98a1ec.html</loc><lastmod>2026-09-29</lastmod></url>
@@ -300,6 +296,7 @@
   <url><loc>https://liveradar.github.io/e/609b1c53beabe95d.html</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://liveradar.github.io/e/610b04c68d75c0b7.html</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://liveradar.github.io/e/6265583576b03a70.html</loc><lastmod>2026-10-16</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/6284fbe06f34ec66.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/62a4031bd4e8caac.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/632e6fa85704b2b9.html</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://liveradar.github.io/e/637e829eea6939c6.html</loc><lastmod>2026-11-13</lastmod></url>
@@ -312,7 +309,6 @@
   <url><loc>https://liveradar.github.io/e/662a7b0e73ee9546.html</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/66e71672c0dfea93.html</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://liveradar.github.io/e/67c6dd6a0b8acbd7.html</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/67e8cb84d58286c2.html</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://liveradar.github.io/e/67f4049e90b124a8.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://liveradar.github.io/e/68450ba9999de032.html</loc><lastmod>2026-09-22</lastmod></url>
   <url><loc>https://liveradar.github.io/e/687e122732bcbd97.html</loc><lastmod>2026-10-21</lastmod></url>
@@ -334,7 +330,6 @@
   <url><loc>https://liveradar.github.io/e/6cecee00755eedb2.html</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://liveradar.github.io/e/6d807c72825de876.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/6de16ad4e1665e10.html</loc><lastmod>2026-09-23</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/6e194c0f61e29084.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/6ea13e6c81a14f36.html</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://liveradar.github.io/e/6f796a1ff2d96396.html</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://liveradar.github.io/e/6f97fa5a886cb56c.html</loc><lastmod>2026-09-23</lastmod></url>
@@ -367,7 +362,7 @@
   <url><loc>https://liveradar.github.io/e/766c2b15efbf16f0.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/77721a52c3d950f7.html</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://liveradar.github.io/e/777bed4fa9b09b68.html</loc><lastmod>2026-11-19</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/77acf71fbd14d4a7.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/77acf71fbd14d4a7.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/7827cf6a136ba5f9.html</loc><lastmod>2026-10-08</lastmod></url>
   <url><loc>https://liveradar.github.io/e/786ca5bf0053dd78.html</loc><lastmod>2026-10-12</lastmod></url>
   <url><loc>https://liveradar.github.io/e/78a96395103a6bef.html</loc><lastmod>2026-09-23</lastmod></url>
@@ -405,7 +400,7 @@
   <url><loc>https://liveradar.github.io/e/8524f51e1ff54e0f.html</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://liveradar.github.io/e/85d02cda8d51b790.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/85e3ba5c799cb837.html</loc><lastmod>2026-09-30</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/85f903884dc8f4a6.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/85f903884dc8f4a6.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/861eff69bef9d409.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://liveradar.github.io/e/86b36c0695e91ae0.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/87178531a869d72d.html</loc><lastmod>2026-11-16</lastmod></url>
@@ -425,7 +420,6 @@
   <url><loc>https://liveradar.github.io/e/8afbbdf9795268da.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/8c323412c855fe9a.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/8d0340f1938a3c44.html</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/8dc7dbe9b7c9c9e6.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/8e45f86c794ce834.html</loc><lastmod>2026-10-02</lastmod></url>
   <url><loc>https://liveradar.github.io/e/8eb65197ac5acdbd.html</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://liveradar.github.io/e/8ed23ac12ee95004.html</loc><lastmod>2026-10-05</lastmod></url>
@@ -446,7 +440,7 @@
   <url><loc>https://liveradar.github.io/e/9433e604a9068cf9.html</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://liveradar.github.io/e/944a56a922717ff3.html</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9509d77e679853c3.html</loc><lastmod>2026-11-01</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/951b54a05689d7ae.html</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/951b54a05689d7ae.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/95938682d5df3fb8.html</loc><lastmod>2026-10-22</lastmod></url>
   <url><loc>https://liveradar.github.io/e/95e387aad994d94f.html</loc><lastmod>2026-11-01</lastmod></url>
   <url><loc>https://liveradar.github.io/e/977eee51544909f4.html</loc><lastmod>2026-11-09</lastmod></url>
@@ -459,7 +453,7 @@
   <url><loc>https://liveradar.github.io/e/9a742e71d0cc0bed.html</loc><lastmod>2026-10-16</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9aa05aeb67a7eabe.html</loc><lastmod>2026-09-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9ac7ac2d4da5f70b.html</loc><lastmod>2026-10-01</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/9ac7bd7ceb554012-18:30.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/9ac7bd7ceb554012-18:30.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9ac7bd7ceb554012-22:30.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9b999a24f5a3cc8f.html</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9ca7968fca81294e.html</loc><lastmod>2026-11-13</lastmod></url>
@@ -471,7 +465,7 @@
   <url><loc>https://liveradar.github.io/e/9e29bdbf4c872c41-day.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9e29bdbf4c872c41-evening.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9e5f93c222d26926.html</loc><lastmod>2026-10-05</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/9e672d01d19e8cc8.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/9e672d01d19e8cc8.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9ee9ce93a1152142.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9fabb5760bc1af88.html</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://liveradar.github.io/e/9fdc53747ebac4ec.html</loc><lastmod>2026-10-20</lastmod></url>
@@ -550,7 +544,7 @@
   <url><loc>https://liveradar.github.io/e/b69fb6d14853393d-22:30.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/b7a4b73bfd98da58.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/b7a94b34eb7d3e6b.html</loc><lastmod>2026-09-29</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/b7ebb8bf682fe5fa.html</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/b7ebb8bf682fe5fa.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/b81aca72419f2b15.html</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://liveradar.github.io/e/b8a9f87ecf8ca4b7.html</loc><lastmod>2026-10-12</lastmod></url>
   <url><loc>https://liveradar.github.io/e/b8ea9c8315325edc.html</loc><lastmod>2026-10-31</lastmod></url>
@@ -559,8 +553,8 @@
   <url><loc>https://liveradar.github.io/e/baa40a623337824e.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://liveradar.github.io/e/bac6a3f26619f4d2.html</loc><lastmod>2026-09-22</lastmod></url>
   <url><loc>https://liveradar.github.io/e/bb09a480d4af11a0.html</loc><lastmod>2026-11-09</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/bbb2853c2454e551.html</loc><lastmod>2026-11-20</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/bc149989f04256f5.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/bbb2853c2454e551.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/bc149989f04256f5.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/bcb0c61d55b2d8fd.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/bcbc1557b740683d.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/bcc9657e335fbad3.html</loc><lastmod>2026-09-22</lastmod></url>
@@ -623,7 +617,6 @@
   <url><loc>https://liveradar.github.io/e/ce7f8ee906daf936.html</loc><lastmod>2026-10-02</lastmod></url>
   <url><loc>https://liveradar.github.io/e/ce7fa53ca27d82c5.html</loc><lastmod>2026-10-15</lastmod></url>
   <url><loc>https://liveradar.github.io/e/cedd8732ee244917.html</loc><lastmod>2026-10-05</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/cf272972a0c9ae44.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/cf74bf4fc3bf33dc.html</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://liveradar.github.io/e/cf7776734984c5fa.html</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://liveradar.github.io/e/cfab4fa0c3679a7a.html</loc><lastmod>2026-10-05</lastmod></url>
@@ -637,7 +630,6 @@
   <url><loc>https://liveradar.github.io/e/d1b2f39fc977197f.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d26d282826bc5676.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d2ac6f88044ba9aa.html</loc><lastmod>2026-11-05</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/d2f719a9dd4b0d7f.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d3188f9dc60e8df7.html</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d339e1954f49763f.html</loc><lastmod>2026-10-12</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d389bbfeceee62b2.html</loc><lastmod>2026-11-09</lastmod></url>
@@ -653,13 +645,13 @@
   <url><loc>https://liveradar.github.io/e/d650cb1b6a273968.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d6d6ddffea298640.html</loc><lastmod>2026-09-29</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d6d6df06cec0348f.html</loc><lastmod>2026-09-22</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/d7d59561ed4a5706.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d7d6b273da973c9e.html</loc><lastmod>2026-11-02</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d87b279c75952a17.html</loc><lastmod>2026-10-16</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d8853eb9b39732cd.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d8bd408c1541b598.html</loc><lastmod>2026-10-12</lastmod></url>
   <url><loc>https://liveradar.github.io/e/d957c4fd2e9d5eb0.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/da3f9707befdf49c.html</loc><lastmod>2026-11-16</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/db14ac1d24150870.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/dc02d982af8e3654.html</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://liveradar.github.io/e/dc17865dd3ca28f2.html</loc><lastmod>2026-11-19</lastmod></url>
   <url><loc>https://liveradar.github.io/e/dc53fa9cfd21e17f.html</loc><lastmod>2026-11-09</lastmod></url>
@@ -715,7 +707,8 @@
   <url><loc>https://liveradar.github.io/e/e9b4496a84ba4bb5.html</loc><lastmod>2026-09-22</lastmod></url>
   <url><loc>https://liveradar.github.io/e/ea132462b4095d80.html</loc><lastmod>2026-10-07</lastmod></url>
   <url><loc>https://liveradar.github.io/e/ea6ad471f37f83c7.html</loc><lastmod>2026-09-29</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/ea9eedbd16ac66ed.html</loc><lastmod>2026-11-23</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/ea9eedbd16ac66ed.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/eade363b89c56ee4.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/eb0b285fd11dc1fa.html</loc><lastmod>2026-10-02</lastmod></url>
   <url><loc>https://liveradar.github.io/e/eb6e4f753a3d8caa.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://liveradar.github.io/e/eb95036cd3378b5e.html</loc><lastmod>2026-10-05</lastmod></url>
@@ -731,6 +724,7 @@
   <url><loc>https://liveradar.github.io/e/ef6cd5be3d277683.html</loc><lastmod>2026-10-16</lastmod></url>
   <url><loc>https://liveradar.github.io/e/ef8011764c24edbe.html</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://liveradar.github.io/e/effd7382f87260c4.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/f069697ad0f02dd7.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/f07a7820aef9d9d6-day.html</loc><lastmod>2026-11-02</lastmod></url>
   <url><loc>https://liveradar.github.io/e/f07a7820aef9d9d6-evening.html</loc><lastmod>2026-11-02</lastmod></url>
   <url><loc>https://liveradar.github.io/e/f0bd429bae42c753.html</loc><lastmod>2026-11-16</lastmod></url>
@@ -738,7 +732,7 @@
   <url><loc>https://liveradar.github.io/e/f18483abd4ce2d66.html</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://liveradar.github.io/e/f1d61452b433472f.html</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://liveradar.github.io/e/f1f7625a95ad0041.html</loc><lastmod>2026-09-29</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/f2a84edf5ad1f55d.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/f2a84edf5ad1f55d.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/f2c3712a246eda04.html</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://liveradar.github.io/e/f3599f272506b001.html</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://liveradar.github.io/e/f36e0b8039169131.html</loc><lastmod>2026-10-05</lastmod></url>
@@ -760,6 +754,7 @@
   <url><loc>https://liveradar.github.io/e/f810430f79f85f3d.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/f8ecd3f8e6d3d7d9.html</loc><lastmod>2026-11-18</lastmod></url>
   <url><loc>https://liveradar.github.io/e/f98dc35e1a96a121.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://liveradar.github.io/e/f9e072399a79edd8.html</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://liveradar.github.io/e/fa004027fb7565ae.html</loc><lastmod>2026-09-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/fa2e622509089ef7.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/fa4a4efa16af0377.html</loc><lastmod>2026-11-23</lastmod></url>
@@ -770,7 +765,6 @@
   <url><loc>https://liveradar.github.io/e/faca91fb6a1058d8-day.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/faca91fb6a1058d8-evening.html</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://liveradar.github.io/e/fb08fb8f7b412836.html</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://liveradar.github.io/e/fb3e6d3baf975e3a.html</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://liveradar.github.io/e/fbbca5aba1de10b9.html</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://liveradar.github.io/e/fc1661da6a913069.html</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://liveradar.github.io/e/fc4a9b178f8f440e.html</loc><lastmod>2026-10-31</lastmod></url>
