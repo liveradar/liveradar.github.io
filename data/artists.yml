@@ -3335,3 +3335,20 @@
 - canonical: "Sunday Jazz Jam"
   aliases: []
   tags_origin_default: 本地
+# 2026-11-25 排程查證：
+# CRAVITY（緯來新聞、鏡週刊：韓國男團，2027/01/10 TICC「CONCERT <SONOROUS> IN TAIPEI」）→ 韓國；
+# NEXZ（Soompi、ctwant：JYP 旗下韓國次世代男團，首次亞巡 Zepp New Taipei 2027/02/20）→ 韓國；
+# Max Cooper（ettoday、東森新聞：英國電子音樂人，2027 Arts NOVA《Feeling Is Structure》）→ 歐美（場次在台中，來源地依藝人成名地判斷）；
+# 馬毓芬（中時、SETN 報導：台灣民歌歌手，《駿馬耀華》與于冠華同場）→ 本地。
+- canonical: CRAVITY
+  aliases: []
+  tags_origin_default: 韓國
+- canonical: NEXZ
+  aliases: []
+  tags_origin_default: 韓國
+- canonical: Max Cooper
+  aliases: []
+  tags_origin_default: 歐美
+- canonical: 馬毓芬
+  aliases: []
+  tags_origin_default: 本地
