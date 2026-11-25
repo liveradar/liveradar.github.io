@@ -3361,3 +3361,16 @@
 - canonical: Foie de Pato
   aliases: []
   tags_origin_default: 本地
+# 2026-11-25 排程查證：
+# KAAI（RA 活動頁：義大利 hard techno DJ，LA FIN TAIPEI 2026/12/05；KKTIX 標題含 🇮🇹）→ 歐美；
+# 體熊專科（官網、StreetVoice、KKBOX：台北器樂搖滾樂團，2015 年組成）→ 本地；
+# 臺北市立國樂團（TCO；OPENTIX 活動頁為臺北市立國樂團主辦；taiwan.md：1979 年成立的台灣首個全職國樂團）→ 本地。
+- canonical: KAAI
+  aliases: []
+  tags_origin_default: 歐美
+- canonical: 體熊專科
+  aliases: ["Major in Body Bear"]
+  tags_origin_default: 本地
+- canonical: 臺北市立國樂團
+  aliases: ["TCO"]
+  tags_origin_default: 本地
