@@ -3407,3 +3407,12 @@
 - canonical: Belles in Taipei
   aliases: []
   tags_origin_default: 本地
+# 2026-11-25 Max 提供來源資料：
+# INSP 走心樂園（Max 提供：來自台北的三人獨立創作樂團，Alternative Pop / Groove）→ 本地；
+# Hugowave（Max 提供：本名羅文劭，台灣獨立創作音樂人，由貝斯手轉向編曲、製作與演唱）→ 本地。
+- canonical: INSP 走心樂園
+  aliases: []
+  tags_origin_default: 本地
+- canonical: Hugowave
+  aliases: []
+  tags_origin_default: 本地

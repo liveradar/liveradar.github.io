@@ -18023,8 +18023,14 @@
     },
     {
       "title_raw": "一起去看海嗎？｜INSP 走心樂園 × Hugowave",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "INSP 走心樂園",
+        "Hugowave"
+      ],
+      "lineup": [
+        "INSP 走心樂園",
+        "Hugowave"
+      ],
       "is_festival": false,
       "venue": "Riff Bar",
       "city": "台北",
@@ -18035,9 +18041,11 @@
       "price_max": null,
       "status": "on_sale",
       "tags_type": [
-        "專場"
+        "拼盤"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://riffbartaipei.kktix.cc/events/insp1205",
       "sources": [
@@ -18048,7 +18056,7 @@
         }
       ],
       "first_seen_at": "2026-11-25T02:00:12.429Z",
-      "updated_at": "2026-11-25T02:00:12.429Z",
+      "updated_at": "2026-11-25T08:32:39.491Z",
       "id": "b9fd51514d2f0f3b",
       "merged_ids": [
         "b9fd51514d2f0f3b"
