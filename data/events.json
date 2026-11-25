@@ -18128,8 +18128,12 @@
     },
     {
       "title_raw": "【商務艙】「我們這一代的天王 」巡演 台北站",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "BOBBYNOPEACE"
+      ],
+      "lineup": [
+        "BOBBYNOPEACE"
+      ],
       "is_festival": false,
       "venue": "WESTAR",
       "city": "台北",
@@ -18142,7 +18146,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://spaceport.kktix.cc/events/bobbynopeace01",
       "sources": [
@@ -18153,7 +18159,7 @@
         }
       ],
       "first_seen_at": "2026-11-20T01:58:54.889Z",
-      "updated_at": "2026-11-24T01:59:11.056Z",
+      "updated_at": "2026-11-25T07:26:47.276Z",
       "id": "f2a84edf5ad1f55d",
       "merged_ids": [
         "f2a84edf5ad1f55d"
@@ -18161,8 +18167,12 @@
     },
     {
       "title_raw": "【經濟艙】「我們這一代的天王 」巡演 台北站",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "BOBBYNOPEACE"
+      ],
+      "lineup": [
+        "BOBBYNOPEACE"
+      ],
       "is_festival": false,
       "venue": "WESTAR",
       "city": "台北",
@@ -18175,7 +18185,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://spaceport.kktix.cc/events/bobbynopeace02",
       "sources": [
@@ -18186,7 +18198,7 @@
         }
       ],
       "first_seen_at": "2026-11-20T01:58:54.889Z",
-      "updated_at": "2026-11-24T01:59:11.056Z",
+      "updated_at": "2026-11-25T07:26:47.276Z",
       "id": "bbb2853c2454e551",
       "merged_ids": [
         "bbb2853c2454e551"
@@ -18194,8 +18206,12 @@
     },
     {
       "title_raw": "今耶不想睡",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "今耶不想睡"
+      ],
+      "lineup": [
+        "今耶不想睡"
+      ],
       "is_festival": false,
       "venue": "東海大學中正堂",
       "city": "台中",
@@ -18208,7 +18224,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://thuhissa.kktix.cc/events/thu12xmas",
       "sources": [
@@ -18219,7 +18237,7 @@
         }
       ],
       "first_seen_at": "2026-11-23T01:58:49.390Z",
-      "updated_at": "2026-11-23T01:58:49.390Z",
+      "updated_at": "2026-11-25T07:26:47.277Z",
       "id": "f0d59e831bf1c628",
       "merged_ids": [
         "f0d59e831bf1c628"
@@ -18270,8 +18288,12 @@
     },
     {
       "title_raw": "theLOOP presents: Alignment",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Alignment"
+      ],
+      "lineup": [
+        "Alignment"
+      ],
       "is_festival": false,
       "venue": "ALTA NIGHTCLUB",
       "city": "台中",
@@ -18284,7 +18306,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://altanightclub.kktix.cc/events/9391e060",
       "sources": [
@@ -18295,7 +18319,7 @@
         }
       ],
       "first_seen_at": "2026-11-23T01:58:49.393Z",
-      "updated_at": "2026-11-23T01:58:49.393Z",
+      "updated_at": "2026-11-25T07:26:47.277Z",
       "id": "b0ae8441efb086ca",
       "merged_ids": [
         "b0ae8441efb086ca"
@@ -27572,138 +27596,6 @@
       ]
     },
     {
-      "title_raw": "1：1自拍照（N）",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "HANA SPACE 花樣展演空間",
-      "city": "台北",
-      "date": "2026-12-26",
-      "time": "17:00",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 1500,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/e1e5e65dada0087b861874b5bbdfa292",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/e1e5e65dada0087b861874b5bbdfa292",
-          "raw_id": "e1e5e65dada0087b861874b5bbdfa292_721c5ed644acc6c81ce47c2b898a384a"
-        }
-      ],
-      "first_seen_at": "2026-11-19T01:44:19.664Z",
-      "updated_at": "2026-11-19T01:44:19.664Z",
-      "id": "296f023a82481acd",
-      "merged_ids": [
-        "296f023a82481acd"
-      ]
-    },
-    {
-      "title_raw": "1：1拍立得（N）",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "HANA SPACE 花樣展演空間",
-      "city": "台北",
-      "date": "2026-12-26",
-      "time": "17:00",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 1500,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/e1e5e65dada0087b861874b5bbdfa292",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/e1e5e65dada0087b861874b5bbdfa292",
-          "raw_id": "e1e5e65dada0087b861874b5bbdfa292_bffd3b7e2a46c220a41c324ca4889a53"
-        }
-      ],
-      "first_seen_at": "2026-11-19T01:44:19.667Z",
-      "updated_at": "2026-11-19T01:44:19.667Z",
-      "id": "e158021792f2f614",
-      "merged_ids": [
-        "e158021792f2f614"
-      ]
-    },
-    {
-      "title_raw": "1：6 合照",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "HANA SPACE 花樣展演空間",
-      "city": "台北",
-      "date": "2026-12-26",
-      "time": "17:00",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 1500,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/e1e5e65dada0087b861874b5bbdfa292",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/e1e5e65dada0087b861874b5bbdfa292",
-          "raw_id": "e1e5e65dada0087b861874b5bbdfa292_be98c1527f833f7ac7af424c44181552"
-        }
-      ],
-      "first_seen_at": "2026-11-19T01:44:19.668Z",
-      "updated_at": "2026-11-19T01:44:19.668Z",
-      "id": "20d8536f5626ce67",
-      "merged_ids": [
-        "20d8536f5626ce67"
-      ]
-    },
-    {
-      "title_raw": "1：1 10秒影像（N）",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "HANA SPACE 花樣展演空間",
-      "city": "台北",
-      "date": "2026-12-26",
-      "time": "17:00",
-      "on_sale_at": null,
-      "price_min": 800,
-      "price_max": 1500,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/e1e5e65dada0087b861874b5bbdfa292",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/e1e5e65dada0087b861874b5bbdfa292",
-          "raw_id": "e1e5e65dada0087b861874b5bbdfa292_eb8fcbe5c896cfadff991f2c95e025b3"
-        }
-      ],
-      "first_seen_at": "2026-11-19T01:44:19.670Z",
-      "updated_at": "2026-11-19T01:44:19.670Z",
-      "id": "777bed4fa9b09b68",
-      "merged_ids": [
-        "777bed4fa9b09b68"
-      ]
-    },
-    {
       "title_raw": "JEONGHAN X JOSHUA JOURNEY INTO [DREAMING] - TAIPEI（1/9場次）",
       "headliners": [
         "JEONGHAN X JOSHUA"
@@ -29343,8 +29235,12 @@
     },
     {
       "title_raw": "《璀璨星聲》2026聖誕流行演唱音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "璀璨星聲"
+      ],
+      "lineup": [
+        "璀璨星聲"
+      ],
       "is_festival": false,
       "venue": "國立臺灣藝術教育館南海劇場",
       "city": "台北",
@@ -29357,7 +29253,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2124710387561906177",
       "sources": [
@@ -29368,7 +29266,7 @@
         }
       ],
       "first_seen_at": "2026-11-25T01:45:48.595Z",
-      "updated_at": "2026-11-25T01:45:48.595Z",
+      "updated_at": "2026-11-25T07:26:47.278Z",
       "id": "319ececd492840d4",
       "merged_ids": [
         "319ececd492840d4"
@@ -29805,8 +29703,12 @@
     },
     {
       "title_raw": "2027亞洲國際文化藝術音樂盛典",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "2027亞洲國際文化藝術音樂盛典"
+      ],
+      "lineup": [
+        "2027亞洲國際文化藝術音樂盛典"
+      ],
       "is_festival": false,
       "venue": "大直典華會館",
       "city": "台北",
@@ -29819,7 +29721,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2118581126929088513",
       "sources": [
@@ -29830,7 +29734,7 @@
         }
       ],
       "first_seen_at": "2026-11-24T01:45:28.733Z",
-      "updated_at": "2026-11-24T01:45:28.733Z",
+      "updated_at": "2026-11-25T07:26:47.278Z",
       "id": "6284fbe06f34ec66",
       "merged_ids": [
         "6284fbe06f34ec66"
@@ -30386,8 +30290,12 @@
     },
     {
       "title_raw": "歌，正在綻放",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "歌，正在綻放"
+      ],
+      "lineup": [
+        "歌，正在綻放"
+      ],
       "is_festival": false,
       "venue": "臺中國家歌劇院小劇場",
       "city": "台中",
@@ -30400,7 +30308,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2118523906312118272",
       "sources": [
@@ -30411,7 +30321,7 @@
         }
       ],
       "first_seen_at": "2026-11-23T01:45:28.236Z",
-      "updated_at": "2026-11-23T01:45:28.236Z",
+      "updated_at": "2026-11-25T07:26:59.240Z",
       "id": "f810430f79f85f3d",
       "merged_ids": [
         "f810430f79f85f3d"
@@ -30497,8 +30407,12 @@
     },
     {
       "title_raw": "《號角齊鳴》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "號角齊鳴"
+      ],
+      "lineup": [
+        "號角齊鳴"
+      ],
       "is_festival": false,
       "venue": "高雄市文化中心至善廳",
       "city": "高雄",
@@ -30511,7 +30425,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2122569332918222849",
       "sources": [
@@ -30522,7 +30438,7 @@
         }
       ],
       "first_seen_at": "2026-11-19T01:44:55.648Z",
-      "updated_at": "2026-11-19T01:44:55.648Z",
+      "updated_at": "2026-11-25T07:26:47.279Z",
       "id": "9d6a3c89f3d5b7ad",
       "merged_ids": [
         "9d6a3c89f3d5b7ad"

@@ -3374,3 +3374,32 @@
 - canonical: 臺北市立國樂團
   aliases: ["TCO"]
   tags_origin_default: 本地
+# 2026-11-25 Max 貼上票券頁文字後補登：
+# BOBBYNOPEACE（Deezer 簡介：中國旋律說唱歌手；《新說唱2024》參賽；巡演名「我們這一代的天王」）→ 亞洲其他；
+# 今耶不想睡（票券頁：東海聯合耶誕演唱會，多位校園／樂團演出者，品牌名登記）→ 本地；
+# Alignment（票券頁：義大利 Techno 藝人，首次台中演出）→ 歐美；
+# 璀璨星聲（票券頁：多位演唱者，品牌名登記，依多演出者規則→本地；部分演出者來源未逐一查證）；
+# 2027亞洲國際文化藝術音樂盛典（票券頁：多位演出者，品牌名登記→本地；周治平、朱海君等為台灣藝人，未逐一查證）；
+# 號角齊鳴（票券頁：米克斯長號重奏團、南台灣法國號重奏團等台灣團體，品牌名登記→本地）；
+# 歌，正在綻放（票券頁：TBT 泰武古謠傳唱，屏東泰武鄉排灣族團體，品牌名登記→本地）。
+- canonical: BOBBYNOPEACE
+  aliases: ["我們這一代的天王"]
+  tags_origin_default: 亞洲其他
+- canonical: 今耶不想睡
+  aliases: []
+  tags_origin_default: 本地
+- canonical: Alignment
+  aliases: []
+  tags_origin_default: 歐美
+- canonical: 璀璨星聲
+  aliases: []
+  tags_origin_default: 本地
+- canonical: 2027亞洲國際文化藝術音樂盛典
+  aliases: []
+  tags_origin_default: 本地
+- canonical: 號角齊鳴
+  aliases: []
+  tags_origin_default: 本地
+- canonical: 歌，正在綻放
+  aliases: ["歌,正在綻放"]  # 標題比對前會 NFKC 正規化，全形逗號要寫成半形才對得上
+  tags_origin_default: 本地

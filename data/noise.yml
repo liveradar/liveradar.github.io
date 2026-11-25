@@ -18,6 +18,12 @@ noise_keywords:
   - "錦標賽"
   - "主場賽事"
   - "季票"
+  # 2026-11-25 Max 指示移除清單：Ticket Plus HANA SPACE（12/26）見面會的加購項目，不是獨立演出
+  # 原標題「1：1自拍照（N）」「1：1拍立得（N）」「1：6 合照」「1：1 10秒影像（N）」
+  - "1：1自拍照"
+  - "1：1拍立得"
+  - "1：6 合照"
+  - "1：1 10秒影像"
   # wrestling
   - "摔角"
   # 2026-10-19 review (Max: 存疑的都可以移除) — each specific enough not to catch real shows:
