@@ -3352,3 +3352,12 @@
 - canonical: 馬毓芬
   aliases: []
   tags_origin_default: 本地
+# 2026-11-25 Max 提供背景後補查：
+# 李福海（sportsv 專訪「小號手與網球人交織成的斜槓人生」、PRO360 台北北投小號老師頁：台灣爵士小號手）→ 本地；
+# Foie de Pato（Max 提供：台灣獨立音樂／Live House 樂團；搜尋未能獨立確認，來源地依 Max 說明；「日本風味」是風格標籤，不作為來源地判斷依據）→ 本地（待 Max 確認）。
+- canonical: 李福海
+  aliases: []
+  tags_origin_default: 本地
+- canonical: Foie de Pato
+  aliases: []
+  tags_origin_default: 本地

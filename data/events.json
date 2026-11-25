@@ -17984,8 +17984,12 @@
     },
     {
       "title_raw": "西蒙爵士五重奏 Remersimon Quintet feat. 李福海｜DIVERSE DIRECTIONS 更多的可能｜11/28 SAT",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "李福海"
+      ],
+      "lineup": [
+        "李福海"
+      ],
       "is_festival": false,
       "venue": "Riff Bar",
       "city": "台北",
@@ -17998,7 +18002,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://riffbartaipei.kktix.cc/events/remersimon1128",
       "sources": [
@@ -18009,7 +18015,7 @@
         }
       ],
       "first_seen_at": "2026-11-24T01:59:11.017Z",
-      "updated_at": "2026-11-24T01:59:11.017Z",
+      "updated_at": "2026-11-25T06:31:02.797Z",
       "id": "eade363b89c56ee4",
       "merged_ids": [
         "eade363b89c56ee4"
@@ -22645,8 +22651,12 @@
     },
     {
       "title_raw": "11.29 (Sun.) Foie de Pato",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Foie de Pato"
+      ],
+      "lineup": [
+        "Foie de Pato"
+      ],
       "is_festival": false,
       "venue": "SOUND LIVE HOUSE / ．票價 料金Ticket : / 預售 前売ADV 400   現場 当日DOOR 500 / ．出演Lineup : QU, クロロカンナ / ☆♪ OPENING ACT ：苦萎Chreads",
       "city": "台中",
@@ -22659,7 +22669,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/26_iv043223d",
       "sources": [
@@ -22670,7 +22682,7 @@
         }
       ],
       "first_seen_at": "2026-11-20T01:43:25.803Z",
-      "updated_at": "2026-11-20T01:43:25.803Z",
+      "updated_at": "2026-11-25T06:31:02.801Z",
       "id": "22e00f344a55feaa",
       "merged_ids": [
         "22e00f344a55feaa"
