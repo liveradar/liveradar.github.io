@@ -3403,3 +3403,7 @@
 - canonical: 歌，正在綻放
   aliases: ["歌,正在綻放"]  # 標題比對前會 NFKC 正規化，全形逗號要寫成半形才對得上
   tags_origin_default: 本地
+# 2026-11-25 查證：Belle's in Taipei（台北 ATT 4 FUN 內的舞孃俱樂部，Threads @bellesintaipei 仍在營運）為夜店派對品牌，依規則登記品牌名 → 本地。
+- canonical: Belles in Taipei
+  aliases: []
+  tags_origin_default: 本地

@@ -18056,8 +18056,12 @@
     },
     {
       "title_raw": "Belles in Taipei one-night stand",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "Belles in Taipei"
+      ],
+      "lineup": [
+        "Belles in Taipei"
+      ],
       "is_festival": false,
       "venue": "ATT 4 FUN 7F",
       "city": "台北",
@@ -18070,7 +18074,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://bellesintaipei.kktix.cc/events/onenightstand",
       "sources": [
@@ -18081,7 +18087,7 @@
         }
       ],
       "first_seen_at": "2026-11-24T01:59:11.018Z",
-      "updated_at": "2026-11-24T01:59:11.018Z",
+      "updated_at": "2026-11-25T08:31:08.689Z",
       "id": "1e448dc5e11e37cf",
       "merged_ids": [
         "1e448dc5e11e37cf"
