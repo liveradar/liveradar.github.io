@@ -1,6 +1,7 @@
 import { combineSaleSignals } from "../sale-signal.mjs";
 import { logProgress } from "../progress-log.mjs";
 import { parseVenueLine } from "./indievox.mjs";
+import { withPage } from "../browser.mjs";
 
 /**
  * ibon (ticket.ibon.com.tw) adapter, "娛樂" (entertainment) category only.
@@ -9,8 +10,9 @@ import { parseVenueLine } from "./indievox.mjs";
  * shows (KANA-BOON at Legacy Taipei, 時速36公里 at PIPE, 厄倫蒂兒 at Zepp New
  * Taipei, ...) sold ONLY through ibon.
  *
- * No Cloudflare, plain HTTP POST works. robots.txt only disallows the
- * queue-control pages (/Home/TicketflowControl, /UnderControl*,
+ * Plain HTTP POST no longer works (2026-11-26: Cloudflare traffic control +
+ * XSRF token) — calls run inside a Playwright page, see postJsonOnce.
+ * robots.txt only disallows the queue-control pages (/Home/TicketflowControl, /UnderControl*,
  * /trafpage/) — everything used here is allowed.
  *
  * Two-step fetch, both public JSON APIs a browser calls itself:
@@ -28,8 +30,6 @@ import { parseVenueLine } from "./indievox.mjs";
 export const name = "ibon";
 export const priority = 7;
 
-const UA =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
 const BASE_URL = "https://ticket.ibon.com.tw";
 const REQUEST_DELAY_MS = 500;
 const REQUEST_TIMEOUT_MS = 30000;
@@ -39,21 +39,28 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// 2026-11-26: ibon turned on Cloudflare traffic control (plain HTTP -> 403
+// "流量控管") AND an Angular XSRF check (API -> 400 without an X-XSRF-TOKEN
+// header copied from the XSRF-TOKEN cookie). Both pass only from inside a
+// real browser page, so every API call is a fetch() run in that page.
+// ponytail: module-level page, so no concurrent fetch() calls in one process; pass the page down if that is ever needed
+let apiPage = null;
+
 async function postJsonOnce(path, body) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-  try {
-    const res = await globalThis.fetch(`${BASE_URL}${path}`, {
-      method: "POST",
-      headers: { "User-Agent": UA, "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`POST ${path} -> ${res.status}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
+  return apiPage.evaluate(
+    async ({ path, body, timeoutMs }) => {
+      const token = decodeURIComponent((document.cookie.match(/(?:^|; )XSRF-TOKEN=([^;]*)/) ?? [])[1] ?? "");
+      const res = await fetch(path, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-XSRF-TOKEN": token },
+        body: JSON.stringify(body),
+        signal: AbortSignal.timeout(timeoutMs),
+      });
+      if (!res.ok) throw new Error(`POST ${path} -> ${res.status}`);
+      return res.json();
+    },
+    { path, body, timeoutMs: REQUEST_TIMEOUT_MS },
+  );
 }
 
 async function postJson(path, body) {
@@ -166,6 +173,19 @@ async function fetchGames(activityId) {
 }
 
 export async function fetch() {
+  return withPage(async (page) => {
+    // The list page makes the site set its XSRF cookie and clear Cloudflare.
+    await page.goto(`${BASE_URL}/Result?id=&Location=&StartDate=&EndDate=&CategoryCode=entertainment`, { waitUntil: "networkidle", timeout: 40000 });
+    apiPage = page;
+    try {
+      return await fetchAll();
+    } finally {
+      apiPage = null;
+    }
+  });
+}
+
+async function fetchAll() {
   const rows = await fetchActivityList();
   // "entertainment,exhibition" (a real dual-tagged row seen 9/25) is still
   // an exhibition at heart — excluded the same as a plain "exhibition" row.
