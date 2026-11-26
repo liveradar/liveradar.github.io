@@ -27,6 +27,52 @@
 # 2026-11-26 排程查證：
 # NCT 127（WebSearch：Bandwagon、Soompi 報導 5TH TOUR 'NEO CITY – THE REDLINE' 巡演，Seoul KSPO Dome 首站；韓國 SM 男團）→ 韓國；
 # DYGL（WebSearch：Tokyo Weekender 報導、Eventworld 日本場次；日本東京garage rock 樂團）→ 日本。
+# 2026-11-26 待整理第二輪（售票頁文字 + WebSearch）：
+# FISON／Fabio Moreira（Riff Bar 售票頁：Fabio Moreira 領軍三重奏 FISON；WebSearch：2018 台灣發行首張個人專輯、定居台北）→ 本地；
+# 踢踢音樂（KKTIX 售票頁：主辦踢踢音樂，2015 成立的台灣親子音樂團隊，親子音樂派對）→ 本地（派對品牌規則）；
+# 邁向116幸福滿滿演唱會（KKTIX 售票頁：臺北廣播電台主辦，演出者許景淳、林俊逸、方宥心、傅薇、凃佩岑皆為台灣歌手）→ 本地（系列品牌規則）；
+# icyball 冰球樂團（Ticket Plus 售票頁：好玩國際文化／快樂園主辦；WebSearch：台北流行音樂中心巡演、超犀利趴台灣陣容）→ 本地；
+# 林亮宇（陽明交大售票頁：林亮宇爵士四重奏；WebSearch：金曲獎提名鋼琴家，同名四重奏《星之仰望》於台灣演出）→ 本地；
+# 椿樂隊（WebSearch：QQ 音樂、Apple Music 椿樂隊專輯《椿II》，歌曲《湖底》；中國大陸樂隊）→ 亞洲其他；
+# FINAL FANTASY XIV ORCHESTRA CONCERT（Ticket Plus 售票頁：Square Enix 監修、指揮栗田博文、過去四屆皆在日本舉辦）→ 日本；
+# 無蒔猶伍（iNDIEVOX 售票頁：台北 LIVE WAREHOUSE，主辦冗員無限公司，演出者伍一）→ 本地（台灣售票與主辦，依台灣現場演出判定）；
+# 台北藍調 週一特演（Blue Note Taipei 活動系列名稱，多位演出者的週一特演品牌）→ 本地（系列品牌規則）。
+- canonical: FISON
+  aliases: ["Fabio Moreira"]
+  tags_origin_default: 本地
+
+- canonical: 踢踢音樂
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 邁向116幸福滿滿演唱會
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: icyball 冰球樂團
+  aliases: ["icyball"]
+  tags_origin_default: 本地
+
+- canonical: 林亮宇
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 椿樂隊
+  aliases: ["椿乐队"]
+  tags_origin_default: 亞洲其他
+
+- canonical: FINAL FANTASY XIV ORCHESTRA CONCERT
+  aliases: []
+  tags_origin_default: 日本
+
+- canonical: 無蒔猶伍
+  aliases: []
+  tags_origin_default: 本地
+
+- canonical: 台北藍調 週一特演
+  aliases: []
+  tags_origin_default: 本地
+
 - canonical: NCT 127
   aliases: []
   tags_origin_default: 韓國

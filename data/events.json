@@ -18092,8 +18092,12 @@
     },
     {
       "title_raw": "Fabio Moreira & FISON｜Fusion Night",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "FISON"
+      ],
+      "lineup": [
+        "FISON"
+      ],
       "is_festival": false,
       "venue": "Riff Bar",
       "city": "台北",
@@ -18106,7 +18110,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://riffbartaipei.kktix.cc/events/fison1202",
       "sources": [
@@ -18117,7 +18123,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T02:12:54.946Z",
-      "updated_at": "2026-11-26T02:12:54.946Z",
+      "updated_at": "2026-11-26T02:18:54.090Z",
       "id": "477be3daa074b84f",
       "merged_ids": [
         "477be3daa074b84f"
@@ -18223,8 +18229,12 @@
     },
     {
       "title_raw": "踢踢音樂親子聖誕音樂派對",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "踢踢音樂"
+      ],
+      "lineup": [
+        "踢踢音樂"
+      ],
       "is_festival": false,
       "venue": "菲力復興幼兒園",
       "city": "新北",
@@ -18237,7 +18247,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ttmt.kktix.cc/events/20261220",
       "sources": [
@@ -18248,7 +18260,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T02:12:54.948Z",
-      "updated_at": "2026-11-26T02:12:54.948Z",
+      "updated_at": "2026-11-26T02:18:54.092Z",
       "id": "1410db4bfa8d282b",
       "merged_ids": [
         "1410db4bfa8d282b"
@@ -18397,8 +18409,12 @@
     },
     {
       "title_raw": "《玉之劍》林亮宇爵士四重奏",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "林亮宇"
+      ],
+      "lineup": [
+        "林亮宇"
+      ],
       "is_festival": false,
       "venue": "陽明交大演藝廳",
       "city": "新竹",
@@ -18411,7 +18427,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://nycuartscenter.kktix.cc/events/20270302",
       "sources": [
@@ -18422,7 +18440,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T02:12:54.952Z",
-      "updated_at": "2026-11-26T02:12:54.952Z",
+      "updated_at": "2026-11-26T02:18:54.093Z",
       "id": "f6b927d1e0a34491",
       "merged_ids": [
         "f6b927d1e0a34491"
@@ -18430,8 +18448,12 @@
     },
     {
       "title_raw": "邁向116幸福滿滿演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "邁向116幸福滿滿演唱會"
+      ],
+      "lineup": [
+        "邁向116幸福滿滿演唱會"
+      ],
       "is_festival": false,
       "venue": "臺北市中山堂",
       "city": "台北",
@@ -18444,7 +18466,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://asiaworldtw.kktix.cc/events/e3cc1e74",
       "sources": [
@@ -18455,7 +18479,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T02:12:54.952Z",
-      "updated_at": "2026-11-26T02:12:54.952Z",
+      "updated_at": "2026-11-26T02:18:54.095Z",
       "id": "6dd8f8a91673ca6d",
       "merged_ids": [
         "6dd8f8a91673ca6d"
@@ -23051,8 +23075,12 @@
     },
     {
       "title_raw": "無蒔猶伍 2027伍一專場",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "無蒔猶伍"
+      ],
+      "lineup": [
+        "無蒔猶伍"
+      ],
       "is_festival": false,
       "venue": "LIVE WAREHOUSE 小庫",
       "city": "高雄",
@@ -23065,7 +23093,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.indievox.com/activity/detail/27_iv04327a2",
       "sources": [
@@ -23076,7 +23106,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T01:58:10.276Z",
-      "updated_at": "2026-11-26T01:58:10.276Z",
+      "updated_at": "2026-11-26T02:18:54.096Z",
       "id": "0d0d3475bfacfb6a",
       "merged_ids": [
         "0d0d3475bfacfb6a"
@@ -27411,8 +27441,12 @@
     },
     {
       "title_raw": "椿樂隊 - 夜船行深處 Live in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "椿樂隊"
+      ],
+      "lineup": [
+        "椿樂隊"
+      ],
       "is_festival": false,
       "venue": "The Wall Live House",
       "city": "台北",
@@ -27425,7 +27459,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "亞洲其他"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/35ea08c429b5d9c3a16ba47367440b3d",
       "sources": [
@@ -27436,142 +27472,10 @@
         }
       ],
       "first_seen_at": "2026-11-26T01:59:16.324Z",
-      "updated_at": "2026-11-26T01:59:16.324Z",
+      "updated_at": "2026-11-26T02:18:54.096Z",
       "id": "9e52f1c372102ae1",
       "merged_ids": [
         "9e52f1c372102ae1"
-      ]
-    },
-    {
-      "title_raw": "【1/23日間場】神魔之塔 2027 慶典活動 《14週年大冒險：勇闖以諾塔》",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "華視大樓",
-      "city": "台北",
-      "date": "2027-01-23",
-      "time": "13:30",
-      "on_sale_at": null,
-      "price_min": 329,
-      "price_max": 329,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
-          "raw_id": "ec532c67ae4ef37caf7beff1c3bae8e3_ee7e149b100b67e4d9a2def595e64a85"
-        }
-      ],
-      "first_seen_at": "2026-11-26T01:59:16.326Z",
-      "updated_at": "2026-11-26T01:59:16.326Z",
-      "id": "8aec605651e23d5b",
-      "merged_ids": [
-        "8aec605651e23d5b"
-      ]
-    },
-    {
-      "title_raw": "【1/23夜間場】神魔之塔 2027 慶典活動 《14週年大冒險：勇闖以諾塔》",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "華視大樓",
-      "city": "台北",
-      "date": "2027-01-23",
-      "time": "18:00",
-      "on_sale_at": null,
-      "price_min": 329,
-      "price_max": 329,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
-          "raw_id": "ec532c67ae4ef37caf7beff1c3bae8e3_7a86c3dd252bb1908a4879cdbeea6fbf"
-        }
-      ],
-      "first_seen_at": "2026-11-26T01:59:16.327Z",
-      "updated_at": "2026-11-26T01:59:16.327Z",
-      "id": "4812d873e1aebfde",
-      "merged_ids": [
-        "4812d873e1aebfde"
-      ]
-    },
-    {
-      "title_raw": "【1/24日間場】神魔之塔 2027 慶典活動 《14週年大冒險：勇闖以諾塔》",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "華視大樓",
-      "city": "台北",
-      "date": "2027-01-24",
-      "time": "13:30",
-      "on_sale_at": null,
-      "price_min": 329,
-      "price_max": 329,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
-          "raw_id": "ec532c67ae4ef37caf7beff1c3bae8e3_fbc3b060e9a758d6d92b929249fa1a10"
-        }
-      ],
-      "first_seen_at": "2026-11-26T01:59:16.328Z",
-      "updated_at": "2026-11-26T01:59:16.328Z",
-      "id": "c66d96b83c341353",
-      "merged_ids": [
-        "c66d96b83c341353"
-      ]
-    },
-    {
-      "title_raw": "【1/24夜間場】神魔之塔 2027 慶典活動 《14週年大冒險：勇闖以諾塔》",
-      "headliners": [],
-      "lineup": [],
-      "is_festival": false,
-      "venue": "華視大樓",
-      "city": "台北",
-      "date": "2027-01-24",
-      "time": "18:00",
-      "on_sale_at": null,
-      "price_min": 329,
-      "price_max": 329,
-      "status": "on_sale",
-      "tags_type": [
-        "專場"
-      ],
-      "tags_origin": [],
-      "is_lottery": false,
-      "ticket_url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
-      "sources": [
-        {
-          "name": "Ticket Plus",
-          "url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
-          "raw_id": "ec532c67ae4ef37caf7beff1c3bae8e3_dcde510f949e0e32c54f2eb2fe62ce7f"
-        }
-      ],
-      "first_seen_at": "2026-11-26T01:59:16.329Z",
-      "updated_at": "2026-11-26T01:59:16.329Z",
-      "id": "9d4573e78d005fa8",
-      "merged_ids": [
-        "9d4573e78d005fa8"
       ]
     },
     {
@@ -27615,8 +27519,12 @@
     },
     {
       "title_raw": "icyball 冰球樂團《我很抱歉》高雄演唱會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "icyball 冰球樂團"
+      ],
+      "lineup": [
+        "icyball 冰球樂團"
+      ],
       "is_festival": false,
       "venue": "高雄流行音樂中心 海音館",
       "city": "高雄",
@@ -27629,7 +27537,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/565dcfeb044780a3c80068133dc2c72a",
       "sources": [
@@ -27640,7 +27550,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T01:59:16.330Z",
-      "updated_at": "2026-11-26T01:59:16.330Z",
+      "updated_at": "2026-11-26T02:18:54.098Z",
       "id": "dccef06972f80f8d",
       "merged_ids": [
         "dccef06972f80f8d"
@@ -27956,8 +27866,12 @@
     },
     {
       "title_raw": "FINAL FANTASY XIV ORCHESTRA CONCERT 2027 -Eorzean Symphony- IN TAIPEI（4/20場次）",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "FINAL FANTASY XIV ORCHESTRA CONCERT"
+      ],
+      "lineup": [
+        "FINAL FANTASY XIV ORCHESTRA CONCERT"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院 國家音樂廳",
       "city": "台北",
@@ -27970,7 +27884,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/3d5d38b9c874254a8ff2e64f43a66be0",
       "sources": [
@@ -27981,7 +27897,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T01:59:16.360Z",
-      "updated_at": "2026-11-26T01:59:16.360Z",
+      "updated_at": "2026-11-26T02:18:54.098Z",
       "id": "34d83b8110b525c7",
       "merged_ids": [
         "34d83b8110b525c7"
@@ -27989,8 +27905,12 @@
     },
     {
       "title_raw": "FINAL FANTASY XIV ORCHESTRA CONCERT 2027 -Eorzean Symphony- IN TAIPEI（4/21場次）",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "FINAL FANTASY XIV ORCHESTRA CONCERT"
+      ],
+      "lineup": [
+        "FINAL FANTASY XIV ORCHESTRA CONCERT"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院 國家音樂廳",
       "city": "台北",
@@ -28003,7 +27923,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": false,
       "ticket_url": "https://ticketplus.com.tw/activity/3d5d38b9c874254a8ff2e64f43a66be0",
       "sources": [
@@ -28014,7 +27936,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T01:59:16.364Z",
-      "updated_at": "2026-11-26T01:59:16.364Z",
+      "updated_at": "2026-11-26T02:18:54.098Z",
       "id": "6cd9717ae25caa77",
       "merged_ids": [
         "6cd9717ae25caa77"
@@ -28022,8 +27944,12 @@
     },
     {
       "title_raw": "FINAL FANTASY XIV ORCHESTRA CONCERT 2027 -Eorzean Symphony- IN TAIPEI 登記抽選（4/20場次）",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "FINAL FANTASY XIV ORCHESTRA CONCERT"
+      ],
+      "lineup": [
+        "FINAL FANTASY XIV ORCHESTRA CONCERT"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院 國家音樂廳",
       "city": "台北",
@@ -28036,7 +27962,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/59aee460d49399a56ca0e0157f059985",
       "sources": [
@@ -28047,7 +27975,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T01:59:16.365Z",
-      "updated_at": "2026-11-26T01:59:16.365Z",
+      "updated_at": "2026-11-26T02:18:54.099Z",
       "id": "324bb304d32cb433",
       "merged_ids": [
         "324bb304d32cb433"
@@ -28055,8 +27983,12 @@
     },
     {
       "title_raw": "FINAL FANTASY XIV ORCHESTRA CONCERT 2027 -Eorzean Symphony- IN TAIPEI 登記抽選（4/21場次）",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "FINAL FANTASY XIV ORCHESTRA CONCERT"
+      ],
+      "lineup": [
+        "FINAL FANTASY XIV ORCHESTRA CONCERT"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院 國家音樂廳",
       "city": "台北",
@@ -28069,7 +28001,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "日本"
+      ],
       "is_lottery": true,
       "ticket_url": "https://ticketplus.com.tw/activity/59aee460d49399a56ca0e0157f059985",
       "sources": [
@@ -28080,7 +28014,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T01:59:16.367Z",
-      "updated_at": "2026-11-26T01:59:16.367Z",
+      "updated_at": "2026-11-26T02:18:54.099Z",
       "id": "659c48d59e8e5819",
       "merged_ids": [
         "659c48d59e8e5819"
@@ -32805,8 +32739,12 @@
     },
     {
       "title_raw": "台北藍調 週一特演 他⌁她們眼中的世界 Through the Eyes of Jazz Songwriters",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "台北藍調 週一特演"
+      ],
+      "lineup": [
+        "台北藍調 週一特演"
+      ],
       "is_festival": false,
       "venue": "Blue Note Taipei 台北藍調",
       "city": "台北",
@@ -32819,7 +32757,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-yi-te-yan-ta-ta-men-yan-zhong-de-shi-jie",
       "sources": [
@@ -32830,7 +32770,7 @@
         }
       ],
       "first_seen_at": "2026-11-26T01:57:24.083Z",
-      "updated_at": "2026-11-26T01:57:24.083Z",
+      "updated_at": "2026-11-26T02:18:54.100Z",
       "id": "6d851f449ede4065",
       "merged_ids": [
         "6d851f449ede4065"
