@@ -1,10 +1,138 @@
 {
   "items": [
     {
+      "raw_id": "fison1202",
+      "title_raw": "Fabio Moreira & FISON｜Fusion Night",
+      "url": "https://riffbartaipei.kktix.cc/events/fison1202",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "20261220",
+      "title_raw": "踢踢音樂親子聖誕音樂派對",
+      "url": "https://ttmt.kktix.cc/events/20261220",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "20270302",
+      "title_raw": "《玉之劍》林亮宇爵士四重奏",
+      "url": "https://nycuartscenter.kktix.cc/events/20270302",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "e3cc1e74",
+      "title_raw": "邁向116幸福滿滿演唱會",
+      "url": "https://asiaworldtw.kktix.cc/events/e3cc1e74",
+      "source": "KKTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
       "raw_id": "26_iv043289c",
       "title_raw": "12.6 (Sun.) 什麼！這個星球禁止迴旋踢",
       "url": "https://www.indievox.com/activity/detail/26_iv043289c",
       "source": "iNDIEVOX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "27_iv04327a2",
+      "title_raw": "無蒔猶伍 2027伍一專場",
+      "url": "https://www.indievox.com/activity/detail/27_iv04327a2",
+      "source": "iNDIEVOX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "35ea08c429b5d9c3a16ba47367440b3d_a6ffaa181f0b4179a0764ec7ffe1490d",
+      "title_raw": "椿樂隊 - 夜船行深處 Live in Taipei",
+      "url": "https://ticketplus.com.tw/activity/35ea08c429b5d9c3a16ba47367440b3d",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "ec532c67ae4ef37caf7beff1c3bae8e3_ee7e149b100b67e4d9a2def595e64a85",
+      "title_raw": "【1/23日間場】神魔之塔 2027 慶典活動 《14週年大冒險：勇闖以諾塔》",
+      "url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "ec532c67ae4ef37caf7beff1c3bae8e3_7a86c3dd252bb1908a4879cdbeea6fbf",
+      "title_raw": "【1/23夜間場】神魔之塔 2027 慶典活動 《14週年大冒險：勇闖以諾塔》",
+      "url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "ec532c67ae4ef37caf7beff1c3bae8e3_fbc3b060e9a758d6d92b929249fa1a10",
+      "title_raw": "【1/24日間場】神魔之塔 2027 慶典活動 《14週年大冒險：勇闖以諾塔》",
+      "url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "ec532c67ae4ef37caf7beff1c3bae8e3_dcde510f949e0e32c54f2eb2fe62ce7f",
+      "title_raw": "【1/24夜間場】神魔之塔 2027 慶典活動 《14週年大冒險：勇闖以諾塔》",
+      "url": "https://ticketplus.com.tw/activity/ec532c67ae4ef37caf7beff1c3bae8e3",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "565dcfeb044780a3c80068133dc2c72a_80a1d83a2c6ef2ffd991b37b1c428809",
+      "title_raw": "icyball 冰球樂團《我很抱歉》高雄演唱會",
+      "url": "https://ticketplus.com.tw/activity/565dcfeb044780a3c80068133dc2c72a",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "3d5d38b9c874254a8ff2e64f43a66be0_534c28c5f43cf89566897f25158fd681",
+      "title_raw": "FINAL FANTASY XIV ORCHESTRA CONCERT 2027 -Eorzean Symphony- IN TAIPEI（4/20場次）",
+      "url": "https://ticketplus.com.tw/activity/3d5d38b9c874254a8ff2e64f43a66be0",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "3d5d38b9c874254a8ff2e64f43a66be0_cdc3c6a0a03c3725bda7a36f4912ca4c",
+      "title_raw": "FINAL FANTASY XIV ORCHESTRA CONCERT 2027 -Eorzean Symphony- IN TAIPEI（4/21場次）",
+      "url": "https://ticketplus.com.tw/activity/3d5d38b9c874254a8ff2e64f43a66be0",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "59aee460d49399a56ca0e0157f059985_05caa6cce4132e6631c3a0e15210a6d4",
+      "title_raw": "FINAL FANTASY XIV ORCHESTRA CONCERT 2027 -Eorzean Symphony- IN TAIPEI 登記抽選（4/20場次）",
+      "url": "https://ticketplus.com.tw/activity/59aee460d49399a56ca0e0157f059985",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "59aee460d49399a56ca0e0157f059985_a0101436101cc89e19b59df2ab622fe4",
+      "title_raw": "FINAL FANTASY XIV ORCHESTRA CONCERT 2027 -Eorzean Symphony- IN TAIPEI 登記抽選（4/21場次）",
+      "url": "https://ticketplus.com.tw/activity/59aee460d49399a56ca0e0157f059985",
+      "source": "Ticket Plus",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "9f39f67f-e6f4-413b-9430-1912481e29a1_202612142100",
+      "title_raw": "台北藍調 週一特演 他⌁她們眼中的世界 Through the Eyes of Jazz Songwriters",
+      "url": "https://www.bluenotetaipei.com/events/tai-bei-lan-diao-zhou-yi-te-yan-ta-ta-men-yan-zhong-de-shi-jie",
+      "source": "Blue Note Taipei",
       "reason": "artist_unrecognized",
       "detail": null
     }

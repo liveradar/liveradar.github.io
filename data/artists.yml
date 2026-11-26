@@ -24,6 +24,17 @@
 # Smiling death on the stage（iNDIEVOX 售票頁：陣容皆台灣團體，如 我想一想我想想笑死、台上見俱樂部）；
 # AFTER IMAGE（iNDIEVOX 售票頁：五組演出者皆台灣團體）；Jam人派對（Riff Bar 售票頁：每月一次的 Jam 派對）；
 # Venus and Mars（Riff Bar 售票頁：台北四人樂團）。
+# 2026-11-26 排程查證：
+# NCT 127（WebSearch：Bandwagon、Soompi 報導 5TH TOUR 'NEO CITY – THE REDLINE' 巡演，Seoul KSPO Dome 首站；韓國 SM 男團）→ 韓國；
+# DYGL（WebSearch：Tokyo Weekender 報導、Eventworld 日本場次；日本東京garage rock 樂團）→ 日本。
+- canonical: NCT 127
+  aliases: []
+  tags_origin_default: 韓國
+
+- canonical: DYGL
+  aliases: []
+  tags_origin_default: 日本
+
 - canonical: ONE OR EIGHT
   aliases: []
   tags_origin_default: 日本
