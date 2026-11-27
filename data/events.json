@@ -34979,8 +34979,12 @@
     },
     {
       "title_raw": "2027TIFA 科拉琴大師索娜．喬巴特音樂會",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "索娜．喬巴特"
+      ],
+      "lineup": [
+        "索娜．喬巴特"
+      ],
       "is_festival": false,
       "venue": "國家音樂廳",
       "city": "台北",
@@ -34993,7 +34997,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "歐美"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2107077236315103233",
       "sources": [
@@ -35004,7 +35010,7 @@
         }
       ],
       "first_seen_at": "2026-11-27T01:45:34.420Z",
-      "updated_at": "2026-11-27T01:45:34.420Z",
+      "updated_at": "2026-11-27T02:12:43.912Z",
       "id": "62714dd479bd50cf",
       "merged_ids": [
         "62714dd479bd50cf"
