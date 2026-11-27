@@ -28325,8 +28325,12 @@
     },
     {
       "title_raw": "有經驗的年青人 Vol.2",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "有經驗的年青人"
+      ],
+      "lineup": [
+        "有經驗的年青人"
+      ],
       "is_festival": false,
       "venue": "圖南社 Tunan Society",
       "city": "台北",
@@ -28339,7 +28343,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://go.fansi.me/events/1050001",
       "sources": [
@@ -28350,7 +28356,7 @@
         }
       ],
       "first_seen_at": "2026-11-27T01:45:56.715Z",
-      "updated_at": "2026-11-27T01:45:56.715Z",
+      "updated_at": "2026-11-27T02:36:48.819Z",
       "id": "96fdcbaf9dccc2ea",
       "merged_ids": [
         "96fdcbaf9dccc2ea"
@@ -34020,8 +34026,12 @@
     },
     {
       "title_raw": "2027TIFA 聲影如詩－侯孝賢的音樂紀行",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "聲影如詩"
+      ],
+      "lineup": [
+        "聲影如詩"
+      ],
       "is_festival": false,
       "venue": "國家音樂廳",
       "city": "台北",
@@ -34034,7 +34044,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2107079727252262913",
       "sources": [
@@ -34045,7 +34057,7 @@
         }
       ],
       "first_seen_at": "2026-11-27T01:45:34.415Z",
-      "updated_at": "2026-11-27T01:45:34.415Z",
+      "updated_at": "2026-11-27T02:36:48.821Z",
       "id": "0605a41b2befd112",
       "merged_ids": [
         "0605a41b2befd112"
@@ -34053,8 +34065,12 @@
     },
     {
       "title_raw": "2027TIFA 三個人《臨界之身》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "三個人"
+      ],
+      "lineup": [
+        "三個人"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院演奏廳",
       "city": "台北",
@@ -34067,7 +34083,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2106010136985473025",
       "sources": [
@@ -34078,7 +34096,7 @@
         }
       ],
       "first_seen_at": "2026-11-27T01:45:34.416Z",
-      "updated_at": "2026-11-27T01:45:34.416Z",
+      "updated_at": "2026-11-27T02:36:48.822Z",
       "id": "9df3c3b770d200a3",
       "merged_ids": [
         "9df3c3b770d200a3"
@@ -34086,8 +34104,12 @@
     },
     {
       "title_raw": "2027TIFA 三個人《臨界之身》",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "三個人"
+      ],
+      "lineup": [
+        "三個人"
+      ],
       "is_festival": false,
       "venue": "國家兩廳院演奏廳",
       "city": "台北",
@@ -34100,7 +34122,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "本地"
+      ],
       "is_lottery": false,
       "ticket_url": "https://www.opentix.life/event/2106010136985473025",
       "sources": [
@@ -34111,7 +34135,7 @@
         }
       ],
       "first_seen_at": "2026-11-27T01:45:34.416Z",
-      "updated_at": "2026-11-27T01:45:34.416Z",
+      "updated_at": "2026-11-27T02:36:48.822Z",
       "id": "4ebf4c0fbec9e52e",
       "merged_ids": [
         "4ebf4c0fbec9e52e"

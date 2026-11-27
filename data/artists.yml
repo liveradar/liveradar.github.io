@@ -3493,3 +3493,15 @@
 - canonical: RBW Family Concert
   aliases: []
   tags_origin_default: 韓國
+# 2026-11-27 Max 提供：洪申豪（1982 生於台北，台灣獨立音樂創作者、VOOID 主唱、PAR 廠牌主理人）。系列標題不含其名，故登記系列名「有經驗的年青人」（洪申豪主辦的唱歌活動）→ 本地。
+- canonical: 有經驗的年青人
+  aliases: []
+  tags_origin_default: 本地
+# 2026-11-27 Max 提供：三個人 3PEOPLEMUSIC（2013 年創立的台灣室內樂團，郭靖沐、潘宜彤、任重；2022 傳藝金曲獎最佳跨界專輯）→ 本地。標題「2027TIFA 三個人《臨界之身》」含團名。
+- canonical: 三個人
+  aliases: []
+  tags_origin_default: 本地
+# 2026-11-27 Max 提供節目介紹：《聲影如詩》音樂會（導演吳子敬、音樂總監陳建騏），演出含日本 S.E.N.S. 神思者與台灣陳明章。多國混合但主體為台灣製作的系列音樂會 → 本地。⚠ 演出者國籍混合，列入需 Max 確認。
+- canonical: 聲影如詩
+  aliases: []
+  tags_origin_default: 本地
