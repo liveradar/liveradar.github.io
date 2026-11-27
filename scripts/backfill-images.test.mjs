@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { ogImage, pageImage, erakhamImage, wixSized } from "./backfill-images.mjs";
+import { ogImage, pageImage, dropDeadImages, erakhamImage, wixSized } from "./backfill-images.mjs";
 
 test("ogImage reads property= and name= variants, any attribute order", () => {
   assert.equal(ogImage(`<meta property="og:image" content="https://a/x.jpg">`), "https://a/x.jpg");
@@ -44,4 +44,11 @@ test("pageImage falls back to the first KKTIX body image when og:image is the ge
   assert.equal(pageImage(html), "https://assets.kktix.io/organization_resource_files/50176/81459/7501.jpg");
   assert.equal(pageImage(`<meta property="og:image" content="https://a/x.jpg">`), "https://a/x.jpg");
   assert.equal(pageImage(`<p>nothing</p>`), null);
+});
+
+test("dropDeadImages removes only ids whose url the checker calls dead", async () => {
+  const images = { a: "https://x/ok.jpg", b: "https://x/gone.jpg", c: "https://x/gone.jpg", d: null };
+  const n = await dropDeadImages(images, async (u) => u.endsWith("gone.jpg"));
+  assert.equal(n, 1);
+  assert.deepEqual(images, { a: "https://x/ok.jpg", d: null });
 });
