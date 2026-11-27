@@ -3489,3 +3489,7 @@
 - canonical: 藤井俊充
   aliases: []
   tags_origin_default: 本地
+# 2026-11-27 查證：RBW Family Concert（韓國經紀公司 RBW 旗下 7 組藝人：MAMAMOO 日月、權恩妃、OH MY GIRL、ONEWE、YOUNG POSSE、XLOV 等，Yahoo/Kstyle/ETtoday 報導）→ 同國藝人的品牌系列，歸韓國。
+- canonical: RBW Family Concert
+  aliases: []
+  tags_origin_default: 韓國

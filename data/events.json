@@ -35096,8 +35096,12 @@
     },
     {
       "title_raw": "2027 RBW Family Concert in Taipei",
-      "headliners": [],
-      "lineup": [],
+      "headliners": [
+        "RBW Family Concert"
+      ],
+      "lineup": [
+        "RBW Family Concert"
+      ],
       "is_festival": false,
       "venue": "國立體育大學綜合體育館(林口體育館)",
       "city": "桃園",
@@ -35110,7 +35114,9 @@
       "tags_type": [
         "專場"
       ],
-      "tags_origin": [],
+      "tags_origin": [
+        "韓國"
+      ],
       "is_lottery": false,
       "ticket_url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1IPU91I",
       "sources": [
@@ -35121,7 +35127,7 @@
         }
       ],
       "first_seen_at": "2026-11-27T01:42:39.399Z",
-      "updated_at": "2026-11-27T01:42:39.399Z",
+      "updated_at": "2026-11-27T02:33:38.568Z",
       "id": "b8f9a7b996ea2b57",
       "merged_ids": [
         "b8f9a7b996ea2b57"
