@@ -3473,3 +3473,19 @@
 - canonical: Hugowave
   aliases: []
   tags_origin_default: 本地
+# 2026-11-27 查證：宅邦戰隊（台灣動漫音樂 DJ 團體，與 hololive 合作的台北 DJ 活動，4gamers 報導）→ 本地；標題直接含此名。
+- canonical: 宅邦戰隊
+  aliases: []
+  tags_origin_default: 本地
+# 2026-11-27 查證：Haezee 黃瑋昕（台灣歌手，Berklee 出身，首張專輯 LOVE MAZE 入圍金曲獎最佳新人，於台灣成名）→ 本地；票券標題含 Haezee黃瑋昕。
+- canonical: Haezee
+  aliases: ["黃瑋昕"]
+  tags_origin_default: 本地
+# 2026-11-27 查證：索娜．喬巴特（Sona Jobarteh，英國籍甘比亞裔科拉琴演奏家，事業在英國與歐洲發展；The Barclay 演出頁稱其為當代最傑出科拉琴手）→ 歐美。票券標題即此名。
+- canonical: 索娜．喬巴特
+  aliases: []
+  tags_origin_default: 歐美
+# 2026-11-27 查證：藤井俊充（日本出生鼓手，定居台灣約 20 年，台北市 tradio「52位音樂使者」節目介紹；在台灣爵士圈活動）→ 本地。⚠ 日本出生、台灣成名，兩地皆說得通，列入「需 Max 確認」。
+- canonical: 藤井俊充
+  aliases: []
+  tags_origin_default: 本地

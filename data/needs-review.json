@@ -7,6 +7,70 @@
       "source": "iNDIEVOX",
       "reason": "artist_unrecognized",
       "detail": null
+    },
+    {
+      "raw_id": "1050001",
+      "title_raw": "有經驗的年青人 Vol.2",
+      "url": "https://go.fansi.me/events/1050001",
+      "source": "FANSI GO",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "36703_202505311800",
+      "title_raw": "《測試》2米亞唱給您聽「（TAMMY ）」",
+      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/36703",
+      "source": "ibon",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "36703_202707031300",
+      "title_raw": "《測試》2米亞唱給您聽「（TAMMY ）」",
+      "url": "https://ticket.ibon.com.tw/ActivityInfo/Details/36703",
+      "source": "ibon",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2107079727252262913_1806147000000",
+      "title_raw": "2027TIFA 聲影如詩－侯孝賢的音樂紀行",
+      "url": "https://www.opentix.life/event/2107079727252262913",
+      "source": "OPENTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2106010136985473025_1807961400000",
+      "title_raw": "2027TIFA 三個人《臨界之身》",
+      "url": "https://www.opentix.life/event/2106010136985473025",
+      "source": "OPENTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2106010136985473025_1808029800000",
+      "title_raw": "2027TIFA 三個人《臨界之身》",
+      "url": "https://www.opentix.life/event/2106010136985473025",
+      "source": "OPENTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "2107077236315103233_1808634600000",
+      "title_raw": "2027TIFA 科拉琴大師索娜．喬巴特音樂會",
+      "url": "https://www.opentix.life/event/2107077236315103233",
+      "source": "OPENTIX",
+      "reason": "artist_unrecognized",
+      "detail": null
+    },
+    {
+      "raw_id": "P1IPU91I_202702131700",
+      "title_raw": "2027 RBW Family Concert in Taipei",
+      "url": "https://kham.com.tw/application/UTK02/UTK0201_00.aspx?PRODUCT_ID=P1IPU91I",
+      "source": "寬宏",
+      "reason": "artist_unrecognized",
+      "detail": null
     }
   ]
 }
