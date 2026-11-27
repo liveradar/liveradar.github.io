@@ -112,6 +112,28 @@ async function ticketPlusMap() {
   return map;
 }
 
+// 2026-11-27 real bug (Max 回報, 日本祭2026 台日女聲之夜): organizers replace a
+// KKTIX cover and the old upload_images file starts returning 403, but a stored
+// url was never looked at again. Drop stored urls that answer 4xx so they get
+// looked up afresh; network errors / 5xx are left alone (transient).
+export async function dropDeadImages(images, check = isDead) {
+  const urls = [...new Set(Object.values(images).filter(Boolean))];
+  const dead = new Set();
+  for (let i = 0; i < urls.length; i += 20) {
+    await Promise.all(urls.slice(i, i + 20).map(async (u) => { if (await check(u)) dead.add(u); }));
+  }
+  for (const [id, u] of Object.entries(images)) if (dead.has(u)) delete images[id];
+  return dead.size;
+}
+
+async function isDead(url) {
+  try {
+    const res = await fetch(url, { headers: { "User-Agent": UA, Referer: new URL(url).origin + "/" }, signal: AbortSignal.timeout(15000) });
+    await res.body?.cancel();
+    return res.status >= 400 && res.status < 500;
+  } catch { return false; }
+}
+
 function lazy(fn) {
   let p;
   return () => (p ??= fn().catch((err) => (console.warn(err.message), {})));
@@ -122,6 +144,9 @@ export async function backfillImages() {
   const list = Array.isArray(events) ? events : events.events;
   let images = {};
   try { images = JSON.parse(await readFile(IMAGES_PATH, "utf8")); } catch {}
+
+  const dropped = await dropDeadImages(images);
+  if (dropped) console.log(`${dropped} stored cover url(s) no longer load, re-looking them up`);
 
   const tix = lazy(tixcraftMap);
   const tp = lazy(ticketPlusMap);
